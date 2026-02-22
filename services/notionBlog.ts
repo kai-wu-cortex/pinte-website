@@ -44,7 +44,7 @@ async function notionApiCall(endpoint: string, options: RequestInit = {}): Promi
     ...options,
     headers: {
       'Authorization': `Bearer ${API_KEY}`,
-      'Notion-Version': '2022-06-28',
+      'Notion-Version': '2025-09-03',
       'Content-Type': 'application/json',
       ...options.headers,
     },
