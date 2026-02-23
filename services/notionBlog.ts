@@ -133,7 +133,7 @@ export async function fetchBlogArticles(): Promise<BlogArticle[]> {
 
   try {
     const response = await notionApiCall(`/databases/${DATABASE_ID}`, {
-      method: ' GET',
+      method: 'GET',
     });
 
     const articles = response.results.map((page: any) => parseProperties(page));
