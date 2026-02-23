@@ -33,7 +33,7 @@ async function fetchArticles(): Promise<any[]> {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${NOTION_API_KEY}`,
-        'Notion-Version': '2022-06-28',
+        'Notion-Version': '2025-09-03',
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({ page_size: 100 }),
@@ -73,7 +73,7 @@ async function fetchArticleContent(pageId: string): Promise<string> {
     const blocksRes = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children?page_size=100`, {
       headers: {
         'Authorization': `Bearer ${NOTION_API_KEY}`,
-        'Notion-Version': '2022-06-28',
+        'Notion-Version': '2025-09-03',
       },
     });
     

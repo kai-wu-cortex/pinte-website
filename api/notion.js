@@ -41,7 +41,7 @@ export default async function handler(request) {
     method: request.method,
     headers: {
       'Authorization': `Bearer ${NOTION_API_KEY}`,
-      'Notion-Version': '2022-06-28',
+      'Notion-Version': '2025-09-03',
       'Content-Type': 'application/json',
     },
     body: request.method !== 'GET' && request.method !== 'HEAD' ? await request.text() : undefined,
