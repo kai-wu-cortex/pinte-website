@@ -132,8 +132,8 @@ export async function fetchBlogArticles(): Promise<BlogArticle[]> {
   }
 
   try {
-    const response = await notionApiCall(`/databases/${DATABASE_ID}`, {
-      method: 'GET',
+    const response = await notionApiCall(`/databases/${DATABASE_ID}/query`, {
+      method: 'POST',
       body: JSON.stringify({ page_size: 100 }),
     });
 
