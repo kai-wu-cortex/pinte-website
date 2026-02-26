@@ -1351,7 +1351,7 @@ export const CONTENT_ZH: ContentData = {
         id: 'pkg_bags',
         title: '包装与手提袋专用烫金解决方案',
         series: 'PK',
-        img: 'https://file.zhuyitai.com/feedback/202512/24/efd06e420c0627bacd3de58c4543a5ed.png',
+        img: 'https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/%E5%8C%85%E8%A3%85.png',
         description: '针对纸袋折痕处易掉金粉的痛点，我们开发了高柔韧性配方。即使在反复折叠测试中，烫金层依然完整如初。',
         features: ['耐折叠', '耐磨擦', '适合大面积实地'],
         painPoints: ['折痕掉粉', '手提处磨损']
