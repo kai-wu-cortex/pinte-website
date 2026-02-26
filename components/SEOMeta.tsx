@@ -43,7 +43,7 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   canonicalUrl
 }) => {
   const siteName = 'PINTE';
-  const siteUrl = 'https://pinte.com';
+  const siteUrl = 'https://www.pintecl.com';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
   const fullTitle = `${title} | ${siteName}`;
@@ -124,7 +124,7 @@ export const generateArticleSchema = (article: {
     locality?: string;
   };
 }) => {
-  const siteUrl = 'https://pinte.com';
+  const siteUrl = 'https://www.pintecl.com';
   
   return {
     "@context": "https://schema.org",
@@ -188,12 +188,12 @@ export const generateWebsiteSchema = () => {
     "@context": "https://schema.org",
     "@type": "WebSite",
     "name": "PINTE",
-    "url": "https://pinte.com",
+    "url": "https://www.pintecl.com",
     "potentialAction": {
       "@type": "SearchAction",
       "target": {
         "@type": "EntryPoint",
-        "urlTemplate": "https://pinte.com/blog?search={search_term_string}"
+        "urlTemplate": "https://www.pintecl.com/blog?search={search_term_string}"
       },
       "query-input": "required name=search_term_string"
     }
@@ -208,8 +208,8 @@ export const generateOrganizationSchema = () => {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "PINTE",
-    "url": "https://pinte.com",
-    "logo": "https://pinte.com/logo.png",
+    "url": "https://www.pintecl.com",
+    "logo": "https://www.pintecl.com/logo.png",
     "description": "Premium hot stamping foil manufacturer",
     "sameAs": [
       "https://facebook.com/pinte",
@@ -219,7 +219,7 @@ export const generateOrganizationSchema = () => {
     ],
     "contactPoint": {
       "@type": "ContactPoint",
-      "telephone": "+86-XXX-XXXXXXX",
+      "telephone": "+86-13192267509",
       "contactType": "customer service",
       "availableLanguage": ["English", "Chinese"]
     }
