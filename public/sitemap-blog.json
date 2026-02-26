@@ -1,48 +1,48 @@
 {
-  "site": "https://pinte.com",
+  "site": "https://www.pintecl.com",
   "pages": [
     {
-      "loc": "https://pinte.com/blog",
+      "loc": "https://www.pintecl.com/blog",
       "changefreq": "daily",
       "priority": 0.9
     },
     {
-      "loc": "https://pinte.com/blog/",
+      "loc": "https://www.pintecl.com/blog/",
       "lastmod": null,
       "changefreq": "weekly",
       "priority": 0.8,
       "images": []
     },
     {
-      "loc": "https://pinte.com/blog/",
+      "loc": "https://www.pintecl.com/blog/",
       "lastmod": null,
       "changefreq": "weekly",
       "priority": 0.8,
       "images": []
     },
     {
-      "loc": "https://pinte.com/blog/",
+      "loc": "https://www.pintecl.com/blog/",
       "lastmod": null,
       "changefreq": "weekly",
       "priority": 0.8,
       "images": []
     },
     {
-      "loc": "https://pinte.com/blog/",
+      "loc": "https://www.pintecl.com/blog/",
       "lastmod": null,
       "changefreq": "weekly",
       "priority": 0.8,
       "images": []
     },
     {
-      "loc": "https://pinte.com/blog/",
+      "loc": "https://www.pintecl.com/blog/",
       "lastmod": null,
       "changefreq": "weekly",
       "priority": 0.8,
       "images": []
     },
     {
-      "loc": "https://pinte.com/blog/",
+      "loc": "https://www.pintecl.com/blog/",
       "lastmod": null,
       "changefreq": "weekly",
       "priority": 0.8,
