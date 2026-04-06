@@ -49,10 +49,13 @@ const CompanyCulture: React.FC<CompanyCultureProps> = ({ onBack, posts, ui }) =>
                >
                   {/* Image */}
                   <div className="relative overflow-hidden">
-                     <img 
-                        src={post.image} 
-                        alt={post.title} 
-                        className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700" 
+                     <img
+                        src={post.image}
+                        alt={post.title}
+                        className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
+                        loading="lazy"
+                        width={400}
+                        height={300}
                      />
                      <div className="absolute top-3 right-3 bg-black/20 backdrop-blur-sm text-white text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                         {post.tags[0] || 'Life'}
@@ -71,10 +74,13 @@ const CompanyCulture: React.FC<CompanyCultureProps> = ({ onBack, posts, ui }) =>
                      {/* Footer: User & Stats */}
                      <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                           <img 
-                              src={post.avatar} 
-                              alt={post.author} 
+                           <img
+                              src={post.avatar}
+                              alt={post.author}
                               className="w-5 h-5 rounded-full bg-neutral-100 object-cover"
+                              loading="lazy"
+                              width={20}
+                              height={20}
                            />
                            <span className="text-xs text-neutral-400 font-medium truncate max-w-[80px]">
                               {post.author}

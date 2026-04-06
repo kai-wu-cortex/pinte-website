@@ -74,10 +74,13 @@ const Footer: React.FC = () => {
           <div>
             <h4 className="font-bold text-lg mb-6 text-neutral-900">{ui.footer.wechat}</h4>
             <div className="bg-white p-4 rounded-2xl border border-neutral-100 shadow-sm inline-block">
-                <img 
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://u.wechat.com/MHPZfF2HCiCARXbjSIeIcBY?s=2&color=1e40af" 
-                  alt="WeChat QR Code" 
+                <img
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://u.wechat.com/MHPZfF2HCiCARXbjSIeIcBY?s=2&color=1e40af"
+                  alt="WeChat QR Code"
                   className="w-32 h-32 mb-3"
+                  loading="lazy"
+                  width={128}
+                  height={128}
                 />
                 <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">{ui.footer.scan}</p>
             </div>

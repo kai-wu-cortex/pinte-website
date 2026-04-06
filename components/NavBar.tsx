@@ -128,7 +128,14 @@ const NavBar: React.FC = () => {
                                       className="group/sol flex items-start gap-4 p-3 hover:bg-neutral-50 rounded-xl cursor-pointer transition-colors"
                                    >
                                       <div className="w-16 h-16 rounded-lg overflow-hidden shrink-0 border border-neutral-100">
-                                        <img src={sol.img} alt={sol.title} className="w-full h-full object-cover group-hover/sol:scale-110 transition-transform duration-500" />
+                                        <img
+                                          src={sol.img}
+                                          alt={sol.title}
+                                          className="w-full h-full object-cover group-hover/sol:scale-110 transition-transform duration-500"
+                                          loading="lazy"
+                                          width={64}
+                                          height={64}
+                                        />
                                       </div>
                                       <div className="py-1">
                                          <div className="font-bold text-neutral-900 text-sm group-hover/sol:text-pinte-blue transition-colors line-clamp-1">{sol.title}</div>
@@ -153,7 +160,14 @@ const NavBar: React.FC = () => {
                                       to={`/products/category/${product.id}`}
                                       className="flex items-center gap-3 p-2.5 hover:bg-neutral-50 rounded-xl cursor-pointer group/item transition-colors"
                                    >
-                                      <img src={product.heroImage} className="w-12 h-12 rounded-lg object-cover shadow-sm group-hover/item:scale-105 transition-transform" alt={product.name} />
+                                      <img
+                                        src={product.heroImage}
+                                        className="w-12 h-12 rounded-lg object-cover shadow-sm group-hover/item:scale-105 transition-transform"
+                                        alt={product.name}
+                                        loading="lazy"
+                                        width={48}
+                                        height={48}
+                                      />
                                       <div className="overflow-hidden">
                                          <div className="font-bold text-neutral-900 text-sm group-hover/item:text-pinte-blue transition-colors truncate">{product.name}</div>
                                          <div className="text-xs text-neutral-400 truncate uppercase tracking-wider">{product.subtitle}</div>
@@ -246,13 +260,13 @@ const NavBar: React.FC = () => {
                         {item.id === 'solutions' && (
                              <div className="flex flex-col gap-2 pl-4 bg-neutral-50/50 rounded-xl p-2">
                                 {Object.values(content.SOLUTIONS_DATA).map((sol) => (
-                                   <Link 
-                                      key={sol.id} 
+                                   <Link
+                                      key={sol.id}
                                       to={`/solutions/${sol.id}`}
                                       onClick={() => setMobileMenuOpen(false)}
                                       className="text-left py-2 px-2 text-neutral-600 font-medium hover:text-pinte-blue hover:bg-white rounded-lg transition-all text-sm flex items-center gap-3"
                                    >
-                                      <img src={sol.img} alt="" className="w-8 h-8 rounded object-cover" />
+                                      <img src={sol.img} alt={sol.title} className="w-8 h-8 rounded object-cover" />
                                       {sol.title}
                                    </Link>
                                 ))}
@@ -261,13 +275,13 @@ const NavBar: React.FC = () => {
                         {item.id === 'products' && (
                              <div className="flex flex-col gap-2 pl-4 bg-neutral-50/50 rounded-xl p-2">
                                 {Object.values(content.PRODUCT_DATA).map((prod) => (
-                                   <Link 
-                                      key={prod.id} 
+                                   <Link
+                                      key={prod.id}
                                       to={`/products/category/${prod.id}`}
                                       onClick={() => setMobileMenuOpen(false)}
                                       className="text-left py-2 px-2 text-neutral-600 font-medium hover:text-pinte-blue hover:bg-white rounded-lg transition-all text-sm flex items-center gap-3"
                                    >
-                                      <img src={prod.heroImage} alt="" className="w-8 h-8 rounded object-cover" />
+                                      <img src={prod.heroImage} alt={prod.name} className="w-8 h-8 rounded object-cover" />
                                       {prod.name}
                                    </Link>
                                 ))}

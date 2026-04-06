@@ -1,15 +1,17 @@
 
-import React, { useState, useEffect, useRef, useCallback } from 'react';
+import React, { useState, useEffect, useRef, useCallback, Suspense } from 'react';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Section, ProductId } from '../types';
 import { Link, useNavigate } from 'react-router-dom';
-import { 
-  ArrowRight, ChevronLeft, ChevronRight, Play, ArrowUpRight, X, 
+import {
+  ArrowRight, ChevronLeft, ChevronRight, Play, ArrowUpRight, X,
   Award, Factory, Users, PenTool, Laptop, Target, HeartHandshake, Trophy, Globe,
   Settings, Layers, Box, Palette, Plus, Star, TrendingUp, Lightbulb, Cpu, Crown,
   Scissors, Microscope, Truck, Headphones
 } from 'lucide-react';
-import TechParticles from '../components/TechParticles';
+
+// Lazy load heavy particle component
+const TechParticles = React.lazy(() => import('../components/TechParticles'));
 
 // --- Helper Components ---
 const NumberTicker = ({ 
@@ -142,7 +144,13 @@ const TestimonialCard = ({ name, role, text, stars }: any) => (
     <p className="text-neutral-600 mb-8 leading-relaxed font-medium">"{text}"</p>
     <div className="flex items-center gap-4">
       <div className="w-12 h-12 rounded-full bg-neutral-200 overflow-hidden">
-        <img src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${name}`} alt={name} />
+        <img
+          src={`https://api.dicebear.com/7.x/avataaars/svg?seed=${name}`}
+          alt={name}
+          loading="lazy"
+          width={48}
+          height={48}
+        />
       </div>
       <div>
         <h4 className="font-bold text-neutral-900">{name}</h4>
@@ -215,7 +223,14 @@ const Home: React.FC = () => {
          <div className="absolute inset-0 z-0">
             {content.HERO_SLIDES.map((slide, index) => (
               <div key={slide.id} className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === heroImageIndex ? 'opacity-100' : 'opacity-0'}`}>
-                <img src={slide.image} className="w-full h-full object-cover" alt={slide.subtitle} />
+                <img
+                  src={slide.image}
+                  className="w-full h-full object-cover"
+                  alt={slide.subtitle}
+                  loading={index === 0 ? "eager" : "lazy"}
+                  width={1920}
+                  height={1080}
+                />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
               </div>
             ))}
@@ -381,7 +396,14 @@ const Home: React.FC = () => {
                     return (
                       <Link key={id} to={`/products/category/${id}`} className="group cursor-pointer relative h-[500px] overflow-hidden rounded-[2.5rem] shadow-lg hover:shadow-2xl transition-all duration-500">
                          <div className="absolute inset-0">
-                           <img src={product.heroImage} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" alt={product.name} />
+                           <img
+                             src={product.heroImage}
+                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                             alt={product.name}
+                             loading="lazy"
+                             width={800}
+                             height={800}
+                           />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 opacity-60 group-hover:opacity-75 transition-opacity duration-500"></div>
                          </div>
                          <div className="relative z-10 h-full flex flex-col justify-between p-8">
@@ -412,7 +434,9 @@ const Home: React.FC = () => {
 
       {/* === SERVICES === */}
       <section className="bg-[#1e40af] text-white py-24 px-6 relative overflow-hidden">
-        <TechParticles />
+        <Suspense fallback={null}>
+          <TechParticles />
+        </Suspense>
         <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-500 rounded-full blur-[120px] opacity-20 -translate-y-1/2 translate-x-1/3 pointer-events-none"></div>
         <div className="max-w-[1200px] mx-auto relative z-10">
           <div className="flex flex-col lg:flex-row justify-between items-start lg:items-end mb-20 gap-10">
@@ -500,7 +524,14 @@ const Home: React.FC = () => {
              </div>
              <div className="relative h-full min-h-[500px]">
                 <div className="aspect-[4/5] rounded-[3rem] overflow-hidden sticky top-32 shadow-2xl shadow-neutral-200">
-                   <img src="https://s3plus.meituan.net/opapisdk/op_ticket_1_5677168484_1765950617863_qdqqd_jqs18c.JPG" className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700" alt="Green Future" />
+                   <img
+                     src="https://s3plus.meituan.net/opapisdk/op_ticket_1_5677168484_1765950617863_qdqqd_jqs18c.JPG"
+                     className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                     alt="Green Future"
+                     loading="lazy"
+                     width={800}
+                     height={1000}
+                   />
                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-10 text-white">
                       <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-6 border border-white/20"><Trophy size={32} className="text-white" /></div>
                       <h3 className="text-3xl font-bold mb-2">{ui.about.cultureTitle}</h3>

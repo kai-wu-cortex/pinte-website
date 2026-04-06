@@ -73,10 +73,13 @@ const ItemDetailView: React.FC<ItemDetailViewProps> = ({ item, onBack, ui }) => 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-16 items-center">
             {/* Image */}
             <div className="relative aspect-square lg:aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-neutral-200 group">
-                <img 
-                    src={item.image} 
-                    alt={item.name} 
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" 
+                <img
+                    src={item.image}
+                    alt={item.name}
+                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                    loading="eager"
+                    width={800}
+                    height={800}
                 />
                 {item.tags && item.tags.length > 0 && (
                     <div className="absolute top-6 left-6 flex gap-2">
@@ -227,6 +230,9 @@ const ItemDetailView: React.FC<ItemDetailViewProps> = ({ item, onBack, ui }) => 
                     src={item.detailImage}
                     alt={`${item.name} Technical Details`}
                     className="w-full h-auto object-cover"
+                    loading="lazy"
+                    width={1200}
+                    height={800}
                 />
             </div>
         )}

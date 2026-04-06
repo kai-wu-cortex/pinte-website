@@ -20,7 +20,6 @@ interface SEOMetaProps {
   geoPlacename?: string;
   geoPosition?: string;
   locale?: string;
-  alternateLocale?: string;
   canonicalUrl?: string;
 }
 
@@ -39,7 +38,6 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   geoPlacename,
   geoPosition,
   locale = 'en_US',
-  alternateLocale,
   canonicalUrl
 }) => {
   const siteName = 'PINTE';
@@ -48,16 +46,47 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
   const fullTitle = `${title} | ${siteName}`;
 
+  // Supported locales for hreflang implementation
+  const supportedLocales = [
+    { code: 'en_US', language: 'English', region: 'United States', isDefault: false },
+    { code: 'en_GB', language: 'English', region: 'United Kingdom', isDefault: false },
+    { code: 'en-MY', language: 'English', region: 'Malaysia', isDefault: false },
+    { code: 'vi_VN', language: 'Vietnamese', region: 'Vietnam', isDefault: false },
+    { code: 'zh_CN', language: 'Chinese', region: 'China', isDefault: false },
+    { code: 'x-default', language: 'Default', region: 'Global', isDefault: true }
+  ];
+
+  // Generate hreflang tags
+  const generateHreflangTags = () => {
+    return supportedLocales.map(localeInfo => {
+      const localeUrl = localeInfo.isDefault
+        ? fullUrl
+        : `${siteUrl}/${localeInfo.code}${url || ''}`;
+
+      return (
+        <link
+          key={localeInfo.code}
+          rel="alternate"
+          hrefLang={localeInfo.code}
+          href={localeUrl}
+        />
+      );
+    });
+  };
+
   return (
     <>
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
       {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
-      
+
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
-      
+
+      {/* Hreflang Tags - International SEO */}
+      {generateHreflangTags()}
+
       {/* Open Graph - Facebook & LinkedIn */}
       <meta property="og:type" content={type} />
       <meta property="og:url" content={fullUrl} />
@@ -66,7 +95,17 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       <meta property="og:image" content={fullImage} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content={locale} />
-      {alternateLocale && <meta property="og:locale:alternate" content={alternateLocale} />}
+
+      {/* Open Graph locale alternates */}
+      {supportedLocales
+        .filter(localeInfo => localeInfo.code !== locale && localeInfo.code !== 'x-default')
+        .map(localeInfo => (
+          <meta
+            key={localeInfo.code}
+            property="og:locale:alternate"
+            content={localeInfo.code}
+          />
+        ))}
       
       {/* Article specific OG tags */}
       {type === 'article' && publishedTime && (
@@ -93,14 +132,97 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       {geoRegion && <meta name="geo.region" content={geoRegion} />}
       {geoPlacename && <meta name="geo.placename" content={geoPlacename} />}
       {geoPosition && <meta name="geo.position" content={geoPosition} />}
-      
+
       {/* Business Info */}
       <meta name="author" content={author || siteName} />
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
-      
+
       {/* Language Tags */}
-      <html lang={locale.split('_')[0]} />
+      <html lang={locale.replace('_', '-')} />
+
+      {/* JSON-LD Structured Data - Manufacturer */}
+      <script type="application/ld+json">
+        {JSON.stringify({
+          "@context": "https://schema.org",
+          "@type": "Manufacturer",
+          "name": "PINTE (品特)",
+          "alternateName": "Dongguan Best Craftwork Products Co., Ltd.",
+          "url": "https://www.pintecl.com",
+          "logo": "https://www.pintecl.com/logo.png",
+          "description": "High-end hot stamping foil manufacturer specializing in hot stamping foil, cold foil, digital foil, pigment foil, holographic foil, metallic foil for packaging, leather, plastic, digital printing applications. Serving Vietnam, Southeast Asia, Thailand, Malaysia, Indonesia, Singapore, United States, United Kingdom, Europe.",
+          "foundingDate": "2000",
+          "foundingLocation": "Dongguan, Guangdong, China",
+          "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Dongguan",
+            "addressRegion": "Guangdong",
+            "addressCountry": "CN",
+            "streetAddress": "Chang'an Town"
+          },
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "telephone": "+86-13192267509",
+            "contactType": "customer service",
+            "availableLanguage": ["English", "Chinese"],
+            "email": "sales@bestglitter.com"
+          },
+          "sameAs": [
+            "https://linkedin.com/company/pinte",
+            "https://instagram.com/pinte",
+            "https://facebook.com/pinte",
+            "https://twitter.com/pinte"
+          ],
+          "areaServed": [
+            { "@type": "Country", "name": "Vietnam" },
+            { "@type": "Country", "name": "Thailand" },
+            { "@type": "Country", "name": "Malaysia" },
+            { "@type": "Country", "name": "Indonesia" },
+            { "@type": "Country", "name": "Singapore" },
+            { "@type": "Country", "name": "United States" },
+            { "@type": "Country", "name": "United Kingdom" },
+            { "@type": "Country", "name": "Germany" }
+          ],
+          "product": [
+            { "@type": "Product", "name": "Hot Stamping Foil" },
+            { "@type": "Product", "name": "Cold Foil" },
+            { "@type": "Product", "name": "Digital Foil" },
+            { "@type": "Product", "name": "Pigment Foil" },
+            { "@type": "Product", "name": "Holographic Foil" }
+          ],
+          "keywords": "hot stamping foil, cold foil, digital foil, pigment foil, holographic foil, metallic foil, Vietnam, Southeast Asia, packaging, leather, plastic, digital printing",
+          "makesOffer": {
+            "@type": "OfferCatalog",
+            "name": "PINTE Product Catalog",
+            "itemListElement": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "PK Brown Back Series",
+                  "description": "Hot stamping foil for rough surfaces with excellent coverage and stampability"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "PC Plastic/Cold Foils",
+                  "description": "Specialized foils for plastic materials with excellent alcohol resistance"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Product",
+                  "name": "PL/PY Pigment Foils",
+                  "description": "Non-aluminized pigment-based foils with pure, full colors"
+                }
+              }
+            ]
+          }
+        })}
+      </script>
     </>
   );
 };

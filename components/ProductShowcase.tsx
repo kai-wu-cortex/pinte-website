@@ -1,7 +1,7 @@
 
-import React, { useState, useMemo } from 'react';
-import { 
-  ArrowRight, 
+import React, { useState, useMemo, Suspense } from 'react';
+import {
+  ArrowRight,
   Search,
   ArrowLeft,
   Filter,
@@ -14,7 +14,9 @@ import {
 import { PinteLogo } from './PinteLogo';
 import { ProductId, ProductDetail, CatalogItem, UILabels, FoilItem } from '../types';
 import { FOIL_CATALOG } from '../data/foil_data'; // Import new data
-import Foil3DViewer from './Foil3DViewer';
+
+// Lazy load heavy 3D component
+const Foil3DViewer = React.lazy(() => import('./Foil3DViewer'));
 
 interface ProductShowcaseProps {
   onBack: () => void;
@@ -218,10 +220,13 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
                             >
                                 {/* Image Section */}
                                 <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
-                                    <img 
-                                        src={item.image} 
-                                        alt={item.name} 
-                                        className="w-full h-full object-cover mix-blend-multiply group-hover/card:scale-105 transition-transform duration-700" 
+                                    <img
+                                        src={item.image}
+                                        alt={item.name}
+                                        className="w-full h-full object-cover mix-blend-multiply group-hover/card:scale-105 transition-transform duration-700"
+                                        loading="lazy"
+                                        width={400}
+                                        height={300}
                                     />
                                     {item.tags && item.tags.length > 0 && (
                                       <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg flex items-center gap-1.5 backdrop-blur-sm z-10">
@@ -314,10 +319,13 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
                                
                                {/* Image or Color Fallback */}
                                {foil.image ? (
-                                   <img 
-                                      src={foil.image} 
+                                   <img
+                                      src={foil.image}
                                       alt={foil.name}
-                                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" 
+                                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                                      loading="lazy"
+                                      width={300}
+                                      height={300}
                                    />
                                ) : (
                                    <div 
