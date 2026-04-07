@@ -1,0 +1,29 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+.DS_Store
+
+# Environment variables
+.env
+.env.local
+.env.production.local
+.env.development.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Reports and temp files
+*.report.html
+*.json
+!public/*.json
+!public/sitemap-blog.json
+playwright-report/
+playwright/.cache/
+*.md
+!README.md

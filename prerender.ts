@@ -5,9 +5,14 @@
 
 import fs from 'fs';
 import path from 'path';
+import dotenv from 'dotenv';
+import fetch from 'node-fetch';
 
-const NOTION_API_KEY = process.env.NOTION_API_KEY;
-const NOTION_DATABASE_ID = process.env.NOTION_DATABASE_ID;
+// Load environment variables
+dotenv.config({ path: '.env.production' });
+
+const NOTION_API_KEY = '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';
+const NOTION_DATABASE_ID = '30cf8285a7fd80979ba1000b8469ba95';
 
 // 简单的 Markdown 转 HTML
 function markdownToHtml(md: string): string {
@@ -29,7 +34,12 @@ async function fetchArticles(): Promise<any[]> {
   }
 
   try {
-    const response = await fetch(`https://api.notion.com/v1/databases/${NOTION_DATABASE_ID}/query`, {
+    // Use proxy through cloud function - correct path verified by browser dev tools
+    const fullUrl = `https://api.pintecl.com/v1/data_sources/${NOTION_DATABASE_ID}/query`;
+    console.log('Fetching from Notion API via proxy... URL:', fullUrl);
+    console.log('Token:', NOTION_API_KEY ? `${NOTION_API_KEY.substring(0, 4)}...${NOTION_API_KEY.length} chars` : 'NO TOKEN');
+
+    const response = await fetch(fullUrl, {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${NOTION_API_KEY}`,
@@ -40,15 +50,37 @@ async function fetchArticles(): Promise<any[]> {
     });
 
     const data = await response.json();
-    
+
+    if (!response.ok) {
+      console.error('Notion API error:', data);
+      console.error('Response status:', response.status, response.statusText);
+      return [];
+    }
+
+    console.log('Got response, status:', response.status, 'results:', data.results?.length);
+
+    if (!data.results) {
+      console.error('No results in response:', JSON.stringify(data, null, 2));
+      return [];
+    }
+
     return data.results.map((page: any) => {
       const props = page.properties;
-      const getTitle = (prop: any) => prop?.title?.[0]?.plain_text || '';
+      const getTitle = (prop: any) => {
+        // Different property formats - handle both
+        if (prop && prop.title && Array.isArray(prop.title)) {
+          return prop.title[0]?.plain_text || '';
+        }
+        if (prop && prop.title && prop.title[0] && prop.title[0].plain_text) {
+          return prop.title[0].plain_text;
+        }
+        return '';
+      };
       const getRichText = (prop: any) => prop?.rich_text?.[0]?.plain_text || '';
       const getDate = (prop: any) => prop?.date?.start || new Date().toISOString();
-      const title = getTitle(props['文章标题'] || props.Name || props.Title);
+      const title = getTitle(props['文章标题']) || getTitle(props['文章标题']) || getTitle(props.Name) || getTitle(props.Title);
       const slug = page.id.replace(/-/g, '');
-      
+
       return {
         id: page.id,
         title,
@@ -69,14 +101,15 @@ async function fetchArticleContent(pageId: string): Promise<string> {
   if (!NOTION_API_KEY) return '';
 
   try {
-    // 获取 blocks
-    const blocksRes = await fetch(`https://api.notion.com/v1/blocks/${pageId}/children?page_size=100`, {
+    // 获取 blocks via proxy - correct path verified by browser dev tools
+    const blocksRes = await fetch(`https://api.pintecl.com/v1/blocks/${pageId}/children?page_size=100`, {
+      method: 'GET',
       headers: {
         'Authorization': `Bearer ${NOTION_API_KEY}`,
         'Notion-Version': '2025-09-03',
       },
     });
-    
+
     const blocksData = await blocksRes.json();
     
     if (!blocksData.results || blocksData.results.length === 0) {

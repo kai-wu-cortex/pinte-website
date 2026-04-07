@@ -1,0 +1,5 @@
+# Cloudflare Pages redirects for SPA routing and static pre-rendered blog
+# Handle blog posts - serve pre-rendered HTML for search engines
+/blog/*    /blog/:splat.html    200
+# Catch-all - send everything to index.html for SPA
+/*    /index.html    200
