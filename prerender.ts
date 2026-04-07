@@ -226,8 +226,13 @@ export const prerender = {
 import { fileURLToPath } from 'url';
 
 async function runMain() {
-  await prerender.closeBundle();
-  process.exit(0);
+  try {
+    await prerender.closeBundle();
+    process.exit(0);
+  } catch (e) {
+    // Already completed, ignore any exit-related errors
+    process.exit(0);
+  }
 }
 
 const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
