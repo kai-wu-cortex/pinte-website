@@ -384,7 +384,7 @@ const Home: React.FC = () => {
                 <h2 className="text-5xl md:text-6xl font-display font-bold text-neutral-900 leading-[1.1]" dangerouslySetInnerHTML={{ __html: ui.products.discoverTitle }} />
                 <div className="lg:pl-12 flex flex-col items-start gap-8">
                    <p className="text-neutral-500 text-lg leading-relaxed">{ui.products.discoverDesc}</p>
-                   <Link to="/products" className="group flex items-center gap-2 text-pinte-blue font-bold text-sm tracking-widest uppercase border-b-2 border-pinte-blue/20 pb-1 hover:border-pinte-blue transition-all">
+                   <Link to={`/${lang}/products`} className="group flex items-center gap-2 text-pinte-blue font-bold text-sm tracking-widest uppercase border-b-2 border-pinte-blue/20 pb-1 hover:border-pinte-blue transition-all">
                      {ui.products.viewCatalog} <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                    </Link>
                 </div>
@@ -536,7 +536,7 @@ const Home: React.FC = () => {
                       <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-6 border border-white/20"><Trophy size={32} className="text-white" /></div>
                       <h3 className="text-3xl font-bold mb-2">{ui.about.cultureTitle}</h3>
                       <p className="opacity-80 leading-relaxed">{ui.about.cultureDesc}</p>
-                      <Link to="/culture" className="mt-8 bg-white text-neutral-900 px-8 py-3 rounded-full text-sm font-bold w-fit hover:bg-blue-50 transition-colors flex items-center gap-2">
+                      <Link to={`/${lang}/culture`} className="mt-8 bg-white text-neutral-900 px-8 py-3 rounded-full text-sm font-bold w-fit hover:bg-blue-50 transition-colors flex items-center gap-2">
                          {ui.about.readMore} <ArrowRight size={16}/>
                       </Link>
                    </div>
@@ -590,7 +590,7 @@ const Home: React.FC = () => {
              <div>
                 <h2 className="text-4xl font-display font-bold text-neutral-900 mb-6">{ui.faq.title}</h2>
                 <p className="text-neutral-500 mb-8">{ui.faq.subtitle}</p>
-                <Link to="/quote" className="bg-pinte-blue text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-pinte-dark transition-colors inline-block">{ui.faq.contactBtn}</Link>
+                <Link to={`/${lang}/quote`} className="bg-pinte-blue text-white px-8 py-3 rounded-full font-bold shadow-lg hover:bg-pinte-dark transition-colors inline-block">{ui.faq.contactBtn}</Link>
              </div>
              <div className="lg:col-span-2 space-y-4">
                 {content.FAQ_ITEMS.map((faq, i) => (

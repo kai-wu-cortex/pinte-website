@@ -4,16 +4,20 @@ import { PinteLogo } from './PinteLogo';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Section } from '../types';
 import { Globe, Mail, Building2, Phone } from 'lucide-react';
-import { Link, useNavigate } from 'react-router-dom';
+import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Footer: React.FC = () => {
-  const { ui } = useLanguage();
+  const { ui, lang } = useLanguage();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const handleNavClick = (sectionId: string) => {
+    // Get current language from path
+    const pathSegments = location.pathname.split('/').filter(Boolean);
+    const currentLang = pathSegments[0] || lang;
     // If we are navigating to a section on the home page
-    if (location.pathname !== '/') {
-        navigate('/', { state: { scrollTo: sectionId } });
+    if (!location.pathname.includes(`/${currentLang}/`) && location.pathname !== `/${currentLang}`) {
+        navigate(`/${currentLang}`, { state: { scrollTo: sectionId } });
     } else {
         const element = document.getElementById(sectionId);
         if (element) {
@@ -45,7 +49,7 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-lg mb-6 text-neutral-900">{ui.footer.quickLinks}</h4>
             <ul className="space-y-4 text-neutral-600 font-medium">
                 <li><button onClick={() => handleNavClick(Section.HOME)} className="hover:text-pinte-blue transition-colors text-left">{ui.nav.home}</button></li>
-                <li><Link to="/products" className="hover:text-pinte-blue transition-colors">{ui.nav.products}</Link></li>
+                <li><Link to={`/${lang}/products`} className="hover:text-pinte-blue transition-colors">{ui.nav.products}</Link></li>
                 <li><button onClick={() => handleNavClick(Section.SOLUTIONS)} className="hover:text-pinte-blue transition-colors text-left">{ui.nav.solutions}</button></li>
                 <li><button onClick={() => handleNavClick(Section.ABOUT)} className="hover:text-pinte-blue transition-colors text-left">{ui.nav.about}</button></li>
             </ul>

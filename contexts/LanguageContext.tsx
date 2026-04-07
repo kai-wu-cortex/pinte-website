@@ -1,8 +1,9 @@
 
-import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
+import React, { createContext, useContext, useEffect, ReactNode } from 'react';
+import { useParams, useNavigate, useLocation } from 'react-router-dom';
 import { CONTENT_EN, CONTENT_ZH } from '../data/content';
 
-type Language = 'en' | 'zh' | 'vi';
+export type Language = 'en' | 'cn' | 'vi';
 type Locale = 'en_US' | 'en_GB' | 'en-MY' | 'vi_VN' | 'zh_CN';
 
 interface LanguageContextType {
@@ -18,46 +19,60 @@ interface LanguageContextType {
 
 const LanguageContext = createContext<LanguageContextType | undefined>(undefined);
 
-// Mapping between locales and content
-const LOCALE_CONTENT_MAP: Record<Locale, any> = {
-  en_US: CONTENT_EN,
-  en_GB: CONTENT_EN,
-  'en-MY': CONTENT_EN,
-  vi_VN: CONTENT_EN, // Fallback to English for Vietnamese until content available
-  zh_CN: CONTENT_ZH
+// Mapping between URL language codes to content
+const LANG_CONTENT_MAP: Record<Language, any> = {
+  en: CONTENT_EN,
+  cn: CONTENT_ZH,
+  vi: CONTENT_EN // Fallback to English for Vietnamese until content available
+};
+
+// Mapping between URL language and default locale
+const LANG_LOCALE_MAP: Record<Language, Locale> = {
+  en: 'en_US',
+  cn: 'zh_CN',
+  vi: 'vi_VN'
 };
 
 export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }) => {
-  const [locale, setLocale] = useState<Locale>('en_US');
-  const [content, setContent] = useState(CONTENT_EN);
+  const { lang: paramLang } = useParams<{lang: string}>();
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  // Derive language from locale
-  const lang = locale.split('_')[0] as Language;
+  // Validate language from URL, default to 'cn' if invalid
+  const lang: Language = paramLang === 'en' || paramLang === 'cn' || paramLang === 'vi'
+    ? paramLang as Language
+    : 'cn';
 
-  useEffect(() => {
-    setContent(LOCALE_CONTENT_MAP[locale]);
-  }, [locale]);
+  // Get locale based on language
+  const locale = LANG_LOCALE_MAP[lang];
 
-  const setLanguage = (language: Language) => {
-    const newLocale = getDefaultLocaleForLanguage(language);
-    setLocale(newLocale);
+  // Get content based on language
+  const content = LANG_CONTENT_MAP[lang];
+
+  const setLanguage = (newLang: Language) => {
+    // Construct the new path with the language prefix
+    const currentPath = location.pathname;
+    const segments = currentPath.split('/').filter(Boolean);
+
+    // If first segment is already a language code, replace it
+    if (segments.length > 0 && (segments[0] === 'en' || segments[0] === 'cn' || segments[0] === 'vi')) {
+      segments[0] = newLang;
+    } else {
+      // Otherwise, prepend the language code
+      segments.unshift(newLang);
+    }
+
+    navigate(`/${segments.join('/')}`);
   };
 
-  const getDefaultLocaleForLanguage = (language: Language): Locale => {
-    switch (language) {
-      case 'en':
-        return 'en_US';
-      case 'zh':
-        return 'zh_CN';
-      case 'vi':
-        return 'vi_VN';
-      default:
-        return 'en_US';
-    }
+  const setLocale = (newLocale: Locale) => {
+    // Extract language from locale and navigate
+    const newLang = newLocale.split('_')[0] as Language;
+    setLanguage(newLang === 'zh' ? 'cn' : newLang);
   };
 
   const toggleLanguage = () => {
-    const nextLanguage = lang === 'en' ? 'zh' : lang === 'zh' ? 'vi' : 'en';
+    const nextLanguage = lang === 'en' ? 'cn' : lang === 'cn' ? 'vi' : 'en';
     setLanguage(nextLanguage);
   };
 

@@ -29,18 +29,21 @@ const NavBar: React.FC = () => {
 
   // Handle navigation logic
   const handleNavClick = (itemId: string) => {
+    // Get current language from path
+    const pathSegments = location.pathname.split('/').filter(Boolean);
+    const currentLang = pathSegments[0] || lang;
     if (itemId === 'onlinetour') {
-      navigate('/tour');
+      navigate(`/${currentLang}/tour`);
       setMobileMenuOpen(false);
       return;
     }
-    
+
     // Check if it's a section on the home page
     const isHomeSection = Object.values(Section).includes(itemId as Section);
-    
+
     if (isHomeSection) {
-      if (location.pathname !== '/') {
-        navigate('/', { state: { scrollTo: itemId } });
+      if (!location.pathname.includes(`/${currentLang}/`) && location.pathname !== `/${currentLang}`) {
+        navigate(`/${currentLang}`, { state: { scrollTo: itemId } });
       } else {
         const element = document.getElementById(itemId);
         if (element) {
@@ -50,8 +53,8 @@ const NavBar: React.FC = () => {
         }
       }
     } else {
-      // It's a page route (like 'products')
-      navigate(`/${itemId}`);
+      // It's a page route (like 'products') - keep current language prefix
+      navigate(`/${currentLang}/${itemId}`);
     }
     setMobileMenuOpen(false);
   };
@@ -72,9 +75,10 @@ const NavBar: React.FC = () => {
     }
   }, [location]);
 
-  // Navbar transparency logic: 
+  // Navbar transparency logic:
   // If not on Home page, always show solid/scrolled style
-  const isHomePage = location.pathname === '/';
+  // Home is now at /en or /cn, not just /
+  const isHomePage = location.pathname === '/' || location.pathname === '/en' || location.pathname === '/cn' || location.pathname === '/vi';
   const effectiveScrolled = scrolled || !isHomePage;
 
   return (
@@ -176,7 +180,7 @@ const NavBar: React.FC = () => {
                                 ))}
                              </div>
                              <div className="mt-4 pt-3 border-t border-neutral-100 text-center">
-                                <Link to="/products" className="text-xs font-bold text-pinte-blue hover:text-pinte-dark uppercase tracking-widest flex items-center justify-center gap-1">
+                                <Link to={`/${lang}/products`} className="text-xs font-bold text-pinte-blue hover:text-pinte-dark uppercase tracking-widest flex items-center justify-center gap-1">
                                    {ui.nav.viewAllProducts} <ArrowRight size={12}/>
                                 </Link>
                              </div>
@@ -201,8 +205,8 @@ const NavBar: React.FC = () => {
                 <span>{lang === 'en' ? 'EN' : '中'}</span>
              </button>
 
-             <Link 
-               to="/quote"
+             <Link
+               to={`/${lang}/quote`}
                className="hidden md:flex bg-pinte-blue text-white px-5 py-2.5 rounded-full text-sm font-bold hover:bg-pinte-dark transition-colors items-center gap-2 shadow-lg shadow-pinte-blue/20"
              >
                 {ui.nav.getQuote}
@@ -286,7 +290,7 @@ const NavBar: React.FC = () => {
                                    </Link>
                                 ))}
                                 <Link
-                                   to="/products"
+                                   to={`/${lang}/products`}
                                    onClick={() => setMobileMenuOpen(false)}
                                    className="text-left py-2 px-2 text-pinte-blue font-bold text-sm mt-2 flex items-center gap-2"
                                 >
@@ -299,8 +303,8 @@ const NavBar: React.FC = () => {
               )})}
               
               <div className="mt-8 space-y-4">
-                 <Link 
-                    to="/quote"
+                 <Link
+                    to={`/${lang}/quote`}
                     onClick={() => setMobileMenuOpen(false)}
                     className="w-full bg-pinte-blue text-white py-4 rounded-xl font-bold text-lg shadow-lg shadow-pinte-blue/20 flex justify-center"
                  >

@@ -145,12 +145,14 @@ async function fetchArticleContent(pageId: string): Promise<string> {
 }
 
 // 生成文章页面的 HTML
-function generateArticleHtml(article: any, content: string): string {
+function generateArticleHtml(article: any, content: string, lang: 'cn' | 'en'): string {
   const contentHtml = markdownToHtml(content || article.summary || '');
-  
+  const htmlLang = lang === 'cn' ? 'zh-CN' : 'en';
+  const canonicalPath = `/${lang}/blog/${article.slug}`;
+
   return `
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="${htmlLang}">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -161,21 +163,21 @@ function generateArticleHtml(article: any, content: string): string {
   <meta property="og:description" content="${article.summary || article.title}">
   <meta property="og:type" content="article">
   <meta property="og:image" content="${article.cover}">
-  <link rel="canonical" href="/blog/${article.slug}">
+  <link rel="canonical" href="${canonicalPath}">
 </head>
 <body>
   <header>
     <nav>
-      <a href="/">Home</a>
-      <a href="/blog">Blog</a>
-      <a href="/products">Products</a>
-      <a href="/contact">Contact</a>
+      <a href="/${lang}">Home</a>
+      <a href="/${lang}/blog">Blog</a>
+      <a href="/${lang}/products">Products</a>
+      <a href="/${lang}/quote">Contact</a>
     </nav>
   </header>
   <main>
     <article>
       <h1>${article.title}</h1>
-      <time>${new Date(article.date).toLocaleDateString()}</time>
+      <time>${new Date(article.date).toLocaleDateString(htmlLang)}</time>
       <div class="content">
         ${contentHtml}
       </div>
@@ -199,30 +201,35 @@ export const prerender = {
 
     const distDir = path.resolve('dist');
 
-    // 确保 blog 目录存在
-    const blogDir = path.join(distDir, 'blog');
-    if (!fs.existsSync(blogDir)) {
-      fs.mkdirSync(blogDir, { recursive: true });
-    }
+    // Generate pre-rendered pages for both languages
+    const languages: Array<'cn' | 'en'> = ['cn', 'en'];
 
-    // 为每篇文章生成静态 HTML
-    for (const article of articles) {
-      try {
-        console.log(`📝 Prerendering: ${article.title}`);
+    for (const lang of languages) {
+      // Ensure language/blog directory exists
+      const blogDir = path.join(distDir, lang, 'blog');
+      if (!fs.existsSync(blogDir)) {
+        fs.mkdirSync(blogDir, { recursive: true });
+      }
 
-        // 获取文章内容
-        const content = await fetchArticleContent(article.id);
+      // Generate static HTML for each article in both languages
+      for (const article of articles) {
+        try {
+          console.log(`📝 [${lang}] Prerendering: ${article.title}`);
 
-        // 生成 HTML
-        const html = generateArticleHtml(article, content);
+          // Get article content
+          const content = await fetchArticleContent(article.id);
 
-        // 写入文件
-        const filePath = path.join(blogDir, `${article.slug}.html`);
-        fs.writeFileSync(filePath, html);
+          // Generate HTML with correct language
+          const html = generateArticleHtml(article, content, lang);
 
-        console.log(`✅ Generated: /blog/${article.slug}.html`);
-      } catch (error) {
-        console.error(`❌ Failed to prerender ${article.title}:`, error);
+          // Write file
+          const filePath = path.join(blogDir, `${article.slug}.html`);
+          fs.writeFileSync(filePath, html);
+
+          console.log(`✅ Generated: /${lang}/blog/${article.slug}.html`);
+        } catch (error) {
+          console.error(`❌ Failed to prerender ${article.title} for ${lang}:`, error);
+        }
       }
     }
 

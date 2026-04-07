@@ -105,7 +105,7 @@ const BlogItem: React.FC = () => {
           </h1>
           <p className="text-neutral-500 mb-8">{error}</p>
           <Link 
-            to="/blog"
+            to={`/${lang}/blog`}
             className="inline-flex items-center gap-2 text-pinte-blue font-bold"
           >
             <ArrowLeft size={18} />
@@ -175,7 +175,7 @@ const BlogItem: React.FC = () => {
           
           {/* Back Button */}
           <Link 
-            to="/blog"
+            to={`/${lang}/blog`}
             className="absolute top-6 left-6 z-10 flex items-center gap-2 text-white/80 hover:text-white bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full transition-colors"
           >
             <ArrowLeft size={18} />
@@ -353,7 +353,7 @@ const BlogItem: React.FC = () => {
                 : 'Explore more insights about hot stamping foils and packaging industry'}
             </p>
             <Link 
-              to="/blog"
+              to={`/${lang}/blog`}
               className="inline-flex items-center gap-2 bg-white text-pinte-blue px-6 py-3 rounded-full font-bold hover:bg-blue-50 transition-colors"
             >
               {lang === 'zh' ? '查看更多文章' : 'View More Articles'}
