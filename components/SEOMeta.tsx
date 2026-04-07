@@ -44,7 +44,7 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   const siteUrl = 'https://www.pintecl.com';
   const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
-  const fullTitle = `${title} | ${siteName}`;
+  const fullTitle = title;
 
   // Supported languages for hreflang implementation
   // URL format: /en/path  /cn/path
