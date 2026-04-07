@@ -185,39 +185,48 @@ export const prerender = {
   name: 'prerender',
   async closeBundle() {
     console.log('🚀 Starting prerender...');
-    
+
     const articles = await fetchArticles();
     console.log(`📄 Found ${articles.length} articles`);
-    
+
     const distDir = path.resolve('dist');
-    
+
     // 确保 blog 目录存在
     const blogDir = path.join(distDir, 'blog');
     if (!fs.existsSync(blogDir)) {
       fs.mkdirSync(blogDir, { recursive: true });
     }
-    
+
     // 为每篇文章生成静态 HTML
     for (const article of articles) {
       try {
         console.log(`📝 Prerendering: ${article.title}`);
-        
+
         // 获取文章内容
         const content = await fetchArticleContent(article.id);
-        
+
         // 生成 HTML
         const html = generateArticleHtml(article, content);
-        
+
         // 写入文件
         const filePath = path.join(blogDir, `${article.slug}.html`);
         fs.writeFileSync(filePath, html);
-        
+
         console.log(`✅ Generated: /blog/${article.slug}.html`);
       } catch (error) {
         console.error(`❌ Failed to prerender ${article.title}:`, error);
       }
     }
-    
+
     console.log('🎉 Prerender complete!');
+    // Exit successfully when running as standalone script
+    if (require.main === module) {
+      process.exit(0);
+    }
   },
 };
+
+// When run directly via node (npm run prerender), execute it
+if (require.main === module) {
+  prerender.closeBundle();
+}
