@@ -95,7 +95,69 @@
 </head>
   <body class="bg-neutral-50 text-neutral-900 antialiased overflow-x-hidden selection:bg-pinte-blue selection:text-white">
     <div id="root"></div>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "PINTE",
+      "alternateName": "品特",
+      "url": "https://www.pintecl.com",
+      "logo": "https://www.pintecl.com/logo.png",
+      "description": "Premium hot stamping foil manufacturer with 25 years of expertise in coating technology",
+      "sameAs": [
+        "https://facebook.com/pinte",
+        "https://twitter.com/pinte",
+        "https://linkedin.com/company/pinte",
+        "https://instagram.com/pinte"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+86-13192267509",
+        "contactType": "customer service",
+        "availableLanguage": ["English", "Chinese"]
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "Dongguan",
+        "addressCountry": "CN"
+      },
+      "knowsAbout": ["Hot Stamping Foil", "Cold Foil", "Digital Foil", "Pigment Foil", "Holographic Foil"],
+      "industry": "Manufacturing",
+      "priceRange": "$$"
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "PINTE",
+      "url": "https://www.pintecl.com",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": {
+          "@type": "EntryPoint",
+          "urlTemplate": "https://www.pintecl.com/blog?search={search_term_string}"
+        },
+        "query-input": "required name=search_term_string"
+      },
+      "inLanguage": ["en", "zh"]
+    }
+    </script>
     <script type="module" src="./index.tsx"></script>
   <script type="module" src="/index.tsx"></script>
+  <!-- Register Service Worker for static asset caching -->
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+          .then(registration => {
+            console.log('[ServiceWorker] Registered successfully:', registration.scope);
+          })
+          .catch(error => {
+            console.log('[ServiceWorker] Registration failed:', error);
+          });
+      });
+    }
+  </script>
 </body>
 </html>
