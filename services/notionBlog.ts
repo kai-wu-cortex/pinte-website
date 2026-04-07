@@ -1,3 +1,5 @@
+/// <reference types="vite/client" />
+
 /**
  * Notion Blog Service
  * 实时从 Notion API 获取博客数据

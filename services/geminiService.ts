@@ -32,7 +32,7 @@ export const initializeGemini = () => {
     console.warn("API_KEY not found in environment variables.");
     return;
   }
-  aiClient = new GoogleGenerativeAI({ apiKey: process.env.API_KEY });
+  aiClient = new GoogleGenerativeAI(process.env.API_KEY as string);
 };
 
 export const sendMessageToGemini = async (

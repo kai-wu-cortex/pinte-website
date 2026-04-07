@@ -49,7 +49,13 @@ async function fetchArticles(): Promise<any[]> {
       body: JSON.stringify({ page_size: 100 }),
     });
 
-    const data = await response.json();
+    const data = await response.json() as {
+      results?: Array<{
+        id: string;
+        properties: Record<string, any>;
+        cover?: any;
+      }>;
+    };
 
     if (!response.ok) {
       console.error('Notion API error:', data);
@@ -110,8 +116,10 @@ async function fetchArticleContent(pageId: string): Promise<string> {
       },
     });
 
-    const blocksData = await blocksRes.json();
-    
+    const blocksData = await blocksRes.json() as {
+      results?: Array<any>;
+    };
+
     if (!blocksData.results || blocksData.results.length === 0) {
       return '';
     }

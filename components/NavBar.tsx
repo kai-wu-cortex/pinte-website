@@ -3,8 +3,8 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, useNavigate, Link } from 'react-router-dom';
 import { PinteLogo } from './PinteLogo';
 import { useLanguage } from '../contexts/LanguageContext';
-import { Section } from '../types';
-import { 
+import { Section, SolutionData, ProductDetail } from '../types';
+import {
   Menu, X, ChevronDown, ArrowRight, Languages,
   Users, PenTool, Laptop
 } from 'lucide-react';
@@ -121,9 +121,9 @@ const NavBar: React.FC = () => {
                         <div className="bg-white rounded-2xl shadow-xl border border-neutral-100 p-4 relative">
                              <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-l border-t border-neutral-100"></div>
                              <div className="grid grid-cols-2 gap-3">
-                                {Object.values(content.SOLUTIONS_DATA).map((sol) => (
-                                   <Link 
-                                      key={sol.id} 
+                                {Object.values(content.SOLUTIONS_DATA).map((sol: SolutionData) => (
+                                   <Link
+                                      key={sol.id}
                                       to={`/solutions/${sol.id}`}
                                       className="group/sol flex items-start gap-4 p-3 hover:bg-neutral-50 rounded-xl cursor-pointer transition-colors"
                                    >
@@ -154,9 +154,9 @@ const NavBar: React.FC = () => {
                         <div className="bg-white rounded-2xl shadow-xl border border-neutral-100 p-4 relative">
                              <div className="absolute -top-1.5 left-1/2 -translate-x-1/2 w-4 h-4 bg-white rotate-45 border-l border-t border-neutral-100"></div>
                              <div className="grid grid-cols-2 gap-3">
-                                {Object.values(content.PRODUCT_DATA).map((product) => (
-                                   <Link 
-                                      key={product.id} 
+                                {Object.values(content.PRODUCT_DATA).map((product: ProductDetail) => (
+                                   <Link
+                                      key={product.id}
                                       to={`/products/category/${product.id}`}
                                       className="flex items-center gap-3 p-2.5 hover:bg-neutral-50 rounded-xl cursor-pointer group/item transition-colors"
                                    >
@@ -259,7 +259,7 @@ const NavBar: React.FC = () => {
                     <div className={`overflow-hidden transition-all duration-300 ease-in-out ${isExpanded ? 'max-h-[800px] opacity-100 mb-4' : 'max-h-0 opacity-0'}`}>
                         {item.id === 'solutions' && (
                              <div className="flex flex-col gap-2 pl-4 bg-neutral-50/50 rounded-xl p-2">
-                                {Object.values(content.SOLUTIONS_DATA).map((sol) => (
+                                {Object.values(content.SOLUTIONS_DATA).map((sol: SolutionData) => (
                                    <Link
                                       key={sol.id}
                                       to={`/solutions/${sol.id}`}
@@ -274,7 +274,7 @@ const NavBar: React.FC = () => {
                         )}
                         {item.id === 'products' && (
                              <div className="flex flex-col gap-2 pl-4 bg-neutral-50/50 rounded-xl p-2">
-                                {Object.values(content.PRODUCT_DATA).map((prod) => (
+                                {Object.values(content.PRODUCT_DATA).map((prod: ProductDetail) => (
                                    <Link
                                       key={prod.id}
                                       to={`/products/category/${prod.id}`}
