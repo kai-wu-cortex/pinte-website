@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:seo": "vite build && npx tsc --skipLibCheck -p tsconfig.prerender.json && cd /tmp/prerender && node prerender.js && rm -rf /tmp/prerender",
-    "prerender": "npx tsc --skipLibCheck -p tsconfig.prerender.json && cd /tmp/prerender && node prerender.js && rm -rf /tmp/prerender",
+    "build:seo": "vite build && npx tsc --skipLibCheck -p tsconfig.prerender.json && node /tmp/prerender/prerender.js && rm -rf /tmp/prerender",
+    "prerender": "npx tsc --skipLibCheck -p tsconfig.prerender.json && node /tmp/prerender/prerender.js && rm -rf /tmp/prerender",
     "preview": "vite preview",
     "sync-blog": "node scripts/fetch-blog.js",
     "generate-sitemap": "node scripts/generate-sitemap.js"
