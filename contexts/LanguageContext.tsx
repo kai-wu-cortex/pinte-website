@@ -67,8 +67,10 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
 
   const setLocale = (newLocale: Locale) => {
     // Extract language from locale and navigate
-    const newLang = newLocale.split('_')[0] as Language;
-    setLanguage(newLang === 'zh' ? 'cn' : newLang);
+    // Convert zh -> cn for our URL format
+    const extractedLang = newLocale.split('_')[0];
+    const newLang = (extractedLang === 'zh' ? 'cn' : extractedLang) as Language;
+    setLanguage(newLang);
   };
 
   const toggleLanguage = () => {
