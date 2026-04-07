@@ -46,29 +46,37 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
   const fullTitle = `${title} | ${siteName}`;
 
-  // Supported locales for hreflang implementation
-  const supportedLocales = [
-    { code: 'en_US', language: 'English', region: 'United States', isDefault: false },
-    { code: 'en_GB', language: 'English', region: 'United Kingdom', isDefault: false },
-    { code: 'en-MY', language: 'English', region: 'Malaysia', isDefault: false },
-    { code: 'vi_VN', language: 'Vietnamese', region: 'Vietnam', isDefault: false },
-    { code: 'zh_CN', language: 'Chinese', region: 'China', isDefault: false },
-    { code: 'x-default', language: 'Default', region: 'Global', isDefault: true }
+  // Supported languages for hreflang implementation
+  // URL format: /en/path  /cn/path
+  const supportedLanguages = [
+    { lang: 'en', hreflang: 'en', name: 'English', isDefault: false },
+    { lang: 'cn', hreflang: 'zh-CN', name: 'Chinese', isDefault: false },
+    { lang: '', hreflang: 'x-default', name: 'Default', isDefault: true }
   ];
 
-  // Generate hreflang tags
+  // Generate hreflang tags - match our URL structure: /lang/path
   const generateHreflangTags = () => {
-    return supportedLocales.map(localeInfo => {
-      const localeUrl = localeInfo.isDefault
-        ? fullUrl
-        : `${siteUrl}/${localeInfo.code}${url || ''}`;
+    return supportedLanguages.map(langInfo => {
+      let alternateUrl: string;
+      if (langInfo.isDefault) {
+        // x-default points to the root
+        alternateUrl = siteUrl;
+      } else if (!canonicalUrl) {
+        // No canonicalUrl means this is the homepage for the current language
+        alternateUrl = `${siteUrl}/${langInfo.lang}`;
+      } else {
+        // canonicalUrl is already /currentLang/path, extract the path part after language
+        const pathParts = canonicalUrl.split('/');
+        const pathWithoutLang = '/' + pathParts.slice(3).join('/');
+        alternateUrl = `${siteUrl}/${langInfo.lang}${pathWithoutLang}`;
+      }
 
       return (
         <link
-          key={localeInfo.code}
+          key={langInfo.hreflang}
           rel="alternate"
-          hrefLang={localeInfo.code}
-          href={localeUrl}
+          hrefLang={langInfo.hreflang}
+          href={alternateUrl}
         />
       );
     });
@@ -82,7 +90,7 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
 
       {/* Canonical URL */}
-      {canonicalUrl && <link rel="canonical" href={canonicalUrl} />}
+      {canonicalUrl && <link rel="canonical" href={`${siteUrl}${canonicalUrl}`} />}
 
       {/* Hreflang Tags - International SEO */}
       {generateHreflangTags()}
@@ -97,15 +105,11 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       <meta property="og:locale" content={locale} />
 
       {/* Open Graph locale alternates */}
-      {supportedLocales
-        .filter(localeInfo => localeInfo.code !== locale && localeInfo.code !== 'x-default')
-        .map(localeInfo => (
-          <meta
-            key={localeInfo.code}
-            property="og:locale:alternate"
-            content={localeInfo.code}
-          />
-        ))}
+      {locale === 'en_US' ? (
+        <meta property="og:locale:alternate" content="zh_CN" />
+      ) : (
+        <meta property="og:locale:alternate" content="en_US" />
+      )}
       
       {/* Article specific OG tags */}
       {type === 'article' && publishedTime && (
@@ -137,9 +141,6 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       <meta name="author" content={author || siteName} />
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
-
-      {/* Language Tags */}
-      <html lang={locale.replace('_', '-')} />
 
       {/* JSON-LD Structured Data - Manufacturer */}
       <script type="application/ld+json">

@@ -86,7 +86,7 @@ const BlogCatalog: React.FC = () => {
   const formatDate = (dateStr: string) => {
     if (!dateStr) return '';
     const date = new Date(dateStr);
-    return date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en-US', {
+    return date.toLocaleDateString(lang === 'cn' ? 'zh-CN' : 'en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -95,13 +95,13 @@ const BlogCatalog: React.FC = () => {
 
   // 面包屑结构化数据
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: lang === 'zh' ? '首页' : 'Home', url: 'https://pinte.com' },
-    { name: lang === 'zh' ? '博客' : 'Blog', url: 'https://pinte.com/blog' }
+    { name: lang === 'cn' ? '首页' : 'Home', url: 'https://pinte.com' },
+    { name: lang === 'cn' ? '博客' : 'Blog', url: 'https://pinte.com/blog' }
   ]);
 
   // 页面标题和描述
-  const pageTitle = lang === 'zh' ? '博客中心' : 'Blog Center';
-  const pageDesc = lang === 'zh' 
+  const pageTitle = lang === 'cn' ? '博客中心' : 'Blog Center';
+  const pageDesc = lang === 'cn' 
     ? '探索烫金膜行业最新资讯、技术文章和行业见解'
     : 'Explore the latest insights, technical articles and industry knowledge about hot stamping foils';
 
@@ -110,9 +110,14 @@ const BlogCatalog: React.FC = () => {
       <SEOMeta
         title={pageTitle}
         description={pageDesc}
-        keywords={['hot stamping foil', '烫金膜', '行业资讯', '技术文章', '包装印刷']}
-        url="/blog"
+        keywords={lang === 'cn'
+          ? ['烫金膜', '烫金箔', '博客', '行业资讯', '技术文章', '包装印刷', '烫金技术', '东莞', '烫金箔生产工艺', '冷烫箔使用方法', '全息烫金膜应用案例', '包装印刷烫金技术教程', '东莞烫金箔行业动态', '品特PINTE烫金技术干货', '东南亚烫金箔市场分析', '烫金箔常见问题解答', '电化铝选购指南']
+          : ['blog', 'hot stamping foil', 'technical articles', 'industry news', 'packaging', 'printing', 'manufacturing', 'hot stamping foil production process', 'cold foil application guide', 'holographic foil case studies', 'hot stamping foil troubleshooting', 'Southeast Asia hot stamping foil market trends', 'PINTE hot stamping foil technical tips', 'how to choose hot stamping foil for packaging']
+        }
+        url={`/${lang}/blog`}
         type="website"
+        locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
+        canonicalUrl={`/${lang}/blog`}
       />
       
       {/* JSON-LD Structure Data */}
@@ -142,7 +147,7 @@ const BlogCatalog: React.FC = () => {
                   type="text"
                   value={searchQuery}
                   onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder={lang === 'zh' ? '搜索文章...' : 'Search articles...'}
+                  placeholder={lang === 'cn' ? '搜索文章...' : 'Search articles...'}
                   className="w-full pl-12 pr-4 py-3 rounded-xl border border-neutral-200 focus:border-pinte-blue focus:ring-2 focus:ring-pinte-blue/20 outline-none transition-all"
                 />
               </div>
@@ -153,7 +158,7 @@ const BlogCatalog: React.FC = () => {
                 onChange={(e) => setSelectedCategory(e.target.value)}
                 className="px-4 py-3 rounded-xl border border-neutral-200 focus:border-pinte-blue outline-none bg-white"
               >
-                <option value="all">{lang === 'zh' ? '所有分类' : 'All Categories'}</option>
+                <option value="all">{lang === 'cn' ? '所有分类' : 'All Categories'}</option>
                 {categories.map(cat => (
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
@@ -165,7 +170,7 @@ const BlogCatalog: React.FC = () => {
                 onChange={(e) => setSelectedRegion(e.target.value)}
                 className="px-4 py-3 rounded-xl border border-neutral-200 focus:border-pinte-blue outline-none bg-white"
               >
-                <option value="all">{lang === 'zh' ? '所有地区' : 'All Regions'}</option>
+                <option value="all">{lang === 'cn' ? '所有地区' : 'All Regions'}</option>
                 {regions.map(region => (
                   <option key={region} value={region}>{region}</option>
                 ))}
@@ -177,7 +182,7 @@ const BlogCatalog: React.FC = () => {
                 className="bg-pinte-blue text-white px-8 py-3 rounded-xl font-bold hover:bg-pinte-dark transition-colors flex items-center gap-2"
               >
                 <Search size={18} />
-                {lang === 'zh' ? '搜索' : 'Search'}
+                {lang === 'cn' ? '搜索' : 'Search'}
               </button>
             </form>
 
@@ -185,7 +190,7 @@ const BlogCatalog: React.FC = () => {
             {(selectedCategory !== 'all' || selectedRegion !== 'all' || searchQuery) && (
               <div className="flex flex-wrap gap-2 mt-4 pt-4 border-t border-neutral-100">
                 <span className="text-sm text-neutral-500">
-                  {lang === 'zh' ? '当前筛选:' : 'Active filters:'} 
+                  {lang === 'cn' ? '当前筛选:' : 'Active filters:'} 
                 </span>
                 {searchQuery && (
                   <span className="px-3 py-1 bg-pinte-blue/10 text-pinte-blue text-sm rounded-full flex items-center gap-1">
@@ -218,7 +223,7 @@ const BlogCatalog: React.FC = () => {
           {/* Results Count */}
           <div className="mb-8 flex items-center justify-between">
             <p className="text-neutral-500">
-              {lang === 'zh' 
+              {lang === 'cn' 
                 ? `找到 ${filteredArticles.length} 篇文章`
                 : `Found ${filteredArticles.length} articles`
               }
@@ -298,7 +303,7 @@ const BlogCatalog: React.FC = () => {
                       to={`/blog/${article.slug}`}
                       className="inline-flex items-center gap-2 text-pinte-blue font-bold text-sm group/btn"
                     >
-                      {lang === 'zh' ? '阅读全文' : 'Read More'}
+                      {lang === 'cn' ? '阅读全文' : 'Read More'}
                       <ArrowRight size={16} className="group-hover/btn:translate-x-1 transition-transform" />
                     </Link>
                   </div>
@@ -311,16 +316,16 @@ const BlogCatalog: React.FC = () => {
                 <Search size={32} className="text-neutral-400" />
               </div>
               <h3 className="text-xl font-bold text-neutral-900 mb-2">
-                {lang === 'zh' ? '没有找到相关文章' : 'No articles found'}
+                {lang === 'cn' ? '没有找到相关文章' : 'No articles found'}
               </h3>
               <p className="text-neutral-500 mb-6">
-                {lang === 'zh' ? '请尝试其他关键词或筛选条件' : 'Try different keywords or filters'}
+                {lang === 'cn' ? '请尝试其他关键词或筛选条件' : 'Try different keywords or filters'}
               </p>
               <button
                 onClick={() => { setSearchQuery(''); setSelectedCategory('all'); setSelectedRegion('all'); }}
                 className="text-pinte-blue font-bold hover:underline"
               >
-                {lang === 'zh' ? '清除所有筛选' : 'Clear all filters'}
+                {lang === 'cn' ? '清除所有筛选' : 'Clear all filters'}
               </button>
             </div>
           )}
@@ -328,7 +333,7 @@ const BlogCatalog: React.FC = () => {
           {/* SEO Section - 站内链接 */}
           <div className="mt-20 bg-white rounded-3xl p-8 border border-neutral-100">
             <h3 className="text-2xl font-bold text-neutral-900 mb-6">
-              {lang === 'zh' ? '热门标签' : 'Popular Tags'}
+              {lang === 'cn' ? '热门标签' : 'Popular Tags'}
             </h3>
             <div className="flex flex-wrap gap-3">
               {['Hot Stamping Foil', '烫金膜', '包装设计', '印刷技术', '品牌营销', 'SEO', 'GEO'].map((tag) => (
