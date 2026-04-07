@@ -6,7 +6,7 @@
     "lib": ["ES2022"],
     "skipLibCheck": true,
     "types": ["node"],
-    "outDir": "/tmp/prerender",
+    "outDir": "./tmp-prerender",
     "noEmit": false
   },
   "include": ["prerender.ts"]
