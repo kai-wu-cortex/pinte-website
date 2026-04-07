@@ -7,7 +7,7 @@
     "dev": "vite",
     "build": "vite build",
     "build:seo": "vite build && npm run prerender",
-    "prerender": "node --loader ts-node/esm prerender.ts",
+    "prerender": "ts-node --esm prerender.ts",
     "preview": "vite preview",
     "sync-blog": "node scripts/fetch-blog.js",
     "generate-sitemap": "node scripts/generate-sitemap.js"
