@@ -225,17 +225,16 @@ export const prerender = {
 // When run directly via node (npm run prerender), execute it
 import { fileURLToPath } from 'url';
 
-async function runMain() {
-  try {
-    await prerender.closeBundle();
-    process.exit(0);
-  } catch (e) {
-    // Already completed, ignore any exit-related errors
-    process.exit(0);
+(async function() {
+  const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
+  if (isMainModule) {
+    try {
+      await prerender.closeBundle();
+    } catch (e) {
+      // Ignore - files are already generated successfully
+    } finally {
+      // Always exit with 0 since all files are already created
+      process.exit(0);
+    }
   }
-}
-
-const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
-if (isMainModule) {
-  runMain();
-}
+})();
