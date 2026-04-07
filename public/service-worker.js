@@ -74,6 +74,11 @@ self.addEventListener('fetch', (event) => {
     return;
   }
 
+  // Only cache HTTP/HTTPS URLs (skip chrome-extension, moz-extension, etc.)
+  if (!request.url.startsWith('http://') && !request.url.startsWith('https://')) {
+    return;
+  }
+
   // Check if the URL matches any of our cache patterns
   const shouldCache = ASSETS_TO_CACHE.some((pattern) => pattern.test(request.url));
 
