@@ -219,14 +219,18 @@ export const prerender = {
     }
 
     console.log('🎉 Prerender complete!');
-    // Exit successfully when running as standalone script
-    if (require.main === module) {
-      process.exit(0);
-    }
   },
 };
 
 // When run directly via node (npm run prerender), execute it
-if (require.main === module) {
-  prerender.closeBundle();
+import { fileURLToPath } from 'url';
+
+async function runMain() {
+  await prerender.closeBundle();
+  process.exit(0);
+}
+
+const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
+if (isMainModule) {
+  runMain();
 }
