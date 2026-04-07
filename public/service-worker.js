@@ -95,7 +95,11 @@ self.addEventListener('fetch', (event) => {
       return fetch(request)
         .then((networkResponse) => {
           // Cache the response for next time
-          if (networkResponse.ok && (networkResponse.type === 'cors' || networkResponse.type === 'basic')) {
+          // Allow caching 'opaque' responses for cross-origin requests (from COS object storage)
+          if (networkResponse.ok &&
+              (networkResponse.type === 'cors' ||
+               networkResponse.type === 'basic' ||
+               networkResponse.type === 'opaque')) {
             const responseToCache = networkResponse.clone();
             caches.open(CACHE_NAME).then((cache) => {
               cache.put(request, responseToCache);
@@ -107,7 +111,8 @@ self.addEventListener('fetch', (event) => {
         .catch((error) => {
           // Offline fallback - if we have anything cached, return it
           console.warn('[Service Worker] Fetch failed', error);
-          return cachedResponse;
+          // If no cache, return a 404 response to avoid TypeError
+          return cachedResponse || new Response('Not found', { status: 404 });
         });
     })
   );
@@ -117,7 +122,11 @@ self.addEventListener('fetch', (event) => {
 async function updateCache(request) {
   try {
     const networkResponse = await fetch(request);
-    if (networkResponse.ok && (networkResponse.type === 'cors' || networkResponse.type === 'basic')) {
+    // Allow caching 'opaque' responses for cross-origin requests (from COS object storage)
+    if (networkResponse.ok &&
+        (networkResponse.type === 'cors' ||
+         networkResponse.type === 'basic' ||
+         networkResponse.type === 'opaque')) {
       const cache = await caches.open(CACHE_NAME);
       const responseToCache = networkResponse.clone();
       await cache.put(request, responseToCache);
