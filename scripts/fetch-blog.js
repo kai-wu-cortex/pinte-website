@@ -230,7 +230,7 @@ function generateSitemapEntry(article, siteUrl) {
 async function syncBlog() {
   console.log('🔄 开始同步Notion博客...\n');
 
-  const siteUrl = process.env.SITE_URL || 'https://pinte.com';
+  const siteUrl = process.env.SITE_URL || 'https://www.pintecl.com';
   
   try {
     // 1. 查询数据库中的所有博客文章

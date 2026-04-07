@@ -9,12 +9,21 @@ export default defineConfig({
     apply: 'build' as const,
   }],
   // Use relative base path to ensure assets are found regardless of deployment directory
-  base: './', 
+  base: './',
   build: {
     outDir: 'dist',
     assetsDir: 'assets',
     emptyOutDir: true,
     sourcemap: false,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom', 'react-router-dom'],
+          three: ['three'],
+          notion: ['@notionhq/client', 'notion-to-md'],
+        },
+      },
+    },
   },
   server: {
     host: true,
