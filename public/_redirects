@@ -2,6 +2,6 @@
 # Handle blog posts - serve pre-rendered HTML for search engines
 /blog/*    /blog/:splat.html    200
 # Skip redirect for index.html itself to prevent infinite loop
-/index.html    200
+/index.html    /index.html    200
 # Catch-all - send everything to index.html for SPA
 /*    /index.html    200
