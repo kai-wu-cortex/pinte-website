@@ -33,7 +33,8 @@ self.addEventListener('activate', (event) => {
     }).then(() => {
       self.clients.claim();
       return trimCache();
-    });
+    })
+  );
 });
 
 // Trim cache to keep size under limit
@@ -94,7 +95,7 @@ self.addEventListener('fetch', (event) => {
       return fetch(request)
         .then((networkResponse) => {
           // Cache the response for next time
-          if (networkResponse.ok && networkResponse.type === 'cors' || networkResponse.type === 'basic') {
+          if (networkResponse.ok && (networkResponse.type === 'cors' || networkResponse.type === 'basic')) {
             const responseToCache = networkResponse.clone();
             caches.open(CACHE_NAME).then((cache) => {
               cache.put(request, responseToCache);
