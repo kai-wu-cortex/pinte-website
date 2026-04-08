@@ -10,7 +10,6 @@ import {
   Scissors, Microscope, Truck, Headphones
 } from 'lucide-react';
 import SEOMeta from '../components/SEOMeta';
-import OptimizedImage from '../components/OptimizedImage';
 
 // Lazy load heavy particle component
 const TechParticles = React.lazy(() => import('../components/TechParticles'));
@@ -225,17 +224,13 @@ const Home: React.FC = () => {
          <div className="absolute inset-0 z-0">
             {content.HERO_SLIDES.map((slide, index) => (
               <div key={slide.id} className={`absolute inset-0 transition-opacity duration-1000 ease-in-out ${index === heroImageIndex ? 'opacity-100' : 'opacity-0'}`}>
-                <OptimizedImage
-                  src={`${slide.image}.jpg`}
-                  webP={`${slide.image}.webp`}
+                <img
+                  src={slide.image}
                   className="w-full h-full object-cover"
                   alt={slide.subtitle}
                   loading={index === 0 ? "eager" : "lazy"}
-                  width={1200}
-                  height={675}
-                  priority={index === 0}
-                  sizes="100vw"
-                  srcSet={`${slide.image}-1200.webp 1200w, ${slide.image}-600.webp 600w`}
+                  width={1920}
+                  height={1080}
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-black/70 via-black/40 to-transparent"></div>
               </div>
@@ -337,15 +332,7 @@ const Home: React.FC = () => {
       <section id="about" className="relative bg-neutral-50 pb-24">
         <div className="w-full h-[100vh] min-h-[600px] relative z-0">
            <div className="absolute inset-0 overflow-hidden">
-             <OptimizedImage
-               src="https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/%E7%94%BB%E6%9D%BF%201.jpg"
-               webP="https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/%E7%94%BB%E6%9D%BF%201.webp"
-               className="w-full h-full object-cover"
-               alt="Company Panorama"
-               width={1200}
-               height={675}
-               sizes="100vw"
-             />
+             <img src="https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/%E7%94%BB%E6%9D%BF%201.png" className="w-full h-full object-cover" alt="Company Panorama" style={{ objectPosition: 'center' }} />
              <div className="absolute inset-0 bg-black/20"></div>
            </div>
            <div className="absolute top-16 left-8 md:left-24 bg-white/90 backdrop-blur-md px-6 py-3 rounded-full shadow-lg z-10">
@@ -410,16 +397,13 @@ const Home: React.FC = () => {
                     return (
                       <Link key={id} to={`/products/category/${id}`} className="group cursor-pointer relative h-[500px] overflow-hidden rounded-[2.5rem] shadow-lg hover:shadow-2xl transition-all duration-500">
                          <div className="absolute inset-0">
-                           <OptimizedImage
-                             src={`${product.heroImage}.jpg`}
-                             webP={`${product.heroImage}.webp`}
+                           <img
+                             src={product.heroImage}
                              className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                              alt={product.name}
                              loading="lazy"
                              width={800}
-                             height={1067}
-                             sizes="(min-width: 768px) 33vw, 100vw"
-                             srcSet={`${product.heroImage}-800.webp 800w, ${product.heroImage}-400.webp 400w`}
+                             height={800}
                            />
                            <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-black/20 opacity-60 group-hover:opacity-75 transition-opacity duration-500"></div>
                          </div>
@@ -541,15 +525,13 @@ const Home: React.FC = () => {
              </div>
              <div className="relative h-full min-h-[500px]">
                 <div className="aspect-[4/5] rounded-[3rem] overflow-hidden sticky top-32 shadow-2xl shadow-neutral-200">
-                   <OptimizedImage
-                     src="https://s3plus.meituan.net/opapisdk/op_ticket_1_5677168484_1765950617863_qdqqd_jqs18c.jpg"
-                     webP="https://s3plus.meituan.net/opapisdk/op_ticket_1_5677168484_1765950617863_qdqqd_jqs18c.webp"
+                   <img
+                     src="https://s3plus.meituan.net/opapisdk/op_ticket_1_5677168484_1765950617863_qdqqd_jqs18c.JPG"
                      className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
                      alt="Green Future"
                      loading="lazy"
                      width={800}
                      height={1000}
-                     sizes="(min-width: 768px) 50vw, 100vw"
                    />
                    <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex flex-col justify-end p-10 text-white">
                       <div className="w-16 h-16 bg-white/20 backdrop-blur-md rounded-full flex items-center justify-center mb-6 border border-white/20"><Trophy size={32} className="text-white" /></div>

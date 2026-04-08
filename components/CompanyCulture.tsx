@@ -1,8 +1,8 @@
+
 import React from 'react';
 import { ArrowLeft, Heart, MessageCircle, MoreHorizontal } from 'lucide-react';
 import { CulturePost, UILabels } from '../types';
 import { PinteLogo } from './PinteLogo';
-import OptimizedImage from './OptimizedImage';
 
 interface CompanyCultureProps {
   onBack: () => void;
@@ -16,13 +16,13 @@ const CompanyCulture: React.FC<CompanyCultureProps> = ({ onBack, posts, ui }) =>
       {/* Header */}
       <div className="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-neutral-100">
         <div className="max-w-[1200px] mx-auto px-4 md:px-6 h-16 flex items-center justify-between">
-          <button
+          <button 
             onClick={onBack}
             className="p-2 -ml-2 rounded-full hover:bg-neutral-100 transition-colors text-neutral-600"
           >
             <ArrowLeft size={24} />
           </button>
-
+          
           <div className="flex items-center gap-2">
              <PinteLogo originalColors className="h-6 w-auto"/>
              <span className="font-bold text-lg">PINTE LIFE</span>
@@ -43,23 +43,21 @@ const CompanyCulture: React.FC<CompanyCultureProps> = ({ onBack, posts, ui }) =>
          {/* Using CSS columns for simple masonry layout */}
          <div className="columns-2 md:columns-3 lg:columns-4 gap-4 space-y-4">
             {posts.map((post) => (
-               <div
-                 key={post.id}
+               <div 
+                 key={post.id} 
                  className="break-inside-avoid bg-white rounded-2xl overflow-hidden shadow-sm border border-neutral-100 group hover:shadow-lg hover:shadow-neutral-200/50 hover:-translate-y-1 transition-all duration-300 cursor-pointer mb-4"
                >
                   {/* Image */}
                   <div className="relative overflow-hidden">
-                     <OptimizedImage
-                        src={`${post.image}.jpg`}
-                        webP={`${post.image}.webp`}
+                     <img
+                        src={post.image}
                         alt={post.title}
                         className="w-full h-auto object-cover transform group-hover:scale-105 transition-transform duration-700"
                         loading="lazy"
                         width={400}
                         height={300}
-                        sizes="(min-width: 1024px) 25vw, (min-width: 768px) 33vw, 50vw"
                      />
-                     <div className="absolute top-3 right-3 bg-black/20 backdrop-blur-md text-white text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
+                     <div className="absolute top-3 right-3 bg-black/20 backdrop-blur-sm text-white text-[10px] px-2 py-1 rounded-full font-bold uppercase tracking-wider opacity-0 group-hover:opacity-100 transition-opacity">
                         {post.tags[0] || 'Life'}
                      </div>
                   </div>
@@ -76,9 +74,8 @@ const CompanyCulture: React.FC<CompanyCultureProps> = ({ onBack, posts, ui }) =>
                      {/* Footer: User & Stats */}
                      <div className="flex items-center justify-between">
                         <div className="flex items-center gap-2">
-                           <OptimizedImage
-                              src={`${post.avatar}.jpg`}
-                              webP={`${post.avatar}.webp`}
+                           <img
+                              src={post.avatar}
                               alt={post.author}
                               className="w-5 h-5 rounded-full bg-neutral-100 object-cover"
                               loading="lazy"

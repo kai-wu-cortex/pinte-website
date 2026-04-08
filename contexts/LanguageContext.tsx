@@ -74,7 +74,7 @@ export const LanguageProvider: React.FC<{ children: ReactNode }> = ({ children }
   };
 
   const toggleLanguage = () => {
-    const nextLanguage = lang === 'en' ? 'cn' : lang === 'cn' ? 'vi' : 'en';
+    const nextLanguage = lang === 'en' ? 'cn' : 'en';
     setLanguage(nextLanguage);
   };
 

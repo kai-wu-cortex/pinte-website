@@ -12,7 +12,6 @@ import {
   Sparkles
 } from 'lucide-react';
 import { PinteLogo } from './PinteLogo';
-import OptimizedImage from './OptimizedImage';
 import { ProductId, ProductDetail, CatalogItem, UILabels, FoilItem } from '../types';
 import { FOIL_CATALOG } from '../data/foil_data'; // Import new data
 
@@ -221,16 +220,13 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
                             >
                                 {/* Image Section */}
                                 <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
-                                    <OptimizedImage
-                                        src={`${item.image}.jpg`}
-                                        webP={`${item.image}.webp`}
+                                    <img
+                                        src={item.image}
                                         alt={item.name}
                                         className="w-full h-full object-cover mix-blend-multiply group-hover/card:scale-105 transition-transform duration-700"
                                         loading="lazy"
                                         width={400}
                                         height={300}
-                                        sizes="(min-width: 1024px) 33vw, (min-width: 768px) 50vw, 100vw"
-                                        srcSet={`${item.image}-400.webp 400w, ${item.image}-200.webp 200w`}
                                     />
                                     {item.tags && item.tags.length > 0 && (
                                       <div className="absolute top-3 left-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white px-3 py-1 rounded-full text-[10px] font-bold uppercase tracking-wider shadow-lg flex items-center gap-1.5 backdrop-blur-sm z-10">
@@ -323,15 +319,13 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
                                
                                {/* Image or Color Fallback */}
                                {foil.image ? (
-                                   <OptimizedImage
-                                      src={`${foil.image}.jpg`}
-                                      webP={`${foil.image}.webp`}
+                                   <img
+                                      src={foil.image}
                                       alt={foil.name}
                                       className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                                       loading="lazy"
                                       width={300}
                                       height={300}
-                                      sizes="(min-width: 1024px) 16vw, (min-width: 768px) 25vw, 33vw"
                                    />
                                ) : (
                                    <div 
