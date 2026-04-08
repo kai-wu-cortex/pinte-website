@@ -24,6 +24,7 @@ interface ProductShowcaseProps {
   catalog: Record<ProductId, CatalogItem[]>;
   onItemClick: (id: string) => void;
   ui?: UILabels['products'];
+  defaultViewMode?: 'categories' | 'range';
 }
 
 // Fallback UI
@@ -48,8 +49,8 @@ const defaultUI = {
     searchPlaceholder: "Search foils..."
 };
 
-const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, catalog, onItemClick, ui = defaultUI }) => {
-  const [viewMode, setViewMode] = useState<'categories' | 'range'>('categories');
+const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, catalog, onItemClick, ui = defaultUI, defaultViewMode = 'categories' }) => {
+  const [viewMode, setViewMode] = useState<'categories' | 'range'>(defaultViewMode);
   const [searchQuery, setSearchQuery] = useState('');
   
   // Range View States

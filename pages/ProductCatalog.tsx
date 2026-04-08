@@ -61,6 +61,7 @@ const ProductCatalog: React.FC = () => {
         catalog={content.CATALOG_DATA}
         onItemClick={(id) => navigate(`/${lang}/products/item/${id}`)}
         ui={ui.products}
+        defaultViewMode={viewMode}
       />
     </div>
   );
