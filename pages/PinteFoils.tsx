@@ -27,80 +27,80 @@ const PinteFoilsContent: React.FC = () => {
   const [isFilterOpen, setIsFilterOpen] = useState(false);
   const [lang, setLang] = useState<Language>('cn');
 
-  // Content translations
+  // Content translations - Enriched for SEO
   const content = {
     en: {
       badge: 'Industrial Excellence Since 2000',
       titleLine1: 'PRECISION',
-      titleLine2: 'COATING',
-      titleLine3: 'TECHNOLOGY',
-      subtitle: 'Discover our complete collection of high-performance hot stamping foils. Engineered for precision, brilliance, and durability in every application.',
-      explore: 'Explore Collection',
-      specs: 'Technical Specs',
-      introTitle: 'The Alchemy of Precision',
-      step1Title: 'Molecular Deposition',
-      step1Desc: 'Vacuum metallization processes that bond vaporized aluminum to high-grade polyester carriers at 10^-4 mbar.',
-      step2Title: 'Thermal Activation',
-      step2Desc: 'High-speed precision rollers maintain ±0.5°C thermal stability to ensure uniform release layer activation.',
-      step3Title: 'Quality Assurance',
-      step3Desc: 'Automated optical inspection systems scan every micron of the foil web for spectral consistency.',
+      titleLine2: 'HOT STAMPING',
+      titleLine3: 'FOIL TECHNOLOGY',
+      subtitle: 'PINTE is a leading manufacturer of premium hot stamping foils based in Dongguan, China. We produce high-quality metallic foil, pigment foil, holographic foil, cold foil, and specialty foils for packaging, cosmetics, leather, plastic, textiles and industrial applications. Discover our complete collection.',
+      explore: 'Browse Full Catalog',
+      specs: 'Technical Specifications',
+      introTitle: 'The Science of Metallic Coating',
+      step1Title: 'Vacuum Metallization',
+      step1Desc: 'At 10^-4 mbar vacuum pressure, aluminum is vaporized and evenly deposited onto high-grade polyester film creating the metallic reflective layer that gives hot stamping foil its signature brilliance.',
+      step2Title: 'Multi-Layer Coating',
+      step2Desc: 'Precision coating applies release layer, color layer, and adhesive layer in sequence. High-speed rollers maintain ±0.5°C temperature control for uniform coating quality.',
+      step3Title: 'Quality Inspection',
+      step3Desc: 'Automated optical inspection scans every inch of the foil web checking for color consistency, thickness uniformity, and surface quality to ensure every roll meets ISO 9001 standards.',
       statsVarieties: 'Varieties',
       statsSeries: 'Series',
-      statsCertified: 'ISO Certified',
+      statsCertified: 'ISO 9001',
       statsExport: 'Global Export',
-      catalogTitle: 'Complete Foil Catalog',
-      catalogDesc: 'Explore our full range of hot stamping foil products. Click on any foil to request more information.',
-      searchPlaceholder: 'Search by name, code, or type...',
-      allTypes: 'All Types',
+      catalogTitle: 'Complete Hot Stamping Foil Color Catalog',
+      catalogDesc: 'Browse our entire collection of hot stamping foil colors. Filter by series and finish to find the perfect metallic, matte, pigment, or holographic foil for your application.',
+      searchPlaceholder: 'Search by foil name, code, or type...',
+      allTypes: 'All Foil Types',
       allSeries: 'All Series',
-      showingResults: 'Showing {count} of {total} products',
-      noResults: 'No foils match your search criteria.',
-      ctaTitle: 'Ready to Get Started?',
-      ctaText: 'Contact us today for a quote or request samples. We\'d love to help you find the perfect foil for your project.',
-      getQuote: 'Request a Free Quote',
-      specsTitle: 'Precision Engineering Specifications',
+      showingResults: 'Showing {count} of {total} hot stamping foils',
+      noResults: 'No foils match your search criteria',
+      ctaTitle: 'Need Custom Hot Stamping Foil Supplies?',
+      ctaText: 'Contact PINTE today for a free quote and sample request. We supply high-quality hot stamping foils to packaging converters, printers, and manufacturers worldwide including Vietnam, Thailand, Malaysia, Indonesia, Singapore.',
+      getQuote: 'Get Free Quote & Samples',
+      specsTitle: 'Precision Manufacturing Specifications',
     },
     cn: {
       badge: '源自2000 行业卓越品质',
-      titleLine1: '精密',
-      titleLine2: '烫金',
-      titleLine3: '技术',
-      subtitle: '探索我们全系列高性能烫金箔，为每一种应用提供精确的烫印效果、卓越的金属光泽和出色的附着力。',
-      explore: '浏览产品目录',
+      titleLine1: '专业',
+      titleLine2: '烫金箔',
+      titleLine3: '制造商',
+      subtitle: 'PINTE品特位于中国东莞，是领先的烫金箔生产厂家。专业生产金属烫金箔、颜料烫金箔、镭射全息烫金箔、冷烫箔和特种烫金箔，广泛应用于包装、化妆品、皮革、塑胶、纺织品等行业。浏览我们全系列烫金箔颜色产品。',
+      explore: '浏览完整色卡',
       specs: '技术规格',
-      introTitle: '精密工艺的炼金术',
-      step1Title: '分子沉积',
-      step1Desc: '真空金属化工艺，在 10^-4 毫巴环境下将汽化铝分子沉积到高品质聚酯薄膜上。',
-      step2Title: '热激活稳定',
-      step2Desc: '高速精密辊筒保持 ±0.5℃ 热稳定性，确保离型层均匀激活。',
-      step3Title: '质量检测',
-      step3Desc: '自动光学检测系统扫描每微米箔材，确保光谱一致性。',
-      statsVarieties: '款产品',
+      introTitle: '烫金箔生产工艺',
+      step1Title: '真空镀铝',
+      step1Desc: '在 10^-4 毫巴高真空环境下，将铝气化成分子均匀沉积到高品质聚酯薄膜上，形成烫金箔特有的金属反光层，赋予烫金箔卓越光泽。',
+      step2Title: '多层涂布',
+      step2Desc: '依次涂布离型层、色层、胶粘层，高速精密辊筒控制 ±0.5℃ 温度，保证每一层涂布均匀一致。',
+      step3Title: '光学检测',
+      step3Desc: '精准温控确保离型层均匀活化，保证烫印顺畅不粘版；自动光学检测系统全程扫描，检查颜色一致性、厚度均匀性和表面质量，确保每一卷都符合 ISO 9001 质量标准。',
+      statsVarieties: '种颜色',
       statsSeries: '个系列',
       statsCertified: 'ISO 认证',
-      statsExport: '全球出口',
-      catalogTitle: '完整烫金箔目录',
-      catalogDesc: '浏览我们全系列烫金箔产品，点击任意产品查看详情并询价。',
-      searchPlaceholder: '按名称、编号或类型搜索...',
+      statsExport: '出口全球',
+      catalogTitle: '完整烫金箔颜色目录',
+      catalogDesc: 'PINTE品特提供全系列烫金箔颜色，包括金属色、哑光、颜料色、镭射全息等多种类型，可按系列和光泽筛选，帮您找到完美匹配的烫金箔。',
+      searchPlaceholder: '按烫金箔名称、编号或类型搜索...',
       allTypes: '所有类型',
       allSeries: '所有系列',
-      showingResults: '显示 {count} / 共 {total} 个产品',
-      noResults: '没有找到符合条件的产品',
-      ctaTitle: '准备好开始了吗？',
-      ctaText: '立即联系我们获取报价或索取样品，我们很乐意为您的项目找到完美的烫金解决方案。',
-      getQuote: '免费获取报价',
-      specsTitle: '精密工程规格参数',
+      showingResults: '显示 {count} / 共 {total} 种烫金箔',
+      noResults: '没有找到符合条件的烫金箔',
+      ctaTitle: '需要定制烫金箔供应？',
+      ctaText: '立即联系PINTE品特获取免费报价和样品。我们为包装印刷厂、 converter 制造商提供高品质烫金箔，产品远销越南、泰国、马来西亚、印尼、新加坡等东南亚地区。',
+      getQuote: '获取报价和样品',
+      specsTitle: '精密制造工艺规格',
     }
   };
 
-  // SEO data
+  // SEO data - Optimized for search engines
   const seo = {
     title: lang === 'cn'
-      ? 'PINTEFoils 品特烫金箔 - 专业烫金箔产品目录 | 优质品质'
-      : 'PINTE Foils - Professional Hot Stamping Foil Catalog | Premium Quality',
+      ? 'PINTE品特烫金箔完整颜色目录 - 专业烫金箔生产厂家 | Dongguan China'
+      : 'Complete Hot Stamping Foil Color Catalog - PINTE Professional Manufacturer | Dongguan China',
     description: lang === 'cn'
-      ? '浏览PINTE全系列优质烫金箔。金属、哑光、颜料、镭射箔，适用于包装、化妆品、皮革和工业应用。'
-      : 'Browse PINTE\'s complete catalog of premium hot stamping foils. Metallic, matte, pigment, holographic foils for packaging, cosmetics, leather, and industrial applications.',
+      ? 'PINTE品特位于东莞，专业生产各种烫金箔，包括金属烫金箔、颜料烫金箔、镭射全息烫金箔、冷烫箔。浏览完整烫金箔颜色目录，适用于包装、化妆品、皮革、塑胶、纺织品等行业。产品出口越南、泰国、马来西亚、印尼、新加坡等东南亚地区。'
+      : 'PINTE is a leading professional hot stamping foil manufacturer based in Dongguan, China. Browse complete catalog of metallic foil, pigment foil, holographic foil, cold foil. Serving packaging, cosmetics, leather, textile industries exporting to Vietnam, Thailand, Malaysia, Indonesia, Singapore.',
     image: 'https://www.pintecl.com/og-image-pintefoils.jpg',
     url: '/pintefoils',
   };
@@ -381,7 +381,7 @@ const PinteFoilsContent: React.FC = () => {
           </div>
         </section>
 
-        {/* Technical Specifications Section */}
+        {/* Technical Specifications Section - SEO enriched */}
         <section className="py-24 bg-[#111316] relative overflow-hidden">
           <div className="container mx-auto px-12">
             <h2 className="sr-only">{content[lang].specsTitle}</h2>
@@ -391,33 +391,88 @@ const PinteFoilsContent: React.FC = () => {
                   0.012<span className="text-[#c5c6cd] text-2xl ml-2">μm</span>
                 </h2>
                 <h3 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase tracking-widest text-sm mb-4">
-                  Precision Tolerance
+                  {lang === 'en' ? 'Coating Precision Tolerance' : '涂层精度公差'}
                 </h3>
                 <p className="text-[#c5c6cd] leading-relaxed">
-                  Our coating heads are calibrated to nanometer precision, ensuring zero deviation across 2,000-meter master rolls.
+                  {lang === 'en'
+                    ? 'Our vacuum metallization process achieves nanometer precision coating tolerance, ensuring zero deviation across 2,000-meter master rolls of hot stamping foil.'
+                    : '我们的真空镀铝工艺达到纳米级涂层精度公差，在 2000 米原卷上保证零偏差。'
+                  }
                 </p>
               </div>
               <div className="lg:w-2/3 lg:mt-32">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
                   <div>
                     <div className="h-px w-12 bg-[#e9c349] mb-6"></div>
-                    <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-2">Heat Resistance</h4>
-                    <p className="text-[#c5c6cd] text-sm">Stable performance up to 240°C for demanding high-speed rotational applications.</p>
+                    <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-2">
+                      {lang === 'en' ? 'Heat Resistance' : '耐热性'}
+                    </h4>
+                    <p className="text-[#c5c6cd] text-sm">
+                      {lang === 'en'
+                        ? 'Stable performance up to 240°C for demanding high-speed rotary hot stamping applications.'
+                        : '耐高温可达 240°C，满足高速轮转烫金应用要求。'
+                      }
+                    </p>
                   </div>
                   <div>
                     <div className="h-px w-12 bg-[#e9c349] mb-6"></div>
-                    <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-2">Carrier Gauge</h4>
-                    <p className="text-[#c5c6cd] text-sm">Balanced PET carriers from 12μm to 19μm for optimized tension control.</p>
+                    <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-2">
+                      {lang === 'en' ? 'PET Carrier Thickness' : 'PET 基材厚度'}
+                    </h4>
+                    <p className="text-[#c5c6cd] text-sm">
+                      {lang === 'en'
+                        ? 'Balanced PET film carriers from 12μm to 19μm available for optimized tension control during manufacturing.'
+                        : '提供 12μm 至 19μm PET 薄膜基材，优化生产过程张力控制。'
+                      }
+                    </p>
                   </div>
                   <div>
                     <div className="h-px w-12 bg-[#e9c349] mb-6"></div>
-                    <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-2">Surface Tension</h4>
-                    <p className="text-[#c5c6cd] text-sm">Dyne levels optimized for UV-lacquers, OPP films, and porous papers.</p>
+                    <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-2">
+                      {lang === 'en' ? 'Surface Tension' : '表面张力'}
+                    </h4>
+                    <p className="text-[#c5c6cd] text-sm">
+                      {lang === 'en'
+                        ? 'Dyne level optimized for UV lacquers, OPP films, and porous paper substrates.'
+                        : '表面张力经过优化，适用于 UV 油墨、OPP 薄膜和多孔纸张。'
+                      }
+                    </p>
                   </div>
                   <div>
                     <div className="h-px w-12 bg-[#e9c349] mb-6"></div>
-                    <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-2">Spectral Fidelity</h4>
-                    <p className="text-[#c5c6cd] text-sm">Delta E &lt; 0.5 color consistency maintained throughout production cycles.</p>
+                    <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-2">
+                      {lang === 'en' ? 'Color Consistency' : '颜色一致性'}
+                    </h4>
+                    <p className="text-[#c5c6cd] text-sm">
+                      {lang === 'en'
+                        ? 'Delta E < 0.5 color accuracy maintained across entire production run for consistent branding.'
+                        : 'Delta E < 0.5 颜色精度，整卷保持一致色彩，保证品牌印刷一致性。'
+                      }
+                    </p>
+                  </div>
+                  <div>
+                    <div className="h-px w-12 bg-[#e9c349] mb-6"></div>
+                    <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-2">
+                      {lang === 'en' ? 'Roll Length' : '卷长规格'}
+                    </h4>
+                    <p className="text-[#c5c6cd] text-sm">
+                      {lang === 'en'
+                        ? 'Standard master rolls up to 2000 meters available for efficient production planning.'
+                        : '标准原卷长达 2000 米，便于高效生产计划。'
+                      }
+                    </p>
+                  </div>
+                  <div>
+                    <div className="h-px w-12 bg-[#e9c349] mb-6"></div>
+                    <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-2">
+                      {lang === 'en' ? 'Core Diameter' : '纸芯内径'}
+                    </h4>
+                    <p className="text-[#c5c6cd] text-sm">
+                      {lang === 'en'
+                        ? 'Standard 3\" and 7\" paper cores fit most automatic hot stamping machines.'
+                        : '标准 3英寸 和 7英寸 纸芯，适配大部分自动烫金机。'
+                      }
+                    </p>
                   </div>
                 </div>
               </div>
