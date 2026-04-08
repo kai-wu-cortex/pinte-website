@@ -45,8 +45,8 @@
 
 | 语言 | Title | Description | Keywords |
 |------|-------|-------------|---------|
-| **中文** | `关于我们 - PINTE品特烫金箔 | 25年专业烫金膜制造经验` | `PINTE品特 2000年成立于东莞，25+年专业烫金箔生产经验，20万平方米厂房，日产60,000米，年投入15%收入研发，通过ISO9001、RoHS、EN71-3、ASTM-F963认证。` | `关于我们, PINTE品特, 东莞烫金箔厂家, 25年经验, ISO9001认证, RoHS认证, 烫金箔生产, 中国制造, 长安镇, 200000平方米厂房, 烫金箔研发` |
-| **英文** | `About Us - PINTE Hot Stamping Foils | 25+ Years Manufacturing Experience` | `PINTE was founded in 2000 in Dongguan, China with 25+ years of professional hot stamping foil manufacturing experience. 200,000㎡ factory, 60,000 meters daily production, 15% annual revenue invested in R&D, certified with ISO9001, RoHS, EN71-3, ASTM-F963.` | `about us, PINTE, hot stamping foil manufacturer, 25+ years experience, ISO9001 certified, RoHS compliant, Dongguan China, manufacturing, E-E-A-T, quality certifications` |
+| **中文** | `关于品特 - PINTE烫金箔 | 东莞佰仕特旗下高端烫金箔品牌` | `PINTE品特是东莞佰仕特工艺制品有限公司旗下高端烫金箔品牌，母公司1998年成立，200000㎡自有工厂，15%年收入研发投入，通过ISO9001、RoHS、EN71-3、ASTM-F963认证。` | `关于品特, PINTE, 品特, 东莞佰仕特, 烫金箔厂家, 1998年成立, 20万平方米厂房, ISO9001认证, RoHS认证, EN71-3, ASTM-F963, 烫金箔生产, 金葱粉, 高端烫金膜, 长安镇, 源头工厂, 定制烫金箔` |
+| **英文** | `About PINTE - Premium Hot Stamping Foil Brand from Dongguan BEST` | `PINTE is the premium hot stamping foil brand of Dongguan BEST Craftwork Co., Ltd. Parent company founded in 1998, 200,000㎡ factory, 15% annual revenue in R&D, certified with ISO9001, RoHS, EN71-3, ASTM-F963.` | `about PINTE, PINTE, hot stamping foil manufacturer, Dongguan BEST, founded 1998, 200000 m² factory, ISO9001 certified, RoHS compliant, EN71-3, ASTM-F963, hot stamping foil production, glitter powder, premium hot stamping foil, Dongguan China, manufacturer, custom foil` |
 
 ---
 
