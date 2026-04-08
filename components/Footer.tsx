@@ -62,21 +62,25 @@ const Footer: React.FC = () => {
                 <li className="flex items-start gap-3">
                   <Building2 className="shrink-0 mt-1 text-pinte-blue" size={18}/>
                   <div>
-                    <div className="font-medium text-neutral-800">Dongguan Best Craftwork Products Co., Ltd.</div>
-                    <div className="text-sm mt-1">Chang'an Town, Dongguan City, Guangdong Province, China</div>
+                    <div className="font-medium text-neutral-800">
+                      {lang === 'cn' ? '东莞市佰仕特工艺制品有限公司' : 'Dongguan Best Craftwork Products Co., Ltd.'}
+                    </div>
+                    <div className="text-sm mt-1">
+                      {lang === 'cn' ? '广东省东莞市长安镇' : 'Chang\'an Town, Dongguan City, Guangdong Province, China'}
+                    </div>
                   </div>
                 </li>
                 <li className="flex items-center gap-3">
                   <Mail className="shrink-0 text-pinte-blue" size={18}/>
                   <div>
-                    <span className="text-sm text-neutral-500">Email</span><br/>
+                    <span className="text-sm text-neutral-500">{lang === 'cn' ? '邮箱' : 'Email'}</span><br/>
                     <a href="mailto:sales9@bestglitter.com" className="hover:text-pinte-blue font-medium text-neutral-800">sales9@bestglitter.com</a>
                   </div>
                 </li>
                 <li className="flex items-center gap-3">
                   <Phone className="shrink-0 text-pinte-blue" size={18}/>
                   <div>
-                    <span className="text-sm text-neutral-500">Phone / WhatsApp</span><br/>
+                    <span className="text-sm text-neutral-500">{lang === 'cn' ? '电话 / 微信' : 'Phone / WhatsApp'}</span><br/>
                     <a href="tel:+8613192267509" className="hover:text-pinte-blue font-medium text-neutral-800">+86-13192267509</a>
                   </div>
                 </li>
