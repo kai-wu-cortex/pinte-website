@@ -35,8 +35,8 @@ const ProductCategory: React.FC = () => {
 
   // SEO config based on product category id
   const seoConfig: Record<string, {
-    cn: { title: string; description: string; keywords: string[];
-    en: { title: string; description: string; keywords: string[];
+    cn: { title: string; description: string; keywords: string[] };
+    en: { title: string; description: string; keywords: string[] };
   }> = {
     PK: {
       cn: {
