@@ -91,6 +91,15 @@
 
 ---
 
+## 全部烫金颜色 (`/:lang/products/foils`)
+
+| 语言 | Title | Description | Keywords |
+|------|-------|-------------|---------|
+| **中文** | `全部烫金颜色 - PINTE品特烫金箔色卡` | `浏览 PINTE 全部烫金箔颜色，支持按系列和光泽度筛选，可以直观查看各种烫金箔颜色效果，快速选择适合您产品的颜色。` | `烫金颜色, 色卡, 烫金箔颜色, 烫金箔色卡, 颜色选择, 系列筛选, 光泽度筛选, PINTE全部颜色, 烫金箔颜色样本, 东莞烫金箔颜色, 定制烫金箔颜色, 东南亚烫金箔供应商` |
+| **英文** | `Complete Foil Color Range - PINTE Hot Stamping Foils` | `Browse complete PINTE hot stamping foil color range, filter by series and finish, visualize foil colors and select the perfect color for your product.` | `foil color range, foil color swatches, hot stamping foil colors, filter by series, filter by finish, complete foil catalog, PINTE foil colors, hot stamping foil color selection, Dongguan China foil manufacturer, custom foil colors` |
+
+---
+
 ## 产品详情 (`/:lang/products/item/:id`)
 
 每个产品详情页面自动使用产品名称作为关键词基础，补充维度：产品名称+规格+定制+适用场景（如：PLPY颜料箔-数码印刷专用、定制全息烫金箔）。

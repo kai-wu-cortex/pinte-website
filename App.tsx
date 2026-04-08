@@ -71,6 +71,7 @@ const AppRoutes = () => {
       <Route path="/about" element={<Navigate to="/cn/about" replace />} />
       <Route path="/solutions/:id" element={<Navigate to="/cn/solutions/:id" replace />} />
       <Route path="/products" element={<Navigate to="/cn/products" replace />} />
+      <Route path="/products/foils" element={<Navigate to="/cn/products/foils" replace />} />
       <Route path="/products/category/:id" element={<Navigate to="/cn/products/category/:id" replace />} />
       <Route path="/products/item/:id" element={<Navigate to="/cn/products/item/:id" replace />} />
       <Route path="/culture" element={<Navigate to="/cn/culture" replace />} />
@@ -87,6 +88,7 @@ const AppRoutes = () => {
         <Route path="about" element={<About />} />
         <Route path="solutions/:id" element={<SolutionDetail />} />
         <Route path="products" element={<ProductCatalog />} />
+        <Route path="products/foils" element={<ProductCatalog />} />
         <Route path="products/category/:id" element={<ProductCategory />} />
         <Route path="products/item/:id" element={<ProductItem />} />
         <Route path="culture" element={<Culture />} />
