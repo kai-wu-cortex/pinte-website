@@ -384,7 +384,7 @@ const Home: React.FC = () => {
       <section id="products" className="py-24 px-6 bg-white">
          <div className="max-w-[1200px] mx-auto">
              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20 items-end">
-                <h2 className="text-5xl md:text-6xl font-display font-bold text-neutral-900 leading-[1.1]" dangerouslySetInnerHTML={{ __html: ui.products.discoverTitle }} />
+                <h2 className="text-4xl sm:text-5xl md:text-6xl font-display font-bold text-neutral-900 leading-[1.1]" dangerouslySetInnerHTML={{ __html: ui.products.discoverTitle }} />
                 <div className="lg:pl-12 flex flex-col items-start gap-8">
                    <p className="text-neutral-500 text-lg leading-relaxed">{ui.products.discoverDesc}</p>
                    <Link to={`/${lang}/products`} className="group flex items-center gap-2 text-pinte-blue font-bold text-sm tracking-widest uppercase border-b-2 border-pinte-blue/20 pb-1 hover:border-pinte-blue transition-all">
@@ -397,7 +397,7 @@ const Home: React.FC = () => {
                     const product = content.PRODUCT_DATA[id];
                     const Icon = id === 'PK' ? Layers : id === 'PC' ? Box : Palette;
                     return (
-                      <Link key={id} to={`/${lang}/products/category/${id}`} className="group cursor-pointer relative h-[500px] overflow-hidden rounded-[2.5rem] shadow-lg hover:shadow-2xl transition-all duration-500">
+                      <Link key={id} to={`/${lang}/products/category/${id}`} className="group cursor-pointer relative h-[350px] md:h-[500px] overflow-hidden rounded-[2.5rem] shadow-lg hover:shadow-2xl transition-all duration-500">
                          <div className="absolute inset-0">
                            <img
                              src={product.heroImage}
