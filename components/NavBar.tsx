@@ -95,12 +95,12 @@ const NavBar: React.FC = () => {
   return (
     <>
       <nav className={`
-        fixed top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-[1200px]
+        fixed top-[calc(env(safe-area-inset-top)+8px)] sm:top-6 left-1/2 -translate-x-1/2 z-50 transition-all duration-300 w-[95%] max-w-[1200px]
         rounded-full px-2 py-2 flex justify-between items-center
         border
-        ${effectiveScrolled 
-          ? 'bg-white/90 backdrop-blur-xl shadow-lg border-white/50' 
-          : 'bg-white/5 backdrop-blur-[2px] shadow-soft border-white/20' 
+        ${effectiveScrolled
+          ? 'bg-white/90 backdrop-blur-xl shadow-lg border-white/50'
+          : 'bg-white/5 backdrop-blur-[2px] shadow-soft border-white/20'
         }
       `}>
          <div className="flex items-center gap-2 pl-6 cursor-pointer" onClick={() => navigate(`/${lang}`)}>
@@ -224,8 +224,8 @@ const NavBar: React.FC = () => {
              </Link>
 
              {/* Mobile Menu Button */}
-             <button 
-                className="lg:hidden p-2 rounded-full hover:bg-white/10 transition-colors"
+             <button
+                className="lg:hidden p-3 rounded-full hover:bg-white/10 transition-colors min-w-[48px] min-h-[48px] flex items-center justify-center"
                 onClick={() => setMobileMenuOpen(true)}
              >
                 <Menu size={24} className={effectiveScrolled ? 'text-neutral-900' : 'text-white'} />

@@ -121,21 +121,21 @@ const ProductCategory: React.FC = () => {
         canonicalUrl={`/${lang}/products/category/${id}`}
       />
       <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
-        <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
+        <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-4 flex flex-col sm:h-20 sm:flex-row items-center justify-between gap-3">
            <button
             onClick={() => navigate(`/${lang}/products`)}
-            className="flex items-center gap-2 text-neutral-600 hover:text-pinte-blue font-medium transition-colors"
+            className="flex items-center gap-2 text-neutral-600 hover:text-pinte-blue font-medium transition-colors self-start sm:self-center"
            >
              <ArrowLeft size={20} />
              <span>{ui.products.backToList}</span>
            </button>
            <h2 className="text-lg font-bold hidden md:block">{product.name}</h2>
-           <div className="flex gap-2">
+           <div className="flex gap-2 overflow-x-auto pb-1 w-full sm:w-auto no-scrollbar">
              {(['overview', 'specs', 'apps', 'faq'] as const).map((tab) => (
                 <button
                   key={tab}
                   onClick={() => setDetailTab(tab)}
-                  className={`px-4 py-1.5 rounded-full text-sm font-medium transition-all ${
+                  className={`px-3 sm:px-4 py-1.5 rounded-full text-sm font-medium whitespace-nowrap transition-all ${
                     detailTab === tab
                       ? 'bg-pinte-blue text-white shadow-md'
                       : 'text-neutral-500 hover:bg-neutral-100'
