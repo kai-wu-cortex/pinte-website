@@ -89,3 +89,21 @@
 ## 博客文章 (`/:lang/blog/:slug`)
 
 每个博客文章自动使用文章自带标签和分类作为关键词，补充维度：文章主题+问题+教程+地域（如：越南烫金箔选购技巧、烫金膜常见故障解决）。
+
+---
+
+## 隐私政策 (`/:lang/privacy`)
+
+| 语言 | Title | Description | Keywords |
+|------|-------|-------------|---------|
+| **中文** | `隐私政策 - PINTE品特烫金箔` | `PINTE品特烫金箔网站隐私政策，说明我们如何收集、使用和保护您的个人信息。` | `隐私政策, PINTE, 个人信息保护` |
+| **英文** | `Privacy Policy - PINTE Hot Stamping Foils` | `Privacy Policy for PINTE Hot Stamping Foils website, explaining how we collect, use and protect your personal information.` | `privacy policy, PINTE, personal data protection` |
+
+---
+
+## 服务条款 (`/:lang/terms`)
+
+| 语言 | Title | Description | Keywords |
+|------|-------|-------------|---------|
+| **中文** | `服务条款 - PINTE品特烫金箔` | `PINTE品特烫金箔网站使用服务条款，说明使用本网站的条件和规定。` | `服务条款, PINTE, 使用条件` |
+| **英文** | `Terms of Service - PINTE Hot Stamping Foils` | `Terms of Service for PINTE Hot Stamping Foils website, outlining the conditions for using this website.` | `terms of service, PINTE, conditions of use` |

@@ -19,6 +19,8 @@ const Quote = React.lazy(() => import('./pages/Quote'));
 const FactoryTour = React.lazy(() => import('./pages/FactoryTour'));
 const BlogCatalog = React.lazy(() => import('./pages/BlogCatalog'));
 const BlogItem = React.lazy(() => import('./pages/BlogItem'));
+const Privacy = React.lazy(() => import('./pages/Privacy'));
+const Terms = React.lazy(() => import('./pages/Terms'));
 
 // Loading spinner component for Suspense
 const PageLoader = () => (
@@ -78,6 +80,8 @@ const AppRoutes = () => {
         <Route path="tour" element={<FactoryTour />} />
         <Route path="blog" element={<BlogCatalog />} />
         <Route path="blog/:slug" element={<BlogItem />} />
+        <Route path="privacy" element={<Privacy />} />
+        <Route path="terms" element={<Terms />} />
       </Route>
     </Routes>
   );

@@ -108,8 +108,8 @@ const Footer: React.FC = () => {
         <div className="pt-8 border-t border-neutral-100 flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-neutral-400 text-sm">{ui.footer.rights}</p>
             <div className="flex gap-8 text-sm font-medium text-neutral-500">
-              <a href="#" className="hover:text-pinte-blue transition-colors">{ui.footer.privacy}</a>
-              <a href="#" className="hover:text-pinte-blue transition-colors">{ui.footer.terms}</a>
+              <Link to={`/${lang}/privacy`} className="hover:text-pinte-blue transition-colors">{ui.footer.privacy}</Link>
+              <Link to={`/${lang}/terms`} className="hover:text-pinte-blue transition-colors">{ui.footer.terms}</Link>
               <a href="#" className="hover:text-pinte-blue transition-colors">{ui.footer.sitemap}</a>
             </div>
         </div>
