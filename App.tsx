@@ -21,6 +21,7 @@ const BlogCatalog = React.lazy(() => import('./pages/BlogCatalog'));
 const BlogItem = React.lazy(() => import('./pages/BlogItem'));
 const Privacy = React.lazy(() => import('./pages/Privacy'));
 const Terms = React.lazy(() => import('./pages/Terms'));
+const PinteFoils = React.lazy(() => import('./pages/PinteFoils'));
 
 // Loading spinner component for Suspense
 const PageLoader = () => (
@@ -66,6 +67,10 @@ const AppRoutes = () => {
     <Routes>
       {/* Redirect root to default language (Chinese) */}
       <Route path="/" element={<Navigate to="/cn" replace />} />
+
+      {/* PinteFoils standalone page - no NavBar/Footer */}
+      <Route path="/pintefoils" element={<PinteFoils />} />
+      <Route path="/:lang/pintefoils" element={<PinteFoils />} />
 
       {/* Redirect any non-language prefixed routes to default language (Chinese) */}
       <Route path="/about" element={<Navigate to="/cn/about" replace />} />
