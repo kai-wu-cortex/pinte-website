@@ -457,22 +457,20 @@ const PinteFoilsContent: React.FC = () => {
     </div>
   );
 };
-};
 
-// Foil Card Component - RETAINED original functionality
+// Foil Card Component - Full color display by default, no click link
 const FoilCard: React.FC<{ foil: FoilItem; lang: Language }> = ({ foil, lang }) => {
   return (
-    <a
-      href={`/${lang}/products/category/${foil.id}`}
+    <div
       className="group block bg-[#111316] border border-[#44474c]/20 rounded-[0.125rem] overflow-hidden hover:shadow-[0_32px_64px_-12px_rgba(0,0,0,0.4)] transition-all duration-300 group-hover:-translate-y-2 group-hover:border-[#e9c349]/40"
     >
-      {/* Color Preview Image */}
+      {/* Color Preview Image - Full color by default */}
       <div className="aspect-square relative overflow-hidden bg-[#1a1c1f]">
         {foil.previewImage ? (
           <img
             src={foil.previewImage}
             alt={`${foil.name} preview`}
-            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 grayscale group-hover:grayscale-0 opacity-60 group-hover:opacity-100"
+            className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 opacity-100"
           />
         ) : (
           <div
@@ -505,13 +503,8 @@ const FoilCard: React.FC<{ foil: FoilItem; lang: Language }> = ({ foil, lang }) 
             {foil.finish}
           </span>
         </div>
-
-        <div className="mt-4 flex items-center text-[#e9c349] text-sm font-medium opacity-0 group-hover:opacity-100 transition-opacity">
-          {lang === 'en' ? 'View Details' : '查看详情'}
-          <ArrowUpRight className="ml-1 w-4 h-4 transition-transform group-hover:translate-x-1" />
-        </div>
       </div>
-    </a>
+    </div>
   );
 };
 
