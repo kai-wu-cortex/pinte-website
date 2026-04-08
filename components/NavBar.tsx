@@ -37,6 +37,12 @@ const NavBar: React.FC = () => {
       setMobileMenuOpen(false);
       return;
     }
+    // 'about' is now a separate page, not a homepage section
+    if (itemId === 'about') {
+      navigate(`/${currentLang}/about`);
+      setMobileMenuOpen(false);
+      return;
+    }
 
     // Check if it's a section on the home page
     const isHomeSection = Object.values(Section).includes(itemId as Section);
