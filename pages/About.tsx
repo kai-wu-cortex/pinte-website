@@ -3,7 +3,7 @@ import { useLanguage } from '../contexts/LanguageContext';
 import SEOMeta from '../components/SEOMeta';
 import {
   Factory, Award, Calendar, MapPin,
-  Zap, BookOpen, Users, CheckCircle, Sparkles
+  Zap, BookOpen, Users, CheckCircle, Sparkles, Cpu
 } from 'lucide-react';
 
 const About: React.FC = () => {
@@ -211,6 +211,40 @@ const About: React.FC = () => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* High-Tech Enterprise Badge */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+            <div className="bg-gradient-to-r from-pinte-blue/5 to-pinte-blue/10 rounded-2xl p-8 shadow-sm border border-pinte-blue/20 flex items-center gap-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-pinte-blue text-white rounded-2xl">
+                <Cpu size={32} />
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-neutral-900 mb-2">
+                  {lang === 'cn' ? '国家高新技术企业' : 'National High-Tech Enterprise'}
+                </div>
+                <p className="text-neutral-600">
+                  {lang === 'cn'
+                    ? '持续技术创新，拥有多项核心专利，引领行业技术发展'
+                    : 'Continuous technological innovation with multiple core patents, leading industry development'}
+                </p>
+              </div>
+            </div>
+            <div className="bg-gradient-to-r from-pinte-gold/5 to-pinte-gold/10 rounded-2xl p-8 shadow-sm border border-pinte-gold/20 flex items-center gap-6">
+              <div className="inline-flex items-center justify-center w-16 h-16 bg-pinte-gold text-white rounded-2xl">
+                <Award size={32} />
+              </div>
+              <div>
+                <div className="text-2xl font-bold text-neutral-900 mb-2">
+                  {lang === 'cn' ? '二十年涂布积累' : '20+ Years of Coating Expertise'}
+                </div>
+                <p className="text-neutral-600">
+                  {lang === 'cn'
+                    ? '深厚工艺沉淀，稳定质量输出，满足高端客户需求'
+                    : 'Deep process accumulation, stable quality output, meets high-end customer requirements'}
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* Core Values */}
