@@ -18,6 +18,12 @@ const ProductCatalog: React.FC = () => {
     isFoilsRoute ? 'range' : 'categories'
   );
 
+  // Update viewMode when location changes (since same component reused for /products and /products/foils)
+  useEffect(() => {
+    const shouldBeRange = location.pathname.endsWith('/foils');
+    setViewMode(shouldBeRange ? 'range' : 'categories');
+  }, [location.pathname]);
+
   // SEO config based on route
   const seo = isFoilsRoute ? (
     lang === 'cn'
