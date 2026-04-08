@@ -1,7 +1,10 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, useEffect, useRef } from 'react';
 import { Search, Filter, ChevronDown, ArrowUpRight } from 'lucide-react';
+import { Canvas, useFrame } from '@react-three/fiber';
+import { OrbitControls, Environment } from '@react-three/drei';
+import * as THREE from 'three';
 import { FOIL_CATALOG } from '../data/foil_data';
 import { FoilItem } from '../types';
 import SEOMeta from '../components/SEOMeta';
@@ -274,16 +277,16 @@ const PinteFoilsContent: React.FC = () => {
               </div>
               <div className="lg:col-span-8 order-1 lg:order-2">
                 <div className="relative aspect-video rounded-[0.125rem] overflow-hidden bg-[#0c0e11] border border-[#44474c]/15">
-                  <div className="absolute inset-0 flex flex-col items-center justify-center bg-[#0c0e11]">
-                    <div className="absolute inset-0 opacity-20 pointer-events-none">
-                      <div className="absolute top-0 left-0 w-full h-full" style={{backgroundImage: 'radial-gradient(circle at 2px 2px, #37393d 1px, transparent 1px)', backgroundSize: '40px 40px'}}></div>
-                    </div>
-                    <div className="relative z-10 flex flex-col items-center text-center px-12">
-                      <div className="material-symbols-outlined text-6xl text-[#e9c349]/40 mb-6">precision_manufacturing</div>
-                      <h3 className="text-xl font-[Manrope] font-bold text-[#e2e2e6] tracking-widest uppercase mb-4">Production Process</h3>
-                      <p className="text-[#c5c6cd] max-w-md text-sm mb-8">
-                        PINTE 烫金箔通过严格的生产工艺流程，从分子沉积到最终质量检测，保证每一卷产品都达到最高品质标准。
-                      </p>
+                  <ProductionAnimation />
+                  {/* Overlay Info */}
+                  <div className="absolute top-6 left-6 z-10">
+                    <div className="bg-[#111316]/80 backdrop-blur-md px-4 py-2 rounded-[0.125rem] border border-[#44474c]/20">
+                      <div className="text-[#e9c349] text-xs font-[Manrope] font-bold uppercase tracking-widest">
+                        3D Process Simulation
+                      </div>
+                      <div className="text-[#c5c6cd] text-[10px] mt-1">
+                        Vacuum Metallization → Coating → Finishing
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -505,6 +508,147 @@ const FoilCard: React.FC<{ foil: FoilItem; lang: Language }> = ({ foil, lang }) 
         </div>
       </div>
     </div>
+  );
+};
+
+// 3D Production Process Animation
+// Simulates vacuum metallization and coating process
+const ProductionAnimation = () => {
+  return (
+    <div className="w-full h-full">
+      <Canvas
+        camera={{ position: [8, 5, 8], fov: 45 }}
+        className="bg-[#0c0e11]"
+      >
+        <color attach="background" args={['#0c0e11']} />
+        <fog attach="fog" args={['#0c0e11', 10, 30]} />
+
+        {/* Ambient light */}
+        <ambientLight intensity={0.5} />
+        {/* Main spotlight */}
+        <spotLight position={[10, 10, 10]} angle={0.15} penumbra={1} intensity={1} />
+        {/* Accent light from gold */}
+        <pointLight position={[-10, -10, -10]} color="#e9c349" intensity={0.5} />
+
+        <ProductionScene />
+
+        <OrbitControls
+          enablePan={false}
+          enableZoom={true}
+          autoRotate={true}
+          autoRotateSpeed={0.5}
+        />
+        <Environment preset="city" />
+      </Canvas>
+    </div>
+  );
+};
+
+const ProductionScene = () => {
+  // Main rollers
+  const rollerRef1 = useRef<THREE.Mesh>(null);
+  const rollerRef2 = useRef<THREE.Mesh>(null);
+  const foilRef = useRef<THREE.Mesh>(null);
+
+  // Animated particles for aluminum vapor deposition
+  const particlesRef = useRef<THREE.Points>(null);
+
+  useFrame((state) => {
+    const time = state.clock.getElapsedTime();
+    // Rotate rollers continuously
+    if (rollerRef1.current) rollerRef1.current.rotation.x = time * 0.5;
+    if (rollerRef2.current) rollerRef2.current.rotation.x = time * 0.5;
+    // Move foil forward slowly
+    if (foilRef.current) foilRef.current.position.z = -time * 0.5;
+    // Animate particles moving towards foil
+    if (particlesRef.current) {
+      particlesRef.current.position.z = -time * 0.5;
+    }
+  });
+
+  // Create aluminum vapor particles
+  const particleCount = 200;
+  const particlesPosition = useMemo(() => {
+    const positions = new Float32Array(particleCount * 3);
+    for (let i = 0; i < particleCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 4;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 4;
+      positions[i * 3 + 2] = Math.random() * 8 - 2;
+    }
+    return positions;
+  }, []);
+
+  return (
+    <group position={[0, 0, 0]}>
+      {/* Vacuum chamber enclosure */}
+      <mesh position={[0, 0, 0]}>
+        <boxGeometry args={[12, 6, 8]} />
+        <meshBasicMaterial color="#0a0c0e" wireframe={true} transparent opacity={0.3} />
+      </mesh>
+
+      {/* Feed roller */}
+      <mesh ref={rollerRef1} position={[-3, 0, -1]} rotation={[0, 0, 0]}>
+        <cylinderGeometry args={[1.2, 1.2, 5, 32]} />
+        <meshStandardMaterial color="#2a2c30" metalness={0.8} roughness={0.3} />
+      </mesh>
+
+      {/* Take-up roller */}
+      <mesh ref={rollerRef2} position={[3, 0, -1]} rotation={[0, 0, 0]}>
+        <cylinderGeometry args={[1.2, 1.2, 5, 32]} />
+        <meshStandardMaterial color="#2a2c30" metalness={0.8} roughness={0.3} />
+      </mesh>
+
+      {/* Coating roller */}
+      <mesh position={[0, 0.8, 2]} rotation={[0, 0, 0]}>
+        <cylinderGeometry args={[0.8, 0.8, 4.8, 32]} />
+        <meshStandardMaterial color="#3a3c40" metalness={0.6} roughness={0.4} />
+      </mesh>
+
+      {/* Backing roller */}
+      <mesh position={[0, -0.8, 2]} rotation={[0, 0, 0]}>
+        <cylinderGeometry args={[0.8, 0.8, 4.8, 32]} />
+        <meshStandardMaterial color="#3a3c40" metalness={0.6} roughness={0.4} />
+      </mesh>
+
+      {/* PET film / foil moving through process */}
+      <mesh ref={foilRef} position={[0, 0, 0]} rotation={[Math.PI * 0.5, 0, 0]}>
+        <planeGeometry args={[5, 4.5]} />
+        <meshPhysicalMaterial
+          color="#d4af37"
+          metalness={0.9}
+          roughness={0.1}
+          clearcoat={1.0}
+          clearcoatRoughness={0.1}
+        />
+      </mesh>
+
+      {/* Aluminum vapor particles (simulating deposition) */}
+      <points ref={particlesRef}>
+        <bufferGeometry>
+          <bufferAttribute
+            attach="attributes-position"
+            count={particleCount}
+            array={particlesPosition}
+            itemSize={3}
+          />
+        </bufferGeometry>
+        <pointsMaterial
+          size={0.05}
+          color="#e9c349"
+          transparent
+          opacity={0.8}
+          blending={THREE.AdditiveBlending}
+        />
+      </points>
+
+      {/* Process stage labels (as 3D text placeholder) */}
+      <group position={[-5, 2.5, 0]}>
+        <mesh position={[0, 0, 0]}>
+          <boxGeometry args={[0.3, 0.3, 0.3]} />
+          <meshBasicMaterial color="#e9c349" />
+        </mesh>
+      </group>
+    </group>
   );
 };
 
