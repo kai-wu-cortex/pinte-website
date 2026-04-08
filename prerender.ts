@@ -204,11 +204,66 @@ export const prerender = {
     // Generate pre-rendered pages for both languages
     const languages: Array<'cn' | 'en'> = ['cn', 'en'];
 
+    // Static routes that need prerendering (HTML file must exist for Cloudflare Pages)
+    const staticRoutes = [
+      '', // homepage
+      'about',
+      'products',
+      'products/foils',
+      'pintefoils',
+      'culture',
+      'quote',
+      'tour',
+      'blog',
+      'privacy',
+      'terms',
+    ];
+
     for (const lang of languages) {
+      // Ensure language directory exists
+      const langDir = path.join(distDir, lang);
+      if (!fs.existsSync(langDir)) {
+        fs.mkdirSync(langDir, { recursive: true });
+      }
+
       // Ensure language/blog directory exists
       const blogDir = path.join(distDir, lang, 'blog');
       if (!fs.existsSync(blogDir)) {
         fs.mkdirSync(blogDir, { recursive: true });
+      }
+
+      // Generate empty HTML file for each static route (SPA will hydrate it)
+      // Cloudflare Pages needs the physical file to exist to serve it
+      for (const route of staticRoutes) {
+        try {
+          const html = `<!DOCTYPE html>
+<html lang="${lang === 'cn' ? 'zh-CN' : 'en'}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div id="root"></div>
+  <script type="module" src="${route === '' ? './assets/index-CFyKfxtY.js' : '../'.repeat(route.split('/').length) + 'assets/index-CFyKfxtY.js'}"></script>
+</body>
+</html>
+          `.trim();
+
+          const filePath = route === ''
+            ? path.join(langDir, 'index.html')
+            : path.join(langDir, route, 'index.html');
+
+          // Ensure parent directory exists
+          const parentDir = path.dirname(filePath);
+          if (!fs.existsSync(parentDir)) {
+            fs.mkdirSync(parentDir, { recursive: true });
+          }
+
+          fs.writeFileSync(filePath, html);
+          console.log(`✅ Generated static route: /${lang}/${route}${route === '' ? '' : '/'}index.html`);
+        } catch (error) {
+          console.error(`❌ Failed to generate static route /${lang}/${route}:`, error);
+        }
       }
 
       // Generate static HTML for each article in both languages
