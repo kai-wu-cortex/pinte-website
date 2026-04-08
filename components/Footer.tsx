@@ -3,7 +3,7 @@ import React from 'react';
 import { PinteLogo } from './PinteLogo';
 import { useLanguage } from '../contexts/LanguageContext';
 import { Section } from '../types';
-import { Globe, Mail, Building2, Phone } from 'lucide-react';
+import { Globe, Mail, Building2, Phone, Facebook } from 'lucide-react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 
 const Footer: React.FC = () => {
@@ -39,6 +39,7 @@ const Footer: React.FC = () => {
             </div>
             <p className="text-neutral-500 leading-relaxed mb-6" dangerouslySetInnerHTML={{ __html: ui.footer.desc }} />
             <div className="flex gap-4">
+                <a href="https://www.facebook.com/profile.php?id=61569812755745" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-pinte-blue hover:text-white transition-colors cursor-pointer"><Facebook size={18}/></a>
                 <div className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-pinte-blue hover:text-white transition-colors cursor-pointer"><Globe size={18}/></div>
                 <div className="w-10 h-10 rounded-full bg-neutral-100 flex items-center justify-center text-neutral-600 hover:bg-pinte-blue hover:text-white transition-colors cursor-pointer"><Mail size={18}/></div>
             </div>
