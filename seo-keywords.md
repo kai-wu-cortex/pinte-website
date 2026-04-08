@@ -32,12 +32,21 @@
 
 ---
 
-## 文化关于页面 (`/:lang/culture`)
+## 文化页面（原） (`/:lang/culture`)
 
 | 语言 | Title | Description | Keywords |
 |------|-------|-------------|---------|
 | **中文** | `关于我们 - PINTE品特烫金箔` | `PINTE品特是一家拥有25年烫金箔生产经验的专业厂家，位于中国东莞，专注高端烫金箔研发生产，服务全球客户。` | `关于我们, PINTE, 品特, 东莞, 烫金箔厂家, 企业介绍, 25年经验, 东莞25年烫金箔生产厂家, 品特PINTE企业实力, 高端烫金箔研发生产厂家, 全球烫金箔定制服务商, 东莞烫金箔工厂实力, 品特PINTE厂家资质, 出口东南亚烫金箔厂家` |
 | **英文** | `About Us - PINTE Hot Stamping Foils` | `PINTE is a professional manufacturer with 25 years of experience in hot stamping foil production located in Dongguan China, focusing on R&D and manufacturing of high-end hot stamping foils, serving customers worldwide.` | `about us, PINTE, manufacturer, 25 years experience, Dongguan China, hot stamping foil, 25 years hot stamping foil manufacturing experience in Dongguan, PINTE high-end hot stamping foil R&D, professional hot stamping foil supplier worldwide, PINTE factory certification, Dongguan hot stamping foil exporter` |
+
+---
+
+## 关于我们（详情） (`/:lang/about`)
+
+| 语言 | Title | Description | Keywords |
+|------|-------|-------------|---------|
+| **中文** | `关于我们 - PINTE品特烫金箔 | 25年专业烫金膜制造经验` | `PINTE品特 2000年成立于东莞，25+年专业烫金箔生产经验，20万平方米厂房，日产60,000米，年投入15%收入研发，通过ISO9001、RoHS、EN71-3、ASTM-F963认证。` | `关于我们, PINTE品特, 东莞烫金箔厂家, 25年经验, ISO9001认证, RoHS认证, 烫金箔生产, 中国制造, 长安镇, 200000平方米厂房, 烫金箔研发` |
+| **英文** | `About Us - PINTE Hot Stamping Foils | 25+ Years Manufacturing Experience` | `PINTE was founded in 2000 in Dongguan, China with 25+ years of professional hot stamping foil manufacturing experience. 200,000㎡ factory, 60,000 meters daily production, 15% annual revenue invested in R&D, certified with ISO9001, RoHS, EN71-3, ASTM-F963.` | `about us, PINTE, hot stamping foil manufacturer, 25+ years experience, ISO9001 certified, RoHS compliant, Dongguan China, manufacturing, E-E-A-T, quality certifications` |
 
 ---
 

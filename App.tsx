@@ -9,6 +9,7 @@ const ChatWidget = React.lazy(() => import('./components/ChatWidget'));
 
 // Lazy load all page components for better performance
 const Home = React.lazy(() => import('./pages/Home'));
+const About = React.lazy(() => import('./pages/About'));
 const ProductCatalog = React.lazy(() => import('./pages/ProductCatalog'));
 const ProductCategory = React.lazy(() => import('./pages/ProductCategory'));
 const ProductItem = React.lazy(() => import('./pages/ProductItem'));
@@ -67,6 +68,7 @@ const AppRoutes = () => {
       {/* All routes with language prefix - LanguageProvider reads lang from URL params */}
       <Route path="/:lang" element={<LanguageLayout />}>
         <Route index element={<Home />} />
+        <Route path="about" element={<About />} />
         <Route path="solutions/:id" element={<SolutionDetail />} />
         <Route path="products" element={<ProductCatalog />} />
         <Route path="products/category/:id" element={<ProductCategory />} />
