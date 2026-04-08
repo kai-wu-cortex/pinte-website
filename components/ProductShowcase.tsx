@@ -11,9 +11,11 @@ import {
   Box,
   Sparkles
 } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
 import { PinteLogo } from './PinteLogo';
 import { ProductId, ProductDetail, CatalogItem, UILabels, FoilItem } from '../types';
 import { FOIL_CATALOG } from '../data/foil_data'; // Import new data
+import { useLanguage } from '../contexts/LanguageContext';
 
 // Lazy load heavy 3D component
 const Foil3DViewer = React.lazy(() => import('./Foil3DViewer'));
@@ -50,6 +52,7 @@ const defaultUI = {
 };
 
 const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, catalog, onItemClick, ui = defaultUI, defaultViewMode = 'categories' }) => {
+  const { lang } = useLanguage();
   const [viewMode, setViewMode] = useState<'categories' | 'range'>(defaultViewMode);
   const [searchQuery, setSearchQuery] = useState('');
   
@@ -123,13 +126,13 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
                         />
                     </div>
                 ) : (
-                    <button 
-                        onClick={() => setViewMode('range')}
+                    <Link
+                        to={`/${lang}/products/foils`}
                         className="bg-neutral-900 text-white px-5 py-2 rounded-full text-sm font-bold hover:bg-pinte-blue transition-colors flex items-center gap-2"
                     >
                         <LayoutGrid size={16} />
                         {ui.viewFoilRange || "View All Colors"}
-                    </button>
+                    </Link>
                 )}
             </div>
          </div>
@@ -179,12 +182,12 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
                  <h1 className="text-5xl md:text-7xl font-display font-bold uppercase tracking-tighter text-neutral-900 mb-6">
                     {ui.discoverTitle.replace(/<br\/>/g, ' ')}
                  </h1>
-                 <button 
-                    onClick={() => setViewMode('range')}
+                 <Link
+                    to={`/${lang}/products/foils`}
                     className="inline-flex items-center gap-2 border-b-2 border-neutral-900 pb-1 text-lg font-bold hover:text-pinte-blue hover:border-pinte-blue transition-colors"
                  >
                     {ui.viewFoilRange || "View All Product Colors"} <ArrowRight size={20} />
-                 </button>
+                 </Link>
               </div>
 
               {(Object.values(products) as ProductDetail[]).map((product) => {
