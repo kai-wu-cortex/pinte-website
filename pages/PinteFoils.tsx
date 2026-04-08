@@ -5,10 +5,19 @@ import { Search, Filter, ChevronDown, ArrowUpRight } from 'lucide-react';
 import { FOIL_CATALOG } from '../data/foil_data';
 import { FoilItem } from '../types';
 import SEOMeta from '../components/SEOMeta';
+import { LanguageProvider } from '../contexts/LanguageContext';
 
 type Language = 'en' | 'cn';
 
 const PinteFoils: React.FC = () => {
+  return (
+    <LanguageProvider>
+      <PinteFoilsContent />
+    </LanguageProvider>
+  );
+};
+
+const PinteFoilsContent: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<string>('all');
   const [filterSeries, setFilterSeries] = useState<string>('all');
@@ -447,6 +456,7 @@ const PinteFoils: React.FC = () => {
       </footer>
     </div>
   );
+};
 };
 
 // Foil Card Component - RETAINED original functionality
