@@ -12,7 +12,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <script>
       tailwind.config = {
         theme: {
@@ -20,6 +20,9 @@
             fontFamily: {
               sans: ['Inter', 'sans-serif'],
               display: ['Space Grotesk', 'sans-serif'],
+              headline: ['Manrope', 'sans-serif'],
+              body: ['Inter', 'sans-serif'],
+              label: ['Inter', 'sans-serif'],
             },
             colors: {
               pinte: {
@@ -28,16 +31,26 @@
                 light: '#eff6ff', // Light Blue bg
                 gold: '#d4af37', // Accent Gold
               },
-              neutral: {
-                50: '#f8fafc',
-                100: '#f1f5f9',
-                200: '#e2e8f0',
-                300: '#cbd5e1',
-                800: '#1e293b',
-                900: '#0f172a',
-              }
+              // Stitch Industrial Dark Theme colors
+              background: '#111316',
+              surface: '#111316',
+              'surface-container-low': '#1a1c1f',
+              'surface-container': '#1e2023',
+              'surface-container-high': '#282a2d',
+              'surface-container-highest': '#333538',
+              'surface-bright': '#37393d',
+              primary: '#e9c349',
+              'primary-container': '#221a00',
+              'on-primary': '#3c2f00',
+              secondary: '#b9c7e1',
+              'secondary-container': '#3d4a5f',
+              'on-surface': '#e2e2e6',
+              'on-surface-variant': '#c5c6cd',
+              'outline-variant': '#44474c',
+              outline: '#8f9097',
             },
             borderRadius: {
+              'DEFAULT': '0.125rem',
               '4xl': '2.5rem',
             },
             boxShadow: {
