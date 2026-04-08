@@ -51,7 +51,7 @@ const Footer: React.FC = () => {
                 <li><button onClick={() => handleNavClick(Section.HOME)} className="hover:text-pinte-blue transition-colors text-left">{ui.nav.home}</button></li>
                 <li><Link to={`/${lang}/products`} className="hover:text-pinte-blue transition-colors">{ui.nav.products}</Link></li>
                 <li><button onClick={() => handleNavClick(Section.SOLUTIONS)} className="hover:text-pinte-blue transition-colors text-left">{ui.nav.solutions}</button></li>
-                <li><button onClick={() => handleNavClick(Section.ABOUT)} className="hover:text-pinte-blue transition-colors text-left">{ui.nav.about}</button></li>
+                <li><Link to={`/${lang}/about`} className="hover:text-pinte-blue transition-colors">{ui.nav.about}</Link></li>
             </ul>
           </div>
 

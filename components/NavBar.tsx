@@ -98,7 +98,7 @@ const NavBar: React.FC = () => {
           : 'bg-white/5 backdrop-blur-[2px] shadow-soft border-white/20' 
         }
       `}>
-         <div className="flex items-center gap-2 pl-6 cursor-pointer" onClick={() => navigate('/')}>
+         <div className="flex items-center gap-2 pl-6 cursor-pointer" onClick={() => navigate(`/${lang}`)}>
             <PinteLogo 
               originalColors={effectiveScrolled} 
               className={`h-8 w-auto transition-colors duration-300 ${effectiveScrolled ? '' : 'text-white'}`} 
