@@ -5,6 +5,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ProductId } from '../types';
 import { ArrowLeft, Layers, Thermometer, CheckCircle2, Star, Box, Palette, HelpCircle, ChevronRight } from 'lucide-react';
+import SEOMeta from '../components/SEOMeta';
 import QuoteRequest from '../components/QuoteRequest';
 
 const ProductCategory: React.FC = () => {
@@ -32,11 +33,93 @@ const ProductCategory: React.FC = () => {
      return <QuoteRequest onBack={() => setShowQuote(false)} ui={ui.quote} />;
   }
 
+  // SEO config based on product category id
+  const seoConfig: Record<string, {
+    cn: { title: string; description: string; keywords: string[];
+    en: { title: string; description: string; keywords: string[];
+  }> = {
+    PK: {
+      cn: {
+        title: `${product.name} - 粗面烫金箔 | PINTE品特`,
+        description: 'PK咖啡底系列专为粗糙不平整表面设计的烫金箔，特别适合粗纹纸、压纹皮革、特种纸等难烫材料，特有抗氧化涂层保证重油墨纸张烫后光泽不发黑。东莞品特专业生产，供应东南亚市场。',
+        keywords: ['PK咖啡底', 'PK系列', '粗面烫金箔', '粗糙表面烫金', '重油墨烫金', '抗氧化烫金箔', '粗纹纸烫金', '压纹皮革烫金', '特种纸烫金', 'PK咖啡底烫金箔厂家', '东莞PK烫金箔', '东南亚粗面烫金箔供应商', '难烫材料专用烫金箔'],
+      },
+      en: {
+        title: `${product.name} - Rough Surface Foil | PINTE`,
+        description: 'PK Brown Back series hot stamping foil designed for rough and uneven surfaces, specially for rough paper, embossed leather, specialty paper. Special anti-oxidation coating maintains gloss on heavy ink paper. Professional manufacturer from Dongguan China, supplying Southeast Asia market.',
+        keywords: ['PK brown back foil', 'PK series', 'rough surface foil', 'heavy ink oxidation resistant', 'rough paper stamping', 'embossed leather stamping', 'specialty paper foil', 'PK brown back foil manufacturer', 'Dongguan China', 'rough surface hot stamping foil supplier for Southeast Asia'],
+      },
+    },
+    PC: {
+      cn: {
+        title: `${product.name} - 化妆品包材专用 | PINTE品特`,
+        description: 'PC系列专为塑胶材质设计，支持ABS、PS、PVC、亚克力等多种塑胶，优异耐酒精性能，完美通过百格测试，是化妆品包材烫金的最佳选择。',
+        keywords: ['PC系列', 'PC塑胶烫金箔', '塑胶烫金', '化妆品包材烫金', 'ABS烫金箔', 'PS烫金', 'PVC烫金', '亚克力烫金', '耐酒精烫金箔', '塑胶烫金箔厂家', '东莞PC烫金箔', '化妆品包装烫金箔供应', '东南亚塑胶烫金箔'],
+      },
+      en: {
+        title: `${product.name} - Plastic Foil | PINTE`,
+        description: 'PC series hot stamping foil specially engineered for plastic materials, supports ABS, PS, PVC, acrylic and other plastics. Excellent alcohol resistance, passes cross-cut test perfectly, ideal for cosmetic packaging hot stamping.',
+        keywords: ['PC series', 'plastic hot stamping foil', 'cosmetic packaging foil', 'ABS stamping foil', 'PS stamping', 'PVC stamping', 'acrylic stamping', 'alcohol resistant foil', 'plastic foil manufacturer Dongguan China', 'hot stamping foil for plastic packaging Southeast Asia'],
+      },
+    },
+    PLPY: {
+      cn: {
+        title: `${product.name} - 高遮盖力纯正色彩 | PINTE品特`,
+        description: 'PL/PY颜料箔是以颜料为原料的非镀铝产品，解决印刷油墨遮盖力不足问题，色彩饱满呈现纯正色彩，适合各种纸质基材和礼品包装。',
+        keywords: ['PL/PY颜料箔', '颜料烫金箔', '非镀铝烫金箔', '高遮盖力烫金', '色彩纯正烫金箔', '铜版纸颜料箔', '白卡纸烫金', '礼品盒颜料箔', '日期打码颜料箔', '东莞颜料箔生产厂家', '高档包装颜料烫金箔', '东南亚颜料箔供应商'],
+      },
+      en: {
+        title: `${product.name} - High Coverage Pure Color | PINTE`,
+        description: 'PL/PY pigment foils are non-aluminized products using pigment as raw material, solves insufficient ink coverage problem, provides full and pure colors, suitable for various paper substrates and gift packaging.',
+        keywords: ['PL/PY pigment foil', 'pigment hot stamping foil', 'non-aluminized foil', 'high coverage foil', 'pure color foil', 'pigment foil for gift box', 'date coding foil', 'pigment foil manufacturer Dongguan China', 'premium packaging pigment foil supplier'],
+      },
+    },
+    DIGITAL: {
+      cn: {
+        title: `${product.name} - 无需制版个性化烫金 | PINTE品特`,
+        description: '数码冷烫系列无需制版，直接在UV光油或数码墨层上进行固化转移，适合个性化定制与小批量生产，适配MGI、Scodix等数码增效设备。',
+        keywords: ['数码冷烫', '冷烫箔', '数码烫金', '无需制版烫金', '个性化烫金', '小批量烫金', '数码增效烫金', 'MGI冷烫', 'Scodix烫金', 'UV冷烫箔', '东莞数码冷烫箔厂家', '东南亚数码烫金供应商'],
+      },
+      en: {
+        title: `${product.name} - Plate-Free Personalization | PINTE`,
+        description: 'Digital cold foil series requires no plate making, direct curing transfer on UV varnish or digital toner layers, ideal for personalization and short-run production, compatible with MGI, Scodix and other digital enhancement equipment.',
+        keywords: ['digital cold foil', 'cold foil stamping', 'digital hot stamping', 'plate-free foil', 'personalized packaging foil', 'short-run foil', 'digital enhancement foil', 'MGI compatible foil', 'Scodix compatible foil', 'UV curable cold foil', 'digital foil manufacturer China'],
+      },
+    },
+    GLITTER: {
+      cn: {
+        title: `${product.name} - 耐高温耐溶剂高品质闪粉 | PINTE品特`,
+        description: '品特25年生产经验金葱粉，六角形切片，耐高温耐溶剂，光泽持久不褪色，规格齐全从1/4英寸到1/500英寸，适合圣诞饰品、美甲、丝网印刷等应用。',
+        keywords: ['金葱粉', '闪粉', '六角形金葱粉', '耐高温金葱粉', '耐溶剂金葱粉', '高品质闪粉', '美甲金葱粉', '圣诞饰品金葱粉', '丝网印刷金葱粉', '东莞金葱粉厂家', '25年生产经验金葱粉'],
+      },
+      en: {
+        title: `${product.name} - Premium Heat Solvent Resistant Glitter | PINTE`,
+        description: 'PINTE premium glitter powder with 25 years production experience, hexagonal cut, heat and solvent resistant, long-lasting shine no fading. Full range of sizes from 1/4" to 1/500", suitable for Christmas decorations, nail art, screen printing and more.',
+        keywords: ['premium glitter powder', 'hexagonal glitter', 'heat resistant glitter', 'solvent resistant glitter', 'glitter for nail art', 'glitter for Christmas decorations', 'glitter for screen printing', 'glitter manufacturer Dongguan China', '25 years experience glitter supplier'],
+      },
+    },
+  };
+
+  const currentSeo = seoConfig[id] || {
+    cn: { title: product.name, description: product.description, keywords: [product.name] },
+    en: { title: product.name, description: product.description, keywords: [product.name] },
+  };
+
+  const seo = lang === 'cn' ? currentSeo.cn : currentSeo.en;
+
   // Helper for icons (needs to match map used in main app roughly or just use basic ones)
   const ICON_MAP: Record<string, any> = { Layers, Star, CheckCircle2, Box, Palette };
 
   return (
     <div className="min-h-screen bg-neutral-50 font-sans text-neutral-900 animate-in fade-in duration-500">
+      <SEOMeta
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        type="website"
+        locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
+        canonicalUrl={`/${lang}/products/category/${id}`}
+      />
       <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
         <div className="max-w-[1200px] mx-auto px-6 h-20 flex items-center justify-between">
            <button
