@@ -32,6 +32,11 @@ const NavBar: React.FC = () => {
     // Get current language from path
     const pathSegments = location.pathname.split('/').filter(Boolean);
     const currentLang = pathSegments[0] || lang;
+    if (itemId === 'home') {
+      navigate(`/${currentLang}`);
+      setMobileMenuOpen(false);
+      return;
+    }
     if (itemId === 'onlinetour') {
       navigate(`/${currentLang}/tour`);
       setMobileMenuOpen(false);
