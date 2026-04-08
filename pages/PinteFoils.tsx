@@ -8,9 +8,10 @@ import * as THREE from 'three';
 import { FOIL_CATALOG } from '../data/foil_data';
 import { FoilItem } from '../types';
 import SEOMeta from '../components/SEOMeta';
-import { LanguageProvider } from '../contexts/LanguageContext';
+import { LanguageProvider, useLanguage } from '../contexts/LanguageContext';
 
-type Language = 'en' | 'cn';
+import { HotStampingSimulator } from '../components/HotStampingSimulator/App';
+import { Language } from '../components/HotStampingSimulator/types';
 
 const PinteFoils: React.FC = () => {
   return (
@@ -21,11 +22,11 @@ const PinteFoils: React.FC = () => {
 };
 
 const PinteFoilsContent: React.FC = () => {
+  const { lang, setLanguage } = useLanguage();
   const [searchTerm, setSearchTerm] = useState('');
   const [filterType, setFilterType] = useState<string>('all');
   const [filterSeries, setFilterSeries] = useState<string>('all');
   const [isFilterOpen, setIsFilterOpen] = useState(false);
-  const [lang, setLang] = useState<Language>('cn');
 
   // Content translations - Enriched for SEO
   const content = {
@@ -102,7 +103,7 @@ const PinteFoilsContent: React.FC = () => {
       ? 'PINTE品特位于东莞，专业生产各种烫金箔，包括金属烫金箔、颜料烫金箔、镭射全息烫金箔、冷烫箔。浏览完整烫金箔颜色目录，适用于包装、化妆品、皮革、塑胶、纺织品等行业。产品出口越南、泰国、马来西亚、印尼、新加坡等东南亚地区。'
       : 'PINTE is a leading professional hot stamping foil manufacturer based in Dongguan, China. Browse complete catalog of metallic foil, pigment foil, holographic foil, cold foil. Serving packaging, cosmetics, leather, textile industries exporting to Vietnam, Thailand, Malaysia, Indonesia, Singapore.',
     image: 'https://www.pintecl.com/og-image-pintefoils.jpg',
-    url: '/pintefoils',
+    url: `/${lang}/pintefoils`,
   };
 
   // Get unique types and series for filters
@@ -153,7 +154,7 @@ const PinteFoilsContent: React.FC = () => {
       {/* Language Switcher */}
       <div className="fixed top-6 right-6 z-50 flex items-center gap-2 bg-[#111316]/80 backdrop-blur-[24px] border border-[#44474c]/50 rounded-full p-1">
         <button
-          onClick={() => setLang('cn')}
+          onClick={() => setLanguage('cn')}
           className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
             lang === 'cn'
               ? `${aurumGradient} text-[#3c2f00]`
@@ -163,7 +164,7 @@ const PinteFoilsContent: React.FC = () => {
           中文
         </button>
         <button
-          onClick={() => setLang('en')}
+          onClick={() => setLanguage('en')}
           className={`px-3 py-1 rounded-full text-sm font-medium transition-all ${
             lang === 'en'
               ? `${aurumGradient} text-[#3c2f00]`
@@ -183,11 +184,7 @@ const PinteFoilsContent: React.FC = () => {
         {/* Hero Section */}
         <section className="relative min-h-screen flex items-center pt-24 overflow-hidden">
           <div className="absolute inset-0 z-0">
-            <img
-              className="w-full h-full object-cover opacity-40"
-              alt="Close-up of molten liquid gold and metallic foil textures"
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6616Ng5G4WS39qkBhgrb2vP31ciTN4xvS9O8xBEVH6-e29pTlE8Sb2yzMYshJy81VIgQd4zDSiMma48uOkSUdcyciOENYlrm3w0VlKa59EJColUjWTLqAvmj3FHHb2RaGnLNKIRxeid2__r3X0pf-NsRwZnFiG2gELasQ1x5592p7AQLQjCMSYbHeCBSm0Ef9xIiIZz7A-0hw0Fb_P0707GyMr2hL08jk0DRbgHDWNEuGKcf6b-diuTyUZ0OWWdTft73C1mF2ySDvX"
-            />
+            <ASCIIArtBackground />
             <div className="absolute inset-0 bg-gradient-to-r from-[#111316] via-[#111316]/80 to-transparent"></div>
           </div>
           <div className="container mx-auto px-12 relative z-10">
@@ -221,76 +218,225 @@ const PinteFoilsContent: React.FC = () => {
               </div>
             </div>
           </div>
-          {/* Decorative Gauge */}
-          <div className="absolute bottom-12 right-12 hidden xl:block">
-            <div className="bg-[#1e2023]/50 backdrop-blur-md p-8 rounded-[0.125rem] border border-[#44474c]/15">
-              <div className="flex items-end gap-4 mb-4">
-                <div className="w-1.5 h-16 bg-[#282a2d] rounded-full overflow-hidden">
-                  <div className={`w-3/4 ${aurumGradient}`}></div>
+        </section>
+
+        {/* Company About Section - SEO enriched */}
+        <section className="py-24 bg-[#111316]">
+          <div className="container mx-auto px-12">
+            <div className="text-center mb-12">
+              <div className="inline-block py-1 px-3 bg-[#221a00] border-l-4 border-[#e9c349] mb-4">
+                <span className="text-[#e9c349] text-[0.6875rem] uppercase tracking-[0.2em] font-semibold">
+                  {lang === 'en' ? 'About Dongguan BEST' : '关于东莞佰仕特'}
+                </span>
+              </div>
+              <h2 className="text-4xl font-[Manrope] font-extrabold tracking-tighter text-[#e2e2e6] uppercase mb-4">
+                {lang === 'en'
+                  ? 'Professional Hot Stamping Foil Manufacturer in Dongguan China'
+                  : '中国东莞专业烫金箔生产厂家'
+                }
+              </h2>
+              <p className="text-[#c5c6cd] max-w-3xl mx-auto text-lg leading-relaxed">
+                {lang === 'en'
+                  ? 'Dongguan BEST Craftwork Products Co., Ltd. founded in 1998, originally a leading glitter powder manufacturer serving European and American major clients, expanded to hot stamping foil industry in 2020 with the premium brand PINTE. With over 25 years of coating manufacturing experience, we deliver high-quality hot stamping foils to global clients.'
+                  : '东莞佰仕特工艺制品有限公司创立于1998年，原是服务欧美知名品牌的金葱粉行业领军企业，2020年拓展烫金箔产业，推出高端品牌「品特PINTE」。凭借25年涂层制造经验，我们为全球客户提供高品质烫金箔产品。'
+                }
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start">
+              {/* English/Chinese Company Intro */}
+              {lang === 'en' ? (
+                <div className="space-y-8 text-[#c5c6cd]">
+                  <div>
+                    <h3 className="text-2xl font-[Manrope] font-bold text-[#e2e2e6] mb-4 uppercase">Company Story</h3>
+                    <p className="leading-relaxed mb-4">
+                      Dear global partners, welcome to Dongguan BEST Craft Products Co., Ltd. — a professional manufacturing base for both glitter powder and hot stamping foil.
+                    </p>
+                    <p className="leading-relaxed mb-4">
+                      Since our establishment in 1998, we have rooted ourselves in the glitter powder industry and grown into a benchmark enterprise with the most comprehensive product range and leading technologies in the sector. From art printing to architectural decoration, from Christmas crafts to nail beauty, our glitter powder, sequins, glitter paper and other products have long served major well-known clients in Europe and America, backed by international certifications such as ISO9001 and SGS. Our 200,000㎡ self-owned workshop and fully automated production lines ensure stable supply and superior quality.
+                    </p>
+                    <p className="leading-relaxed">
+                      In 2020, we expanded our technical strengths to establish the Hot Stamping Division and launched the high-end brand "PINTE", covering a full range of hot stamping foils including PK series for rough surfaces, PC series for plastics, and PL/PY pigment foils. Leveraging our core capabilities of <strong className="text-[#e9c349]">"Comprehensiveness, Professionalism, Efficiency, Precision, and Excellence"</strong>: we offer multi-color and multi-size customization to suit all fields such as packaging, apparel, and vehicles; precise temperature control and patented technologies guarantee stable color and reliable release; efficient response and full-process quality control make cooperation worry-free. So far, we have helped numerous brands enhance their product grades through hot stamping technology, winning trust from global clients.
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-[Manrope] font-bold text-[#e2e2e6] mb-4 uppercase">Core Values</h3>
+                    <p className="leading-relaxed">
+                      From the dazzling embellishment of glitter powder to the high-end texture of hot stamping foil, BEST has always adhered to the philosophy of <strong className="text-[#e9c349]">"Mutual Achievement, Win-Win Cooperation"</strong>, empowering your products with professional craftsmanship. Contact us now for exclusive solutions, and we look forward to joining hands with you to explore the global market!
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 mt-8">
+                    <div className="bg-[#1a1c1f] p-6 rounded-[0.125rem] border border-[#44474c]/20">
+                      <h4 className="text-[#e9c349] font-[Manrope] font-bold mb-3 uppercase">Full Range</h4>
+                      <p className="text-sm text-[#c5c6cd]">Complete product range covering PK rough surface, PC plastic, pigment foils</p>
+                    </div>
+                    <div className="bg-[#1a1c1f] p-6 rounded-[0.125rem] border border-[#44474c]/20">
+                      <h4 className="text-[#e9c349] font-[Manrope] font-bold mb-3 uppercase">Professional R&D</h4>
+                      <p className="text-sm text-[#c5c6cd]">Continuous innovation in coating technology with patented processes</p>
+                    </div>
+                    <div className="bg-[#1a1c1f] p-6 rounded-[0.125rem] border border-[#44474c]/20">
+                      <h4 className="text-[#e9c349] font-[Manrope] font-bold mb-3 uppercase">Precision Manufacturing</h4>
+                      <p className="text-sm text-[#c5c6cd]">±0.5°C precise temperature control ensures consistent color accuracy</p>
+                    </div>
+                    <div className="bg-[#1a1c1f] p-6 rounded-[0.125rem] border border-[#44474c]/20">
+                      <h4 className="text-[#e9c349] font-[Manrope] font-bold mb-3 uppercase">Global Export</h4>
+                      <p className="text-sm text-[#c5c6cd]">Serving packaging, cosmetics, leather, plastic industries in Southeast Asia, Europe, Americas</p>
+                    </div>
+                  </div>
+                  <div className="bg-[#e9c349]/10 border border-[#e9c349]/20 p-6 rounded-[0.125rem] mt-8">
+                    <h4 className="text-[#e9c349] font-[Manrope] font-bold mb-2 uppercase">🎯 {lang === 'en' ? 'Certifications' : '资质认证'}</h4>
+                    <p className="text-sm text-[#c5c6cd]">
+                      ISO 9001 Quality System • BSCI • SGS • MSDS • REACH • RoHS Compliant
+                    </p>
+                  </div>
                 </div>
-                <div className="w-1.5 h-24 bg-[#282a2d] rounded-full overflow-hidden">
-                  <div className={`w-1/2 ${aurumGradient}`}></div>
+              ) : (
+                <div className="space-y-8 text-[#c5c6cd]">
+                  <div>
+                    <h3 className="text-2xl font-[Manrope] font-bold text-[#e2e2e6] mb-4 uppercase">公司简介</h3>
+                    <p className="leading-relaxed mb-4">
+                      各位全球伙伴，欢迎走进东莞佰仕特工艺制品有限公司 —— 这里是金葱粉与烫金膜两大产品的专业制造基地。
+                    </p>
+                    <p className="leading-relaxed mb-4">
+                      自 1998 年成立以来，我们以金葱粉为起点深耕葱粉领域，如今已成为行业内品类最全、技术领先的标杆企业。从美术印刷到建筑装饰，从圣诞工艺到美甲美妆，我们的金葱粉、亮片、金葱纸张等产品，凭借 ISO9001、SGS 等国际认证的品质，长期服务于欧美各大知名客户，200000㎡ 自有车间与全自动化生产线，确保稳定供应与卓越质感。
+                    </p>
+                    <p className="leading-relaxed">
+                      2020 年，我们延伸工艺优势成立烫金事业部，推出高端品牌 <span className="text-[#e9c349] font-bold">「品特 PINTE」</span>，覆盖咖啡底、PC 底、颜料箔等全系列烫金膜。依托 <span className="text-[#e9c349] font-bold">「全、专、快、精、优」</span> 核心能力：多色多尺寸定制适配包装、服装、车辆等全领域，精准温控与专利技术保障色彩稳定、离型可靠，高效响应与全流程品控让合作更省心。目前已助力众多品牌通过烫金工艺提升产品档次，赢得全球客户信赖。
+                    </p>
+                  </div>
+                  <div>
+                    <h3 className="text-2xl font-[Manrope] font-bold text-[#e2e2e6] mb-4 uppercase">企业理念</h3>
+                    <p className="leading-relaxed">
+                      从金葱粉的绚烂点缀到烫金膜的高端质感，佰仕特始终以 <span className="text-[#e9c349] font-bold">「彼此成就、合作共赢」</span> 为理念，用专业工艺为您的产品赋能。即刻咨询，获取专属解决方案，期待与您携手开拓全球市场！
+                    </p>
+                  </div>
+                  <div className="grid grid-cols-2 gap-4 mt-8">
+                    <div className="bg-[#1a1c1f] p-6 rounded-[0.125rem] border border-[#44474c]/20">
+                      <h4 className="text-[#e9c349] font-[Manrope] font-bold mb-3 uppercase">品类齐全</h4>
+                      <p className="text-sm text-[#c5c6cd]">覆盖PK粗面、PC塑胶、颜料箔等全系列烫金箔</p>
+                    </div>
+                    <div className="bg-[#1a1c1f] p-6 rounded-[0.125rem] border border-[#44474c]/20">
+                      <h4 className="text-[#e9c349] font-[Manrope] font-bold mb-3 uppercase">专业研发</h4>
+                      <p className="text-sm text-[#c5c6cd]">持续工艺创新，多项专利技术保障</p>
+                    </div>
+                    <div className="bg-[#1a1c1f] p-6 rounded-[0.125rem] border border-[#44474c]/20">
+                      <h4 className="text-[#e9c349] font-[Manrope] font-bold mb-3 uppercase">精准温控</h4>
+                      <p className="text-sm text-[#c5c6cd]">±0.5℃ 温度精度控制，保证色彩一致</p>
+                    </div>
+                    <div className="bg-[#1a1c1f] p-6 rounded-[0.125rem] border border-[#44474c]/20">
+                      <h4 className="text-[#e9c349] font-[Manrope] font-bold mb-3 uppercase">出口全球</h4>
+                      <p className="text-sm text-[#c5c6cd]">产品远销越南、泰国、马来西亚、印尼、新加坡等东南亚地区</p>
+                    </div>
+                  </div>
+                  <div className="bg-[#e9c349]/10 border border-[#e9c349]/20 p-6 rounded-[0.125rem] mt-8">
+                    <h4 className="text-[#e9c349] font-[Manrope] font-bold mb-2 uppercase">🎯 资质认证</h4>
+                    <p className="text-sm text-[#c5c6cd]">
+                      ISO 9001 质量体系 • BSCI • SGS • MSDS • REACH • 符合 RoHS 环保要求
+                    </p>
+                  </div>
                 </div>
-                <div className="w-1.5 h-32 bg-[#282a2d] rounded-full overflow-hidden">
-                  <div className={`w-5/6 ${aurumGradient}`}></div>
+              )}
+
+              {/* Core Competencies Grid */}
+              <div className="bg-[#1a1c1f] p-8 rounded-[0.125rem] border border-[#44474c]/20 sticky top-24">
+                <h3 className="text-2xl font-[Manrope] font-bold text-[#e2e2e6] mb-6 uppercase">
+                  {lang === 'en' ? 'Our Core Advantages' : '核心优势'}
+                </h3>
+                <div className="space-y-4">
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#e9c349]/10 flex items-center justify-center text-[#e9c349] font-bold text-xs">✦</span>
+                    <div>
+                      <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-1">{lang === 'en' ? 'Full Product Range' : '品类齐全'}</h4>
+                      <p className="text-sm text-[#c5c6cd]">{lang === 'en' ? 'PK for rough surfaces, PC for plastics, pigment foils, holographic foils, cold foils — complete selection' : 'PK粗面烫金箔、PC塑胶烫金箔、颜料烫金箔、镭射全息烫金箔、冷烫箔 — 全系列覆盖'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#e9c349]/10 flex items-center justify-center text-[#e9c349] font-bold text-xs">✦</span>
+                    <div>
+                      <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-1">{lang === 'en' ? '25+ Years Experience' : '25年行业经验'}</h4>
+                      <p className="text-sm text-[#c5c6cd]">{lang === 'en' ? 'Since 1998 in coating industry, professional expertise from glitter to hot stamping' : '1998年进入涂层行业，从金葱粉到烫金箔，专业经验沉淀'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#e9c349]/10 flex items-center justify-center text-[#e9c349] font-bold text-xs">✦</span>
+                    <div>
+                      <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-1">{lang === 'en' ? 'Custom Sizes & Colors' : '多色多尺寸定制'}</h4>
+                      <p className="text-sm text-[#c5c6cd]">{lang === 'en' ? 'Accept custom specifications for special application requirements' : '接受特殊规格定制，满足不同应用领域需求'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#e9c349]/10 flex items-center justify-center text-[#e9c349] font-bold text-xs">✦</span>
+                    <div>
+                      <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-1">{lang === 'en' ? 'Precision Temperature Control' : '精准温度控制'}</h4>
+                      <p className="text-sm text-[#c5c6cd]">{lang === 'en' ? '±0.5°C accuracy ensures consistent color batch after batch' : '±0.5℃ 精度管控，保证每一批次颜色一致'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#e9c349]/10 flex items-center justify-center text-[#e9c349] font-bold text-xs">✦</span>
+                    <div>
+                      <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-1">{lang === 'en' ? 'Export to Southeast Asia' : '东南亚主要供应商'}</h4>
+                      <p className="text-sm text-[#c5c6cd]">{lang === 'en' ? 'Reliable supply to Vietnam, Thailand, Malaysia, Indonesia, Singapore' : '稳定供应越南、泰国、马来西亚、印尼、新加坡，本地仓备货'}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <span className="w-6 h-6 rounded-full bg-[#e9c349]/10 flex items-center justify-center text-[#e9c349] font-bold text-xs">✦</span>
+                    <div>
+                      <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase mb-1">{lang === 'en' ? 'International Certifications' : '国际认证齐全'}</h4>
+                      <p className="text-sm text-[#c5c6cd]">{lang === 'en' ? 'ISO 9001, SGS, REACH, RoHS compliant for global markets' : 'ISO 9001、SGS、REACH、RoHS认证，符合出口要求'}</p>
+                    </div>
+                  </div>
                 </div>
-                <div className="ml-4">
-                  <div className="text-[#e9c349] font-[Manrope] font-black text-4xl tracking-tighter">99.8%</div>
-                  <div className="text-[#c5c6cd] text-[0.6875rem] uppercase tracking-widest">Coating Purity</div>
+                <div className="mt-8 pt-6 border-t border-[#44474c]/30">
+                  <div className="text-center">
+                    <p className="text-[#e9c349] font-[Manrope] font-bold uppercase mb-2">
+                      {lang === 'en' ? 'Request Free Sample & Quote' : '索取免费样品  获取报价'}
+                    </p>
+                    <a
+                      href={`/${lang}/quote`}
+                      className="inline-flex items-center px-6 py-3 bg-gradient-to-br from-[#e9c349] to-[#9f7f00] text-[#3c2f00] font-[Manrope] font-semibold rounded-[0.125rem] hover:scale-[1.02] transition-transform"
+                    >
+                      {lang === 'en' ? 'Contact Us Now' : '立即联系'}
+                      <ArrowUpRight className="ml-2 w-4 h-4" />
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Process Section */}
-        <section className="py-24 bg-[#111316]">
+        {/* Interactive Coating Process Simulator - Integrated from open source project */}
+        <section className="py-24 bg-[#0c0e11]">
           <div className="container mx-auto px-12">
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
-              <div className="lg:col-span-4 order-2 lg:order-1">
-                <h2 className="text-3xl font-[Manrope] font-bold tracking-tighter text-[#e2e2e6] mb-6 uppercase">
-                  {content[lang].introTitle}
-                </h2>
-                <div className="space-y-8">
-                  <div className="group">
-                    <div className="flex items-center gap-4 mb-2">
-                      <span className="w-8 h-8 rounded-full bg-[#e9c349]/10 flex items-center justify-center text-[#e9c349] font-bold text-xs">01</span>
-                      <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase tracking-tight">{content[lang].step1Title}</h4>
-                    </div>
-                    <p className="text-[#c5c6cd] text-sm leading-relaxed pl-12">{content[lang].step1Desc}</p>
-                  </div>
-                  <div className="group">
-                    <div className="flex items-center gap-4 mb-2">
-                      <span className="w-8 h-8 rounded-full bg-[#e9c349]/10 flex items-center justify-center text-[#e9c349] font-bold text-xs">02</span>
-                      <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase tracking-tight">{content[lang].step2Title}</h4>
-                    </div>
-                    <p className="text-[#c5c6cd] text-sm leading-relaxed pl-12">{content[lang].step2Desc}</p>
-                  </div>
-                  <div className="group">
-                    <div className="flex items-center gap-4 mb-2">
-                      <span className="w-8 h-8 rounded-full bg-[#e9c349]/10 flex items-center justify-center text-[#e9c349] font-bold text-xs">03</span>
-                      <h4 className="text-[#e2e2e6] font-[Manrope] font-bold uppercase tracking-tight">{content[lang].step3Title}</h4>
-                    </div>
-                    <p className="text-[#c5c6cd] text-sm leading-relaxed pl-12">{content[lang].step3Desc}</p>
-                  </div>
-                </div>
+            <div className="text-center mb-12">
+              <div className="inline-block py-1 px-3 bg-[#221a00] border-l-4 border-[#e9c349] mb-4">
+                <span className="text-[#e9c349] text-[0.6875rem] uppercase tracking-[0.2em] font-semibold">
+                  {lang === 'en' ? 'Interactive Demo' : '交互式模拟器'}
+                </span>
               </div>
-              <div className="lg:col-span-8 order-1 lg:order-2">
-                <div className="relative aspect-video rounded-[0.125rem] overflow-hidden bg-[#0c0e11] border border-[#44474c]/15">
-                  <ProductionAnimation />
-                  {/* Overlay Info */}
-                  <div className="absolute top-6 left-6 z-10">
-                    <div className="bg-[#111316]/80 backdrop-blur-md px-4 py-2 rounded-[0.125rem] border border-[#44474c]/20">
-                      <div className="text-[#e9c349] text-xs font-[Manrope] font-bold uppercase tracking-widest">
-                        3D Process Simulation
-                      </div>
-                      <div className="text-[#c5c6cd] text-[10px] mt-1">
-                        Vacuum Metallization → Coating → Finishing
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+              <h2 className="text-4xl font-[Manrope] font-extrabold tracking-tighter text-[#e2e2e6] uppercase mb-4">
+                {lang === 'en' ? 'Interactive Coating Process Simulator' : '交互式涂布工艺模拟器'}
+              </h2>
+              <p className="text-[#c5c6cd] max-w-3xl mx-auto">
+                {lang === 'en'
+                  ? 'Explore our precision coating process with this interactive production simulator. Adjust machine parameters in real-time and see how they affect coating quality, film thickness, and defect formation.'
+                  : '通过这个交互式生产模拟器探索我们的精密涂布工艺。实时调整机器参数，观察它们对涂布质量、膜厚和缺陷形成的影响。'
+                }
+              </p>
+            </div>
+
+            {/* Full Interactive Simulator */}
+            <div className="relative">
+              <HotStampingSimulator language={lang} />
+            </div>
+
+            <div className="mt-8 text-center text-[#c5c6cd] text-sm">
+              <p>
+                {lang === 'en'
+                  ? 'Tip: Use mouse to rotate, zoom and pan the 3D view. Click on any process step in the header to jump directly to that station.'
+                  : '提示：使用鼠标旋转、缩放和平移 3D 视图。点击顶部的任何工序步骤可直接跳转到该工位。'
+                }
+              </p>
             </div>
           </div>
         </section>
@@ -621,8 +767,8 @@ const ProductionScene = () => {
     }
   });
 
-  // Create aluminum vapor particles
-  const particleCount = 200;
+  // Create aluminum vapor particles - reduced count for memory optimization
+  const particleCount = 100;
   const particlesPosition = useMemo(() => {
     const positions = new Float32Array(particleCount * 3);
     for (let i = 0; i < particleCount; i++) {
@@ -643,25 +789,25 @@ const ProductionScene = () => {
 
       {/* Feed roller */}
       <mesh ref={rollerRef1} position={[-3, 0, -1]} rotation={[0, 0, 0]}>
-        <cylinderGeometry args={[1.2, 1.2, 5, 32]} />
+        <cylinderGeometry args={[1.2, 1.2, 5, 16]} />
         <meshStandardMaterial color="#2a2c30" metalness={0.8} roughness={0.3} />
       </mesh>
 
       {/* Take-up roller */}
       <mesh ref={rollerRef2} position={[3, 0, -1]} rotation={[0, 0, 0]}>
-        <cylinderGeometry args={[1.2, 1.2, 5, 32]} />
+        <cylinderGeometry args={[1.2, 1.2, 5, 16]} />
         <meshStandardMaterial color="#2a2c30" metalness={0.8} roughness={0.3} />
       </mesh>
 
       {/* Coating roller */}
       <mesh position={[0, 0.8, 2]} rotation={[0, 0, 0]}>
-        <cylinderGeometry args={[0.8, 0.8, 4.8, 32]} />
+        <cylinderGeometry args={[0.8, 0.8, 4.8, 16]} />
         <meshStandardMaterial color="#3a3c40" metalness={0.6} roughness={0.4} />
       </mesh>
 
       {/* Backing roller */}
       <mesh position={[0, -0.8, 2]} rotation={[0, 0, 0]}>
-        <cylinderGeometry args={[0.8, 0.8, 4.8, 32]} />
+        <cylinderGeometry args={[0.8, 0.8, 4.8, 16]} />
         <meshStandardMaterial color="#3a3c40" metalness={0.6} roughness={0.4} />
       </mesh>
 
@@ -704,6 +850,212 @@ const ProductionScene = () => {
         </mesh>
       </group>
     </group>
+  );
+};
+
+// Liquid Fluid Art Background - Dynamic flowing metallic colors, mouse interactive
+const ASCIIArtBackground = () => {
+  const canvasRef = React.useRef<HTMLCanvasElement>(null);
+  const containerRef = React.useRef<HTMLDivElement>(null);
+  const pointerRef = React.useRef({ x: 0.5, y: 0.5, vx: 0, vy: 0 });
+
+  // HSL to RGB conversion helper
+  const hue2rgb = (p: number, q: number, t: number): number => {
+    if (t < 0) t += 1;
+    if (t > 1) t -= 1;
+    if (t < 1/6) return p + (q - p) * 6 * t;
+    if (t < 1/2) return q;
+    if (t < 2/3) return p + (q - p) * 6 * (2/3 - t);
+    return p;
+  };
+
+  React.useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    // Resize canvas
+    const resize = () => {
+      if (!containerRef.current || !canvas) return;
+      canvas.width = containerRef.current.offsetWidth;
+      canvas.height = containerRef.current.offsetHeight;
+    };
+    resize();
+    window.addEventListener('resize', resize);
+
+    // Handle interaction - mouse/touch anywhere on page
+    // Background is pointer-events-none, so listen globally
+    const handleMove = (clientX: number, clientY: number) => {
+      if (!containerRef.current || !canvas) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const nx = (clientX - rect.left) / rect.width;
+      const ny = (clientY - rect.top) / rect.height;
+      // Only respond if mouse is inside the hero section
+      if (nx >= 0 && nx <= 1 && ny >= 0 && ny <= 1) {
+        pointerRef.current.vx += (nx - pointerRef.current.x) * 0.08;
+        pointerRef.current.vy += (ny - pointerRef.current.y) * 0.08;
+      }
+    };
+
+    const handleMouseMove = (e: MouseEvent) => handleMove(e.clientX, e.clientY);
+    const handleTouchMove = (e: TouchEvent) => {
+      if (e.touches[0]) handleMove(e.touches[0].clientX, e.touches[0].clientY);
+    };
+
+    // Listen globally on document - works even with overlaying divs
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('touchmove', handleTouchMove, { passive: true });
+
+
+    // Fluid flow field function
+    const noise = (x: number, y: number, time: number): number => {
+      return (Math.sin(x * 3 + time) * Math.cos(y * 2 - time) + Math.sin(x * y * 0.5 + time * 0.5)) * 0.5;
+    };
+
+    // Draw metaball-like fluid with multiple circular blobs
+    const drawFluid = (width: number, height: number, time: number) => {
+      const image = ctx.createImageData(width, height);
+      const data = image.data;
+
+      const { x: px, y: py } = pointerRef.current;
+
+      // Number of blobs depends on size, but keep performance good
+      const cellSize = 4; // larger cell size = fewer pixels to compute = better memory/performance
+      const w = Math.floor(width / cellSize);
+      const h = Math.floor(height / cellSize);
+
+      for (let yCell = 0; yCell < h; yCell++) {
+        for (let xCell = 0; xCell < w; xCell++) {
+          const nx = xCell / w;
+          const ny = yCell / h;
+
+          // Multiple flowing metaballs that move over time
+          let field = 0;
+
+          // User-interacted main blob
+          const dx1 = nx - px;
+          const dy1 = ny - py;
+          field += 0.3 / (dx1 * dx1 + dy1 * dy1);
+
+          // Orbiting blobs with periodic motion
+          const cx1 = 0.2 + 0.15 * Math.sin(time * 0.5);
+          const cy1 = 0.3 + 0.15 * Math.cos(time * 0.7);
+          const dx2 = nx - cx1;
+          const dy2 = ny - cy1;
+          field += 0.15 / (dx2 * dx2 + dy2 * dy2);
+
+          const cx2 = 0.8 - 0.2 * Math.sin(time * 0.3);
+          const cy2 = 0.7 + 0.1 * Math.cos(time * 0.6);
+          const dx3 = nx - cx2;
+          const dy3 = ny - cy2;
+          field += 0.12 / (dx3 * dx3 + dy3 * dy3);
+
+          const cx3 = 0.5 + 0.3 * Math.sin(time * 0.8);
+          const cy3 = 0.2 + 0.2 * Math.cos(time * 0.4);
+          const dx4 = nx - cx3;
+          const dy4 = ny - cy3;
+          field += 0.1 / (dx4 * dx4 + dy4 * dy4);
+
+          const cx4 = 0.15 + 0.2 * Math.cos(time * 0.9);
+          const cy4 = 0.8 - 0.25 * Math.sin(time * 0.5);
+          const dx5 = nx - cx4;
+          const dy5 = ny - cy4;
+          field += 0.08 / (dx5 * dx5 + dy5 * dy5);
+
+          // Add flow noise
+          const n = noise(nx * 8, ny * 8, time * 0.5);
+          field += n * 0.05;
+
+          // Threshold for liquid
+          if (field > 0.6) {
+            // Metallic gold/copper gradient based on field value and position - lower saturation
+            const hue = 30 + (field - 0.6) * 40 + nx * 15 + px * 10;
+            const sat = 35 + field * 25; // Lowered saturation
+            const light = 35 + (field - 0.6) * 30 + (1 - ny) * 15;
+
+            // Convert HSL to RGB (simplified)
+            const h = hue / 360;
+            const s = sat / 100;
+            const l = light / 100;
+
+            let r, g, b;
+            if (s === 0) {
+              r = g = b = l;
+            } else {
+              const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+              const p = 2 * l - q;
+              r = Math.round(255 * hue2rgb(p, q, h + 1/3));
+              g = Math.round(255 * hue2rgb(p, q, h));
+              b = Math.round(255 * hue2rgb(p, q, h - 1/3));
+            }
+
+            for (let cy = 0; cy < cellSize && yCell * cellSize + cy < height; cy++) {
+              for (let cx = 0; cx < cellSize && xCell * cellSize + cx < width; cx++) {
+                const idx = ((yCell * cellSize + cy) * width + (xCell * cellSize + cx)) * 4;
+                data[idx] = r;
+                data[idx + 1] = g;
+                data[idx + 2] = b;
+                data[idx + 3] = 255;
+              }
+            }
+          }
+        }
+      }
+
+      ctx.putImageData(image, 0, 0);
+    };
+
+    // Add momentum friction
+    const updatePhysics = () => {
+      pointerRef.current.vx *= 0.95;
+      pointerRef.current.vy *= 0.95;
+      pointerRef.current.x += pointerRef.current.vx;
+      pointerRef.current.y += pointerRef.current.vy;
+      // Bound keep within 0-1
+      pointerRef.current.x = Math.max(0, Math.min(1, pointerRef.current.x));
+      pointerRef.current.y = Math.max(0, Math.min(1, pointerRef.current.y));
+    };
+
+    // Animation loop
+    const animate = () => {
+      const { width, height } = canvas;
+      ctx.clearRect(0, 0, width, height);
+
+      updatePhysics();
+      const time = Date.now() * 0.001;
+
+      drawFluid(width, height, time);
+
+      // Add soft golden glow centered on mouse
+      const gradient = ctx.createRadialGradient(
+        width * pointerRef.current.x, height * pointerRef.current.y, 0,
+        width * pointerRef.current.x, height * pointerRef.current.y, Math.max(width, height) * 0.6
+      );
+      gradient.addColorStop(0, 'rgba(233, 195, 73, 0.15)');
+      gradient.addColorStop(1, 'rgba(233, 195, 73, 0)');
+      ctx.fillStyle = gradient;
+      ctx.fillRect(0, 0, width, height);
+
+      requestAnimationFrame(animate);
+    };
+
+    animate();
+
+    return () => {
+      window.removeEventListener('resize', resize);
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('touchmove', handleTouchMove);
+    };
+  }, []);
+
+  return (
+    <div ref={containerRef} className="w-full h-full absolute inset-0 overflow-hidden pointer-events-none">
+      <canvas
+        ref={canvasRef}
+        className="w-full h-full opacity-40 blur-[50px]"
+      />
+    </div>
   );
 };
 
