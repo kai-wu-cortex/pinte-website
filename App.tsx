@@ -67,6 +67,20 @@ const AppRoutes = () => {
       {/* Redirect root to default language (Chinese) */}
       <Route path="/" element={<Navigate to="/cn" replace />} />
 
+      {/* Redirect any non-language prefixed routes to default language (Chinese) */}
+      <Route path="/about" element={<Navigate to="/cn/about" replace />} />
+      <Route path="/solutions/:id" element={<Navigate to="/cn/solutions/:id" replace />} />
+      <Route path="/products" element={<Navigate to="/cn/products" replace />} />
+      <Route path="/products/category/:id" element={<Navigate to="/cn/products/category/:id" replace />} />
+      <Route path="/products/item/:id" element={<Navigate to="/cn/products/item/:id" replace />} />
+      <Route path="/culture" element={<Navigate to="/cn/culture" replace />} />
+      <Route path="/quote" element={<Navigate to="/cn/quote" replace />} />
+      <Route path="/tour" element={<Navigate to="/cn/tour" replace />} />
+      <Route path="/blog" element={<Navigate to="/cn/blog" replace />} />
+      <Route path="/blog/:slug" element={<Navigate to="/cn/blog/:slug" replace />} />
+      <Route path="/privacy" element={<Navigate to="/cn/privacy" replace />} />
+      <Route path="/terms" element={<Navigate to="/cn/terms" replace />} />
+
       {/* All routes with language prefix - LanguageProvider reads lang from URL params */}
       <Route path="/:lang" element={<LanguageLayout />}>
         <Route index element={<Home />} />
