@@ -139,7 +139,7 @@ const NavBar: React.FC = () => {
                                 {Object.values(content.SOLUTIONS_DATA).map((sol: SolutionData) => (
                                    <Link
                                       key={sol.id}
-                                      to={`/solutions/${sol.id}`}
+                                      to={`/${lang}/solutions/${sol.id}`}
                                       className="group/sol flex items-start gap-4 p-3 hover:bg-neutral-50 rounded-xl cursor-pointer transition-colors"
                                    >
                                       <div className="w-16 h-16 rounded-lg overflow-hidden shrink-0 border border-neutral-100">
@@ -172,7 +172,7 @@ const NavBar: React.FC = () => {
                                 {Object.values(content.PRODUCT_DATA).map((product: ProductDetail) => (
                                    <Link
                                       key={product.id}
-                                      to={`/products/category/${product.id}`}
+                                      to={`/${lang}/products/category/${product.id}`}
                                       className="flex items-center gap-3 p-2.5 hover:bg-neutral-50 rounded-xl cursor-pointer group/item transition-colors"
                                    >
                                       <img
@@ -277,7 +277,7 @@ const NavBar: React.FC = () => {
                                 {Object.values(content.SOLUTIONS_DATA).map((sol: SolutionData) => (
                                    <Link
                                       key={sol.id}
-                                      to={`/solutions/${sol.id}`}
+                                      to={`/${lang}/solutions/${sol.id}`}
                                       onClick={() => setMobileMenuOpen(false)}
                                       className="text-left py-2 px-2 text-neutral-600 font-medium hover:text-pinte-blue hover:bg-white rounded-lg transition-all text-sm flex items-center gap-3"
                                    >
@@ -292,7 +292,7 @@ const NavBar: React.FC = () => {
                                 {Object.values(content.PRODUCT_DATA).map((prod: ProductDetail) => (
                                    <Link
                                       key={prod.id}
-                                      to={`/products/category/${prod.id}`}
+                                      to={`/${lang}/products/category/${prod.id}`}
                                       onClick={() => setMobileMenuOpen(false)}
                                       className="text-left py-2 px-2 text-neutral-600 font-medium hover:text-pinte-blue hover:bg-white rounded-lg transition-all text-sm flex items-center gap-3"
                                    >
