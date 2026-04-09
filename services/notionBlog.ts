@@ -154,13 +154,20 @@ export async function fetchBlogArticle(slug: string): Promise<BlogArticle | null
     let pageId = slug;
     if (!slug.includes('-')) {
       try {
-        pageId = slug.replace(/(.{8})(.{4})(.{4})(.{4})(.{12})/, '$1-$2-$3-$4-$5');
+        // slug is 32 chars without dashes - convert back to UUID format 8-4-4-4-12
+        const match = slug.match(/^(.{8})(.{4})(.{4})(.{4})(.{12})$/);
+        if (match) {
+          pageId = `${match[1]}-${match[2]}-${match[3]}-${match[4]}-${match[5]}`;
+        } else {
+          console.error('Failed to match slug pattern:', slug);
+          return null;
+        }
       } catch (e) {
         console.error('Failed to format pageId:', e, slug);
         return null;
       }
     }
-    
+
     console.log('Fetching article with pageId:', pageId);
     
     // 获取页面基本信息
