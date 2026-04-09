@@ -4,11 +4,15 @@
 /cn/blog/:splat    /cn/blog/:splat.html    200
 /en/blog/:splat    /en/blog/:splat.html    200
 
-# Handle language root
+# Handle trailing slash on language root
+/cn/    /cn/index.html    200
+/en/    /en/index.html    200
+
+# Handle language root (without trailing slash)
 /cn    /cn/index.html    200
 /en    /en/index.html    200
 
-# Handle all other language subroutes - they all have index.html pre-rendered
+# Handle all other language subroutes - every pre-rendered route has an index.html
 /cn/:splat    /cn/:splat/index.html    200
 /en/:splat    /en/:splat/index.html    200
 
