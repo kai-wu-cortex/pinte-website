@@ -1,0 +1,6 @@
+# Cloudflare routing
+# Add .html extension for prerendered blog articles
+# Handles URLs like /cn/blog/slug -> /cn/blog/slug.html
+/cn/blog/*    /cn/blog/:splat.html    200
+/en/blog/*    /en/blog/:splat.html    200
+
