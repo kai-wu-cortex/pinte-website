@@ -11,8 +11,8 @@ const DATABASE_ID = import.meta.env.VITE_NOTION_DATABASE_ID;
 
 // 使用环境变量配置 API 路径
 // 本地开发: '/api/notion' (Vite 代理)
-// 生产部署: '/api/notion' (EdgeOne 云函数)
-const API_BASE = import.meta.env.VITE_API_BASE || '/api/notion';
+// 生产部署: 'https://api.pintecl.com/v1' (Cloudflare proxy)
+const API_BASE = import.meta.env.VITE_API_BASE || 'https://api.pintecl.com/v1';
 
 // 博客数据类型
 export interface BlogArticle {
