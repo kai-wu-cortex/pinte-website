@@ -1,0 +1,3 @@
+# SPA routing for Cloudflare Pages
+# Redirect all non-file paths to _index.html (workaround for Wrangler bug #11824)
+/* /_index.html 200
