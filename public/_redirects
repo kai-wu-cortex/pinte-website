@@ -4,6 +4,6 @@
 # Cloudflare automatically skips files that exist physically
 /* /$1/ 301
 # Skip already processed index.html files to avoid infinite loop
-*/index.html 200
+/*/index.html 200
 # Rewrite directory paths with trailing slash to index.html
-*/ /$1index.html 200
+/*/ /$1index.html 200
