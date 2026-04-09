@@ -53,6 +53,7 @@ const defaultUI = {
 
 const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, catalog, onItemClick, ui = defaultUI, defaultViewMode = 'categories' }) => {
   const { lang } = useLanguage();
+  const navigate = useNavigate();
   const [viewMode, setViewMode] = useState<'categories' | 'range'>(defaultViewMode);
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -60,7 +61,16 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
   useEffect(() => {
     setViewMode(defaultViewMode);
   }, [defaultViewMode]);
-  
+
+  const handleBackClick = () => {
+    if (viewMode === 'range') {
+      // If we're on /products/foils, navigate back to /products
+      navigate(`/${lang}/products`);
+    } else {
+      onBack();
+    }
+  };
+
   // Range View States
   const [selectedSeries, setSelectedSeries] = useState<string>('All');
   const [selectedFinish, setSelectedFinish] = useState<string>('All');
@@ -103,8 +113,8 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
        {/* Sticky Header */}
        <div className="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-neutral-100 transition-all">
          <div className="max-w-[1600px] mx-auto px-6 h-20 flex items-center justify-between">
-            <button 
-             onClick={viewMode === 'range' ? () => setViewMode('categories') : onBack}
+            <button
+             onClick={handleBackClick}
              className="flex items-center gap-2 text-neutral-500 hover:text-pinte-blue font-medium transition-colors"
             >
               <ArrowLeft size={20} />
