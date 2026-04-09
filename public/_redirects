@@ -1,14 +1,11 @@
-# SPA routing - redirect all non-file paths to index.html
-# Exclude static assets and API routes from SPA routing
-/_astro/*  /_astro/:splat  200
-/_ipx/*  /_ipx/:splat  200
-/*.js  /:splat  200
-/*.css  /:splat  200
-/*.png  /:splat  200
-/*.jpg  /:splat  200
-/*.jpeg  /:splat  200
-/*.svg  /:splat  200
-/*.ico  /:splat  200
-/*.woff  /:splat  200
-/*.woff2  /:splat  200
+# Cloudflare Pages Routing Configuration for PINTE Website
+# This configuration simplifies routing by leveraging Cloudflare Pages' default behavior
+# Cloudflare Pages automatically serves existing static files (including index.html in subdirectories)
+# and falls back to SPA routing only for non-existent paths
+
+# 1. Serve static assets directly - this is the default behavior of Cloudflare Pages
+# No need for explicit pass-through rules as Cloudflare Pages prioritizes existing files
+
+# 2. SPA fallback for non-existent paths
+# This rule is the core of SPA routing - only matches when no static file is found
 /*  /index.html  200
