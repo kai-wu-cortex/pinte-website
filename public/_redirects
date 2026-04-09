@@ -1,17 +1,6 @@
-# Root path
+# Serve root path
 / /index.html 200
 
-# If already has trailing slash, directly rewrite to index.html
-# This prevents infinite looping
-/:lang/*/ /:lang/*/index.html 200
-
-# Skip index.html files - serve directly
-/:lang/*/index.html /:lang/*/index.html 200
-
-# Add trailing slash for language root without it (e.g. /cn -> /cn/)
-/:lang /:lang/ 301
-
-# Add trailing slash for language subpaths without it
-# Only matches paths that DON'T have trailing slash yet
-# Cloudflare skips physical files (with extensions) automatically
-/:lang/* /:lang/*/ 301
+# For any path under a language code, serve index.html
+# This handles SPA routing for all pages under /en/, /cn/, etc.
+/:lang* /:lang*/index.html 200
