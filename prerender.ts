@@ -248,9 +248,13 @@ export const prerender = {
       // Cloudflare Pages needs the physical file to exist to serve it
       for (const route of staticRoutes) {
         try {
-          const assetPath = route === ''
-            ? `./assets/${indexJsFilename}`
-            : '../'.repeat(route.split('/').length) + `assets/${indexJsFilename}`;
+          // File is at /lang/[route...]/index.html
+          // assets are at /assets/ from root, so need ../ for each level
+          // route = '' -> file at /lang/index.html -> 1 level deep -> ../
+          // route = 'about' -> file at /lang/about/index.html -> 2 levels deep -> ../../
+          // route = 'products/foils' -> file at /lang/products/foils/index.html -> 3 levels deep -> ../../../
+          const levels = (route === '' ? 1 : route.split('/').length + 1);
+          const assetPath = '../'.repeat(levels) + `assets/${indexJsFilename}`;
 
           const html = `<!DOCTYPE html>
 <html lang="${lang === 'cn' ? 'zh-CN' : 'en'}">
