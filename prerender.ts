@@ -266,7 +266,7 @@ export const prerender = {
           `.trim();
 
           const filePath = route === ''
-            ? path.join(langDir, '_index.html')
+            ? path.join(langDir, 'index.html')
             : path.join(langDir, route, 'index.html');
 
           // Ensure parent directory exists
@@ -276,7 +276,7 @@ export const prerender = {
           }
 
           fs.writeFileSync(filePath, html);
-          console.log(`✅ Generated static route: /${lang}/${route}${route === '' ? '' : '/'}${route === '' ? '_' : ''}index.html`);
+          console.log(`✅ Generated static route: /${lang}/${route}${route === '' ? '' : '/'}index.html`);
         } catch (error) {
           console.error(`❌ Failed to generate static route /${lang}/${route}:`, error);
         }
