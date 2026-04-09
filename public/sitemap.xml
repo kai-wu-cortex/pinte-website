@@ -1,122 +1,245 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+  <!-- Chinese (CN) versions -->
   <url>
-    <loc>https://www.pintecl.com/</loc>
+    <loc>https://www.pintecl.com/cn</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/products</loc>
+    <loc>https://www.pintecl.com/cn/products</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/culture</loc>
+    <loc>https://www.pintecl.com/cn/culture</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/quote</loc>
+    <loc>https://www.pintecl.com/cn/quote</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/tour</loc>
+    <loc>https://www.pintecl.com/cn/tour</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/blog</loc>
+    <loc>https://www.pintecl.com/cn/blog</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>daily</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/products/category/general-hot-stamping</loc>
+    <loc>https://www.pintecl.com/cn/products/category/general-hot-stamping</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/products/category/holographic-films</loc>
+    <loc>https://www.pintecl.com/cn/products/category/holographic-films</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/products/category/cold-foil</loc>
+    <loc>https://www.pintecl.com/cn/products/category/cold-foil</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/products/category/metallized-films</loc>
+    <loc>https://www.pintecl.com/cn/products/category/metallized-films</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/products/category/security-films</loc>
+    <loc>https://www.pintecl.com/cn/products/category/security-films</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/products/item/premium-gold-foil</loc>
+    <loc>https://www.pintecl.com/cn/products/item/premium-gold-foil</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/products/item/silver-metallic</loc>
+    <loc>https://www.pintecl.com/cn/products/item/silver-metallic</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/products/item/holographic-pattern</loc>
+    <loc>https://www.pintecl.com/cn/products/item/holographic-pattern</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/products/item/cold-foil-uv</loc>
+    <loc>https://www.pintecl.com/cn/products/item/cold-foil-uv</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/solutions/cosmetics-packaging</loc>
+    <loc>https://www.pintecl.com/cn/solutions/cosmetics-packaging</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/solutions/wine-spirits</loc>
+    <loc>https://www.pintecl.com/cn/solutions/wine-spirits</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/solutions/pharmaceutical</loc>
+    <loc>https://www.pintecl.com/cn/solutions/pharmaceutical</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/solutions/tobacco</loc>
+    <loc>https://www.pintecl.com/cn/solutions/tobacco</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>https://www.pintecl.com/solutions/gift-cards</loc>
+    <loc>https://www.pintecl.com/cn/solutions/gift-cards</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- English (EN) versions -->
+  <url>
+    <loc>https://www.pintecl.com/en</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/products</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/culture</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/quote</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/tour</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/blog</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/products/category/general-hot-stamping</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/products/category/holographic-films</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/products/category/cold-foil</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/products/category/metallized-films</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/products/category/security-films</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/products/item/premium-gold-foil</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/products/item/silver-metallic</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/products/item/holographic-pattern</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/products/item/cold-foil-uv</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/solutions/cosmetics-packaging</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/solutions/wine-spirits</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/solutions/pharmaceutical</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/solutions/tobacco</loc>
+    <lastmod>2026-04-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.pintecl.com/en/solutions/gift-cards</loc>
     <lastmod>2026-04-06</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
