@@ -2,13 +2,6 @@
   "name": "pinte-website",
   "compatibility_date": "2026-04-08",
   "assets": {
-    "directory": "./dist",
-    "binding": "ASSETS"
-  },
-  "routes": [
-    {
-      "pattern": "/*",
-      "serve": true
-    }
-  ]
+    "directory": "./dist"
+  }
 }
