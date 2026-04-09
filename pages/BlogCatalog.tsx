@@ -239,9 +239,9 @@ const BlogCatalog: React.FC = () => {
                   className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-neutral-100"
                 >
                   {/* Cover Image */}
-                  <Link to={`/blog/${article.slug}`} className="block relative h-48 overflow-hidden">
-                    <img 
-                      src={article.cover || 'https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/blog-default.jpg'} 
+                  <Link to={`/${lang}/blog/${article.slug}`} className="block relative h-48 overflow-hidden">
+                    <img
+                      src={article.cover || 'https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/blog-default.jpg'}
                       alt={article.title}
                       className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
@@ -276,7 +276,7 @@ const BlogCatalog: React.FC = () => {
                     </div>
 
                     {/* Title */}
-                    <Link to={`/blog/${article.slug}`}>
+                    <Link to={`/${lang}/blog/${article.slug}`}>
                       <h2 className="text-xl font-bold text-neutral-900 mb-3 group-hover:text-pinte-blue transition-colors line-clamp-2">
                         {article.title}
                       </h2>
@@ -299,8 +299,8 @@ const BlogCatalog: React.FC = () => {
                     )}
 
                     {/* Read More */}
-                    <Link 
-                      to={`/blog/${article.slug}`}
+                    <Link
+                      to={`/${lang}/blog/${article.slug}`}
                       className="inline-flex items-center gap-2 text-pinte-blue font-bold text-sm group/btn"
                     >
                       {lang === 'cn' ? '阅读全文' : 'Read More'}
