@@ -4,7 +4,11 @@
 /cn/blog/:splat    /cn/blog/:splat.html    200
 /en/blog/:splat    /en/blog/:splat.html    200
 
-# Handle language root and subdirectories
+# Handle language root
 /cn    /cn/index.html    200
 /en    /en/index.html    200
+
+# Handle all other language subroutes - they all have index.html pre-rendered
+/cn/:splat    /cn/:splat/index.html    200
+/en/:splat    /en/:splat/index.html    200
 
