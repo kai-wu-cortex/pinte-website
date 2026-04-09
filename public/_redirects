@@ -4,3 +4,11 @@
 /cn/blog/*    /cn/blog/:splat.html    200
 /en/blog/*    /en/blog/:splat.html    200
 
+# Handle directory URLs without trailing slash
+# /cn -> /cn/index.html
+# /cn/about -> /cn/about/index.html
+/cn    /cn/index.html    200
+/en    /en/index.html    200
+/cn/*    /cn/:splat/index.html    200
+/en/*    /en/:splat/index.html    200
+
