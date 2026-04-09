@@ -12,15 +12,15 @@ const ProductCatalog: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
 
-  // Default to range view if URL is /products/foils
-  const isFoilsRoute = location.pathname.endsWith('/foils');
+  // Default to range view if URL is /products/foils (handle both /foils and /foils/ with trailing slash)
+  const isFoilsRoute = location.pathname.includes('/products/foils');
   const [viewMode, setViewMode] = useState<'categories' | 'range'>(
     isFoilsRoute ? 'range' : 'categories'
   );
 
   // Update viewMode when location changes (since same component reused for /products and /products/foils)
   useEffect(() => {
-    const shouldBeRange = location.pathname.endsWith('/foils');
+    const shouldBeRange = location.pathname.includes('/products/foils');
     setViewMode(shouldBeRange ? 'range' : 'categories');
   }, [location.pathname]);
 
