@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;family=Inter:wght@400;500;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#221a00",
+                    "on-background": "#e2e2e6",
+                    "inverse-on-surface": "#2f3034",
+                    "secondary-fixed": "#d5e3fd",
+                    "surface-container-lowest": "#0c0e11",
+                    "on-secondary-container": "#abb9d2",
+                    "on-secondary-fixed": "#0e1c2f",
+                    "on-primary-fixed": "#241a00",
+                    "surface-bright": "#37393d",
+                    "on-error": "#690005",
+                    "surface-variant": "#333538",
+                    "on-secondary-fixed-variant": "#3a475c",
+                    "on-error-container": "#ffdad6",
+                    "outline": "#8f9097",
+                    "error-container": "#93000a",
+                    "on-tertiary-container": "#9d7d5e",
+                    "tertiary-container": "#291602",
+                    "inverse-surface": "#e2e2e6",
+                    "on-tertiary-fixed": "#2a1703",
+                    "tertiary-fixed": "#ffdcbd",
+                    "primary-fixed": "#ffe088",
+                    "on-surface": "#e2e2e6",
+                    "surface-container-highest": "#333538",
+                    "error": "#ffb4ab",
+                    "primary": "#e9c349",
+                    "on-primary-fixed-variant": "#574500",
+                    "on-surface-variant": "#c5c6cd",
+                    "on-secondary": "#243145",
+                    "surface": "#111316",
+                    "on-tertiary-fixed-variant": "#5b4227",
+                    "surface-tint": "#e9c349",
+                    "on-tertiary": "#422c13",
+                    "tertiary-fixed-dim": "#e5c09d",
+                    "surface-dim": "#111316",
+                    "secondary-container": "#3d4a5f",
+                    "secondary-fixed-dim": "#b9c7e1",
+                    "on-primary": "#3c2f00",
+                    "inverse-primary": "#735c00",
+                    "surface-container-low": "#1a1c1f",
+                    "surface-container": "#1e2023",
+                    "secondary": "#b9c7e1",
+                    "on-primary-container": "#9f7f00",
+                    "background": "#111316",
+                    "tertiary": "#e5c09d",
+                    "surface-container-high": "#282a2d",
+                    "outline-variant": "#44474c",
+                    "primary-fixed-dim": "#e9c349"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Manrope"],
+                    "body": ["Inter"],
+                    "label": ["Inter"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+            text-transform: none;
+            letter-spacing: normal;
+            word-wrap: normal;
+            white-space: nowrap;
+            direction: ltr;
+        }
+        .aurum-gradient {
+            background: linear-gradient(135deg, #e9c349 0%, #9f7f00 100%);
+        }
+        .glass-nav {
+            background: rgba(17, 19, 22, 0.8);
+            backdrop-filter: blur(24px);
+        }
+    </style>
+</head>
+<body class="bg-background text-on-surface font-body selection:bg-primary/30">
+<!-- TopNavBar -->
+<nav class="fixed top-0 w-full z-50 glass-nav shadow-[0_32px_64px_-12px_rgba(0,0,0,0.4)]">
+<div class="flex justify-between items-center px-12 py-6 max-w-[1920px] mx-auto">
+<div class="text-2xl font-black tracking-tighter text-primary font-headline">AURUM PRESS</div>
+<div class="hidden md:flex items-center space-x-12">
+<a class="font-headline tracking-tighter uppercase text-sm font-bold text-primary border-b-2 border-primary pb-1" href="#">Products</a>
+<a class="font-headline tracking-tighter uppercase text-sm font-bold text-on-background hover:text-primary transition-colors" href="#">Process</a>
+<a class="font-headline tracking-tighter uppercase text-sm font-bold text-on-background hover:text-primary transition-colors" href="#">Manuals</a>
+</div>
+<div class="flex items-center space-x-8">
+<div class="hidden lg:flex items-center bg-surface-container-low px-4 py-2 rounded-lg border-b-2 border-outline-variant focus-within:border-primary transition-all">
+<span class="material-symbols-outlined text-on-surface-variant text-sm mr-2">search</span>
+<input class="bg-transparent border-none focus:ring-0 text-xs font-label tracking-widest uppercase p-0 placeholder:text-on-surface-variant/50" placeholder="SEARCH CATALOG" type="text"/>
+</div>
+<button class="aurum-gradient text-on-primary font-headline tracking-tighter uppercase text-sm font-bold px-8 py-3 rounded-lg hover:scale-[1.02] active:scale-[0.98] transition-transform">
+                    Get Quote
+                </button>
+</div>
+</div>
+</nav>
+<main>
+<!-- Hero Section -->
+<section class="relative min-h-screen flex items-center pt-24 overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img class="w-full h-full object-cover opacity-40" data-alt="Close-up of molten liquid gold and metallic foil textures with dramatic shadows and shimmering reflections in a dark industrial space" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB6616Ng5G4WS39qkBhgrb2vP31ciTN4xvS9O8xBEVH6-e29pTlE8Sb2yzMYshJy81VIgQd4zDSiMma48uOkSUdcyciOENYlrm3w0VlKa59EJColUjWTLqAvmj3FHHb2RaGnLNKIRxeid2__r3X0pf-NsRwZnFi2gELasQ1x5592p7AQLQjCMSYbHeCBSm0Ef9xIiIZz7A-0hw0Fb_P0707GyMr2hL08jk0DRbgHDWNEuGKcf6b-diuTyUZ0OWWdTft73C1mF2ySDvX"/>
+<div class="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent"></div>
+</div>
+<div class="container mx-auto px-12 relative z-10">
+<div class="max-w-4xl">
+<div class="inline-block py-1 px-3 bg-primary-container border-l-4 border-primary mb-8">
+<span class="text-primary font-label text-[0.6875rem] uppercase tracking-[0.2em] font-semibold">Industrial Excellence Since 1984</span>
+</div>
+<h1 class="text-[3.5rem] md:text-[5rem] font-headline font-extrabold tracking-tighter leading-[0.9] text-on-background mb-8">
+                        PRECISION <span class="text-transparent bg-clip-text aurum-gradient">COATING</span><br/>TECHNOLOGY
+                    </h1>
+<p class="text-body-lg text-on-surface-variant max-w-xl mb-12 text-lg leading-relaxed">
+                        Engineering the future of aesthetic surfaces. Our hot stamping foils deliver unparalleled brilliance and molecular-grade adhesion for the global luxury packaging sector.
+                    </p>
+<div class="flex flex-col sm:flex-row gap-6">
+<button class="aurum-gradient text-on-primary font-headline tracking-tighter uppercase text-sm font-bold px-10 py-5 rounded-lg flex items-center group">
+                            Explore Collection
+                            <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
+</button>
+<button class="border-2 border-outline-variant text-on-surface font-headline tracking-tighter uppercase text-sm font-bold px-10 py-5 rounded-lg hover:bg-surface-container-high transition-colors">
+                            Technical Specs
+                        </button>
+</div>
+</div>
+</div>
+<!-- Decorative Gauge -->
+<div class="absolute bottom-12 right-12 hidden xl:block">
+<div class="bg-surface-container/50 backdrop-blur-md p-8 rounded-lg border border-outline-variant/15">
+<div class="flex items-end gap-4 mb-4">
+<div class="w-1.5 h-16 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-full h-3/4 aurum-gradient"></div>
+</div>
+<div class="w-1.5 h-24 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-full h-1/2 aurum-gradient"></div>
+</div>
+<div class="w-1.5 h-32 bg-surface-container-high rounded-full overflow-hidden">
+<div class="w-full h-5/6 aurum-gradient"></div>
+</div>
+<div class="ml-4">
+<div class="text-primary font-headline font-black text-4xl tracking-tighter">99.8%</div>
+<div class="text-on-surface-variant font-label text-[0.6875rem] uppercase tracking-widest">Coating Purity</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Process Simulation Section -->
+<section class="py-24 bg-surface">
+<div class="container mx-auto px-12">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+<div class="lg:col-span-4 order-2 lg:order-1">
+<h2 class="text-3xl font-headline font-bold tracking-tighter text-on-background mb-6 uppercase">
+                            The Alchemy of <br/>Precision
+                        </h2>
+<div class="space-y-8">
+<div class="group">
+<div class="flex items-center gap-4 mb-2">
+<span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">01</span>
+<h4 class="text-on-background font-headline font-bold uppercase tracking-tight">Molecular Deposition</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed pl-12">Vacuum metallization processes that bond vaporized aluminum to high-grade polyester carriers at 10^-4 mbar.</p>
+</div>
+<div class="group">
+<div class="flex items-center gap-4 mb-2">
+<span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">02</span>
+<h4 class="text-on-background font-headline font-bold uppercase tracking-tight">Thermal Activation</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed pl-12">High-speed precision rollers maintain ±0.5°C thermal stability to ensure uniform release layer activation.</p>
+</div>
+<div class="group">
+<div class="flex items-center gap-4 mb-2">
+<span class="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary font-bold text-xs">03</span>
+<h4 class="text-on-background font-headline font-bold uppercase tracking-tight">Quality Assurance</h4>
+</div>
+<p class="text-on-surface-variant text-sm leading-relaxed pl-12">Automated optical inspection systems scan every micron of the foil web for spectral consistency.</p>
+</div>
+</div>
+</div>
+<div class="lg:col-span-8 order-1 lg:order-2">
+<div class="relative aspect-video rounded-xl overflow-hidden bg-surface-container-lowest border border-outline-variant/15 group shadow-2xl">
+<!-- Placeholder for Three.js Simulation -->
+<div class="absolute inset-0 flex flex-col items-center justify-center bg-[#0c0e11]">
+<div class="absolute inset-0 opacity-20 pointer-events-none">
+<div class="absolute top-0 left-0 w-full h-full" style="background-image: radial-gradient(circle at 2px 2px, #37393d 1px, transparent 0); background-size: 40px 40px;"></div>
+</div>
+<div class="relative z-10 flex flex-col items-center text-center px-12">
+<span class="material-symbols-outlined text-6xl text-primary/40 mb-6" style="font-variation-settings: 'FILL' 1;">precision_manufacturing</span>
+<h3 class="text-xl font-headline font-bold text-on-background tracking-widest uppercase mb-4">Live Production Simulation</h3>
+<p class="text-on-surface-variant max-w-md text-sm mb-8"> Interactive 3D visualization showing high-speed rollers applying pigment and metallic layers to the foil web in a sterile, low-vibration environment.</p>
+<button class="flex items-center gap-2 bg-surface-bright/20 border border-primary/30 px-6 py-2 rounded text-primary text-xs font-bold tracking-widest uppercase hover:bg-primary/10 transition-colors">
+<span class="material-symbols-outlined text-sm">play_arrow</span>
+                                        Initialize Render
+                                    </button>
+</div>
+<!-- UI Elements for Sim -->
+<div class="absolute top-6 left-6 flex gap-4">
+<div class="bg-surface-container/80 backdrop-blur p-3 rounded border border-outline-variant/10">
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter mb-1">Web Speed</div>
+<div class="text-primary font-headline font-bold text-sm">120 m/min</div>
+</div>
+<div class="bg-surface-container/80 backdrop-blur p-3 rounded border border-outline-variant/10">
+<div class="text-[10px] text-on-surface-variant uppercase tracking-tighter mb-1">Temp</div>
+<div class="text-primary font-headline font-bold text-sm">185.4 °C</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Product Manual Gallery -->
+<section class="py-24 bg-surface-container-low">
+<div class="container mx-auto px-12">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-xl">
+<h2 class="text-4xl font-headline font-extrabold tracking-tighter text-on-background uppercase mb-4">Technical Catalog</h2>
+<p class="text-on-surface-variant">Access comprehensive integration manuals and material safety data sheets for our entire specialized foil lineup.</p>
+</div>
+<div class="flex gap-4">
+<button class="p-4 bg-surface-container-high rounded border border-outline-variant/20 text-on-surface hover:text-primary transition-colors">
+<span class="material-symbols-outlined">filter_list</span>
+</button>
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-outline-variant/10 border border-outline-variant/10">
+<!-- Metallic Card -->
+<div class="bg-surface group hover:bg-surface-container-high transition-all duration-500 overflow-hidden relative">
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" data-alt="Close-up texture of golden metallic foil with micro-embossed patterns and sharp light reflections" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCZ7T9nyg9LZj_YiTxw29FtCaewERL2SpzJ-eZAI9Lq1xah-h7IcWF6oF884Oztp1W3yeDJ3OV9AB7PpMfINxjSWReDFLwG_eHauM4Pbzm-OF2NxSDcXECNeyXF6LK8ead0KdOHBvnq7QhFeSU98uUFtgRp-OO12vzsX1BSGhcrKOveY0DupNXS6WxKUCwgVdk_OQzILhxRdyXm6969Fml1gCOHnCA3elmKt3rSF-WGuINMH3x_4H9gbHDbo7P75j9EmnxOcQtp4LuJ"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="text-primary font-label text-[0.6875rem] uppercase tracking-widest mb-2">Series 700-M</div>
+<h3 class="text-2xl font-headline font-bold text-on-background uppercase tracking-tight mb-4">Metallic Foil</h3>
+<p class="text-on-surface-variant text-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">Engineered for high-speed cylinder and flat-bed presses with superior over-printability.</p>
+<button class="w-full flex justify-between items-center bg-surface-bright/50 border border-outline-variant/30 px-6 py-4 rounded-lg group/btn">
+<span class="text-on-surface font-headline font-bold text-xs uppercase tracking-widest">Download Manual</span>
+<span class="material-symbols-outlined text-primary group-hover/btn:translate-y-1 transition-transform">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Pigment Card -->
+<div class="bg-surface group hover:bg-surface-container-high transition-all duration-500 overflow-hidden relative">
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" data-alt="Matte texture of deep blue and charcoal pigment coatings used in industrial stamping processes" src="https://lh3.googleusercontent.com/aida-public/AB6AXuA07nErweZRDS-N7dDx3AY0yi7fq29X5JyzdxLmrJxbclcEIGhaJWqMJ9yOntQlFpAsvLLk1GVttaCCUQpRLObyyFqDhPFECeCJjZctO1ZvyJ3-BfwVXhA3EY9Us06ArjG1MGQPPFaS9x4HztJT9-uXDxgJBDJPivD_VZr59VsRFVSJIqc6m2BriMuxq9YUq9PZwmAizVMfZEIaFXrLSTB2H9siNl8nqDIBhJ7LhBIXgx1YRbUbZvtgyhSBBUVjX2ljkcxStM1qe-t7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="text-primary font-label text-[0.6875rem] uppercase tracking-widest mb-2">Series 400-P</div>
+<h3 class="text-2xl font-headline font-bold text-on-background uppercase tracking-tight mb-4">Pigment Foil</h3>
+<p class="text-on-surface-variant text-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">Opaque matte and gloss finishes designed for the pharmaceutical and food labeling industry.</p>
+<button class="w-full flex justify-between items-center bg-surface-bright/50 border border-outline-variant/30 px-6 py-4 rounded-lg group/btn">
+<span class="text-on-surface font-headline font-bold text-xs uppercase tracking-widest">Download Manual</span>
+<span class="material-symbols-outlined text-primary group-hover/btn:translate-y-1 transition-transform">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Holographic Card -->
+<div class="bg-surface group hover:bg-surface-container-high transition-all duration-500 overflow-hidden relative">
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" data-alt="Abstract holographic pattern with light diffraction showing a spectrum of iridescent colors in a geometric layout" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCghWtSBxKfW1Ye01Dcm9Tj8PranrjSvhaUyUtiI-8LZhea8xX-5HBCNjrIUcxjstmpVMQKidpQoYZGv79vRZC9_2PCGqRigr_CWoFWxGUWQznEr0Kdkyukwwu_g88fK1vcWBdOoAJ8tIf1xlZJX610DlDirwX183-Iz0l3eHHHuSfpNYWBOtoRhzxOHWcW2qZgqY5qE0A9WXA3xdRsPJgv5Gy3oQQoEsc2r0zRwxlQ1-mxyR1olHSRwEnP8h1SGWEdr2j4ud_SQA8J"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="text-primary font-label text-[0.6875rem] uppercase tracking-widest mb-2">Series X-HOLO</div>
+<h3 class="text-2xl font-headline font-bold text-on-background uppercase tracking-tight mb-4">Holographic</h3>
+<p class="text-on-surface-variant text-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">Security-grade optical structures for brand protection and multi-dimensional visual impact.</p>
+<button class="w-full flex justify-between items-center bg-surface-bright/50 border border-outline-variant/30 px-6 py-4 rounded-lg group/btn">
+<span class="text-on-surface font-headline font-bold text-xs uppercase tracking-widest">Download Manual</span>
+<span class="material-symbols-outlined text-primary group-hover/btn:translate-y-1 transition-transform">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Cold Foil Card -->
+<div class="bg-surface group hover:bg-surface-container-high transition-all duration-500 overflow-hidden relative">
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" data-alt="High-speed offset printing press applying silver cold foil to a continuous paper web in a modern industrial facility" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAK-VEJoKdziEuO3Q3uMap5sXNL1BsW4cys8tgnpSHdZlALEcEE7JDhRgOWGtmpa3zfSx4GrVMYraXxtAvIRBdKJtBAQhsl_9el-KWWRFs3mbIkX6R2adIJbHWfyrtPTvpAfYjreersrt_u9XuCtAaKEVFos4lkbq2mTuEypVM5eWxbHF6JbD6PeIBk4uNKJowY_XQ9F7G8Dmu-64A4IJ4C7a2OsKTNUBJnN8IHPDlgzS4Bb4deoLNzvgaYs5ycZwAwkwmOKzWiz4aO"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="text-primary font-label text-[0.6875rem] uppercase tracking-widest mb-2">Series 300-CF</div>
+<h3 class="text-2xl font-headline font-bold text-on-background uppercase tracking-tight mb-4">Cold Foil Series</h3>
+<p class="text-on-surface-variant text-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">Optimized for high-speed printing and broad substrate compatibility.</p>
+<button class="w-full flex justify-between items-center bg-surface-bright/50 border border-outline-variant/30 px-6 py-4 rounded-lg group/btn">
+<span class="text-on-surface font-headline font-bold text-xs uppercase tracking-widest">Download Manual</span>
+<span class="material-symbols-outlined text-primary group-hover/btn:translate-y-1 transition-transform">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Specialty Pearl Card -->
+<div class="bg-surface group hover:bg-surface-container-high transition-all duration-500 overflow-hidden relative">
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" data-alt="Soft iridescent pearlescent surface with subtle color shifts and a smooth matte texture suitable for luxury packaging" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDx36lOMYrAiwxP5UzL6PPVCK07Mp4ZplWx8lRxADZ1wxsdr69OUEkfSbLX-3muXfNrQFzjSUxJ5o3acJW0HISQEpwJj_HxCDeqIzMjLBCjzlP95ueAUaCeeMdHUPn_bYqjc4-7NTQw31Hi0eAytijVpRaP8gb4FkwOHRxNIL2FqtMDqKom7EyodL6P3LWyR-w6mVDH6ULQ1ycpbkCs41cjLUWpHLKy0n507vmjJ4MCCS4oZbYURCBR_ycO5V27NnK7bJCkcJINifsg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="text-primary font-label text-[0.6875rem] uppercase tracking-widest mb-2">Series 800-SP</div>
+<h3 class="text-2xl font-headline font-bold text-on-background uppercase tracking-tight mb-4">Specialty Pearl</h3>
+<p class="text-on-surface-variant text-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">Elegant pearlescent finishes for cosmetic and high-end liquor packaging.</p>
+<button class="w-full flex justify-between items-center bg-surface-bright/50 border border-outline-variant/30 px-6 py-4 rounded-lg group/btn">
+<span class="text-on-surface font-headline font-bold text-xs uppercase tracking-widest">Download Manual</span>
+<span class="material-symbols-outlined text-primary group-hover/btn:translate-y-1 transition-transform">download</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Textile Foil Card -->
+<div class="bg-surface group hover:bg-surface-container-high transition-all duration-500 overflow-hidden relative">
+<div class="aspect-[4/5] relative">
+<img class="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 opacity-60 group-hover:opacity-100" data-alt="Close-up of metallic foil applied to a woven fabric texture with detailed fiber patterns and reflective highlights" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDPmiypRrxUOuSxkV1sQjG-848XC8b3IEFMljocn8FBxd-vBVNEZ8aE1kqO-r58HeiXpLYTH8b7a_UcOrz0t-uM0W5tSEsflXKbV3e2nBi0psC_l2Jvg4Rh9IAe7dQxi-_3ifh0kuZNjbAGEkY0ZmadivpVTCSNwntlySq6UC-PqFSKjJyFYlgQHqw7NgwXZox-VoDTEctc95ZxVBiAsi4MWGOIJB_3V0vTzo2_6w9bEst6zBMpkyu_EJ0UhEYc6E_hFCY2eqa9xL_7"/>
+<div class="absolute inset-0 bg-gradient-to-t from-surface via-transparent to-transparent"></div>
+<div class="absolute bottom-8 left-8 right-8">
+<div class="text-primary font-label text-[0.6875rem] uppercase tracking-widest mb-2">Series 500-TF</div>
+<h3 class="text-2xl font-headline font-bold text-on-background uppercase tracking-tight mb-4">Textile Foil</h3>
+<p class="text-on-surface-variant text-sm mb-6 opacity-0 group-hover:opacity-100 transform translate-y-4 group-hover:translate-y-0 transition-all duration-500">Enhanced durability and wash-resistance for the fashion industry.</p>
+<button class="w-full flex justify-between items-center bg-surface-bright/50 border border-outline-variant/30 px-6 py-4 rounded-lg group/btn">
+<span class="text-on-surface font-headline font-bold text-xs uppercase tracking-widest">Download Manual</span>
+<span class="material-symbols-outlined text-primary group-hover/btn:translate-y-1 transition-transform">download</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Technical Specs Section (Asymmetric) -->
+<section class="py-24 bg-surface relative overflow-hidden">
+<div class="container mx-auto px-12">
+<div class="flex flex-col lg:flex-row gap-24">
+<div class="lg:w-1/3">
+<h2 class="text-5xl font-headline font-extrabold text-primary mb-8 leading-none">0.012<span class="text-on-surface-variant text-2xl ml-2">μm</span></h2>
+<h3 class="text-on-background font-headline font-bold uppercase tracking-widest text-sm mb-4">Precision Tolerance</h3>
+<p class="text-on-surface-variant leading-relaxed">Our coating heads are calibrated to nanometer precision, ensuring zero deviation across 2,000-meter master rolls.</p>
+</div>
+<div class="lg:w-2/3 lg:mt-32">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-16">
+<div>
+<div class="h-px w-12 bg-primary mb-6"></div>
+<h4 class="text-on-background font-headline font-bold uppercase mb-2">Heat Resistance</h4>
+<p class="text-on-surface-variant text-sm">Stable performance up to 240°C for demanding high-speed rotational applications.</p>
+</div>
+<div>
+<div class="h-px w-12 bg-primary mb-6"></div>
+<h4 class="text-on-background font-headline font-bold uppercase mb-2">Carrier Gauge</h4>
+<p class="text-on-surface-variant text-sm">Balanced PET carriers from 12μm to 19μm for optimized tension control.</p>
+</div>
+<div>
+<div class="h-px w-12 bg-primary mb-6"></div>
+<h4 class="text-on-background font-headline font-bold uppercase mb-2">Surface Tension</h4>
+<p class="text-on-surface-variant text-sm">Dyne levels optimized for UV-lacquers, OPP films, and porous papers.</p>
+</div>
+<div>
+<div class="h-px w-12 bg-primary mb-6"></div>
+<h4 class="text-on-background font-headline font-bold uppercase mb-2">Spectral Fidelity</h4>
+<p class="text-on-surface-variant text-sm">Delta E &lt; 0.5 color consistency maintained throughout production cycles.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="w-full border-t border-[#37393d]/15 bg-[#111316]">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-8 px-12 py-16 max-w-7xl mx-auto">
+<div class="space-y-6">
+<div class="font-manrope font-bold text-primary text-2xl">AURUM PRESS</div>
+<p class="font-inter text-[0.6875rem] uppercase tracking-widest text-[#9ea0a3] max-w-xs">
+                    Pioneering industrial surface technology with the prestige of artisanal craftsmanship.
+                </p>
+<div class="text-[#9ea0a3] font-inter text-[0.6875rem] uppercase tracking-widest">
+                    © 2024 AURUM PRESS INDUSTRIAL. ALL RIGHTS RESERVED.
+                </div>
+</div>
+<div class="grid grid-cols-2 gap-8">
+<div class="flex flex-col space-y-4">
+<span class="text-on-background font-headline font-bold text-xs uppercase tracking-widest mb-2">Compliance</span>
+<a class="font-inter text-[0.6875rem] uppercase tracking-widest text-[#9ea0a3] hover:text-[#e2e2e6] transition-colors" href="#">ISO 9001 Certified</a>
+<a class="font-inter text-[0.6875rem] uppercase tracking-widest text-[#9ea0a3] hover:text-[#e2e2e6] transition-colors" href="#">REACH Compliant</a>
+</div>
+<div class="flex flex-col space-y-4">
+<span class="text-on-background font-headline font-bold text-xs uppercase tracking-widest mb-2">Support</span>
+<a class="font-inter text-[0.6875rem] uppercase tracking-widest text-[#9ea0a3] hover:text-[#e2e2e6] transition-colors" href="#">Contact Support</a>
+<a class="font-inter text-[0.6875rem] uppercase tracking-widest text-[#9ea0a3] hover:text-[#e2e2e6] transition-colors" href="#">Privacy Policy</a>
+</div>
+</div>
+</div>
+</footer>
+</body></html>
