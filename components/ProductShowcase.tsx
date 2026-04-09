@@ -1,5 +1,5 @@
 
-import React, { useState, useMemo, Suspense } from 'react';
+import React, { useState, useMemo, useEffect, Suspense } from 'react';
 import {
   ArrowRight,
   Search,
@@ -55,6 +55,11 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
   const { lang } = useLanguage();
   const [viewMode, setViewMode] = useState<'categories' | 'range'>(defaultViewMode);
   const [searchQuery, setSearchQuery] = useState('');
+
+  // Sync viewMode when defaultViewMode changes (URL navigation)
+  useEffect(() => {
+    setViewMode(defaultViewMode);
+  }, [defaultViewMode]);
   
   // Range View States
   const [selectedSeries, setSelectedSeries] = useState<string>('All');
