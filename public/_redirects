@@ -4,11 +4,3 @@
 /cn/blog/:splat    /cn/blog/:splat.html    200
 /en/blog/:splat    /en/blog/:splat.html    200
 
-# Static assets - bypass rewrites
-/cn/assets/*    /cn/assets/:splat    200
-/en/assets/*    /en/assets/:splat    200
-/assets/*    /assets/:splat    200
-
-# Everything else - Cloudflare Pages automatically serves index.html from directory
-# No rewrites needed
-
