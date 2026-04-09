@@ -1,9 +1,9 @@
 # Add trailing slash for root language path (e.g. /cn -> /cn/)
 /:lang /:lang/ 301
-# Add trailing slash for directory paths without extension (e.g. /cn/pintefoils -> /cn/pintefoils/)
-# Cloudflare automatically skips files that exist physically
+# Add trailing slash for paths without extension
+# Cloudflare skips physical files automatically
 /* /$1/ 301
-# Skip already processed index.html files to avoid infinite loop
-/*/index.html 200
-# Rewrite directory paths with trailing slash to index.html
+# Skip index.html files to avoid infinite loop (rewrite to themselves)
+/*/index.html /*/index.html 200
+# Rewrite directory with trailing slash to index.html
 /*/ /$1index.html 200
