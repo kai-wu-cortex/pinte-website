@@ -1,6 +1,2 @@
-# Serve root path
-/ /index.html 200
-
-# For any path under a language code, serve index.html
-# This handles SPA routing for all pages under /en/, /cn/, etc.
-/:lang* /:lang*/index.html 200
+# SPA routing for Cloudflare Pages
+/*  /index.html   200
