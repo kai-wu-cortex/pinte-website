@@ -74,16 +74,16 @@ const AppRoutes = () => {
 
       {/* Redirect any non-language prefixed routes to default language (Chinese) */}
       <Route path="/about" element={<Navigate to="/cn/about" replace />} />
-      <Route path="/solutions/:id" element={<Navigate replace to={`/cn/solutions/${':id'}`} />} />
+      <Route path="/solutions/:id" element={<Navigate replace to={(params) => `/cn/solutions/${params.id}`} />} />
       <Route path="/products" element={<Navigate to="/cn/products" replace />} />
       <Route path="/products/foils" element={<Navigate to="/cn/products/foils" replace />} />
-      <Route path="/products/category/:id" element={<Navigate replace to={`/cn/products/category/${':id'}`} />} />
-      <Route path="/products/item/:id" element={<Navigate replace to={`/cn/products/item/${':id'}`} />} />
+      <Route path="/products/category/:id" element={<Navigate replace to={(params) => `/cn/products/category/${params.id}`} />} />
+      <Route path="/products/item/:id" element={<Navigate replace to={(params) => `/cn/products/item/${params.id}`} />} />
       <Route path="/culture" element={<Navigate to="/cn/culture" replace />} />
       <Route path="/quote" element={<Navigate to="/cn/quote" replace />} />
       <Route path="/tour" element={<Navigate to="/cn/tour" replace />} />
       <Route path="/blog" element={<Navigate to="/cn/blog" replace />} />
-      <Route path="/blog/:slug" element={<Navigate replace to={`/cn/blog/${':slug'}`} />} />
+      <Route path="/blog/:slug" element={<Navigate replace to={(params) => `/cn/blog/${params.slug}`} />} />
       <Route path="/privacy" element={<Navigate to="/cn/privacy" replace />} />
       <Route path="/terms" element={<Navigate to="/cn/terms" replace />} />
 
