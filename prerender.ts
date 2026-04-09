@@ -246,6 +246,10 @@ export const prerender = {
 
       // Generate empty HTML file for each static route (SPA will hydrate it)
       // Cloudflare Pages needs the physical file to exist to serve it
+      // Read the root index.html as template to preserve all CSS and meta tags
+      const rootIndexPath = path.join(distDir, 'index.html');
+      let rootIndexTemplate = fs.readFileSync(rootIndexPath, 'utf8');
+
       for (const route of staticRoutes) {
         try {
           // File is at /lang/[route...]/index.html
@@ -255,19 +259,14 @@ export const prerender = {
           // route = 'products/foils' -> file at /lang/products/foils/index.html -> 3 levels deep -> ../../../
           const levels = (route === '' ? 1 : route.split('/').length + 1);
           const assetPath = '../'.repeat(levels) + `assets/${indexJsFilename}`;
+          const modulePreloadPath = '../'.repeat(levels) + `assets/vendor-DE--IVNv.js`;
+          const htmlLang = lang === 'cn' ? 'zh-CN' : 'en';
 
-          const html = `<!DOCTYPE html>
-<html lang="${lang === 'cn' ? 'zh-CN' : 'en'}">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-</head>
-<body>
-  <div id="root"></div>
-  <script type="module" src="${assetPath}"></script>
-</body>
-</html>
-          `.trim();
+          // Replace the key parts in the template
+          let html = rootIndexTemplate
+            .replace(/<html lang="[^"]+">/, `<html lang="${htmlLang}">`)
+            .replace(/type="module" crossorigin src="[^"]+"/, `type="module" crossorigin src="${assetPath}"`)
+            .replace(/<link rel="modulepreload" crossorigin href="[^"]+">/, `<link rel="modulepreload" crossorigin href="${modulePreloadPath}">`);
 
           const filePath = route === ''
             ? path.join(langDir, 'index.html')
