@@ -4,15 +4,11 @@
 /cn/blog/:splat    /cn/blog/:splat.html    200
 /en/blog/:splat    /en/blog/:splat.html    200
 
-# Handle trailing slash on language root
-/cn/    /cn/index.html    200
-/en/    /en/index.html    200
+# Static assets - bypass rewrites
+/cn/assets/*    /cn/assets/:splat    200
+/en/assets/*    /en/assets/:splat    200
+/assets/*    /assets/:splat    200
 
-# Handle language root (without trailing slash)
-/cn    /cn/index.html    200
-/en    /en/index.html    200
-
-# Handle all other language subroutes - every pre-rendered route has an index.html
-/cn/:splat    /cn/:splat/index.html    200
-/en/:splat    /en/:splat/index.html    200
+# Everything else - Cloudflare Pages automatically serves index.html from directory
+# No rewrites needed
 
