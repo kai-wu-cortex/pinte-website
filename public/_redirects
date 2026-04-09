@@ -1,0 +1,3 @@
+# Allow direct access to language paths without trailing slash
+/:lang /:lang/ 301
+/:lang/* /:lang/*/index.html 200
