@@ -4,3 +4,16 @@
 /cn/blog/:splat    /cn/blog/:splat.html    200
 /en/blog/:splat    /en/blog/:splat.html    200
 
+# Root paths without language prefix - let React Router handle redirect to /cn
+/about    /index.html    200
+/solutions/:splat    /index.html    200
+/products    /index.html    200
+/products/:splat    /index.html    200
+/culture    /index.html    200
+/quote    /index.html    200
+/tour    /index.html    200
+/blog    /index.html    200
+/blog/:splat    /index.html    200
+/privacy    /index.html    200
+/terms    /index.html    200
+
