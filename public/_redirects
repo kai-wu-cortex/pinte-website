@@ -1,8 +1,5 @@
 # Cloudflare routing
 # Order matters - most specific first
-# Add .html extension for prerendered blog articles
-/cn/blog/:splat    /cn/blog/:splat.html    200
-/en/blog/:splat    /en/blog/:splat.html    200
 
 # Root paths without language prefix - let React Router handle redirect to /cn
 /about    /index.html    200
@@ -16,4 +13,8 @@
 /blog/:splat    /index.html    200
 /privacy    /index.html    200
 /terms    /index.html    200
+
+# All other paths are automatically handled by Cloudflare Pages
+# Cloudflare serves /lang/path/index.html automatically for /lang/path
+# No need for extra rewrite rules
 

@@ -286,21 +286,40 @@ export const prerender = {
       }
 
       // Generate static HTML for each article in both languages
+      // Same pattern as other routes - create /lang/blog/slug/index.html with empty root for React hydration
+      // This allows direct URL access to work correctly with client-side navigation
       for (const article of articles) {
         try {
           console.log(`📝 [${lang}] Prerendering: ${article.title}`);
 
-          // Get article content
-          const content = await fetchArticleContent(article.id);
+          // Article route is /lang/blog/slug -> create index.html in that directory
+          const articleDir = path.join(blogDir, article.slug);
+          if (!fs.existsSync(articleDir)) {
+            fs.mkdirSync(articleDir, { recursive: true });
+          }
 
-          // Generate HTML with correct language
-          const html = generateArticleHtml(article, content, lang);
+          // Read root index template and replace asset path like other static routes
+          const rootIndexPath = path.join(distDir, 'index.html');
+          let htmlTemplate = fs.readFileSync(rootIndexPath, 'utf8');
+
+          // Calculate correct asset path depth: /lang/blog/slug/index.html -> ../../assets/...
+          // lang (1) + blog (1) + slug (1) = 3 levels deep -> ../../
+          const levels = 3;
+          const assetPath = '../'.repeat(levels) + `assets/${indexJsFilename}`;
+          const modulePreloadPath = '../'.repeat(levels) + `assets/vendor-DE--IVNv.js`;
+          const htmlLang = lang === 'cn' ? 'zh-CN' : 'en';
+
+          // Replace template
+          let html = htmlTemplate
+            .replace(/<html lang="[^"]+">/, `<html lang="${htmlLang}">`)
+            .replace(/type="module" crossorigin src="[^"]+"/, `type="module" crossorigin src="${assetPath}"`)
+            .replace(/<link rel="modulepreload" crossorigin href="[^"]+">/, `<link rel="modulepreload" crossorigin href="${modulePreloadPath}">`);
 
           // Write file
-          const filePath = path.join(blogDir, `${article.slug}.html`);
+          const filePath = path.join(articleDir, 'index.html');
           fs.writeFileSync(filePath, html);
 
-          console.log(`✅ Generated: /${lang}/blog/${article.slug}.html`);
+          console.log(`✅ Generated: /${lang}/blog/${article.slug}/index.html`);
         } catch (error) {
           console.error(`❌ Failed to prerender ${article.title} for ${lang}:`, error);
         }
