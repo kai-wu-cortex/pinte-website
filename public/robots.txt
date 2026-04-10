@@ -26,52 +26,75 @@
 # BEGIN Cloudflare Managed content
 
 User-agent: *
-Content-Signal: search=yes,ai-train=no
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
 Allow: /
 
 User-agent: Amazonbot
-Disallow: /
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
 
 User-agent: Applebot-Extended
-Disallow: /
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
 
 User-agent: Bytespider
 Allow: /
-Content-Signal: search=yes,ai-train=no
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
 
 User-agent: CCBot
-Disallow: /
-
-User-agent: CloudflareBrowserRenderingCrawler
-Disallow: /
-
-User-agent: Google-Extended
-Disallow: /
-
-User-agent: GPTBot
-Disallow: /
-
-User-agent: meta-externalagent
-Disallow: /
-
-# END Cloudflare Managed Content
-
-# Allow specific AI crawlers for better visibility
-User-agent: GPTBot
 Allow: /
-Content-Signal: search=yes,ai-train=no
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
 
 User-agent: ClaudeBot
 Allow: /
-Content-Signal: search=yes,ai-train=no
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+
+User-agent: CloudflareBrowserRenderingCrawler
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+
+User-agent: Google-Extended
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+
+User-agent: GPTBot
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+
+User-agent: meta-externalagent
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+
+# END Cloudflare Managed Content
+
+# Allow all AI crawlers for full visibility
+User-agent: GPTBot
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+
+User-agent: ClaudeBot
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
 
 User-agent: PerplexityBot
 Allow: /
-Content-Signal: search=yes,ai-train=no
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
 
 User-agent: Googlebot
 Allow: /
-Content-Signal: search=yes,ai-train=no
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+
+User-agent: Bingbot
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+
+User-agent: Slurp
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
+
+User-agent: DuckDuckBot
+Allow: /
+Content-Signal: search=yes,ai-input=yes,ai-train=yes
 
 Disallow: /api/
 
