@@ -36,7 +36,8 @@ User-agent: Applebot-Extended
 Disallow: /
 
 User-agent: Bytespider
-Disallow: /
+Allow: /
+Content-Signal: search=yes,ai-train=no
 
 User-agent: CCBot
 Disallow: /
