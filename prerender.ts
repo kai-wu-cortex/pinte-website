@@ -265,6 +265,10 @@ export const prerender = {
           // Replace the key parts in the template
           let html = rootIndexTemplate
             .replace(/<html lang="[^"]+">/, `<html lang="${htmlLang}">`)
+            // Remove static title/meta description from template - SEOMeta component will inject correct ones
+            .replace(/<title>[^<]+<\/title>/, '')
+            .replace(/<meta name="description"[^>]*>/, '')
+            .replace(/<meta name="keywords"[^>]*>/, '')
             .replace(/type="module" crossorigin src="[^"]+"/, `type="module" crossorigin src="${assetPath}"`)
             .replace(/<link rel="modulepreload" crossorigin href="[^"]+">/, `<link rel="modulepreload" crossorigin href="${modulePreloadPath}">`);
 
@@ -312,6 +316,10 @@ export const prerender = {
           // Replace template
           let html = htmlTemplate
             .replace(/<html lang="[^"]+">/, `<html lang="${htmlLang}">`)
+            // Remove static title/meta description from template - SEOMeta component will inject correct ones
+            .replace(/<title>[^<]+<\/title>/, '')
+            .replace(/<meta name="description"[^>]*>/, '')
+            .replace(/<meta name="keywords"[^>]*>/, '')
             .replace(/type="module" crossorigin src="[^"]+"/, `type="module" crossorigin src="${assetPath}"`)
             .replace(/<link rel="modulepreload" crossorigin href="[^"]+">/, `<link rel="modulepreload" crossorigin href="${modulePreloadPath}">`);
 
