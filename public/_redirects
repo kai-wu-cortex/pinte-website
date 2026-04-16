@@ -2,15 +2,15 @@
 # Order matters - most specific first
 
 # Exact match for problematic routes (fix for $1 redirect bug)
-/cn/pintefoils    /index.html    200
-/en/pintefoils    /index.html    200
-/cn/pintefoils/    /index.html    200
-/en/pintefoils/    /index.html    200
+/cn/pintefoils    /cn/pintefoils/index.html    200
+/en/pintefoils    /en/pintefoils/index.html    200
+/cn/pintefoils/    /cn/pintefoils/index.html    200
+/en/pintefoils/    /en/pintefoils/index.html    200
 
 # Language prefixed paths - handle both /lang/path and /lang/path/
 # Fix: Chrome visits without trailing slash → need explicit rule to serve /index.html
-/cn/:splat    /index.html    200
-/en/:splat    /index.html    200
+/cn/:splat    /cn/:splat/index.html    200
+/en/:splat    /en/:splat/index.html    200
 
 # Root paths without language prefix - let React Router handle redirect to /cn
 /about    /index.html    200
