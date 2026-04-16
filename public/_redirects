@@ -14,6 +14,11 @@
 /privacy    /index.html    200
 /terms    /index.html    200
 
+# Language prefixed paths - handle both /lang/path and /lang/path/
+# Fix: Chrome visits without trailing slash → need explicit rule to serve /index.html
+/cn/:splat    /index.html    200
+/en/:splat    /index.html    200
+
 # All other paths are automatically handled by Cloudflare Pages
 # Cloudflare serves /lang/path/index.html automatically for /lang/path
 # No need for extra rewrite rules
