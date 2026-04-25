@@ -7,6 +7,10 @@
 import fs from 'fs';
 import path from 'path';
 import fetch from 'node-fetch';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const INDEXNOW_KEY = '5f118c2cfc2b4fa5946dcfd5008bbd01';
 const HOST = 'www.pintecl.com';
@@ -60,7 +64,7 @@ async function submitToIndexNow(urls: string[]): Promise<void> {
     } else if (response.status === 403) {
       console.log('\n❌ Error 403: Forbidden - Key not valid (check if key file is accessible)');
     } else if (response.status === 422) {
-      console.log('\n❌ Error 422: Unprocessable Entity - URLs don\\'t belong to this host or key invalid');
+      console.log('\n❌ Error 422: Unprocessable Entity - URLs don\'t belong to this host or key invalid');
     } else if (response.status === 429) {
       console.log('\n❌ Error 429: Too Many Requests - Rate limited');
     }
