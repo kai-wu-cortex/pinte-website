@@ -1,6 +1,21 @@
 # Cloudflare routing
 # Order matters - most specific first
 
+# Skip files that already have extensions - they're static assets
+# This prevents infinite loop when rewriting
+/*.html      -    200
+/*.css       -    200
+/*.js        -    200
+/*.png       -    200
+/*.jpg       -    200
+/*.jpeg      -    200
+/*.webp      -    200
+/*.svg       -    200
+/*.ico       -    200
+/*.txt       -    200
+/*.xml       -    200
+/*.json      -    200
+
 # Root paths without language prefix - let React Router handle redirect to /cn
 /about    /index.html    200
 /solutions/:splat    /index.html    200
@@ -14,6 +29,9 @@
 /privacy    /index.html    200
 /terms    /index.html    200
 
-# All other paths are automatically handled by Cloudflare Pages
-# Cloudflare serves /lang/path/index.html automatically for /lang/path
+# Language-prefixed deep paths - rewrite to /path/index.html
+# The above rules for extensions prevent infinite loop
+/cn/*    /cn/:splat/index.html    200
+/en/*    /en/:splat/index.html    200
 
+# All other paths are automatically handled by Cloudflare Pages
