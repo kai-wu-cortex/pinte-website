@@ -10,7 +10,8 @@
     "prerender": "npx tsc --skipLibCheck -p tsconfig.prerender.json && node ./tmp-prerender/prerender.js && rm -rf ./tmp-prerender",
     "preview": "vite preview",
     "sync-blog": "node scripts/fetch-blog.js",
-    "generate-sitemap": "node scripts/generate-sitemap.js"
+    "generate-sitemap": "node scripts/generate-sitemap.js",
+    "indexnow": "node scripts/submit-sitemap-indexnow.ts"
   },
   "dependencies": {
     "@emailjs/browser": "3.11.0",
