@@ -1,6 +1,7 @@
 {
   "name": "pinte-website",
   "compatibility_date": "2026-04-08",
+  "main": "./worker.js",
   "assets": {
     "directory": "./dist"
   }
