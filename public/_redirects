@@ -14,11 +14,6 @@
 /privacy    /index.html    200
 /terms    /index.html    200
 
-# Language-prefixed deep paths - for Cloudflare Workers compatibility
-# This ensures /cn/products/item/slug serves /cn/products/item/slug/index.html
-/cn/*    /cn/:splat/index.html    200
-/en/*    /en/:splat/index.html    200
-
 # All other paths are automatically handled by Cloudflare Pages
 # Cloudflare serves /lang/path/index.html automatically for /lang/path
 
