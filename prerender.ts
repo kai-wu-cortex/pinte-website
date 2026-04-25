@@ -231,6 +231,100 @@ export const prerender = {
       'terms',
     ];
 
+    // SEO metadata for each static route (used during prerender to inject into static HTML)
+    const routeMetadata: Record<string, { cn: { title: string; description: string }, en: { title: string; description: string } }> = {
+      '': {
+        cn: {
+          title: '品特PINTE - 高端烫金膜制造专家｜中国东莞烫金膜制造商',
+          description: '主营烫金箔、烫金膜、冷烫箔、电化铝、颜料箔、全息烫金箔，拥有25年涂布经验，专业定制化生产，供应越南、东南亚、马来西亚、泰国、印尼等全球市场。',
+        },
+        en: {
+          title: 'PINTE - Premium Hot Stamping Foil Manufacturer | Dongguan China',
+          description: 'PINTE is a leading manufacturer of high-end hot stamping foils based in Dongguan China with 25 years of coating experience and custom production capabilities. We supply hot stamping foil, cold foil, digital foil, pigment foil, holographic foil to Vietnam, Southeast Asia, Malaysia, Thailand, Indonesia and global markets.',
+        },
+      },
+      'about': {
+        cn: {
+          title: '关于品特 - PINTE高端烫金箔制造商',
+          description: 'PINTE品特是一家拥有25年烫金箔生产经验的专业厂家，位于中国东莞，专注高端烫金箔研发生产，服务全球客户。',
+        },
+        en: {
+          title: 'About Us - PINTE Hot Stamping Foils',
+          description: 'PINTE is a professional manufacturer with 25 years of experience in hot stamping foil production located in Dongguan China, focusing on R&D and manufacturing of high-end hot stamping foils, serving customers worldwide.',
+        },
+      },
+      'products': {
+        cn: {
+          title: '产品中心 - PINTE品特烫金箔产品目录',
+          description: '品特PINTE提供全系列烫金箔产品，包括PK咖啡底系列、PC塑胶冷烫系列、PL/PY颜料箔、数码冷烫系列、金葱粉系列等，满足不同行业烫金需求。',
+        },
+        en: {
+          title: 'Products - PINTE Hot Stamping Foil Catalog',
+          description: 'PINTE offers a complete range of hot stamping foil products including PK Brown Back Series, PC Plastic/Cold Foil Series, PL/PY Pigment Foils, Digital Cold Foil Series, Glitter Series, meeting various industry requirements.',
+        },
+      },
+      'culture': {
+        cn: {
+          title: '关于我们 - PINTE品特烫金箔',
+          description: 'PINTE品特是一家拥有25年烫金箔生产经验的专业厂家，位于中国东莞，专注高端烫金箔研发生产，服务全球客户。',
+        },
+        en: {
+          title: 'About Us - PINTE Hot Stamping Foils',
+          description: 'PINTE is a professional manufacturer with 25 years of experience in hot stamping foil production located in Dongguan China, focusing on R&D and manufacturing of high-end hot stamping foils, serving customers worldwide.',
+        },
+      },
+      'quote': {
+        cn: {
+          title: '获取报价 - 联系PINTE品特烫金箔',
+          description: '联系PINTE品特获取烫金箔报价，我们提供专业的烫金箔定制服务，快速响应全球客户需求。',
+        },
+        en: {
+          title: 'Get a Quote - Contact PINTE Hot Stamping Foils',
+          description: 'Contact PINTE to get a quotation for hot stamping foils. We provide custom foil solutions with fast response for global customers.',
+        },
+      },
+      'tour': {
+        cn: {
+          title: '工厂在线参观 - PINTE烫金箔',
+          description: '线上参观 PINTE 东莞烫金箔生产工厂，了解我们的生产流程和质检标准。',
+        },
+        en: {
+          title: 'Factory Virtual Tour - PINTE Hot Stamping Foils',
+          description: 'Take a virtual tour of our PINTE hot stamping foil manufacturing factory in Dongguan China, learn about our production process and quality standards.',
+        },
+      },
+      'blog': {
+        cn: {
+          title: '博客中心 - PINTE烫金箔行业资讯',
+          description: '探索烫金膜行业最新资讯、技术文章和行业见解，了解烫金箔生产工艺、应用案例和市场动态。',
+        },
+        en: {
+          title: 'Blog - PINTE Hot Stamping Foil Insights',
+          description: 'Explore the latest insights, technical articles and industry knowledge about hot stamping foils, covering production techniques, application case studies and market trends.',
+        },
+      },
+      'privacy': {
+        cn: {
+          title: '隐私政策 - PINTE品特烫金箔',
+          description: 'PINTE品特烫金箔官网隐私政策。本页说明我们如何收集、使用、存储和保护您访问网站时提供的个人信息，包括联系方式、浏览数据和Cookie使用规则。',
+        },
+        en: {
+          title: 'Privacy Policy - PINTE Hot Stamping Foils',
+          description: 'Privacy Policy for PINTE Hot Stamping Foils official website. This page explains how we collect, use, store and protect your personal information when you visit our website.',
+        },
+      },
+      'terms': {
+        cn: {
+          title: '服务条款 - PINTE品特烫金箔',
+          description: 'PINTE品特烫金箔官网使用服务条款。本页说明您访问和使用本网站需要遵守的条件，包括知识产权归属、产品信息免责声明、报价订单规则、责任限制和适用法律等内容。',
+        },
+        en: {
+          title: 'Terms of Service - PINTE Hot Stamping Foils',
+          description: 'Terms of Service for PINTE Hot Stamping Foils official website. This page outlines the terms and conditions you agree to when accessing and using this website.',
+        },
+      },
+    };
+
     for (const lang of languages) {
       // Ensure language directory exists
       const langDir = path.join(distDir, lang);
@@ -264,11 +358,36 @@ export const prerender = {
 
           // Replace the key parts in the template
           let html = rootIndexTemplate
-            .replace(/<html lang="[^"]+">/, `<html lang="${htmlLang}">`)
-            // Remove static title/meta description from template - SEOMeta component will inject correct ones
-            .replace(/<title>[^<]+<\/title>/, '')
-            .replace(/<meta name="description"[^>]*>/, '')
-            .replace(/<meta name="keywords"[^>]*>/, '')
+            .replace(/<html lang="[^"]+">/, `<html lang="${htmlLang}">`);
+
+          // Inject correct SEO metadata for this route into static HTML
+          // This ensures search engines see title/description even without executing JS
+          const meta = routeMetadata[route]?.[lang];
+          if (meta) {
+            // Replace or inject title
+            if (html.match(/<title>[^<]+<\/title>/)) {
+              html = html.replace(/<title>[^<]+<\/title>/, `<title>${meta.title}</title>`);
+            } else {
+              html = html.replace(/<head>/, `<head>\n  <title>${meta.title}</title>`);
+            }
+            // Replace or inject meta description
+            if (html.match(/<meta name="description"[^>]*>/)) {
+              html = html.replace(/<meta name="description"[^>]*>/, `<meta name="description" content="${meta.description}">`);
+            } else {
+              html = html.replace(/<head>/, `<head>\n  <meta name="description" content="${meta.description}">`);
+            }
+          } else {
+            // Fallback: remove static tags for routes not in metadata (SEOMeta will inject)
+            html = html
+              .replace(/<title>[^<]+<\/title>/, '')
+              .replace(/<meta name="description"[^>]*>/, '');
+          }
+
+          // Always remove keywords from template - SEOMeta injects correct ones
+          html = html.replace(/<meta name="keywords"[^>]*>/, '');
+
+          // Update asset paths
+          html = html
             .replace(/type="module" crossorigin src="[^"]+"/, `type="module" crossorigin src="${assetPath}"`)
             .replace(/<link rel="modulepreload" crossorigin href="[^"]+">/, `<link rel="modulepreload" crossorigin href="${modulePreloadPath}">`);
 
