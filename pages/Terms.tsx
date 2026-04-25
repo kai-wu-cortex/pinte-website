@@ -7,8 +7,8 @@ const Terms: React.FC = () => {
 
   const pageTitle = lang === 'cn' ? '服务条款 - PINTE品特烫金箔' : 'Terms of Service - PINTE Hot Stamping Foils';
   const pageDesc = lang === 'cn'
-    ? 'PINTE品特烫金箔网站使用服务条款，说明使用本网站的条件和规定。'
-    : 'Terms of Service for PINTE Hot Stamping Foils website, outlining the conditions for using this website.';
+    ? 'PINTE品特烫金箔官网使用服务条款。本页说明您访问和使用本网站需要遵守的条件，包括知识产权归属、产品信息免责声明、报价订单规则、责任限制和适用法律等内容。'
+    : 'Terms of Service for PINTE Hot Stamping Foils official website. This page outlines the terms and conditions you agree to when accessing and using this website, including intellectual property rights, product information disclaimers, quotation and ordering rules, limitation of liability, and governing law.';
 
   return (
     <>

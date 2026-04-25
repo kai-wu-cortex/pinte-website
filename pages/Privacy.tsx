@@ -7,8 +7,8 @@ const Privacy: React.FC = () => {
 
   const pageTitle = lang === 'cn' ? '隐私政策 - PINTE品特烫金箔' : 'Privacy Policy - PINTE Hot Stamping Foils';
   const pageDesc = lang === 'cn'
-    ? 'PINTE品特烫金箔网站隐私政策，说明我们如何收集、使用和保护您的个人信息。'
-    : 'Privacy Policy for PINTE Hot Stamping Foils website, explaining how we collect, use and protect your personal information.';
+    ? 'PINTE品特烫金箔官网隐私政策。本页说明我们如何收集、使用、存储和保护您访问网站时提供的个人信息，包括联系方式、浏览数据和Cookie使用规则。我们重视您的隐私安全，承诺不会未经许可分享您的个人信息给第三方。'
+    : 'Privacy Policy for PINTE Hot Stamping Foils official website. This page explains how we collect, use, store and protect your personal information when you visit our website, including contact details, browsing data and Cookie usage. We value your privacy and promise not to share your personal information with third parties without your explicit consent.';
 
   return (
     <>
