@@ -222,11 +222,25 @@ export const prerender = {
       'about',
       'products',
       'products/foils',
+      'products/category/general-hot-stamping',
+      'products/category/holographic-films',
+      'products/category/cold-foil',
+      'products/category/metallized-films',
+      'products/category/security-films',
+      'products/item/premium-gold-foil',
+      'products/item/silver-metallic',
+      'products/item/holographic-pattern',
+      'products/item/cold-foil-uv',
       'pintefoils',
       'culture',
       'quote',
       'tour',
       'blog',
+      'solutions/cosmetics-packaging',
+      'solutions/wine-spirits',
+      'solutions/pharmaceutical',
+      'solutions/tobacco',
+      'solutions/gift-cards',
       'privacy',
       'terms',
     ];
@@ -321,6 +335,149 @@ export const prerender = {
         en: {
           title: 'Terms of Service - PINTE Hot Stamping Foils',
           description: 'Terms of Service for PINTE Hot Stamping Foils official website. This page outlines the terms and conditions you agree to when accessing and using this website.',
+        },
+      },
+      // Product Categories
+      'products/category/general-hot-stamping': {
+        cn: {
+          title: '普通烫金箔系列 - PINTE品特烫金箔',
+          description: 'PINTE普通烫金箔系列产品，适用于多种包装印刷应用，提供稳定的烫印效果和优异的附着力，满足常规烫金加工需求。',
+        },
+        en: {
+          title: 'General Hot Stamping Foils - PINTE',
+          description: 'PINTE general hot stamping foil series for various packaging and printing applications, providing stable stamping performance and excellent adhesion for standard hot stamping requirements.',
+        },
+      },
+      'products/category/holographic-films': {
+        cn: {
+          title: '全息烫金箔系列 - PINTE品特烫金箔',
+          description: 'PINTE全息烫金箔系列，具有独特的光学效果和防伪特性，广泛应用于高端包装、品牌防伪和装饰烫金，提升产品视觉吸引力。',
+        },
+        en: {
+          title: 'Holographic Foils - PINTE Hot Stamping',
+          description: 'PINTE holographic foil series with unique optical effects and security features, widely used for premium packaging, brand authentication and decorative hot stamping to enhance product visual appeal.',
+        },
+      },
+      'products/category/cold-foil': {
+        cn: {
+          title: '冷烫箔系列 - PINTE品特数码冷烫箔',
+          description: 'PINTE冷烫箔系列专为数码印刷设计，不需要烫金版，适合短版活和个性化包装，提供高质量烫金效果于传统印刷工艺。',
+        },
+        en: {
+          title: 'Cold Foil Series - PINTE Digital Cold Foil',
+          description: 'PINTE cold foil series designed for digital printing, no hot stamping cylinder required, suitable for short runs and personalized packaging, delivering high quality foil effects with conventional printing processes.',
+        },
+      },
+      'products/category/metallized-films': {
+        cn: {
+          title: '金属化烫金箔 - PINTE电镀烫金箔',
+          description: 'PINTE金属化烫金箔具有优异的金属光泽度和遮盖力，适用于各类高档包装材料，提供持久的金属质感和光泽效果。',
+        },
+        en: {
+          title: 'Metallized Foils - PINTE Electroplated Foil',
+          description: 'PINTE metallized hot stamping foils offer excellent metallic luster and coverage, suitable for various high-end packaging materials, providing long-lasting metallic texture and gloss effects.',
+        },
+      },
+      'products/category/security-films': {
+        cn: {
+          title: '防伪烫金箔 - PINTE安全防伪烫金材料',
+          description: 'PINTE防伪烫金箔系列提供多种防伪技术，包括全息图案、微文字、变色效果等，帮助品牌保护知识产权，防止假冒伪劣产品。',
+        },
+        en: {
+          title: 'Security Foils - PINTE Anti-Counterfeiting Foil',
+          description: 'PINTE security hot stamping foils feature multiple anti-counterfeiting technologies including holographic patterns, micro-text, color-changing effects, helping brands protect intellectual property and prevent counterfeit products.',
+        },
+      },
+      // Product Items
+      'products/item/premium-gold-foil': {
+        cn: {
+          title: '特级金烫金箔 - PINTE高档金色烫金箔',
+          description: 'PINTE特级金烫金箔，纯正黄金光泽，高遮盖力，适用于高端礼品包装、化妆品盒、烟酒包装，创造奢华高贵的视觉效果。',
+        },
+        en: {
+          title: 'Premium Gold Foil - PINTE Luxury Gold Hot Stamping',
+          description: 'PINTE premium gold hot stamping foil with pure gold luster and high coverage, ideal for premium gift packaging, cosmetic boxes, wine and tobacco packaging, creating a luxurious and noble visual effect.',
+        },
+      },
+      'products/item/silver-metallic': {
+        cn: {
+          title: '银色素烫金箔 - PINTE金属银色烫金箔',
+          description: 'PINTE银色素烫金箔，纯净银白色泽，优异的金属质感，适用于现代简约风格包装设计，提升产品高端气质。',
+        },
+        en: {
+          title: 'Silver Metallic Foil - PINTE Silver Hot Stamping Foil',
+          description: 'PINTE silver metallic hot stamping foil with pure silver color and excellent metallic texture, suitable for modern minimalist packaging design, enhancing the premium feel of products.',
+        },
+      },
+      'products/item/holographic-pattern': {
+        cn: {
+          title: '全息图案烫金箔 - PINTE定制全息烫金箔',
+          description: 'PINTE定制全息图案烫金箔，可根据客户需求设计特定全息纹样，具有动态光影效果和品牌防伪功能，为产品增添独特视觉吸引力。',
+        },
+        en: {
+          title: 'Holographic Pattern Foil - PINTE Custom Holographic Foil',
+          description: 'PINTE custom holographic pattern hot stamping foil, customizable with specific holographic designs according to customer requirements, featuring dynamic light effects and brand security, adding unique visual appeal to products.',
+        },
+      },
+      'products/item/cold-foil-uv': {
+        cn: {
+          title: 'UV数码冷烫箔 - PINTE紫外线固化冷烫箔',
+          description: 'PINTE UV数码冷烫箔专为UV印刷工艺设计，附着力强，烫印清晰，适合高速轮转印刷，提高生产效率，获得优质烫金效果。',
+        },
+        en: {
+          title: 'Cold Foil UV - PINTE UV Curable Digital Cold Foil',
+          description: 'PINTE UV curable digital cold foil designed for UV printing processes with strong adhesion and clear stamping, suitable for high-speed rotary printing, improving production efficiency and achieving excellent foil results.',
+        },
+      },
+      // Solutions
+      'solutions/cosmetics-packaging': {
+        cn: {
+          title: '化妆品包装烫金解决方案 - PINTE化妆品烫金箔',
+          description: 'PINTE为化妆品包装提供专业烫金解决方案，包括口红管、香水瓶、面霜盒等不同部位烫金箔，满足耐酒精、耐磨擦等特殊要求，提升化妆品包装档次。',
+        },
+        en: {
+          title: 'Cosmetics Packaging Solutions - PINTE Hot Stamping Foils',
+          description: 'PINTE provides professional hot stamping foil solutions for cosmetics packaging including lipstick tubes, perfume bottles, cream jars, meeting special requirements such as alcohol resistance and abrasion resistance, elevating cosmetics packaging quality.',
+        },
+      },
+      'solutions/wine-spirits': {
+        cn: {
+          title: '酒类包装烫金解决方案 - PINTE烟酒烫金箔',
+          description: 'PINTE为葡萄酒、烈酒、香烟包装提供专业烫金解决方案，创造高贵奢华的品牌形象，符合高速自动化烫金生产，提供稳定一致的烫印效果。',
+        },
+        en: {
+          title: 'Wine & Spirits Packaging - PINTE Hot Stamping Solutions',
+          description: 'PINTE provides professional hot stamping foil solutions for wine, spirits and tobacco packaging, creating a noble and luxurious brand image, compatible with high-speed automatic stamping production, delivering consistent and stable results.',
+        },
+      },
+      'solutions/pharmaceutical': {
+        cn: {
+          title: '药品包装烫金解决方案 - PINTE医药包装烫金箔',
+          description: 'PINTE为医药包装提供符合标准的烫金箔解决方案，严格符合药品包装安全规范，提供美观烫金效果同时满足法规要求，提升药品包装品质。',
+        },
+        en: {
+          title: 'Pharmaceutical Packaging - PINTE Hot Stamping Solutions',
+          description: 'PINTE provides compliant hot stamping foil solutions for pharmaceutical packaging, strictly meeting pharmaceutical packaging safety regulations, delivering beautiful foil effects while satisfying regulatory requirements and enhancing packaging quality.',
+        },
+      },
+      'solutions/tobacco': {
+        cn: {
+          title: '烟草包装烫金解决方案 - PINTE烟包烫金箔',
+          description: 'PINTE为烟草包装提供专业烫金解决方案，适用于高速卷烟生产线，具有优异的烫印性能和耐磨性能，帮助烟草品牌创造高端视觉形象。',
+        },
+        en: {
+          title: 'Tobacco Packaging - PINTE Hot Stamping Foil Solutions',
+          description: 'PINTE provides professional hot stamping foil solutions for tobacco packaging, suitable for high-speed cigarette production lines with excellent stamping performance and abrasion resistance, helping tobacco brands create premium visual identity.',
+        },
+      },
+      'solutions/gift-cards': {
+        cn: {
+          title: '礼品卡烫金解决方案 - PINTE礼品卡烫金箔应用',
+          description: 'PINTE为礼品卡、优惠券、贺卡提供专业烫金解决方案，创造精美的烫金装饰效果，提升礼品卡档次和收礼体验，适合各类节日礼品和促销活动。',
+        },
+        en: {
+          title: 'Gift Cards Packaging - PINTE Hot Stamping Solutions',
+          description: 'PINTE provides professional hot stamping foil solutions for gift cards, coupons and greeting cards, creating exquisite decorative foil effects that elevate the gift card class and gifting experience, perfect for holiday gifts and promotional campaigns.',
         },
       },
     };
