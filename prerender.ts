@@ -231,6 +231,7 @@ export const prerender = {
       'products/item/silver-metallic',
       'products/item/holographic-pattern',
       'products/item/cold-foil-uv',
+      'products/item/PK-Universal',
       'pintefoils',
       'culture',
       'quote',
@@ -427,6 +428,16 @@ export const prerender = {
         en: {
           title: 'Cold Foil UV - PINTE UV Curable Digital Cold Foil',
           description: 'PINTE UV curable digital cold foil designed for UV printing processes with strong adhesion and clear stamping, suitable for high-speed rotary printing, improving production efficiency and achieving excellent foil results.',
+        },
+      },
+      'products/item/PK-Universal': {
+        cn: {
+          title: 'PK 通用型烫金箔 - PINTE PK Universal 经典全能烫金箔',
+          description: 'PK 通用型是品特最畅销的烫金箔产品，经典配方优异通用性，在铜版纸、白卡纸、OPP复膜上都能提供出色光泽度和附着力，广泛适用于各类包装印刷，是印刷厂常备库存首选。',
+        },
+        en: {
+          title: 'PK Universal Foil - PINTE Classic All-Round Hot Stamping Foil',
+          description: 'PK Universal is one of PINTE best-selling hot stamping foils with excellent versatility. Provides outstanding gloss and adhesion on coated paper, cardboard, and OPP laminates, making it the top choice for general packaging applications.',
         },
       },
       // Solutions

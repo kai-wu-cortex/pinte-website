@@ -12,17 +12,12 @@ export default {
       try {
         const response = await env.ASSETS.fetch(new Request(indexUrl));
         if (response.ok) {
-          // Return the index.html content
-          return new Response(response.body, {
-            status: 200,
-            headers: {
-              ...Object.fromEntries(response.headers),
-              'Cache-Control': 'public, max-age=60',
-            },
-          });
+          // Just return the response as-is
+          return response;
         }
       } catch (e) {
         // If index.html not found, fall through to original request
+        console.error('index.html not found', e);
       }
     }
 
