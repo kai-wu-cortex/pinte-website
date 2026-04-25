@@ -11,7 +11,7 @@
     "preview": "vite preview",
     "sync-blog": "node scripts/fetch-blog.js",
     "generate-sitemap": "node scripts/generate-sitemap.js",
-    "indexnow": "node scripts/submit-sitemap-indexnow.ts"
+    "indexnow": "ts-node scripts/submit-sitemap-indexnow.ts"
   },
   "dependencies": {
     "@emailjs/browser": "3.11.0",
