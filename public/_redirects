@@ -41,8 +41,6 @@
 # 4. 根路径默认重定向到中文首页
 /  /cn/ 301
 
-# 5. 语言前缀的深层路径重写为 /path/index.html
-# 上面的 .html 规则会先检查是否存在预渲染文件
-# 如果没有文件，返回 index.html 让 React Router 处理 SPA 路由
-/cn/*    /cn/:splat/index.html    200
-/en/*    /en/:splat/index.html    200
+# 5. 语言前缀的深层路径返回 index.html，让 React Router 处理 SPA 路由
+/cn/*  /index.html  200
+/en/*  /index.html  200
