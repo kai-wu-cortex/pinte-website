@@ -1,4 +1,4 @@
-# Cloudflare Pages routing - SEO redirects + SPA fallback
+# Cloudflare Pages routing - SEO redirects only
 
 # 301 redirects for root paths to /cn/ version
 /about  /cn/about 301
@@ -14,6 +14,5 @@
 /blog/:splat  /cn/blog/:splat 301
 /  /cn/ 301
 
-# SPA fallback - return index.html for any path without a pre-rendered HTML file
-# Static files (including prerendered HTML) take precedence and are returned directly
-/*  /index.html  200
+# SPA routing handled by functions/_middleware.js
+# This avoids infinite loop detection in _redirects
