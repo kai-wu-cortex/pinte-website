@@ -3,18 +3,18 @@
 
 # Let all files with extensions pass through directly
 # This prevents infinite loop because /cn/path/index.html has .html and stops here
-/*.html  200
-/*.css   200
-/*.js    200
-/*.png   200
-/*.jpg   200
-/*.jpeg  200
-/*.webp  200
-/*.svg   200
-/*.ico   200
-/*.txt   200
-/*.xml   200
-/*.json  200
+/*.html  /*.html  200
+/*.css   /*.css  200
+/*.js    /*.js   200
+/*.png   /*.png  200
+/*.jpg   /*.jpg  200
+/*.jpeg  /*.jpeg 200
+/*.webp  /*.webp 200
+/*.svg   /*.svg  200
+/*.ico   /*.ico  200
+/*.txt   /*.txt  200
+/*.xml   /*.xml  200
+/*.json  /*.json 200
 
 # Root paths without language prefix - let React Router handle redirect to /cn
 /about    /index.html    200
