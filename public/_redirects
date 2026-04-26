@@ -15,6 +15,10 @@
 /*.json  /*.json 200
 
 # Deep paths that need SPA routing - return index.html
+/cn/products/*  /index.html 200
+/en/products/*  /index.html 200
+/cn/solutions/*  /index.html 200
+/en/solutions/*  /index.html 200
 /cn/blog/*  /index.html 200
 /en/blog/*  /index.html 200
 
