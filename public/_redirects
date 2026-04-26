@@ -1,19 +1,19 @@
-# === SEO 核心配置：URL规范化 + 权重传递 + SPA支持 ===
+# === SPA 路由配置 + SEO 权重传递 ===
 
 # 1. 让所有带扩展名的文件直接通过
-# 这防止无限循环，因为 /cn/path/index.html 有 .html 会停在这里
-/*.html  200
-/*.css   200
-/*.js    200
-/*.png   200
-/*.jpg   200
-/*.jpeg  200
-/*.webp  200
-/*.svg   200
-/*.ico   200
-/*.txt   200
-/*.xml   200
-/*.json  200
+# 包括预渲染的 .html 文件（如 /cn/products/foils/index.html）
+*.html  200
+*.css   200
+*.js    200
+*.png   200
+*.jpg   200
+*.jpeg  200
+*.webp  200
+*.svg   200
+*.ico   200
+*.txt   200
+*.xml   200
+*.json  200
 
 # 2. 根路径重定向到中文版（301 永久重定向，权重传递）
 /about  /cn/about 301
@@ -25,13 +25,28 @@
 /blog  /cn/blog 301
 /privacy  /cn/privacy 301
 /terms  /cn/terms 301
-
-# 3. 根路径默认重定向到中文首页
 /  /cn/ 301
 
-# 4. 语言前缀的深层路径重写为 /lang/path/index.html
-# :splat 只捕获 * 部分，但保留 /cn/ 或 /en/ 前缀
-# 例如 /cn/products → /cn/products/index.html
-# 上面的 .html 规则会先检查是否存在预渲染文件
-/cn/*    /cn/:splat/index.html    200
-/en/*    /en/:splat/index.html    200
+# 3. 语言前缀的深层路径返回 index.html（重写，地址栏不变）
+# 让 React Router 处理 SPA 路由
+# 优先使用预渲染的 HTML 文件（规则1），否则返回 index.html
+# 3. 语言前缀的深层路径返回 index.html（重写，地址栏不变）
+# 排除根路径 /cn/ 和 /cn/index.html，避免无限循环
+/cn/about/*  /index.html 200
+/cn/solutions/*  /index.html 200
+/cn/products/*  /index.html 200
+/cn/culture/*  /index.html 200
+/cn/quote/*  /index.html 200
+/cn/tour/*  /index.html 200
+/cn/blog/*  /index.html 200
+/cn/privacy/*  /index.html 200
+/cn/terms/*  /index.html 200
+/en/about/*  /index.html 200
+/en/solutions/*  /index.html 200
+/en/products/*  /index.html 200
+/en/culture/*  /index.html 200
+/en/quote/*  /index.html 200
+/en/tour/*  /index.html 200
+/en/blog/*  /index.html 200
+/en/privacy/*  /index.html 200
+/en/terms/*  /index.html 200
