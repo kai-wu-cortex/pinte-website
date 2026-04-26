@@ -715,6 +715,8 @@ const FoilCard: React.FC<{ foil: FoilItem; lang: Language }> = ({ foil, lang }) 
 // 3D Production Process Animation
 // Simulates vacuum metallization and coating process
 const ProductionAnimation = () => {
+  const [envLoaded, setEnvLoaded] = React.useState(true);
+
   return (
     <div className="w-full h-full">
       <Canvas
@@ -739,7 +741,23 @@ const ProductionAnimation = () => {
           autoRotate={true}
           autoRotateSpeed={0.5}
         />
-        <Environment preset="city" />
+        <Environment
+          preset="city"
+          background={false}
+          onSuccess={() => setEnvLoaded(true)}
+          onError={() => {
+            setEnvLoaded(false);
+            console.warn('Environment loading failed, using fallback lighting');
+          }}
+        />
+        {/* Fallback lights when HDR environment fails to load */}
+        {!envLoaded && (
+          <>
+            <directionalLight position={[5, 5, 5]} intensity={0.8} />
+            <directionalLight position={[-5, 3, -5]} intensity={0.4} />
+            <hemisphereLight args={['#e9c349', '#111316']} intensity={0.3} />
+          </>
+        )}
       </Canvas>
     </div>
   );
