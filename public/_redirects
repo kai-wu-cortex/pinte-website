@@ -7,27 +7,14 @@
 /*.js    /*.js    200
 /*.png   /*.png  200
 /*.jpg   /*.jpg  200
-/*.jpeg  /*.jpeg  200
-/*.webp  /*.webp  200
+/*.jpeg  /*.jpeg 200
+/*.webp  /*.webp 200
 /*.svg   /*.svg  200
 /*.ico   /*.ico  200
 /*.txt   /*.txt  200
 /*.xml   /*.xml  200
-/*.json  /*.json  200
+/*.json  /*.json 200
 
-# Root paths without language prefix - return index.html for React Router
-/about    /index.html    200
-/solutions/:splat    /index.html    200
-/products    /index.html    200
-/products/:splat    /index.html    200
-/culture    /index.html    200
-/quote    /index.html    200
-/tour    /index.html    200
-/blog    /index.html    200
-/blog/:splat    /index.html    200
-/privacy    /index.html    200
-/terms    /index.html    200
-
-# Language-prefixed deep paths - rewrite to /lang/path/index.html
-/cn/*    /cn/:splat/index.html    200
-/en/*    /en/:splat/index.html    200
+# All other paths return index.html for React Router
+/cn/*  /index.html  200
+/en/*  /index.html  200
