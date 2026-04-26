@@ -3,19 +3,19 @@
 
 # Let all files with extensions pass through directly
 # This prevents infinite loop because /cn/path/index.html has .html and stops here
-# Cloudflare requires destination to start with / for relative URLs
-/*.html  /*.html  200
-/*.css   /*.css   200
-/*.js    /*.js    200
-/*.png   /*.png   200
-/*.jpg   /*.jpg   200
-/*.jpeg  /*.jpeg  200
-/*.webp  /*.webp  200
-/*.svg   /*.svg   200
-/*.ico   /*.ico   200
-/*.txt   /*.txt   200
-/*.xml   /*.xml   200
-/*.json  /*.json  200
+# Use * capture in source and :splat in destination to preserve the full path
+*.html  /:splat.html  200
+*.css   /:splat.css   200
+*.js    /:splat.js    200
+*.png   /:splat.png   200
+*.jpg   /:splat.jpg   200
+*.jpeg  /:splat.jpeg  200
+*.webp  /:splat.webp  200
+*.svg   /:splat.svg   200
+*.ico   /:splat.ico   200
+*.txt   /:splat.txt   200
+*.xml   /:splat.xml   200
+*.json  /:splat.json  200
 
 # Root paths without language prefix - let React Router handle redirect to /cn
 /about    /index.html    200
