@@ -1,8 +1,7 @@
-# Cloudflare routing
-# Order matters - most specific first
+# Cloudflare Pages routing - SEO + SPA support
 
-# Let all files with extensions pass through directly
-/*.html  /*.html  200
+# Static files pass through
+/*.html  /*.html 200
 /*.css   /*.css   200
 /*.js    /*.js    200
 /*.png   /*.png  200
@@ -15,6 +14,20 @@
 /*.xml   /*.xml  200
 /*.json  /*.json 200
 
-# All other paths return index.html for React Router
-/cn/*  /index.html  200
-/en/*  /index.html  200
+# Deep paths that need SPA routing - return index.html
+/cn/blog/*  /index.html 200
+/en/blog/*  /index.html 200
+
+# 301 redirects for root paths
+/about  /cn/about 301
+/products  /cn/products 301
+/culture  /cn/culture 301
+/quote  /cn/quote 301
+/tour  /cn/tour 301
+/blog  /cn/blog 301
+/privacy  /cn/privacy 301
+/terms  /cn/terms 301
+/solutions/:splat  /cn/solutions/:splat 301
+/products/:splat  /cn/products/:splat 301
+/blog/:splat  /cn/blog/:splat 301
+/  /cn/ 301
