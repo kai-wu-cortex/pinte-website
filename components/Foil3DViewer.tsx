@@ -171,9 +171,9 @@ const Foil3DViewer: React.FC<Foil3DViewerProps> = ({ isOpen, onClose, initialFoi
 
            {/* NEW: Stamping Effect Preview (Floating) */}
            <div className="absolute z-20 bg-neutral-800 rounded-2xl shadow-2xl border border-white/10 overflow-hidden group/preview transition-all hover:scale-105
-               top-20 left-6 w-32 h-32
-               sm:top-24 sm:left-8 sm:w-40 sm:h-40
-               lg:top-12 lg:right-12 lg:left-auto lg:w-[240px] lg:h-[240px]
+               top-4 right-4 w-20 h-20
+               sm:top-24 sm:left-8 sm:w-40 sm:h-40 sm:right-auto
+               lg:top-12 lg:right-12 lg:w-[240px] lg:h-[240px]
            ">
                <div 
                    className="absolute inset-0 bg-neutral-900 flex items-center justify-center cursor-pointer"
@@ -329,8 +329,8 @@ const Foil3DViewer: React.FC<Foil3DViewerProps> = ({ isOpen, onClose, initialFoi
            )}
            {/* Mobile Quick Selector */}
            {!isCmsMode && (
-              <div className="absolute bottom-6 left-1/2 -translate-x-1/2 z-20 w-[90%] sm:hidden bg-neutral-900/90 backdrop-blur-md p-3 rounded-2xl border border-white/10">
-                 <div className="flex gap-3 overflow-x-auto no-scrollbar">
+              <div className="absolute bottom-4 left-4 right-4 z-20 bg-neutral-900/90 backdrop-blur-md p-3 rounded-2xl border border-white/10">
+                 <div className="flex gap-3 overflow-x-auto no-scrollbar pb-1">
                      {localCatalog.filter(f => f.series === activeFoil.series).map((item) => (
                        <button
                          key={item.id}

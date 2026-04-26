@@ -136,7 +136,7 @@ export const HotStampingSimulator: React.FC<HotStampingSimulatorProps> = ({ lang
                 totalMeters={totalMeters}
             />
 
-            <div className="absolute top-16 left-80 ml-6 bg-black/50 p-2 rounded text-[10px] text-gray-400 pointer-events-none select-none z-10">
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 md:top-16 md:left-80 md:translate-x-0 ml-0 bg-black/70 backdrop-blur-sm p-2 rounded text-[10px] text-gray-300 pointer-events-none select-none z-10 whitespace-nowrap">
                 <p>🖱️ {language === 'en' ? 'Left click: Rotate' : '左键: 旋转视角'}</p>
                 <p>🖱️ {language === 'en' ? 'Right click: Pan' : '右键: 平移'}</p>
                 <p>🖱️ {language === 'en' ? 'Wheel: Zoom' : '滚轮: 缩放'}</p>
@@ -145,14 +145,14 @@ export const HotStampingSimulator: React.FC<HotStampingSimulatorProps> = ({ lang
       </div>
 
       {/* Floating Control Panel (Left Sidebar) */}
-      <div className="absolute top-16 left-4 w-80 bottom-4 z-20 pointer-events-none">
+      <div className="absolute top-16 left-4 w-72 md:w-80 bottom-4 z-20 pointer-events-none">
           <div className="w-full h-full shadow-2xl">
              <ControlPanel language={language} state={state} onChange={setState} />
           </div>
       </div>
 
-      {/* Floating Dashboard (Right) */}
-      <div className="absolute top-16 right-4 w-72 h-[calc(100%-5rem)] z-10 shadow-2xl pointer-events-none">
+      {/* Floating Dashboard (Right) - Hidden on mobile */}
+      <div className="hidden md:block absolute top-16 right-4 w-64 lg:w-72 h-[calc(100%-5rem)] z-10 shadow-2xl pointer-events-none">
            <Dashboard language={language} result={simulationResult} totalMeters={totalMeters} />
       </div>
     </div>
