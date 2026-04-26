@@ -1,4 +1,4 @@
-# Cloudflare Pages routing - SEO redirects only
+# Cloudflare Pages routing - SEO redirects
 
 # 301 redirects for root paths to /cn/ version
 /about  /cn/about 301
@@ -14,5 +14,4 @@
 /blog/:splat  /cn/blog/:splat 301
 /  /cn/ 301
 
-# Cloudflare Pages automatically serves /path/index.html for /path requests
-# No additional rules needed for SPA routing
+# SPA routing handled by functions/_middleware.js
