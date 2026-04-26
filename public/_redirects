@@ -1,28 +1,6 @@
-# Cloudflare Pages routing - SEO + SPA support
+# Cloudflare Pages routing - SEO redirects only
 
-# Static files pass through
-/*.html  /*.html 200
-/*.css   /*.css   200
-/*.js    /*.js    200
-/*.png   /*.png  200
-/*.jpg   /*.jpg  200
-/*.jpeg  /*.jpeg 200
-/*.webp  /*.webp 200
-/*.svg   /*.svg  200
-/*.ico   /*.ico  200
-/*.txt   /*.txt  200
-/*.xml   /*.xml  200
-/*.json  /*.json 200
-
-# Deep paths that need SPA routing - return index.html
-/cn/products/*  /index.html 200
-/en/products/*  /index.html 200
-/cn/solutions/*  /index.html 200
-/en/solutions/*  /index.html 200
-/cn/blog/*  /index.html 200
-/en/blog/*  /index.html 200
-
-# 301 redirects for root paths
+# 301 redirects for root paths to /cn/ version
 /about  /cn/about 301
 /products  /cn/products 301
 /culture  /cn/culture 301
@@ -35,3 +13,6 @@
 /products/:splat  /cn/products/:splat 301
 /blog/:splat  /cn/blog/:splat 301
 /  /cn/ 301
+
+# Cloudflare Pages automatically serves /path/index.html for /path requests
+# No additional rules needed for SPA routing
