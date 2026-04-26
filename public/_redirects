@@ -14,8 +14,8 @@
 /*/*.json  /*/*.json 200
 
 # 2. index 页面直接返回，不重写
-/cn/index.html 200
-/en/index.html 200
+/cn/index.html  /cn/index.html  200
+/en/index.html  /en/index.html  200
 
 # 3. 根路径重定向到中文版
 /about  /cn/about 301
