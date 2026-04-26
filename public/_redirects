@@ -13,11 +13,21 @@
 /*/*.xml   /*/*.xml 200
 /*/*.json  /*/*.json 200
 
-# 2. index 页面直接返回，不重写
-/cn/index.html  /cn/index.html  200
-/en/index.html  /en/index.html  200
+# 2. 有扩展名的文件直接返回（包括预渲染的 .html 文件）
+/*.html  200
+/*.css   200
+/*.js    200
+/*.png   200
+/*.jpg   200
+/*.jpeg  200
+/*.webp  200
+/*.svg   200
+/*.ico   200
+/*.txt   200
+/*.xml   200
+/*.json  200
 
-# 3. 根路径重定向到中文版
+# 3. 根路径重定向到中文版（301 永久重定向，权重传递）
 /about  /cn/about 301
 /solutions/:splat  /cn/solutions/:splat 301
 /products  /cn/products 301
@@ -30,3 +40,9 @@
 
 # 4. 根路径默认重定向到中文首页
 /  /cn/ 301
+
+# 5. 语言前缀的深层路径重写为 /path/index.html
+# 上面的 .html 规则会先检查是否存在预渲染文件
+# 如果没有文件，返回 index.html 让 React Router 处理 SPA 路由
+/cn/*    /cn/:splat/index.html    200
+/en/*    /en/:splat/index.html    200
