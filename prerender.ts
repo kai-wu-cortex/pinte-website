@@ -227,6 +227,11 @@ export const prerender = {
       'products/category/cold-foil',
       'products/category/metallized-films',
       'products/category/security-films',
+      'products/category/PK',
+      'products/category/PC',
+      'products/category/PLPY',
+      'products/category/DIGITAL',
+      'products/category/GLITTER',
       'products/item/premium-gold-foil',
       'products/item/silver-metallic',
       'products/item/holographic-pattern',
@@ -387,6 +392,56 @@ export const prerender = {
         en: {
           title: 'Security Foils - PINTE Anti-Counterfeiting Foil',
           description: 'PINTE security hot stamping foils feature multiple anti-counterfeiting technologies including holographic patterns, micro-text, color-changing effects, helping brands protect intellectual property and prevent counterfeit products.',
+        },
+      },
+      'products/category/PK': {
+        cn: {
+          title: 'PK粗面烫金箔系列 - PINTE粗表面专用烫金箔',
+          description: 'PK咖啡底系列专为粗糙不平整表面设计的烫金箔，特别适合粗纹纸、压纹皮革、特种纸等难烫材料，特有抗氧化涂层保证重油墨纸张烫后光泽不发黑。东莞品特专业生产，供应东南亚市场。',
+        },
+        en: {
+          title: 'PK Rough Surface Foil - PINTE Specialized Foil for Rough Surfaces',
+          description: 'PK Brown Back series hot stamping foil designed for rough and uneven surfaces, specially for rough paper, embossed leather, specialty paper. Special anti-oxidation coating maintains gloss on heavy ink paper. Professional manufacturer from Dongguan China, supplying Southeast Asia market.',
+        },
+      },
+      'products/category/PC': {
+        cn: {
+          title: 'PC塑胶烫金箔系列 - PINTE化妆品包材专用',
+          description: 'PC系列专为塑胶材质设计，支持ABS、PS、PVC、亚克力等多种塑胶，优异耐酒精性能，完美通过百格测试，是化妆品包材烫金的最佳选择。',
+        },
+        en: {
+          title: 'PC Plastic Foil - PINTE Cosmetic Packaging Foil',
+          description: 'PC series hot stamping foil specially engineered for plastic materials, supports ABS, PS, PVC, acrylic and other plastics. Excellent alcohol resistance, passes cross-cut test perfectly, ideal for cosmetic packaging hot stamping.',
+        },
+      },
+      'products/category/PLPY': {
+        cn: {
+          title: 'PLPY颜料烫金箔系列 - PINTE高遮盖力纯正色彩',
+          description: 'PL/PY颜料箔是以颜料为原料的非镀铝产品，解决印刷油墨遮盖力不足问题，色彩饱满呈现纯正色彩，适合各种纸质基材和礼品包装。',
+        },
+        en: {
+          title: 'PLPY Pigment Foil - PINTE High Coverage Pure Color',
+          description: 'PL/PY pigment foils are non-aluminized products using pigment as raw material, solves insufficient ink coverage problem, provides full and pure colors, suitable for various paper substrates and gift packaging.',
+        },
+      },
+      'products/category/DIGITAL': {
+        cn: {
+          title: '数码冷烫箔系列 - PINTE无需制版个性化烫金',
+          description: '数码冷烫系列无需制版，直接在UV光油或数码墨层上进行固化转移，适合个性化定制与小批量生产，适配MGI、Scodix等数码增效设备。',
+        },
+        en: {
+          title: 'Digital Cold Foil - PINTE Plate-Free Personalization',
+          description: 'Digital cold foil series requires no plate making, direct curing transfer on UV varnish or digital toner layers, ideal for personalization and short-run production, compatible with MGI, Scodix and other digital enhancement equipment.',
+        },
+      },
+      'products/category/GLITTER': {
+        cn: {
+          title: '金葱粉系列 - PINTE高温耐溶剂高品质闪粉',
+          description: '品特25年生产经验金葱粉，六角形切片，耐高温耐溶剂，光泽持久不褪色，规格齐全从1/4英寸到1/500英寸，适合圣诞饰品、美甲、丝网印刷等应用。',
+        },
+        en: {
+          title: 'Glitter Powder - PINTE Premium Heat Solvent Resistant Glitter',
+          description: 'PINTE premium glitter powder with 25 years production experience, hexagonal cut, heat and solvent resistant, long-lasting shine no fading. Full range of sizes from 1/4" to 1/500", suitable for Christmas decorations, nail art, screen printing and more.',
         },
       },
       // Product Items
