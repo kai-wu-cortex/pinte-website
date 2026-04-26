@@ -86,6 +86,7 @@ const AppRoutes = () => {
       <Route path="/blog/:slug" element={<Navigate replace to={(params) => `/cn/blog/${params.slug}`} />} />
       <Route path="/privacy" element={<Navigate to="/cn/privacy" replace />} />
       <Route path="/terms" element={<Navigate to="/cn/terms" replace />} />
+      <Route path="/pintefoils" element={<Navigate to="/cn/pintefoils" replace />} />
 
       {/* All routes with language prefix - LanguageProvider reads lang from URL params */}
       <Route path="/:lang" element={<LanguageLayout />}>
