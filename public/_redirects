@@ -10,9 +10,9 @@
 /blog  /cn/blog 301
 /privacy  /cn/privacy 301
 /terms  /cn/terms 301
-/solutions/:splat  /cn/solutions/:splat 301
-/products/:splat  /cn/products/:splat 301
-/blog/:splat  /cn/blog/:splat 301
+/solutions/:splat  /cn/solutions/$splat 301
+/products/:splat  /cn/products/$splat 301
+/blog/:splat  /cn/blog/$splat 301
 /  /cn/ 301
 
 # SPA routing handled by functions/_middleware.js
