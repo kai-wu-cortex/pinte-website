@@ -4,6 +4,7 @@ import { ControlPanel } from './ControlPanel';
 import { Dashboard } from './Dashboard';
 import { calculateSimulation } from './simulationLogic';
 import { SimulationState, CoatingMethod, SolventType, ProcessStep, Language } from './types';
+import { Maximize2, Minimize2 } from 'lucide-react';
 
 // Default Initial State
 const INITIAL_STATE: SimulationState = {
@@ -53,6 +54,29 @@ export const HotStampingSimulator: React.FC<HotStampingSimulatorProps> = ({ lang
   const [totalMeters, setTotalMeters] = useState(0);
   const [leftCollapsed, setLeftCollapsed] = useState(false);
   const [rightCollapsed, setRightCollapsed] = useState(false);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const toggleFullscreen = async () => {
+    if (!containerRef.current) return;
+
+    if (!document.fullscreenElement) {
+      await containerRef.current.requestFullscreen();
+      setIsFullscreen(true);
+    } else {
+      await document.exitFullscreen();
+      setIsFullscreen(false);
+    }
+  };
+
+  // Listen for fullscreen change
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(!!document.fullscreenElement);
+    };
+    document.addEventListener('fullscreenchange', handleFullscreenChange);
+    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+  }, []);
 
   // Real-time calculation of results based on state
   const simulationResult = useMemo(() => calculateSimulation(state, language), [state, language]);
@@ -75,7 +99,7 @@ export const HotStampingSimulator: React.FC<HotStampingSimulatorProps> = ({ lang
   const toggleCameraMode = () => setState(prev => ({...prev, autoCamera: !prev.autoCamera}));
 
   return (
-    <div className="flex flex-col h-[800px] w-full bg-slate-950 text-white overflow-hidden font-sans relative rounded-[0.125rem] border border-[#44474c]">
+    <div ref={containerRef} className="flex flex-col h-[800px] w-full bg-slate-950 text-white overflow-hidden font-sans relative rounded-[0.125rem] border border-[#44474c]">
       {/* Header */}
       <header className="flex-none h-14 bg-slate-900/90 backdrop-blur border-b border-slate-700 flex items-center px-6 justify-between shadow-lg z-30 relative">
         <div className="flex items-center gap-3">
@@ -105,7 +129,7 @@ export const HotStampingSimulator: React.FC<HotStampingSimulatorProps> = ({ lang
            </div>
         </div>
 
-        <div className="flex items-center gap-4">
+        <div className="flex items-center gap-3">
              <div className="flex flex-col items-end mr-2">
                 <span className="text-[10px] text-gray-400 uppercase">{language === 'en' ? 'Total Run' : '总产量'}</span>
                 <span className="font-mono text-blue-400 font-bold">{totalMeters.toFixed(1)} m</span>
@@ -114,9 +138,16 @@ export const HotStampingSimulator: React.FC<HotStampingSimulatorProps> = ({ lang
                 onClick={toggleCameraMode}
                 className={`text-xs px-3 py-1 rounded border ${state.autoCamera ? 'bg-blue-600 border-blue-400' : 'bg-slate-700 border-gray-600'}`}
              >
-                {state.autoCamera ? '📷 ' + (language === 'en' ? 'Follow Camera' : '视角跟随') : '🔓 ' + (language === 'en' ? 'Free Camera' : '自由视角')}
+                {state.autoCamera ? '📷 ' + (language === 'en' ? 'Follow' : '跟随') : '🔓 ' + (language === 'en' ? 'Free' : '自由')}
              </button>
-             <div className="text-xs text-gray-500 flex flex-col items-end">
+             <button
+                onClick={toggleFullscreen}
+                className="p-2 rounded border border-slate-600 bg-slate-800 hover:bg-slate-700 transition-colors"
+                title={language === 'en' ? 'Toggle Fullscreen' : '切换全屏'}
+             >
+                {isFullscreen ? <Minimize2 size={16} /> : <Maximize2 size={16} />}
+             </button>
+             <div className="hidden md:block text-xs text-gray-500 flex flex-col items-end">
                 <span className="font-mono text-yellow-500">{(state.machine.speed / 60).toFixed(2)} m/s</span>
                 <span>{language === 'en' ? 'Speed' : '线速度'}</span>
              </div>
@@ -149,7 +180,7 @@ export const HotStampingSimulator: React.FC<HotStampingSimulatorProps> = ({ lang
       {/* Floating Control Panel (Left Sidebar) - Collapsible */}
       <div className={`absolute top-16 z-20 transition-all duration-300 ease-in-out ${
         leftCollapsed
-          ? 'left-2 top-4'
+          ? 'left-2 top-20'
           : 'left-4 w-72 md:w-80 bottom-4 pointer-events-none'
       }`}>
         {leftCollapsed ? (
@@ -177,7 +208,7 @@ export const HotStampingSimulator: React.FC<HotStampingSimulatorProps> = ({ lang
       {/* Floating Dashboard (Right) - Collapsible */}
       <div className={`absolute top-16 z-10 transition-all duration-300 ease-in-out ${
         rightCollapsed
-          ? 'right-2 top-4'
+          ? 'right-2 top-20'
           : 'right-4 w-64 lg:w-72 h-[calc(100%-5rem)] pointer-events-none'
       } ${rightCollapsed ? '' : 'hidden md:block'}`}>
         {rightCollapsed ? (

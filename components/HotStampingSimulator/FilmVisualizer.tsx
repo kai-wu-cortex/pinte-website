@@ -584,13 +584,14 @@ const CameraController = ({ step, autoCamera }: { step: ProcessStep, autoCamera:
         isTransitioning.current = true;
         const t = new THREE.Vector3(); const l = new THREE.Vector3();
         switch (step) {
+            case ProcessStep.OVERVIEW: t.set(40, 35, 40); l.set(0, 5, 0); break;
             case ProcessStep.UNWIND: t.set(-30, 10, 20); l.set(-30, 0, 0); break;
             case ProcessStep.PRETREAT: t.set(-20, 10, 20); l.set(-20, 0, 0); break;
             case ProcessStep.COATING: t.set(-8, 10, 15); l.set(-8, 0, 0); break;
-            case ProcessStep.DRYING: t.set(5, 15, 30); l.set(5, 6, 0); break; 
+            case ProcessStep.DRYING: t.set(5, 15, 30); l.set(5, 6, 0); break;
             case ProcessStep.POST_PROCESS: t.set(18, 10, 20); l.set(18, 0, 0); break;
             case ProcessStep.REWIND: t.set(26, 10, 20); l.set(26, 0, 0); break;
-            default: t.set(40, 35, 40); l.set(0, 5, 0); 
+            default: t.set(40, 35, 40); l.set(0, 5, 0); break;
         }
         setTargetPos(t); setTargetLook(l);
         const timer = setTimeout(() => { isTransitioning.current = false; }, 2000);
