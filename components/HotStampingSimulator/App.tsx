@@ -51,6 +51,8 @@ interface HotStampingSimulatorProps {
 export const HotStampingSimulator: React.FC<HotStampingSimulatorProps> = ({ language }) => {
   const [state, setState] = useState<SimulationState>(INITIAL_STATE);
   const [totalMeters, setTotalMeters] = useState(0);
+  const [leftCollapsed, setLeftCollapsed] = useState(false);
+  const [rightCollapsed, setRightCollapsed] = useState(false);
 
   // Real-time calculation of results based on state
   const simulationResult = useMemo(() => calculateSimulation(state, language), [state, language]);
@@ -144,16 +146,60 @@ export const HotStampingSimulator: React.FC<HotStampingSimulatorProps> = ({ lang
             </div>
       </div>
 
-      {/* Floating Control Panel (Left Sidebar) */}
-      <div className="absolute top-16 left-4 w-72 md:w-80 bottom-4 z-20 pointer-events-none">
-          <div className="w-full h-full shadow-2xl">
+      {/* Floating Control Panel (Left Sidebar) - Collapsible */}
+      <div className={`absolute top-16 z-20 transition-all duration-300 ease-in-out ${
+        leftCollapsed
+          ? 'left-2 top-4'
+          : 'left-4 w-72 md:w-80 bottom-4 pointer-events-none'
+      }`}>
+        {leftCollapsed ? (
+          <button
+            onClick={() => setLeftCollapsed(false)}
+            className="w-12 h-12 bg-slate-900/90 backdrop-blur border border-yellow-500/50 rounded-full flex items-center justify-center shadow-lg hover:bg-yellow-500 hover:text-black transition-all pointer-events-auto"
+            title={language === 'en' ? 'Show Controls' : '显示参数面板'}
+          >
+            ⚙️
+          </button>
+        ) : (
+          <div className="w-full h-full shadow-2xl relative pointer-events-auto">
+            <button
+              onClick={() => setLeftCollapsed(true)}
+              className="absolute -top-2 -right-2 w-6 h-6 bg-slate-800 border border-yellow-500/50 rounded-full flex items-center justify-center text-xs hover:bg-yellow-500 hover:text-black z-10 transition-all"
+              title={language === 'en' ? 'Hide' : '收起'}
+            >
+              ←
+            </button>
              <ControlPanel language={language} state={state} onChange={setState} />
           </div>
+        )}
       </div>
 
-      {/* Floating Dashboard (Right) - Hidden on mobile */}
-      <div className="hidden md:block absolute top-16 right-4 w-64 lg:w-72 h-[calc(100%-5rem)] z-10 shadow-2xl pointer-events-none">
-           <Dashboard language={language} result={simulationResult} totalMeters={totalMeters} />
+      {/* Floating Dashboard (Right) - Collapsible */}
+      <div className={`absolute top-16 z-10 transition-all duration-300 ease-in-out ${
+        rightCollapsed
+          ? 'right-2 top-4'
+          : 'right-4 w-64 lg:w-72 h-[calc(100%-5rem)] pointer-events-none'
+      } ${rightCollapsed ? '' : 'hidden md:block'}`}>
+        {rightCollapsed ? (
+          <button
+            onClick={() => setRightCollapsed(false)}
+            className="w-12 h-12 bg-slate-900/90 backdrop-blur border border-blue-500/50 rounded-full flex items-center justify-center shadow-lg hover:bg-blue-500 hover:text-white transition-all pointer-events-auto"
+            title={language === 'en' ? 'Show Dashboard' : '显示数据面板'}
+          >
+            📊
+          </button>
+        ) : (
+          <div className="w-full h-full shadow-2xl relative pointer-events-auto">
+            <button
+              onClick={() => setRightCollapsed(true)}
+              className="absolute -top-2 -left-2 w-6 h-6 bg-slate-800 border border-blue-500/50 rounded-full flex items-center justify-center text-xs hover:bg-blue-500 hover:text-white z-10 transition-all"
+              title={language === 'en' ? 'Hide' : '收起'}
+            >
+              →
+            </button>
+             <Dashboard language={language} result={simulationResult} totalMeters={totalMeters} />
+          </div>
+        )}
       </div>
     </div>
   );

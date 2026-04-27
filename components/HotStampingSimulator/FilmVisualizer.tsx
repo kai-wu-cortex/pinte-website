@@ -609,17 +609,34 @@ const CameraController = ({ step, autoCamera }: { step: ProcessStep, autoCamera:
 
 
 export const FilmVisualizer: React.FC<VisualizerProps> = (props) => {
+  const [envLoaded, setEnvLoaded] = React.useState(true);
+
   return (
     <div className="w-full h-full rounded-lg overflow-hidden shadow-2xl border border-gray-700 bg-gray-900 relative">
       <Canvas shadows dpr={[1, 2]}>
         <PerspectiveCamera makeDefault position={[40, 35, 40]} fov={35} />
         <OrbitControls enablePan={true} maxPolarAngle={Math.PI / 2} target={[0, 5, 0]} />
         <CameraController step={props.step} autoCamera={props.autoCamera} />
-        
-        <Environment preset="warehouse" />
+
+        <Environment
+          preset="warehouse"
+          onSuccess={() => setEnvLoaded(true)}
+          onError={() => {
+            setEnvLoaded(false);
+            console.warn('Environment HDR loading failed, using fallback lighting');
+          }}
+        />
         <ambientLight intensity={0.6} />
         <directionalLight position={[10, 40, 20]} castShadow intensity={1.5} shadow-mapSize={[2048, 2048]} />
-        
+        {/* Fallback lights when HDR environment fails to load */}
+        {!envLoaded && (
+          <>
+            <directionalLight position={[5, 5, 5]} intensity={0.8} />
+            <directionalLight position={[-5, 3, -5]} intensity={0.4} />
+            <hemisphereLight args={['#eab308', '#0f172a']} intensity={0.3} />
+          </>
+        )}
+
         {/* Floor */}
         <mesh position={[0, -5, 0]} rotation={[-Math.PI/2, 0, 0]} receiveShadow onClick={(e) => { e.stopPropagation(); console.log('[ThreeJS Click] Floor'); }}>
             <planeGeometry args={[200, 100]} />
