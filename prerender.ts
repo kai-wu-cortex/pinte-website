@@ -33,6 +33,23 @@ const escapeHtml = (value: string) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
+function buildCanonicalUrl(route: string, lang: 'cn' | 'en'): string {
+  const pathPart = route ? `/${route}/` : '/';
+  return `https://www.pintecl.com/${lang}${pathPart}`;
+}
+
+function buildStaticHeadLinks(route: string, lang: 'cn' | 'en'): string {
+  const canonical = buildCanonicalUrl(route, lang);
+  const en = buildCanonicalUrl(route, 'en');
+  const cn = buildCanonicalUrl(route, 'cn');
+
+  return `
+  <link rel="canonical" href="${canonical}">
+  <link rel="alternate" hreflang="en" href="${en}">
+  <link rel="alternate" hreflang="zh-CN" href="${cn}">
+  <link rel="alternate" hreflang="x-default" href="${en}">`.trim();
+}
+
 function buildSeoSnapshotHtml(route: string, lang: 'cn' | 'en', meta?: { title: string; description: string }): string {
   const isCn = lang === 'cn';
   const title = meta?.title || (isCn ? 'PINTE 品特烫金箔' : 'PINTE Hot Stamping Foils');
@@ -669,6 +686,8 @@ export const prerender = {
               .replace(/<title>[^<]+<\/title>/, '')
               .replace(/<meta name="description"[^>]*>/, '');
           }
+
+          html = html.replace('</head>', `${buildStaticHeadLinks(route, lang)}\n</head>`);
 
           html = html.replace(
             '<div id="root"></div>',

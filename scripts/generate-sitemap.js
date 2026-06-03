@@ -12,6 +12,7 @@ dotenv.config();
 
 const siteUrl = process.env.SITE_URL || 'https://www.pintecl.com';
 const languages = ['cn', 'en'];
+const routePath = (lang, route = '') => route ? `/${lang}/${route}/` : `/${lang}/`;
 
 // Define all static pages with their priorities and change frequencies
 const staticPages = [
@@ -115,10 +116,9 @@ function generateSitemap() {
 
   const addUrl = ({ route, changefreq, priority, lastmod = today }) => {
     languages.forEach((lang) => {
-      const pathPart = route ? `/${route}` : '';
-      const loc = `${siteUrl}/${lang}${pathPart}`;
-      const enHref = `${siteUrl}/en${pathPart}`;
-      const cnHref = `${siteUrl}/cn${pathPart}`;
+      const loc = `${siteUrl}${routePath(lang, route)}`;
+      const enHref = `${siteUrl}${routePath('en', route)}`;
+      const cnHref = `${siteUrl}${routePath('cn', route)}`;
 
       xml += `  <url>
     <loc>${loc}</loc>
