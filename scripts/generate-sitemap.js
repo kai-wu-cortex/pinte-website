@@ -11,38 +11,65 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 const siteUrl = process.env.SITE_URL || 'https://www.pintecl.com';
+const languages = ['cn', 'en'];
+const routePath = (lang, route = '') => route ? `/${lang}/${route}/` : `/${lang}/`;
 
 // Define all static pages with their priorities and change frequencies
 const staticPages = [
   {
-    loc: '/',
+    loc: '',
     changefreq: 'daily',
     priority: '1.0',
   },
   {
-    loc: '/products',
+    loc: 'about',
+    changefreq: 'monthly',
+    priority: '0.8',
+  },
+  {
+    loc: 'products',
     changefreq: 'weekly',
     priority: '0.9',
   },
   {
-    loc: '/culture',
-    changefreq: 'monthly',
-    priority: '0.7',
-  },
-  {
-    loc: '/quote',
+    loc: 'products/foils',
     changefreq: 'weekly',
     priority: '0.8',
   },
   {
-    loc: '/tour',
+    loc: 'culture',
     changefreq: 'monthly',
     priority: '0.7',
   },
   {
-    loc: '/blog',
+    loc: 'quote',
+    changefreq: 'weekly',
+    priority: '0.8',
+  },
+  {
+    loc: 'tour',
+    changefreq: 'monthly',
+    priority: '0.7',
+  },
+  {
+    loc: 'blog',
     changefreq: 'daily',
     priority: '0.9',
+  },
+  {
+    loc: 'pintefoils',
+    changefreq: 'monthly',
+    priority: '0.8',
+  },
+  {
+    loc: 'privacy',
+    changefreq: 'yearly',
+    priority: '0.3',
+  },
+  {
+    loc: 'terms',
+    changefreq: 'yearly',
+    priority: '0.3',
   },
 ];
 
@@ -53,6 +80,11 @@ const productCategories = [
   { id: 'cold-foil', name: 'Cold Foil' },
   { id: 'metallized-films', name: 'Metallized Films' },
   { id: 'security-films', name: 'Security Films' },
+  { id: 'PK', name: 'PK Brown Back Series' },
+  { id: 'PC', name: 'PC Plastic/Cold Foils' },
+  { id: 'PLPY', name: 'PL/PY Pigment Foils' },
+  { id: 'DIGITAL', name: 'Digital Cold Foils' },
+  { id: 'GLITTER', name: 'Glitter Powder' },
 ];
 
 // Solutions (example - these should be dynamically generated from your solution data)
@@ -70,6 +102,7 @@ const products = [
   { id: 'silver-metallic', name: 'Silver Metallic' },
   { id: 'holographic-pattern', name: 'Holographic Pattern' },
   { id: 'cold-foil-uv', name: 'Cold Foil UV' },
+  { id: 'PK-Universal', name: 'PK Universal Foil' },
 ];
 
 // Generate XML sitemap
@@ -77,51 +110,63 @@ function generateSitemap() {
   const today = new Date().toISOString().split('T')[0];
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
 `;
+
+  const addUrl = ({ route, changefreq, priority, lastmod = today }) => {
+    languages.forEach((lang) => {
+      const loc = `${siteUrl}${routePath(lang, route)}`;
+      const enHref = `${siteUrl}${routePath('en', route)}`;
+      const cnHref = `${siteUrl}${routePath('cn', route)}`;
+
+      xml += `  <url>
+    <loc>${loc}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${enHref}" />
+    <xhtml:link rel="alternate" hreflang="zh-CN" href="${cnHref}" />
+    <xhtml:link rel="alternate" hreflang="x-default" href="${enHref}" />
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>${changefreq}</changefreq>
+    <priority>${priority}</priority>
+  </url>
+`;
+    });
+  };
 
   // Add static pages
   staticPages.forEach((page) => {
-    xml += `  <url>
-    <loc>${siteUrl}${page.loc}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>${page.changefreq}</changefreq>
-    <priority>${page.priority}</priority>
-  </url>
-`;
+    addUrl({
+      route: page.loc,
+      changefreq: page.changefreq,
+      priority: page.priority,
+    });
   });
 
   // Add product categories
   productCategories.forEach((category) => {
-    xml += `  <url>
-    <loc>${siteUrl}/products/category/${category.id}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-`;
+    addUrl({
+      route: `products/category/${category.id}`,
+      changefreq: 'weekly',
+      priority: '0.8',
+    });
   });
 
   // Add product detail pages
   products.forEach((product) => {
-    xml += `  <url>
-    <loc>${siteUrl}/products/item/${product.id}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-`;
+    addUrl({
+      route: `products/item/${product.id}`,
+      changefreq: 'weekly',
+      priority: '0.8',
+    });
   });
 
   // Add solution detail pages
   solutions.forEach((solution) => {
-    xml += `  <url>
-    <loc>${siteUrl}/solutions/${solution.id}</loc>
-    <lastmod>${today}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-`;
+    addUrl({
+      route: `solutions/${solution.id}`,
+      changefreq: 'weekly',
+      priority: '0.8',
+    });
   });
 
   // Add blog articles from sitemap-blog.json if it exists
@@ -136,13 +181,15 @@ function generateSitemap() {
           // Skip duplicates and the main blog page (already added)
           if (page.loc && !addedBlogUrls.has(page.loc) && !page.loc.endsWith('/blog') && !page.loc.endsWith('/blog/')) {
             addedBlogUrls.add(page.loc);
-            xml += `  <url>
-    <loc>${page.loc}</loc>
-    ${page.lastmod ? `<lastmod>${page.lastmod}</lastmod>` : `<lastmod>${today}</lastmod>`}
-    <changefreq>${page.changefreq || 'weekly'}</changefreq>
-    <priority>${page.priority || '0.8'}</priority>
-  </url>
-`;
+            const route = page.loc.replace(siteUrl, '').replace(/^\/(cn|en)\//, '').replace(/^\/(cn|en)$/, '');
+            if (route) {
+              addUrl({
+                route,
+                lastmod: page.lastmod || today,
+                changefreq: page.changefreq || 'weekly',
+                priority: page.priority || '0.8',
+              });
+            }
           }
         });
       }
@@ -184,6 +231,42 @@ function generateRobotsTxt() {
 Allow: /
 Disallow: /api/
 
+User-agent: Googlebot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: GoogleOther
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Applebot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
 Sitemap: ${siteUrl}/sitemap.xml
 `;
 
@@ -200,4 +283,4 @@ console.log(`📌 Next steps:
 1. Test the sitemap at ${siteUrl}/sitemap.xml
 2. Submit the sitemap to Google Search Console
 3. Submit the sitemap to Bing Webmaster Tools
-4. Add the sitemap to your deployment process`);
+4. Submit with IndexNow after deployment`);

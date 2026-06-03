@@ -4,10 +4,11 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ArrowLeft, CheckCircle2, Layers } from 'lucide-react';
 import { PinteLogo } from '../components/PinteLogo';
+import SEOMeta from '../components/SEOMeta';
 
 const SolutionDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { content, ui } = useLanguage();
+  const { content, ui, lang } = useLanguage();
   const navigate = useNavigate();
 
   const solution = content.SOLUTIONS_DATA[id || ''];
@@ -24,8 +25,55 @@ const SolutionDetail: React.FC = () => {
   }
 
   const series = content.SERIES_INFO[solution.series] || content.SERIES_INFO['PK'];
+  const canonicalUrl = `/${lang}/solutions/${solution.id}`;
+  const solutionKeywords = [
+    solution.title,
+    `${solution.title} hot stamping foil`,
+    'hot stamping foil solution',
+    'packaging foil supplier',
+    'PINTE',
+    'Dongguan China',
+    ...solution.features,
+  ];
+  const serviceSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Service',
+    name: solution.title,
+    description: solution.description,
+    image: solution.img,
+    serviceType: 'Hot stamping foil application solution',
+    provider: {
+      '@type': 'Organization',
+      name: 'PINTE',
+      url: 'https://www.pintecl.com',
+    },
+    areaServed: [
+      'China',
+      'Vietnam',
+      'Thailand',
+      'Malaysia',
+      'Indonesia',
+      'Singapore',
+      'Europe',
+      'North America',
+    ],
+    url: `https://www.pintecl.com${canonicalUrl}`,
+  };
 
   return (
+    <>
+    <SEOMeta
+      title={`${solution.title} | PINTE Hot Stamping Foil Solutions`}
+      description={solution.description.slice(0, 155)}
+      keywords={solutionKeywords}
+      image={solution.img}
+      url={canonicalUrl}
+      locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
+      canonicalUrl={canonicalUrl}
+    />
+    <script type="application/ld+json">
+      {JSON.stringify(serviceSchema)}
+    </script>
     <div className="min-h-screen bg-neutral-50 font-sans text-neutral-900 animate-in fade-in duration-500">
        <div className="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-neutral-100">
          <div className="max-w-[1400px] mx-auto px-6 h-20 flex items-center justify-between">
@@ -130,6 +178,7 @@ const SolutionDetail: React.FC = () => {
            </div>
        </div>
     </div>
+    </>
   );
 };
 
