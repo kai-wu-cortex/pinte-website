@@ -6,7 +6,6 @@
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
-import fetch from 'node-fetch';
 
 // Load environment variables
 dotenv.config({ path: '.env.production' });
@@ -24,6 +23,71 @@ function markdownToHtml(md: string): string {
     .replace(/\*(.*)\*/gim, '<em>$1</em>')
     .replace(/\[([^\]]+)\]\(([^)]+)\)/gim, '<a href="$2">$1</a>')
     .replace(/\n/gim, '<br />');
+}
+
+const escapeHtml = (value: string) =>
+  value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;');
+
+function buildSeoSnapshotHtml(route: string, lang: 'cn' | 'en', meta?: { title: string; description: string }): string {
+  const isCn = lang === 'cn';
+  const title = meta?.title || (isCn ? 'PINTE 品特烫金箔' : 'PINTE Hot Stamping Foils');
+  const description = meta?.description || (isCn
+    ? 'PINTE 品特是中国东莞高端烫金箔制造商，供应烫金膜、冷烫箔、数码冷烫箔、颜料箔和全息烫金箔。'
+    : 'PINTE is a Dongguan China manufacturer of premium hot stamping foil, cold foil, digital foil, pigment foil, and holographic foil.');
+  const prefix = `/${lang}`;
+  const routePath = route ? `${prefix}/${route}` : prefix;
+
+  const products = isCn
+    ? [
+        ['PK 粗面烫金箔', `${prefix}/products/category/PK`],
+        ['PC 塑胶与冷烫箔', `${prefix}/products/category/PC`],
+        ['PL/PY 颜料箔', `${prefix}/products/category/PLPY`],
+        ['数码冷烫箔', `${prefix}/products/category/DIGITAL`],
+      ]
+    : [
+        ['PK Brown Back Rough Surface Foil', `${prefix}/products/category/PK`],
+        ['PC Plastic and Cold Foils', `${prefix}/products/category/PC`],
+        ['PL/PY Pigment Foils', `${prefix}/products/category/PLPY`],
+        ['Digital Cold Foil', `${prefix}/products/category/DIGITAL`],
+      ];
+  const solutions = isCn
+    ? [
+        ['化妆品包装烫金解决方案', `${prefix}/solutions/cosmetics-packaging`],
+        ['酒类包装烫金解决方案', `${prefix}/solutions/wine-spirits`],
+        ['医药包装烫金解决方案', `${prefix}/solutions/pharmaceutical`],
+      ]
+    : [
+        ['Cosmetics Packaging Foil Solutions', `${prefix}/solutions/cosmetics-packaging`],
+        ['Wine and Spirits Packaging Foil Solutions', `${prefix}/solutions/wine-spirits`],
+        ['Pharmaceutical Packaging Foil Solutions', `${prefix}/solutions/pharmaceutical`],
+      ];
+
+  return `
+    <main class="seo-snapshot" data-route="${escapeHtml(routePath)}">
+      <h1>${escapeHtml(title)}</h1>
+      <p>${escapeHtml(description)}</p>
+      <section>
+        <h2>${isCn ? '核心产品' : 'Core Products'}</h2>
+        <ul>
+          ${products.map(([label, href]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`).join('')}
+        </ul>
+      </section>
+      <section>
+        <h2>${isCn ? '应用方案' : 'Application Solutions'}</h2>
+        <ul>
+          ${solutions.map(([label, href]) => `<li><a href="${href}">${escapeHtml(label)}</a></li>`).join('')}
+        </ul>
+      </section>
+      <p>${isCn
+        ? '目标市场包括中国、越南、泰国、马来西亚、印尼、新加坡、欧洲和北美。'
+        : 'Target markets include China, Vietnam, Thailand, Malaysia, Indonesia, Singapore, Europe, and North America.'}</p>
+    </main>
+  `.trim();
 }
 
 // 获取所有文章
@@ -193,7 +257,7 @@ function generateArticleHtml(article: any, content: string, lang: 'cn' | 'en'): 
 
 export const prerender = {
   name: 'prerender',
-  async closeBundle() {
+  async writeBundle() {
     console.log('🚀 Starting prerender...');
 
     const articles = await fetchArticles();
@@ -606,6 +670,11 @@ export const prerender = {
               .replace(/<meta name="description"[^>]*>/, '');
           }
 
+          html = html.replace(
+            '<div id="root"></div>',
+            `<div id="root">${buildSeoSnapshotHtml(route, lang, meta)}</div>`
+          );
+
           // Always remove keywords from template - SEOMeta injects correct ones
           html = html.replace(/<meta name="keywords"[^>]*>/, '');
 
@@ -687,7 +756,7 @@ import { fileURLToPath } from 'url';
   const isMainModule = process.argv[1] === fileURLToPath(import.meta.url);
   if (isMainModule) {
     try {
-      await prerender.closeBundle();
+      await prerender.writeBundle();
     } catch (e) {
       // Ignore - files are already generated successfully
     } finally {

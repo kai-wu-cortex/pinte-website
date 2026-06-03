@@ -42,7 +42,8 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
 }) => {
   const siteName = 'PINTE';
   const siteUrl = 'https://www.pintecl.com';
-  const fullUrl = url ? `${siteUrl}${url}` : siteUrl;
+  const pagePath = url || canonicalUrl || '';
+  const fullUrl = pagePath ? `${siteUrl}${pagePath}` : siteUrl;
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
   const fullTitle = title;
 
@@ -59,16 +60,22 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
     return supportedLanguages.map(langInfo => {
       let alternateUrl: string;
       if (langInfo.isDefault) {
-        // x-default points to the root
-        alternateUrl = siteUrl;
+        // x-default points to the English global page instead of the root Chinese redirect.
+        if (!canonicalUrl) {
+          alternateUrl = `${siteUrl}/en`;
+        } else {
+          const pathParts = canonicalUrl.split('/');
+          const pathWithoutLang = pathParts.slice(2).join('/');
+          alternateUrl = `${siteUrl}/en${pathWithoutLang ? `/${pathWithoutLang}` : ''}`;
+        }
       } else if (!canonicalUrl) {
         // No canonicalUrl means this is the homepage for the current language
         alternateUrl = `${siteUrl}/${langInfo.lang}`;
       } else {
         // canonicalUrl is already /currentLang/path, extract the path part after language
         const pathParts = canonicalUrl.split('/');
-        const pathWithoutLang = '/' + pathParts.slice(3).join('/');
-        alternateUrl = `${siteUrl}/${langInfo.lang}${pathWithoutLang}`;
+        const pathWithoutLang = pathParts.slice(2).join('/');
+        alternateUrl = `${siteUrl}/${langInfo.lang}${pathWithoutLang ? `/${pathWithoutLang}` : ''}`;
       }
 
       return (
