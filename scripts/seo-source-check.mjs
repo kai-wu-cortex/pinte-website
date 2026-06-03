@@ -27,6 +27,14 @@ const checks = [
     },
   },
   {
+    name: 'Sitemap URLs do not contain path double slashes',
+    pass: () => {
+      const sitemap = read('public/sitemap.xml');
+      const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+      return locs.every((url) => !url.replace('https://', '').includes('//'));
+    },
+  },
+  {
     name: 'Sitemap generator emits hreflang alternates',
     pass: () => /xmlns:xhtml=/.test(read('scripts/generate-sitemap.js')) && /xhtml:link/.test(read('scripts/generate-sitemap.js')),
   },

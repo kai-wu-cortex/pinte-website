@@ -46,7 +46,7 @@ async function submitToIndexNow(urls: string[]): Promise<void> {
   };
 
   try {
-    const response = await fetch('https://api.indexnow.org', {
+    const response = await fetch('https://www.bing.com/indexnow', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json; charset=utf-8',

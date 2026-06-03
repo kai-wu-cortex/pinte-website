@@ -181,7 +181,12 @@ function generateSitemap() {
           // Skip duplicates and the main blog page (already added)
           if (page.loc && !addedBlogUrls.has(page.loc) && !page.loc.endsWith('/blog') && !page.loc.endsWith('/blog/')) {
             addedBlogUrls.add(page.loc);
-            const route = page.loc.replace(siteUrl, '').replace(/^\/(cn|en)\//, '').replace(/^\/(cn|en)$/, '');
+            const route = page.loc
+              .replace(siteUrl, '')
+              .replace(/^\/(cn|en)\//, '')
+              .replace(/^\/(cn|en)$/, '')
+              .replace(/^\/+/, '')
+              .replace(/\/+$/, '');
             if (route) {
               addUrl({
                 route,
