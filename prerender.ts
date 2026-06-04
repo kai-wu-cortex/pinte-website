@@ -6,7 +6,7 @@
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
-import { CONTENT_EN } from './data/content';
+import { CONTENT_EN } from './data/content.js';
 
 // Load environment variables
 dotenv.config({ path: '.env.production' });
