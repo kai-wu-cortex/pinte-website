@@ -25,5 +25,6 @@ dist/
 !public/sitemap-blog.json
 playwright-report/
 playwright/.cache/
+seo-geo-runs/
 *.md
 !README.md

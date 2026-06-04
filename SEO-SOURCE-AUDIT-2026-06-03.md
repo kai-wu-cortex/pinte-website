@@ -31,7 +31,7 @@ Remaining recommendation:
 `pages/ProductItem.tsx` now renders `SEOMeta` and Product JSON-LD for individual product pages.
 
 Impact:
-- High-intent product pages such as `/en/products/item/premium-gold-foil` now emit product-specific title, description, canonical, hreflang, Open Graph, image, and Product schema from the source component.
+- High-intent product pages such as `/en/products/item/PC-Cold` now emit product-specific title, description, canonical, hreflang, Open Graph, image, and Product schema from the source component.
 
 ### 3. Solution detail pages now include page-specific SEO metadata
 

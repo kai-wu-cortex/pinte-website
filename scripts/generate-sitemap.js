@@ -1,12 +1,13 @@
 /**
  * Complete Sitemap Generator for PINTE Website
- * Generates a proper XML sitemap with all pages
- * Run: node scripts/generate-sitemap.js
+ * Generates a proper XML sitemap from the same content IDs used by routes.
+ * Run: npm run generate-sitemap
  */
 
 import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
+import { CONTENT_EN } from '../data/content.ts';
 
 dotenv.config();
 
@@ -62,6 +63,11 @@ const staticPages = [
     priority: '0.8',
   },
   {
+    loc: 'seo-geo-sop',
+    changefreq: 'monthly',
+    priority: '0.5',
+  },
+  {
     loc: 'privacy',
     changefreq: 'yearly',
     priority: '0.3',
@@ -73,37 +79,13 @@ const staticPages = [
   },
 ];
 
-// Product categories (example - these should be dynamically generated from your product data)
-const productCategories = [
-  { id: 'general-hot-stamping', name: 'General Hot Stamping' },
-  { id: 'holographic-films', name: 'Holographic Films' },
-  { id: 'cold-foil', name: 'Cold Foil' },
-  { id: 'metallized-films', name: 'Metallized Films' },
-  { id: 'security-films', name: 'Security Films' },
-  { id: 'PK', name: 'PK Brown Back Series' },
-  { id: 'PC', name: 'PC Plastic/Cold Foils' },
-  { id: 'PLPY', name: 'PL/PY Pigment Foils' },
-  { id: 'DIGITAL', name: 'Digital Cold Foils' },
-  { id: 'GLITTER', name: 'Glitter Powder' },
-];
-
-// Solutions (example - these should be dynamically generated from your solution data)
-const solutions = [
-  { id: 'cosmetics-packaging', name: 'Cosmetics Packaging' },
-  { id: 'wine-spirits', name: 'Wine & Spirits' },
-  { id: 'pharmaceutical', name: 'Pharmaceutical' },
-  { id: 'tobacco', name: 'Tobacco' },
-  { id: 'gift-cards', name: 'Gift Cards' },
-];
-
-// Product items (example - these should be dynamically generated from your product data)
-const products = [
-  { id: 'premium-gold-foil', name: 'Premium Gold Foil' },
-  { id: 'silver-metallic', name: 'Silver Metallic' },
-  { id: 'holographic-pattern', name: 'Holographic Pattern' },
-  { id: 'cold-foil-uv', name: 'Cold Foil UV' },
-  { id: 'PK-Universal', name: 'PK Universal Foil' },
-];
+const productCategories = Object.keys(CONTENT_EN.PRODUCT_DATA);
+const productItems = Array.from(new Set(
+  Object.values(CONTENT_EN.CATALOG_DATA)
+    .flat()
+    .map((product) => product.id)
+));
+const solutions = Object.keys(CONTENT_EN.SOLUTIONS_DATA);
 
 // Generate XML sitemap
 function generateSitemap() {
@@ -143,27 +125,27 @@ function generateSitemap() {
   });
 
   // Add product categories
-  productCategories.forEach((category) => {
+  productCategories.forEach((categoryId) => {
     addUrl({
-      route: `products/category/${category.id}`,
+      route: `products/category/${categoryId}`,
       changefreq: 'weekly',
       priority: '0.8',
     });
   });
 
   // Add product detail pages
-  products.forEach((product) => {
+  productItems.forEach((productId) => {
     addUrl({
-      route: `products/item/${product.id}`,
+      route: `products/item/${productId}`,
       changefreq: 'weekly',
       priority: '0.8',
     });
   });
 
   // Add solution detail pages
-  solutions.forEach((solution) => {
+  solutions.forEach((solutionId) => {
     addUrl({
-      route: `solutions/${solution.id}`,
+      route: `solutions/${solutionId}`,
       changefreq: 'weekly',
       priority: '0.8',
     });

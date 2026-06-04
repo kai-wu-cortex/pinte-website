@@ -22,6 +22,7 @@ const BlogItem = React.lazy(() => import('./pages/BlogItem'));
 const Privacy = React.lazy(() => import('./pages/Privacy'));
 const Terms = React.lazy(() => import('./pages/Terms'));
 const PinteFoils = React.lazy(() => import('./pages/PinteFoils'));
+const SeoGeoSop = React.lazy(() => import('./pages/SeoGeoSop'));
 
 // Loading spinner component for Suspense
 const PageLoader = () => (
@@ -87,6 +88,7 @@ const AppRoutes = () => {
       <Route path="/privacy" element={<Navigate to="/cn/privacy" replace />} />
       <Route path="/terms" element={<Navigate to="/cn/terms" replace />} />
       <Route path="/pintefoils" element={<Navigate to="/cn/pintefoils" replace />} />
+      <Route path="/seo-geo-sop" element={<Navigate to="/cn/seo-geo-sop" replace />} />
 
       {/* All routes with language prefix - LanguageProvider reads lang from URL params */}
       <Route path="/:lang" element={<LanguageLayout />}>
@@ -104,6 +106,7 @@ const AppRoutes = () => {
         <Route path="blog/:slug" element={<BlogItem />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
+        <Route path="seo-geo-sop" element={<SeoGeoSop />} />
       </Route>
     </Routes>
   );

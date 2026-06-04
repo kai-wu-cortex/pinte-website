@@ -22,8 +22,45 @@ const checks = [
     pass: () => {
       const sitemap = read('public/sitemap.xml');
       const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
-      return locs.includes('https://www.pintecl.com/en/products/item/cold-foil-uv/')
-        && !locs.includes('https://www.pintecl.com/en/products/item/cold-foil-uv');
+      return locs.includes('https://www.pintecl.com/en/products/item/PC-Cold/')
+        && !locs.includes('https://www.pintecl.com/en/products/item/PC-Cold');
+    },
+  },
+  {
+    name: 'Sitemap includes real source product and solution routes',
+    pass: () => {
+      const sitemap = read('public/sitemap.xml');
+      const locs = [...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map((match) => match[1]);
+      const required = [
+        'https://www.pintecl.com/cn/solutions/pkg_bags/',
+        'https://www.pintecl.com/cn/solutions/special_paper/',
+        'https://www.pintecl.com/cn/solutions/leather/',
+        'https://www.pintecl.com/cn/solutions/plastic_surface/',
+        'https://www.pintecl.com/cn/solutions/digital_cold/',
+        'https://www.pintecl.com/cn/solutions/bottles/',
+        'https://www.pintecl.com/cn/solutions/gift_pkg/',
+        'https://www.pintecl.com/cn/solutions/reverse_uv/',
+        'https://www.pintecl.com/cn/products/item/PK-Universal/',
+        'https://www.pintecl.com/cn/products/item/PK-Heavy/',
+        'https://www.pintecl.com/cn/products/item/PK-Matte/',
+        'https://www.pintecl.com/cn/products/item/PK-Holo/',
+        'https://www.pintecl.com/cn/products/item/PC-Standard/',
+        'https://www.pintecl.com/cn/products/item/PC-Alcohol/',
+        'https://www.pintecl.com/cn/products/item/PC-Cold/',
+        'https://www.pintecl.com/cn/products/item/PL-Glossy/',
+        'https://www.pintecl.com/cn/products/item/PY-Matte/',
+        'https://www.pintecl.com/cn/products/item/PL-White/',
+        'https://www.pintecl.com/cn/products/item/G-Hex/',
+        'https://www.pintecl.com/cn/products/item/G-Strip/',
+        'https://www.pintecl.com/cn/tour/',
+        'https://www.pintecl.com/cn/about/',
+      ];
+      const stale = [
+        'https://www.pintecl.com/cn/products/item/premium-gold-foil/',
+        'https://www.pintecl.com/cn/solutions/cosmetics-packaging/',
+        'https://www.pintecl.com/cn/products/category/general-hot-stamping/',
+      ];
+      return required.every((url) => locs.includes(url)) && stale.every((url) => !locs.includes(url));
     },
   },
   {
