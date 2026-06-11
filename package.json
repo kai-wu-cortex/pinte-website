@@ -6,8 +6,8 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "build:seo": "vite build && npx tsc --skipLibCheck -p tsconfig.prerender.json && node ./tmp-prerender/prerender.js && rm -rf ./tmp-prerender",
-    "prerender": "npx tsc --skipLibCheck -p tsconfig.prerender.json && node ./tmp-prerender/prerender.js && rm -rf ./tmp-prerender",
+    "build:seo": "vite build && npx tsc --skipLibCheck -p tsconfig.prerender.json && mkdir -p ./tmp-prerender/scripts && cp ./scripts/seo-geo-sop.config.mjs ./tmp-prerender/scripts/seo-geo-sop.config.mjs && node ./tmp-prerender/prerender.js && rm -rf ./tmp-prerender",
+    "prerender": "npx tsc --skipLibCheck -p tsconfig.prerender.json && mkdir -p ./tmp-prerender/scripts && cp ./scripts/seo-geo-sop.config.mjs ./tmp-prerender/scripts/seo-geo-sop.config.mjs && node ./tmp-prerender/prerender.js && rm -rf ./tmp-prerender",
     "preview": "vite preview",
     "sync-blog": "node scripts/fetch-blog.js",
     "generate-sitemap": "node --loader ts-node/esm scripts/generate-sitemap.js",
