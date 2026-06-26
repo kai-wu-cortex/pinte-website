@@ -33,7 +33,7 @@ const BlogItem: React.FC = () => {
           throw new Error('Article not found');
         }
       } catch (err) {
-        setError(lang === 'zh' ? '文章不存在或已被删除' : 'Article not found');
+        setError(lang === 'cn' ? '文章不存在或已被删除' : 'Article not found');
       } finally {
         setLoading(false);
       }
@@ -55,7 +55,7 @@ const BlogItem: React.FC = () => {
   const formatDate = (dateStr: string) => {
     if (!dateStr) return '';
     const date = new Date(dateStr);
-    return date.toLocaleDateString(lang === 'zh' ? 'zh-CN' : 'en-US', {
+    return date.toLocaleDateString(lang === 'cn' ? 'zh-CN' : 'en-US', {
       year: 'numeric',
       month: 'long',
       day: 'numeric'
@@ -65,7 +65,7 @@ const BlogItem: React.FC = () => {
   // 估算阅读时间
   const estimateReadTime = (content: string | undefined) => {
     if (!content) return 1;
-    const wordsPerMinute = lang === 'zh' ? 300 : 200;
+    const wordsPerMinute = lang === 'cn' ? 300 : 200;
     const words = content.replace(/[#*`\n]/g, '').length;
     const minutes = Math.ceil(words / wordsPerMinute);
     return minutes;
@@ -101,7 +101,7 @@ const BlogItem: React.FC = () => {
       <main className="min-h-screen pt-32 pb-20">
         <div className="max-w-[1200px] mx-auto px-6 text-center">
           <h1 className="text-4xl font-bold text-neutral-900 mb-4">
-            {lang === 'zh' ? '文章不存在' : 'Article Not Found'}
+            {lang === 'cn' ? '文章不存在' : 'Article Not Found'}
           </h1>
           <p className="text-neutral-500 mb-8">{error}</p>
           <Link 
@@ -109,7 +109,7 @@ const BlogItem: React.FC = () => {
             className="inline-flex items-center gap-2 text-pinte-blue font-bold"
           >
             <ArrowLeft size={18} />
-            {lang === 'zh' ? '返回博客列表' : 'Back to Blog'}
+            {lang === 'cn' ? '返回博客列表' : 'Back to Blog'}
           </Link>
         </div>
       </main>
@@ -118,9 +118,9 @@ const BlogItem: React.FC = () => {
 
   // 面包屑结构化数据
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: lang === 'zh' ? '首页' : 'Home', url: 'https://pinte.com' },
-    { name: lang === 'zh' ? '博客' : 'Blog', url: 'https://pinte.com/blog' },
-    { name: article.title, url: `https://pinte.com/blog/${article.slug}` }
+    { name: lang === 'cn' ? '首页' : 'Home', url: `https://www.pintecl.com/${lang}/` },
+    { name: lang === 'cn' ? '博客' : 'Blog', url: `https://www.pintecl.com/${lang}/blog/` },
+    { name: article.title, url: `https://www.pintecl.com/${lang}/blog/${article.slug}/` }
   ]);
 
   // 文章结构化数据
@@ -131,7 +131,7 @@ const BlogItem: React.FC = () => {
     datePublished: article.date,
     dateModified: article.date,
     author: article.author,
-    url: `/blog/${article.slug}`,
+    url: `/${lang}/blog/${article.slug}`,
     category: article.category,
     tags: article.tags,
     geo: article.geo
@@ -144,7 +144,7 @@ const BlogItem: React.FC = () => {
         description={article.seo?.description || article.summary}
         keywords={article.seo?.keywords || article.tags}
         image={article.seo?.ogImage || article.cover}
-        url={`/blog/${article.slug}`}
+        url={`/${lang}/blog/${article.slug}`}
         type="article"
         publishedTime={article.date}
         author={article.author}
@@ -152,7 +152,8 @@ const BlogItem: React.FC = () => {
         tags={article.tags}
         geoRegion={article.geo?.region}
         geoPlacename={article.geo?.locality}
-        locale={article.geo?.language || 'en_US'}
+        locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
+        canonicalUrl={`/${lang}/blog/${article.slug}`}
       />
       
       {/* JSON-LD Structure Data */}
@@ -179,7 +180,7 @@ const BlogItem: React.FC = () => {
             className="absolute top-6 left-6 z-10 flex items-center gap-2 text-white/80 hover:text-white bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full transition-colors"
           >
             <ArrowLeft size={18} />
-            {lang === 'zh' ? '返回' : 'Back'}
+            {lang === 'cn' ? '返回' : 'Back'}
           </Link>
 
           {/* Content */}
@@ -190,7 +191,7 @@ const BlogItem: React.FC = () => {
                 {article.category?.map((cat, i) => (
                   <Link
                     key={i}
-                    to={`/blog?category=${encodeURIComponent(cat)}`}
+                    to={`/${lang}/blog?category=${encodeURIComponent(cat)}`}
                     className="px-3 py-1 bg-pinte-blue text-white text-sm font-bold rounded-full hover:bg-pinte-dark transition-colors"
                   >
                     {cat}
@@ -222,7 +223,7 @@ const BlogItem: React.FC = () => {
                 )}
                 <span className="flex items-center gap-1">
                   <Clock size={16} />
-                  {estimateReadTime(article.content)} {lang === 'zh' ? '分钟阅读' : 'min read'}
+                  {estimateReadTime(article.content)} {lang === 'cn' ? '分钟阅读' : 'min read'}
                 </span>
               </div>
             </div>
@@ -238,7 +239,7 @@ const BlogItem: React.FC = () => {
               {article.tags?.map((tag, i) => (
                 <Link
                   key={i}
-                  to={`/blog?search=${encodeURIComponent(tag)}`}
+                  to={`/${lang}/blog?search=${encodeURIComponent(tag)}`}
                   className="px-3 py-1 bg-neutral-100 text-neutral-600 text-sm rounded-full hover:bg-pinte-blue hover:text-white transition-colors"
                 >
                   #{tag}
@@ -249,7 +250,7 @@ const BlogItem: React.FC = () => {
             {/* Share Buttons */}
             <div className="flex items-center gap-2">
               <span className="text-sm text-neutral-500 mr-2">
-                {lang === 'zh' ? '分享:' : 'Share:'}
+                {lang === 'cn' ? '分享:' : 'Share:'}
               </span>
               <button 
                 onClick={() => shareToSocial('facebook')}
@@ -317,10 +318,10 @@ const BlogItem: React.FC = () => {
           ) : (
             <div className="text-center py-12 bg-neutral-50 rounded-2xl">
               <p className="text-neutral-500 mb-4">
-                {lang === 'zh' ? '暂无文章内容' : 'No content available'}
+                {lang === 'cn' ? '暂无文章内容' : 'No content available'}
               </p>
               <p className="text-sm text-neutral-400">
-                {lang === 'zh' 
+                {lang === 'cn'
                   ? '请在 Notion 数据库中添加"正文"字段或在页面中添加内容块' 
                   : 'Please add a "Content" field to the Notion database or add content blocks to the page'}
               </p>
@@ -336,7 +337,7 @@ const BlogItem: React.FC = () => {
               <div>
                 <h4 className="font-bold text-neutral-900">{article.author}</h4>
                 <p className="text-sm text-neutral-500">
-                  {lang === 'zh' ? 'PINTE 博客作者' : 'PINTE Blog Author'}
+                  {lang === 'cn' ? 'PINTE 博客作者' : 'PINTE Blog Author'}
                 </p>
               </div>
             </div>
@@ -345,10 +346,10 @@ const BlogItem: React.FC = () => {
           {/* Related Articles CTA */}
           <div className="mt-12 p-8 bg-pinte-blue rounded-3xl text-center">
             <h3 className="text-2xl font-bold text-white mb-4">
-              {lang === 'zh' ? '喜欢这篇文章?' : 'Enjoyed this article?'}
+              {lang === 'cn' ? '喜欢这篇文章?' : 'Enjoyed this article?'}
             </h3>
             <p className="text-white/80 mb-6">
-              {lang === 'zh' 
+              {lang === 'cn'
                 ? '探索更多关于烫金膜和包装行业的资讯' 
                 : 'Explore more insights about hot stamping foils and packaging industry'}
             </p>
@@ -356,7 +357,7 @@ const BlogItem: React.FC = () => {
               to={`/${lang}/blog`}
               className="inline-flex items-center gap-2 bg-white text-pinte-blue px-6 py-3 rounded-full font-bold hover:bg-blue-50 transition-colors"
             >
-              {lang === 'zh' ? '查看更多文章' : 'View More Articles'}
+              {lang === 'cn' ? '查看更多文章' : 'View More Articles'}
               <ChevronRight size={18} />
             </Link>
           </div>

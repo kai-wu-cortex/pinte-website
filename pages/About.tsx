@@ -133,6 +133,7 @@ const About: React.FC = () => {
         geoPosition="22.7860 113.8860"
         locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
         canonicalUrl={`/${lang}/about`}
+        includeOrganizationSchema
       />
 
       <main className="pt-24 pb-20 bg-neutral-50 min-h-screen">

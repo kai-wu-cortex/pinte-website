@@ -21,6 +21,7 @@ interface SEOMetaProps {
   geoPosition?: string;
   locale?: string;
   canonicalUrl?: string;
+  includeOrganizationSchema?: boolean;
 }
 
 const SEOMeta: React.FC<SEOMetaProps> = ({
@@ -38,7 +39,8 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   geoPlacename,
   geoPosition,
   locale = 'en_US',
-  canonicalUrl
+  canonicalUrl,
+  includeOrganizationSchema = false
 }) => {
   const siteName = 'PINTE';
   const siteUrl = 'https://www.pintecl.com';
@@ -150,8 +152,9 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       <meta name="googlebot" content="index, follow" />
 
       {/* JSON-LD Structured Data - Manufacturer */}
-      <script type="application/ld+json">
-        {JSON.stringify({
+      {includeOrganizationSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Manufacturer",
           "name": "PINTE (品特)",
@@ -175,12 +178,6 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
             "availableLanguage": ["English", "Chinese"],
             "email": "sales@bestglitter.com"
           },
-          "sameAs": [
-            "https://linkedin.com/company/pinte",
-            "https://instagram.com/pinte",
-            "https://facebook.com/pinte",
-            "https://twitter.com/pinte"
-          ],
           "areaServed": [
             { "@type": "Country", "name": "Vietnam" },
             { "@type": "Country", "name": "Thailand" },
@@ -229,8 +226,9 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
               }
             ]
           }
-        })}
-      </script>
+          })}
+        </script>
+      )}
     </>
   );
 };

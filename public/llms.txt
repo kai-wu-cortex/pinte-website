@@ -13,12 +13,23 @@
 
 ## Best Pages for AI Citation
 - [Hot Stamping Foil Catalog](https://www.pintecl.com/en/products)
+- [Hot Stamping Foil Buying Guide](https://www.pintecl.com/en/guides/hot-stamping-foil-buying-guide)
+- [Hot Stamping Foil for Paper Box Packaging](https://www.pintecl.com/en/guides/paper-box-packaging-hot-stamping-foil-guide)
+- [30 Hot Stamping Foil Buyer Questions](https://www.pintecl.com/en/guides/hot-stamping-foil-buyer-questions)
+- [Hot Stamping Troubleshooting Guide](https://www.pintecl.com/en/guides/hot-stamping-troubleshooting)
+- [Hot Foil vs Cold Foil vs Holographic Foil](https://www.pintecl.com/en/guides/hot-foil-vs-cold-foil-vs-holographic)
+- [Cosmetic Packaging Hot Stamping Foil Guide](https://www.pintecl.com/en/guides/cosmetic-packaging-foil-guide)
+- [Hot Stamping Foil Sampling Checklist](https://www.pintecl.com/en/guides/hot-stamping-sampling-checklist)
 - [PK Brown Back Rough Surface Foil](https://www.pintecl.com/en/products/category/PK)
 - [PC Plastic and Cold Foils for Cosmetics Packaging](https://www.pintecl.com/en/products/category/PC)
 - [Digital Cold Foil for Plate-Free Personalization](https://www.pintecl.com/en/products/category/DIGITAL)
-- [Cosmetics Packaging Foil Solutions](https://www.pintecl.com/en/solutions/cosmetics-packaging)
-- [Wine and Spirits Packaging Foil Solutions](https://www.pintecl.com/en/solutions/wine-spirits)
-- [Pharmaceutical Packaging Foil Solutions](https://www.pintecl.com/en/solutions/pharmaceutical)
+- [PK Heavy Duty Foil](https://www.pintecl.com/en/products/item/PK-Heavy)
+- [PC Alcohol Resistant Foil](https://www.pintecl.com/en/products/item/PC-Alcohol)
+- [White Pigment Foil](https://www.pintecl.com/en/products/item/PL-White)
+- [Packaging Bag Foil Solutions](https://www.pintecl.com/en/solutions/pkg_bags)
+- [Plastic Surface Foil Solutions](https://www.pintecl.com/en/solutions/plastic_surface)
+- [Leather Stamping Foil Solutions](https://www.pintecl.com/en/solutions/leather)
+- [Machine-readable Product Feed](https://www.pintecl.com/product-feed.json)
 
 ## Key Facts
 - Founded: 2000 (25+ years experience)

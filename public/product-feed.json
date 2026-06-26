@@ -1,0 +1,1711 @@
+{
+  "generated_at": "2026-06-26T09:39:10.771Z",
+  "merchant": "PINTE",
+  "website": "https://www.pintecl.com",
+  "feed_type": "b2b_hot_stamping_foil_catalog",
+  "note": "Quote-based B2B catalog for AI/product discovery. Prices are omitted because orders require substrate, width, color, and sample confirmation.",
+  "products": [
+    {
+      "id": "series-PK",
+      "title": "PK Brown Back Series",
+      "description": "PK Brown Back Series is PINTE's flagship product developed specifically for challenging rough and uneven surfaces that traditional hot stamping foils struggle with. In the packaging printing industry, many high-end designs use textured specialty papers or embossed leatherette materials that require a foil with exceptional filling properties and adhesion – this is exactly what PK series delivers. With over 25 years of market validation and continuous formula improvement, PK series has become the go-to choice for printers and converters throughout Southeast Asia and Greater China. The unique brown backing paper not only helps with visual quality control during production but also contributes to the foil's stable release characteristics. What sets PK series apart from generic competitors is its special anti-oxidation coating technology. When stamping on dark, heavy ink surfaces, traditional foils often suffer from oxidation reactions that cause the golden finish to turn black and lose luster – our proprietary coating completely solves this decades-old industry problem. Whether you are working with rough grain paper, embossed leather, tactile specialty paper, or deep-textured充皮纸, PK series fills every crevice evenly and consistently, producing a flat, bright metallic finish that truly elevates your design. The series offers both universal and heavy-duty variants to match different application scenarios. PK universal works great for most standard packaging applications with good all-round performance, while PK heavy-duty provides enhanced thickness and adhesion for the most demanding textured substrates. With a wide range of standard colors including bright gold, silver, matte gold, matte silver, and rose gold, plus custom color matching available, PK series meets diverse design needs from luxury wine boxes and cosmetic packaging to high-end book covers and leather tags. PINTE PK series combines proven reliability with consistent performance batch after batch, helping you achieve perfect stamping results every time.",
+      "link": "https://www.pintecl.com/en/products/category/PK/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/pk.png",
+      "brand": "PINTE",
+      "product_type": "BROWN BACK SERIES",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "substrates": [
+        "Rough Paper",
+        "Specialty Paper",
+        "Artificial Leather (PU/PVC)",
+        "Real Leather",
+        "Leatherette Paper",
+        "Tactile Paper"
+      ],
+      "applications": [
+        "Wine Boxes",
+        "Cosmetic Packaging",
+        "Leather Tags",
+        "Hardcover Books"
+      ],
+      "colors": [
+        "Gold",
+        "Silver",
+        "Matte Gold",
+        "Matte Silver",
+        "Rose Gold"
+      ],
+      "specifications": [
+        {
+          "label": "Thickness",
+          "value": "12μm / 15μm"
+        },
+        {
+          "label": "Standard Roll",
+          "value": "0.64m x 120m"
+        },
+        {
+          "label": "Type",
+          "value": "Universal / Heavy Duty"
+        },
+        {
+          "label": "Resistance",
+          "value": "Anti-oxidation / Scratch"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "95 - 105°C",
+        "round": "140 - 170°C"
+      },
+      "target_markets": [
+        "Vietnam",
+        "Thailand",
+        "Malaysia",
+        "Indonesia",
+        "Singapore",
+        "Southeast Asia",
+        "United States",
+        "Europe"
+      ]
+    },
+    {
+      "id": "series-PC",
+      "title": "PC Plastic/Cold Foils Series",
+      "description": "PC series is PINTE's professional solution specifically engineered for hot stamping on various plastic substrates. As cosmetic packaging and consumer electronics manufacturing continues to grow in Southeast Asia, the demand for reliable plastic stamping has increased dramatically – PC series was developed to meet this market need with a specialized adhesive formula that achieves excellent adhesion on low surface energy plastics. Unlike general-purpose foils that often struggle with adhesion issues on injection-molded parts, PC series uses a unique acrylic resin glue system that penetrates the plastic surface and creates a permanent bond that passes the strictest 3M tape cross-cut tests. One of the key performance requirements for cosmetic packaging is alcohol resistance – since products like perfumes and skincare creams often come into contact with alcohol during manufacturing or consumer use, our PC series undergoes rigorous alcohol rubbing tests to ensure the stamped design remains intact even after repeated alcohol wiping. The series also offers outstanding slitting properties, producing clean cutting edges with zero burrs or foil dusting, which is critical for high-speed automatic stamping on production lines. PC series supports a wide range of common thermoplastics including ABS, PS, PVC, PMMA (acrylic), PP, and PE tubes, making it suitable for diverse applications from lipstick tubes and perfume compacts to electronics panels and stationery components. Beyond traditional hot stamping on plastics, PC series also has variants specifically formulated for digital cold foil applications, providing excellent compatibility with various UV hot stamping varnishes used in digital cold foil systems like MGI and Scodix. This versatility makes PC series incredibly cost-effective as it can handle both conventional plastic stamping and modern digital cold foil processes without switching foil types. With consistent release properties, sharp edge definition, and long shelf life, PC series has become the preferred choice for many brand owners and converters who demand consistent quality and reliable performance for their plastic packaging projects.",
+      "link": "https://www.pintecl.com/en/products/category/PC/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/pc.png",
+      "brand": "PINTE",
+      "product_type": "PLASTIC/COLD FOILS SERIES",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "substrates": [
+        "ABS",
+        "PS",
+        "PVC",
+        "PMMA (Acrylic)",
+        "PP",
+        "PE Tube"
+      ],
+      "applications": [
+        "Lipstick Tubes",
+        "Compacts",
+        "Mascara Tubes",
+        "Facial Cleanser Tubes",
+        "Appliance Panels"
+      ],
+      "colors": [
+        "Metallic",
+        "Holographic",
+        "Brushed"
+      ],
+      "specifications": [
+        {
+          "label": "Thickness",
+          "value": "12μm"
+        },
+        {
+          "label": "Standard Roll",
+          "value": "0.64m x 120m"
+        },
+        {
+          "label": "Gloss",
+          "value": "High Gloss / Mirror"
+        },
+        {
+          "label": "Test",
+          "value": "3M Tape Cross-Cut"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "100 - 160°C",
+        "round": "180 - 230°C"
+      },
+      "target_markets": [
+        "Vietnam",
+        "Thailand",
+        "Malaysia",
+        "Indonesia",
+        "Singapore",
+        "Southeast Asia",
+        "United States",
+        "Europe"
+      ]
+    },
+    {
+      "id": "series-PLPY",
+      "title": "PL/PY Pigment Foils",
+      "description": "PL/PY pigment foils are a specialized category of hot stamping materials that differ fundamentally from traditional aluminum-plated metallic foils. Instead of relying on a vapor-deposited aluminum layer for color, PLPY series uses high-quality pigment particles directly as the color source, resulting in completely different visual characteristics and application advantages. The biggest advantage of pigment foils is their exceptional hiding power – they can completely cover any dark background without showing through, which solves a common problem when printing on dark cardstocks or colored substrates where traditional metallic foils cannot achieve the desired color intensity. Because the color comes directly from pigment rather than metallic reflection, PLPY foils produce pure, saturated colors that exactly match the designer's vision without any interference from metallic sheen. This makes pigment foils particularly popular for brand packaging where specific color accuracy is critical. The series offers two surface options: PL for glossy finish and PY for matte finish, giving designers flexibility to match different design aesthetics. Common applications include greeting cards where solid opaque color is needed, luxury gift boxes requiring a premium non-metallic feel, date coding on cigarette packs, and pencil branding where the stamping sees heavy handling. PLPY pigment foils are also fully compliant with international environmental standards including ROHS and EN71-3, making them suitable for toys and food-contact packaging applications where regulatory compliance is mandatory. Unlike screen printing which requires multiple passes and creates solvent waste, hot stamping with pigment foils achieves similar opaque color results in one pass with higher efficiency and zero solvent emissions. The standard size is 0.64m x 120m, matching most automatic hot stamping machines, and custom Pantone color matching is available for brand projects requiring exact color reproduction. Whether you need a pure opaque black for an elegant minimalist design or a vibrant saturated red for brand identity, PLPY pigment foils deliver consistent color quality with excellent adhesion and easy processing.",
+      "link": "https://www.pintecl.com/en/products/category/PLPY/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/pl.png",
+      "brand": "PINTE",
+      "product_type": "PIGMENT FOILS",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "substrates": [
+        "Coated Paper",
+        "Cardboard",
+        "Art Paper",
+        "Leatherette Paper",
+        "Leather"
+      ],
+      "applications": [
+        "Greeting Cards",
+        "Gift Boxes",
+        "Tags",
+        "Pencils",
+        "Coding"
+      ],
+      "colors": [
+        "Black",
+        "White",
+        "Red",
+        "Blue",
+        "Pantone Custom"
+      ],
+      "specifications": [
+        {
+          "label": "Type",
+          "value": "Pigment Foil"
+        },
+        {
+          "label": "Surface",
+          "value": "Glossy (PL) / Matte (PY)"
+        },
+        {
+          "label": "Standard Roll",
+          "value": "0.64m x 120m"
+        },
+        {
+          "label": "Eco",
+          "value": "ROHS / EN71-3"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "100 - 150°C",
+        "round": "150 - 190°C"
+      },
+      "target_markets": [
+        "Vietnam",
+        "Thailand",
+        "Malaysia",
+        "Indonesia",
+        "Singapore",
+        "Southeast Asia",
+        "United States",
+        "Europe"
+      ]
+    },
+    {
+      "id": "series-DIGITAL",
+      "title": "Digital / Cold Foil",
+      "description": "Digital cold foil is a modern innovation that has revolutionized the hot stamping industry, and PINTE's DIGITAL series brings this technology to the Southeast Asian market with proven reliability and compatibility. Unlike traditional hot stamping which requires making brass or magnesium plates, digital cold foil eliminates the plate-making process entirely, allowing direct transfer onto UV-cured varnish or digital toner layers without any prepping. This makes DIGITAL series perfect for personalized packaging, short-run production, variable data printing, and prototype development where traditional hot stamping would be too expensive or time-consuming. The process works by applying a special UV-curable adhesive to the substrate using digital printing, then laminating the cold foil onto the adhesive layer and curing with UV light – this creates a brilliant metallic effect with incredible dimensionality when done correctly. Our DIGITAL series inherits all the excellent performance characteristics that PINTE is known for, including good adhesion, sharp dot reproduction, and consistent release. The series is compatible with major digital cold foil systems including MGI, Scodix, and conventional screen printing cold foil processes. For print service providers offering short-run luxury packaging or personalized marketing materials, DIGITAL series delivers stunning metallic effects at a fraction of the cost and lead time compared to traditional hot stamping. The technology also excels at producing intricate fine details and very thin lines that would be difficult with conventional foil stamping. DIGITAL series works perfectly on a variety of coated substrates including art paper, cardboard, and pre-printed materials, making it suitable for applications like personalized business cards, short-run packaging prototypes, cosmetic labels, high-end greeting cards, and creative print projects where variable data is required. With consumer demand for personalization continuing to grow across industries, investing in digital cold foil capability with PINTE DIGITAL series gives print converters a competitive edge in the market. The series offers popular standard colors including bright gold, silver, and holographic plain, and custom colors can be developed for specific project requirements.",
+      "link": "https://www.pintecl.com/en/products/category/DIGITAL/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/chanpinpc.png",
+      "brand": "PINTE",
+      "product_type": "DIGITAL & COLD FOIL",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "substrates": [
+        "UV Varnish Surface",
+        "Digital Toner Layer",
+        "Cold Glue Layer"
+      ],
+      "applications": [
+        "Business Cards",
+        "Packaging Mockups",
+        "Labels",
+        "Creative Print"
+      ],
+      "colors": [
+        "Gold",
+        "Silver",
+        "Holographic Plain"
+      ],
+      "specifications": [
+        {
+          "label": "Process",
+          "value": "UV Cold / Digital"
+        },
+        {
+          "label": "Equipment",
+          "value": "MGI / Scodix / Screen Press"
+        },
+        {
+          "label": "Speed",
+          "value": "High Speed Curing"
+        },
+        {
+          "label": "Gloss",
+          "value": "High Brightness"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "UV Curing",
+        "round": "Cold Transfer"
+      },
+      "target_markets": [
+        "Vietnam",
+        "Thailand",
+        "Malaysia",
+        "Indonesia",
+        "Singapore",
+        "Southeast Asia",
+        "United States",
+        "Europe"
+      ]
+    },
+    {
+      "id": "series-GLITTER",
+      "title": "Glitter Powder Series",
+      "description": "PINTE has been producing premium quality glitter powder for over 25 years, making us one of the most experienced manufacturers in Asia with extensive expertise in particle cutting and surface treatment. Our premium glitter series features precisely cut hexagonal particles that create superior light reflection compared to irregularly shaped particles, resulting in brighter, more consistent sparkle that catches attention from any angle. Unlike cheap imported glitter that fades or bleeds color when exposed to solvents, our glitter undergoes specialized surface treatment that provides excellent resistance to both solvents and high temperatures, maintaining its brilliant shine even in challenging environments like nail polish formulations, where it must withstand chemical exposure without discoloration. The series offers an incredible range of particle sizes from 1/4 inch for large statement-making chunks down to 1/500 inch for extremely fine subtle shimmer, allowing designers to achieve exactly the visual effect they want – from bold dramatic sparkle to subtle micro-shimmer that adds depth without overwhelming the design. We offer multiple material options including PET, PVC, and aluminum-based glitter, each with different properties suited for specific applications: PET is the most versatile, PVC offers better chemical resistance for cosmetics, and aluminum provides maximum reflectivity for maximum brilliance. Color options include classic gold and silver, holographic iridescent, multi-color rainbow effect, and custom colors available upon request. Our manufacturing process ensures consistent particle size distribution with minimal dust contamination, resulting in cleaner processing and better final product appearance. PINTE glitter powder meets strict international safety standards including EN71-3 and ASTM for toy and cosmetic applications, making it suitable for everything from Christmas ornaments and holiday decorations to screen printing, nail polish manufacturing, injection molded plastics, greeting cards, and craft projects. With decades of export experience to markets including Europe, North America, and Southeast Asia, our quality control ensures consistent color and particle size from batch to batch. Whether you are a cosmetics manufacturer needing consistent cosmetic-grade glitter or a printing company needing glitter for specialty inks, PINTE's premium glitter series delivers the quality and consistency your products demand.",
+      "link": "https://www.pintecl.com/en/products/category/GLITTER/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/BST-005.jpg",
+      "brand": "PINTE",
+      "product_type": "PREMIUM GLITTER",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "substrates": [
+        "Paper",
+        "Fabric",
+        "Plastic",
+        "Nail Polish",
+        "Ink"
+      ],
+      "applications": [
+        "Xmas Decor",
+        "Screen Print",
+        "Nail Art",
+        "Injection",
+        "Cards"
+      ],
+      "colors": [
+        "Holographic",
+        "Rainbow",
+        "Metallic",
+        "Iridescent"
+      ],
+      "specifications": [
+        {
+          "label": "Material",
+          "value": "PET / PVC / Alum"
+        },
+        {
+          "label": "Heat Res",
+          "value": "180°C - 260°C"
+        },
+        {
+          "label": "Shape",
+          "value": "Hex / Square / Strip"
+        },
+        {
+          "label": "Eco",
+          "value": "EN71-3 / ASTM"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "Room Temp",
+        "round": "Injection Temp"
+      },
+      "target_markets": [
+        "Vietnam",
+        "Thailand",
+        "Malaysia",
+        "Indonesia",
+        "Singapore",
+        "Southeast Asia",
+        "United States",
+        "Europe"
+      ]
+    },
+    {
+      "id": "PK-Universal",
+      "title": "Gold Hot Stamping Foil for Paper Packaging - 640mm x 120m",
+      "description": "Market-proven for years with a stable formula. Excellent performance on high-speed machines, light release, clean edges, and minimal dusting. The top choice for packaging inventory.",
+      "link": "https://www.pintecl.com/en/products/item/PK-Universal/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/pk.png",
+      "image_alt": "gold hot stamping foil on paper gift box packaging",
+      "brand": "PINTE",
+      "product_type": "Classic Formula, All-Round Application",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PK Brown Back Series",
+      "substrates": [
+        "Paper",
+        "Coated paper",
+        "White card",
+        "OPP laminated paper",
+        "Printed cartons",
+        "Gift box board",
+        "Label stock"
+      ],
+      "applications": [
+        "Paper gift boxes",
+        "Cosmetic folding cartons",
+        "Greeting cards",
+        "Pharma boxes",
+        "Labels"
+      ],
+      "colors": [
+        "Gold",
+        "Silver",
+        "Rose gold",
+        "Matte gold",
+        "Matte silver",
+        "Black",
+        "Red",
+        "Blue",
+        "Custom color"
+      ],
+      "processes": [
+        "Hot stamping",
+        "Flat stamping",
+        "Round/rotary stamping",
+        "Partial transfer",
+        "Logo and border stamping"
+      ],
+      "tags": [
+        "Best Seller",
+        "General Use"
+      ],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; slitting can be discussed by machine width"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m sample/standard roll; bulk roll options available by order"
+        },
+        {
+          "label": "Thickness",
+          "value": "Approx. 12 micron, subject to product grade"
+        },
+        {
+          "label": "Core size",
+          "value": "Common hot stamping foil core sizes available; confirm with machine requirement"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Flat stamping temperature",
+          "value": "Recommended starting range 95-110°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Round/rotary temperature",
+          "value": "Recommended starting range 130-160°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Pressure / speed",
+          "value": "Adjust according to paper smoothness, ink, varnish, stamping area, and machine speed"
+        },
+        {
+          "label": "Machine type",
+          "value": "Manual, platen, flatbed, automatic, cylinder, and rotary hot stamping machines"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "Rub resistance",
+        "Scratch resistance",
+        "Heat resistance",
+        "Transfer completeness",
+        "Edge definition",
+        "Color consistency"
+      ],
+      "recommended_temperature": {
+        "flat": "95 - 110°C",
+        "round": "130 - 160°C"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "Why does foil peel off on paper packaging?",
+          "answer": "Common causes include unsuitable foil adhesive, low temperature, insufficient pressure, wet ink, varnish incompatibility, or surface contamination. Test on the actual printed paper before bulk purchase."
+        },
+        {
+          "question": "Can this foil stamp on laminated paper?",
+          "answer": "It can be tested on OPP or laminated paper, but adhesion depends on the lamination surface. Tape and rub tests are recommended before production."
+        },
+        {
+          "question": "What temperature should be used?",
+          "answer": "Use the recommended range only as a starting point. Final temperature must be confirmed by sampling with your substrate, machine, pressure, and speed."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "PK-Heavy",
+      "title": "Strong Adhesion Hot Stamping Foil for Textured Paper, Leather and Luxury Boxes",
+      "description": "Beyond anti-oxidation, this series has enhanced glue grip, perfect for rough art paper, tactile paper, and cloth-textured paper. Maintains integrity even on fine lines.",
+      "link": "https://www.pintecl.com/en/products/item/PK-Heavy/",
+      "image_link": "https://th.bing.com/th/id/R.b295280dd208415ac0f6d42ca2865b11?rik=k1pmQF0%2f1DFC0A&riu=http%3a%2f%2fwww.heruilaser.com%2fUpload%2fTemplate%2fweb%2fContentPhoto%2f400-300%2f202003%2fe2361d1a-f561-4808-9282-16c9889fccbc.jpg&ehk=KAD50DYd1VrHW%2fJU%2fqdwph2s2VBqcdevp1Qe6kmxA7I%3d&risl=&pid=ImgRaw&r=0",
+      "image_alt": "gold hot stamping foil on textured paper luxury box",
+      "brand": "PINTE",
+      "product_type": "Anti-Oxidation Formula for Heavy Ink",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PK Brown Back Series",
+      "substrates": [
+        "Rough paper",
+        "Textured specialty paper",
+        "Kraft paper",
+        "Dark ink paper",
+        "PU leather",
+        "PVC leather",
+        "Genuine leather",
+        "Book cover material"
+      ],
+      "applications": [
+        "Wine boxes",
+        "Luxury gift boxes",
+        "Book covers",
+        "Leather logos",
+        "Textured paper packaging"
+      ],
+      "colors": [
+        "Bright gold",
+        "Matte gold",
+        "Silver",
+        "Rose gold",
+        "Black",
+        "Red",
+        "Blue",
+        "Custom metallic color"
+      ],
+      "processes": [
+        "Hot stamping",
+        "Leather logo stamping",
+        "Embossing combination",
+        "Partial transfer",
+        "Large-area stamping"
+      ],
+      "tags": [
+        "Anti-Oxidation",
+        "Strong Adhesion"
+      ],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; custom slitting can be discussed"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m standard/sample roll; bulk roll length by order"
+        },
+        {
+          "label": "Thickness",
+          "value": "Approx. 15 micron thickened grade, subject to final product confirmation"
+        },
+        {
+          "label": "Core size",
+          "value": "Confirm according to hot stamping machine"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Flat stamping temperature",
+          "value": "Recommended starting range 100-120°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Round/rotary temperature",
+          "value": "Recommended starting range 140-170°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Pressure / dwell time",
+          "value": "Rough and textured surfaces may need careful pressure and dwell-time adjustment"
+        },
+        {
+          "label": "Machine type",
+          "value": "Manual, platen, flatbed, automatic and rotary hot stamping machines"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "3M tape pull test",
+        "Rub resistance",
+        "Scratch resistance",
+        "Alcohol resistance when required",
+        "Transfer completeness on texture"
+      ],
+      "recommended_temperature": {
+        "flat": "100 - 120°C",
+        "round": "140 - 170°C"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "Why does rough paper need a special foil?",
+          "answer": "Texture valleys can cause missing transfer. A stronger adhesive and more suitable release behavior help the foil fill uneven paper surfaces."
+        },
+        {
+          "question": "Can this foil be used for leather logo stamping?",
+          "answer": "Yes, it can be sampled on PU, PVC or genuine leather. Temperature, pressure and dwell time must be adjusted to avoid burning or deep marks."
+        },
+        {
+          "question": "Will heavy ink cause blackening or oxidation?",
+          "answer": "PK Heavy is designed for dark and heavy ink surfaces, but the actual result should still be confirmed on the real printed substrate."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "PK-Matte",
+      "title": "Matte Gold Hot Stamping Foil for Luxury Paper Packaging and Tags",
+      "description": "Provides a non-mirror matte metallic texture. Smooth, silky surface that resists fingerprints. Suitable for minimalist, high-end designs.",
+      "link": "https://www.pintecl.com/en/products/item/PK-Matte/",
+      "image_link": "https://cdn11.bigcommerce.com/s-et4qthkygq/images/stencil/325x325/products/13918/71497/siser-walakut-metallic-puff-htv-10__58928.1706257008.jpg?c=2",
+      "image_alt": "matte gold hot stamping foil on luxury paper tag",
+      "brand": "PINTE",
+      "product_type": "Understated Luxury, Silky Texture",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PK Brown Back Series",
+      "substrates": [
+        "Coated paper",
+        "White card",
+        "Art paper",
+        "Luxury tags",
+        "Business card stock",
+        "Electronics packaging board"
+      ],
+      "applications": [
+        "Luxury tags",
+        "Business cards",
+        "Electronics packaging",
+        "Minimalist gift boxes"
+      ],
+      "colors": [
+        "Matte gold",
+        "Matte silver",
+        "Satin gold",
+        "Satin silver",
+        "Custom matte color"
+      ],
+      "processes": [
+        "Hot stamping",
+        "Partial transfer",
+        "Logo stamping",
+        "Fine detail stamping"
+      ],
+      "tags": [
+        "Matte Finish"
+      ],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; slitting options by order"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m / bulk roll options"
+        },
+        {
+          "label": "Thickness",
+          "value": "Subject to matte foil grade and sampling confirmation"
+        },
+        {
+          "label": "Core size",
+          "value": "Confirm with machine requirement"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Flat stamping temperature",
+          "value": "Recommended starting range 100-115°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Round/rotary temperature",
+          "value": "Recommended starting range 135-165°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Pressure / speed",
+          "value": "Control heat and pressure to keep the matte finish clean and avoid gloss variation"
+        },
+        {
+          "label": "Machine type",
+          "value": "Platen, flatbed, automatic and rotary hot stamping machines"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "Rub resistance",
+        "Scratch resistance",
+        "Heat resistance",
+        "Transfer completeness",
+        "Edge definition",
+        "Color consistency"
+      ],
+      "recommended_temperature": {
+        "flat": "100 - 115°C",
+        "round": "135 - 165°C"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "How is matte foil different from glossy metallic foil?",
+          "answer": "Matte foil gives a softer satin metallic effect with lower mirror reflection. It is often used for understated luxury packaging."
+        },
+        {
+          "question": "Can matte foil be scratched?",
+          "answer": "Scratch resistance depends on foil grade, substrate and post-process handling. A rub and scratch test is recommended before production."
+        },
+        {
+          "question": "What temperature should be used?",
+          "answer": "Use the suggested range as a starting point only. Confirm by sampling with the actual paper, die and machine speed."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "PK-Holo",
+      "title": "Holographic Hot Stamping Foil for Security Labels and Paper Packaging",
+      "description": "Uses high-precision molding to create rainbow-like halo effects. Seamless holographic plain foils enhance tech feel and offer security features.",
+      "link": "https://www.pintecl.com/en/products/item/PK-Holo/",
+      "image_link": "https://tse3.mm.bing.net/th/id/OIP.k2vjXrIjhZEoX94AmbGItAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "image_alt": "holographic hot stamping foil on security label packaging",
+      "brand": "PINTE",
+      "product_type": "Light Magic, Security Choice",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PK Brown Back Series",
+      "substrates": [
+        "Paper packaging",
+        "Coated paper",
+        "Labels",
+        "Toothpaste boxes",
+        "Tobacco packaging",
+        "Alcohol packaging",
+        "Security label stock"
+      ],
+      "applications": [
+        "Security labels",
+        "Tobacco packaging",
+        "Alcohol packaging",
+        "Toothpaste boxes",
+        "Promotional cartons"
+      ],
+      "colors": [
+        "Holographic silver",
+        "Holographic gold",
+        "Rainbow",
+        "Laser effect",
+        "Custom holographic effect"
+      ],
+      "processes": [
+        "Hot stamping",
+        "Holographic transfer",
+        "Anti-counterfeit decorative stamping",
+        "Partial transfer"
+      ],
+      "tags": [
+        "Security",
+        "Visual Effect"
+      ],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; custom slitting can be discussed"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m / bulk roll options"
+        },
+        {
+          "label": "Thickness",
+          "value": "Subject to holographic foil construction and confirmation sample"
+        },
+        {
+          "label": "Core size",
+          "value": "Confirm according to machine"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Flat stamping temperature",
+          "value": "Recommended starting range 95-110°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Round/rotary temperature",
+          "value": "Recommended starting range 130-160°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Pressure / speed",
+          "value": "Control pressure and tension to keep holographic effect stable and avoid missing transfer"
+        },
+        {
+          "label": "Machine type",
+          "value": "Flatbed, platen, automatic, cylinder and rotary hot stamping machines"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "Rub resistance",
+        "Scratch resistance",
+        "Holographic effect consistency",
+        "Registration check when required",
+        "Transfer completeness"
+      ],
+      "recommended_temperature": {
+        "flat": "95 - 110°C",
+        "round": "130 - 160°C"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "Is holographic foil mainly decorative or anti-counterfeit?",
+          "answer": "It can be decorative, security-oriented, or both. For higher anti-counterfeit requirements, confirm pattern, registration and customization needs before ordering."
+        },
+        {
+          "question": "Can holographic foil be used on paper boxes?",
+          "answer": "Yes. Test on the actual printed or laminated paper to confirm adhesion, edge definition and holographic effect."
+        },
+        {
+          "question": "Does holographic foil need special machine settings?",
+          "answer": "Use supplier ranges only as starting points. Holographic effect stability depends on substrate, pressure, temperature and foil tension."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "PC-Standard",
+      "title": "Silver Hot Stamping Foil for Plastic Caps, ABS and Acrylic Parts",
+      "description": "Suitable for general ABS, PS, Acrylic. Clear stamping edges, no burrs. Ideal for appliance panels and stationery.",
+      "link": "https://www.pintecl.com/en/products/item/PC-Standard/",
+      "image_link": "https://cos.pintecl.com/pc.png",
+      "image_alt": "silver hot stamping foil on plastic ABS parts",
+      "brand": "PINTE",
+      "product_type": "General Plastic Solution",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PC Plastic/Cold Foils Series",
+      "substrates": [
+        "ABS",
+        "PS",
+        "PVC",
+        "PMMA acrylic",
+        "PET film",
+        "PP",
+        "PE",
+        "Plastic caps",
+        "Appliance panels"
+      ],
+      "applications": [
+        "Plastic caps",
+        "Appliance panels",
+        "Pen barrels",
+        "Switches",
+        "ABS decorative parts"
+      ],
+      "colors": [
+        "Gold",
+        "Silver",
+        "Black",
+        "Red",
+        "Blue",
+        "Holographic",
+        "Matte metallic",
+        "Custom color"
+      ],
+      "processes": [
+        "Hot stamping",
+        "Round stamping",
+        "Plastic part decoration",
+        "Partial transfer",
+        "Logo stamping"
+      ],
+      "tags": [],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; slitting can be discussed by part and machine width"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m sample/standard roll; bulk roll options available"
+        },
+        {
+          "label": "Thickness",
+          "value": "Subject to plastic foil grade and confirmation sample"
+        },
+        {
+          "label": "Core size",
+          "value": "Confirm according to plastic hot stamping machine"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Flat stamping temperature",
+          "value": "Recommended starting range 120-150°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Round/rotary temperature",
+          "value": "Recommended starting range 180-210°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Pressure / speed",
+          "value": "Adjust by resin type, surface energy, part shape and logo area"
+        },
+        {
+          "label": "Machine type",
+          "value": "Flat stamping, roll-on stamping, round stamping and plastic part decoration machines"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "Cross-cut tape test",
+        "Alcohol resistance",
+        "Rub resistance",
+        "Scratch resistance",
+        "Boiling water resistance when required",
+        "Transfer completeness"
+      ],
+      "recommended_temperature": {
+        "flat": "120 - 150°C",
+        "round": "180 - 210°C"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "Can this foil stamp on plastic?",
+          "answer": "Yes, it is designed for common plastic substrates such as ABS, PS, PVC and acrylic. PP and PE usually require sampling because surface energy can vary."
+        },
+        {
+          "question": "Why does foil peel from plastic parts?",
+          "answer": "Common causes include wrong foil grade, low surface energy, oil contamination, insufficient heat or pressure, or lack of surface treatment."
+        },
+        {
+          "question": "What temperature should be used for plastic stamping?",
+          "answer": "Use the recommended range as a starting point only. Confirm by sampling because plastic resin, part shape, pressure and machine speed all affect the result."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "PC-Alcohol",
+      "title": "Alcohol Resistant Hot Stamping Foil for Cosmetic Packaging and Plastic Caps",
+      "description": "Passes strict alcohol and abrasion tests. Stamping remains intact even after contact with skincare or perfume chemicals.",
+      "link": "https://www.pintecl.com/en/products/item/PC-Alcohol/",
+      "image_link": "https://cos.pintecl.com/detail/PCalo.png",
+      "image_alt": "gold hot stamping foil on cosmetic packaging plastic cap",
+      "brand": "PINTE",
+      "product_type": "Cosmetic Grade",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PC Plastic/Cold Foils Series",
+      "substrates": [
+        "ABS",
+        "PS",
+        "PVC",
+        "PMMA acrylic",
+        "PET film",
+        "PP",
+        "PE",
+        "Cosmetic plastic packaging",
+        "Bottle caps"
+      ],
+      "applications": [
+        "Lipstick tubes",
+        "Compacts",
+        "Mascara caps",
+        "Perfume caps",
+        "Skincare packaging",
+        "Plastic cosmetic containers"
+      ],
+      "colors": [
+        "Gold",
+        "Silver",
+        "Rose gold",
+        "Black",
+        "Red",
+        "Blue",
+        "Matte metallic",
+        "Custom cosmetic color"
+      ],
+      "processes": [
+        "Hot stamping",
+        "Plastic logo stamping",
+        "Cosmetic packaging decoration",
+        "Partial transfer"
+      ],
+      "tags": [
+        "Cosmetic Grade",
+        "Chemical Resistant"
+      ],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; slitting can be discussed"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m / bulk roll options"
+        },
+        {
+          "label": "Thickness",
+          "value": "Subject to alcohol-resistant grade and test confirmation"
+        },
+        {
+          "label": "Core size",
+          "value": "Confirm according to machine"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Flat stamping temperature",
+          "value": "Recommended starting range 130-160°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Round/rotary temperature",
+          "value": "Recommended starting range 190-230°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Pressure / speed",
+          "value": "Adjust according to plastic resin, surface treatment, artwork and durability requirement"
+        },
+        {
+          "label": "Machine type",
+          "value": "Flat stamping, round stamping and roll-on plastic decoration machines"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "Cross-cut tape test",
+        "Alcohol resistance",
+        "Rub resistance",
+        "Scratch resistance",
+        "Boiling water resistance when required",
+        "Transfer completeness"
+      ],
+      "recommended_temperature": {
+        "flat": "130 - 160°C",
+        "round": "190 - 230°C"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "Why does cosmetic packaging need alcohol-resistant foil?",
+          "answer": "Perfume, skincare, cleaning and filling processes may contact alcohol. Alcohol-resistant foil helps reduce rubbing, peeling and logo loss after exposure."
+        },
+        {
+          "question": "Can this foil be used on PP or PE?",
+          "answer": "It can be sampled, but PP and PE are low surface energy plastics and may need surface treatment or grade adjustment."
+        },
+        {
+          "question": "What tests should cosmetic packaging run?",
+          "answer": "Run cross-cut tape, alcohol rubbing, scratch, rub and transfer-completeness tests on the actual plastic part."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "PC-Cold",
+      "title": "Cold Foil for Digital UV Varnish, Screen Printing and Plastic Packaging",
+      "description": "Suitable for typical cold stamping scenarios such as digital cold stamping, screen printing cold stamping, and rapid gold stamping with graphic toner. This series inherits the consistent properties of the PC series: alcohol resistance, boiling water resistance and friction resistance. It features excellent compatibility with various types of UV hot stamping varnishes and has wide applicability.",
+      "link": "https://www.pintecl.com/en/products/item/PC-Cold/",
+      "image_link": "https://cos.pintecl.com/detail/pccold.png",
+      "image_alt": "cold foil transfer on UV varnish cosmetic packaging",
+      "brand": "PINTE",
+      "product_type": "No Plate Making Required, Easy Stamping",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PC Plastic/Cold Foils Series",
+      "substrates": [
+        "UV varnish layer",
+        "Digital toner layer",
+        "Screen printed UV adhesive",
+        "PET film",
+        "PVC film",
+        "ABS",
+        "PS",
+        "PP",
+        "PE",
+        "Packaging materials"
+      ],
+      "applications": [
+        "Digital packaging enhancement",
+        "Short-run cartons",
+        "Cosmetic labels",
+        "UV varnish foil transfer",
+        "Plastic packaging decoration"
+      ],
+      "colors": [
+        "Gold",
+        "Silver",
+        "Holographic",
+        "Red",
+        "Blue",
+        "Black",
+        "Matte metallic",
+        "Custom color"
+      ],
+      "processes": [
+        "Cold foil",
+        "Digital cold foil",
+        "Screen printing cold foil",
+        "UV varnish transfer",
+        "No-plate foil transfer"
+      ],
+      "tags": [
+        "PE/PP Specialist"
+      ],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; custom slitting can be discussed"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m / bulk roll options"
+        },
+        {
+          "label": "Thickness",
+          "value": "Subject to cold foil grade and UV varnish compatibility test"
+        },
+        {
+          "label": "Core size",
+          "value": "Confirm according to cold foil or digital enhancement system"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Process window",
+          "value": "Depends on UV adhesive/varnish, curing energy, machine speed and substrate; must be confirmed by sampling"
+        },
+        {
+          "label": "Temperature",
+          "value": "Cold foil does not rely on hot stamping die temperature; confirm by process system"
+        },
+        {
+          "label": "Pressure / speed",
+          "value": "Adjust by UV varnish thickness, curing, foil release and line speed"
+        },
+        {
+          "label": "Machine type",
+          "value": "Digital cold foil systems, screen printing cold foil lines and UV varnish transfer processes"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "Rub resistance",
+        "Alcohol resistance when required",
+        "Scratch resistance",
+        "UV varnish compatibility",
+        "Transfer completeness",
+        "Fine line clarity"
+      ],
+      "recommended_temperature": {
+        "flat": "100 - 130°C",
+        "round": "130 - 150°C"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "Is cold foil the same as hot stamping foil?",
+          "answer": "No. Cold foil transfers through adhesive or UV varnish systems instead of a heated die. Compatibility with the varnish and curing system must be tested."
+        },
+        {
+          "question": "Does cold foil need plate making?",
+          "answer": "Digital and screen-printing cold foil can reduce or avoid traditional metal die making, depending on the process."
+        },
+        {
+          "question": "Why does cold foil transfer unevenly?",
+          "answer": "Common causes include UV varnish mismatch, insufficient curing, poor wetting, incorrect pressure, or unsuitable foil release."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "PL-Glossy",
+      "title": "Glossy Pigment Hot Stamping Foil for Dark Paper Gift Boxes",
+      "description": "Vivid colors, strong coverage, paint-like texture.",
+      "link": "https://www.pintecl.com/en/products/item/PL-Glossy/",
+      "image_link": "https://cos.pintecl.com/PL-Glossy.png",
+      "image_alt": "glossy pigment hot stamping foil on dark gift box packaging",
+      "brand": "PINTE",
+      "product_type": "Vivid Color, High Coverage",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PL/PY Pigment Foils",
+      "substrates": [
+        "Paper",
+        "Coated paper",
+        "Black card",
+        "Kraft card",
+        "Laminated paper",
+        "Gift boxes",
+        "Cosmetic boxes",
+        "Selected plastic parts after testing"
+      ],
+      "applications": [
+        "Gift boxes",
+        "Cosmetic boxes",
+        "Greeting cards",
+        "Dark card packaging",
+        "Brand color logos"
+      ],
+      "colors": [
+        "White",
+        "Black",
+        "Red",
+        "Blue",
+        "Gold tone",
+        "Silver tone",
+        "Pearl",
+        "Custom Pantone/RAL color"
+      ],
+      "processes": [
+        "Hot stamping",
+        "Pigment foil transfer",
+        "Large-area color stamping",
+        "Logo stamping",
+        "Partial transfer"
+      ],
+      "tags": [],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; slitting can be discussed"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m standard/sample roll; bulk roll length by order"
+        },
+        {
+          "label": "Thickness",
+          "value": "Subject to pigment foil grade and opacity requirement"
+        },
+        {
+          "label": "Core size",
+          "value": "Confirm according to machine"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Flat stamping temperature",
+          "value": "Recommended starting range 100-130°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Round/rotary temperature",
+          "value": "Recommended starting range 140-170°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Speed reference",
+          "value": "PL/PY pigment foil can be tested on production speed; actual window depends on machine and substrate"
+        },
+        {
+          "label": "Machine type",
+          "value": "Flatbed, platen, automatic and rotary hot stamping machines"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "Rub resistance",
+        "Scratch resistance",
+        "Heat resistance",
+        "Transfer completeness",
+        "Edge definition",
+        "Color consistency"
+      ],
+      "recommended_temperature": {
+        "flat": "100-130",
+        "round": "140-170"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "Why choose pigment foil instead of metallic foil?",
+          "answer": "Pigment foil is useful when opaque color coverage matters more than metallic reflection, especially on dark or colored substrates."
+        },
+        {
+          "question": "Can pigment foil cover black paper?",
+          "answer": "Yes, high-coverage pigment foil is designed for stronger opacity, but final coverage must be tested on the actual black card or coated paper."
+        },
+        {
+          "question": "Can colors be customized?",
+          "answer": "Custom Pantone or RAL color matching can be discussed. Sampling is required to confirm color and adhesion."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "PY-Matte",
+      "title": "Matte Pigment Hot Stamping Foil for Gift Boxes and Premium Paper Packaging",
+      "description": "Calm colors, writeable surface, suitable for gift boxes.",
+      "link": "https://www.pintecl.com/en/products/item/PY-Matte/",
+      "image_link": "https://cos.pintecl.com/pymatte.jpg",
+      "image_alt": "matte pigment hot stamping foil on premium gift box",
+      "brand": "PINTE",
+      "product_type": "Elegant Matte, Writeable",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PL/PY Pigment Foils",
+      "substrates": [
+        "Paper",
+        "Coated paper",
+        "Black card",
+        "Kraft card",
+        "Gift box paper",
+        "Greeting cards",
+        "Selected plastic parts after testing"
+      ],
+      "applications": [
+        "Premium gift boxes",
+        "Minimalist packaging",
+        "Greeting cards",
+        "Book covers",
+        "Brand logo stamping"
+      ],
+      "colors": [
+        "Matte white",
+        "Matte black",
+        "Matte red",
+        "Matte blue",
+        "Pearl",
+        "Custom matte Pantone/RAL color"
+      ],
+      "processes": [
+        "Hot stamping",
+        "Matte pigment transfer",
+        "Partial transfer",
+        "Brand color stamping"
+      ],
+      "tags": [],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; slitting can be discussed"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m / bulk roll options"
+        },
+        {
+          "label": "Thickness",
+          "value": "Subject to matte pigment grade and opacity requirement"
+        },
+        {
+          "label": "Core size",
+          "value": "Confirm according to machine"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Flat stamping temperature",
+          "value": "Recommended starting range 100-130°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Round/rotary temperature",
+          "value": "Recommended starting range 140-170°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Pressure / speed",
+          "value": "Avoid excessive heat or pressure to preserve matte texture and edge clarity"
+        },
+        {
+          "label": "Machine type",
+          "value": "Flatbed, platen, automatic and rotary hot stamping machines"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "Rub resistance",
+        "Scratch resistance",
+        "Heat resistance",
+        "Transfer completeness",
+        "Edge definition",
+        "Color consistency"
+      ],
+      "recommended_temperature": {
+        "flat": "100-130",
+        "round": "140-170"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "What is matte pigment foil used for?",
+          "answer": "It is used when the design needs opaque, non-metallic, elegant color coverage on paper packaging."
+        },
+        {
+          "question": "Is matte pigment foil suitable for dark substrates?",
+          "answer": "It can provide stronger coverage than many metallic foils, but color and opacity must be checked on the real substrate."
+        },
+        {
+          "question": "Can I write or print over it?",
+          "answer": "Some matte pigment surfaces may support further processing, but overprinting or writing performance must be tested for the exact grade."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "PL-White",
+      "title": "Pearl White Pigment Hot Stamping Foil for Dark Card and Cosmetic Boxes",
+      "description": "Pure white, opaque, ideal for dark cardstock.",
+      "link": "https://www.pintecl.com/en/products/item/PL-White/",
+      "image_link": "https://cos.pintecl.com/PL-2000.png",
+      "image_alt": "pearl white pigment hot stamping foil on black card packaging",
+      "brand": "PINTE",
+      "product_type": "Pure Opaque",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PL/PY Pigment Foils",
+      "substrates": [
+        "Black card",
+        "Dark colored card",
+        "Coated paper",
+        "Gift box paper",
+        "Cosmetic boxes",
+        "Laminated paper",
+        "Selected plastic parts after testing"
+      ],
+      "applications": [
+        "Dark card packaging",
+        "Cosmetic boxes",
+        "Gift boxes",
+        "Greeting cards",
+        "High-contrast logos"
+      ],
+      "colors": [
+        "Bright white",
+        "Pearl white",
+        "Gloss white",
+        "Custom light pigment color"
+      ],
+      "processes": [
+        "Hot stamping",
+        "White pigment transfer",
+        "High-opacity color stamping",
+        "Logo stamping",
+        "Partial transfer"
+      ],
+      "tags": [],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; slitting can be discussed"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m / bulk roll options"
+        },
+        {
+          "label": "Thickness",
+          "value": "Subject to white pigment coverage requirement"
+        },
+        {
+          "label": "Core size",
+          "value": "Confirm according to machine"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Flat stamping temperature",
+          "value": "Recommended starting range 100-130°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Round/rotary temperature",
+          "value": "Recommended starting range 140-170°C; must be confirmed by sampling"
+        },
+        {
+          "label": "Pressure / speed",
+          "value": "Confirm by opacity, edge definition and adhesion tests on dark substrate"
+        },
+        {
+          "label": "Machine type",
+          "value": "Flatbed, platen, automatic and rotary hot stamping machines"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "Rub resistance",
+        "Scratch resistance",
+        "Heat resistance",
+        "Transfer completeness",
+        "Edge definition",
+        "Color consistency"
+      ],
+      "recommended_temperature": {
+        "flat": "100-130",
+        "round": "140-170"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "Can white pigment foil cover dark paper?",
+          "answer": "It is designed for higher opacity than standard metallic foil, but coverage depends on substrate color, surface treatment and stamping settings."
+        },
+        {
+          "question": "Why does white foil look uneven?",
+          "answer": "Uneven pressure, rough surface, insufficient heat or unsuitable foil grade can cause missing spots. Test pressure and dwell time on real dark card."
+        },
+        {
+          "question": "Can white pigment foil be customized?",
+          "answer": "Custom light or pearl-like pigment colors can be discussed. Sampling is required before bulk order."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "PC-Cold",
+      "title": "Cold Foil for Digital UV Varnish, Screen Printing and Plastic Packaging",
+      "description": "Suitable for typical cold stamping scenarios such as digital cold stamping, screen printing cold stamping, and rapid gold stamping with graphic toner. This series inherits the consistent properties of the PC series: alcohol resistance, boiling water resistance and friction resistance. It features excellent compatibility with various types of UV hot stamping varnishes and has wide applicability.",
+      "link": "https://www.pintecl.com/en/products/item/PC-Cold/",
+      "image_link": "https://cos.pintecl.com/detail/pccold.png",
+      "image_alt": "cold foil transfer on UV varnish cosmetic packaging",
+      "brand": "PINTE",
+      "product_type": "No Plate Making Required, Easy Stamping",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "Digital / Cold Foil",
+      "substrates": [
+        "UV varnish layer",
+        "Digital toner layer",
+        "Screen printed UV adhesive",
+        "PET film",
+        "PVC film",
+        "ABS",
+        "PS",
+        "PP",
+        "PE",
+        "Packaging materials"
+      ],
+      "applications": [
+        "Digital packaging enhancement",
+        "Short-run cartons",
+        "Cosmetic labels",
+        "UV varnish foil transfer",
+        "Plastic packaging decoration"
+      ],
+      "colors": [
+        "Gold",
+        "Silver",
+        "Holographic",
+        "Red",
+        "Blue",
+        "Black",
+        "Matte metallic",
+        "Custom color"
+      ],
+      "processes": [
+        "Cold foil",
+        "Digital cold foil",
+        "Screen printing cold foil",
+        "UV varnish transfer",
+        "No-plate foil transfer"
+      ],
+      "tags": [
+        "PC Digital/Screen Printing Cold Foil"
+      ],
+      "specifications": [
+        {
+          "label": "Standard width",
+          "value": "640mm; custom slitting can be discussed"
+        },
+        {
+          "label": "Standard length",
+          "value": "120m / bulk roll options"
+        },
+        {
+          "label": "Thickness",
+          "value": "Subject to cold foil grade and UV varnish compatibility test"
+        },
+        {
+          "label": "Core size",
+          "value": "Confirm according to cold foil or digital enhancement system"
+        }
+      ],
+      "technical_parameters": [
+        {
+          "label": "Process window",
+          "value": "Depends on UV adhesive/varnish, curing energy, machine speed and substrate; must be confirmed by sampling"
+        },
+        {
+          "label": "Temperature",
+          "value": "Cold foil does not rely on hot stamping die temperature; confirm by process system"
+        },
+        {
+          "label": "Pressure / speed",
+          "value": "Adjust by UV varnish thickness, curing, foil release and line speed"
+        },
+        {
+          "label": "Machine type",
+          "value": "Digital cold foil systems, screen printing cold foil lines and UV varnish transfer processes"
+        }
+      ],
+      "quality_tests": [
+        "Adhesion",
+        "Rub resistance",
+        "Alcohol resistance when required",
+        "Scratch resistance",
+        "UV varnish compatibility",
+        "Transfer completeness",
+        "Fine line clarity"
+      ],
+      "recommended_temperature": {
+        "flat": "100 - 130°C",
+        "round": "130 - 150°C"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope. Standard colors and sample rolls are available for evaluation before bulk orders.",
+      "sample_policy": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase.",
+      "customization_lead_time": "Custom color, effect, width, and substrate matching typically require sampling and confirmation before production.",
+      "faq": [
+        {
+          "question": "Is cold foil the same as hot stamping foil?",
+          "answer": "No. Cold foil transfers through adhesive or UV varnish systems instead of a heated die. Compatibility with the varnish and curing system must be tested."
+        },
+        {
+          "question": "Does cold foil need plate making?",
+          "answer": "Digital and screen-printing cold foil can reduce or avoid traditional metal die making, depending on the process."
+        },
+        {
+          "question": "Why does cold foil transfer unevenly?",
+          "answer": "Common causes include UV varnish mismatch, insufficient curing, poor wetting, incorrect pressure, or unsuitable foil release."
+        },
+        {
+          "question": "Can PINTE send samples?",
+          "answer": "Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk purchase."
+        }
+      ]
+    },
+    {
+      "id": "G-Hex",
+      "title": "Hexagon Glitter",
+      "description": "Standard hexagonal cut, high brilliance.",
+      "link": "https://www.pintecl.com/en/products/item/G-Hex/",
+      "image_link": "https://cos.pintecl.com/detail/glitter1.jpg",
+      "image_alt": "Hexagon Glitter",
+      "brand": "PINTE",
+      "product_type": "Glitter Powder Series",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "Glitter Powder Series",
+      "substrates": [
+        "Paper",
+        "Fabric",
+        "Plastic",
+        "Nail Polish",
+        "Ink"
+      ],
+      "applications": [
+        "Xmas Decor",
+        "Screen Print",
+        "Nail Art",
+        "Injection",
+        "Cards"
+      ],
+      "colors": [
+        "Holographic",
+        "Rainbow",
+        "Metallic",
+        "Iridescent"
+      ],
+      "processes": [],
+      "tags": [],
+      "specifications": [],
+      "technical_parameters": [],
+      "quality_tests": [],
+      "recommended_temperature": {
+        "flat": "Room Temp",
+        "round": "Injection Temp"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope.",
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders.",
+      "faq": []
+    },
+    {
+      "id": "G-Strip",
+      "title": "Strip Glitter",
+      "description": "Long strip shape, for special textile or decor effects.",
+      "link": "https://www.pintecl.com/en/products/item/G-Strip/",
+      "image_link": "https://cos.pintecl.com/detail/sequin.jpg",
+      "image_alt": "Strip Glitter",
+      "brand": "PINTE",
+      "product_type": "Glitter Powder Series",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "Glitter Powder Series",
+      "substrates": [
+        "Paper",
+        "Fabric",
+        "Plastic",
+        "Nail Polish",
+        "Ink"
+      ],
+      "applications": [
+        "Xmas Decor",
+        "Screen Print",
+        "Nail Art",
+        "Injection",
+        "Cards"
+      ],
+      "colors": [
+        "Holographic",
+        "Rainbow",
+        "Metallic",
+        "Iridescent"
+      ],
+      "processes": [],
+      "tags": [],
+      "specifications": [],
+      "technical_parameters": [],
+      "quality_tests": [],
+      "recommended_temperature": {
+        "flat": "Room Temp",
+        "round": "Injection Temp"
+      },
+      "moq": "MOQ depends on color, finish, roll width, and customization scope.",
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders.",
+      "faq": []
+    }
+  ]
+}

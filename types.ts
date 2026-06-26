@@ -59,6 +59,18 @@ export interface CatalogItem {
   applications?: string[];
   temp?: { flat: string; round: string };
   detailImage?: string; // New field for the long technical image
+  seoTitle?: string;
+  compatibleSubstrates?: string[];
+  colors?: string[];
+  specifications?: { label: string; value: string }[];
+  processes?: string[];
+  technicalParameters?: { label: string; value: string }[];
+  qualityTests?: string[];
+  moq?: string;
+  samplePolicy?: string;
+  customizationLeadTime?: string;
+  imageAlt?: string;
+  faqs?: { question: string; answer: string }[];
 }
 
 // NEW: Interface for individual foil swatches

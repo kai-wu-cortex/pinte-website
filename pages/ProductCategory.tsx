@@ -106,6 +106,38 @@ const ProductCategory: React.FC = () => {
   };
 
   const seo = lang === 'cn' ? currentSeo.cn : currentSeo.en;
+  const categoryFaqs = [
+    {
+      q: lang === 'cn' ? '这款烫金箔适合什么材质？' : 'What materials is this hot stamping foil suitable for?',
+      a: lang === 'cn'
+        ? `${product.name} 适合 ${product.substrates.join('、')} 等底材。批量采购前建议提供真实底材做温度、压力和附着力测试。`
+        : `${product.name} is suitable for ${product.substrates.join(', ')}. Before bulk purchase, test temperature, pressure, and adhesion on the real substrate.`,
+    },
+    {
+      q: lang === 'cn' ? '可以提供定制颜色吗？' : 'Do you offer custom colors?',
+      a: lang === 'cn'
+        ? '可以。PINTE 支持 Pantone 专色、宽幅、卷长和样卷测试，具体起订量按规格确认。'
+        : 'Yes. PINTE supports Pantone matching, custom width, custom roll length, and sample roll testing. MOQ depends on the specification.',
+    },
+    {
+      q: lang === 'cn' ? '推荐烫印温度是多少？' : 'What stamping temperature is recommended?',
+      a: lang === 'cn'
+        ? `平面烫印参考 ${product.temp.flat}，圆面/曲面烫印参考 ${product.temp.round}。实际参数需结合底材、设备和图案面积打样确认。`
+        : `Flat stamping reference: ${product.temp.flat}; round or curved stamping reference: ${product.temp.round}. Final parameters should be confirmed by sampling with the substrate, machine, and artwork area.`,
+    },
+  ];
+  const categoryFaqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: categoryFaqs.map((faq) => ({
+      '@type': 'Question',
+      name: faq.q,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: faq.a,
+      },
+    })),
+  };
 
   // Helper for icons (needs to match map used in main app roughly or just use basic ones)
   const ICON_MAP: Record<string, any> = { Layers, Star, CheckCircle2, Box, Palette };
@@ -120,6 +152,9 @@ const ProductCategory: React.FC = () => {
         locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
         canonicalUrl={`/${lang}/products/category/${id}`}
       />
+      <script type="application/ld+json">
+        {JSON.stringify(categoryFaqSchema)}
+      </script>
       <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-4 flex flex-col sm:h-20 sm:flex-row items-center justify-between gap-3">
            <button

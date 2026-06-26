@@ -14,6 +14,8 @@
  */
 
 import { CONTENT_EN, CONTENT_ZH } from '../data/content.js';
+import { getGeoGuide } from '../data/geoGuides.js';
+import { mergeProductSeoProfile } from '../data/productSeoProfiles.js';
 // @ts-ignore - .mjs 配置文件,无类型声明
 import seoSop from '../scripts/seo-geo-sop.config.mjs';
 import { t, htmlLangAttr, type Lang } from './i18n.js';
@@ -224,6 +226,7 @@ function productSchema(opts: {
   sku?: string;
   category?: string;
   applications?: string[];
+  properties?: Array<{ name: string; value: string }>;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -234,6 +237,11 @@ function productSchema(opts: {
     url: opts.url,
     sku: opts.sku,
     category: opts.category,
+    additionalProperty: opts.properties?.map((property) => ({
+      '@type': 'PropertyValue',
+      name: property.name,
+      value: property.value,
+    })),
     brand: { '@type': 'Brand', name: opts.brand || 'PINTE' },
     manufacturer: {
       '@type': 'Organization',
@@ -329,6 +337,19 @@ function buildBreadcrumb(
   if (parts[0] === 'terms') return [home, { label: t('terms', lang), href: langPath('terms', lang) + '/' }];
   if (parts[0] === 'pintefoils') return [home, { label: t('pintefoils', lang), href: langPath('pintefoils', lang) + '/' }];
   if (parts[0] === 'seo-geo-sop') return [home, { label: t('seoSop', lang), href: langPath('seo-geo-sop', lang) + '/' }];
+  if (parts[0] === 'guides') {
+    const guide = getGeoGuide(parts[1]);
+    return [
+      home,
+      {
+        label: lang === 'cn' ? '采购指南' : 'Procurement Guides',
+        href: guide ? langPath(`guides/${guide.slug}`, lang) + '/' : langPath('products', lang) + '/',
+      },
+      ...(guide
+        ? [{ label: guide.title[lang], href: langPath(`guides/${guide.slug}`, lang) + '/' }]
+        : []),
+    ];
+  }
 
   if (parts[0] === 'blog') {
     const crumbs = [home, { label: t('blog', lang), href: langPath('blog', lang) + '/' }];
@@ -761,6 +782,7 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
     }
   }
   if (!item) return null;
+  item = mergeProductSeoProfile(item, lang);
 
   const cat = c.PRODUCT_DATA[seriesId as keyof typeof c.PRODUCT_DATA] as any;
   const sameSeries = (c.CATALOG_DATA[seriesId as keyof typeof c.CATALOG_DATA] as any[]).filter(
@@ -780,6 +802,12 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
   const features = (item.features || []) as Array<{ title: string; desc: string }>;
   const params = item.params || [];
   const applications = item.applications || [];
+  const specifications = item.specifications || [];
+  const compatibleSubstrates = item.compatibleSubstrates || cat?.substrates || [];
+  const colors = item.colors || [];
+  const processes = item.processes || [];
+  const technicalParameters = item.technicalParameters || [];
+  const qualityTests = item.qualityTests || [];
 
   // 痛点段落:用 cat.description 中提到的痛点 + item 自带 content
   const painLead = item.content
@@ -799,6 +827,10 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
           ? `${item.name} 的 ${f.title} 是怎么实现的?`
           : `What does "${f.title}" mean for ${item.name}?`,
       a: f.desc,
+    })),
+    ...(item.faqs || []).map((faq: any) => ({
+      q: faq.question,
+      a: faq.answer,
     })),
     ...(item.temp
       ? [
@@ -863,6 +895,45 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
     }
 
     ${
+      specifications.length || compatibleSubstrates.length || colors.length || processes.length
+        ? `<section>
+        <h2>${lang === 'cn' ? '完整产品信息字段' : 'Complete Product Information'}</h2>
+        ${
+          compatibleSubstrates.length
+            ? `<h3>${lang === 'cn' ? '适用底材' : 'Compatible substrates'}</h3>${ul(compatibleSubstrates)}`
+            : ''
+        }
+        ${colors.length ? `<h3>${lang === 'cn' ? '颜色与效果' : 'Colors and effects'}</h3>${ul(colors)}` : ''}
+        ${processes.length ? `<h3>${lang === 'cn' ? '适用工艺' : 'Supported processes'}</h3>${ul(processes)}` : ''}
+        ${specifications.length ? `<h3>${lang === 'cn' ? '规格' : 'Specifications'}</h3>${dlList(specifications)}` : ''}
+      </section>`
+        : ''
+    }
+
+    ${
+      technicalParameters.length || qualityTests.length || item.moq || item.samplePolicy
+        ? `<section>
+        <h2>${lang === 'cn' ? '工艺参数、质量测试与样品政策' : 'Technical Parameters, Quality Tests and Sample Policy'}</h2>
+        ${
+          technicalParameters.length
+            ? `<h3>${lang === 'cn' ? '技术参数' : 'Technical parameters'}</h3>${dlList(technicalParameters)}`
+            : ''
+        }
+        ${qualityTests.length ? `<h3>${lang === 'cn' ? '质量测试' : 'Quality tests'}</h3>${ul(qualityTests)}` : ''}
+        ${item.moq ? `<p><strong>MOQ:</strong> ${escapeHtml(item.moq)}</p>` : ''}
+        ${item.samplePolicy ? `<p><strong>${lang === 'cn' ? '样品政策' : 'Sample policy'}:</strong> ${escapeHtml(item.samplePolicy)}</p>` : ''}
+        ${
+          item.customizationLeadTime
+            ? `<p><strong>${lang === 'cn' ? '定制周期' : 'Customization'}:</strong> ${escapeHtml(
+                item.customizationLeadTime
+              )}</p>`
+            : ''
+        }
+      </section>`
+        : ''
+    }
+
+    ${
       applications.length
         ? `<section>
         <h2>${escapeHtml(t('applications', lang))}</h2>
@@ -920,6 +991,47 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
       sku: item.id,
       category: cat.name,
       applications,
+      properties: [
+        ...params.map((param: any) => ({ name: param.label, value: param.value })),
+        ...specifications.map((param: any) => ({ name: param.label, value: param.value })),
+        ...technicalParameters.map((param: any) => ({ name: param.label, value: param.value })),
+        ...(item.temp
+          ? [
+              { name: t('flatTemp', lang), value: item.temp.flat },
+              { name: t('roundTemp', lang), value: item.temp.round },
+            ]
+          : []),
+        ...(cat?.substrates?.length
+          ? [{ name: t('substrates', lang), value: cat.substrates.join(', ') }]
+          : []),
+        ...(compatibleSubstrates.length
+          ? [{
+              name: lang === 'cn' ? '适用底材' : 'Compatible substrates',
+              value: compatibleSubstrates.join(', '),
+            }]
+          : []),
+        ...(colors.length
+          ? [{ name: lang === 'cn' ? '颜色与效果' : 'Colors and effects', value: colors.join(', ') }]
+          : []),
+        ...(processes.length
+          ? [{ name: lang === 'cn' ? '适用工艺' : 'Supported processes', value: processes.join(', ') }]
+          : []),
+        ...(qualityTests.length
+          ? [{ name: lang === 'cn' ? '质量测试' : 'Quality tests', value: qualityTests.join(', ') }]
+          : []),
+        ...(applications.length
+          ? [{ name: t('applications', lang), value: applications.join(', ') }]
+          : []),
+        {
+          name: lang === 'cn' ? '样品与报价政策' : 'Sample and quotation policy',
+          value:
+            item.samplePolicy ||
+            (lang === 'cn'
+              ? '批量采购前可提供色卡、样卷、分切规格和按底材推荐型号服务。'
+              : 'Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk orders.'),
+        },
+        ...(item.moq ? [{ name: 'MOQ', value: item.moq }] : []),
+      ],
     }),
   ];
   const fq = faqSchema(faq);
@@ -1591,6 +1703,236 @@ function buildPintefoilsSnapshot(lang: Lang): SnapshotResult {
   };
 }
 
+function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null {
+  const guide = getGeoGuide(slug);
+  if (!guide) return null;
+
+  const route = `guides/${guide.slug}`;
+  const url = buildCanonicalUrl(route, lang);
+  const title = `${guide.title[lang]} | PINTE`;
+  const description = guide.metaDescription[lang];
+  const keywords = Array.from(
+    new Set([
+      guide.primaryKeyword[lang],
+      ...guide.secondaryKeywords[lang],
+      'hot stamping foil',
+      'PINTE',
+    ])
+  );
+  const geoTargets = defaultGeoForRoute(route, lang);
+  const crumbs = buildBreadcrumb(route, lang);
+
+  const factorRows = guide.factors
+    .map(
+      (factor) =>
+        `<tr><td>${escapeHtml(factor.label[lang])}</td><td>${escapeHtml(
+          factor.guidance[lang]
+        )}</td></tr>`
+    )
+    .join('');
+
+  const processNotes = guide.processNotes
+    ?.map(
+      (note) =>
+        `<article><h3>${escapeHtml(note.title[lang])}</h3><p>${escapeHtml(
+          note.body[lang]
+        )}</p></article>`
+    )
+    .join('');
+
+  const selectionRows = guide.selectionTable
+    ?.map(
+      (row) =>
+        `<tr><td>${escapeHtml(row.factor[lang])}</td><td>${escapeHtml(
+          row.confirm[lang]
+        )}</td><td>${escapeHtml(row.why[lang])}</td><td>${escapeHtml(
+          row.ask[lang]
+        )}</td></tr>`
+    )
+    .join('');
+
+  const substrateRows = guide.substrateFit
+    .map(
+      (row) =>
+        `<tr><td>${escapeHtml(row.substrate[lang])}</td><td>${escapeHtml(
+          row.recommendedFoil
+        )}</td><td>${escapeHtml(row.note[lang])}</td></tr>`
+    )
+    .join('');
+
+  const troubleshootingRows = guide.troubleshooting
+    .map(
+      (row) =>
+        `<tr><td>${escapeHtml(row.issue[lang])}</td><td>${escapeHtml(
+          row.likelyCause[lang]
+        )}</td><td>${escapeHtml(row.action[lang])}</td></tr>`
+    )
+    .join('');
+
+  const faq = guide.faqs.map((item) => ({
+    q: item.question[lang],
+    a: item.answer[lang],
+  }));
+
+  const researchRows = guide.researchMatrix
+    ?.map(
+      (row, index) =>
+        `<tr><td>${index + 1}</td><td>${escapeHtml(row.scenario[lang])}</td><td>${escapeHtml(
+          row.question[lang]
+        )}</td><td>${escapeHtml(row.intent[lang])}</td><td>${escapeHtml(
+          row.concern[lang]
+        )}</td><td>${escapeHtml(row.sources[lang])}</td><td>${escapeHtml(
+          row.pageType[lang]
+        )}</td><td>${row.conversionScore}</td><td>${row.citationScore}</td><td>${escapeHtml(
+          row.priority
+        )}</td></tr>`
+    )
+    .join('');
+
+  const recommendationItems = guide.pageRecommendations
+    ? guide.pageRecommendations[lang].map((item) => `${item.pageType}: ${item.questions}`)
+    : [];
+  const sourceLinks = guide.sourceReferences?.map((source) => ({
+    label: `${source.label}. ${source.title}`,
+    href: source.url,
+  })) || [];
+
+  const relatedLinks = guide.relatedRoutes.map((routePath) => ({
+    label: routePath.startsWith('guides/')
+      ? getGeoGuide(routePath.split('/')[1])?.title[lang] || routePath
+      : routePath,
+    href: langPath(routePath, lang) + '/',
+  }));
+
+  const inner = `
+    <h1>${escapeHtml(guide.title[lang])}</h1>
+    <p class="seo-lead">${escapeHtml(guide.answer[lang])}</p>
+    <p><strong>${lang === 'cn' ? '目标读者' : 'Audience'}:</strong> ${escapeHtml(
+      guide.audience[lang]
+    )}</p>
+
+    <section>
+      <h2>${lang === 'cn' ? '选型因素对比表' : 'Selection Factors'}</h2>
+      <table><tbody>${factorRows}</tbody></table>
+    </section>
+
+    ${
+      processNotes
+        ? `<section>
+      <h2>${lang === 'cn' ? '核心采购判断' : 'Core Procurement Notes'}</h2>
+      ${processNotes}
+    </section>`
+        : ''
+    }
+
+    ${
+      selectionRows
+        ? `<section>
+      <h2>${lang === 'cn' ? '采购选型因素对比表' : 'Selection Factors Comparison Table'}</h2>
+      <table><thead><tr><th>${lang === 'cn' ? '选型因素' : 'Selection factor'}</th><th>${
+            lang === 'cn' ? '采购前确认' : 'Confirm before buying'
+          }</th><th>${lang === 'cn' ? '为什么重要' : 'Why it matters'}</th><th>${
+            lang === 'cn' ? '询问供应商' : 'Ask your supplier'
+          }</th></tr></thead><tbody>${selectionRows}</tbody></table>
+    </section>`
+        : ''
+    }
+
+    ${
+      researchRows
+        ? `<section>
+      <h2>${lang === 'cn' ? 'ChatGPT 高概率采购问题矩阵' : 'ChatGPT Buyer Question Matrix'}</h2>
+      <table><thead><tr><th>#</th><th>${lang === 'cn' ? '用途场景' : 'Scenario'}</th><th>${
+            lang === 'cn' ? '问题' : 'Question'
+          }</th><th>${lang === 'cn' ? '意图' : 'Intent'}</th><th>${
+            lang === 'cn' ? '真实采购顾虑' : 'Real buyer concern'
+          }</th><th>${lang === 'cn' ? '常见引用来源' : 'Common sources'}</th><th>${
+            lang === 'cn' ? '页面类型' : 'Page type'
+          }</th><th>${lang === 'cn' ? '转化' : 'Conversion'}</th><th>${
+            lang === 'cn' ? 'AI引用' : 'AI citation'
+          }</th><th>${lang === 'cn' ? '优先级' : 'Priority'}</th></tr></thead><tbody>${researchRows}</tbody></table>
+    </section>`
+        : ''
+    }
+
+    ${
+      recommendationItems.length
+        ? `<section>
+      <h2>${lang === 'cn' ? '站内页面分配建议' : 'Recommended Site Page Allocation'}</h2>
+      ${ul(recommendationItems)}
+    </section>`
+        : ''
+    }
+
+    <section>
+      <h2>${lang === 'cn' ? '底材适配表' : 'Substrate Fit Table'}</h2>
+      <table><thead><tr><th>${lang === 'cn' ? '底材' : 'Substrate'}</th><th>${
+        lang === 'cn' ? '推荐系列' : 'Recommended foil'
+      }</th><th>${lang === 'cn' ? '说明' : 'Note'}</th></tr></thead><tbody>${substrateRows}</tbody></table>
+    </section>
+
+    <section>
+      <h2>${lang === 'cn' ? '常见问题与解决方案表' : 'Common Problems and Fixes'}</h2>
+      <table><thead><tr><th>${lang === 'cn' ? '问题' : 'Issue'}</th><th>${
+        lang === 'cn' ? '可能原因' : 'Likely cause'
+      }</th><th>${lang === 'cn' ? '处理方向' : 'Action'}</th></tr></thead><tbody>${troubleshootingRows}</tbody></table>
+    </section>
+
+    <section>
+      <h2>${lang === 'cn' ? '采购前打样测试清单' : 'Sampling Checklist Before Bulk Purchase'}</h2>
+      ${ul(guide.samplingChecklist[lang])}
+    </section>
+
+    <section>
+      <h2>${escapeHtml(t('related', lang))}</h2>
+      ${linkList(relatedLinks)}
+    </section>
+
+    ${
+      sourceLinks.length
+        ? `<section>
+      <h2>${lang === 'cn' ? '参考资料' : 'Technical References'}</h2>
+      ${linkList(sourceLinks)}
+    </section>`
+        : ''
+    }
+
+    ${faqHtml(lang, faq)}
+    ${geoLine(lang, geoTargets)}
+  `;
+
+  const article = generateArticleSchema({
+    title: guide.title[lang],
+    description,
+    datePublished: '2026-06-26',
+    dateModified: '2026-06-26',
+    author: 'PINTE',
+    url: `/${lang}/${route}`,
+    category: ['Hot Stamping Foil Procurement'],
+    tags: keywords,
+    geo: { language: lang === 'cn' ? 'zh-CN' : 'en-US', region: geoTargets.join(', ') },
+  });
+  const fq = faqSchema(faq);
+
+  return {
+    html: wrapMain({ route, lang, breadcrumb: breadcrumbHtml(lang, crumbs), inner }),
+    jsonLd: [
+      crumbsToSchema(crumbs),
+      article,
+      pageTypeSchema({ type: 'WebPage', name: guide.title[lang], description, url }),
+      ...(fq ? [fq] : []),
+    ],
+    meta: {
+      title,
+      description,
+      keywords,
+      geoTargets,
+      type: 'article',
+      publishedTime: '2026-06-26',
+    },
+  };
+}
+
 // ----------------------------- Public API ----------------------------- //
 
 export function buildSnapshot(
@@ -1610,6 +1952,10 @@ export function buildSnapshot(
   if (route === 'blog') return buildBlogListSnapshot(lang);
   if (route === 'seo-geo-sop') return buildSeoSopSnapshot(lang);
   if (route === 'pintefoils') return buildPintefoilsSnapshot(lang);
+  if (route.startsWith('guides/')) {
+    const slug = route.split('/')[1];
+    return buildGeoGuideSnapshot(slug, lang);
+  }
 
   if (route.startsWith('products/category/')) {
     const id = route.split('/')[2];

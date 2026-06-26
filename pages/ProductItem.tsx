@@ -5,6 +5,7 @@ import ItemDetailView from '../components/ItemDetailView';
 import { useLanguage } from '../contexts/LanguageContext';
 import { ProductId, CatalogItem } from '../types';
 import SEOMeta from '../components/SEOMeta';
+import { mergeProductSeoProfile } from '../data/productSeoProfiles';
 
 const ProductItem: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -13,10 +14,12 @@ const ProductItem: React.FC = () => {
 
   // Find item
   let selectedItem: CatalogItem | undefined;
+  let selectedSeriesId: ProductId | undefined;
   for (const catId of Object.keys(content.CATALOG_DATA)) {
       const found = content.CATALOG_DATA[catId as ProductId].find(i => i.id === id);
       if (found) {
           selectedItem = found;
+          selectedSeriesId = catId as ProductId;
           break;
       }
   }
@@ -32,12 +35,16 @@ const ProductItem: React.FC = () => {
     );
   }
 
-  const description = selectedItem.content || selectedItem.description;
-  const canonicalUrl = `/${lang}/products/item/${selectedItem.id}`;
+  const enrichedItem = mergeProductSeoProfile(selectedItem, lang === 'cn' ? 'cn' : 'en');
+  const description = enrichedItem.content || enrichedItem.description;
+  const selectedSeries = selectedSeriesId ? content.PRODUCT_DATA[selectedSeriesId] : undefined;
+  const canonicalUrl = `/${lang}/products/item/${enrichedItem.id}`;
   const keywords = [
-    selectedItem.name,
-    selectedItem.subtitle,
-    ...(selectedItem.tags || []),
+    enrichedItem.name,
+    enrichedItem.subtitle,
+    ...(enrichedItem.tags || []),
+    ...(enrichedItem.compatibleSubstrates || []),
+    ...(enrichedItem.colors || []),
     'hot stamping foil',
     'PINTE',
     'Dongguan China',
@@ -46,9 +53,9 @@ const ProductItem: React.FC = () => {
   const productSchema = {
     '@context': 'https://schema.org',
     '@type': 'Product',
-    name: selectedItem.name,
+    name: enrichedItem.name,
     description,
-    image: selectedItem.image,
+    image: enrichedItem.image,
     brand: {
       '@type': 'Brand',
       name: 'PINTE',
@@ -58,9 +65,89 @@ const ProductItem: React.FC = () => {
       name: 'Dongguan Best Craftwork Products Co., Ltd.',
       url: 'https://www.pintecl.com',
     },
-    category: selectedItem.subtitle || 'Hot Stamping Foil',
-    material: selectedItem.tags?.join(', '),
+    category: enrichedItem.subtitle || 'Hot Stamping Foil',
+    material: enrichedItem.compatibleSubstrates?.join(', ') || enrichedItem.tags?.join(', '),
     url: `https://www.pintecl.com${canonicalUrl}`,
+    additionalProperty: [
+      ...(enrichedItem.params || selectedSeries?.params || []).map((param) => ({
+        '@type': 'PropertyValue',
+        name: param.label,
+        value: param.value,
+      })),
+      ...(enrichedItem.temp || selectedSeries?.temp
+        ? [
+            {
+              '@type': 'PropertyValue',
+              name: 'Recommended flat stamping temperature',
+              value: (enrichedItem.temp || selectedSeries?.temp)?.flat,
+            },
+            {
+              '@type': 'PropertyValue',
+              name: 'Recommended round stamping temperature',
+              value: (enrichedItem.temp || selectedSeries?.temp)?.round,
+            },
+          ]
+        : []),
+      ...(enrichedItem.compatibleSubstrates?.length
+        ? [{
+            '@type': 'PropertyValue',
+            name: 'Compatible substrates',
+            value: enrichedItem.compatibleSubstrates.join(', '),
+          }]
+        : []),
+      ...(enrichedItem.colors?.length
+        ? [{
+            '@type': 'PropertyValue',
+            name: 'Colors and effects',
+            value: enrichedItem.colors.join(', '),
+          }]
+        : []),
+      ...(enrichedItem.processes?.length
+        ? [{
+            '@type': 'PropertyValue',
+            name: 'Supported processes',
+            value: enrichedItem.processes.join(', '),
+          }]
+        : []),
+      ...(enrichedItem.qualityTests?.length
+        ? [{
+            '@type': 'PropertyValue',
+            name: 'Quality tests',
+            value: enrichedItem.qualityTests.join(', '),
+          }]
+        : []),
+      ...(enrichedItem.technicalParameters?.length
+        ? enrichedItem.technicalParameters.map((param) => ({
+            '@type': 'PropertyValue',
+            name: param.label,
+            value: param.value,
+          }))
+        : []),
+      ...(selectedSeries?.substrates?.length
+        ? [{
+            '@type': 'PropertyValue',
+            name: 'Series substrates',
+            value: selectedSeries.substrates.join(', '),
+          }]
+        : []),
+      ...((enrichedItem.applications || selectedSeries?.applications)?.length
+        ? [{
+            '@type': 'PropertyValue',
+            name: 'Typical applications',
+            value: (enrichedItem.applications || selectedSeries?.applications || []).join(', '),
+          }]
+        : []),
+      {
+        '@type': 'PropertyValue',
+        name: 'Sample and quotation policy',
+        value: enrichedItem.samplePolicy || 'Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk orders.',
+      },
+      {
+        '@type': 'PropertyValue',
+        name: 'MOQ',
+        value: enrichedItem.moq || 'MOQ depends on color, finish, roll width, and customization scope.',
+      },
+    ],
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',
@@ -68,14 +155,28 @@ const ProductItem: React.FC = () => {
       url: `https://www.pintecl.com/${lang}/quote`,
     },
   };
+  const faqSchema = enrichedItem.faqs?.length
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: enrichedItem.faqs.map((faq) => ({
+          '@type': 'Question',
+          name: faq.question,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: faq.answer,
+          },
+        })),
+      }
+    : null;
 
   return (
     <>
       <SEOMeta
-        title={`${selectedItem.name} | PINTE Hot Stamping Foil`}
+        title={`${enrichedItem.name} | PINTE Hot Stamping Foil`}
         description={description.slice(0, 155)}
         keywords={keywords}
-        image={selectedItem.image}
+        image={enrichedItem.image}
         url={canonicalUrl}
         locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
         canonicalUrl={canonicalUrl}
@@ -83,8 +184,13 @@ const ProductItem: React.FC = () => {
       <script type="application/ld+json">
         {JSON.stringify(productSchema)}
       </script>
+      {faqSchema && (
+        <script type="application/ld+json">
+          {JSON.stringify(faqSchema)}
+        </script>
+      )}
       <ItemDetailView
-        item={selectedItem}
+        item={enrichedItem}
         onBack={() => navigate(-1)}
         ui={ui}
       />
