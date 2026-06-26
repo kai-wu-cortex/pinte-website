@@ -37,6 +37,32 @@ const ItemDetailView: React.FC<ItemDetailViewProps> = ({ item, onBack, ui }) => 
       applications: "Applications",
       tabs: { specs: "Specs", apps: "Apps" }
   };
+  const isCn = t.techSpecs.includes('规格') || t.applications.includes('应用');
+  const labels = {
+    substrates: isCn ? '适用底材' : 'Compatible Substrates',
+    colors: isCn ? '颜色与效果' : 'Colors and Effects',
+    processes: isCn ? '适用工艺' : 'Supported Processes',
+    qualityTests: isCn ? '质量测试' : 'Quality Tests',
+    commercial: isCn ? '起订量与样品政策' : 'MOQ and Sample Policy',
+    technicalParams: isCn ? '工艺参数说明' : 'Technical Parameters',
+    faq: 'FAQ',
+    note: isCn
+      ? '参数为建议起始范围，实际温度、压力、速度需结合底材、设备和图案打样确认。'
+      : 'Parameters are recommended starting ranges. Actual temperature, pressure, and speed must be confirmed by sampling with the real substrate, machine, and artwork.',
+  };
+
+  const renderChips = (items?: string[]) => {
+    if (!items || items.length === 0) return null;
+    return (
+      <div className="flex flex-wrap gap-2">
+        {items.map((value) => (
+          <span key={value} className="rounded-full bg-white border border-neutral-200 px-3 py-1.5 text-sm font-semibold text-neutral-700">
+            {value}
+          </span>
+        ))}
+      </div>
+    );
+  };
 
   if (showQuote) {
       return <QuoteRequest onBack={() => setShowQuote(false)} ui={ui?.quote} />;
@@ -75,7 +101,7 @@ const ItemDetailView: React.FC<ItemDetailViewProps> = ({ item, onBack, ui }) => 
             <div className="relative aspect-square lg:aspect-[4/3] rounded-[2.5rem] overflow-hidden shadow-2xl shadow-neutral-200 group">
                 <img
                     src={item.image}
-                    alt={item.name}
+                    alt={item.imageAlt || item.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     loading="eager"
                     width={800}
@@ -193,7 +219,7 @@ const ItemDetailView: React.FC<ItemDetailViewProps> = ({ item, onBack, ui }) => 
                                             </div>
                                         </div>
                                         <p className="text-xs text-neutral-400 mt-4 leading-relaxed">
-                                            * Note: Actual temperature may vary by machine speed, pressure, and substrate. Testing recommended before mass production.
+                                            * {labels.note}
                                         </p>
                                     </div>
                                 ) : (
@@ -201,6 +227,76 @@ const ItemDetailView: React.FC<ItemDetailViewProps> = ({ item, onBack, ui }) => 
                                 )}
                             </div>
                         </div>
+
+                        {(item.compatibleSubstrates?.length || item.colors?.length || item.processes?.length || item.qualityTests?.length) && (
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mt-10">
+                            {item.compatibleSubstrates?.length ? (
+                              <div className="rounded-3xl bg-neutral-50 p-6">
+                                <h3 className="font-bold mb-4 flex items-center gap-2"><Box size={18} className="text-pinte-blue" />{labels.substrates}</h3>
+                                {renderChips(item.compatibleSubstrates)}
+                              </div>
+                            ) : null}
+                            {item.colors?.length ? (
+                              <div className="rounded-3xl bg-neutral-50 p-6">
+                                <h3 className="font-bold mb-4 flex items-center gap-2"><Droplet size={18} className="text-pinte-blue" />{labels.colors}</h3>
+                                {renderChips(item.colors)}
+                              </div>
+                            ) : null}
+                            {item.processes?.length ? (
+                              <div className="rounded-3xl bg-neutral-50 p-6">
+                                <h3 className="font-bold mb-4 flex items-center gap-2"><Zap size={18} className="text-pinte-blue" />{labels.processes}</h3>
+                                {renderChips(item.processes)}
+                              </div>
+                            ) : null}
+                            {item.qualityTests?.length ? (
+                              <div className="rounded-3xl bg-neutral-50 p-6">
+                                <h3 className="font-bold mb-4 flex items-center gap-2"><ShieldCheck size={18} className="text-pinte-blue" />{labels.qualityTests}</h3>
+                                {renderChips(item.qualityTests)}
+                              </div>
+                            ) : null}
+                          </div>
+                        )}
+
+                        {(item.specifications?.length || item.technicalParameters?.length || item.moq || item.samplePolicy || item.customizationLeadTime) && (
+                          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mt-8">
+                            {item.specifications?.length ? (
+                              <div className="rounded-3xl border border-neutral-100 p-6">
+                                <h3 className="font-bold mb-4 flex items-center gap-2"><FileText size={18} className="text-pinte-blue" />{t.techSpecs}</h3>
+                                <div className="space-y-3">
+                                  {item.specifications.map((param) => (
+                                    <div key={param.label}>
+                                      <p className="text-sm font-bold text-neutral-900">{param.label}</p>
+                                      <p className="text-sm text-neutral-600">{param.value}</p>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ) : null}
+                            {item.technicalParameters?.length ? (
+                              <div className="rounded-3xl border border-neutral-100 p-6">
+                                <h3 className="font-bold mb-4 flex items-center gap-2"><Cpu size={18} className="text-pinte-blue" />{labels.technicalParams}</h3>
+                                <div className="space-y-3">
+                                  {item.technicalParameters.map((param) => (
+                                    <div key={param.label}>
+                                      <p className="text-sm font-bold text-neutral-900">{param.label}</p>
+                                      <p className="text-sm text-neutral-600">{param.value}</p>
+                                    </div>
+                                  ))}
+                                </div>
+                              </div>
+                            ) : null}
+                            {(item.moq || item.samplePolicy || item.customizationLeadTime) ? (
+                              <div className="rounded-3xl border border-neutral-100 p-6">
+                                <h3 className="font-bold mb-4 flex items-center gap-2"><Star size={18} className="text-pinte-blue" />{labels.commercial}</h3>
+                                <div className="space-y-3 text-sm text-neutral-600">
+                                  {item.moq && <p><strong className="text-neutral-900">MOQ:</strong> {item.moq}</p>}
+                                  {item.samplePolicy && <p><strong className="text-neutral-900">{isCn ? '样品' : 'Sample'}:</strong> {item.samplePolicy}</p>}
+                                  {item.customizationLeadTime && <p><strong className="text-neutral-900">{isCn ? '定制' : 'Customization'}:</strong> {item.customizationLeadTime}</p>}
+                                </div>
+                              </div>
+                            ) : null}
+                          </div>
+                        )}
                     </div>
                 )}
 
@@ -218,6 +314,19 @@ const ItemDetailView: React.FC<ItemDetailViewProps> = ({ item, onBack, ui }) => 
                                 <p className="text-neutral-400 italic">Suitable for general packaging.</p>
                             )}
                         </div>
+                        {item.faqs?.length ? (
+                          <div className="mt-10 max-w-4xl mx-auto">
+                            <h3 className="text-xl font-bold mb-5 text-center">{labels.faq}</h3>
+                            <div className="space-y-3">
+                              {item.faqs.map((faq) => (
+                                <details key={faq.question} className="rounded-2xl bg-neutral-50 p-5">
+                                  <summary className="cursor-pointer list-none font-bold text-neutral-950">{faq.question}</summary>
+                                  <p className="mt-3 text-neutral-600 leading-relaxed">{faq.answer}</p>
+                                </details>
+                              ))}
+                            </div>
+                          </div>
+                        ) : null}
                     </div>
                 )}
             </div>

@@ -9,6 +9,7 @@ import path from 'path';
 import dotenv from 'dotenv';
 import { CONTENT_EN } from '../data/content.ts';
 import { GEO_GUIDES } from '../data/geoGuides.ts';
+import { mergeProductSeoProfile } from '../data/productSeoProfiles.ts';
 
 dotenv.config();
 
@@ -301,23 +302,32 @@ function generateProductFeed() {
   for (const [seriesId, items] of Object.entries(CONTENT_EN.CATALOG_DATA)) {
     const series = CONTENT_EN.PRODUCT_DATA[seriesId];
     for (const item of items) {
+      const enrichedItem = mergeProductSeoProfile(item, 'en');
       products.push({
-        id: item.id,
-        title: item.name,
-        description: item.content || item.description,
-        link: `${siteUrl}/en/products/item/${item.id}/`,
-        image_link: item.image,
+        id: enrichedItem.id,
+        title: enrichedItem.name,
+        description: enrichedItem.content || enrichedItem.description,
+        link: `${siteUrl}/en/products/item/${enrichedItem.id}/`,
+        image_link: enrichedItem.image,
+        image_alt: enrichedItem.imageAlt || enrichedItem.name,
         brand: 'PINTE',
-        product_type: item.subtitle || series?.name || 'Hot Stamping Foil',
+        product_type: enrichedItem.subtitle || series?.name || 'Hot Stamping Foil',
         availability: 'in_stock',
         quote_url: `${siteUrl}/en/quote/`,
         series: series?.name,
-        substrates: series?.substrates || [],
-        applications: item.applications || series?.applications || [],
-        tags: item.tags || [],
-        specifications: item.params || [],
-        recommended_temperature: item.temp || series?.temp,
-        sample_policy: 'Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders.',
+        substrates: enrichedItem.compatibleSubstrates || series?.substrates || [],
+        applications: enrichedItem.applications || series?.applications || [],
+        colors: enrichedItem.colors || series?.colors || [],
+        processes: enrichedItem.processes || [],
+        tags: enrichedItem.tags || [],
+        specifications: enrichedItem.specifications || enrichedItem.params || [],
+        technical_parameters: enrichedItem.technicalParameters || [],
+        quality_tests: enrichedItem.qualityTests || [],
+        recommended_temperature: enrichedItem.temp || series?.temp,
+        moq: enrichedItem.moq || 'MOQ depends on color, finish, roll width, and customization scope.',
+        sample_policy: enrichedItem.samplePolicy || 'Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders.',
+        customization_lead_time: enrichedItem.customizationLeadTime,
+        faq: enrichedItem.faqs || [],
       });
     }
   }

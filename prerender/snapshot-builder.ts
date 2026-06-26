@@ -15,6 +15,7 @@
 
 import { CONTENT_EN, CONTENT_ZH } from '../data/content.js';
 import { getGeoGuide } from '../data/geoGuides.js';
+import { mergeProductSeoProfile } from '../data/productSeoProfiles.js';
 // @ts-ignore - .mjs 配置文件,无类型声明
 import seoSop from '../scripts/seo-geo-sop.config.mjs';
 import { t, htmlLangAttr, type Lang } from './i18n.js';
@@ -781,6 +782,7 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
     }
   }
   if (!item) return null;
+  item = mergeProductSeoProfile(item, lang);
 
   const cat = c.PRODUCT_DATA[seriesId as keyof typeof c.PRODUCT_DATA] as any;
   const sameSeries = (c.CATALOG_DATA[seriesId as keyof typeof c.CATALOG_DATA] as any[]).filter(
@@ -800,6 +802,12 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
   const features = (item.features || []) as Array<{ title: string; desc: string }>;
   const params = item.params || [];
   const applications = item.applications || [];
+  const specifications = item.specifications || [];
+  const compatibleSubstrates = item.compatibleSubstrates || cat?.substrates || [];
+  const colors = item.colors || [];
+  const processes = item.processes || [];
+  const technicalParameters = item.technicalParameters || [];
+  const qualityTests = item.qualityTests || [];
 
   // 痛点段落:用 cat.description 中提到的痛点 + item 自带 content
   const painLead = item.content
@@ -819,6 +827,10 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
           ? `${item.name} 的 ${f.title} 是怎么实现的?`
           : `What does "${f.title}" mean for ${item.name}?`,
       a: f.desc,
+    })),
+    ...(item.faqs || []).map((faq: any) => ({
+      q: faq.question,
+      a: faq.answer,
     })),
     ...(item.temp
       ? [
@@ -876,6 +888,45 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
               )}: ${escapeHtml(item.temp.flat)}; ${escapeHtml(
                 t('roundTemp', lang)
               )}: ${escapeHtml(item.temp.round)}</p>`
+            : ''
+        }
+      </section>`
+        : ''
+    }
+
+    ${
+      specifications.length || compatibleSubstrates.length || colors.length || processes.length
+        ? `<section>
+        <h2>${lang === 'cn' ? '完整产品信息字段' : 'Complete Product Information'}</h2>
+        ${
+          compatibleSubstrates.length
+            ? `<h3>${lang === 'cn' ? '适用底材' : 'Compatible substrates'}</h3>${ul(compatibleSubstrates)}`
+            : ''
+        }
+        ${colors.length ? `<h3>${lang === 'cn' ? '颜色与效果' : 'Colors and effects'}</h3>${ul(colors)}` : ''}
+        ${processes.length ? `<h3>${lang === 'cn' ? '适用工艺' : 'Supported processes'}</h3>${ul(processes)}` : ''}
+        ${specifications.length ? `<h3>${lang === 'cn' ? '规格' : 'Specifications'}</h3>${dlList(specifications)}` : ''}
+      </section>`
+        : ''
+    }
+
+    ${
+      technicalParameters.length || qualityTests.length || item.moq || item.samplePolicy
+        ? `<section>
+        <h2>${lang === 'cn' ? '工艺参数、质量测试与样品政策' : 'Technical Parameters, Quality Tests and Sample Policy'}</h2>
+        ${
+          technicalParameters.length
+            ? `<h3>${lang === 'cn' ? '技术参数' : 'Technical parameters'}</h3>${dlList(technicalParameters)}`
+            : ''
+        }
+        ${qualityTests.length ? `<h3>${lang === 'cn' ? '质量测试' : 'Quality tests'}</h3>${ul(qualityTests)}` : ''}
+        ${item.moq ? `<p><strong>MOQ:</strong> ${escapeHtml(item.moq)}</p>` : ''}
+        ${item.samplePolicy ? `<p><strong>${lang === 'cn' ? '样品政策' : 'Sample policy'}:</strong> ${escapeHtml(item.samplePolicy)}</p>` : ''}
+        ${
+          item.customizationLeadTime
+            ? `<p><strong>${lang === 'cn' ? '定制周期' : 'Customization'}:</strong> ${escapeHtml(
+                item.customizationLeadTime
+              )}</p>`
             : ''
         }
       </section>`
@@ -942,6 +993,8 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
       applications,
       properties: [
         ...params.map((param: any) => ({ name: param.label, value: param.value })),
+        ...specifications.map((param: any) => ({ name: param.label, value: param.value })),
+        ...technicalParameters.map((param: any) => ({ name: param.label, value: param.value })),
         ...(item.temp
           ? [
               { name: t('flatTemp', lang), value: item.temp.flat },
@@ -951,16 +1004,33 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
         ...(cat?.substrates?.length
           ? [{ name: t('substrates', lang), value: cat.substrates.join(', ') }]
           : []),
+        ...(compatibleSubstrates.length
+          ? [{
+              name: lang === 'cn' ? '适用底材' : 'Compatible substrates',
+              value: compatibleSubstrates.join(', '),
+            }]
+          : []),
+        ...(colors.length
+          ? [{ name: lang === 'cn' ? '颜色与效果' : 'Colors and effects', value: colors.join(', ') }]
+          : []),
+        ...(processes.length
+          ? [{ name: lang === 'cn' ? '适用工艺' : 'Supported processes', value: processes.join(', ') }]
+          : []),
+        ...(qualityTests.length
+          ? [{ name: lang === 'cn' ? '质量测试' : 'Quality tests', value: qualityTests.join(', ') }]
+          : []),
         ...(applications.length
           ? [{ name: t('applications', lang), value: applications.join(', ') }]
           : []),
         {
           name: lang === 'cn' ? '样品与报价政策' : 'Sample and quotation policy',
           value:
-            lang === 'cn'
+            item.samplePolicy ||
+            (lang === 'cn'
               ? '批量采购前可提供色卡、样卷、分切规格和按底材推荐型号服务。'
-              : 'Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk orders.',
+              : 'Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk orders.'),
         },
+        ...(item.moq ? [{ name: 'MOQ', value: item.moq }] : []),
       ],
     }),
   ];
