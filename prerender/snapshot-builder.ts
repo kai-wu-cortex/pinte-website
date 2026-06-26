@@ -1684,6 +1684,34 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
     a: item.answer[lang],
   }));
 
+  const corePageRows = guide.corePageCandidates
+    ?.map(
+      (row) =>
+        `<tr><td>${row.priority}</td><td>${escapeHtml(row.question[lang])}</td><td>${escapeHtml(
+          row.pageType[lang]
+        )}</td></tr>`
+    )
+    .join('');
+
+  const researchRows = guide.researchMatrix
+    ?.map(
+      (row, index) =>
+        `<tr><td>${index + 1}</td><td>${escapeHtml(row.scenario[lang])}</td><td>${escapeHtml(
+          row.question[lang]
+        )}</td><td>${escapeHtml(row.intent[lang])}</td><td>${escapeHtml(
+          row.concern[lang]
+        )}</td><td>${escapeHtml(row.sources[lang])}</td><td>${escapeHtml(
+          row.pageType[lang]
+        )}</td><td>${row.conversionScore}</td><td>${row.citationScore}</td><td>${escapeHtml(
+          row.priority
+        )}</td></tr>`
+    )
+    .join('');
+
+  const recommendationItems = guide.pageRecommendations
+    ? guide.pageRecommendations[lang].map((item) => `${item.pageType}: ${item.questions}`)
+    : [];
+
   const relatedLinks = guide.relatedRoutes.map((routePath) => ({
     label: routePath.startsWith('guides/')
       ? getGeoGuide(routePath.split('/')[1])?.title[lang] || routePath
@@ -1702,6 +1730,43 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
       <h2>${lang === 'cn' ? '选型因素对比表' : 'Selection Factors'}</h2>
       <table><tbody>${factorRows}</tbody></table>
     </section>
+
+    ${
+      corePageRows
+        ? `<section>
+      <h2>${lang === 'cn' ? '最适合 Shopify 独立站核心页面的 TOP 12' : 'Top 12 Shopify Core Page Opportunities'}</h2>
+      <table><thead><tr><th>${lang === 'cn' ? '优先级' : 'Priority'}</th><th>${
+            lang === 'cn' ? '高概率采购问题' : 'High-probability buyer question'
+          }</th><th>${lang === 'cn' ? '页面类型' : 'Page type'}</th></tr></thead><tbody>${corePageRows}</tbody></table>
+    </section>`
+        : ''
+    }
+
+    ${
+      researchRows
+        ? `<section>
+      <h2>${lang === 'cn' ? 'ChatGPT 高概率采购问题矩阵' : 'ChatGPT Buyer Question Matrix'}</h2>
+      <table><thead><tr><th>#</th><th>${lang === 'cn' ? '用途场景' : 'Scenario'}</th><th>${
+            lang === 'cn' ? '问题' : 'Question'
+          }</th><th>${lang === 'cn' ? '意图' : 'Intent'}</th><th>${
+            lang === 'cn' ? '真实采购顾虑' : 'Real buyer concern'
+          }</th><th>${lang === 'cn' ? '常见引用来源' : 'Common sources'}</th><th>${
+            lang === 'cn' ? '页面类型' : 'Page type'
+          }</th><th>${lang === 'cn' ? '转化' : 'Conversion'}</th><th>${
+            lang === 'cn' ? 'AI引用' : 'AI citation'
+          }</th><th>${lang === 'cn' ? '优先级' : 'Priority'}</th></tr></thead><tbody>${researchRows}</tbody></table>
+    </section>`
+        : ''
+    }
+
+    ${
+      recommendationItems.length
+        ? `<section>
+      <h2>${lang === 'cn' ? '站内页面分配建议' : 'Recommended Site Page Allocation'}</h2>
+      ${ul(recommendationItems)}
+    </section>`
+        : ''
+    }
 
     <section>
       <h2>${lang === 'cn' ? '底材适配表' : 'Substrate Fit Table'}</h2>

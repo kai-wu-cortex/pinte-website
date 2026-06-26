@@ -130,6 +130,97 @@ const GeoGuide: React.FC = () => {
             ))}
           </section>
 
+          {guide.corePageCandidates && (
+            <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+              <h2 className="text-2xl font-bold text-neutral-950 mb-5">
+                {lang === 'cn' ? '最适合 Shopify 独立站核心页面的 TOP 12' : 'Top 12 Shopify Core Page Opportunities'}
+              </h2>
+              <div className="overflow-x-auto">
+                <table className="w-full text-left border-collapse">
+                  <thead>
+                    <tr className="border-b border-neutral-200 text-sm text-neutral-500">
+                      <th className="py-3 pr-4">{lang === 'cn' ? '优先级' : 'Priority'}</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? '高概率采购问题' : 'High-probability buyer question'}</th>
+                      <th className="py-3">{lang === 'cn' ? '页面类型' : 'Page type'}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {guide.corePageCandidates.map((row) => (
+                      <tr key={row.priority} className="border-b border-neutral-100">
+                        <td className="py-4 pr-4 font-bold text-pinte-blue">{row.priority}</td>
+                        <td className="py-4 pr-4 font-semibold text-neutral-900">{row.question[lang]}</td>
+                        <td className="py-4 text-neutral-600">{row.pageType[lang]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
+
+          {guide.researchMatrix && (
+            <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+              <h2 className="text-2xl font-bold text-neutral-950 mb-3">
+                {lang === 'cn' ? 'ChatGPT 高概率采购问题矩阵' : 'ChatGPT Buyer Question Matrix'}
+              </h2>
+              <p className="text-neutral-600 mb-5">
+                {lang === 'cn'
+                  ? '按采购型、对比型、故障解决型、参数型、应用场景型拆分，并给出真实采购顾虑、常见引用来源、页面类型和评分。'
+                  : 'Segmented by procurement, comparison, troubleshooting, parameter, and application intent, with buyer concerns, source types, page formats, and scores.'}
+              </p>
+              <div className="overflow-x-auto">
+                <table className="min-w-[1180px] w-full text-left border-collapse text-sm">
+                  <thead>
+                    <tr className="border-b border-neutral-200 text-neutral-500">
+                      <th className="py-3 pr-4">#</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? '用途场景' : 'Scenario'}</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? '问题' : 'Question'}</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? '意图' : 'Intent'}</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? '真实采购顾虑' : 'Real buyer concern'}</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? '常见引用来源' : 'Common sources'}</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? '页面类型' : 'Page type'}</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? '转化' : 'Conv.'}</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? 'AI引用' : 'AI cite'}</th>
+                      <th className="py-3">{lang === 'cn' ? '优先级' : 'Priority'}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {guide.researchMatrix.map((row, index) => (
+                      <tr key={`${row.scenario.en}-${row.question.en}`} className="border-b border-neutral-100 align-top">
+                        <td className="py-4 pr-4 font-bold text-neutral-500">{index + 1}</td>
+                        <td className="py-4 pr-4 font-semibold text-neutral-900">{row.scenario[lang]}</td>
+                        <td className="py-4 pr-4 text-neutral-900">{row.question[lang]}</td>
+                        <td className="py-4 pr-4 text-pinte-blue font-semibold">{row.intent[lang]}</td>
+                        <td className="py-4 pr-4 text-neutral-600">{row.concern[lang]}</td>
+                        <td className="py-4 pr-4 text-neutral-600">{row.sources[lang]}</td>
+                        <td className="py-4 pr-4 text-neutral-600">{row.pageType[lang]}</td>
+                        <td className="py-4 pr-4 font-bold text-neutral-900">{row.conversionScore}</td>
+                        <td className="py-4 pr-4 font-bold text-neutral-900">{row.citationScore}</td>
+                        <td className="py-4 font-bold text-pinte-blue">{row.priority}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
+
+          {guide.pageRecommendations && (
+            <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+              <h2 className="text-2xl font-bold text-neutral-950 mb-5">
+                {lang === 'cn' ? '站内页面分配建议' : 'Recommended Site Page Allocation'}
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {guide.pageRecommendations[lang].map((item) => (
+                  <div key={item.pageType} className="rounded-2xl bg-neutral-50 p-5">
+                    <h3 className="font-bold text-neutral-950 mb-2">{item.pageType}</h3>
+                    <p className="text-neutral-600">{item.questions}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
           <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
             <h2 className="text-2xl font-bold text-neutral-950 mb-5">
               {lang === 'cn' ? '底材适配表' : 'Substrate Fit Table'}
