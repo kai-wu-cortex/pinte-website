@@ -349,7 +349,7 @@ const Home: React.FC = () => {
                   <h2 className="text-4xl lg:text-5xl font-display font-bold text-neutral-900 leading-[1.2] mb-6" dangerouslySetInnerHTML={{ __html: ui.about.vision }} />
                   <div className="bg-neutral-50 p-6 rounded-2xl border border-neutral-100 mb-8">
                      <p className="text-neutral-700 leading-relaxed font-medium">
-                        {lang === 'zh' 
+                        {lang === 'cn' 
                            ? '品特的愿景是成为全球烫金膜领域的卓越引领者。使命是将高端，高质，易用的烫金膜带给每一位追求品质与创新的行业伙伴，让他们的产品焕发独特光彩。'
                            : 'PINTE\'s vision is to become a global leader in the field of hot stamping foils. Our mission is to bring high-end, high-quality, and easy-to-use foils to every partner pursuing quality and innovation.'
                         }
@@ -502,15 +502,15 @@ const Home: React.FC = () => {
           <div className="max-w-[1200px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
              <div>
                 <h2 className="text-4xl md:text-5xl font-display font-bold text-neutral-900 mb-6 leading-tight">
-                   {lang === 'zh' ? <>选择品特<br/>用专业打造人人认可的产品</> : <>Choose PINTE<br/>Professional Quality for Everyone</>}
+                   {lang === 'cn' ? <>选择品特<br/>用专业打造人人认可的产品</> : <>Choose PINTE<br/>Professional Quality for Everyone</>}
                 </h2>
-                <p className="text-neutral-500 text-lg mb-12">{lang === 'zh' ? "二十余年深耕烫金领域，我们不仅提供材料，更传递价值。" : "Over 20 years in the foil industry, delivering not just material, but value."}</p>
+                <p className="text-neutral-500 text-lg mb-12">{lang === 'cn' ? "二十余年深耕烫金领域，我们不仅提供材料，更传递价值。" : "Over 20 years in the foil industry, delivering not just material, but value."}</p>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-x-8 gap-y-12">
                    {/* Vision, Values, Achievements, Partners */}
-                   {[{icon: Target, title: ui.about.visionTitle, label: "Our Vision", desc: lang === 'zh' ? '成为全球烫金膜领域的卓越引领者。' : 'To be the global leader in hot stamping foils.'},
-                     {icon: HeartHandshake, title: ui.about.valuesTitle, label: "Core Values", desc: lang === 'zh' ? '彼此成就，合作共赢。' : 'Mutual achievement, win-win cooperation.'},
-                     {icon: Trophy, title: ui.about.achievementsTitle, label: "Our Achievements", desc: lang === 'zh' ? '拥有 20,000㎡ 现代化生产基地。' : '20,000㎡ modern production base.'},
-                     {icon: Globe, title: ui.about.partnersTitle, label: "Global Partners", desc: lang === 'zh' ? '与多家国际知名企业建立合作。' : 'Long-term strategic partnerships.'}
+                   {[{icon: Target, title: ui.about.visionTitle, label: "Our Vision", desc: lang === 'cn' ? '成为全球烫金膜领域的卓越引领者。' : 'To be the global leader in hot stamping foils.'},
+                     {icon: HeartHandshake, title: ui.about.valuesTitle, label: "Core Values", desc: lang === 'cn' ? '彼此成就，合作共赢。' : 'Mutual achievement, win-win cooperation.'},
+                     {icon: Trophy, title: ui.about.achievementsTitle, label: "Our Achievements", desc: lang === 'cn' ? '拥有 20,000㎡ 现代化生产基地。' : '20,000㎡ modern production base.'},
+                     {icon: Globe, title: ui.about.partnersTitle, label: "Global Partners", desc: lang === 'cn' ? '与多家国际知名企业建立合作。' : 'Long-term strategic partnerships.'}
                    ].map((item, i) => (
                       <div key={i} className="flex flex-col gap-4 group">
                           <div className="w-14 h-14 bg-white rounded-2xl border border-neutral-100 flex items-center justify-center text-pinte-blue shadow-sm group-hover:scale-110 group-hover:bg-pinte-blue group-hover:text-white transition-all duration-300">
@@ -618,6 +618,7 @@ const Home: React.FC = () => {
         geoPosition="22.7860 113.8860"
         locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
         canonicalUrl={`/${lang}`}
+        includeOrganizationSchema
       />
     </main>
   );

@@ -13,10 +13,12 @@ const ProductItem: React.FC = () => {
 
   // Find item
   let selectedItem: CatalogItem | undefined;
+  let selectedSeriesId: ProductId | undefined;
   for (const catId of Object.keys(content.CATALOG_DATA)) {
       const found = content.CATALOG_DATA[catId as ProductId].find(i => i.id === id);
       if (found) {
           selectedItem = found;
+          selectedSeriesId = catId as ProductId;
           break;
       }
   }
@@ -33,6 +35,7 @@ const ProductItem: React.FC = () => {
   }
 
   const description = selectedItem.content || selectedItem.description;
+  const selectedSeries = selectedSeriesId ? content.PRODUCT_DATA[selectedSeriesId] : undefined;
   const canonicalUrl = `/${lang}/products/item/${selectedItem.id}`;
   const keywords = [
     selectedItem.name,
@@ -61,6 +64,46 @@ const ProductItem: React.FC = () => {
     category: selectedItem.subtitle || 'Hot Stamping Foil',
     material: selectedItem.tags?.join(', '),
     url: `https://www.pintecl.com${canonicalUrl}`,
+    additionalProperty: [
+      ...(selectedItem.params || selectedSeries?.params || []).map((param) => ({
+        '@type': 'PropertyValue',
+        name: param.label,
+        value: param.value,
+      })),
+      ...(selectedItem.temp || selectedSeries?.temp
+        ? [
+            {
+              '@type': 'PropertyValue',
+              name: 'Recommended flat stamping temperature',
+              value: (selectedItem.temp || selectedSeries?.temp)?.flat,
+            },
+            {
+              '@type': 'PropertyValue',
+              name: 'Recommended round stamping temperature',
+              value: (selectedItem.temp || selectedSeries?.temp)?.round,
+            },
+          ]
+        : []),
+      ...(selectedSeries?.substrates?.length
+        ? [{
+            '@type': 'PropertyValue',
+            name: 'Compatible substrates',
+            value: selectedSeries.substrates.join(', '),
+          }]
+        : []),
+      ...((selectedItem.applications || selectedSeries?.applications)?.length
+        ? [{
+            '@type': 'PropertyValue',
+            name: 'Typical applications',
+            value: (selectedItem.applications || selectedSeries?.applications || []).join(', '),
+          }]
+        : []),
+      {
+        '@type': 'PropertyValue',
+        name: 'Sample and quotation policy',
+        value: 'Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk orders.',
+      },
+    ],
     offers: {
       '@type': 'Offer',
       availability: 'https://schema.org/InStock',

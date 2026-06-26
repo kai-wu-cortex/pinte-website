@@ -14,6 +14,7 @@
  */
 
 import { CONTENT_EN, CONTENT_ZH } from '../data/content.js';
+import { getGeoGuide } from '../data/geoGuides.js';
 // @ts-ignore - .mjs 配置文件,无类型声明
 import seoSop from '../scripts/seo-geo-sop.config.mjs';
 import { t, htmlLangAttr, type Lang } from './i18n.js';
@@ -224,6 +225,7 @@ function productSchema(opts: {
   sku?: string;
   category?: string;
   applications?: string[];
+  properties?: Array<{ name: string; value: string }>;
 }) {
   return {
     '@context': 'https://schema.org',
@@ -234,6 +236,11 @@ function productSchema(opts: {
     url: opts.url,
     sku: opts.sku,
     category: opts.category,
+    additionalProperty: opts.properties?.map((property) => ({
+      '@type': 'PropertyValue',
+      name: property.name,
+      value: property.value,
+    })),
     brand: { '@type': 'Brand', name: opts.brand || 'PINTE' },
     manufacturer: {
       '@type': 'Organization',
@@ -329,6 +336,19 @@ function buildBreadcrumb(
   if (parts[0] === 'terms') return [home, { label: t('terms', lang), href: langPath('terms', lang) + '/' }];
   if (parts[0] === 'pintefoils') return [home, { label: t('pintefoils', lang), href: langPath('pintefoils', lang) + '/' }];
   if (parts[0] === 'seo-geo-sop') return [home, { label: t('seoSop', lang), href: langPath('seo-geo-sop', lang) + '/' }];
+  if (parts[0] === 'guides') {
+    const guide = getGeoGuide(parts[1]);
+    return [
+      home,
+      {
+        label: lang === 'cn' ? '采购指南' : 'Procurement Guides',
+        href: guide ? langPath(`guides/${guide.slug}`, lang) + '/' : langPath('products', lang) + '/',
+      },
+      ...(guide
+        ? [{ label: guide.title[lang], href: langPath(`guides/${guide.slug}`, lang) + '/' }]
+        : []),
+    ];
+  }
 
   if (parts[0] === 'blog') {
     const crumbs = [home, { label: t('blog', lang), href: langPath('blog', lang) + '/' }];
@@ -920,6 +940,28 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
       sku: item.id,
       category: cat.name,
       applications,
+      properties: [
+        ...params.map((param: any) => ({ name: param.label, value: param.value })),
+        ...(item.temp
+          ? [
+              { name: t('flatTemp', lang), value: item.temp.flat },
+              { name: t('roundTemp', lang), value: item.temp.round },
+            ]
+          : []),
+        ...(cat?.substrates?.length
+          ? [{ name: t('substrates', lang), value: cat.substrates.join(', ') }]
+          : []),
+        ...(applications.length
+          ? [{ name: t('applications', lang), value: applications.join(', ') }]
+          : []),
+        {
+          name: lang === 'cn' ? '样品与报价政策' : 'Sample and quotation policy',
+          value:
+            lang === 'cn'
+              ? '批量采购前可提供色卡、样卷、分切规格和按底材推荐型号服务。'
+              : 'Color cards, sample rolls, slitting options, and substrate-based model recommendations are available before bulk orders.',
+        },
+      ],
     }),
   ];
   const fq = faqSchema(faq);
@@ -1591,6 +1633,136 @@ function buildPintefoilsSnapshot(lang: Lang): SnapshotResult {
   };
 }
 
+function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null {
+  const guide = getGeoGuide(slug);
+  if (!guide) return null;
+
+  const route = `guides/${guide.slug}`;
+  const url = buildCanonicalUrl(route, lang);
+  const title = `${guide.title[lang]} | PINTE`;
+  const description = guide.metaDescription[lang];
+  const keywords = Array.from(
+    new Set([
+      guide.primaryKeyword[lang],
+      ...guide.secondaryKeywords[lang],
+      'hot stamping foil',
+      'PINTE',
+    ])
+  );
+  const geoTargets = defaultGeoForRoute(route, lang);
+  const crumbs = buildBreadcrumb(route, lang);
+
+  const factorRows = guide.factors
+    .map(
+      (factor) =>
+        `<tr><td>${escapeHtml(factor.label[lang])}</td><td>${escapeHtml(
+          factor.guidance[lang]
+        )}</td></tr>`
+    )
+    .join('');
+
+  const substrateRows = guide.substrateFit
+    .map(
+      (row) =>
+        `<tr><td>${escapeHtml(row.substrate[lang])}</td><td>${escapeHtml(
+          row.recommendedFoil
+        )}</td><td>${escapeHtml(row.note[lang])}</td></tr>`
+    )
+    .join('');
+
+  const troubleshootingRows = guide.troubleshooting
+    .map(
+      (row) =>
+        `<tr><td>${escapeHtml(row.issue[lang])}</td><td>${escapeHtml(
+          row.likelyCause[lang]
+        )}</td><td>${escapeHtml(row.action[lang])}</td></tr>`
+    )
+    .join('');
+
+  const faq = guide.faqs.map((item) => ({
+    q: item.question[lang],
+    a: item.answer[lang],
+  }));
+
+  const relatedLinks = guide.relatedRoutes.map((routePath) => ({
+    label: routePath.startsWith('guides/')
+      ? getGeoGuide(routePath.split('/')[1])?.title[lang] || routePath
+      : routePath,
+    href: langPath(routePath, lang) + '/',
+  }));
+
+  const inner = `
+    <h1>${escapeHtml(guide.title[lang])}</h1>
+    <p class="seo-lead">${escapeHtml(guide.answer[lang])}</p>
+    <p><strong>${lang === 'cn' ? '目标读者' : 'Audience'}:</strong> ${escapeHtml(
+      guide.audience[lang]
+    )}</p>
+
+    <section>
+      <h2>${lang === 'cn' ? '选型因素对比表' : 'Selection Factors'}</h2>
+      <table><tbody>${factorRows}</tbody></table>
+    </section>
+
+    <section>
+      <h2>${lang === 'cn' ? '底材适配表' : 'Substrate Fit Table'}</h2>
+      <table><thead><tr><th>${lang === 'cn' ? '底材' : 'Substrate'}</th><th>${
+        lang === 'cn' ? '推荐系列' : 'Recommended foil'
+      }</th><th>${lang === 'cn' ? '说明' : 'Note'}</th></tr></thead><tbody>${substrateRows}</tbody></table>
+    </section>
+
+    <section>
+      <h2>${lang === 'cn' ? '常见问题与解决方案表' : 'Common Problems and Fixes'}</h2>
+      <table><thead><tr><th>${lang === 'cn' ? '问题' : 'Issue'}</th><th>${
+        lang === 'cn' ? '可能原因' : 'Likely cause'
+      }</th><th>${lang === 'cn' ? '处理方向' : 'Action'}</th></tr></thead><tbody>${troubleshootingRows}</tbody></table>
+    </section>
+
+    <section>
+      <h2>${lang === 'cn' ? '采购前打样测试清单' : 'Sampling Checklist Before Bulk Purchase'}</h2>
+      ${ul(guide.samplingChecklist[lang])}
+    </section>
+
+    <section>
+      <h2>${escapeHtml(t('related', lang))}</h2>
+      ${linkList(relatedLinks)}
+    </section>
+
+    ${faqHtml(lang, faq)}
+    ${geoLine(lang, geoTargets)}
+  `;
+
+  const article = generateArticleSchema({
+    title: guide.title[lang],
+    description,
+    datePublished: '2026-06-26',
+    dateModified: '2026-06-26',
+    author: 'PINTE',
+    url: `/${lang}/${route}`,
+    category: ['Hot Stamping Foil Procurement'],
+    tags: keywords,
+    geo: { language: lang === 'cn' ? 'zh-CN' : 'en-US', region: geoTargets.join(', ') },
+  });
+  const fq = faqSchema(faq);
+
+  return {
+    html: wrapMain({ route, lang, breadcrumb: breadcrumbHtml(lang, crumbs), inner }),
+    jsonLd: [
+      crumbsToSchema(crumbs),
+      article,
+      pageTypeSchema({ type: 'WebPage', name: guide.title[lang], description, url }),
+      ...(fq ? [fq] : []),
+    ],
+    meta: {
+      title,
+      description,
+      keywords,
+      geoTargets,
+      type: 'article',
+      publishedTime: '2026-06-26',
+    },
+  };
+}
+
 // ----------------------------- Public API ----------------------------- //
 
 export function buildSnapshot(
@@ -1610,6 +1782,10 @@ export function buildSnapshot(
   if (route === 'blog') return buildBlogListSnapshot(lang);
   if (route === 'seo-geo-sop') return buildSeoSopSnapshot(lang);
   if (route === 'pintefoils') return buildPintefoilsSnapshot(lang);
+  if (route.startsWith('guides/')) {
+    const slug = route.split('/')[1];
+    return buildGeoGuideSnapshot(slug, lang);
+  }
 
   if (route.startsWith('products/category/')) {
     const id = route.split('/')[2];

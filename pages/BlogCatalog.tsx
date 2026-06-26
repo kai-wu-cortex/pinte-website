@@ -95,8 +95,8 @@ const BlogCatalog: React.FC = () => {
 
   // 面包屑结构化数据
   const breadcrumbSchema = generateBreadcrumbSchema([
-    { name: lang === 'cn' ? '首页' : 'Home', url: 'https://pinte.com' },
-    { name: lang === 'cn' ? '博客' : 'Blog', url: 'https://pinte.com/blog' }
+    { name: lang === 'cn' ? '首页' : 'Home', url: `https://www.pintecl.com/${lang}/` },
+    { name: lang === 'cn' ? '博客' : 'Blog', url: `https://www.pintecl.com/${lang}/blog/` }
   ]);
 
   // 页面标题和描述
@@ -339,7 +339,7 @@ const BlogCatalog: React.FC = () => {
               {['Hot Stamping Foil', '烫金膜', '包装设计', '印刷技术', '品牌营销', 'SEO', 'GEO'].map((tag) => (
                 <Link
                   key={tag}
-                  to={`/blog?search=${encodeURIComponent(tag)}`}
+                  to={`/${lang}/blog?search=${encodeURIComponent(tag)}`}
                   className="px-4 py-2 bg-neutral-50 hover:bg-pinte-blue hover:text-white rounded-full text-sm font-medium transition-colors"
                 >
                   {tag}

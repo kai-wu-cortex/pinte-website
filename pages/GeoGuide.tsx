@@ -1,0 +1,239 @@
+import React from 'react';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import { ArrowLeft, CheckCircle2, ClipboardCheck, HelpCircle, Layers, Wrench } from 'lucide-react';
+import SEOMeta, { generateBreadcrumbSchema } from '../components/SEOMeta';
+import { GEO_GUIDES, getGeoGuide, type GuideLang } from '../data/geoGuides';
+import { useLanguage } from '../contexts/LanguageContext';
+
+const SITE_URL = 'https://www.pintecl.com';
+
+const asGuideLang = (lang: string): GuideLang => (lang === 'cn' ? 'cn' : 'en');
+
+const faqSchema = (guide: NonNullable<ReturnType<typeof getGeoGuide>>, lang: GuideLang) => ({
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: guide.faqs.map((faq) => ({
+    '@type': 'Question',
+    name: faq.question[lang],
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: faq.answer[lang],
+    },
+  })),
+});
+
+const articleSchema = (guide: NonNullable<ReturnType<typeof getGeoGuide>>, lang: GuideLang) => ({
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: guide.title[lang],
+  description: guide.metaDescription[lang],
+  author: {
+    '@type': 'Organization',
+    name: 'PINTE',
+    url: SITE_URL,
+  },
+  publisher: {
+    '@type': 'Organization',
+    name: 'PINTE',
+    logo: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}/logo.png`,
+    },
+  },
+  mainEntityOfPage: `${SITE_URL}/${lang}/guides/${guide.slug}/`,
+  articleSection: 'Hot Stamping Foil Procurement Guide',
+  keywords: [guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang]].join(', '),
+  inLanguage: lang === 'cn' ? 'zh-CN' : 'en',
+});
+
+const GeoGuide: React.FC = () => {
+  const { slug } = useParams<{ slug: string }>();
+  const navigate = useNavigate();
+  const { lang: currentLang } = useLanguage();
+  const lang = asGuideLang(currentLang);
+  const guide = getGeoGuide(slug);
+
+  if (!guide) {
+    return (
+      <main className="min-h-screen pt-32 pb-20 bg-neutral-50">
+        <div className="max-w-[920px] mx-auto px-6 text-center">
+          <h1 className="text-3xl font-bold text-neutral-900 mb-4">
+            {lang === 'cn' ? '指南不存在' : 'Guide Not Found'}
+          </h1>
+          <button onClick={() => navigate(`/${lang}/products`)} className="text-pinte-blue font-semibold">
+            {lang === 'cn' ? '返回产品中心' : 'Back to Products'}
+          </button>
+        </div>
+      </main>
+    );
+  }
+
+  const canonicalUrl = `/${lang}/guides/${guide.slug}`;
+  const keywords = [guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang], 'PINTE', 'hot stamping foil'];
+  const breadcrumbSchema = generateBreadcrumbSchema([
+    { name: lang === 'cn' ? '首页' : 'Home', url: `${SITE_URL}/${lang}/` },
+    { name: lang === 'cn' ? '采购指南' : 'Procurement Guides', url: `${SITE_URL}/${lang}/guides/${guide.slug}/` },
+    { name: guide.title[lang], url: `${SITE_URL}${canonicalUrl}/` },
+  ]);
+
+  return (
+    <>
+      <SEOMeta
+        title={`${guide.title[lang]} | PINTE`}
+        description={guide.metaDescription[lang]}
+        keywords={keywords}
+        type="article"
+        publishedTime="2026-06-26"
+        author="PINTE"
+        section="Hot Stamping Foil Procurement"
+        tags={keywords}
+        locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
+        canonicalUrl={canonicalUrl}
+      />
+      <script type="application/ld+json">{JSON.stringify(articleSchema(guide, lang))}</script>
+      <script type="application/ld+json">{JSON.stringify(faqSchema(guide, lang))}</script>
+      <script type="application/ld+json">{JSON.stringify(breadcrumbSchema)}</script>
+
+      <main className="bg-neutral-50 pt-24 pb-20">
+        <article className="max-w-[1120px] mx-auto px-6">
+          <button
+            onClick={() => navigate(-1)}
+            className="inline-flex items-center gap-2 text-neutral-600 hover:text-pinte-blue font-semibold mb-8"
+          >
+            <ArrowLeft size={18} />
+            {lang === 'cn' ? '返回' : 'Back'}
+          </button>
+
+          <section className="bg-white border border-neutral-100 rounded-3xl p-8 md:p-12 shadow-sm mb-8">
+            <p className="text-sm font-bold tracking-wide uppercase text-pinte-blue mb-4">
+              {guide.primaryKeyword[lang]}
+            </p>
+            <h1 className="text-3xl md:text-5xl font-display font-bold text-neutral-950 leading-tight mb-6">
+              {guide.title[lang]}
+            </h1>
+            <p className="text-lg text-neutral-700 leading-relaxed max-w-4xl">
+              {guide.answer[lang]}
+            </p>
+            <p className="mt-6 text-sm text-neutral-500">
+              {lang === 'cn' ? '目标读者：' : 'Audience: '}
+              {guide.audience[lang]}
+            </p>
+          </section>
+
+          <section className="grid md:grid-cols-3 gap-5 mb-8">
+            {guide.factors.map((factor) => (
+              <div key={factor.label.en} className="bg-white rounded-2xl border border-neutral-100 p-6">
+                <Layers size={22} className="text-pinte-blue mb-4" />
+                <h2 className="text-lg font-bold text-neutral-950 mb-3">{factor.label[lang]}</h2>
+                <p className="text-neutral-600 leading-relaxed">{factor.guidance[lang]}</p>
+              </div>
+            ))}
+          </section>
+
+          <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+            <h2 className="text-2xl font-bold text-neutral-950 mb-5">
+              {lang === 'cn' ? '底材适配表' : 'Substrate Fit Table'}
+            </h2>
+            <div className="overflow-x-auto">
+              <table className="w-full text-left border-collapse">
+                <thead>
+                  <tr className="border-b border-neutral-200 text-sm text-neutral-500">
+                    <th className="py-3 pr-4">{lang === 'cn' ? '底材' : 'Substrate'}</th>
+                    <th className="py-3 pr-4">{lang === 'cn' ? '推荐系列' : 'Recommended foil'}</th>
+                    <th className="py-3">{lang === 'cn' ? '选型备注' : 'Selection note'}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {guide.substrateFit.map((row) => (
+                    <tr key={row.substrate.en} className="border-b border-neutral-100">
+                      <td className="py-4 pr-4 font-semibold text-neutral-900">{row.substrate[lang]}</td>
+                      <td className="py-4 pr-4 text-pinte-blue font-semibold">{row.recommendedFoil}</td>
+                      <td className="py-4 text-neutral-600">{row.note[lang]}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+            <h2 className="text-2xl font-bold text-neutral-950 mb-5 flex items-center gap-2">
+              <Wrench size={24} className="text-pinte-blue" />
+              {lang === 'cn' ? '常见问题与解决方向' : 'Common Problems and Fixes'}
+            </h2>
+            <div className="grid gap-4">
+              {guide.troubleshooting.map((row) => (
+                <div key={row.issue.en} className="rounded-2xl bg-neutral-50 p-5">
+                  <h3 className="font-bold text-neutral-950 mb-2">{row.issue[lang]}</h3>
+                  <p className="text-sm text-neutral-500 mb-2">
+                    {lang === 'cn' ? '可能原因：' : 'Likely cause: '}
+                    {row.likelyCause[lang]}
+                  </p>
+                  <p className="text-neutral-700">
+                    {lang === 'cn' ? '处理方向：' : 'Action: '}
+                    {row.action[lang]}
+                  </p>
+                </div>
+              ))}
+            </div>
+          </section>
+
+          <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+            <h2 className="text-2xl font-bold text-neutral-950 mb-5 flex items-center gap-2">
+              <ClipboardCheck size={24} className="text-pinte-blue" />
+              {lang === 'cn' ? '采购前打样测试清单' : 'Sampling Checklist Before Bulk Purchase'}
+            </h2>
+            <ul className="grid md:grid-cols-2 gap-3">
+              {guide.samplingChecklist[lang].map((item) => (
+                <li key={item} className="flex gap-3 text-neutral-700">
+                  <CheckCircle2 size={18} className="text-green-600 mt-0.5 shrink-0" />
+                  <span>{item}</span>
+                </li>
+              ))}
+            </ul>
+          </section>
+
+          <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+            <h2 className="text-2xl font-bold text-neutral-950 mb-5 flex items-center gap-2">
+              <HelpCircle size={24} className="text-pinte-blue" />
+              FAQ
+            </h2>
+            <div className="space-y-4">
+              {guide.faqs.map((faq) => (
+                <details key={faq.question.en} className="group rounded-2xl bg-neutral-50 p-5">
+                  <summary className="cursor-pointer list-none font-bold text-neutral-950">
+                    {faq.question[lang]}
+                  </summary>
+                  <p className="mt-3 text-neutral-700 leading-relaxed">{faq.answer[lang]}</p>
+                </details>
+              ))}
+            </div>
+          </section>
+
+          <section className="bg-pinte-blue text-white rounded-3xl p-8 md:p-10">
+            <h2 className="text-2xl font-bold mb-4">
+              {lang === 'cn' ? '需要按底材推荐型号？' : 'Need a substrate-based foil recommendation?'}
+            </h2>
+            <p className="text-white/85 mb-6 max-w-3xl">
+              {lang === 'cn'
+                ? '发送底材样品、烫印图稿和测试标准，PINTE 可提供色卡、样卷、分切规格和按底材推荐型号服务。'
+                : 'Send your substrate, artwork, and testing standard. PINTE can provide color cards, sample rolls, slitting options, and substrate-based model recommendations.'}
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <Link to={`/${lang}/quote`} className="bg-white text-pinte-blue px-6 py-3 rounded-full font-bold">
+                {lang === 'cn' ? '申请样品 / 报价' : 'Request Sample / Quote'}
+              </Link>
+              {GEO_GUIDES.filter((item) => item.slug !== guide.slug).slice(0, 2).map((item) => (
+                <Link key={item.slug} to={`/${lang}/guides/${item.slug}`} className="border border-white/30 px-6 py-3 rounded-full font-semibold text-white">
+                  {item.title[lang]}
+                </Link>
+              ))}
+            </div>
+          </section>
+        </article>
+      </main>
+    </>
+  );
+};
+
+export default GeoGuide;

@@ -95,7 +95,7 @@ const checks = [
   },
   {
     name: 'Prerender injects static SEO body content',
-    pass: () => /buildSeoSnapshotHtml/.test(read('prerender.ts')) && /<main class="seo-snapshot"/.test(read('prerender.ts')),
+    pass: () => /buildSnapshot/.test(read('prerender.ts')) && /class="seo-snapshot"/.test(read('prerender/snapshot-builder.ts')),
   },
   {
     name: 'Prerender injects static canonical and hreflang head tags',

@@ -1,5 +1,5 @@
 import React, { Suspense } from 'react';
-import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, Outlet } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation, Outlet, useParams } from 'react-router-dom';
 import { LanguageProvider } from './contexts/LanguageContext';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
@@ -23,6 +23,7 @@ const Privacy = React.lazy(() => import('./pages/Privacy'));
 const Terms = React.lazy(() => import('./pages/Terms'));
 const PinteFoils = React.lazy(() => import('./pages/PinteFoils'));
 const SeoGeoSop = React.lazy(() => import('./pages/SeoGeoSop'));
+const GeoGuide = React.lazy(() => import('./pages/GeoGuide'));
 
 // Loading spinner component for Suspense
 const PageLoader = () => (
@@ -63,6 +64,11 @@ const LanguageLayout = () => {
   );
 };
 
+const RedirectToCn = ({ buildPath }: { buildPath: (params: Record<string, string | undefined>) => string }) => {
+  const params = useParams();
+  return <Navigate replace to={buildPath(params)} />;
+};
+
 const AppRoutes = () => {
   return (
     <Routes>
@@ -75,16 +81,17 @@ const AppRoutes = () => {
 
       {/* Redirect any non-language prefixed routes to default language (Chinese) */}
       <Route path="/about" element={<Navigate to="/cn/about" replace />} />
-      <Route path="/solutions/:id" element={<Navigate replace to={(params) => `/cn/solutions/${params.id}`} />} />
+      <Route path="/solutions/:id" element={<RedirectToCn buildPath={(params) => `/cn/solutions/${params.id}`} />} />
       <Route path="/products" element={<Navigate to="/cn/products" replace />} />
       <Route path="/products/foils" element={<Navigate to="/cn/products/foils" replace />} />
-      <Route path="/products/category/:id" element={<Navigate replace to={(params) => `/cn/products/category/${params.id}`} />} />
-      <Route path="/products/item/:id" element={<Navigate replace to={(params) => `/cn/products/item/${params.id}`} />} />
+      <Route path="/products/category/:id" element={<RedirectToCn buildPath={(params) => `/cn/products/category/${params.id}`} />} />
+      <Route path="/products/item/:id" element={<RedirectToCn buildPath={(params) => `/cn/products/item/${params.id}`} />} />
       <Route path="/culture" element={<Navigate to="/cn/culture" replace />} />
       <Route path="/quote" element={<Navigate to="/cn/quote" replace />} />
       <Route path="/tour" element={<Navigate to="/cn/tour" replace />} />
       <Route path="/blog" element={<Navigate to="/cn/blog" replace />} />
-      <Route path="/blog/:slug" element={<Navigate replace to={(params) => `/cn/blog/${params.slug}`} />} />
+      <Route path="/blog/:slug" element={<RedirectToCn buildPath={(params) => `/cn/blog/${params.slug}`} />} />
+      <Route path="/guides/:slug" element={<RedirectToCn buildPath={(params) => `/cn/guides/${params.slug}`} />} />
       <Route path="/privacy" element={<Navigate to="/cn/privacy" replace />} />
       <Route path="/terms" element={<Navigate to="/cn/terms" replace />} />
       <Route path="/pintefoils" element={<Navigate to="/cn/pintefoils" replace />} />
@@ -104,6 +111,7 @@ const AppRoutes = () => {
         <Route path="tour" element={<FactoryTour />} />
         <Route path="blog" element={<BlogCatalog />} />
         <Route path="blog/:slug" element={<BlogItem />} />
+        <Route path="guides/:slug" element={<GeoGuide />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
         <Route path="seo-geo-sop" element={<SeoGeoSop />} />

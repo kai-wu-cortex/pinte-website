@@ -1,0 +1,792 @@
+{
+  "generated_at": "2026-06-26T06:26:20.026Z",
+  "merchant": "PINTE",
+  "website": "https://www.pintecl.com",
+  "feed_type": "b2b_hot_stamping_foil_catalog",
+  "note": "Quote-based B2B catalog for AI/product discovery. Prices are omitted because orders require substrate, width, color, and sample confirmation.",
+  "products": [
+    {
+      "id": "series-PK",
+      "title": "PK Brown Back Series",
+      "description": "PK Brown Back Series is PINTE's flagship product developed specifically for challenging rough and uneven surfaces that traditional hot stamping foils struggle with. In the packaging printing industry, many high-end designs use textured specialty papers or embossed leatherette materials that require a foil with exceptional filling properties and adhesion – this is exactly what PK series delivers. With over 25 years of market validation and continuous formula improvement, PK series has become the go-to choice for printers and converters throughout Southeast Asia and Greater China. The unique brown backing paper not only helps with visual quality control during production but also contributes to the foil's stable release characteristics. What sets PK series apart from generic competitors is its special anti-oxidation coating technology. When stamping on dark, heavy ink surfaces, traditional foils often suffer from oxidation reactions that cause the golden finish to turn black and lose luster – our proprietary coating completely solves this decades-old industry problem. Whether you are working with rough grain paper, embossed leather, tactile specialty paper, or deep-textured充皮纸, PK series fills every crevice evenly and consistently, producing a flat, bright metallic finish that truly elevates your design. The series offers both universal and heavy-duty variants to match different application scenarios. PK universal works great for most standard packaging applications with good all-round performance, while PK heavy-duty provides enhanced thickness and adhesion for the most demanding textured substrates. With a wide range of standard colors including bright gold, silver, matte gold, matte silver, and rose gold, plus custom color matching available, PK series meets diverse design needs from luxury wine boxes and cosmetic packaging to high-end book covers and leather tags. PINTE PK series combines proven reliability with consistent performance batch after batch, helping you achieve perfect stamping results every time.",
+      "link": "https://www.pintecl.com/en/products/category/PK/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/pk.png",
+      "brand": "PINTE",
+      "product_type": "BROWN BACK SERIES",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "substrates": [
+        "Rough Paper",
+        "Specialty Paper",
+        "Artificial Leather (PU/PVC)",
+        "Real Leather",
+        "Leatherette Paper",
+        "Tactile Paper"
+      ],
+      "applications": [
+        "Wine Boxes",
+        "Cosmetic Packaging",
+        "Leather Tags",
+        "Hardcover Books"
+      ],
+      "colors": [
+        "Gold",
+        "Silver",
+        "Matte Gold",
+        "Matte Silver",
+        "Rose Gold"
+      ],
+      "specifications": [
+        {
+          "label": "Thickness",
+          "value": "12μm / 15μm"
+        },
+        {
+          "label": "Standard Roll",
+          "value": "0.64m x 120m"
+        },
+        {
+          "label": "Type",
+          "value": "Universal / Heavy Duty"
+        },
+        {
+          "label": "Resistance",
+          "value": "Anti-oxidation / Scratch"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "95 - 105°C",
+        "round": "140 - 170°C"
+      },
+      "target_markets": [
+        "Vietnam",
+        "Thailand",
+        "Malaysia",
+        "Indonesia",
+        "Singapore",
+        "Southeast Asia",
+        "United States",
+        "Europe"
+      ]
+    },
+    {
+      "id": "series-PC",
+      "title": "PC Plastic/Cold Foils Series",
+      "description": "PC series is PINTE's professional solution specifically engineered for hot stamping on various plastic substrates. As cosmetic packaging and consumer electronics manufacturing continues to grow in Southeast Asia, the demand for reliable plastic stamping has increased dramatically – PC series was developed to meet this market need with a specialized adhesive formula that achieves excellent adhesion on low surface energy plastics. Unlike general-purpose foils that often struggle with adhesion issues on injection-molded parts, PC series uses a unique acrylic resin glue system that penetrates the plastic surface and creates a permanent bond that passes the strictest 3M tape cross-cut tests. One of the key performance requirements for cosmetic packaging is alcohol resistance – since products like perfumes and skincare creams often come into contact with alcohol during manufacturing or consumer use, our PC series undergoes rigorous alcohol rubbing tests to ensure the stamped design remains intact even after repeated alcohol wiping. The series also offers outstanding slitting properties, producing clean cutting edges with zero burrs or foil dusting, which is critical for high-speed automatic stamping on production lines. PC series supports a wide range of common thermoplastics including ABS, PS, PVC, PMMA (acrylic), PP, and PE tubes, making it suitable for diverse applications from lipstick tubes and perfume compacts to electronics panels and stationery components. Beyond traditional hot stamping on plastics, PC series also has variants specifically formulated for digital cold foil applications, providing excellent compatibility with various UV hot stamping varnishes used in digital cold foil systems like MGI and Scodix. This versatility makes PC series incredibly cost-effective as it can handle both conventional plastic stamping and modern digital cold foil processes without switching foil types. With consistent release properties, sharp edge definition, and long shelf life, PC series has become the preferred choice for many brand owners and converters who demand consistent quality and reliable performance for their plastic packaging projects.",
+      "link": "https://www.pintecl.com/en/products/category/PC/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/pc.png",
+      "brand": "PINTE",
+      "product_type": "PLASTIC/COLD FOILS SERIES",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "substrates": [
+        "ABS",
+        "PS",
+        "PVC",
+        "PMMA (Acrylic)",
+        "PP",
+        "PE Tube"
+      ],
+      "applications": [
+        "Lipstick Tubes",
+        "Compacts",
+        "Mascara Tubes",
+        "Facial Cleanser Tubes",
+        "Appliance Panels"
+      ],
+      "colors": [
+        "Metallic",
+        "Holographic",
+        "Brushed"
+      ],
+      "specifications": [
+        {
+          "label": "Thickness",
+          "value": "12μm"
+        },
+        {
+          "label": "Standard Roll",
+          "value": "0.64m x 120m"
+        },
+        {
+          "label": "Gloss",
+          "value": "High Gloss / Mirror"
+        },
+        {
+          "label": "Test",
+          "value": "3M Tape Cross-Cut"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "100 - 160°C",
+        "round": "180 - 230°C"
+      },
+      "target_markets": [
+        "Vietnam",
+        "Thailand",
+        "Malaysia",
+        "Indonesia",
+        "Singapore",
+        "Southeast Asia",
+        "United States",
+        "Europe"
+      ]
+    },
+    {
+      "id": "series-PLPY",
+      "title": "PL/PY Pigment Foils",
+      "description": "PL/PY pigment foils are a specialized category of hot stamping materials that differ fundamentally from traditional aluminum-plated metallic foils. Instead of relying on a vapor-deposited aluminum layer for color, PLPY series uses high-quality pigment particles directly as the color source, resulting in completely different visual characteristics and application advantages. The biggest advantage of pigment foils is their exceptional hiding power – they can completely cover any dark background without showing through, which solves a common problem when printing on dark cardstocks or colored substrates where traditional metallic foils cannot achieve the desired color intensity. Because the color comes directly from pigment rather than metallic reflection, PLPY foils produce pure, saturated colors that exactly match the designer's vision without any interference from metallic sheen. This makes pigment foils particularly popular for brand packaging where specific color accuracy is critical. The series offers two surface options: PL for glossy finish and PY for matte finish, giving designers flexibility to match different design aesthetics. Common applications include greeting cards where solid opaque color is needed, luxury gift boxes requiring a premium non-metallic feel, date coding on cigarette packs, and pencil branding where the stamping sees heavy handling. PLPY pigment foils are also fully compliant with international environmental standards including ROHS and EN71-3, making them suitable for toys and food-contact packaging applications where regulatory compliance is mandatory. Unlike screen printing which requires multiple passes and creates solvent waste, hot stamping with pigment foils achieves similar opaque color results in one pass with higher efficiency and zero solvent emissions. The standard size is 0.64m x 120m, matching most automatic hot stamping machines, and custom Pantone color matching is available for brand projects requiring exact color reproduction. Whether you need a pure opaque black for an elegant minimalist design or a vibrant saturated red for brand identity, PLPY pigment foils deliver consistent color quality with excellent adhesion and easy processing.",
+      "link": "https://www.pintecl.com/en/products/category/PLPY/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/pl.png",
+      "brand": "PINTE",
+      "product_type": "PIGMENT FOILS",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "substrates": [
+        "Coated Paper",
+        "Cardboard",
+        "Art Paper",
+        "Leatherette Paper",
+        "Leather"
+      ],
+      "applications": [
+        "Greeting Cards",
+        "Gift Boxes",
+        "Tags",
+        "Pencils",
+        "Coding"
+      ],
+      "colors": [
+        "Black",
+        "White",
+        "Red",
+        "Blue",
+        "Pantone Custom"
+      ],
+      "specifications": [
+        {
+          "label": "Type",
+          "value": "Pigment Foil"
+        },
+        {
+          "label": "Surface",
+          "value": "Glossy (PL) / Matte (PY)"
+        },
+        {
+          "label": "Standard Roll",
+          "value": "0.64m x 120m"
+        },
+        {
+          "label": "Eco",
+          "value": "ROHS / EN71-3"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "100 - 150°C",
+        "round": "150 - 190°C"
+      },
+      "target_markets": [
+        "Vietnam",
+        "Thailand",
+        "Malaysia",
+        "Indonesia",
+        "Singapore",
+        "Southeast Asia",
+        "United States",
+        "Europe"
+      ]
+    },
+    {
+      "id": "series-DIGITAL",
+      "title": "Digital / Cold Foil",
+      "description": "Digital cold foil is a modern innovation that has revolutionized the hot stamping industry, and PINTE's DIGITAL series brings this technology to the Southeast Asian market with proven reliability and compatibility. Unlike traditional hot stamping which requires making brass or magnesium plates, digital cold foil eliminates the plate-making process entirely, allowing direct transfer onto UV-cured varnish or digital toner layers without any prepping. This makes DIGITAL series perfect for personalized packaging, short-run production, variable data printing, and prototype development where traditional hot stamping would be too expensive or time-consuming. The process works by applying a special UV-curable adhesive to the substrate using digital printing, then laminating the cold foil onto the adhesive layer and curing with UV light – this creates a brilliant metallic effect with incredible dimensionality when done correctly. Our DIGITAL series inherits all the excellent performance characteristics that PINTE is known for, including good adhesion, sharp dot reproduction, and consistent release. The series is compatible with major digital cold foil systems including MGI, Scodix, and conventional screen printing cold foil processes. For print service providers offering short-run luxury packaging or personalized marketing materials, DIGITAL series delivers stunning metallic effects at a fraction of the cost and lead time compared to traditional hot stamping. The technology also excels at producing intricate fine details and very thin lines that would be difficult with conventional foil stamping. DIGITAL series works perfectly on a variety of coated substrates including art paper, cardboard, and pre-printed materials, making it suitable for applications like personalized business cards, short-run packaging prototypes, cosmetic labels, high-end greeting cards, and creative print projects where variable data is required. With consumer demand for personalization continuing to grow across industries, investing in digital cold foil capability with PINTE DIGITAL series gives print converters a competitive edge in the market. The series offers popular standard colors including bright gold, silver, and holographic plain, and custom colors can be developed for specific project requirements.",
+      "link": "https://www.pintecl.com/en/products/category/DIGITAL/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/chanpinpc.png",
+      "brand": "PINTE",
+      "product_type": "DIGITAL & COLD FOIL",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "substrates": [
+        "UV Varnish Surface",
+        "Digital Toner Layer",
+        "Cold Glue Layer"
+      ],
+      "applications": [
+        "Business Cards",
+        "Packaging Mockups",
+        "Labels",
+        "Creative Print"
+      ],
+      "colors": [
+        "Gold",
+        "Silver",
+        "Holographic Plain"
+      ],
+      "specifications": [
+        {
+          "label": "Process",
+          "value": "UV Cold / Digital"
+        },
+        {
+          "label": "Equipment",
+          "value": "MGI / Scodix / Screen Press"
+        },
+        {
+          "label": "Speed",
+          "value": "High Speed Curing"
+        },
+        {
+          "label": "Gloss",
+          "value": "High Brightness"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "UV Curing",
+        "round": "Cold Transfer"
+      },
+      "target_markets": [
+        "Vietnam",
+        "Thailand",
+        "Malaysia",
+        "Indonesia",
+        "Singapore",
+        "Southeast Asia",
+        "United States",
+        "Europe"
+      ]
+    },
+    {
+      "id": "series-GLITTER",
+      "title": "Glitter Powder Series",
+      "description": "PINTE has been producing premium quality glitter powder for over 25 years, making us one of the most experienced manufacturers in Asia with extensive expertise in particle cutting and surface treatment. Our premium glitter series features precisely cut hexagonal particles that create superior light reflection compared to irregularly shaped particles, resulting in brighter, more consistent sparkle that catches attention from any angle. Unlike cheap imported glitter that fades or bleeds color when exposed to solvents, our glitter undergoes specialized surface treatment that provides excellent resistance to both solvents and high temperatures, maintaining its brilliant shine even in challenging environments like nail polish formulations, where it must withstand chemical exposure without discoloration. The series offers an incredible range of particle sizes from 1/4 inch for large statement-making chunks down to 1/500 inch for extremely fine subtle shimmer, allowing designers to achieve exactly the visual effect they want – from bold dramatic sparkle to subtle micro-shimmer that adds depth without overwhelming the design. We offer multiple material options including PET, PVC, and aluminum-based glitter, each with different properties suited for specific applications: PET is the most versatile, PVC offers better chemical resistance for cosmetics, and aluminum provides maximum reflectivity for maximum brilliance. Color options include classic gold and silver, holographic iridescent, multi-color rainbow effect, and custom colors available upon request. Our manufacturing process ensures consistent particle size distribution with minimal dust contamination, resulting in cleaner processing and better final product appearance. PINTE glitter powder meets strict international safety standards including EN71-3 and ASTM for toy and cosmetic applications, making it suitable for everything from Christmas ornaments and holiday decorations to screen printing, nail polish manufacturing, injection molded plastics, greeting cards, and craft projects. With decades of export experience to markets including Europe, North America, and Southeast Asia, our quality control ensures consistent color and particle size from batch to batch. Whether you are a cosmetics manufacturer needing consistent cosmetic-grade glitter or a printing company needing glitter for specialty inks, PINTE's premium glitter series delivers the quality and consistency your products demand.",
+      "link": "https://www.pintecl.com/en/products/category/GLITTER/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/BST-005.jpg",
+      "brand": "PINTE",
+      "product_type": "PREMIUM GLITTER",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "substrates": [
+        "Paper",
+        "Fabric",
+        "Plastic",
+        "Nail Polish",
+        "Ink"
+      ],
+      "applications": [
+        "Xmas Decor",
+        "Screen Print",
+        "Nail Art",
+        "Injection",
+        "Cards"
+      ],
+      "colors": [
+        "Holographic",
+        "Rainbow",
+        "Metallic",
+        "Iridescent"
+      ],
+      "specifications": [
+        {
+          "label": "Material",
+          "value": "PET / PVC / Alum"
+        },
+        {
+          "label": "Heat Res",
+          "value": "180°C - 260°C"
+        },
+        {
+          "label": "Shape",
+          "value": "Hex / Square / Strip"
+        },
+        {
+          "label": "Eco",
+          "value": "EN71-3 / ASTM"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "Room Temp",
+        "round": "Injection Temp"
+      },
+      "target_markets": [
+        "Vietnam",
+        "Thailand",
+        "Malaysia",
+        "Indonesia",
+        "Singapore",
+        "Southeast Asia",
+        "United States",
+        "Europe"
+      ]
+    },
+    {
+      "id": "PK-Universal",
+      "title": "PK Universal",
+      "description": "Market-proven for years with a stable formula. Excellent performance on high-speed machines, light release, clean edges, and minimal dusting. The top choice for packaging inventory.",
+      "link": "https://www.pintecl.com/en/products/item/PK-Universal/",
+      "image_link": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/pk.png",
+      "brand": "PINTE",
+      "product_type": "Classic Formula, All-Round Application",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PK Brown Back Series",
+      "substrates": [
+        "Rough Paper",
+        "Specialty Paper",
+        "Artificial Leather (PU/PVC)",
+        "Real Leather",
+        "Leatherette Paper",
+        "Tactile Paper"
+      ],
+      "applications": [
+        "Tobacco",
+        "Pharma Boxes",
+        "Cosmetic Folding Cartons",
+        "Greeting Cards"
+      ],
+      "tags": [
+        "Best Seller",
+        "General Use"
+      ],
+      "specifications": [
+        {
+          "label": "Thickness",
+          "value": "12 micron"
+        },
+        {
+          "label": "Standard Width",
+          "value": "640mm"
+        },
+        {
+          "label": "Length",
+          "value": "120m / 3000m"
+        },
+        {
+          "label": "Shelf Life",
+          "value": "2 Years (Cool/Dry)"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "95 - 110°C",
+        "round": "130 - 160°C"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "PK-Heavy",
+      "title": "PK Heavy Duty",
+      "description": "Beyond anti-oxidation, this series has enhanced glue grip, perfect for rough art paper, tactile paper, and cloth-textured paper. Maintains integrity even on fine lines.",
+      "link": "https://www.pintecl.com/en/products/item/PK-Heavy/",
+      "image_link": "https://th.bing.com/th/id/R.b295280dd208415ac0f6d42ca2865b11?rik=k1pmQF0%2f1DFC0A&riu=http%3a%2f%2fwww.heruilaser.com%2fUpload%2fTemplate%2fweb%2fContentPhoto%2f400-300%2f202003%2fe2361d1a-f561-4808-9282-16c9889fccbc.jpg&ehk=KAD50DYd1VrHW%2fJU%2fqdwph2s2VBqcdevp1Qe6kmxA7I%3d&risl=&pid=ImgRaw&r=0",
+      "brand": "PINTE",
+      "product_type": "Anti-Oxidation Formula for Heavy Ink",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PK Brown Back Series",
+      "substrates": [
+        "Rough Paper",
+        "Specialty Paper",
+        "Artificial Leather (PU/PVC)",
+        "Real Leather",
+        "Leatherette Paper",
+        "Tactile Paper"
+      ],
+      "applications": [
+        "Wine Labels",
+        "Book Covers",
+        "Leather Logos",
+        "Luxury Boxes"
+      ],
+      "tags": [
+        "Anti-Oxidation",
+        "Strong Adhesion"
+      ],
+      "specifications": [
+        {
+          "label": "Thickness",
+          "value": "15 micron (Thickened)"
+        },
+        {
+          "label": "Standard Width",
+          "value": "640mm"
+        },
+        {
+          "label": "Glue Type",
+          "value": "Special Acrylic Resin"
+        }
+      ],
+      "recommended_temperature": {
+        "flat": "100 - 120°C",
+        "round": "140 - 170°C"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "PK-Matte",
+      "title": "PK Matte Series",
+      "description": "Provides a non-mirror matte metallic texture. Smooth, silky surface that resists fingerprints. Suitable for minimalist, high-end designs.",
+      "link": "https://www.pintecl.com/en/products/item/PK-Matte/",
+      "image_link": "https://cdn11.bigcommerce.com/s-et4qthkygq/images/stencil/325x325/products/13918/71497/siser-walakut-metallic-puff-htv-10__58928.1706257008.jpg?c=2",
+      "brand": "PINTE",
+      "product_type": "Understated Luxury, Silky Texture",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PK Brown Back Series",
+      "substrates": [
+        "Rough Paper",
+        "Specialty Paper",
+        "Artificial Leather (PU/PVC)",
+        "Real Leather",
+        "Leatherette Paper",
+        "Tactile Paper"
+      ],
+      "applications": [
+        "Electronics Packaging",
+        "Luxury Tags",
+        "Business Cards"
+      ],
+      "tags": [
+        "Matte Finish"
+      ],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "100 - 115°C",
+        "round": "135 - 165°C"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "PK-Holo",
+      "title": "PK Holographic Plain",
+      "description": "Uses high-precision molding to create rainbow-like halo effects. Seamless holographic plain foils enhance tech feel and offer security features.",
+      "link": "https://www.pintecl.com/en/products/item/PK-Holo/",
+      "image_link": "https://tse3.mm.bing.net/th/id/OIP.k2vjXrIjhZEoX94AmbGItAHaHa?rs=1&pid=ImgDetMain&o=7&rm=3",
+      "brand": "PINTE",
+      "product_type": "Light Magic, Security Choice",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PK Brown Back Series",
+      "substrates": [
+        "Rough Paper",
+        "Specialty Paper",
+        "Artificial Leather (PU/PVC)",
+        "Real Leather",
+        "Leatherette Paper",
+        "Tactile Paper"
+      ],
+      "applications": [
+        "Toothpaste Boxes",
+        "Security Labels",
+        "Tobacco/Alcohol Packaging"
+      ],
+      "tags": [
+        "Security",
+        "Visual Effect"
+      ],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "95 - 110°C",
+        "round": "130 - 160°C"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "PC-Standard",
+      "title": "PC Standard Plastic Foil",
+      "description": "Suitable for general ABS, PS, Acrylic. Clear stamping edges, no burrs. Ideal for appliance panels and stationery.",
+      "link": "https://www.pintecl.com/en/products/item/PC-Standard/",
+      "image_link": "https://cos.pintecl.com/pc.png",
+      "brand": "PINTE",
+      "product_type": "General Plastic Solution",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PC Plastic/Cold Foils Series",
+      "substrates": [
+        "ABS",
+        "PS",
+        "PVC",
+        "PMMA (Acrylic)",
+        "PP",
+        "PE Tube"
+      ],
+      "applications": [
+        "Appliance Panels",
+        "Pen Barrels",
+        "Switches"
+      ],
+      "tags": [],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "120 - 150°C",
+        "round": "180 - 210°C"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "PC-Alcohol",
+      "title": "PC Alcohol Resistant",
+      "description": "Passes strict alcohol and abrasion tests. Stamping remains intact even after contact with skincare or perfume chemicals.",
+      "link": "https://www.pintecl.com/en/products/item/PC-Alcohol/",
+      "image_link": "https://cos.pintecl.com/detail/PCalo.png",
+      "brand": "PINTE",
+      "product_type": "Cosmetic Grade",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PC Plastic/Cold Foils Series",
+      "substrates": [
+        "ABS",
+        "PS",
+        "PVC",
+        "PMMA (Acrylic)",
+        "PP",
+        "PE Tube"
+      ],
+      "applications": [
+        "Lipstick Tubes",
+        "Compacts",
+        "Mascara Caps"
+      ],
+      "tags": [
+        "Cosmetic Grade",
+        "Chemical Resistant"
+      ],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "130 - 160°C",
+        "round": "190 - 230°C"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "PC-Cold",
+      "title": "PC Digital/Screen Printing Cold Foil",
+      "description": "Suitable for typical cold stamping scenarios such as digital cold stamping, screen printing cold stamping, and rapid gold stamping with graphic toner. This series inherits the consistent properties of the PC series: alcohol resistance, boiling water resistance and friction resistance. It features excellent compatibility with various types of UV hot stamping varnishes and has wide applicability.",
+      "link": "https://www.pintecl.com/en/products/item/PC-Cold/",
+      "image_link": "https://cos.pintecl.com/detail/pccold.png",
+      "brand": "PINTE",
+      "product_type": "No Plate Making Required, Easy Stamping",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PC Plastic/Cold Foils Series",
+      "substrates": [
+        "ABS",
+        "PS",
+        "PVC",
+        "PMMA (Acrylic)",
+        "PP",
+        "PE Tube"
+      ],
+      "applications": [
+        "Hard Plastic",
+        "Soft Plastic",
+        "Packaging Materials",
+        "Electrical Appliance Decorative Parts"
+      ],
+      "tags": [
+        "PE/PP Specialist"
+      ],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "100 - 130°C",
+        "round": "130 - 150°C"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "PL-Glossy",
+      "title": "PL Glossy Pigment",
+      "description": "Vivid colors, strong coverage, paint-like texture.",
+      "link": "https://www.pintecl.com/en/products/item/PL-Glossy/",
+      "image_link": "https://cos.pintecl.com/PL-Glossy.png",
+      "brand": "PINTE",
+      "product_type": "Vivid Color, High Coverage",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PL/PY Pigment Foils",
+      "substrates": [
+        "Coated Paper",
+        "Cardboard",
+        "Art Paper",
+        "Leatherette Paper",
+        "Leather"
+      ],
+      "applications": [
+        "Greeting Cards",
+        "Gift Boxes",
+        "Tags",
+        "Pencils",
+        "Coding"
+      ],
+      "tags": [],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "100-130",
+        "round": "140-170"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "PY-Matte",
+      "title": "PY Matte Pigment",
+      "description": "Calm colors, writeable surface, suitable for gift boxes.",
+      "link": "https://www.pintecl.com/en/products/item/PY-Matte/",
+      "image_link": "https://cos.pintecl.com/pymatte.jpg",
+      "brand": "PINTE",
+      "product_type": "Elegant Matte, Writeable",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PL/PY Pigment Foils",
+      "substrates": [
+        "Coated Paper",
+        "Cardboard",
+        "Art Paper",
+        "Leatherette Paper",
+        "Leather"
+      ],
+      "applications": [
+        "Greeting Cards",
+        "Gift Boxes",
+        "Tags",
+        "Pencils",
+        "Coding"
+      ],
+      "tags": [],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "100-130",
+        "round": "140-170"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "PL-White",
+      "title": "PL Gloss White / Pearl",
+      "description": "Pure white, opaque, ideal for dark cardstock.",
+      "link": "https://www.pintecl.com/en/products/item/PL-White/",
+      "image_link": "https://cos.pintecl.com/PL-2000.png",
+      "brand": "PINTE",
+      "product_type": "Pure Opaque",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "PL/PY Pigment Foils",
+      "substrates": [
+        "Coated Paper",
+        "Cardboard",
+        "Art Paper",
+        "Leatherette Paper",
+        "Leather"
+      ],
+      "applications": [
+        "Greeting Cards",
+        "Gift Boxes",
+        "Tags",
+        "Pencils",
+        "Coding"
+      ],
+      "tags": [],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "100-130",
+        "round": "140-170"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "PC-Cold",
+      "title": "PC Digital/Screen Printing Cold Foil",
+      "description": "Suitable for typical cold stamping scenarios such as digital cold stamping, screen printing cold stamping, and rapid gold stamping with graphic toner. This series inherits the consistent properties of the PC series: alcohol resistance, boiling water resistance and friction resistance. It features excellent compatibility with various types of UV hot stamping varnishes and has wide applicability.",
+      "link": "https://www.pintecl.com/en/products/item/PC-Cold/",
+      "image_link": "https://cos.pintecl.com/detail/pccold.png",
+      "brand": "PINTE",
+      "product_type": "No Plate Making Required, Easy Stamping",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "Digital / Cold Foil",
+      "substrates": [
+        "UV Varnish Surface",
+        "Digital Toner Layer",
+        "Cold Glue Layer"
+      ],
+      "applications": [
+        "Hard Plastic",
+        "Soft Plastic",
+        "Packaging Materials",
+        "Electrical Appliance Decorative Parts"
+      ],
+      "tags": [
+        "PC Digital/Screen Printing Cold Foil"
+      ],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "100 - 130°C",
+        "round": "130 - 150°C"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "G-Hex",
+      "title": "Hexagon Glitter",
+      "description": "Standard hexagonal cut, high brilliance.",
+      "link": "https://www.pintecl.com/en/products/item/G-Hex/",
+      "image_link": "https://cos.pintecl.com/detail/glitter1.jpg",
+      "brand": "PINTE",
+      "product_type": "Glitter Powder Series",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "Glitter Powder Series",
+      "substrates": [
+        "Paper",
+        "Fabric",
+        "Plastic",
+        "Nail Polish",
+        "Ink"
+      ],
+      "applications": [
+        "Xmas Decor",
+        "Screen Print",
+        "Nail Art",
+        "Injection",
+        "Cards"
+      ],
+      "tags": [],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "Room Temp",
+        "round": "Injection Temp"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    },
+    {
+      "id": "G-Strip",
+      "title": "Strip Glitter",
+      "description": "Long strip shape, for special textile or decor effects.",
+      "link": "https://www.pintecl.com/en/products/item/G-Strip/",
+      "image_link": "https://cos.pintecl.com/detail/sequin.jpg",
+      "brand": "PINTE",
+      "product_type": "Glitter Powder Series",
+      "availability": "in_stock",
+      "quote_url": "https://www.pintecl.com/en/quote/",
+      "series": "Glitter Powder Series",
+      "substrates": [
+        "Paper",
+        "Fabric",
+        "Plastic",
+        "Nail Polish",
+        "Ink"
+      ],
+      "applications": [
+        "Xmas Decor",
+        "Screen Print",
+        "Nail Art",
+        "Injection",
+        "Cards"
+      ],
+      "tags": [],
+      "specifications": [],
+      "recommended_temperature": {
+        "flat": "Room Temp",
+        "round": "Injection Temp"
+      },
+      "sample_policy": "Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders."
+    }
+  ]
+}

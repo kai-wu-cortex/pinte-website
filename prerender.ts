@@ -14,6 +14,7 @@ import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 import { CONTENT_EN } from './data/content.js';
+import { GEO_GUIDES } from './data/geoGuides.js';
 import {
   buildSnapshot,
   renderJsonLdScripts,
@@ -307,6 +308,7 @@ export const prerender = {
       )
     );
     const solutionRoutes = Object.keys(CONTENT_EN.SOLUTIONS_DATA).map((id) => `solutions/${id}`);
+    const guideRoutes = GEO_GUIDES.map((guide) => `guides/${guide.slug}`);
 
     // Static routes that need prerendering (HTML file must exist for Cloudflare Pages)
     const staticRoutes = [
@@ -321,6 +323,7 @@ export const prerender = {
       'quote',
       'tour',
       'blog',
+      ...guideRoutes,
       'seo-geo-sop',
       ...solutionRoutes,
       'privacy',

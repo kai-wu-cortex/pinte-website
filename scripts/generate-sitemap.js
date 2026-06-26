@@ -8,6 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import dotenv from 'dotenv';
 import { CONTENT_EN } from '../data/content.ts';
+import { GEO_GUIDES } from '../data/geoGuides.ts';
 
 dotenv.config();
 
@@ -86,6 +87,11 @@ const productItems = Array.from(new Set(
     .map((product) => product.id)
 ));
 const solutions = Object.keys(CONTENT_EN.SOLUTIONS_DATA);
+const guidePages = GEO_GUIDES.map((guide) => ({
+  loc: `guides/${guide.slug}`,
+  changefreq: 'monthly',
+  priority: guide.priority <= 2 ? '0.9' : '0.8',
+}));
 
 // Generate XML sitemap
 function generateSitemap() {
@@ -117,6 +123,14 @@ function generateSitemap() {
 
   // Add static pages
   staticPages.forEach((page) => {
+    addUrl({
+      route: page.loc,
+      changefreq: page.changefreq,
+      priority: page.priority,
+    });
+  });
+
+  guidePages.forEach((page) => {
     addUrl({
       route: page.loc,
       changefreq: page.changefreq,
@@ -231,7 +245,7 @@ User-agent: Bingbot
 Allow: /
 
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: OAI-SearchBot
 Allow: /
@@ -261,9 +275,69 @@ Sitemap: ${siteUrl}/sitemap.xml
   console.log(`✅ robots.txt generated at: ${robotsPath}`);
 }
 
+function generateProductFeed() {
+  const products = [];
+
+  for (const [seriesId, series] of Object.entries(CONTENT_EN.PRODUCT_DATA)) {
+    products.push({
+      id: `series-${seriesId}`,
+      title: series.name,
+      description: series.description,
+      link: `${siteUrl}/en/products/category/${seriesId}/`,
+      image_link: series.heroImage,
+      brand: 'PINTE',
+      product_type: series.subtitle || 'Hot Stamping Foil',
+      availability: 'in_stock',
+      quote_url: `${siteUrl}/en/quote/`,
+      substrates: series.substrates,
+      applications: series.applications,
+      colors: series.colors,
+      specifications: series.params,
+      recommended_temperature: series.temp,
+      target_markets: ['Vietnam', 'Thailand', 'Malaysia', 'Indonesia', 'Singapore', 'Southeast Asia', 'United States', 'Europe'],
+    });
+  }
+
+  for (const [seriesId, items] of Object.entries(CONTENT_EN.CATALOG_DATA)) {
+    const series = CONTENT_EN.PRODUCT_DATA[seriesId];
+    for (const item of items) {
+      products.push({
+        id: item.id,
+        title: item.name,
+        description: item.content || item.description,
+        link: `${siteUrl}/en/products/item/${item.id}/`,
+        image_link: item.image,
+        brand: 'PINTE',
+        product_type: item.subtitle || series?.name || 'Hot Stamping Foil',
+        availability: 'in_stock',
+        quote_url: `${siteUrl}/en/quote/`,
+        series: series?.name,
+        substrates: series?.substrates || [],
+        applications: item.applications || series?.applications || [],
+        tags: item.tags || [],
+        specifications: item.params || [],
+        recommended_temperature: item.temp || series?.temp,
+        sample_policy: 'Sample rolls, color cards, slitting options, and substrate-based model recommendations are available before bulk orders.',
+      });
+    }
+  }
+
+  const outputPath = path.join(process.cwd(), 'public', 'product-feed.json');
+  fs.writeFileSync(outputPath, JSON.stringify({
+    generated_at: new Date().toISOString(),
+    merchant: 'PINTE',
+    website: siteUrl,
+    feed_type: 'b2b_hot_stamping_foil_catalog',
+    note: 'Quote-based B2B catalog for AI/product discovery. Prices are omitted because orders require substrate, width, color, and sample confirmation.',
+    products,
+  }, null, 2), 'utf8');
+  console.log(`✅ product-feed.json generated at: ${outputPath}`);
+}
+
 // Run both generators
 writeSitemap();
 generateRobotsTxt();
+generateProductFeed();
 
 console.log('\n🎉 Sitemap generation complete!');
 console.log(`📌 Next steps:

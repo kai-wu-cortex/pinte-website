@@ -15,7 +15,7 @@ User-agent: Bingbot
 Allow: /
 
 User-agent: GPTBot
-Allow: /
+Disallow: /
 
 User-agent: OAI-SearchBot
 Allow: /
