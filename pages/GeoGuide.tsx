@@ -130,34 +130,6 @@ const GeoGuide: React.FC = () => {
             ))}
           </section>
 
-          {guide.corePageCandidates && (
-            <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
-              <h2 className="text-2xl font-bold text-neutral-950 mb-5">
-                {lang === 'cn' ? '最适合 Shopify 独立站核心页面的 TOP 12' : 'Top 12 Shopify Core Page Opportunities'}
-              </h2>
-              <div className="overflow-x-auto">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="border-b border-neutral-200 text-sm text-neutral-500">
-                      <th className="py-3 pr-4">{lang === 'cn' ? '优先级' : 'Priority'}</th>
-                      <th className="py-3 pr-4">{lang === 'cn' ? '高概率采购问题' : 'High-probability buyer question'}</th>
-                      <th className="py-3">{lang === 'cn' ? '页面类型' : 'Page type'}</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    {guide.corePageCandidates.map((row) => (
-                      <tr key={row.priority} className="border-b border-neutral-100">
-                        <td className="py-4 pr-4 font-bold text-pinte-blue">{row.priority}</td>
-                        <td className="py-4 pr-4 font-semibold text-neutral-900">{row.question[lang]}</td>
-                        <td className="py-4 text-neutral-600">{row.pageType[lang]}</td>
-                      </tr>
-                    ))}
-                  </tbody>
-                </table>
-              </div>
-            </section>
-          )}
-
           {guide.researchMatrix && (
             <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
               <h2 className="text-2xl font-bold text-neutral-950 mb-3">

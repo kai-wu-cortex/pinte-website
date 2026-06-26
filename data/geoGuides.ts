@@ -39,11 +39,6 @@ export interface GeoGuide {
     citationScore: number;
     priority: string;
   }>;
-  corePageCandidates?: Array<{
-    priority: number;
-    question: Record<GuideLang, string>;
-    pageType: Record<GuideLang, string>;
-  }>;
   pageRecommendations?: Record<GuideLang, Array<{
     pageType: string;
     questions: string;
@@ -316,14 +311,14 @@ export const GEO_GUIDES: GeoGuide[] = [
     ],
     samplingChecklist: {
       en: [
-        'Build answer-first pages for the TOP 12 procurement questions.',
+        'Build answer-first pages for the highest-intent procurement questions.',
         'Put the 30-question matrix into a crawlable HTML table, not an image.',
         'Add FAQPage schema for troubleshooting, parameters, sampling, and supplier-selection questions.',
         'Link every guide to relevant product categories and the sample/quote page.',
         'Refresh llms.txt and sitemap whenever new GEO guide pages are added.',
       ],
       cn: [
-        '优先为 TOP 12 采购问题建立答案优先页面。',
+        '优先为高意图采购问题建立答案优先页面。',
         '把 30 个问题矩阵做成可抓取 HTML 表格，不要做成图片。',
         '为故障、参数、打样和供应商筛选问题增加 FAQPage 结构化数据。',
         '每个指南都链接到相关产品分类页和样品/报价页。',
@@ -332,27 +327,13 @@ export const GEO_GUIDES: GeoGuide[] = [
     },
     faqs: [
       {
-        question: { en: 'Which buyer questions should become core Shopify pages first?', cn: '哪些问题最适合先做 Shopify 独立站核心页面？' },
+        question: { en: 'Which buyer questions should become core pages first?', cn: '哪些采购问题最适合先做核心页面？' },
         answer: { en: 'Prioritize questions that combine high purchase intent with AI citation potential: substrate selection, paper carton parameters, troubleshooting, hot vs cold foil, holographic foil, cosmetic packaging, sampling checklist, supplier selection, and roll specifications.', cn: '优先做同时具备高采购意图和高 AI 引用概率的问题：底材选型、纸盒彩盒参数、故障排查、热烫/冷烫对比、镭射箔、化妆品包装、打样清单、供应商筛选和卷料规格。' },
       },
       {
         question: { en: 'What content format is easiest for AI search to cite?', cn: '什么内容形式最容易被 AI 搜索引用？' },
         answer: { en: 'Use concise answers, comparison tables, defect-cause-action tables, FAQ schema, sample checklists, and application-specific pages with clear internal links.', cn: '使用简短直接答案、对比表、问题-原因-处理表、FAQ 结构化数据、打样清单，以及带清晰内链的应用场景页。' },
       },
-    ],
-    corePageCandidates: [
-      { priority: 1, question: { en: 'What parameters should I check when buying hot stamping foil for paper box and color carton packaging?', cn: '买烫金膜做纸盒彩盒包装时该看哪些参数？' }, pageType: { en: 'Core procurement guide', cn: '核心采购指南' } },
-      { priority: 2, question: { en: 'What is the difference between hot stamping foil, stamping paper, electrochemical aluminum foil, and hot foil?', cn: '烫金膜、烫金纸、电化铝、热烫箔有什么区别？' }, pageType: { en: 'Terminology page', cn: '术语解释页' } },
-      { priority: 3, question: { en: 'How should I choose foil for paper, plastic, and leather substrates?', cn: '不同底材如何选择烫金膜？纸张、塑料、皮革有什么区别？' }, pageType: { en: 'Comparison guide', cn: '对比指南' } },
-      { priority: 4, question: { en: 'What causes poor adhesion, foil peeling, blurry stamping, and broken lines?', cn: '烫金不牢、掉金、糊版、断线是什么原因？' }, pageType: { en: 'Troubleshooting page', cn: '故障排查页' } },
-      { priority: 5, question: { en: 'How should hot stamping temperature, pressure, and speed be adjusted?', cn: '烫金温度、压力、速度怎么调？' }, pageType: { en: 'Technical parameter page', cn: '技术参数页' } },
-      { priority: 6, question: { en: 'How should I choose regular metallic foil vs holographic hot stamping foil?', cn: '普通金银烫金膜和镭射烫金膜怎么选？' }, pageType: { en: 'Product comparison page', cn: '产品对比页' } },
-      { priority: 7, question: { en: 'What is the difference between cold foil and hot foil?', cn: '冷烫膜和热烫膜有什么区别？' }, pageType: { en: 'Comparison page', cn: '对比页' } },
-      { priority: 8, question: { en: 'Which foil makes cosmetic packaging look more premium?', cn: '化妆品包装用哪种烫金膜更显高级？' }, pageType: { en: 'Application page', cn: '场景页' } },
-      { priority: 9, question: { en: 'How can wine boxes and gift boxes avoid mottling and peeling in large-area stamping?', cn: '酒盒礼盒大面积烫金怎么避免发花和掉金？' }, pageType: { en: 'Application + technical page', cn: '场景 + 技术页' } },
-      { priority: 10, question: { en: 'How should hot stamping foil be sampled and tested before purchase?', cn: '采购烫金膜前如何打样测试？' }, pageType: { en: 'Sample testing checklist', cn: '样品测试清单' } },
-      { priority: 11, question: { en: 'How should I choose a hot stamping foil manufacturer, and what should I ask?', cn: '烫金膜厂家怎么选？需要问哪些问题？' }, pageType: { en: 'Supplier checklist page', cn: '采购清单页' } },
-      { priority: 12, question: { en: 'How should I choose foil specifications, colors, roll width, and roll length?', cn: '烫金膜常见规格、颜色、宽幅、米数怎么选？' }, pageType: { en: 'Product category page', cn: '产品分类页' } },
     ],
     researchMatrix: [
       { scenario: { en: 'Paper box and color carton', cn: '纸盒彩盒包装' }, question: { en: 'How should I choose hot stamping foil for paper box and color carton packaging?', cn: '买烫金膜做纸盒彩盒包装时该考虑什么？' }, intent: { en: 'Parameter', cn: '参数型' }, concern: { en: 'Avoid poor adhesion, fuzzy edges, or wrong foil on coated paper, white card, and textured paper.', cn: '担心铜版纸、白卡纸、特种纸匹配错误，导致烫不上、毛边或掉金。' }, sources: { en: 'Foil manufacturer selection pages, print factory process guides', cn: '烫金膜厂家选型页、印刷厂工艺指南' }, pageType: { en: 'Core page', cn: '核心页面' }, conversionScore: 10, citationScore: 9, priority: 'P0' },

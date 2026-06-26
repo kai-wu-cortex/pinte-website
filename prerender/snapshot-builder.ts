@@ -1684,15 +1684,6 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
     a: item.answer[lang],
   }));
 
-  const corePageRows = guide.corePageCandidates
-    ?.map(
-      (row) =>
-        `<tr><td>${row.priority}</td><td>${escapeHtml(row.question[lang])}</td><td>${escapeHtml(
-          row.pageType[lang]
-        )}</td></tr>`
-    )
-    .join('');
-
   const researchRows = guide.researchMatrix
     ?.map(
       (row, index) =>
@@ -1730,17 +1721,6 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
       <h2>${lang === 'cn' ? '选型因素对比表' : 'Selection Factors'}</h2>
       <table><tbody>${factorRows}</tbody></table>
     </section>
-
-    ${
-      corePageRows
-        ? `<section>
-      <h2>${lang === 'cn' ? '最适合 Shopify 独立站核心页面的 TOP 12' : 'Top 12 Shopify Core Page Opportunities'}</h2>
-      <table><thead><tr><th>${lang === 'cn' ? '优先级' : 'Priority'}</th><th>${
-            lang === 'cn' ? '高概率采购问题' : 'High-probability buyer question'
-          }</th><th>${lang === 'cn' ? '页面类型' : 'Page type'}</th></tr></thead><tbody>${corePageRows}</tbody></table>
-    </section>`
-        : ''
-    }
 
     ${
       researchRows
