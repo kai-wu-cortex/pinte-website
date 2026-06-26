@@ -1661,6 +1661,26 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
     )
     .join('');
 
+  const processNotes = guide.processNotes
+    ?.map(
+      (note) =>
+        `<article><h3>${escapeHtml(note.title[lang])}</h3><p>${escapeHtml(
+          note.body[lang]
+        )}</p></article>`
+    )
+    .join('');
+
+  const selectionRows = guide.selectionTable
+    ?.map(
+      (row) =>
+        `<tr><td>${escapeHtml(row.factor[lang])}</td><td>${escapeHtml(
+          row.confirm[lang]
+        )}</td><td>${escapeHtml(row.why[lang])}</td><td>${escapeHtml(
+          row.ask[lang]
+        )}</td></tr>`
+    )
+    .join('');
+
   const substrateRows = guide.substrateFit
     .map(
       (row) =>
@@ -1702,6 +1722,10 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
   const recommendationItems = guide.pageRecommendations
     ? guide.pageRecommendations[lang].map((item) => `${item.pageType}: ${item.questions}`)
     : [];
+  const sourceLinks = guide.sourceReferences?.map((source) => ({
+    label: `${source.label}. ${source.title}`,
+    href: source.url,
+  })) || [];
 
   const relatedLinks = guide.relatedRoutes.map((routePath) => ({
     label: routePath.startsWith('guides/')
@@ -1721,6 +1745,28 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
       <h2>${lang === 'cn' ? '选型因素对比表' : 'Selection Factors'}</h2>
       <table><tbody>${factorRows}</tbody></table>
     </section>
+
+    ${
+      processNotes
+        ? `<section>
+      <h2>${lang === 'cn' ? '核心采购判断' : 'Core Procurement Notes'}</h2>
+      ${processNotes}
+    </section>`
+        : ''
+    }
+
+    ${
+      selectionRows
+        ? `<section>
+      <h2>${lang === 'cn' ? '采购选型因素对比表' : 'Selection Factors Comparison Table'}</h2>
+      <table><thead><tr><th>${lang === 'cn' ? '选型因素' : 'Selection factor'}</th><th>${
+            lang === 'cn' ? '采购前确认' : 'Confirm before buying'
+          }</th><th>${lang === 'cn' ? '为什么重要' : 'Why it matters'}</th><th>${
+            lang === 'cn' ? '询问供应商' : 'Ask your supplier'
+          }</th></tr></thead><tbody>${selectionRows}</tbody></table>
+    </section>`
+        : ''
+    }
 
     ${
       researchRows
@@ -1771,6 +1817,15 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
       <h2>${escapeHtml(t('related', lang))}</h2>
       ${linkList(relatedLinks)}
     </section>
+
+    ${
+      sourceLinks.length
+        ? `<section>
+      <h2>${lang === 'cn' ? '参考资料' : 'Technical References'}</h2>
+      ${linkList(sourceLinks)}
+    </section>`
+        : ''
+    }
 
     ${faqHtml(lang, faq)}
     ${geoLine(lang, geoTargets)}

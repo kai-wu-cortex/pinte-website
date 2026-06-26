@@ -13,6 +13,16 @@ export interface GeoGuide {
     label: Record<GuideLang, string>;
     guidance: Record<GuideLang, string>;
   }>;
+  selectionTable?: Array<{
+    factor: Record<GuideLang, string>;
+    confirm: Record<GuideLang, string>;
+    why: Record<GuideLang, string>;
+    ask: Record<GuideLang, string>;
+  }>;
+  processNotes?: Array<{
+    title: Record<GuideLang, string>;
+    body: Record<GuideLang, string>;
+  }>;
   substrateFit: Array<{
     substrate: Record<GuideLang, string>;
     recommendedFoil: string;
@@ -43,6 +53,11 @@ export interface GeoGuide {
     pageType: string;
     questions: string;
   }>>;
+  sourceReferences?: Array<{
+    label: string;
+    title: string;
+    url: string;
+  }>;
   relatedRoutes: string[];
 }
 
@@ -109,6 +124,199 @@ export const GEO_GUIDES: GeoGuide[] = [
       { question: { en: 'What should I send for sampling?', cn: '打样需要提供什么？' }, answer: { en: 'Send real substrate sheets or parts, ink/lamination details, artwork size, machine type, and expected durability tests.', cn: '建议提供真实底材或工件、油墨/覆膜信息、图稿尺寸、设备类型和预期耐性测试。' } },
     ],
     relatedRoutes: ['products/category/PK', 'products/category/PC', 'products/category/PLPY', 'quote'],
+  },
+  {
+    slug: 'paper-box-packaging-hot-stamping-foil-guide',
+    priority: 1,
+    title: {
+      en: 'Hot Stamping Foil Buying Guide for Paper Box Packaging',
+      cn: '纸盒彩盒包装烫金膜采购指南',
+    },
+    metaDescription: {
+      en: 'Learn how to choose hot stamping foil for paper boxes, gift boxes, cosmetic packaging, and printed cartons. Compare substrates, foil types, stamping parameters, common problems, and sample testing steps.',
+      cn: '了解纸盒、彩盒、礼盒、化妆品盒和印刷纸盒如何选择烫金膜，覆盖底材适配、烫金膜类型、工艺参数、常见问题和打样测试步骤。',
+    },
+    primaryKeyword: {
+      en: 'hot stamping foil for paper box packaging',
+      cn: '纸盒包装烫金膜',
+    },
+    secondaryKeywords: {
+      en: ['hot stamping foil for paper boxes', 'foil for folding cartons', 'foil for gift boxes', 'foil for cosmetic boxes', 'printed carton foil stamping'],
+      cn: ['纸盒彩盒烫金膜', '礼盒烫金箔', '化妆品盒烫金膜', '印刷纸盒烫金', '纸张烫金箔'],
+    },
+    audience: {
+      en: 'Overseas packaging factories, printing factories, gift box makers, cosmetic packaging converters, and procurement teams buying foil for paper-based packaging.',
+      cn: '采购纸盒彩盒、礼盒、化妆品盒和印刷纸盒烫金材料的海外包装厂、印刷厂、礼盒厂、化妆品包材厂和采购团队。',
+    },
+    answer: {
+      en: 'When buying hot stamping foil for paper box packaging, do not choose by gold or silver color alone. Match the foil to the paper surface, printing ink or varnish, lamination, stamping machine, die design, temperature, pressure, dwell time, and final durability requirements. Before bulk ordering, confirm substrate type, foil release behavior, adhesive strength, edge definition, overprintability, roll specification, and sample test results on the actual production paper.',
+      cn: '采购纸盒彩盒包装用烫金膜时，不能只按金色或银色下单。应同时匹配纸张表面、印刷油墨或光油、覆膜、烫印设备、烫版设计、温度、压力、停留时间和最终耐性要求。批量下单前，需要在真实生产纸张上确认底材类型、离型表现、附着力、边缘清晰度、可过印性、卷料规格和打样测试结果。',
+    },
+    factors: [
+      {
+        label: { en: 'Foil-substrate-process match', cn: '箔材、底材与工艺匹配' },
+        guidance: { en: 'Final performance depends on foil, paper, ink, varnish, die, machine condition, and stamping settings working together.', cn: '最终效果取决于烫金膜、纸张、油墨、光油、烫版、设备状态和烫印参数的整体匹配。' },
+      },
+      {
+        label: { en: 'Artwork and release behavior', cn: '图案与离型表现' },
+        guidance: { en: 'Fine text needs clean release and sharp edges; large solid blocks need stable coverage, gloss, and adhesion.', cn: '细小文字需要干净离型和清晰边缘，大面积实地需要稳定覆盖、光泽和附着力。' },
+      },
+      {
+        label: { en: 'Test result before price', cn: '测试结果优先于单价' },
+        guidance: { en: 'A cheaper foil that causes missing transfer, peeling, downtime, or rework can cost more than a properly matched grade.', cn: '导致转移不全、掉金、停机或返工的低价箔，实际成本可能高于匹配正确的型号。' },
+      },
+    ],
+    selectionTable: [
+      {
+        factor: { en: 'Paper substrate', cn: '纸张底材' },
+        confirm: { en: 'White card, art paper, coated paper, kraft paper, textured paper, laminated paper, or printed paper.', cn: '白卡纸、铜版纸、涂布纸、牛皮纸、特种纸、覆膜纸或已印刷纸。' },
+        why: { en: 'Different surfaces have different smoothness, absorbency, and adhesion behavior.', cn: '不同表面的平滑度、吸收性和附着表现不同。' },
+        ask: { en: 'Which foil grade do you recommend for this exact paper or laminated surface?', cn: '这个具体纸张或覆膜表面推荐哪个烫金膜型号？' },
+      },
+      {
+        factor: { en: 'Surface treatment', cn: '表面处理' },
+        confirm: { en: 'Unprinted paper, ink-printed paper, UV varnish, water-based varnish, matte lamination, or gloss lamination.', cn: '未印刷纸、油墨印刷纸、UV 光油、水性光油、哑膜或亮膜。' },
+        why: { en: 'Ink, varnish, and lamination can change foil adhesion and release performance.', cn: '油墨、光油和覆膜会改变烫金膜附着与离型表现。' },
+        ask: { en: 'Can this foil stamp on printed, varnished, or OPP-laminated paper?', cn: '这款膜能否烫印在已印刷、上光或 OPP 覆膜纸上？' },
+      },
+      {
+        factor: { en: 'Stamping area', cn: '烫印面积' },
+        confirm: { en: 'Fine lines, small text, large solid blocks, borders, or mixed artwork.', cn: '细线、小字、大面积实地、边框或混合图案。' },
+        why: { en: 'Fine details need clean release; large areas need stable coverage and gloss.', cn: '精细图案需要干净离型，大面积需要稳定覆盖和光泽。' },
+        ask: { en: 'Do you have separate grades for fine-detail and large-area stamping?', cn: '是否有适合精细图案和大面积烫印的不同型号？' },
+      },
+      {
+        factor: { en: 'Machine type', cn: '设备类型' },
+        confirm: { en: 'Flatbed, platen, cylinder, rotary, or roll-on hot stamping machine.', cn: '平压、圆压、自动模切烫金、轮转或滚烫设备。' },
+        why: { en: 'Machine type affects pressure distribution, speed, and dwell time.', cn: '设备类型影响压力分布、速度和停留时间。' },
+        ask: { en: 'What starting temperature, pressure, and dwell time do you recommend?', cn: '建议的起始温度、压力和停留时间是多少？' },
+      },
+      {
+        factor: { en: 'Die material and design', cn: '烫版材料与设计' },
+        confirm: { en: 'Magnesium, copper, brass, CNC die, embossing die, or combination die.', cn: '镁版、铜版、黄铜版、CNC 版、凹凸版或组合版。' },
+        why: { en: 'Die quality affects edge sharpness and heat transfer.', cn: '烫版质量影响边缘清晰度和热传导。' },
+        ask: { en: 'Is this foil suitable for fine logos or foil-plus-embossing work?', cn: '这款膜是否适合精细 Logo 或烫金加凹凸工艺？' },
+      },
+      {
+        factor: { en: 'Foil finish', cn: '烫金膜效果' },
+        confirm: { en: 'Metallic gold, silver, rose gold, matte gold, pigment foil, holographic foil, or brushed effect.', cn: '亮金、亮银、玫瑰金、哑金、颜料箔、镭射箔或拉丝效果。' },
+        why: { en: 'Different finishes use different coating structures and release behavior.', cn: '不同效果对应不同涂层结构和离型表现。' },
+        ask: { en: 'Can you provide a color card and stamped samples on similar paper?', cn: '能否提供色卡和相似纸张上的烫印样？' },
+      },
+      {
+        factor: { en: 'Adhesion and durability', cn: '附着力与耐性' },
+        confirm: { en: 'Tape test, rub test, alcohol resistance, scratch resistance, and crease test.', cn: '胶带测试、耐磨测试、耐酒精、耐刮和折线测试。' },
+        why: { en: 'Cosmetic boxes, gift boxes, and wine boxes often require handling durability.', cn: '化妆品盒、礼盒和酒盒通常需要更高搬运耐性。' },
+        ask: { en: 'What tests should we run before mass production?', cn: '量产前建议做哪些测试？' },
+      },
+      {
+        factor: { en: 'Overprinting or varnishing', cn: '过印或后上光' },
+        confirm: { en: 'Whether CMYK, UV varnish, or protective coating will be applied after stamping.', cn: '烫金后是否还要 CMYK 印刷、UV 上光或保护涂层。' },
+        why: { en: 'Some packaging designs require printing or coating over foil.', cn: '部分包装设计需要在烫金层上继续印刷或上光。' },
+        ask: { en: 'Is this foil overprintable or suitable for post-varnishing?', cn: '这款膜是否可过印或适合后上光？' },
+      },
+      {
+        factor: { en: 'Compliance and sustainability', cn: '合规与环保' },
+        confirm: { en: 'Recyclability, PET carrier handling, heavy metal restrictions, and compliance documents.', cn: '可回收性、PET 基膜处理、重金属限制和合规文件。' },
+        why: { en: 'Brand owners increasingly ask about packaging sustainability and material safety.', cn: '品牌方越来越关注包装环保和材料安全。' },
+        ask: { en: 'Can you provide compliance or sustainability information?', cn: '能否提供合规或环保相关资料？' },
+      },
+      {
+        factor: { en: 'Roll specification', cn: '卷料规格' },
+        confirm: { en: 'Width, length, core size, slitting tolerance, and winding quality.', cn: '宽幅、卷长、卷芯、分切公差和收卷质量。' },
+        why: { en: 'Wrong roll size can cause waste, wrinkles, or machine feeding issues.', cn: '卷料规格不匹配会造成浪费、起皱或走料问题。' },
+        ask: { en: 'Can you slit rolls to our machine width?', cn: '能否按我们的设备宽幅分切？' },
+      },
+    ],
+    processNotes: [
+      {
+        title: { en: 'What hot stamping foil does on paper boxes', cn: '烫金膜在纸盒包装上的作用' },
+        body: { en: 'Hot stamping foil transfers metallic, pigment, holographic, or special decorative effects onto folding cartons, rigid boxes, cosmetic boxes, wine boxes, gift boxes, labels, logos, borders, patterns, and security marks.', cn: '烫金膜可把金属、颜料、镭射或特殊装饰效果转移到折叠纸盒、精品盒、化妆品盒、酒盒、礼盒、标签、Logo、边框、图案和防伪标识上。' },
+      },
+      {
+        title: { en: 'Foil structure and transfer logic', cn: '烫金膜结构与转移逻辑' },
+        body: { en: 'A typical foil includes a PET carrier, release layer, color or lacquer layer, metallized aluminum layer, and adhesive layer. Heat and pressure activate the release and adhesive layers so the decorative coating transfers to the paper surface.', cn: '典型烫金膜包含 PET 基膜、离型层、色层或清漆层、真空镀铝层和胶层。烫印时温度和压力激活离型层与胶层，使装饰层转移到纸张表面。' },
+      },
+      {
+        title: { en: 'Temperature, pressure, dwell time, and speed', cn: '温度、压力、停留时间与速度' },
+        body: { en: 'Low temperature or short dwell time may cause incomplete transfer; excessive temperature, pressure, or dwell time can dull gloss, blur edges, crush paper, or spread adhesive. Automatic production speed must be balanced with die temperature and pressure.', cn: '温度过低或停留时间过短会导致转移不完整；温度、压力或停留时间过高会造成光泽变暗、边缘发糊、纸面压伤或胶层扩散。自动生产速度必须与版温和压力平衡。' },
+      },
+      {
+        title: { en: 'Hot foil or cold foil for paper packaging', cn: '纸盒包装选热烫还是冷烫' },
+        body: { en: 'Hot foil is usually preferred for premium metallic finish, tactile impression, crisp logos, and luxury packaging effects. Cold foil is useful when inline printing speed, CMYK overprinting, no metal die cost, or large production efficiency is more important.', cn: '热烫通常适合高端金属质感、触感、清晰 Logo 和精品包装效果。冷烫更适合联机印刷速度、CMYK 套印、免金属烫版成本或大批量效率更重要的场景。' },
+      },
+    ],
+    substrateFit: [
+      { substrate: { en: 'White card / SBS board', cn: '白卡纸 / SBS 纸板' }, recommendedFoil: 'General metallic hot stamping foil for paper packaging', note: { en: 'Usually stable, but ink or varnish can affect adhesion; test logo, small text, and large solid areas.', cn: '通常较稳定，但油墨或光油会影响附着；需测试 Logo、小字和大面积实地。' } },
+      { substrate: { en: 'Coated art paper', cn: '铜版纸 / 涂布纸' }, recommendedFoil: 'High-gloss metallic foil with clean release', note: { en: 'Smooth surfaces can show pinholes or pressure marks if settings are wrong; check brightness and edges.', cn: '平滑表面参数不当时易出现针孔或压痕；重点检查亮度和边缘。' } },
+      { substrate: { en: 'Uncoated kraft paper', cn: '未涂布牛皮纸' }, recommendedFoil: 'Stronger adhesive grade or rough-paper foil', note: { en: 'Rough fibers can cause incomplete transfer; test pressure and dwell time carefully.', cn: '粗纤维可能导致转移不完整；需谨慎测试压力和停留时间。' } },
+      { substrate: { en: 'Textured specialty paper', cn: '纹理特种纸' }, recommendedFoil: 'PK Brown Back Series', note: { en: 'Deep texture can create missing spots; always test the real material, not a flat substitute.', cn: '深纹理可能出现漏烫；必须测试真实材料，不只测平整样纸。' } },
+      { substrate: { en: 'UV-printed paper', cn: 'UV 印刷纸' }, recommendedFoil: 'Foil compatible with UV ink or UV varnish surfaces', note: { en: 'Poor surface energy may cause peeling; run tape and rub tests after stamping.', cn: '表面能不合适会掉金；烫后做胶带和耐磨测试。' } },
+      { substrate: { en: 'Water-based varnished paper', cn: '水性上光纸' }, recommendedFoil: 'Paper foil with adhesion to coated surfaces', note: { en: 'Varnish formulation may block adhesion; compare varnished and unvarnished samples.', cn: '光油配方可能影响附着；对比上光与未上光样。' } },
+      { substrate: { en: 'Matte laminated paper', cn: '哑膜覆膜纸' }, recommendedFoil: 'Foil grade for matte OPP/PET lamination', note: { en: 'Low adhesion can cause peeling or dull effect; run cross-cut tape and rub tests.', cn: '低附着可能导致掉金或光泽发暗；需做百格胶带和耐磨测试。' } },
+      { substrate: { en: 'Gloss laminated paper', cn: '亮膜覆膜纸' }, recommendedFoil: 'Foil for glossy OPP or film-laminated paper', note: { en: 'Slippery surface may cause incomplete transfer; test pressure, temperature, and adhesion.', cn: '表面较滑可能转移不完整；需测试压力、温度和附着力。' } },
+      { substrate: { en: 'Embossed rigid box paper', cn: '压纹精品盒纸' }, recommendedFoil: 'Foil for embossing or combination stamping', note: { en: 'Cracking or broken lines may appear after embossing, creasing, or folding.', cn: '凹凸、压痕或折叠后可能开裂或断线。' } },
+      { substrate: { en: 'Metallic paperboard', cn: '金银卡纸 / 金属纸板' }, recommendedFoil: 'Special foil or pigment foil depending on contrast', note: { en: 'Main risks are low contrast, poor visibility, or surface incompatibility; check color contrast and adhesion.', cn: '主要风险是对比度低、可视性差或表面不兼容；重点检查颜色对比和附着。' } },
+    ],
+    troubleshooting: [
+      { issue: { en: 'Incomplete foil transfer', cn: '转移不完整' }, likelyCause: { en: 'Low temperature, insufficient pressure, short dwell time, wrong foil grade, or rough paper surface.', cn: '温度低、压力不足、停留时间短、型号不匹配或纸面粗糙。' }, action: { en: 'Increase temperature or pressure gradually, test a stronger adhesive foil, and check paper smoothness.', cn: '逐步提高温度或压力，测试更强附着型号，并检查纸面平滑度。' } },
+      { issue: { en: 'Foil peels off after stamping', cn: '烫后掉金' }, likelyCause: { en: 'Poor adhesion to ink, varnish, or laminated surface; wrong adhesive layer; surface contamination.', cn: '对油墨、光油或覆膜表面附着差，胶层不匹配或表面污染。' }, action: { en: 'Test on actual printed or varnished paper, run tape tests, and switch to foil for coated or laminated paper.', cn: '在真实印刷或上光纸上测试，做胶带测试，并改用适合涂布或覆膜纸的型号。' } },
+      { issue: { en: 'Blurry edges or thickened lines', cn: '边缘发糊或线条变粗' }, likelyCause: { en: 'Temperature, pressure, or dwell time is too high; release behavior is too soft.', cn: '温度、压力或停留时间过高，或离型过软。' }, action: { en: 'Reduce heat or pressure, use cleaner-release foil, and check die sharpness.', cn: '降低温度或压力，改用离型更干净的型号，并检查烫版锐度。' } },
+      { issue: { en: 'Pinholes or missing spots in solid areas', cn: '大面积针孔或漏烫' }, likelyCause: { en: 'Uneven pressure, rough paper texture, dirty die, or unstable foil tension.', cn: '压力不均、纸面粗糙、烫版脏污或张力不稳。' }, action: { en: 'Clean the die, balance pressure, and test a large-area foil grade.', cn: '清洁烫版，平衡压力，并测试适合大面积的型号。' } },
+      { issue: { en: 'Dull metallic gloss', cn: '金属光泽发暗' }, likelyCause: { en: 'Excessive heat, unsuitable foil finish, rough surface, or overpressure.', cn: '温度过高、效果不匹配、表面粗糙或压力过大。' }, action: { en: 'Reduce temperature, test high-gloss foil, and compare on smoother paper.', cn: '降低温度，测试高光型号，并在更平滑纸面上对比。' } },
+      { issue: { en: 'Dirty background or flying foil', cn: '底脏或飞金' }, likelyCause: { en: 'Release layer is too easy, static electricity, excessive heat or pressure.', cn: '离型过松、静电、温度或压力过高。' }, action: { en: 'Reduce temperature, check foil storage, adjust tension, and clean the machine.', cn: '降低温度，检查储存条件，调整张力并清洁设备。' } },
+      { issue: { en: 'Color inconsistency', cn: '颜色不一致' }, likelyCause: { en: 'Different foil batches, unstable temperature, or inconsistent substrate color.', cn: '烫金膜批次不同、温度不稳或底材颜色不一致。' }, action: { en: 'Use approved color standards, check batch numbers, and test with instruments when needed.', cn: '使用确认色样，检查批号，必要时用仪器测试。' } },
+      { issue: { en: 'Cracking after folding or creasing', cn: '折叠或压痕后开裂' }, likelyCause: { en: 'Foil is too close to crease line, adhesion is weak, or coating is brittle.', cn: '烫印区域太靠近折线、附着弱或涂层偏脆。' }, action: { en: 'Move foil away from crease lines, test after folding, and choose a more flexible grade.', cn: '避开折线位置，折叠后测试，并选择更柔韧的型号。' } },
+      { issue: { en: 'Poor overprint or varnish adhesion', cn: '过印或上光附着差' }, likelyCause: { en: 'Foil surface is not designed for overprinting or is incompatible with UV ink/varnish.', cn: '箔表面不适合过印，或与 UV 油墨/光油不兼容。' }, action: { en: 'Use overprintable foil and test ink or varnish adhesion before production.', cn: '使用可过印型号，并在量产前测试油墨或光油附着。' } },
+      { issue: { en: 'Registration shift', cn: '套位偏移' }, likelyCause: { en: 'Machine feeding issue, foil tension problem, paper movement, or die setup error.', cn: '设备走纸、箔张力、纸张移动或烫版安装问题。' }, action: { en: 'Check machine registration, foil tension, and sheet feeding stability.', cn: '检查设备套准、箔张力和纸张输送稳定性。' } },
+    ],
+    samplingChecklist: {
+      en: [
+        'Send the supplier your exact paper board, printed sheet, varnished sheet, or laminated paper.',
+        'Share machine type, die material, stamping speed, starting temperature, pressure range, roll width, and artwork size.',
+        'Test at least three artwork types: one fine-detail logo, one small text area, and one large solid foil block.',
+        'Run a controlled parameter matrix instead of testing only one temperature and pressure.',
+        'Inspect edge sharpness, missing spots, pinholes, gloss, color tone, background cleanliness, and foil waste release.',
+        'Run tape pull, cross-cut tape, or rub testing to verify adhesion.',
+        'Test folding, creasing, die-cutting, varnishing, packing, and transport simulation after stamping.',
+        'Confirm color code, roll width, roll length, core size, slitting tolerance, MOQ, lead time, packing method, and batch consistency policy.',
+      ],
+      cn: [
+        '向供应商提供真实纸板、印刷纸、上光纸或覆膜纸。',
+        '说明设备类型、烫版材料、烫印速度、起始温度、压力范围、卷料宽幅和图案尺寸。',
+        '至少测试三类图案：精细 Logo、小字和大面积实地。',
+        '做受控参数矩阵，不要只测试一个温度和压力点。',
+        '检查边缘清晰度、漏点、针孔、光泽、色调、底脏和废箔离型。',
+        '用胶带拉力、百格胶带或耐磨测试验证附着力。',
+        '烫后测试折叠、压痕、模切、上光、包装和运输模拟。',
+        '确认色号、宽幅、卷长、卷芯、分切公差、起订量、交期、包装方式和批次一致性政策。',
+      ],
+    },
+    faqs: [
+      { question: { en: 'Is hot stamping foil the same as hot stamping paper or electro-aluminum foil?', cn: '烫金膜、烫金纸和电化铝是同一种产品吗？' }, answer: { en: 'In packaging sourcing, these terms are often used for similar transfer materials. The exact product should be confirmed by structure, application, substrate, and machine process.', cn: '在包装采购语境中，这些词经常指类似的转移材料。实际产品应按结构、用途、底材和设备工艺确认。' } },
+      { question: { en: 'What foil is best for paper box packaging?', cn: '纸盒包装用哪种烫金膜最好？' }, answer: { en: 'For standard paper boxes, use metallic hot stamping foil designed for paper or printed paper. For coated, varnished, or laminated paper, choose a grade tested for that exact surface.', cn: '普通纸盒可用纸张或印刷纸专用金属烫金膜；涂布、上光或覆膜纸需选择已在对应表面验证过的型号。' } },
+      { question: { en: 'Can one foil work for both fine text and large solid areas?', cn: '一种膜能同时适合细字和大面积实地吗？' }, answer: { en: 'Sometimes, but not always. Fine details need clean release and sharp edges, while large solid areas need stable coverage, gloss, and adhesion. Test both artwork types before bulk ordering.', cn: '有时可以，但不能默认。精细图案需要干净离型和清晰边缘，大面积需要稳定覆盖、光泽和附着。批量前应同时测试两类图案。' } },
+      { question: { en: 'Why does foil peel off after stamping?', cn: '为什么纸盒烫金后会掉金？' }, answer: { en: 'Peeling may come from low temperature, insufficient pressure, wrong adhesive layer, incompatible ink or varnish, contaminated paper, or poor surface treatment. Testing on the actual printed or laminated sheet is essential.', cn: '掉金可能来自温度低、压力不足、胶层不匹配、油墨或光油不兼容、纸面污染或表面处理不佳。必须在真实印刷或覆膜纸上测试。' } },
+      { question: { en: 'Why does my stamped logo look blurry?', cn: '为什么烫金 Logo 边缘发糊？' }, answer: { en: 'Blurry edges usually come from excessive heat, excessive pressure, long dwell time, soft release behavior, dirty die, or unsuitable foil coating thickness.', cn: '边缘发糊通常来自温度过高、压力过大、停留时间过长、离型偏软、烫版脏污或涂层厚度不适合。' } },
+      { question: { en: 'Can hot stamping foil be used on matte laminated paper?', cn: '哑膜覆膜纸可以烫金吗？' }, answer: { en: 'Yes, but it requires a grade suitable for matte OPP, PET, or laminated paper. Matte lamination often has lower adhesion, so tape and rub tests are strongly recommended.', cn: '可以，但需要适合哑面 OPP、PET 或覆膜纸的型号。哑膜附着通常更难，强烈建议做胶带和耐磨测试。' } },
+      { question: { en: 'Can I print or varnish over hot stamping foil?', cn: '烫金后还能印刷或上光吗？' }, answer: { en: 'Some foils are designed to be overprinted or over-varnished, but not all. If your design needs CMYK, UV varnish, or protective coating over foil, ask for an overprintable grade and test adhesion.', cn: '部分烫金膜支持过印或后上光，但不是所有型号都可以。如果设计需要在箔层上印刷、UV 或保护涂层，应选择可过印型号并测试附着。' } },
+      { question: { en: 'Is hot stamping foil recyclable on paper packaging?', cn: '纸盒上的烫金膜影响回收吗？' }, answer: { en: 'Transfer finishing can be compatible with paper and cardboard recycling when the decorative layer is very thin and the packaging structure is properly designed. Claims should be verified with supplier documentation and local recycling rules.', cn: '当装饰层很薄且包装结构设计合理时，转移装饰可与纸和纸板回收体系兼容。具体声明应依据供应商文件和当地回收规则确认。' } },
+      { question: { en: 'What information should I send before asking for a quotation?', cn: '询价前应该提供哪些信息？' }, answer: { en: 'Send substrate type, paper thickness, surface treatment, artwork, stamping area size, machine type, required roll width, roll length, color, finish, order quantity, and target application.', cn: '建议提供底材类型、纸张厚度、表面处理、图稿、烫印面积、设备类型、所需宽幅、卷长、颜色、效果、数量和应用场景。' } },
+      { question: { en: 'Should I buy by price or by test result?', cn: '采购应该看价格还是测试结果？' }, answer: { en: 'For paper box packaging, test result is more important than unit price. A cheaper foil that causes missing transfer, peeling, or downtime can cost more than a properly matched foil.', cn: '纸盒包装用烫金膜应优先看测试结果。造成漏烫、掉金或停机的低价膜，实际成本可能高于匹配正确的型号。' } },
+    ],
+    sourceReferences: [
+      { label: 'S1', title: 'KURZ Hot Stamping', url: 'https://www.kurz-graphics.com/en/hot-stamping/' },
+      { label: 'S2', title: 'Ginkgo: Hot Stamping Foil Structure', url: 'https://www.ginkgotech.com.tw/en/faq/Ginkgo-faq-01.html' },
+      { label: 'S3', title: 'KURZ Hot Stamping Process PDF', url: 'https://www.kurz-automotive.com/fileadmin/user_upload/Plastic-Decoration/6_Newsroom/4_Downloads/KURZ-Hot-Stamping-Process.pdf' },
+      { label: 'S4', title: 'Packaging Impressions: Foiled by Foil', url: 'https://www.packagingimpressions.com/article/foiled-foil-14515/' },
+      { label: 'S5', title: 'Ginkgo: Common Foil Stamping Problems', url: 'https://www.ginkgotech.com.tw/en/faq/Ginkgo-faq-06.html' },
+      { label: 'S6', title: 'Dragon Foils: Common Hot Stamping Problems', url: 'https://www.dragonfoils.com/article/common-problems-encountered-when-using-hot-stamping-foil.html' },
+      { label: 'S7', title: 'Ginkgo: Quality Control and Management', url: 'https://www.ginkgotech.com.tw/en/page/quality-control_management.html' },
+      { label: 'S8', title: 'KURZ Transfer Finishes and Sustainability Facts', url: 'https://www.kurzusa.com/sustainability/our-transfer-finishes/' },
+      { label: 'S9', title: 'ITW Hot Stamping Foil Data Sheet', url: 'https://4.imimg.com/data4/OI/RE/MY-153538/itw-hot-stamping-foil.pdf' },
+      { label: 'S10', title: 'INX: Hot and Cold Foil Printing Techniques', url: 'https://www.inxinternational.com/blog/shelf-appeal/mastering-art-foil-printing-complete-guide-hot-and-cold-techniques' },
+    ],
+    relatedRoutes: ['products/category/PK', 'products/category/PLPY', 'guides/hot-stamping-foil-buying-guide', 'guides/hot-stamping-sampling-checklist', 'quote'],
   },
   {
     slug: 'hot-stamping-troubleshooting',

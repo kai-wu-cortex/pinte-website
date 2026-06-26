@@ -130,6 +130,57 @@ const GeoGuide: React.FC = () => {
             ))}
           </section>
 
+          {guide.processNotes && (
+            <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+              <h2 className="text-2xl font-bold text-neutral-950 mb-5">
+                {lang === 'cn' ? '核心采购判断' : 'Core Procurement Notes'}
+              </h2>
+              <div className="grid md:grid-cols-2 gap-4">
+                {guide.processNotes.map((note) => (
+                  <div key={note.title.en} className="rounded-2xl bg-neutral-50 p-5">
+                    <h3 className="font-bold text-neutral-950 mb-2">{note.title[lang]}</h3>
+                    <p className="text-neutral-600 leading-relaxed">{note.body[lang]}</p>
+                  </div>
+                ))}
+              </div>
+            </section>
+          )}
+
+          {guide.selectionTable && (
+            <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+              <h2 className="text-2xl font-bold text-neutral-950 mb-3">
+                {lang === 'cn' ? '采购选型因素对比表' : 'Selection Factors Comparison Table'}
+              </h2>
+              <p className="text-neutral-600 mb-5">
+                {lang === 'cn'
+                  ? '下单前需要同时确认底材、表面处理、图案、设备、版材、耐性和卷料规格。'
+                  : 'Before ordering, confirm substrate, surface treatment, artwork, machine, die, durability, and roll specifications together.'}
+              </p>
+              <div className="overflow-x-auto">
+                <table className="min-w-[980px] w-full text-left border-collapse text-sm">
+                  <thead>
+                    <tr className="border-b border-neutral-200 text-neutral-500">
+                      <th className="py-3 pr-4">{lang === 'cn' ? '选型因素' : 'Selection factor'}</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? '采购前确认' : 'Confirm before buying'}</th>
+                      <th className="py-3 pr-4">{lang === 'cn' ? '为什么重要' : 'Why it matters'}</th>
+                      <th className="py-3">{lang === 'cn' ? '询问供应商' : 'Ask your supplier'}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {guide.selectionTable.map((row) => (
+                      <tr key={row.factor.en} className="border-b border-neutral-100 align-top">
+                        <td className="py-4 pr-4 font-semibold text-neutral-900">{row.factor[lang]}</td>
+                        <td className="py-4 pr-4 text-neutral-600">{row.confirm[lang]}</td>
+                        <td className="py-4 pr-4 text-neutral-600">{row.why[lang]}</td>
+                        <td className="py-4 text-neutral-700">{row.ask[lang]}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          )}
+
           {guide.researchMatrix && (
             <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
               <h2 className="text-2xl font-bold text-neutral-950 mb-3">
@@ -272,6 +323,28 @@ const GeoGuide: React.FC = () => {
               ))}
             </div>
           </section>
+
+          {guide.sourceReferences && (
+            <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+              <h2 className="text-2xl font-bold text-neutral-950 mb-5">
+                {lang === 'cn' ? '参考资料' : 'Technical References'}
+              </h2>
+              <div className="grid md:grid-cols-2 gap-3">
+                {guide.sourceReferences.map((source) => (
+                  <a
+                    key={source.label}
+                    href={source.url}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="rounded-2xl bg-neutral-50 p-4 text-neutral-700 hover:text-pinte-blue transition-colors"
+                  >
+                    <span className="font-bold text-neutral-950">{source.label}. </span>
+                    {source.title}
+                  </a>
+                ))}
+              </div>
+            </section>
+          )}
 
           <section className="bg-pinte-blue text-white rounded-3xl p-8 md:p-10">
             <h2 className="text-2xl font-bold mb-4">
