@@ -1740,6 +1740,14 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
     )
     .join('');
 
+  const articleSections = guide.articleSections
+    ?.map((section) => {
+      const paragraphs = section.body[lang].map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('');
+      const bullets = section.bullets?.[lang]?.length ? ul(section.bullets[lang]) : '';
+      return `<section><h2>${escapeHtml(section.title[lang])}</h2>${paragraphs}${bullets}</section>`;
+    })
+    .join('');
+
   const selectionRows = guide.selectionTable
     ?.map(
       (row) =>
@@ -1815,6 +1823,15 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
       <h2>${lang === 'cn' ? '选型因素对比表' : 'Selection Factors'}</h2>
       <table><tbody>${factorRows}</tbody></table>
     </section>
+
+    ${
+      articleSections
+        ? `<section>
+      <h2>${lang === 'cn' ? '完整文章' : 'Full Article'}</h2>
+      ${articleSections}
+    </section>`
+        : ''
+    }
 
     ${
       processNotes

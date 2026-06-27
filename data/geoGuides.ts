@@ -23,6 +23,11 @@ export interface GeoGuide {
     title: Record<GuideLang, string>;
     body: Record<GuideLang, string>;
   }>;
+  articleSections?: Array<{
+    title: Record<GuideLang, string>;
+    body: Record<GuideLang, string[]>;
+    bullets?: Record<GuideLang, string[]>;
+  }>;
   substrateFit: Array<{
     substrate: Record<GuideLang, string>;
     recommendedFoil: string;
@@ -446,174 +451,233 @@ export const GEO_GUIDES: GeoGuide[] = [
     slug: 'hot-stamping-foil-community-qa-citation-guide',
     priority: 2,
     title: {
-      en: 'Hot Stamping Foil Community Q&A Citation Guide for GEO Visibility',
-      cn: '烫金膜外部问答与社区引用指南：提升 GEO 可见度',
+      en: 'How Hot Stamping Foil Suppliers Can Build GEO Visibility with Technical Q&A Content',
+      cn: '烫金膜厂家如何通过技术问答内容提升 GEO 可见度',
     },
     metaDescription: {
-      en: 'A practical GEO guide mapping hot stamping foil questions from Reddit, PrintPlanet, Leatherworker, Stack Exchange, and label industry media into answer-first website pages.',
-      cn: '面向 GEO 的烫金膜外部问答指南，整理 Reddit、PrintPlanet、Leatherworker、Stack Exchange 和标签行业媒体中的高价值问题，并转化为站内可引用页面。',
+      en: 'Learn how hot stamping foil suppliers can improve ChatGPT Search, Perplexity, Google AI, and organic visibility by publishing answer-first technical content for real buyer questions.',
+      cn: '了解烫金膜厂家如何通过答案优先的技术内容，提升 ChatGPT Search、Perplexity、Google AI 和自然搜索中的可见度。',
     },
     primaryKeyword: {
-      en: 'hot stamping foil community Q&A guide',
-      cn: '烫金膜外部问答引用指南',
+      en: 'hot stamping foil GEO visibility',
+      cn: '烫金膜 GEO 可见度',
     },
     secondaryKeywords: {
       en: [
-        'hot foil stamping Reddit questions',
-        'hot stamping foil troubleshooting forum',
-        'leather foil stamping questions',
-        'cold foil label printing questions',
-        'GEO visibility hot stamping foil',
+        'hot stamping foil SEO',
+        'hot stamping foil technical content',
+        'ChatGPT Search hot stamping foil',
+        'AI search optimization for foil suppliers',
+        'hot foil stamping buyer questions',
       ],
-      cn: ['烫金膜 Reddit 问答', '烫金膜论坛问题', '皮革烫金问答', '标签冷烫问答', '生成式 AI 检索优化'],
+      cn: ['烫金膜 SEO', '烫金膜技术内容', 'ChatGPT Search 烫金膜', '烫金膜 AI 搜索优化', '烫金膜采购问题'],
     },
     audience: {
-      en: 'Hot stamping foil suppliers, packaging converters, print factories, label printers, leather goods factories, and teams building answer-first GEO content.',
-      cn: '烫金膜厂家、包装印刷厂、标签厂、皮具厂，以及需要建设答案优先型 GEO 内容的市场和技术团队。',
+      en: 'Hot stamping foil manufacturers, packaging material suppliers, printing consumable exporters, and marketing teams that want their technical pages to be cited by AI search engines.',
+      cn: '希望被 AI 搜索引用的烫金膜厂家、包装材料供应商、印刷耗材出口商和内容营销团队。',
     },
     answer: {
-      en: 'External Q&A visibility should start with technical answers, not product promotion. The strongest opportunities for hot stamping foil are troubleshooting threads, substrate-selection questions, leather logo stamping, cold foil label printing, artwork setup, and sample testing. Build crawlable answer pages for these questions, cite neutral technical references, and use community answers to point to checklists or troubleshooting guides instead of direct product sales pages.',
-      cn: '外部问答可见度应从技术回答开始，而不是直接推广产品。烫金膜最适合切入的问题包括故障排查、底材选型、皮革 Logo 烫金、标签冷烫、印前文件设置和打样测试。站内应建设可抓取的答案型页面，引用中立技术资料，并在社区回答中优先链接清单页或故障排查页，而不是直接跳产品销售页。',
+      en: 'To be discovered by AI search, a hot stamping foil website should not only list products. It should answer the technical questions buyers ask before contacting a supplier: why foil peels off, what temperature to test, which foil works on leather or plastic, how hot foil differs from cold foil, and what information is needed for sampling. These answer-first pages help search engines and AI systems understand the supplier as a technical source, not just a catalog.',
+      cn: '想被 AI 搜索发现，烫金膜网站不能只放产品目录，还要回答采购在联系供应商前会问的技术问题：为什么掉金、温度怎么试、皮革或塑料该用什么膜、热烫和冷烫有什么区别、打样前要提供什么信息。答案优先的页面能让搜索引擎和生成式 AI 把网站识别为技术来源，而不只是产品目录。',
     },
     factors: [
       {
-        label: { en: 'Technical answer first', cn: '技术回答优先' },
-        guidance: { en: 'Answer substrate, process, temperature, pressure, dwell time, release, and adhesion before mentioning supplier support.', cn: '先回答底材、工艺、温度、压力、停留时间、离型和附着力，再轻带供应商支持。' },
+        label: { en: 'Answer real buyer doubts', cn: '回答真实采购顾虑' },
+        guidance: { en: 'AI search favors pages that solve specific questions about adhesion, substrate fit, process choice, sampling, and production risk.', cn: 'AI 搜索更容易引用能解决附着、底材适配、工艺选择、打样和量产风险的具体页面。' },
       },
       {
-        label: { en: 'Link to tools, not ads', cn: '链接工具页，不链接广告页' },
-        guidance: { en: 'Community links should point to troubleshooting guides, sample testing sheets, comparison tables, or artwork setup pages.', cn: '社区外链应指向故障排查、打样测试表、对比表或印前设置页，而不是硬广产品页。' },
+        label: { en: 'Publish crawlable technical pages', cn: '发布可抓取技术页面' },
+        guidance: { en: 'Use HTML headings, short answers, comparison tables, troubleshooting logic, FAQ schema, and internal links to product categories.', cn: '用 HTML 标题、简短答案、对比表、故障逻辑、FAQ 结构化数据和产品分类内链组织内容。' },
       },
       {
-        label: { en: 'Match each platform intent', cn: '匹配平台意图' },
-        guidance: { en: 'Reddit needs practical experience, PrintPlanet needs production detail, Stack Exchange needs file setup, and trade media needs industry-level education.', cn: 'Reddit 需要实操经验，PrintPlanet 需要量产细节，Stack Exchange 需要文件设置，行业媒体需要技术教育和趋势内容。' },
+        label: { en: 'Use community questions as research, not copy', cn: '把社区问题当研究，不当复制' },
+        guidance: { en: 'Forum and Q&A discussions reveal buyer language. The website should rewrite those needs into original, useful, supplier-owned content.', cn: '论坛和问答能暴露买家语言，网站应把这些需求重写成原创、有用、属于自己的供应商内容。' },
       },
     ],
-    processNotes: [
+    articleSections: [
       {
-        title: { en: 'How to answer without sounding promotional', cn: '如何回答才不像广告' },
+        title: { en: 'Why GEO matters for hot stamping foil suppliers', cn: '为什么烫金膜厂家需要做 GEO' },
         body: {
-          en: 'Use the order: substrate, process, root cause, one-variable-at-a-time adjustment, test method, and optional checklist. Mention brand or samples only after the technical answer is complete.',
-          cn: '回答顺序建议为：底材、工艺、原因、单变量调机、测试方法、可选清单。品牌和样品应放在技术回答之后。',
+          en: [
+            'Generative search engines do not behave like traditional keyword search pages. When a packaging buyer asks ChatGPT Search or Perplexity how to choose foil for a cosmetic box, the answer is assembled from pages that look trustworthy, specific, and technically useful.',
+            'For a hot stamping foil supplier, this means a product page alone is not enough. A page titled only “Gold Hot Stamping Foil” may describe a product, but it does not answer whether the foil works on OPP laminated paper, PP plastic caps, PU leather, UV varnish, or high-speed label lines.',
+            'The opportunity is to become the page that explains the buying decision. When the website explains substrate fit, process parameters, defect causes, sample testing, and supplier questions, AI systems have more concrete material to cite.',
+          ],
+          cn: [
+            '生成式搜索和传统关键词搜索不一样。当包装采购在 ChatGPT Search 或 Perplexity 里问“化妆品盒烫金膜怎么选”时，答案会从看起来可信、具体、有技术价值的页面中组合出来。',
+            '对烫金膜厂家来说，只做产品页是不够的。一个只写“Gold Hot Stamping Foil”的页面可以介绍产品，但不能回答这款膜是否适合 OPP 覆膜纸、PP 塑料盖、PU 皮革、UV 光油或高速标签线。',
+            '真正的机会是成为解释采购决策的页面。当网站讲清楚底材适配、工艺参数、缺陷原因、打样测试和供应商提问清单时，AI 系统就有更多具体内容可以引用。',
+          ],
         },
       },
       {
-        title: { en: 'Best internal links to prepare', cn: '最适合准备的站内链接' },
+        title: { en: 'Start with the questions buyers ask before they send an inquiry', cn: '从采购发询盘前会问的问题开始' },
         body: {
-          en: 'The most natural community links are troubleshooting, hot vs cold foil, leather foil selection, cold foil label printing, substrate selection, and foil sample testing checklist pages.',
-          cn: '最自然的社区引用链接是故障排查、热烫/冷烫对比、皮革烫金选型、标签冷烫、底材选型和烫金膜打样清单页。',
+          en: [
+            'Most buyers do not begin with a perfect product specification. They begin with a problem: the foil rubs off, the edge is not sharp, the label line is too fast, the leather surface burns, or the plastic cap cannot pass the alcohol test.',
+            'A strong SEO article should translate those problems into clear buying guidance. Instead of saying “we sell foil for many substrates,” explain which information changes the recommendation: paper coating, lamination, ink, varnish, plastic resin, leather finish, machine type, stamping area, temperature window, pressure, dwell time, and the final durability test.',
+            'This style of content is useful for human buyers and machine readers at the same time. It gives procurement teams a checklist, gives operators a test path, and gives AI search a clean answer structure.',
+          ],
+          cn: [
+            '多数采购一开始并没有完整规格，他们通常先遇到一个问题：烫金会掉、边缘不清、标签线速度太快、皮革表面被烫伤，或塑料瓶盖过不了耐酒精测试。',
+            '一篇好的 SEO 文章应把这些问题转化成清晰的采购判断。不要只写“我们适合多种底材”，而要说明哪些信息会改变推荐型号：纸张涂层、覆膜、油墨、光油、塑料树脂、皮革表面、设备类型、烫印面积、温度窗口、压力、停留时间和最终耐性测试。',
+            '这种内容同时对人和机器有用：采购能得到清单，机长能得到测试路径，AI 搜索能获得清晰的答案结构。',
+          ],
+        },
+      },
+      {
+        title: { en: 'Build pages around use cases, not only product names', cn: '围绕应用场景建页面，而不是只围绕产品名' },
+        body: {
+          en: [
+            'Hot stamping foil, stamping paper, electrochemical aluminum foil, hot foil, cold foil, holographic foil, and pigment foil are often mixed together in buyer language. A supplier website should not force buyers to know the correct term before they can learn.',
+            'Application pages solve this problem. A leather logo stamping page can explain PU leather, genuine leather, texture depth, pressure marks, and rub resistance. A label printing page can explain hot foil versus cold foil, UV adhesive, line speed, registration, roll width, and slitting quality. A paper box page can explain coated paper, white card, matte lamination, UV varnish, fine lines, and large solid areas.',
+            'When these pages are linked back to product categories, they also support conversion. The article educates first, then points the buyer toward PK foils for textured paper and leather, PC foils for plastic parts, PL/PY pigment foils for opaque color blocks, or digital cold foil for UV transfer processes.',
+          ],
+          cn: [
+            '烫金膜、烫金纸、电化铝、热烫箔、冷烫膜、镭射膜和颜料箔在采购语言里经常混用。供应商网站不能要求客户先懂术语，才能开始学习。',
+            '应用场景页可以解决这个问题。皮革 Logo 烫金页可以解释 PU 皮、真皮、纹理深度、压痕和耐磨；标签印刷页可以解释热烫和冷烫、UV 胶、线速、套准、卷宽和分切质量；纸盒彩盒页可以解释铜版纸、白卡、哑膜、UV 光油、细线和大面积实地。',
+            '当这些页面再链接回产品分类时，也能帮助转化。文章先教育客户，再引导到适合粗纹纸和皮革的 PK 系列、适合塑料件的 PC 系列、适合高遮盖色块的 PL/PY 颜料箔，或适合 UV 转移工艺的数码冷烫膜。',
+          ],
+        },
+      },
+      {
+        title: { en: 'Write troubleshooting content that connects defects to purchasing decisions', cn: '把故障排查写成采购决策内容' },
+        body: {
+          en: [
+            'Troubleshooting content is one of the strongest GEO entry points because buyers and production teams search for defects in natural language. They ask why the foil peels, why fine lines break, why matte laminated sheets look blurry, why large-area gold looks mottled, or why plastic parts fail after alcohol rubbing.',
+            'A useful page should avoid absolute answers. Temperature, pressure, dwell time, and speed depend on the substrate, machine, die, artwork, and foil grade. The correct answer is to give a starting direction and require sampling on the real material.',
+            'For example, peeling usually points to adhesive mismatch, low surface energy, insufficient heat, low pressure, wet ink, incompatible varnish, or contamination. Blurry edges often point to excessive heat, long dwell time, soft dies, uneven pressure, or a foil release grade that is too easy for the artwork. These explanations help buyers understand why sample testing is part of procurement, not a delay.',
+          ],
+          cn: [
+            '故障排查是最强的 GEO 入口之一，因为采购和生产团队会用自然语言搜索问题。他们会问为什么掉金、为什么细线断、为什么哑膜纸边缘发糊、为什么大面积金色发花，或为什么塑料件酒精擦拭后掉字。',
+            '有用的页面不应该给绝对答案。温度、压力、停留时间和速度都取决于底材、设备、烫版、图案和膜的型号。正确写法是给出起始判断，并强调必须在真实材料上打样确认。',
+            '例如，掉金通常指向胶层不匹配、表面能低、热量不足、压力不足、油墨未干、光油不兼容或表面污染。边缘发糊通常与温度过高、停留过长、版材偏软、压力不均，或图案不适合过易离型的膜有关。这些解释能让采购理解：打样测试是采购的一部分，不是拖慢流程。',
+          ],
+        },
+      },
+      {
+        title: { en: 'Use community discussion as a keyword source, then rewrite it into supplier-owned content', cn: '把社区讨论当关键词来源，再重写成网站自己的内容' },
+        body: {
+          en: [
+            'Forums, Q&A sites, and trade discussions are useful because they show how real users describe problems. A leatherworker may say the gold “rubs off.” A printer may say the edge is “not sharp.” A designer may ask how to set up a foil layer in InDesign. These phrases are valuable because they are closer to buyer language than product catalog language.',
+            'The website should not copy those discussions. Instead, it should rewrite the recurring questions into original articles, FAQ entries, and checklists. A supplier-owned article can combine community language with factory knowledge: substrate diagnosis, foil structure, adhesive and release behavior, machine type, testing method, and the information needed for a quote.',
+            'This is the difference between copying content and building authority. The source of the topic may be external, but the answer must come from the supplier’s own technical experience.',
+          ],
+          cn: [
+            '论坛、问答网站和行业讨论有价值，是因为它们展示了真实用户如何描述问题。皮具用户可能说金色“rub off”，印刷厂可能说边缘“not sharp”，设计师可能问 InDesign 里烫金层怎么设置。这些表达比产品目录里的词更接近采购语言。',
+            '网站不应该复制这些讨论，而应该把重复出现的问题重写成原创文章、FAQ 和清单。供应商自己的文章可以把社区语言和工厂经验结合起来：底材诊断、膜结构、胶层和离型、设备类型、测试方法，以及报价前需要的信息。',
+            '这就是复制内容和建立权威的区别。主题来源可以来自外部观察，但答案必须来自供应商自己的技术经验。',
+          ],
+        },
+      },
+      {
+        title: { en: 'What an AI-citable foil article should include', cn: '一篇容易被 AI 引用的烫金膜文章应包含什么' },
+        body: {
+          en: [
+            'A strong GEO article should begin with a direct answer, then expand into practical detail. The first paragraph should answer the query without forcing the reader to scroll. The middle should explain decision factors and common mistakes. The end should give a sampling checklist and a clear way to request technical support.',
+            'For hot stamping foil, the most useful content formats are comparison tables, defect-cause-action tables, substrate recommendation tables, FAQ schema, product category links, and quote forms that ask for real production information. Images help human readers, but the core answer should remain in crawlable text.',
+            'The page should also avoid over-promising. Recommended temperature ranges are starting points, not guarantees. Adhesion, alcohol resistance, scratch resistance, and transfer completeness must be confirmed by sampling on the buyer’s actual substrate.',
+          ],
+          cn: [
+            '一篇强 GEO 文章应该先给直接答案，再展开实用细节。第一段就要回答搜索问题，不要让读者必须滚动很久才能找到结论。中间部分解释判断因素和常见错误，结尾给打样清单和技术支持入口。',
+            '对烫金膜来说，最有用的内容形式包括对比表、问题-原因-处理表、底材推荐表、FAQ 结构化数据、产品分类内链，以及能收集真实生产信息的询盘表。图片能帮助读者理解，但核心答案必须保留在可抓取文字里。',
+            '页面还应避免过度承诺。推荐温度范围只能作为起点，不是保证。附着力、耐酒精、耐刮和转移完整度都必须在客户真实底材上打样确认。',
+          ],
+        },
+        bullets: {
+          en: [
+            'Direct answer in the first paragraph.',
+            'Substrate and process decision factors.',
+            'Troubleshooting logic tied to real defects.',
+            'Sampling checklist before bulk purchase.',
+            'Internal links to relevant foil series and quote pages.',
+          ],
+          cn: [
+            '第一段给出直接答案。',
+            '写清底材和工艺判断因素。',
+            '把故障逻辑连接到真实缺陷。',
+            '提供批量采购前打样清单。',
+            '内链到相关烫金膜系列和询盘页。',
+          ],
         },
       },
     ],
     substrateFit: [
       {
-        substrate: { en: 'Leather, PU leather, book covers, textured surfaces', cn: '真皮、PU 皮、书封、纹理表面' },
+        substrate: { en: 'Leather logo stamping', cn: '皮革 Logo 烫金' },
         recommendedFoil: 'PK Brown Back / Leather-suitable Foil',
-        note: { en: 'Community users often ask about temperature, foil rubbing off, and patchy transfer. Link to leather selection and sample testing content.', cn: '社区常问温度、掉金和转移斑驳，应链接到皮革选型和打样测试内容。' },
+        note: { en: 'Write about PU vs genuine leather, texture depth, heat tolerance, pressure marks, rub resistance, and small-step sampling.', cn: '内容应覆盖 PU 与真皮、纹理深度、耐温、压痕、耐磨和小步打样。' },
       },
       {
-        substrate: { en: 'Commercial printing, folding cartons, matte lamination', cn: '商业印刷、折叠纸盒、哑膜纸' },
+        substrate: { en: 'Paper boxes and matte laminated packaging', cn: '纸盒与哑膜包装' },
         recommendedFoil: 'PK / PLPY / Metallic Foil',
-        note: { en: 'Print forums care about release, registration, edge clarity, matte lamination compatibility, and production repeatability.', cn: '印刷论坛更关注离型、套准、边缘清晰度、哑膜适配和量产复现。' },
+        note: { en: 'Write about coated paper, white card, matte lamination, UV varnish, fine lines, large solid areas, and edge clarity.', cn: '内容应覆盖铜版纸、白卡、哑膜、UV 光油、细线、大面积实地和边缘清晰度。' },
       },
       {
-        substrate: { en: 'Labels, UV varnish, digital enhancement, flexo lines', cn: '标签、UV 光油、数码增效、柔印线' },
+        substrate: { en: 'Plastic caps and cosmetic components', cn: '塑料瓶盖与化妆品部件' },
+        recommendedFoil: 'PC Plastic Foil',
+        note: { en: 'Write about ABS, PP, PE, PET, PMMA, surface energy, alcohol resistance, scratch resistance, and cross-cut testing.', cn: '内容应覆盖 ABS、PP、PE、PET、PMMA、表面能、耐酒精、耐刮和百格测试。' },
+      },
+      {
+        substrate: { en: 'Label printing and UV cold foil', cn: '标签印刷与 UV 冷烫' },
         recommendedFoil: 'Digital Cold Foil / PC Cold Foil',
-        note: { en: 'Label media and printer discussions focus on hot vs cold foil, UV adhesive compatibility, line speed, and roll specifications.', cn: '标签媒体和印刷讨论重点是热烫/冷烫、UV 胶适配、线速和卷料规格。' },
-      },
-      {
-        substrate: { en: 'Artwork and prepress files', cn: '图稿与印前文件' },
-        recommendedFoil: 'Prepress Checklist',
-        note: { en: 'Design communities ask about spot color layers, overprint, line width, embossing, and production-ready artwork.', cn: '设计社区常问专色层、叠印、线宽、凹凸和可生产文件设置。' },
+        note: { en: 'Write about hot foil vs cold foil, UV adhesive, curing, registration, line speed, roll width, and slitting stability.', cn: '内容应覆盖热烫/冷烫、UV 胶、固化、套准、线速、卷宽和分切稳定性。' },
       },
     ],
     troubleshooting: [
       {
-        issue: { en: 'Community answer is deleted as advertising', cn: '社区回答被当作广告删除' },
-        likelyCause: { en: 'The answer links directly to a product page before solving the technical problem.', cn: '没有先解决技术问题，直接链接产品页。' },
-        action: { en: 'Provide a complete technical answer first, then link only to a checklist, troubleshooting page, or neutral guide when it helps the reader.', cn: '先给完整技术回答，再在确实有帮助时链接清单、故障排查或中立指南页。' },
+        issue: { en: 'The site has traffic but is not cited by AI answers', cn: '网站有流量但不被 AI 答案引用' },
+        likelyCause: { en: 'Pages are product-led and do not answer specific technical questions in a structured way.', cn: '页面以产品展示为主，没有结构化回答具体技术问题。' },
+        action: { en: 'Add answer-first articles with H2 questions, tables, FAQ schema, sampling steps, and product-category links.', cn: '增加答案优先文章，用 H2 问题、表格、FAQ 结构化数据、打样步骤和产品分类内链组织。' },
       },
       {
-        issue: { en: 'AI search cites generic blogs instead of PINTE pages', cn: 'AI 搜索引用泛博客而不是 PINTE 页面' },
-        likelyCause: { en: 'The website does not mirror real question wording or lacks crawlable tables and FAQ schema.', cn: '站内没有覆盖真实问法，或缺少可抓取表格和 FAQ 结构化数据。' },
-        action: { en: 'Use real forum-style questions as H2/FAQ entries and include defect-cause-action tables, source references, and internal links.', cn: '用真实论坛问法做 H2/FAQ，加入问题-原因-处理表、参考资料和内链。' },
+        issue: { en: 'Buyers read the article but do not request samples', cn: '采购读完文章但不申请样品' },
+        likelyCause: { en: 'The page explains the topic but does not ask for substrate, machine, artwork, durability tests, or roll specifications.', cn: '页面有解释，但没有引导客户提供底材、设备、图稿、耐性测试和卷料规格。' },
+        action: { en: 'Place a sampling checklist and quote CTA after the technical sections, not only at the top of the page.', cn: '在技术段落后放置打样清单和询盘 CTA，而不是只放在页面顶部。' },
       },
       {
-        issue: { en: 'Traffic does not become sample requests', cn: '流量没有转化为样品请求' },
-        likelyCause: { en: 'The page educates but does not ask for substrate, machine, artwork, and test standard.', cn: '页面有科普但没有引导用户提供底材、设备、图稿和测试标准。' },
-        action: { en: 'Add sample-testing checklist CTAs and quote form links after technical sections.', cn: '在技术内容后加入打样测试清单和询盘表链接。' },
+        issue: { en: 'Community research turns into copied content', cn: '社区调研变成了复制内容' },
+        likelyCause: { en: 'The page repeats forum wording or table structure instead of rewriting the insight into supplier expertise.', cn: '页面重复论坛话术或表格结构，没有重写成供应商自己的专业内容。' },
+        action: { en: 'Use community questions only as topic research. Rewrite the final article around substrate diagnosis, process logic, testing, and procurement decisions.', cn: '只把社区问题作为选题研究，最终文章要围绕底材诊断、工艺逻辑、测试和采购决策重写。' },
       },
     ],
     samplingChecklist: {
       en: [
-        'Monitor Reddit, PrintPlanet, Leatherworker, Briar Press, Stack Exchange, and label industry media for repeated foil questions.',
-        'Group questions by substrate, process, defect, parameter, artwork setup, and supplier selection.',
-        'Create one answer-first page for each high-repeat topic, with a concise answer, table, FAQ schema, and sample testing CTA.',
-        'In community replies, avoid direct product links unless asked; link to checklists or troubleshooting pages first.',
-        'Record which platform, question, internal page, and follow-up inquiry produced each sample request.',
+        'Write the buyer question as a clear H1 or H2, then answer it in the first paragraph.',
+        'Explain substrate, machine, artwork, temperature, pressure, dwell time, and test method in crawlable text.',
+        'Add a table that connects common defects to likely causes and next test actions.',
+        'Add FAQ schema for short questions such as “why does foil peel off?” and “can this foil stamp plastic?”',
+        'Link to the relevant product category and sample request page after the technical answer.',
       ],
       cn: [
-        '持续监测 Reddit、PrintPlanet、Leatherworker、Briar Press、Stack Exchange 和标签行业媒体中的重复烫金问题。',
-        '按底材、工艺、缺陷、参数、印前设置和供应商选择归类问题。',
-        '为高重复主题建设答案优先页面，包含简短答案、表格、FAQ 结构化数据和打样 CTA。',
-        '社区回复中不要先放产品链接，除非对方明确询问；优先链接清单页或故障排查页。',
-        '记录每个平台、问题、站内页面和后续询盘，判断哪些内容真正带来样品请求。',
+        '把采购问题写成清晰的 H1 或 H2，并在第一段直接回答。',
+        '用可抓取文本说明底材、设备、图稿、温度、压力、停留时间和测试方法。',
+        '增加表格，把常见缺陷连接到可能原因和下一步测试动作。',
+        '为“为什么掉金”“能不能烫塑料”等短问题加入 FAQ 结构化数据。',
+        '在技术答案之后链接到相关产品分类页和样品申请页。',
       ],
     },
     faqs: [
       {
-        question: { en: 'Which communities are most useful for hot stamping foil GEO visibility?', cn: '哪些社区最适合提升烫金膜 GEO 可见度？' },
-        answer: { en: 'Start with PrintPlanet, Reddit r/CommercialPrinting, Reddit r/Printing, Reddit r/Leathercraft, Leatherworker.net, Briar Press, Graphic Design Stack Exchange, and label industry publications such as Labels & Labeling.', cn: '优先关注 PrintPlanet、Reddit r/CommercialPrinting、Reddit r/Printing、Reddit r/Leathercraft、Leatherworker.net、Briar Press、Graphic Design Stack Exchange，以及 Labels & Labeling 等标签行业媒体。' },
+        question: { en: 'What is GEO for a hot stamping foil supplier?', cn: '烫金膜厂家做 GEO 是什么意思？' },
+        answer: { en: 'GEO means making website content easy for generative AI search engines to understand, summarize, and cite. For foil suppliers, this requires technical answers about substrates, parameters, defects, sampling, and procurement decisions.', cn: 'GEO 是让网站内容更容易被生成式 AI 搜索理解、总结和引用。对烫金膜厂家来说，重点是底材、参数、缺陷、打样和采购决策类技术答案。' },
       },
       {
-        question: { en: 'What should PINTE link to from community answers?', cn: 'PINTE 在社区回答里应该链接什么页面？' },
-        answer: { en: 'Use links to troubleshooting guides, sampling checklists, hot foil vs cold foil comparisons, substrate selection guides, leather foil guides, and cold foil label guides. These are more acceptable than direct product pages.', cn: '优先链接故障排查、打样清单、热烫/冷烫对比、底材选型、皮革烫金和标签冷烫指南。这些比直接产品页更容易被接受。' },
+        question: { en: 'Should community discussions be copied into the website?', cn: '可以把社区讨论直接复制到网站里吗？' },
+        answer: { en: 'No. Community discussions should be used as topic research. The website content should be rewritten as original supplier-owned guidance based on technical experience, testing logic, and procurement support.', cn: '不应该。社区讨论只能作为选题研究，网站内容要基于技术经验、测试逻辑和采购支持，重写成供应商自己的原创指南。' },
       },
       {
-        question: { en: 'How should a manufacturer answer Reddit or forum questions?', cn: '厂家应该怎样回答 Reddit 或论坛问题？' },
-        answer: { en: 'Answer like a technician: ask for substrate and process, explain the likely cause, suggest a small test matrix, and only mention supplier samples or checklists after the technical guidance.', cn: '像技术员一样回答：先问底材和工艺，解释可能原因，建议小范围测试矩阵，最后再轻带样品或清单。' },
+        question: { en: 'Which hot stamping foil pages should be written first for AI search?', cn: '为了 AI 搜索，烫金膜网站应先写哪些页面？' },
+        answer: { en: 'Start with troubleshooting, sample testing checklist, hot foil vs cold foil comparison, substrate selection, leather logo stamping, cosmetic packaging foil, plastic part foil, and cold foil label printing pages.', cn: '优先写故障排查、打样测试清单、热烫/冷烫对比、底材选型、皮革 Logo 烫金、化妆品包装、塑料件烫金和标签冷烫页面。' },
       },
-    ],
-    researchMatrix: [
-      { scenario: { en: 'Leathercraft communities', cn: '皮具社区' }, question: { en: 'Why does gold foil rub off or fail to transfer on leather?', cn: '为什么皮革烫金会掉金或转移不全？' }, intent: { en: 'Troubleshooting', cn: '故障解决型' }, concern: { en: 'The maker needs a durable logo on PU, genuine leather, or textured leather goods.', cn: '皮具客户需要 PU、真皮或纹理皮革上的 Logo 更耐磨。' }, sources: { en: 'Reddit r/Leathercraft, Leatherworker.net', cn: 'Reddit r/Leathercraft、Leatherworker.net' }, pageType: { en: 'Leather foil selection guide / FAQ', cn: '皮革烫金选型页 / FAQ' }, conversionScore: 9, citationScore: 9, priority: 'P0' },
-      { scenario: { en: 'Bookbinding and letterpress', cn: '装帧与凸版印刷' }, question: { en: 'Can I use a DIY press, 3D printed die, or letterpress machine for foil stamping?', cn: 'DIY 热烫机、3D 打印模具或凸版机能不能做烫金？' }, intent: { en: 'Application scenario', cn: '应用场景型' }, concern: { en: 'Small studios want usable parameters without buying the wrong foil or machine.', cn: '小工作室希望避免买错膜或设备。' }, sources: { en: 'Reddit r/bookbinding, Briar Press', cn: 'Reddit r/bookbinding、Briar Press' }, pageType: { en: 'Blog / FAQ', cn: '博客 / FAQ' }, conversionScore: 6, citationScore: 8, priority: 'P1' },
-      { scenario: { en: 'Commercial printing', cn: '商业印刷' }, question: { en: 'Should a packaging job use hot foil, cold foil, digital foil, or toner-reactive foil?', cn: '包装订单应该用热烫、冷烫、数码烫还是 toner reactive foil？' }, intent: { en: 'Comparison', cn: '对比型' }, concern: { en: 'Printers need to match equipment, run length, substrate, cost, and finish quality.', cn: '印刷厂需要匹配设备、订单量、底材、成本和效果。' }, sources: { en: 'Reddit r/CommercialPrinting, r/Printing, WhatTheyThink', cn: 'Reddit r/CommercialPrinting、r/Printing、WhatTheyThink' }, pageType: { en: 'Hot vs cold foil comparison page', cn: '热烫/冷烫对比页' }, conversionScore: 9, citationScore: 10, priority: 'P0' },
-      { scenario: { en: 'Print production forums', cn: '印刷生产论坛' }, question: { en: 'Why are foil edges not sharp on matte laminated paper?', cn: '为什么哑膜纸烫金边缘不清晰？' }, intent: { en: 'Troubleshooting', cn: '故障解决型' }, concern: { en: 'The converter needs to reduce rework on matte lamination and fine text.', cn: '后道厂需要降低哑膜和细字烫金返工。' }, sources: { en: 'PrintPlanet, packaging finishing discussions', cn: 'PrintPlanet、包装后道讨论' }, pageType: { en: 'Troubleshooting page', cn: '故障排查页' }, conversionScore: 10, citationScore: 9, priority: 'P0' },
-      { scenario: { en: 'Label printing', cn: '标签印刷' }, question: { en: 'When should label printers choose cold foil instead of hot foil?', cn: '标签印刷什么时候该选冷烫而不是热烫？' }, intent: { en: 'Comparison', cn: '对比型' }, concern: { en: 'Label converters compare line speed, UV adhesive, registration, and roll cost.', cn: '标签厂关注线速、UV 胶、套准和卷料成本。' }, sources: { en: 'Labels & Labeling, FlexoTech, trade media', cn: 'Labels & Labeling、FlexoTech、行业媒体' }, pageType: { en: 'Cold foil label guide', cn: '标签冷烫指南' }, conversionScore: 10, citationScore: 10, priority: 'P0' },
-      { scenario: { en: 'Graphic design and prepress', cn: '设计与印前' }, question: { en: 'How should foil stamping artwork be set up in InDesign or packaging files?', cn: '烫金图稿在 InDesign 或包装文件里怎么设置？' }, intent: { en: 'Parameter', cn: '参数型' }, concern: { en: 'Designers want a production-ready spot color layer without overprint or registration mistakes.', cn: '设计师希望专色层、叠印和套准设置不会导致生产问题。' }, sources: { en: 'Graphic Design Stack Exchange', cn: 'Graphic Design Stack Exchange' }, pageType: { en: 'Prepress checklist / FAQ', cn: '印前清单 / FAQ' }, conversionScore: 7, citationScore: 9, priority: 'P1' },
-      { scenario: { en: 'Chinese search and Q&A', cn: '中文搜索与问答' }, question: { en: 'What is electrochemical aluminum foil and why does foil stamping peel off?', cn: '电化铝是什么，烫金为什么会掉金？' }, intent: { en: 'Terminology + troubleshooting', cn: '术语 + 故障解决型' }, concern: { en: 'Chinese buyers need basic terminology before they can provide useful substrate and process details.', cn: '中文采购需要先理解术语，才能提供底材和工艺信息。' }, sources: { en: 'Zhihu columns, Chinese print process articles', cn: '知乎专栏、中文印刷工艺文章' }, pageType: { en: 'Chinese FAQ / terminology page', cn: '中文 FAQ / 术语解释页' }, conversionScore: 8, citationScore: 8, priority: 'P1' },
-    ],
-    pageRecommendations: {
-      en: [
-        { pageType: 'Core citation pages', questions: 'Troubleshooting, sample testing checklist, hot foil vs cold foil, substrate selection' },
-        { pageType: 'Community-specific pages', questions: 'Leather logo stamping, cold foil label printing, print production defect fixes, prepress artwork setup' },
-        { pageType: 'FAQ entries', questions: 'Foil not sticking, foil rubbing off, matte laminate edge blur, leather temperature, UV adhesive compatibility' },
-        { pageType: 'Industry outreach', questions: 'Labels & Labeling, FlexoTech, Packaging Impressions, WhatTheyThink style technical articles' },
-      ],
-      cn: [
-        { pageType: '核心引用页', questions: '故障排查、打样测试清单、热烫/冷烫对比、底材选型' },
-        { pageType: '社区场景页', questions: '皮革 Logo 烫金、标签冷烫、印刷后道缺陷、印前文件设置' },
-        { pageType: 'FAQ 条目', questions: '烫不牢、掉金、哑膜边缘发糊、皮革温度、UV 胶兼容性' },
-        { pageType: '行业外联', questions: 'Labels & Labeling、FlexoTech、Packaging Impressions、WhatTheyThink 类技术稿' },
-      ],
-    },
-    sourceReferences: [
-      { label: 'S1', title: 'Reddit r/Leathercraft discussion: Advice for hot foil stamping', url: 'https://www.reddit.com/r/Leathercraft/comments/1373gxw/advice_for_hot_foil_stamping/' },
-      { label: 'S2', title: 'Reddit r/bookbinding discussion: DIY hot foil stamping', url: 'https://www.reddit.com/r/bookbinding/comments/8etr72/diy_hot_foil_stamping/' },
-      { label: 'S3', title: 'Reddit r/Printing discussion: cold foil printing experience', url: 'https://www.reddit.com/r/Printing/comments/1losklz/can_anyone_share_their_experience_with_cold_foil/' },
-      { label: 'S4', title: 'PrintPlanet discussion: Hot Foil Stamping', url: 'https://printplanet.com/threads/hot-foil-stamping.76/' },
-      { label: 'S5', title: 'Leatherworker.net discussion: hot foil vs hydraulic press for volume stamping', url: 'https://leatherworker.net/forum/topic/103468-hot-foil-vs-hydraulic-press-for-volume-stamping/' },
-      { label: 'S6', title: 'Briar Press discussion: Hot Foil Stamping?', url: 'https://www.briarpress.org/31922' },
-      { label: 'S7', title: 'Graphic Design Stack Exchange: InDesign file setup for foil stamping and embossing', url: 'https://graphicdesign.stackexchange.com/questions/67697/indesign-proper-file-set-up-for-foil-stamping-and-embossing' },
-      { label: 'S8', title: 'Labels & Labeling Label Academy: foil stamping processes', url: 'https://www.labelsandlabeling.com/label-academy/article/embellishments-foil-stamping-processes' },
-      { label: 'S9', title: 'WhatTheyThink: Embellishment primer', url: 'https://whattheythink.com/articles/129323-categorically-embellished-embellishment-primer/' },
-      { label: 'S10', title: 'FlexoTech Magazine', url: 'https://www.flexotechmag.com/' },
     ],
     relatedRoutes: [
       'guides/hot-stamping-troubleshooting',
       'guides/hot-stamping-sampling-checklist',
       'guides/hot-foil-vs-cold-foil-vs-holographic',
       'guides/hot-stamping-foil-buying-guide',
+      'products/category/PK',
+      'products/category/PC',
       'quote',
     ],
   },

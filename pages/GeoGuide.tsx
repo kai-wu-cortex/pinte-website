@@ -130,6 +130,37 @@ const GeoGuide: React.FC = () => {
             ))}
           </section>
 
+          {guide.articleSections && (
+            <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-10 mb-8">
+              <div className="space-y-10">
+                {guide.articleSections.map((section) => (
+                  <section key={section.title.en} className="max-w-4xl">
+                    <h2 className="text-2xl md:text-3xl font-bold text-neutral-950 mb-4">
+                      {section.title[lang]}
+                    </h2>
+                    <div className="space-y-4">
+                      {section.body[lang].map((paragraph) => (
+                        <p key={paragraph} className="text-neutral-700 leading-relaxed text-base md:text-lg">
+                          {paragraph}
+                        </p>
+                      ))}
+                    </div>
+                    {section.bullets?.[lang]?.length ? (
+                      <ul className="mt-5 grid gap-3">
+                        {section.bullets[lang].map((item) => (
+                          <li key={item} className="flex gap-3 text-neutral-700">
+                            <CheckCircle2 size={18} className="text-green-600 mt-1 shrink-0" />
+                            <span>{item}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    ) : null}
+                  </section>
+                ))}
+              </div>
+            </section>
+          )}
+
           {guide.processNotes && (
             <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
               <h2 className="text-2xl font-bold text-neutral-950 mb-5">
