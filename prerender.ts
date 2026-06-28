@@ -75,28 +75,41 @@ async function fetchArticles(): Promise<any[]> {
     const fullUrl = `https://api.pintecl.com/v1/data_sources/${NOTION_DATABASE_ID}/query`;
     console.log('Fetching from Notion API via proxy... URL:', fullUrl);
 
-    const response = await fetch(fullUrl, {
-      method: 'POST',
-      headers: {
-        Authorization: `Bearer ${NOTION_API_KEY}`,
-        'Notion-Version': '2025-09-03',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({ page_size: 100 }),
-    });
+    const notionPages: Array<{ id: string; properties: Record<string, any>; cover?: any }> = [];
+    let cursor: string | undefined;
 
-    const data = (await response.json()) as {
-      results?: Array<{ id: string; properties: Record<string, any>; cover?: any }>;
-    };
+    do {
+      const response = await fetch(fullUrl, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${NOTION_API_KEY}`,
+          'Notion-Version': '2025-09-03',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          page_size: 100,
+          ...(cursor ? { start_cursor: cursor } : {}),
+        }),
+      });
 
-    if (!response.ok) {
-      console.error('Notion API error:', data);
-      return [];
-    }
+      const data = (await response.json()) as {
+        results?: Array<{ id: string; properties: Record<string, any>; cover?: any }>;
+        has_more?: boolean;
+        next_cursor?: string | null;
+      };
 
-    if (!data.results) return [];
+      if (!response.ok) {
+        console.error('Notion API error:', data);
+        return [];
+      }
 
-    return data.results.map((page: any) => {
+      notionPages.push(...(data.results || []));
+      cursor = data.has_more ? data.next_cursor || undefined : undefined;
+    } while (cursor);
+
+    if (!notionPages.length) return [];
+
+    return notionPages.map((page: any) => {
       const props = page.properties;
       const getTitle = (prop: any) => {
         if (prop && prop.title && Array.isArray(prop.title)) return prop.title[0]?.plain_text || '';
