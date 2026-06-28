@@ -16,6 +16,8 @@ dotenv.config();
 const siteUrl = process.env.SITE_URL || 'https://www.pintecl.com';
 const languages = ['cn', 'en'];
 const routePath = (lang, route = '') => route ? `/${lang}/${route}/` : `/${lang}/`;
+const notionDatabaseId = process.env.NOTION_DATABASE_ID || '30cf8285a7fd80979ba1000b8469ba95';
+const blogSitemapPath = path.join(process.cwd(), 'public', 'sitemap-blog.json');
 
 // Define all static pages with their priorities and change frequencies
 const staticPages = [
@@ -94,8 +96,95 @@ const guidePages = GEO_GUIDES.map((guide) => ({
   priority: guide.priority <= 2 ? '0.9' : '0.8',
 }));
 
+function getNotionDate(page) {
+  const props = page.properties || {};
+  const dateProp = props['截止日期'] || props.Date || props.Published || props.published || props.LastEdited;
+  return dateProp?.date?.start || page.last_edited_time?.split('T')[0] || new Date().toISOString().split('T')[0];
+}
+
+function notionPageToBlogSitemapEntry(page) {
+  const slug = page.id.replace(/-/g, '');
+  return {
+    loc: `${siteUrl}/blog/${slug}`,
+    lastmod: getNotionDate(page),
+    changefreq: 'weekly',
+    priority: 0.8,
+  };
+}
+
+async function fetchBlogPagesFromNotion() {
+  if (!notionDatabaseId) return [];
+
+  const pages = [];
+  let cursor;
+
+  do {
+    const response = await fetch(`https://api.pintecl.com/v1/data_sources/${notionDatabaseId}/query`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Notion-Version': '2025-09-03',
+      },
+      body: JSON.stringify({
+        page_size: 100,
+        ...(cursor ? { start_cursor: cursor } : {}),
+      }),
+    });
+
+    if (!response.ok) {
+      throw new Error(`Notion proxy returned ${response.status}`);
+    }
+
+    const data = await response.json();
+    pages.push(...(data.results || []).map(notionPageToBlogSitemapEntry));
+    cursor = data.has_more ? data.next_cursor : undefined;
+  } while (cursor);
+
+  return pages;
+}
+
+function readCachedBlogPages() {
+  if (!fs.existsSync(blogSitemapPath)) return [];
+
+  try {
+    const blogSitemap = JSON.parse(fs.readFileSync(blogSitemapPath, 'utf8'));
+    return Array.isArray(blogSitemap.pages) ? blogSitemap.pages : [];
+  } catch (error) {
+    console.warn('⚠️ Could not read cached blog sitemap:', error.message);
+    return [];
+  }
+}
+
+async function collectBlogPages() {
+  try {
+    const fetchedPages = await fetchBlogPagesFromNotion();
+
+    if (fetchedPages.length > 0) {
+      const pages = [
+        {
+          loc: `${siteUrl}/blog`,
+          lastmod: new Date().toISOString().split('T')[0],
+          changefreq: 'daily',
+          priority: 0.9,
+        },
+        ...fetchedPages,
+      ];
+
+      fs.writeFileSync(blogSitemapPath, JSON.stringify({ pages }, null, 2), 'utf8');
+      console.log(`✅ Refreshed blog sitemap cache with ${fetchedPages.length} Notion articles`);
+      return pages;
+    }
+  } catch (error) {
+    console.warn('⚠️ Could not refresh blog sitemap from Notion proxy:', error.message);
+  }
+
+  const cachedPages = readCachedBlogPages();
+  console.log(`↩️ Using cached blog sitemap with ${Math.max(cachedPages.length - 1, 0)} articles`);
+  return cachedPages;
+}
+
 // Generate XML sitemap
-function generateSitemap() {
+function generateSitemap(blogPages = []) {
   const today = new Date().toISOString().split('T')[0];
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -166,50 +255,39 @@ function generateSitemap() {
     });
   });
 
-  // Add blog articles from sitemap-blog.json if it exists
-  const blogSitemapPath = path.join(process.cwd(), 'public', 'sitemap-blog.json');
-  if (fs.existsSync(blogSitemapPath)) {
-    try {
-      const blogSitemap = JSON.parse(fs.readFileSync(blogSitemapPath, 'utf8'));
-      const addedBlogUrls = new Set(); // Track to avoid duplicates
+  const addedBlogUrls = new Set();
+  blogPages.forEach((page) => {
+    if (page.loc && !addedBlogUrls.has(page.loc) && !page.loc.endsWith('/blog') && !page.loc.endsWith('/blog/')) {
+      addedBlogUrls.add(page.loc);
+      const route = page.loc
+        .replace(siteUrl, '')
+        .replace(/^\/(cn|en)\//, '')
+        .replace(/^\/(cn|en)$/, '')
+        .replace(/^\/+/, '')
+        .replace(/\/+$/, '');
 
-      if (blogSitemap.pages && Array.isArray(blogSitemap.pages)) {
-        blogSitemap.pages.forEach((page) => {
-          // Skip duplicates and the main blog page (already added)
-          if (page.loc && !addedBlogUrls.has(page.loc) && !page.loc.endsWith('/blog') && !page.loc.endsWith('/blog/')) {
-            addedBlogUrls.add(page.loc);
-            const route = page.loc
-              .replace(siteUrl, '')
-              .replace(/^\/(cn|en)\//, '')
-              .replace(/^\/(cn|en)$/, '')
-              .replace(/^\/+/, '')
-              .replace(/\/+$/, '');
-            if (route) {
-              addUrl({
-                route,
-                lastmod: page.lastmod || today,
-                changefreq: page.changefreq || 'weekly',
-                priority: page.priority || '0.8',
-              });
-            }
-          }
+      if (route) {
+        addUrl({
+          route,
+          lastmod: page.lastmod || today,
+          changefreq: page.changefreq || 'weekly',
+          priority: page.priority || '0.8',
         });
       }
-    } catch (error) {
-      console.warn('⚠️ Could not read blog sitemap:', error.message);
     }
-  }
+  });
 
   xml += '</urlset>';
   return xml;
 }
 
 // Write sitemap to file
-function writeSitemap() {
+async function writeSitemap() {
   console.log('🗺️ Generating XML sitemap...');
 
   try {
-    const sitemapXml = generateSitemap();
+    const blogPages = await collectBlogPages();
+    const sitemapXml = generateSitemap(blogPages);
     const outputPath = path.join(process.cwd(), 'public', 'sitemap.xml');
 
     fs.writeFileSync(outputPath, sitemapXml, 'utf8');
@@ -345,7 +423,7 @@ function generateProductFeed() {
 }
 
 // Run both generators
-writeSitemap();
+await writeSitemap();
 generateRobotsTxt();
 generateProductFeed();
 

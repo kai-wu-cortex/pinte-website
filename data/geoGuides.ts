@@ -386,33 +386,356 @@ export const GEO_GUIDES: GeoGuide[] = [
   },
   {
     slug: 'cosmetic-packaging-foil-guide',
-    priority: 4,
-    title: { en: 'Cosmetic Packaging Hot Stamping Foil Guide', cn: '化妆品包装烫金膜选型指南' },
-    metaDescription: { en: 'How to select foil for lipstick tubes, compacts, skincare packaging, perfume caps, cosmetic boxes, and alcohol-resistant decorative parts.', cn: '针对口红管、粉盒、护肤品包装、香水盖、化妆品盒和耐酒精装饰件的烫金膜选型指南。' },
+    priority: 1,
+    title: { en: 'Hot Stamping Foil for Cosmetic Packaging: A Buyer Guide', cn: '化妆品包装烫金膜采购指南' },
+    metaDescription: { en: 'Choose hot stamping foil for cosmetic boxes, perfume boxes, makeup packaging, labels, plastic caps, glass bottles, tubes, and alcohol-resistant decorative parts.', cn: '面向化妆品盒、香水盒、彩妆盒、标签、塑料瓶盖、玻璃瓶、软管和耐酒精装饰件的烫金膜选型指南。' },
     primaryKeyword: { en: 'cosmetic packaging hot stamping foil', cn: '化妆品包装烫金膜' },
-    secondaryKeywords: { en: ['alcohol resistant foil', 'plastic hot stamping foil', 'foil for lipstick tubes'], cn: ['耐酒精烫金箔', '塑胶烫金膜', '口红管烫金膜'] },
+    secondaryKeywords: { en: ['hot stamping foil for cosmetic boxes', 'foil for perfume packaging', 'alcohol resistant foil', 'plastic hot stamping foil', 'foil for lipstick tubes'], cn: ['化妆品盒烫金膜', '香水包装烫金膜', '耐酒精烫金箔', '塑胶烫金膜', '口红管烫金膜'] },
     audience: { en: 'Cosmetics packaging buyers, plastic component factories, decoration suppliers, and brand packaging engineers.', cn: '化妆品包材采购、塑胶件工厂、后加工供应商和品牌包材工程师。' },
-    answer: { en: 'For cosmetic packaging, first decide whether the part is plastic, coated paper, glass, or laminated board. Plastic parts usually need PC plastic foil with strong adhesion and alcohol resistance; paper boxes may use PK or pigment foil; premium effects may use holographic or matte metallic foil. Always test alcohol wiping, cross-cut adhesion, rub resistance, and edge sharpness before mass production.', cn: '化妆品包装选烫金膜时，先判断工件是塑胶、纸盒、玻璃还是覆膜纸。塑胶件通常需要 PC 塑胶箔并验证耐酒精；纸盒可选 PK 或颜料箔；高端效果可选镭射或哑光金属箔。量产前必须测试耐酒精擦拭、百格附着、耐磨和边缘清晰度。' },
+    answer: { en: 'For cosmetic packaging, choose hot stamping foil by substrate, surface treatment, artwork detail, durability test, and machine process. Paper cosmetic boxes, perfume boxes, makeup boxes, labels, plastic caps, glass bottles, and tubes may require different foil grades. Coated or laminated paper usually needs packaging foil with clean release and sharp edges. Plastic caps and cosmetic components often need plastic-grade foil with adhesion and alcohol-resistance testing. Final temperature, pressure, dwell time, and speed must be confirmed by sampling on the real substrate.', cn: '化妆品包装选择烫金膜时，应按底材、表面处理、图案细节、耐性测试和设备工艺判断。化妆品盒、香水盒、彩妆盒、标签、塑料瓶盖、玻璃瓶和软管可能需要不同等级的膜。涂布纸或覆膜纸通常需要离型干净、边缘清晰的包装箔；塑料瓶盖和化妆品部件通常需要通过附着和耐酒精测试的塑胶箔。最终温度、压力、停留时间和速度必须在真实底材上打样确认。' },
     factors: [
       { label: { en: 'Alcohol resistance', cn: '耐酒精' }, guidance: { en: 'Perfume, skincare, and makeup packaging may contact alcohol during filling, cleaning, or consumer use.', cn: '香水、护肤和美妆包装在灌装、清洁或使用中可能接触酒精。' } },
       { label: { en: 'Plastic grade adhesion', cn: '塑胶附着' }, guidance: { en: 'ABS, PS, PVC, PMMA, PP, and PE need validated plastic foil and surface energy checks.', cn: 'ABS、PS、PVC、PMMA、PP、PE 需要验证塑胶箔和表面能。' } },
       { label: { en: 'Brand finish', cn: '品牌效果' }, guidance: { en: 'Luxury cosmetics often use mirror gold/silver, matte metallic, holographic, or pigment finishes.', cn: '高端美妆常用镜面金银、哑光金属、镭射或颜料色效果。' } },
     ],
+    articleSections: [
+      {
+        title: { en: 'Start with the packaging part, not only the foil color', cn: '先看包装部件，不只看颜色' },
+        body: {
+          en: [
+            'Cosmetic packaging buyers often begin with a visual request such as bright gold, champagne gold, matte silver, holographic rainbow, or opaque black. The practical selection starts one step earlier: what surface will receive the foil?',
+            'A perfume box, skincare folding carton, makeup palette, pressure-sensitive label, plastic cap, ABS compact, PET component, glass bottle, and soft tube can all use metallic decoration, but they do not behave the same under heat, pressure, adhesive release, and durability testing.',
+            'PINTE recommends treating color approval and material approval as separate steps. First confirm the foil family for the substrate. Then confirm the shade, gloss, holographic effect, roll width, and cutting specification.',
+          ],
+          cn: [
+            '化妆品包装采购通常会先提出视觉需求，例如亮金、香槟金、哑银、镭射彩虹或高遮盖黑色。但实际选型要先往前一步：烫印面到底是什么底材？',
+            '香水盒、护肤品折叠纸盒、彩妆盘、压敏标签、塑料瓶盖、ABS 粉盒、PET 部件、玻璃瓶和软管都可以做金属装饰，但它们在温度、压力、胶层转移和耐性测试中的表现不同。',
+            'PINTE 建议把颜色确认和材料确认分开。先确认适合底材的膜系列，再确认色号、光泽、镭射效果、卷宽和分切规格。',
+          ],
+        },
+      },
+      {
+        title: { en: 'Paper cosmetic boxes, perfume boxes, and makeup cartons', cn: '化妆品纸盒、香水盒和彩妆纸盒' },
+        body: {
+          en: [
+            'Paper-based cosmetic packaging may include coated paper, white card, specialty paper, matte lamination, gloss lamination, UV varnish, soft-touch coating, or printed ink layers. Each finish changes foil release and adhesion.',
+            'Fine logos and small text need clean release and sharp edge definition. Large solid gold areas need stable transfer, even pressure, and a foil grade that does not create mottling or pinholes. Folding cartons also need crease tests because foil can crack when stamped across folding lines.',
+            'For luxury boxes, buyers should test the final printed and laminated sheet, not only a blank board. Ink, varnish, curing, anti-scratch coating, and lamination film can change the recommended foil.',
+          ],
+          cn: [
+            '纸类化妆品包装可能包含铜版纸、白卡、特种纸、哑膜、亮膜、UV 光油、肤感涂层或印刷油墨层。每一种表面处理都会影响离型和附着。',
+            '细线 Logo 和小文字需要离型干净、边缘清晰；大面积金色需要转移稳定、压力均匀，并避免发花和针孔。折叠纸盒还需要做压线测试，因为跨折线烫印可能出现开裂。',
+            '高端纸盒必须用最终印刷并覆膜后的材料测试，不能只用空白纸板。油墨、光油、固化状态、防刮涂层和覆膜材料都会改变推荐型号。',
+          ],
+        },
+      },
+      {
+        title: { en: 'Labels, caps, glass bottles, plastic parts, and tubes', cn: '标签、瓶盖、玻璃瓶、塑料件和软管' },
+        body: {
+          en: [
+            'Cosmetic labels may use coated label stock, film labels, laminated labels, or UV varnished surfaces. Hot foil can create premium metallic logos, while cold foil may be better for inline label production and larger printed metallic effects.',
+            'Plastic caps and cosmetic components need closer validation. PP, PET, ABS, PVC, PMMA, and coated plastics have different surface energy and heat tolerance. Alcohol wiping is important for perfume and skincare packaging because filling, cleaning, and consumer use can expose the decoration to alcohol.',
+            'Glass bottles and soft tubes often depend on the coating, ink, primer, or label layer rather than bare glass alone. Buyers should send the exact production sample and state whether the final part must pass rub, scratch, tape, folding, alcohol, or temperature tests.',
+          ],
+          cn: [
+            '化妆品标签可能是涂布标签纸、薄膜标签、覆膜标签或 UV 光油表面。热烫可以做高端金属 Logo，冷烫则可能更适合联机标签生产和较大面积金属印刷效果。',
+            '塑料瓶盖和化妆品部件需要更严格验证。PP、PET、ABS、PVC、PMMA 和带涂层塑料的表面能和耐热性不同。香水和护肤品包装尤其要关注耐酒精，因为灌装、清洁和消费者使用都可能接触酒精。',
+            '玻璃瓶和软管通常取决于表面涂层、油墨、底涂或标签层，而不是裸玻璃本身。采购应提供真实量产样品，并说明是否需要通过耐磨、耐刮、胶带、折叠、耐酒精或耐温测试。',
+          ],
+        },
+      },
+      {
+        title: { en: 'Information to send before sampling', cn: '打样前需要提供的信息' },
+        body: {
+          en: [
+            'A useful sample request should include substrate name, surface treatment, ink or varnish information, product photo, artwork size, minimum line width, stamping area, machine type, die material, target color, roll width, roll length, core size, required MOQ, and lead-time expectations.',
+            'Recommended temperature, pressure, and speed can only be starting points. The final production window must be confirmed by sampling because machines, dies, operator settings, and substrate batches all affect the result.',
+            'For export cosmetic packaging, also clarify documentation needs such as RoHS, REACH, heavy metal, MSDS, alcohol-resistance, rub-resistance, or customer-specific test methods before placing a bulk order.',
+          ],
+          cn: [
+            '有效的打样需求应包含底材名称、表面处理、油墨或光油信息、产品照片、图案尺寸、最小线宽、烫印面积、设备类型、烫版材料、目标颜色、卷宽、卷长、卷芯、起订量和交期要求。',
+            '推荐温度、压力和速度只能作为起始参考。最终量产窗口必须通过打样确认，因为设备、烫版、操作设定和底材批次都会影响结果。',
+            '出口化妆品包装还应在批量采购前说明文件需求，例如 RoHS、REACH、重金属、MSDS、耐酒精、耐磨或客户指定测试方法。',
+          ],
+        },
+      },
+    ],
     substrateFit: [
-      { substrate: { en: 'Lipstick tube / compact case', cn: '口红管 / 粉盒' }, recommendedFoil: 'PC Plastic/Cold Foils', note: { en: 'Prioritize adhesion, clean slitting, and alcohol resistance.', cn: '重点关注附着、分切洁净度和耐酒精。' } },
-      { substrate: { en: 'Cosmetic paper box', cn: '化妆品纸盒' }, recommendedFoil: 'PK Brown Back or PL/PY Pigment', note: { en: 'Use PK for textured board; pigment foil for opaque color blocks.', cn: '纹理纸用 PK，高遮盖纯色块用颜料箔。' } },
-      { substrate: { en: 'Premium limited edition packaging', cn: '高端限量包装' }, recommendedFoil: 'Holographic / Matte Metallic Foil', note: { en: 'Test visual consistency and brand color tolerance.', cn: '测试视觉一致性和品牌色容差。' } },
+      { substrate: { en: 'Coated paper', cn: '涂布纸' }, recommendedFoil: 'PK Brown Back / Metallic Packaging Foil', note: { en: 'Main risk: incomplete transfer on ink or coating. Test edge sharpness, tape adhesion, and large-area uniformity.', cn: '主要风险：油墨或涂层上转移不完整。测试边缘清晰度、胶带附着和大面积均匀度。' } },
+      { substrate: { en: 'UV varnished paper', cn: 'UV 光油纸' }, recommendedFoil: 'Packaging Foil for Varnished Surfaces', note: { en: 'Main risk: adhesion mismatch with cured varnish. Test after full curing and confirm surface energy.', cn: '主要风险：与固化光油附着不匹配。应在光油完全固化后测试并确认表面能。' } },
+      { substrate: { en: 'Matte laminated paper', cn: '哑膜纸' }, recommendedFoil: 'PK / Clean-release Metallic Foil', note: { en: 'Main risk: blurry edges or peeling. Test heat window, pressure balance, and rub resistance.', cn: '主要风险：边缘发糊或掉金。测试温度窗口、压力均衡和耐磨。' } },
+      { substrate: { en: 'Gloss laminated paper', cn: '亮膜纸' }, recommendedFoil: 'High-gloss Packaging Foil', note: { en: 'Main risk: surface slip and weak anchoring. Test tape adhesion and scratch resistance.', cn: '主要风险：表面滑移和附着不足。测试胶带附着和耐刮。' } },
+      { substrate: { en: 'PP plastic', cn: 'PP 塑料' }, recommendedFoil: 'PC Plastic Foil after Surface Treatment', note: { en: 'Main risk: low surface energy. Test primer or flame/corona treatment, alcohol resistance, and cross-cut adhesion.', cn: '主要风险：表面能低。测试底涂或火焰/电晕处理、耐酒精和百格附着。' } },
+      { substrate: { en: 'PET plastic', cn: 'PET 塑料' }, recommendedFoil: 'PC Plastic Foil / PET-compatible Foil', note: { en: 'Main risk: heat sensitivity or coating mismatch. Test deformation, adhesion, and rub resistance.', cn: '主要风险：耐热或涂层匹配问题。测试变形、附着和耐磨。' } },
+      { substrate: { en: 'ABS cosmetic parts', cn: 'ABS 化妆品部件' }, recommendedFoil: 'PC Alcohol Resistant Foil', note: { en: 'Main risk: alcohol wipe failure. Test cross-cut, rub, and alcohol exposure on the molded part.', cn: '主要风险：酒精擦拭后掉金。需在注塑件上测试百格、耐磨和耐酒精。' } },
+      { substrate: { en: 'Glass bottle / coated glass', cn: '玻璃瓶 / 涂层玻璃' }, recommendedFoil: 'Foil Matched to Coating or Label Layer', note: { en: 'Main risk: bare glass or coating mismatch. Test the actual coating, primer, label, or ink system.', cn: '主要风险：裸玻璃或涂层不匹配。需测试真实涂层、底涂、标签或油墨体系。' } },
+      { substrate: { en: 'Label stock', cn: '标签材料' }, recommendedFoil: 'Hot Foil or Digital Cold Foil', note: { en: 'Main risk: line speed, registration, and adhesive/UV compatibility. Test on the final label construction.', cn: '主要风险：线速、套准和胶水/UV 兼容性。需在最终标签结构上测试。' } },
     ],
     troubleshooting: [
-      { issue: { en: 'Foil rubs off after alcohol wipe', cn: '酒精擦拭后掉金' }, likelyCause: { en: 'Wrong foil series or plastic surface energy issue.', cn: '箔系列不匹配或塑胶表面能问题。' }, action: { en: 'Use alcohol-resistant PC foil and run cross-cut plus alcohol rubbing tests.', cn: '改用耐酒精 PC 箔，并做百格和酒精擦拭测试。' } },
-      { issue: { en: 'Logo edge is not sharp', cn: 'Logo 边缘不清晰' }, likelyCause: { en: 'Heat/pressure/dwell time too high or die detail too fine.', cn: '温度、压力、停留时间过高或烫版细节过细。' }, action: { en: 'Lower heat, shorten dwell time, and verify die quality.', cn: '降低温度、缩短停留时间，并检查烫版质量。' } },
+      { issue: { en: 'Poor adhesion', cn: '附着不牢' }, likelyCause: { en: 'Wrong adhesive layer, low surface energy, uncured ink, incompatible varnish, or insufficient heat/pressure.', cn: '胶层不匹配、表面能低、油墨未干、光油不兼容或温压不足。' }, action: { en: 'Test the real substrate, verify curing, increase adhesion grade, and confirm temperature/pressure by sampling.', cn: '用真实底材测试，确认固化状态，换附着更强的型号，并通过打样确认温压。' } },
+      { issue: { en: 'Foil peeling after rub or alcohol wipe', cn: '耐磨或耐酒精后掉金' }, likelyCause: { en: 'Foil grade is not matched to cosmetic durability requirements.', cn: '膜型号未匹配化妆品包装耐性要求。' }, action: { en: 'Use alcohol-resistant PC foil for plastic parts and define rub/alcohol test cycles before bulk order.', cn: '塑料件改用耐酒精 PC 箔，并在批量前定义耐磨/耐酒精测试次数。' } },
+      { issue: { en: 'Incomplete transfer', cn: '缺金 / 转移不完整' }, likelyCause: { en: 'Low heat, low pressure, uneven surface, coarse paper, or release layer too tight.', cn: '温度不足、压力不足、表面不平、纸张粗糙或离型偏紧。' }, action: { en: 'Increase heat or pressure step by step, test a different release grade, and inspect die contact.', cn: '逐步提高温度或压力，测试不同离型等级，并检查烫版接触。' } },
+      { issue: { en: 'Blurry edges', cn: '糊边 / 边缘发虚' }, likelyCause: { en: 'Excessive heat, long dwell time, soft die, uneven pressure, or release layer too easy.', cn: '温度过高、停留过长、版材偏软、压力不均或离型过易。' }, action: { en: 'Reduce heat/dwell time, improve die quality, and test foil with cleaner release.', cn: '降低温度/停留时间，改善烫版，并测试离型更干净的膜。' } },
+      { issue: { en: 'Pinholes in large areas', cn: '大面积针孔' }, likelyCause: { en: 'Dust, coating defect, rough substrate, insufficient pressure, or foil mismatch for solid areas.', cn: '灰尘、涂层缺陷、底材粗糙、压力不足或膜不适合实地大面积。' }, action: { en: 'Clean sheets, inspect coating, adjust pressure, and request a foil grade for solid-area stamping.', cn: '清洁纸张，检查涂层，调整压力，并测试适合大面积实地的型号。' } },
+      { issue: { en: 'Dull gloss', cn: '光泽发暗' }, likelyCause: { en: 'Surface contamination, overheat, matte substrate influence, or unsuitable metallic finish.', cn: '表面污染、过热、哑面底材影响或金属效果不匹配。' }, action: { en: 'Compare foil finishes on the same substrate and approve color under final lighting.', cn: '在同一底材上对比膜效果，并在最终光源下确认颜色。' } },
+      { issue: { en: 'Foil cracking after folding', cn: '折后开裂' }, likelyCause: { en: 'Stamping crosses crease lines or foil construction is too brittle for folding cartons.', cn: '烫印跨压线或膜层结构对折叠纸盒偏脆。' }, action: { en: 'Avoid stamping across creases when possible and test folding after stamping.', cn: '尽量避免跨压线烫印，并在烫印后做折叠测试。' } },
     ],
     samplingChecklist: { en: ['Send the exact plastic resin or paper box material.', 'State alcohol, rub, scratch, and cross-cut test requirements.', 'Confirm logo size, line width, stamping area, and color standard.', 'Approve color under the brand lighting condition if possible.'], cn: ['提供真实塑胶树脂或纸盒材料。', '说明耐酒精、耐磨、耐刮和百格测试要求。', '确认 Logo 尺寸、线宽、烫印面积和颜色标准。', '尽量在品牌指定光源下确认颜色。'] },
     faqs: [
-      { question: { en: 'Which foil is best for cosmetic plastic packaging?', cn: '化妆品塑胶包装用哪种烫金箔？' }, answer: { en: 'Start with PC plastic foil, then validate adhesion and alcohol resistance on the actual part.', cn: '建议从 PC 塑胶箔开始，并在真实工件上验证附着和耐酒精。' } },
+      { question: { en: 'Which foil is best for cosmetic plastic packaging?', cn: '化妆品塑胶包装用哪种烫金箔？' }, answer: { en: 'Start with plastic-grade PC foil, then validate adhesion, rub resistance, alcohol resistance, and temperature tolerance on the actual molded or coated part.', cn: '建议从塑胶级 PC 箔开始，并在真实注塑件或涂层件上验证附着、耐磨、耐酒精和耐温。' } },
+      { question: { en: 'Can the same foil be used on paper boxes and plastic caps?', cn: '纸盒和塑料瓶盖能用同一种膜吗？' }, answer: { en: 'Sometimes, but it should not be assumed. Paper packaging and plastic caps usually need different adhesive/release behavior, so both substrates must be sampled separately.', cn: '有时可以，但不能默认。纸类包装和塑料瓶盖通常需要不同胶层和离型表现，必须分别打样。' } },
+      { question: { en: 'What temperature should cosmetic packaging foil use?', cn: '化妆品包装烫金膜需要多少温度？' }, answer: { en: 'There is no universal setting. Temperature depends on substrate, foil grade, die, machine, pressure, and speed; use supplier recommendations only as a starting range and confirm by sampling.', cn: '没有通用固定值。温度取决于底材、膜型号、烫版、设备、压力和速度；供应商建议只能作为起始范围，最终需打样确认。' } },
       { question: { en: 'Can PINTE provide color cards and sample rolls?', cn: 'PINTE 能提供色卡和样卷吗？' }, answer: { en: 'Yes. PINTE can provide color cards, sample rolls, and substrate-based model recommendations.', cn: '可以。PINTE 可提供色卡、样卷和按底材推荐型号服务。' } },
     ],
-    relatedRoutes: ['products/category/PC', 'products/category/PK', 'products/item/PC-Alcohol', 'quote'],
+    relatedRoutes: ['products/category/PC', 'products/category/PK', 'products/category/DIGITAL', 'products/category/PLPY', 'products/item/PC-Alcohol', 'guides/hot-foil-vs-cold-foil-cosmetic-packaging', 'guides/hot-stamping-foil-substrate-compatibility-and-compliance', 'quote'],
+  },
+  {
+    slug: 'hot-stamping-foil-structure-selection-guide',
+    priority: 1,
+    title: { en: 'Hot Stamping Foil Structure and Selection Guide', cn: '烫金膜结构与选型指南' },
+    metaDescription: { en: 'Understand hot stamping foil layers: PET carrier, release layer, color layer, metallized layer, and adhesive layer, and how each layer affects adhesion, transfer, gloss, and defects.', cn: '解释烫金膜的 PET 基膜、离型层、色层、镀铝层和胶层，以及各层如何影响附着、转移、光泽和常见缺陷。' },
+    primaryKeyword: { en: 'hot stamping foil structure', cn: '烫金膜结构' },
+    secondaryKeywords: { en: ['hot stamping foil layers', 'PET release adhesive layer foil', 'hot stamping foil selection guide'], cn: ['烫金膜层结构', 'PET 离型 胶层 烫金膜', '烫金膜选型指南'] },
+    audience: { en: 'Packaging engineers, printing factories, cosmetic packaging buyers, and procurement teams comparing foil grades.', cn: '包装工程师、印刷厂、化妆品包材采购和对比膜型号的采购团队。' },
+    answer: { en: 'A typical hot stamping foil is built from a PET carrier, release layer, color or lacquer layer, metallized aluminum layer, and adhesive layer. The PET carrier supports processing, the release layer controls transfer, the color layer creates shade and gloss, the metallized layer creates reflectivity, and the adhesive layer bonds to the substrate. Selection should match the substrate, artwork detail, durability test, and machine settings instead of relying only on color.', cn: '典型烫金膜由 PET 基膜、离型层、色层或清漆层、镀铝层和胶层构成。PET 基膜负责加工支撑，离型层控制转移，色层决定颜色和光泽，镀铝层提供反射金属感，胶层负责与底材结合。选型应匹配底材、图案细节、耐性测试和设备参数，而不是只看颜色。' },
+    factors: [
+      { label: { en: 'Release behavior', cn: '离型表现' }, guidance: { en: 'Easy release helps rough or large-area stamping; tighter release may improve fine-edge control.', cn: '易离型有利于粗糙面或大面积烫印，偏紧离型可能更利于细线边缘控制。' } },
+      { label: { en: 'Adhesive match', cn: '胶层匹配' }, guidance: { en: 'The adhesive layer must match paper coating, lamination, varnish, plastic resin, leather finish, or label construction.', cn: '胶层必须匹配纸张涂层、覆膜、光油、塑料树脂、皮革表面或标签结构。' } },
+      { label: { en: 'Durability target', cn: '耐性目标' }, guidance: { en: 'Rub, scratch, alcohol, heat, folding, and tape tests may require different foil constructions.', cn: '耐磨、耐刮、耐酒精、耐温、耐折和胶带测试可能需要不同膜层结构。' } },
+    ],
+    articleSections: [
+      {
+        title: { en: 'The five functional layers', cn: '五个功能层' },
+        body: {
+          en: [
+            'The PET carrier is the temporary base film. It gives the foil enough strength for coating, slitting, rewinding, and stamping. It does not normally stay on the final package.',
+            'The release layer decides how easily the decorative layers leave the PET carrier. If release is too tight, the artwork may show missing areas. If release is too easy, fine lines can become fuzzy or over-transfer.',
+            'The color or lacquer layer creates gold, silver, red, blue, black, matte, pearl, pigment, or transparent tone. It also affects gloss, opacity, scratch behavior, and color stability.',
+            'The metallized aluminum layer creates the mirror metallic reflection in most metallic foils. Holographic foils add micro-embossed optical patterns to create rainbow or security effects.',
+            'The adhesive layer is the layer that must bond to the actual substrate. This is why one foil may work on coated paper but fail on PP plastic, UV varnish, or synthetic leather.',
+          ],
+          cn: [
+            'PET 基膜是临时载体，提供涂布、分切、复卷和烫印所需的强度，通常不会留在最终包装上。',
+            '离型层决定装饰层从 PET 基膜上转移的难易程度。离型过紧可能缺金；离型过易则可能让细线发糊或过度转移。',
+            '色层或清漆层形成金、银、红、蓝、黑、哑光、珠光、颜料或透明色调，也会影响光泽、遮盖力、耐刮和颜色稳定性。',
+            '镀铝层提供多数金属箔的镜面反射效果。镭射箔还会加入微压纹光学图案，形成彩虹或防伪效果。',
+            '胶层负责与真实底材结合。这也是为什么同一款膜可能在涂布纸上成功，却在 PP 塑料、UV 光油或合成革上失败。',
+          ],
+        },
+      },
+      {
+        title: { en: 'How structure affects common defects', cn: '结构如何影响常见问题' },
+        body: {
+          en: [
+            'Poor adhesion usually points to the adhesive layer or the substrate surface, not the color itself. Low surface energy plastic, uncured UV varnish, wet ink, dust, silicone, or incompatible lamination can prevent bonding.',
+            'Incomplete transfer is often related to release, heat, pressure, die contact, or uneven substrates. A rough paper, deep leather texture, or soft-touch surface may need a foil with different release and adhesive behavior.',
+            'Blurred edges can come from excessive heat, long dwell time, soft dies, uneven pressure, or a release layer that is too easy for small text. Fine cosmetic logos and security patterns should be sampled with the real artwork.',
+          ],
+          cn: [
+            '附着不牢通常指向胶层或底材表面，而不是颜色本身。低表面能塑料、未完全固化的 UV 光油、未干油墨、灰尘、硅油或不兼容覆膜都会阻碍结合。',
+            '转移不完整常与离型、温度、压力、烫版接触或底材不平有关。粗糙纸、深纹皮革或肤感表面可能需要不同离型和胶层表现的膜。',
+            '边缘发糊可能来自温度过高、停留过长、版材偏软、压力不均，或离型对小文字过易。化妆品细 Logo 和防伪图案必须用真实图案打样。',
+          ],
+        },
+      },
+    ],
+    substrateFit: [
+      { substrate: { en: 'Coated or laminated paper', cn: '涂布纸或覆膜纸' }, recommendedFoil: 'Packaging Foil with Clean Release', note: { en: 'Focus on release, edge sharpness, and adhesion to ink/coating.', cn: '重点关注离型、边缘清晰度以及与油墨/涂层的附着。' } },
+      { substrate: { en: 'PP, PET, ABS, PVC plastic', cn: 'PP、PET、ABS、PVC 塑料' }, recommendedFoil: 'PC Plastic Foil', note: { en: 'Focus on adhesive layer, surface energy, heat tolerance, and alcohol resistance.', cn: '重点关注胶层、表面能、耐热和耐酒精。' } },
+      { substrate: { en: 'Leather, PU, synthetic leather', cn: '真皮、PU、合成革' }, recommendedFoil: 'Leather-suitable PK / Metallic Foil', note: { en: 'Focus on texture depth, pressure mark, flexibility, and rub resistance.', cn: '重点关注纹理深度、压痕、柔韧性和耐磨。' } },
+    ],
+    troubleshooting: [
+      { issue: { en: 'Poor adhesion', cn: '附着不牢' }, likelyCause: { en: 'Adhesive layer or substrate surface mismatch.', cn: '胶层或底材表面不匹配。' }, action: { en: 'Change adhesive grade, clean/pretreat surface, and sample again on the production material.', cn: '更换胶层等级，清洁/预处理表面，并在量产材料上重新打样。' } },
+      { issue: { en: 'Incomplete transfer', cn: '转移不完整' }, likelyCause: { en: 'Release too tight, heat too low, pressure uneven, or substrate too rough.', cn: '离型偏紧、温度过低、压力不均或底材过粗。' }, action: { en: 'Test easier release, adjust heat/pressure, and inspect die contact.', cn: '测试更易离型型号，调整温压，并检查烫版接触。' } },
+      { issue: { en: 'Blurry fine lines', cn: '细线发糊' }, likelyCause: { en: 'Release too easy, heat/dwell too high, or die not sharp enough.', cn: '离型过易、温度/停留过高或烫版不够清晰。' }, action: { en: 'Use cleaner release, reduce heat/dwell time, and check die engraving.', cn: '使用更干净离型，降低温度/停留时间，并检查版纹。' } },
+    ],
+    samplingChecklist: { en: ['Send the exact substrate and surface treatment.', 'Share artwork size, minimum line width, and stamping area.', 'Confirm durability tests: tape, rub, scratch, alcohol, heat, or folding.', 'Record temperature, pressure, dwell time, speed, die material, and machine type.'], cn: ['提供真实底材和表面处理。', '提供图案尺寸、最小线宽和烫印面积。', '确认耐性测试：胶带、耐磨、耐刮、耐酒精、耐温或耐折。', '记录温度、压力、停留时间、速度、烫版材料和设备类型。'] },
+    faqs: [
+      { question: { en: 'What layer makes foil stick to the substrate?', cn: '烫金膜靠哪一层附着到底材？' }, answer: { en: 'The adhesive layer bonds the decorative layers to the substrate after heat, pressure, or the relevant process activates it.', cn: '胶层在温度、压力或对应工艺作用下，把装饰层结合到底材上。' } },
+      { question: { en: 'Does a thicker foil always mean better quality?', cn: '烫金膜越厚质量越好吗？' }, answer: { en: 'No. Performance depends on layer design, release, adhesive match, color stability, slitting quality, and substrate fit, not thickness alone.', cn: '不是。性能取决于层结构、离型、胶层匹配、颜色稳定、分切质量和底材适配，而不只是厚度。' } },
+    ],
+    relatedRoutes: ['guides/cosmetic-packaging-foil-guide', 'guides/hot-stamping-troubleshooting', 'guides/hot-stamping-foil-substrate-compatibility-and-compliance', 'products/category/PK', 'products/category/PC', 'quote'],
+  },
+  {
+    slug: 'cosmetic-packaging-hot-stamping-troubleshooting',
+    priority: 1,
+    title: { en: 'Cosmetic Packaging Hot Stamping Troubleshooting Guide', cn: '化妆品包装烫金故障排查指南' },
+    metaDescription: { en: 'Troubleshoot poor adhesion, foil peeling, incomplete transfer, blurry edges, pinholes, dull gloss, and cracking when stamping cosmetic boxes, labels, caps, and plastic parts.', cn: '排查化妆品盒、标签、瓶盖和塑料件烫金中的附着不牢、掉金、缺金、糊边、针孔、光泽暗和折后开裂。' },
+    primaryKeyword: { en: 'cosmetic packaging hot stamping troubleshooting', cn: '化妆品包装烫金故障排查' },
+    secondaryKeywords: { en: ['poor adhesion hot stamping foil', 'foil peeling cosmetic packaging', 'incomplete transfer hot foil', 'blurry edges hot stamping'], cn: ['烫金附着不牢', '化妆品包装掉金', '烫金缺金', '烫金糊边'] },
+    audience: { en: 'Cosmetic packaging factories, label printers, gift box factories, plastic decorators, and quality teams fixing foil defects before mass production.', cn: '化妆品包材厂、标签印刷厂、礼盒厂、塑料装饰厂和量产前排查烫金问题的品质团队。' },
+    answer: { en: 'Most cosmetic packaging hot stamping defects come from a mismatch between foil grade, substrate surface, machine settings, die contact, and durability requirements. Poor adhesion and peeling usually point to adhesive or surface energy problems. Incomplete transfer often relates to insufficient heat, pressure, or release. Blurry edges often mean excessive heat, dwell time, or pressure. Troubleshooting should adjust one variable at a time and use the final production substrate.', cn: '化妆品包装烫金多数缺陷来自膜型号、底材表面、设备参数、烫版接触和耐性要求不匹配。附着不牢和掉金通常指向胶层或表面能问题；缺金常与温度、压力或离型不足有关；糊边常与温度、停留时间或压力过高有关。排查时应一次只调整一个变量，并使用最终量产底材。' },
+    factors: [
+      { label: { en: 'Use the final material', cn: '使用最终材料' }, guidance: { en: 'Blank board or similar plastic can hide problems caused by ink, varnish, lamination, coating, or resin batch.', cn: '空白纸板或相似塑料可能掩盖油墨、光油、覆膜、涂层或树脂批次造成的问题。' } },
+      { label: { en: 'Separate process variables', cn: '分离工艺变量' }, guidance: { en: 'Change temperature, pressure, speed, dwell time, and foil grade one at a time so the cause is visible.', cn: '温度、压力、速度、停留时间和膜型号应一次只改一个，才能看清原因。' } },
+      { label: { en: 'Define pass criteria', cn: '定义通过标准' }, guidance: { en: 'A cosmetic part may look good at first but fail alcohol, rub, scratch, tape, or folding tests.', cn: '化妆品部件初看合格，但可能在耐酒精、耐磨、耐刮、胶带或折叠测试中失败。' } },
+    ],
+    articleSections: [
+      {
+        title: { en: 'Why cosmetic packaging defects are harder to diagnose', cn: '为什么化妆品包装故障更难判断' },
+        body: {
+          en: [
+            'Cosmetic packaging combines visual requirements with durability requirements. A logo must be bright and sharp, but it may also need to survive alcohol wiping, handbag abrasion, filling-line handling, folding cartons, and warehouse temperature changes.',
+            'The same defect can have several causes. Foil peeling on a plastic cap may come from low surface energy, a wrong plastic foil grade, mold release contamination, insufficient heat, or an alcohol test that was not considered during foil selection.',
+            'For this reason, defect analysis should combine substrate information, process settings, foil grade, and test method. A supplier can recommend a better model only when these inputs are known.',
+          ],
+          cn: [
+            '化妆品包装同时有视觉要求和耐性要求。Logo 要亮、要清晰，也可能需要承受酒精擦拭、包内摩擦、灌装线搬运、纸盒折叠和仓储温度变化。',
+            '同一个缺陷可能有多个原因。塑料瓶盖掉金可能来自表面能低、塑胶箔型号错误、脱模剂污染、温度不足，或选型时没有考虑耐酒精测试。',
+            '因此，故障分析要同时结合底材信息、工艺参数、膜型号和测试方法。只有这些输入清楚，供应商才能推荐更合适的型号。',
+          ],
+        },
+      },
+    ],
+    substrateFit: [
+      { substrate: { en: 'Cosmetic paper box with lamination', cn: '覆膜化妆品纸盒' }, recommendedFoil: 'PK / Packaging Metallic Foil', note: { en: 'Check lamination type, ink curing, edge sharpness, and fold cracking.', cn: '检查覆膜类型、油墨固化、边缘清晰度和折后开裂。' } },
+      { substrate: { en: 'Plastic cap or ABS compact', cn: '塑料瓶盖或 ABS 粉盒' }, recommendedFoil: 'PC Alcohol Resistant Foil', note: { en: 'Check surface energy, mold release contamination, cross-cut adhesion, and alcohol wipe.', cn: '检查表面能、脱模剂污染、百格附着和耐酒精擦拭。' } },
+      { substrate: { en: 'Cosmetic label stock', cn: '化妆品标签材料' }, recommendedFoil: 'Hot Foil or Digital Cold Foil', note: { en: 'Check line speed, registration, UV curing, slitting quality, and rub resistance.', cn: '检查线速、套准、UV 固化、分切质量和耐磨。' } },
+    ],
+    troubleshooting: [
+      { issue: { en: 'Poor adhesion', cn: '附着不牢' }, likelyCause: { en: 'Adhesive/substrate mismatch, low heat, low pressure, wet ink, incompatible varnish, or surface contamination.', cn: '胶层/底材不匹配、温度低、压力低、油墨未干、光油不兼容或表面污染。' }, action: { en: 'Use final material, confirm ink/varnish curing, clean the surface, and test a stronger adhesive grade.', cn: '使用最终材料，确认油墨/光油固化，清洁表面，并测试更强胶层型号。' } },
+      { issue: { en: 'Foil peeling', cn: '掉金 / 脱落' }, likelyCause: { en: 'Durability requirement is higher than the selected foil grade, especially for plastic or alcohol exposure.', cn: '耐性要求高于所选型号，尤其常见于塑料件或酒精接触场景。' }, action: { en: 'Switch to alcohol-resistant plastic foil and run rub, tape, cross-cut, and alcohol tests before bulk approval.', cn: '改用耐酒精塑胶箔，并在批量前做耐磨、胶带、百格和耐酒精测试。' } },
+      { issue: { en: 'Incomplete transfer', cn: '缺金' }, likelyCause: { en: 'Heat, pressure, dwell time, or die contact is insufficient; release may be too tight for the substrate.', cn: '温度、压力、停留时间或烫版接触不足；离型对该底材偏紧。' }, action: { en: 'Adjust one variable at a time, inspect die contact, and compare an easier-release foil.', cn: '一次调整一个变量，检查烫版接触，并对比更易离型型号。' } },
+      { issue: { en: 'Blurry edges', cn: '糊边' }, likelyCause: { en: 'Too much heat, pressure, or dwell time; die is worn; foil releases too easily for small artwork.', cn: '温度、压力或停留时间过高；烫版磨损；对小图案而言离型过易。' }, action: { en: 'Reduce heat/dwell time, check die sharpness, and test clean-release foil for fine details.', cn: '降低温度/停留时间，检查烫版清晰度，并测试适合细节的干净离型膜。' } },
+      { issue: { en: 'Pinholes', cn: '针孔' }, likelyCause: { en: 'Dust, rough coating, uneven pressure, or foil grade not designed for large solid areas.', cn: '灰尘、涂层粗糙、压力不均或膜不适合大面积实地。' }, action: { en: 'Clean sheets, improve pressure uniformity, inspect coating, and test solid-area foil.', cn: '清洁纸张，改善压力均匀，检查涂层，并测试大面积适用型号。' } },
+      { issue: { en: 'Dull gloss', cn: '光泽暗' }, likelyCause: { en: 'Overheating, surface contamination, matte coating influence, or wrong metallic finish.', cn: '过热、表面污染、哑面涂层影响或金属效果不匹配。' }, action: { en: 'Lower heat if needed, compare finishes on the same material, and approve under final lighting.', cn: '必要时降低温度，在同一材料上对比效果，并在最终光源下确认。' } },
+      { issue: { en: 'Foil cracking after folding', cn: '折后开裂' }, likelyCause: { en: 'Stamped area crosses a crease, foil is too brittle, or folding happens before proper conditioning.', cn: '烫印区域跨压线、膜层偏脆，或未充分放置就折叠。' }, action: { en: 'Move artwork away from creases where possible and run folding tests after stamping.', cn: '尽量让图案避开压线，并在烫印后做折叠测试。' } },
+    ],
+    samplingChecklist: { en: ['Use the final printed/coated/laminated substrate.', 'Record machine type, die material, temperature, pressure, speed, and dwell time.', 'Run only one process change at a time.', 'Define pass/fail rules for tape, rub, scratch, alcohol, heat, folding, and visual inspection.'], cn: ['使用最终印刷/涂层/覆膜底材。', '记录设备类型、烫版材料、温度、压力、速度和停留时间。', '每次只改变一个工艺变量。', '定义胶带、耐磨、耐刮、耐酒精、耐温、折叠和外观的通过标准。'] },
+    faqs: [
+      { question: { en: 'Why does cosmetic packaging foil peel after alcohol wiping?', cn: '为什么化妆品包装酒精擦拭后掉金？' }, answer: { en: 'The foil grade may not be alcohol resistant, or the plastic/coating surface may not allow strong bonding. Test PC alcohol-resistant foil on the actual part.', cn: '可能是膜型号不耐酒精，也可能是塑料/涂层表面附着不足。应在真实部件上测试耐酒精 PC 箔。' } },
+      { question: { en: 'Should I increase temperature when foil does not transfer?', cn: '缺金时是不是只要升温？' }, answer: { en: 'Not always. Heat is one variable, but pressure, die contact, release, substrate roughness, and coating condition can also cause incomplete transfer.', cn: '不一定。温度只是一个变量，压力、烫版接触、离型、底材粗糙度和涂层状态也可能造成缺金。' } },
+    ],
+    relatedRoutes: ['guides/cosmetic-packaging-foil-guide', 'guides/hot-stamping-foil-structure-selection-guide', 'products/category/PC', 'products/item/PC-Alcohol', 'quote'],
+  },
+  {
+    slug: 'hot-foil-vs-cold-foil-cosmetic-packaging',
+    priority: 2,
+    title: { en: 'Hot Foil vs Cold Foil for Cosmetic Packaging', cn: '化妆品包装热烫与冷烫对比指南' },
+    metaDescription: { en: 'Compare hot foil and cold foil for cosmetic boxes, labels, cartons, plastic parts, metallic effects, machine setup, cost, durability, and order volume.', cn: '对比化妆品盒、标签、纸盒和塑料件上的热烫与冷烫，包括机器、成本、效果、耐性和订单量。' },
+    primaryKeyword: { en: 'hot foil vs cold foil cosmetic packaging', cn: '化妆品包装 热烫 冷烫 区别' },
+    secondaryKeywords: { en: ['hot foil stamping cosmetic boxes', 'cold foil cosmetic labels', 'hot stamping vs cold foil packaging'], cn: ['化妆品盒热烫', '化妆品标签冷烫', '包装热烫冷烫对比'] },
+    audience: { en: 'Cosmetic packaging buyers, label printers, folding carton factories, and brand teams choosing a metallic decoration process.', cn: '选择金属装饰工艺的化妆品包装采购、标签印刷厂、折叠纸盒厂和品牌团队。' },
+    answer: { en: 'Hot foil uses a heated die, pressure, and heat-activated adhesive layers to transfer foil to the substrate. Cold foil uses printed adhesive and UV or LED curing to transfer foil inline during printing. Hot foil is often preferred for premium logos, sharper depth, plastic parts, and shorter high-value decoration areas. Cold foil can be better for high-speed labels, larger metallic print areas, variable effects, and inline production. The best choice depends on substrate, artwork, machine, durability, and order volume.', cn: '热烫通过加热烫版、压力和热激活胶层把膜转移到底材上；冷烫通过印刷胶水并用 UV 或 LED 固化实现联机转移。热烫常用于高端 Logo、立体感更强的局部装饰、塑料件和高价值小面积装饰；冷烫更适合高速标签、大面积金属印刷、可变效果和联机生产。最终选择取决于底材、图案、设备、耐性和订单量。' },
+    factors: [
+      { label: { en: 'Process principle', cn: '工艺原理' }, guidance: { en: 'Hot foil relies on heat and pressure; cold foil relies on adhesive printing and UV/LED curing.', cn: '热烫依靠温度和压力；冷烫依靠胶水印刷和 UV/LED 固化。' } },
+      { label: { en: 'Best cosmetic use', cn: '适合化妆品用途' }, guidance: { en: 'Hot foil fits premium logos on boxes and plastic parts; cold foil fits inline labels and printed metallic effects.', cn: '热烫适合纸盒和塑料件高端 Logo；冷烫适合联机标签和印刷型金属效果。' } },
+      { label: { en: 'Cost and speed', cn: '成本和速度' }, guidance: { en: 'Cold foil may be faster inline, but total cost depends on adhesive, curing, waste, setup, and order size.', cn: '冷烫可能联机速度更快，但总成本取决于胶水、固化、损耗、设置和订单量。' } },
+    ],
+    selectionTable: [
+      { factor: { en: 'Machine', cn: '设备' }, confirm: { en: 'Hot foil stamping press or cold foil printing unit', cn: '热烫机或冷烫印刷单元' }, why: { en: 'The process must match the available production line.', cn: '工艺必须匹配现有生产线。' }, ask: { en: 'Do you run flatbed/rotary hot stamping, or inline cold foil with UV/LED curing?', cn: '你使用平压/圆压热烫，还是带 UV/LED 固化的联机冷烫？' } },
+      { factor: { en: 'Substrate', cn: '底材' }, confirm: { en: 'Paper, laminated board, label stock, plastic, or coated part', cn: '纸张、覆膜纸板、标签材料、塑料或涂层件' }, why: { en: 'Cold foil depends heavily on adhesive and curing; hot foil depends on heat, pressure, and foil adhesive.', cn: '冷烫高度依赖胶水和固化；热烫依赖温度、压力和膜胶层。' }, ask: { en: 'What is the exact material and surface treatment?', cn: '真实材料和表面处理是什么？' } },
+      { factor: { en: 'Visual effect', cn: '视觉效果' }, confirm: { en: 'Embossed premium logo, flat metallic print, holographic effect, or large solid area', cn: '立体高端 Logo、平面金属印刷、镭射效果或大面积实地' }, why: { en: 'Hot foil can provide strong local impact; cold foil can behave more like a printed metallic layer.', cn: '热烫适合强局部质感，冷烫更接近印刷金属层。' }, ask: { en: 'Is the artwork a fine logo, large area, label highlight, or security effect?', cn: '图案是细 Logo、大面积、标签亮点还是防伪效果？' } },
+      { factor: { en: 'Order volume', cn: '订单量' }, confirm: { en: 'Short run, premium small area, high-speed label, or long carton run', cn: '短单、高端小面积、高速标签或长版纸盒' }, why: { en: 'Setup, die cost, adhesive cost, curing, and waste change the economics.', cn: '设置、版费、胶水、固化和损耗都会改变成本结构。' }, ask: { en: 'What is the quantity, roll width, stamping area, and repeat frequency?', cn: '数量、卷宽、烫印面积和复购频率是多少？' } },
+    ],
+    articleSections: [
+      {
+        title: { en: 'When hot foil is usually stronger', cn: '什么时候热烫更合适' },
+        body: {
+          en: [
+            'Hot foil is often the better starting point for premium cosmetic carton logos, perfume box crests, compact case decoration, plastic caps, and small high-value metallic elements. It can create a crisp, luxury mark when the foil, substrate, die, and process are matched.',
+            'Hot foil also gives buyers more options on paper, leather-like materials, and many plastic parts, but each substrate still needs sampling. Plastic parts in cosmetic packaging should be tested for adhesion, rub resistance, alcohol resistance, and heat deformation.',
+          ],
+          cn: [
+            '高端化妆品纸盒 Logo、香水盒徽标、粉盒装饰、塑料瓶盖和高价值小面积金属元素通常更适合先测试热烫。只要膜、底材、烫版和工艺匹配，就能形成清晰的高端标识。',
+            '热烫在纸张、类皮材料和许多塑料件上也有更多选择，但每种底材仍需打样。化妆品塑料件需要测试附着、耐磨、耐酒精和热变形。',
+          ],
+        },
+      },
+      {
+        title: { en: 'When cold foil is usually stronger', cn: '什么时候冷烫更合适' },
+        body: {
+          en: [
+            'Cold foil can be efficient for pressure-sensitive cosmetic labels, inline label printing, large metallic backgrounds, variable digital enhancement, and jobs where metallic foil needs to integrate with printed graphics.',
+            'Cold foil performance depends on adhesive laydown, UV/LED curing energy, registration, and the label or carton surface. Buyers should treat the adhesive and curing system as part of the foil specification.',
+          ],
+          cn: [
+            '压敏化妆品标签、联机标签印刷、大面积金属背景、可变数码增效，以及需要金属效果与印刷图形融合的订单，冷烫可能更高效。',
+            '冷烫表现取决于胶水上胶量、UV/LED 固化能量、套准和标签或纸盒表面。采购应把胶水和固化体系也视为膜规格的一部分。',
+          ],
+        },
+      },
+    ],
+    substrateFit: [
+      { substrate: { en: 'Perfume box / cosmetic carton', cn: '香水盒 / 化妆品纸盒' }, recommendedFoil: 'Hot Foil', note: { en: 'Good for premium logos, fine edges, and localized metallic highlights.', cn: '适合高端 Logo、细边缘和局部金属亮点。' } },
+      { substrate: { en: 'Cosmetic label stock', cn: '化妆品标签材料' }, recommendedFoil: 'Cold Foil or Hot Foil', note: { en: 'Cold foil is efficient inline; hot foil may be better for premium small logos.', cn: '冷烫适合联机效率，热烫适合高端小面积 Logo。' } },
+      { substrate: { en: 'Plastic caps / ABS parts', cn: '塑料瓶盖 / ABS 件' }, recommendedFoil: 'Hot Foil / PC Plastic Foil', note: { en: 'Usually needs plastic-grade foil and alcohol-resistance validation.', cn: '通常需要塑胶级箔并验证耐酒精。' } },
+    ],
+    troubleshooting: [
+      { issue: { en: 'Cold foil does not transfer evenly', cn: '冷烫转移不均' }, likelyCause: { en: 'Adhesive laydown, UV/LED curing, surface wetting, or foil release mismatch.', cn: '上胶量、UV/LED 固化、表面润湿或膜离型不匹配。' }, action: { en: 'Test adhesive, curing energy, line speed, and foil release together.', cn: '联合测试胶水、固化能量、线速和膜离型。' } },
+      { issue: { en: 'Hot foil edge is too heavy', cn: '热烫边缘过重' }, likelyCause: { en: 'Heat, pressure, or dwell time too high for the artwork.', cn: '温度、压力或停留时间对图案过高。' }, action: { en: 'Reduce process intensity and test a cleaner-release foil.', cn: '降低工艺强度，并测试离型更清晰的膜。' } },
+    ],
+    samplingChecklist: { en: ['Confirm whether the line supports hot foil, cold foil, or both.', 'Send substrate, ink, lamination, varnish, and adhesive/UV curing details.', 'Define artwork area, minimum line width, expected metallic effect, order volume, and durability test.', 'Compare hot foil and cold foil samples on the same cosmetic packaging material when possible.'], cn: ['确认产线支持热烫、冷烫或两者。', '提供底材、油墨、覆膜、光油以及胶水/UV 固化信息。', '定义图案面积、最小线宽、目标金属效果、订单量和耐性测试。', '尽量在同一化妆品包装材料上对比热烫和冷烫样品。'] },
+    faqs: [
+      { question: { en: 'Is cold foil always cheaper for cosmetic labels?', cn: '化妆品标签冷烫一定更便宜吗？' }, answer: { en: 'No. Cold foil can reduce inline handling, but total cost depends on adhesive, curing, waste, speed, setup, and order volume.', cn: '不一定。冷烫可以减少联机处理，但总成本取决于胶水、固化、损耗、速度、设置和订单量。' } },
+      { question: { en: 'Can cold foil be used on plastic caps?', cn: '冷烫能用于塑料瓶盖吗？' }, answer: { en: 'Cold foil is mainly used with printed adhesive systems. Plastic caps more often require hot stamping with plastic-grade foil, but the exact process must be tested.', cn: '冷烫主要依赖印刷胶水体系。塑料瓶盖更常用塑胶级热烫箔，但具体工艺必须测试确认。' } },
+    ],
+    relatedRoutes: ['guides/cosmetic-packaging-foil-guide', 'guides/hot-foil-vs-cold-foil-vs-holographic', 'products/category/DIGITAL', 'products/category/PC', 'products/category/PK', 'quote'],
+  },
+  {
+    slug: 'hot-stamping-foil-substrate-compatibility-and-compliance',
+    priority: 2,
+    title: { en: 'Hot Stamping Foil Substrate Compatibility and Compliance Guide', cn: '烫金膜底材适配与合规检测指南' },
+    metaDescription: { en: 'Compare hot stamping foil fit for coated paper, UV varnish, rough paper, PP, PE, PVC, PET, ABS, laminates, synthetic leather, and cosmetic packaging tests such as RoHS, REACH, rub, scratch, and alcohol resistance.', cn: '对比涂布纸、UV 光油、粗糙纸、PP、PE、PVC、PET、ABS、覆膜、合成革的烫金膜适配，以及 RoHS、REACH、耐磨、耐刮和耐酒精测试。' },
+    primaryKeyword: { en: 'hot stamping foil substrate compatibility', cn: '烫金膜底材适配' },
+    secondaryKeywords: { en: ['hot stamping foil compliance', 'foil for coated paper PP PE PVC PET ABS', 'REACH RoHS hot stamping foil', 'alcohol resistant cosmetic foil'], cn: ['烫金膜合规', '涂布纸 PP PE PVC PET ABS 烫金膜', 'REACH RoHS 烫金膜', '耐酒精化妆品烫金膜'] },
+    audience: { en: 'Packaging buyers, cosmetic packaging engineers, label printers, gift box factories, plastic component suppliers, and quality teams preparing export orders.', cn: '准备出口订单的包装采购、化妆品包材工程师、标签印刷厂、礼盒厂、塑料件供应商和品质团队。' },
+    answer: { en: 'Hot stamping foil compatibility depends on the substrate surface, not only the base material name. Coated paper, UV varnished paper, rough paper, PP, PE, PVC, PET, ABS, laminates, and synthetic leather may each need different release and adhesive behavior. For cosmetic packaging and export orders, buyers should also confirm testing documents such as RoHS, REACH, MSDS, heavy metal, rub resistance, scratch resistance, alcohol resistance, heat resistance, and batch traceability when required.', cn: '烫金膜适配取决于底材表面，而不只是材料名称。涂布纸、UV 光油纸、粗糙纸、PP、PE、PVC、PET、ABS、覆膜材料和合成革可能分别需要不同离型和胶层表现。化妆品包装和出口订单还应按需确认 RoHS、REACH、MSDS、重金属、耐磨、耐刮、耐酒精、耐温和批次追溯文件。' },
+    factors: [
+      { label: { en: 'Surface treatment', cn: '表面处理' }, guidance: { en: 'Ink, varnish, lamination, coating, primer, or anti-scratch treatment can change foil adhesion more than the substrate name.', cn: '油墨、光油、覆膜、涂层、底涂或防刮处理对附着的影响可能大于底材名称本身。' } },
+      { label: { en: 'Required tests', cn: '测试要求' }, guidance: { en: 'Define rub, scratch, tape, cross-cut, alcohol, heat, folding, and aging tests before sample approval.', cn: '在样品确认前定义耐磨、耐刮、胶带、百格、耐酒精、耐温、耐折和老化测试。' } },
+      { label: { en: 'Documentation', cn: '文件要求' }, guidance: { en: 'Compliance needs vary by buyer, market, and end use. Confirm RoHS, REACH, MSDS, heavy metal, or customer-specific forms early.', cn: '合规文件因客户、市场和用途不同而不同。应尽早确认 RoHS、REACH、MSDS、重金属或客户指定表格。' } },
+    ],
+    articleSections: [
+      {
+        title: { en: 'Substrate names are not enough', cn: '只知道底材名称还不够' },
+        body: {
+          en: [
+            'A buyer may say the job is paper, plastic, or leather, but foil selection depends on the real stamping surface. Coated paper with dry ink behaves differently from UV varnished paper. Matte lamination behaves differently from gloss lamination. PP behaves differently after flame treatment or primer. Synthetic leather varies by coating, texture depth, and heat tolerance.',
+            'For this reason, PINTE recommends sending real production samples instead of generic material names. Photos and datasheets help, but adhesion and transfer must be confirmed on the actual production substrate.',
+          ],
+          cn: [
+            '采购可能说这是纸、塑料或皮革，但烫金膜选型取决于真实烫印表面。已干油墨的涂布纸不同于 UV 光油纸；哑膜不同于亮膜；PP 做过火焰处理或底涂后表现也不同；合成革还会受涂层、纹理深度和耐热影响。',
+            '因此，PINTE 建议提供真实量产样品，而不是只提供材料名称。照片和资料表有帮助，但附着和转移必须在实际生产底材上确认。',
+          ],
+        },
+      },
+      {
+        title: { en: 'Compliance and durability for cosmetic packaging', cn: '化妆品包装的合规与耐性' },
+        body: {
+          en: [
+            'Cosmetic packaging may need both decorative quality and safety-related documentation. Depending on the market and buyer requirement, this can include RoHS, REACH, MSDS, heavy metal screening, restricted substance declarations, or batch records.',
+            'Durability tests should match the real use case. Perfume caps may need alcohol wiping. Makeup compacts may need rub and scratch tests. Folding cartons may need fold-crack checks. Labels may need abrasion, tape, and storage-condition tests.',
+            'A supplier should avoid promising universal compliance for every order without checking the exact foil, color, substrate, and market requirement. The practical approach is to confirm documents and tests before mass production.',
+          ],
+          cn: [
+            '化妆品包装可能同时需要装饰质量和安全相关文件。根据市场和客户要求，可能包括 RoHS、REACH、MSDS、重金属筛查、限制物质声明或批次记录。',
+            '耐性测试应匹配真实使用场景。香水瓶盖可能需要耐酒精擦拭；彩妆粉盒可能需要耐磨和耐刮；折叠纸盒可能需要折后开裂测试；标签可能需要耐摩擦、胶带和仓储条件测试。',
+            '供应商不应在未确认具体膜、颜色、底材和市场要求前承诺所有订单通用合规。更实际的做法是在量产前确认文件和测试项目。',
+          ],
+        },
+      },
+    ],
+    substrateFit: [
+      { substrate: { en: 'Coated paper', cn: '涂布纸' }, recommendedFoil: 'PK / Packaging Metallic Foil', note: { en: 'Check ink curing, coating compatibility, tape adhesion, and edge sharpness.', cn: '检查油墨固化、涂层兼容、胶带附着和边缘清晰。' } },
+      { substrate: { en: 'UV varnished paper', cn: 'UV 光油纸' }, recommendedFoil: 'Foil for Varnished Surfaces', note: { en: 'Check UV curing, surface energy, and adhesion after storage.', cn: '检查 UV 固化、表面能和放置后的附着。' } },
+      { substrate: { en: 'Rough paper / specialty paper', cn: '粗糙纸 / 特种纸' }, recommendedFoil: 'PK Brown Back / Easy-release Foil', note: { en: 'Check incomplete transfer, pinholes, pressure marks, and large-area uniformity.', cn: '检查缺金、针孔、压痕和大面积均匀度。' } },
+      { substrate: { en: 'PP / PE / PVC', cn: 'PP / PE / PVC' }, recommendedFoil: 'PC Plastic Foil with Pretreatment if Needed', note: { en: 'Check surface energy, primer/flame/corona treatment, adhesion, heat, and alcohol resistance.', cn: '检查表面能、底涂/火焰/电晕处理、附着、耐热和耐酒精。' } },
+      { substrate: { en: 'PET / ABS / PP components', cn: 'PET / ABS / PP 部件' }, recommendedFoil: 'PC Plastic Foil', note: { en: 'Check molded-part contamination, deformation, cross-cut adhesion, rub, and alcohol wipe.', cn: '检查注塑件污染、变形、百格附着、耐磨和酒精擦拭。' } },
+      { substrate: { en: 'Laminates', cn: '覆膜材料' }, recommendedFoil: 'Foil Matched to Lamination Film', note: { en: 'Check matte/gloss/soft-touch film type, slip, adhesion, and scratch resistance.', cn: '检查哑膜/亮膜/肤感膜类型、滑移、附着和耐刮。' } },
+      { substrate: { en: 'Synthetic leather / PU / PVC leather', cn: '合成革 / PU / PVC 皮革' }, recommendedFoil: 'PK / Leather-suitable Foil', note: { en: 'Check texture depth, pressure mark, heat tolerance, flexibility, and rub resistance.', cn: '检查纹理深度、压痕、耐热、柔韧和耐磨。' } },
+    ],
+    troubleshooting: [
+      { issue: { en: 'Same foil works on one paper but fails on another', cn: '同一款膜在一种纸上可以，另一种纸不行' }, likelyCause: { en: 'Different coating, ink, varnish, lamination, roughness, or curing condition.', cn: '涂层、油墨、光油、覆膜、粗糙度或固化状态不同。' }, action: { en: 'Test each production substrate separately and record the exact surface treatment.', cn: '每种量产底材分别测试，并记录准确表面处理。' } },
+      { issue: { en: 'Plastic part fails adhesion test', cn: '塑料件附着测试失败' }, likelyCause: { en: 'Low surface energy, mold release contamination, wrong adhesive grade, or heat sensitivity.', cn: '表面能低、脱模剂污染、胶层等级错误或耐热不足。' }, action: { en: 'Clean or pretreat the part and test PC plastic foil with the required durability method.', cn: '清洁或预处理部件，并用指定耐性方法测试 PC 塑胶箔。' } },
+      { issue: { en: 'Compliance document does not match order', cn: '合规文件与订单不匹配' }, likelyCause: { en: 'Document was requested after color, foil grade, or market requirement changed.', cn: '颜色、膜型号或市场要求变化后才补要文件。' }, action: { en: 'Confirm required documents before sampling and link them to foil grade, color, and batch.', cn: '打样前确认所需文件，并关联到膜型号、颜色和批次。' } },
+    ],
+    samplingChecklist: { en: ['Send real substrate samples and surface treatment details.', 'List required tests: tape, cross-cut, rub, scratch, alcohol, heat, folding, aging, or migration-related checks.', 'Confirm market and buyer documents: RoHS, REACH, MSDS, heavy metal, restricted substances, or batch traceability.', 'Approve foil only after the required tests pass on the final substrate.'], cn: ['提供真实底材样品和表面处理信息。', '列出所需测试：胶带、百格、耐磨、耐刮、耐酒精、耐温、耐折、老化或迁移相关检查。', '确认市场和客户文件：RoHS、REACH、MSDS、重金属、限制物质或批次追溯。', '只有在最终底材上通过所需测试后再确认膜。'] },
+    faqs: [
+      { question: { en: 'Does PINTE foil support REACH or RoHS documents?', cn: 'PINTE 烫金膜能提供 REACH 或 RoHS 文件吗？' }, answer: { en: 'Document availability depends on foil grade, color, batch, and buyer requirement. Confirm the required documents before sampling or bulk order approval.', cn: '文件可提供情况取决于膜型号、颜色、批次和客户要求。请在打样或批量确认前说明所需文件。' } },
+      { question: { en: 'Can one foil work on coated paper, plastic, and leather?', cn: '一款膜能同时烫涂布纸、塑料和皮革吗？' }, answer: { en: 'Sometimes a foil has broad compatibility, but procurement should not assume it. Paper, plastic, and leather should each be sampled because adhesive and release needs differ.', cn: '有些型号兼容范围较广，但采购不能默认。纸、塑料和皮革应分别打样，因为胶层和离型需求不同。' } },
+    ],
+    relatedRoutes: ['guides/cosmetic-packaging-foil-guide', 'guides/hot-stamping-foil-structure-selection-guide', 'products/category/PC', 'products/category/PK', 'products/category/PLPY', 'quote'],
   },
   {
     slug: 'hot-stamping-sampling-checklist',
