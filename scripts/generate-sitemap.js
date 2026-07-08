@@ -308,6 +308,7 @@ function generateRobotsTxt() {
   const robotsPath = path.join(process.cwd(), 'public', 'robots.txt');
 
   const robotsContent = `User-agent: *
+Content-Signal: search=yes,ai-input=yes,ai-train=yes,use=full
 Allow: /
 Disallow: /api/
 
@@ -324,7 +325,7 @@ User-agent: Bingbot
 Allow: /
 
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: OAI-SearchBot
 Allow: /
@@ -345,6 +346,15 @@ User-agent: Applebot
 Allow: /
 
 User-agent: CCBot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Baiduspider
 Allow: /
 
 Sitemap: ${siteUrl}/sitemap.xml
