@@ -96,6 +96,25 @@ const guidePages = GEO_GUIDES.map((guide) => ({
   priority: guide.priority <= 2 ? '0.9' : '0.8',
 }));
 
+function escapeXml(value) {
+  return String(value ?? '')
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;');
+}
+
+function trimText(value, maxLength = 180) {
+  const text = String(value ?? '').replace(/\s+/g, ' ').trim();
+  return text.length > maxLength ? `${text.slice(0, maxLength - 1)}…` : text;
+}
+
+function localizedCaption(caption, lang) {
+  if (!caption) return '';
+  return typeof caption === 'object' ? caption[lang] || caption.en || caption.cn || '' : caption;
+}
+
 function getNotionDate(page) {
   const props = page.properties || {};
   const dateProp = props['截止日期'] || props.Date || props.Published || props.published || props.LastEdited;
@@ -192,11 +211,21 @@ function generateSitemap(blogPages = []) {
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
 `;
 
-  const addUrl = ({ route, changefreq, priority, lastmod = today }) => {
+  const addUrl = ({ route, changefreq, priority, lastmod = today, images = [] }) => {
     languages.forEach((lang) => {
       const loc = `${siteUrl}${routePath(lang, route)}`;
       const enHref = `${siteUrl}${routePath('en', route)}`;
       const cnHref = `${siteUrl}${routePath('cn', route)}`;
+      const imageXml = images
+        .filter((image) => image?.loc)
+        .map((image) => {
+          const caption = localizedCaption(image.caption, lang);
+          return `    <image:image>
+      <image:loc>${escapeXml(image.loc)}</image:loc>${caption ? `
+      <image:caption>${escapeXml(caption)}</image:caption>` : ''}
+    </image:image>`;
+        })
+        .join('\n');
 
       xml += `  <url>
     <loc>${loc}</loc>
@@ -206,7 +235,7 @@ function generateSitemap(blogPages = []) {
     <lastmod>${lastmod}</lastmod>
     <changefreq>${changefreq}</changefreq>
     <priority>${priority}</priority>
-  </url>
+${imageXml ? `${imageXml}\n` : ''}  </url>
 `;
     });
   };
@@ -230,19 +259,45 @@ function generateSitemap(blogPages = []) {
 
   // Add product categories
   productCategories.forEach((categoryId) => {
+    const product = CONTENT_EN.PRODUCT_DATA[categoryId];
     addUrl({
       route: `products/category/${categoryId}`,
       changefreq: 'weekly',
       priority: '0.8',
+      images: product?.heroImage ? [{
+        loc: product.heroImage,
+        caption: {
+          en: `${product.name} product roll for ${product.applications.join(', ')}. Compatible substrates include ${product.substrates.join(', ')}.`,
+          cn: `${product.name} 产品卷料，适用于 ${product.applications.join('、')}，兼容底材包括 ${product.substrates.join('、')}。`,
+        },
+      }] : [],
     });
   });
 
   // Add product detail pages
   productItems.forEach((productId) => {
+    let rawItem;
+    let series;
+    for (const [seriesId, items] of Object.entries(CONTENT_EN.CATALOG_DATA)) {
+      const matched = items.find((item) => item.id === productId);
+      if (matched) {
+        rawItem = matched;
+        series = CONTENT_EN.PRODUCT_DATA[seriesId];
+        break;
+      }
+    }
+    const item = rawItem ? mergeProductSeoProfile(rawItem, 'en') : undefined;
     addUrl({
       route: `products/item/${productId}`,
       changefreq: 'weekly',
       priority: '0.8',
+      images: item?.image ? [{
+        loc: item.image,
+        caption: {
+          en: `${item.imageAlt || item.name} - ${trimText(item.description || item.content || series?.description || '', 140)}`,
+          cn: `${item.name} 产品图 - 适用于 ${(item.applications || series?.applications || []).join('、')}。`,
+        },
+      }] : [],
     });
   });
 

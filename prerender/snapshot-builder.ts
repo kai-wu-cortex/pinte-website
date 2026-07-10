@@ -589,10 +589,33 @@ function buildCategorySnapshot(catId: string, lang: Lang): SnapshotResult {
   );
   const geoTargets = defaultGeoForRoute(route, lang);
 
+  const categoryTitleMap: Record<string, Record<Lang, string>> = {
+    PK: {
+      cn: `${cat.name}｜粗面纸/皮革/酒盒礼盒 Hot Stamping Foil 烫金膜｜PINTE`,
+      en: `${cat.name} | Hot Stamping Foil for Rough Paper, Leather, Wine & Gift Boxes | PINTE`,
+    },
+    PC: {
+      cn: `${cat.name}｜塑料件/ABS/PP/PVC/化妆品包装 Hot Stamping Foil 烫金膜｜PINTE`,
+      en: `${cat.name} | Plastic Hot Stamping Foil for ABS, PP, PVC & Cosmetic Packaging | PINTE`,
+    },
+    PLPY: {
+      cn: `${cat.name}｜纸盒礼盒/标签/高遮盖 Pigment Hot Stamping Foil 颜料箔｜PINTE`,
+      en: `${cat.name} | Pigment Hot Stamping Foil for Paper Gift Boxes, Tags & Opaque Color | PINTE`,
+    },
+    DIGITAL: {
+      cn: `${cat.name}｜标签/短单/数码增效 Digital Cold Foil 冷烫膜｜PINTE`,
+      en: `${cat.name} | Digital Cold Foil for Labels, MGI, Scodix & Short-Run Packaging | PINTE`,
+    },
+    GLITTER: {
+      cn: `${cat.name}｜美甲/圣诞饰品/丝印 Glitter Powder 金葱粉｜PINTE`,
+      en: `${cat.name} | Premium Glitter Powder for Nail Art, Decoration & Screen Printing | PINTE`,
+    },
+  };
   const title =
-    lang === 'cn'
+    categoryTitleMap[catId]?.[lang] ||
+    (lang === 'cn'
       ? `${cat.name} — PINTE ${cat.subtitle}｜东莞烫金箔制造商`
-      : `${cat.name} — PINTE ${cat.subtitle} | Dongguan Hot Stamping Foil Manufacturer`;
+      : `${cat.name} — PINTE ${cat.subtitle} | Dongguan Hot Stamping Foil Manufacturer`);
   const description = trim(cat.description, 280);
 
   // 痛点段落:从同系列 solutions 聚合
@@ -652,6 +675,16 @@ function buildCategorySnapshot(catId: string, lang: Lang): SnapshotResult {
           .join('')}
       </ul>
     </section>`;
+  const structureHtml = `
+    <section>
+      <h2>${escapeHtml(lang === 'cn' ? '产品结构' : 'Product Structure')}</h2>
+      <ul>
+        <li><strong>${escapeHtml(lang === 'cn' ? 'PET 基膜 / 载体' : 'PET carrier')}:</strong> ${escapeHtml(lang === 'cn' ? '支撑涂布、分切、复卷和烫印过程。' : 'Supports coating, slitting, rewinding, and stamping stability.')}</li>
+        <li><strong>${escapeHtml(lang === 'cn' ? '离型层' : 'Release layer')}:</strong> ${escapeHtml(lang === 'cn' ? '控制图案从基膜转移到底材的完整度和边缘清晰度。' : 'Controls transfer completeness and edge sharpness from carrier to substrate.')}</li>
+        <li><strong>${escapeHtml(lang === 'cn' ? '颜色/金属/颜料层' : 'Color / metallic / pigment layer')}:</strong> ${escapeHtml(lang === 'cn' ? '形成金、银、哑光、镭射、颜料色或闪光效果。' : 'Creates gold, silver, matte, holographic, pigment color, or glitter effects.')}</li>
+        <li><strong>${escapeHtml(lang === 'cn' ? '胶层/转移层' : 'Adhesive / transfer layer')}:</strong> ${escapeHtml(lang === 'cn' ? '决定与纸张、塑料、皮革、标签材料等底材的附着表现。' : 'Determines adhesion on paper, plastic, leather, label stock, and other substrates.')}</li>
+      </ul>
+    </section>`;
 
   const inner = `
     <h1>${escapeHtml(cat.name)} — ${escapeHtml(cat.subtitle)}</h1>
@@ -663,6 +696,8 @@ function buildCategorySnapshot(catId: string, lang: Lang): SnapshotResult {
     </section>
 
     ${featuresHtml}
+
+    ${structureHtml}
 
     <section>
       <h2>${escapeHtml(t('specifications', lang))}</h2>

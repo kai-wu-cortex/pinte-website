@@ -40,60 +40,60 @@ const ProductCategory: React.FC = () => {
   }> = {
     PK: {
       cn: {
-        title: `${product.name} - 粗面烫金箔 | PINTE品特`,
+        title: `${product.name} | 粗面纸/皮革/酒盒礼盒 Hot Stamping Foil 烫金膜 | PINTE品特`,
         description: 'PK咖啡底系列专为粗糙不平整表面设计的烫金箔，特别适合粗纹纸、压纹皮革、特种纸等难烫材料，特有抗氧化涂层保证重油墨纸张烫后光泽不发黑。东莞品特专业生产，供应东南亚市场。',
         keywords: ['PK咖啡底', 'PK系列', '粗面烫金箔', '粗糙表面烫金', '重油墨烫金', '抗氧化烫金箔', '粗纹纸烫金', '压纹皮革烫金', '特种纸烫金', 'PK咖啡底烫金箔厂家', '东莞PK烫金箔', '东南亚粗面烫金箔供应商', '难烫材料专用烫金箔'],
       },
       en: {
-        title: `${product.name} - Rough Surface Foil | PINTE`,
+        title: `${product.name} | Hot Stamping Foil for Rough Paper, Leather, Wine & Gift Boxes | PINTE`,
         description: 'PK Brown Back series hot stamping foil designed for rough and uneven surfaces, specially for rough paper, embossed leather, specialty paper. Special anti-oxidation coating maintains gloss on heavy ink paper. Professional manufacturer from Dongguan China, supplying Southeast Asia market.',
         keywords: ['PK brown back foil', 'PK series', 'rough surface foil', 'heavy ink oxidation resistant', 'rough paper stamping', 'embossed leather stamping', 'specialty paper foil', 'PK brown back foil manufacturer', 'Dongguan China', 'rough surface hot stamping foil supplier for Southeast Asia'],
       },
     },
     PC: {
       cn: {
-        title: `${product.name} - 化妆品包材专用 | PINTE品特`,
+        title: `${product.name} | 塑料件/ABS/PP/PVC/化妆品包装 Hot Stamping Foil 烫金膜 | PINTE品特`,
         description: 'PC系列专为塑胶材质设计，支持ABS、PS、PVC、亚克力等多种塑胶，优异耐酒精性能，完美通过百格测试，是化妆品包材烫金的最佳选择。',
         keywords: ['PC系列', 'PC塑胶烫金箔', '塑胶烫金', '化妆品包材烫金', 'ABS烫金箔', 'PS烫金', 'PVC烫金', '亚克力烫金', '耐酒精烫金箔', '塑胶烫金箔厂家', '东莞PC烫金箔', '化妆品包装烫金箔供应', '东南亚塑胶烫金箔'],
       },
       en: {
-        title: `${product.name} - Plastic Foil | PINTE`,
+        title: `${product.name} | Plastic Hot Stamping Foil for ABS, PP, PVC & Cosmetic Packaging | PINTE`,
         description: 'PC series hot stamping foil specially engineered for plastic materials, supports ABS, PS, PVC, acrylic and other plastics. Excellent alcohol resistance, passes cross-cut test perfectly, ideal for cosmetic packaging hot stamping.',
         keywords: ['PC series', 'plastic hot stamping foil', 'cosmetic packaging foil', 'ABS stamping foil', 'PS stamping', 'PVC stamping', 'acrylic stamping', 'alcohol resistant foil', 'plastic foil manufacturer Dongguan China', 'hot stamping foil for plastic packaging Southeast Asia'],
       },
     },
     PLPY: {
       cn: {
-        title: `${product.name} - 高遮盖力纯正色彩 | PINTE品特`,
+        title: `${product.name} | 纸盒礼盒/标签/高遮盖 Pigment Hot Stamping Foil 颜料箔 | PINTE品特`,
         description: 'PL/PY颜料箔是以颜料为原料的非镀铝产品，解决印刷油墨遮盖力不足问题，色彩饱满呈现纯正色彩，适合各种纸质基材和礼品包装。',
         keywords: ['PL/PY颜料箔', '颜料烫金箔', '非镀铝烫金箔', '高遮盖力烫金', '色彩纯正烫金箔', '铜版纸颜料箔', '白卡纸烫金', '礼品盒颜料箔', '日期打码颜料箔', '东莞颜料箔生产厂家', '高档包装颜料烫金箔', '东南亚颜料箔供应商'],
       },
       en: {
-        title: `${product.name} - High Coverage Pure Color | PINTE`,
+        title: `${product.name} | Pigment Hot Stamping Foil for Paper Gift Boxes, Tags & Opaque Color | PINTE`,
         description: 'PL/PY pigment foils are non-aluminized products using pigment as raw material, solves insufficient ink coverage problem, provides full and pure colors, suitable for various paper substrates and gift packaging.',
         keywords: ['PL/PY pigment foil', 'pigment hot stamping foil', 'non-aluminized foil', 'high coverage foil', 'pure color foil', 'pigment foil for gift box', 'date coding foil', 'pigment foil manufacturer Dongguan China', 'premium packaging pigment foil supplier'],
       },
     },
     DIGITAL: {
       cn: {
-        title: `${product.name} - 无需制版个性化烫金 | PINTE品特`,
+        title: `${product.name} | 标签/短单/数码增效 Digital Cold Foil 冷烫膜 | PINTE品特`,
         description: '数码冷烫系列无需制版，直接在UV光油或数码墨层上进行固化转移，适合个性化定制与小批量生产，适配MGI、Scodix等数码增效设备。',
         keywords: ['数码冷烫', '冷烫箔', '数码烫金', '无需制版烫金', '个性化烫金', '小批量烫金', '数码增效烫金', 'MGI冷烫', 'Scodix烫金', 'UV冷烫箔', '东莞数码冷烫箔厂家', '东南亚数码烫金供应商'],
       },
       en: {
-        title: `${product.name} - Plate-Free Personalization | PINTE`,
+        title: `${product.name} | Digital Cold Foil for Labels, MGI, Scodix & Short-Run Packaging | PINTE`,
         description: 'Digital cold foil series requires no plate making, direct curing transfer on UV varnish or digital toner layers, ideal for personalization and short-run production, compatible with MGI, Scodix and other digital enhancement equipment.',
         keywords: ['digital cold foil', 'cold foil stamping', 'digital hot stamping', 'plate-free foil', 'personalized packaging foil', 'short-run foil', 'digital enhancement foil', 'MGI compatible foil', 'Scodix compatible foil', 'UV curable cold foil', 'digital foil manufacturer China'],
       },
     },
     GLITTER: {
       cn: {
-        title: `${product.name} - 耐高温耐溶剂高品质闪粉 | PINTE品特`,
+        title: `${product.name} | 美甲/圣诞饰品/丝印 Glitter Powder 金葱粉 | PINTE品特`,
         description: '品特25年生产经验金葱粉，六角形切片，耐高温耐溶剂，光泽持久不褪色，规格齐全从1/4英寸到1/500英寸，适合圣诞饰品、美甲、丝网印刷等应用。',
         keywords: ['金葱粉', '闪粉', '六角形金葱粉', '耐高温金葱粉', '耐溶剂金葱粉', '高品质闪粉', '美甲金葱粉', '圣诞饰品金葱粉', '丝网印刷金葱粉', '东莞金葱粉厂家', '25年生产经验金葱粉'],
       },
       en: {
-        title: `${product.name} - Premium Heat Solvent Resistant Glitter | PINTE`,
+        title: `${product.name} | Premium Glitter Powder for Nail Art, Decoration & Screen Printing | PINTE`,
         description: 'PINTE premium glitter powder with 25 years production experience, hexagonal cut, heat and solvent resistant, long-lasting shine no fading. Full range of sizes from 1/4" to 1/500", suitable for Christmas decorations, nail art, screen printing and more.',
         keywords: ['premium glitter powder', 'hexagonal glitter', 'heat resistant glitter', 'solvent resistant glitter', 'glitter for nail art', 'glitter for Christmas decorations', 'glitter for screen printing', 'glitter manufacturer Dongguan China', '25 years experience glitter supplier'],
       },
@@ -106,6 +106,125 @@ const ProductCategory: React.FC = () => {
   };
 
   const seo = lang === 'cn' ? currentSeo.cn : currentSeo.en;
+  const structureLayersByCategory: Record<string, Array<{ name: string; desc: string }>> = {
+    PK: lang === 'cn'
+      ? [
+          { name: 'PET 基膜', desc: '支撑涂布、分切和烫印过程。' },
+          { name: '离型层', desc: '控制粗面纸、压纹纸和皮革上的转移完整度。' },
+          { name: '金属/色层', desc: '提供金、银、哑光和镭射等视觉效果。' },
+          { name: '抗氧化保护层', desc: '减少重油墨和深色底材上的发黑风险。' },
+          { name: '胶层', desc: '增强粗糙底材、充皮纸和皮革表面的附着。' },
+        ]
+      : [
+          { name: 'PET carrier', desc: 'Supports coating, slitting, and stamping stability.' },
+          { name: 'Release layer', desc: 'Controls complete transfer on rough paper, embossed board, and leather.' },
+          { name: 'Metallic / color layer', desc: 'Creates gold, silver, matte, and holographic effects.' },
+          { name: 'Anti-oxidation layer', desc: 'Reduces darkening risk on heavy ink and dark substrates.' },
+          { name: 'Adhesive layer', desc: 'Improves bonding on rough paper, leatherette paper, and leather.' },
+        ],
+    PC: lang === 'cn'
+      ? [
+          { name: 'PET 基膜', desc: '保证塑胶件高速烫印和分切稳定。' },
+          { name: '离型层', desc: '帮助细 Logo、瓶盖和化妆品部件清晰转移。' },
+          { name: '金属/镭射层', desc: '形成镜面金属、镭射或刷纹装饰效果。' },
+          { name: '塑胶专用胶层', desc: '匹配 ABS、PP、PVC、PET、PMMA 等塑料表面。' },
+          { name: '耐性测试重点', desc: '建议验证百格、耐磨、耐酒精和耐刮。' },
+        ]
+      : [
+          { name: 'PET carrier', desc: 'Keeps slitting and high-speed plastic stamping stable.' },
+          { name: 'Release layer', desc: 'Supports clean transfer for fine logos, caps, and cosmetic components.' },
+          { name: 'Metallic / holographic layer', desc: 'Creates mirror metallic, holographic, or brushed decoration.' },
+          { name: 'Plastic adhesive layer', desc: 'Matches ABS, PP, PVC, PET, PMMA, and related plastic surfaces.' },
+          { name: 'Testing focus', desc: 'Cross-cut, rub, alcohol, and scratch tests should be confirmed.' },
+        ],
+    PLPY: lang === 'cn'
+      ? [
+          { name: 'PET 基膜', desc: '适配常规热烫设备和卷料分切。' },
+          { name: '离型层', desc: '帮助纯色图案稳定转移。' },
+          { name: '颜料色层', desc: '不依赖镀铝反射，提供高遮盖纯色。' },
+          { name: '光泽/哑光表面', desc: 'PL 偏亮面，PY 偏哑面。' },
+          { name: '胶层', desc: '适配纸张、卡纸、标签和部分皮革底材。' },
+        ]
+      : [
+          { name: 'PET carrier', desc: 'Fits standard hot stamping and roll slitting.' },
+          { name: 'Release layer', desc: 'Supports stable transfer for opaque color artwork.' },
+          { name: 'Pigment color layer', desc: 'Uses pigment color instead of metallic reflection for high coverage.' },
+          { name: 'Gloss / matte surface', desc: 'PL is glossy; PY is matte.' },
+          { name: 'Adhesive layer', desc: 'Fits paper, board, labels, and selected leather substrates.' },
+        ],
+    DIGITAL: lang === 'cn'
+      ? [
+          { name: 'PET 基膜', desc: '适合数码增效设备的卷料运行。' },
+          { name: '离型层', desc: '配合 UV 光油或数码胶层转移。' },
+          { name: '金属/镭射层', desc: '用于标签、短单和可变金属效果。' },
+          { name: '冷烫转移层', desc: '需与 UV/LED 固化体系匹配。' },
+          { name: '测试重点', desc: '确认胶水、固化能量、线速和套准。' },
+        ]
+      : [
+          { name: 'PET carrier', desc: 'Runs on digital embellishment and cold foil equipment.' },
+          { name: 'Release layer', desc: 'Transfers with UV varnish or digital adhesive layers.' },
+          { name: 'Metallic / holographic layer', desc: 'Creates label, short-run, and variable metallic effects.' },
+          { name: 'Cold foil transfer layer', desc: 'Must match the UV/LED curing system.' },
+          { name: 'Testing focus', desc: 'Confirm adhesive, curing energy, line speed, and registration.' },
+        ],
+    GLITTER: lang === 'cn'
+      ? [
+          { name: 'PET 原膜', desc: '作为金葱粉基础材料。' },
+          { name: '颜色/镀层', desc: '形成金属、镭射或彩色闪光效果。' },
+          { name: '保护涂层', desc: '提升耐温、耐溶剂和色彩稳定性。' },
+          { name: '精密切片', desc: '可切六角、条形等规格。' },
+          { name: '筛分包装', desc: '按粒径和用途分类供应。' },
+        ]
+      : [
+          { name: 'PET base film', desc: 'Base material for glitter production.' },
+          { name: 'Color / metallized layer', desc: 'Creates metallic, holographic, or colored sparkle.' },
+          { name: 'Protective coating', desc: 'Improves heat, solvent, and color stability.' },
+          { name: 'Precision cutting', desc: 'Supports hexagonal, strip, and custom particle shapes.' },
+          { name: 'Screening and packing', desc: 'Sorted by particle size and application.' },
+        ],
+  };
+  const structureLayers = structureLayersByCategory[id] || structureLayersByCategory.PK;
+  const productSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Product',
+    name: product.name,
+    alternateName: seo.keywords.slice(0, 6),
+    description: seo.description,
+    image: product.heroImage,
+    brand: {
+      '@type': 'Brand',
+      name: 'PINTE',
+    },
+    manufacturer: {
+      '@type': 'Organization',
+      name: 'Dongguan Best Craftwork Products Co., Ltd.',
+      url: 'https://www.pintecl.com',
+    },
+    category: product.subtitle,
+    material: product.substrates.join(', '),
+    additionalProperty: [
+      ...product.params.map((param) => ({
+        '@type': 'PropertyValue',
+        name: param.label,
+        value: param.value,
+      })),
+      {
+        '@type': 'PropertyValue',
+        name: lang === 'cn' ? '适用底材' : 'Compatible substrates',
+        value: product.substrates.join(', '),
+      },
+      {
+        '@type': 'PropertyValue',
+        name: lang === 'cn' ? '应用场景' : 'Applications',
+        value: product.applications.join(', '),
+      },
+      {
+        '@type': 'PropertyValue',
+        name: lang === 'cn' ? '颜色/效果' : 'Colors and effects',
+        value: product.colors.join(', '),
+      },
+    ],
+  };
   const categoryFaqs = [
     {
       q: lang === 'cn' ? '这款烫金箔适合什么材质？' : 'What materials is this hot stamping foil suitable for?',
@@ -155,6 +274,9 @@ const ProductCategory: React.FC = () => {
       <script type="application/ld+json">
         {JSON.stringify(categoryFaqSchema)}
       </script>
+      <script type="application/ld+json">
+        {JSON.stringify(productSchema)}
+      </script>
       <div className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-neutral-100">
         <div className="max-w-[1200px] mx-auto px-4 sm:px-6 py-4 flex flex-col sm:h-20 sm:flex-row items-center justify-between gap-3">
            <button
@@ -199,9 +321,105 @@ const ProductCategory: React.FC = () => {
               </div>
            </div>
            <div className="flex-1 w-full h-[400px]">
-              <img src={product.heroImage} alt={product.name} className="w-full h-full object-cover rounded-3xl shadow-soft" />
+              <img src={product.heroImage} alt={`${seo.title} product roll and stamping effect`} className="w-full h-full object-cover rounded-3xl shadow-soft" />
            </div>
         </div>
+
+        <section className="bg-white rounded-[2rem] border border-neutral-100 shadow-sm p-6 md:p-8 mb-12">
+          <div className="mb-8">
+            <span className="text-xs font-bold uppercase tracking-[0.24em] text-pinte-blue">
+              {lang === 'cn' ? '产品 SEO 信息' : 'Product SEO Information'}
+            </span>
+            <h2 className="mt-3 text-2xl md:text-3xl font-display font-bold text-neutral-900">
+              {lang === 'cn'
+                ? `${product.name}：结构、规格、用途与特性`
+                : `${product.name}: Structure, Specifications, Applications, and Features`}
+            </h2>
+            <p className="mt-3 text-neutral-600 leading-relaxed">
+              {lang === 'cn'
+                ? `${product.name} 适用于 ${product.substrates.join('、')}，常见应用包括 ${product.applications.join('、')}。批量采购前建议用真实底材确认温度、压力、速度、附着力和转移完整度。`
+                : `${product.name} is suitable for ${product.substrates.join(', ')} and commonly used in ${product.applications.join(', ')}. Before bulk orders, confirm temperature, pressure, speed, adhesion, and transfer completeness on the actual substrate.`}
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div>
+              <h3 className="text-xl font-bold mb-4">{lang === 'cn' ? '产品特性' : 'Product Features'}</h3>
+              <ul className="space-y-3">
+                {product.features.map((feature, i) => (
+                  <li key={i} className="flex gap-3 text-neutral-700">
+                    <CheckCircle2 size={18} className="text-green-500 shrink-0 mt-0.5" />
+                    <span><strong>{feature.title}:</strong> {feature.desc}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4">{lang === 'cn' ? '产品用途' : 'Product Applications'}</h3>
+              <div className="flex flex-wrap gap-3">
+                {product.applications.map((app, i) => (
+                  <span key={i} className="rounded-full border border-neutral-200 bg-neutral-50 px-4 py-2 text-sm font-medium text-neutral-700">
+                    {app}
+                  </span>
+                ))}
+              </div>
+              <h3 className="text-xl font-bold mt-8 mb-4">{lang === 'cn' ? '适用底材' : 'Compatible Substrates'}</h3>
+              <div className="flex flex-wrap gap-3">
+                {product.substrates.map((sub, i) => (
+                  <span key={i} className="rounded-full border border-blue-100 bg-blue-50 px-4 py-2 text-sm font-medium text-pinte-blue">
+                    {sub}
+                  </span>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4">{lang === 'cn' ? '产品结构' : 'Product Structure'}</h3>
+              <div className="rounded-2xl border border-neutral-100 overflow-hidden">
+                {structureLayers.map((layer, i) => (
+                  <div key={layer.name} className={`p-4 ${i % 2 === 0 ? 'bg-neutral-50' : 'bg-white'} border-b border-neutral-100 last:border-b-0`}>
+                    <div className="flex items-start gap-3">
+                      <span className="mt-1 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-pinte-blue text-xs font-bold text-white">
+                        {i + 1}
+                      </span>
+                      <div>
+                        <div className="font-bold text-neutral-900">{layer.name}</div>
+                        <div className="text-sm text-neutral-600 leading-relaxed">{layer.desc}</div>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div>
+              <h3 className="text-xl font-bold mb-4">{lang === 'cn' ? '产品规格表' : 'Product Specification Table'}</h3>
+              <div className="overflow-hidden rounded-2xl border border-neutral-100">
+                <table className="w-full text-sm">
+                  <tbody>
+                    {product.params.map((param) => (
+                      <tr key={param.label} className="border-b border-neutral-100 last:border-b-0">
+                        <th className="w-1/3 bg-neutral-50 px-4 py-3 text-left font-semibold text-neutral-600">{param.label}</th>
+                        <td className="px-4 py-3 font-medium text-neutral-900">{param.value}</td>
+                      </tr>
+                    ))}
+                    <tr className="border-b border-neutral-100">
+                      <th className="bg-neutral-50 px-4 py-3 text-left font-semibold text-neutral-600">{lang === 'cn' ? '颜色/效果' : 'Colors / Effects'}</th>
+                      <td className="px-4 py-3 font-medium text-neutral-900">{product.colors.join(', ')}</td>
+                    </tr>
+                    <tr>
+                      <th className="bg-neutral-50 px-4 py-3 text-left font-semibold text-neutral-600">{lang === 'cn' ? '建议测试' : 'Recommended Tests'}</th>
+                      <td className="px-4 py-3 font-medium text-neutral-900">
+                        {lang === 'cn' ? '附着力、耐磨、耐酒精、耐刮、转移完整度；量产前需打样确认。' : 'Adhesion, rub, alcohol, scratch, and transfer completeness; sampling is required before mass production.'}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </section>
 
         {detailTab === 'overview' && (
            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 animate-in slide-in-from-bottom-4">
