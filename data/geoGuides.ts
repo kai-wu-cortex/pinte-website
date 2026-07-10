@@ -1157,6 +1157,310 @@ export const GEO_GUIDES: GeoGuide[] = [
     },
     relatedRoutes: ['guides/hot-stamping-foil-buying-guide', 'guides/hot-stamping-troubleshooting', 'guides/hot-foil-vs-cold-foil-vs-holographic', 'guides/hot-stamping-sampling-checklist', 'quote'],
   },
+  {
+    slug: 'hot-stamping-transfer-foil-product-introduction',
+    priority: 1,
+    title: {
+      en: 'Hot Stamping Transfer Foil Product Introduction: Structure, Features, Uses and Specifications',
+      cn: '烫金转写膜产品介绍：结构、特性、用途与规格',
+    },
+    metaDescription: {
+      en: 'A PINTE product introduction page for hot stamping transfer foil, covering hot foil, cold foil, M-PET metallized foil structure, applications, specifications, substrate fit, and sampling checks.',
+      cn: 'PINTE 烫金转写膜产品介绍页，覆盖热烫、冷烫、M-PET 电镀膜层结构、应用场景、规格参数、底材适配和打样测试清单。',
+    },
+    primaryKeyword: {
+      en: 'hot stamping transfer foil',
+      cn: '烫金转写膜',
+    },
+    secondaryKeywords: {
+      en: [
+        'hot stamping foil',
+        'M-PET metallized foil',
+        'PET hot stamping foil',
+        'cold foil',
+        'metallic transfer foil',
+        'foil for cards labels packaging plastic leather',
+      ],
+      cn: [
+        '烫金膜',
+        'M-PET 电镀膜',
+        'PET 烫金膜',
+        '冷烫膜',
+        '金属转写膜',
+        '卡片标签包装塑料皮革烫金膜',
+      ],
+    },
+    audience: {
+      en: 'Packaging factories, printing factories, label converters, stationery suppliers, plastic decoration factories, leather goods makers, and procurement teams comparing hot stamping foil grades.',
+      cn: '包装厂、印刷厂、标签加工厂、文具供应商、塑胶装饰厂、皮具厂，以及正在比较烫金膜型号的采购团队。',
+    },
+    answer: {
+      en: 'Hot stamping transfer foil is a PET-based decorative transfer material used to move metallic, pigment, holographic, or colored effects onto paper, plastic, leather, labels, cards, stationery, and packaging surfaces. A typical foil construction includes a PET carrier, release layer, color or lacquer layer, metallized layer, and adhesive layer. Hot foil is activated by heat and pressure and is suitable for sharp edges, metallic gloss, fine logos, and premium packaging. Cold foil uses adhesive and curing in suitable printing lines and is often chosen for faster label or card production. Final foil selection should be confirmed by sampling on the real substrate, because adhesion, release, edge clarity, gloss, temperature, pressure, speed, and post-use durability vary by material and machine.',
+      cn: '烫金转写膜是一种以 PET 为载体的装饰转移材料，可将金属、颜料、镭射或彩色效果转移到纸张、塑料、皮革、标签、卡片、文具和包装表面。典型结构包括 PET 基膜、离型层、色层或清漆层、镀铝层和胶层。热烫膜依靠温度与压力完成转移，适合边缘清晰、金属光泽、精细 Logo 和高端包装；冷烫膜则依靠胶水与固化工艺，更适合部分标签、卡片和联机高速印刷。最终选型必须在真实底材上打样确认，因为附着力、离型、边缘清晰度、光泽、温度、压力、速度和耐用性都会随材料和设备变化。',
+    },
+    factors: [
+      {
+        label: { en: 'Transfer appearance', cn: '转写外观' },
+        guidance: {
+          en: 'A suitable foil should deliver bright metallic or color appearance, clean edges, stable gloss, and complete transfer without burrs or missing areas.',
+          cn: '合适的烫金膜应实现鲜明金属或彩色外观、干净边缘、稳定光泽，并减少毛边、缺金和转移不完整。',
+        },
+      },
+      {
+        label: { en: 'Adhesion and substrate range', cn: '附着与底材范围' },
+        guidance: {
+          en: 'Foil adhesion depends on the adhesive layer and the receiving surface. Smooth paper, rough paper, plastic, leather, varnish, and labels need different matching logic.',
+          cn: '烫金附着取决于胶层与承印表面。平滑纸、粗糙纸、塑料、皮革、光油和标签材料需要不同匹配逻辑。',
+        },
+      },
+      {
+        label: { en: 'Hot foil or cold foil process', cn: '热烫或冷烫工艺' },
+        guidance: {
+          en: 'Hot stamping is often selected for crisp premium decoration; cold foil is considered when the press line, adhesive system, speed, and registration requirements support it.',
+          cn: '热烫常用于高端、清晰的装饰效果；当印刷线、胶水体系、速度和套准条件合适时，可考虑冷烫。',
+        },
+      },
+    ],
+    articleSections: [
+      {
+        title: { en: 'What this product is used for', cn: '这类产品主要用于什么' },
+        body: {
+          en: [
+            'PINTE hot stamping transfer foil is designed for decorative transfer on packaging and industrial surfaces. It can create gold, silver, metallic colors, pigment colors, matte effects, pearl effects, and holographic effects depending on the selected series.',
+            'Typical applications include greeting cards, invitation cards, paper boxes, color cartons, gift boxes, wine boxes, cosmetic boxes, labels, plastic boxes, plastic caps, stationery, leather logos, synthetic leather, and other hot stamping or cold foil decoration jobs.',
+            'For procurement, the key point is not only the color. Buyers should first confirm the substrate, surface treatment, stamping artwork, machine type, expected line speed, durability tests, roll width, roll length, and MOQ.',
+          ],
+          cn: [
+            'PINTE 烫金转写膜用于包装与工业表面的装饰转移，可根据不同系列实现亮金、亮银、金属彩色、颜料色、哑光、珠光和镭射效果。',
+            '典型应用包括贺卡、请柬、纸盒、彩盒、礼盒、酒盒、化妆品盒、标签、塑料盒、塑料瓶盖、文具、皮革 Logo、合成革，以及其他热烫或冷烫装饰工艺。',
+            '采购时不能只看颜色。应先确认底材、表面处理、烫印图案、设备类型、目标线速、耐性测试、卷宽、卷长和起订量。',
+          ],
+        },
+      },
+      {
+        title: { en: 'Hot stamping foil vs cold foil', cn: '热烫膜与冷烫膜的选用差异' },
+        body: {
+          en: [
+            'Hot stamping foil transfers decorative layers through heat, pressure, dwell time, and die contact. It is commonly selected for premium packaging, fine text, logos, paper boxes, plastic parts, leather goods, and applications that require crisp edges and strong visual depth.',
+            'Cold foil is used with adhesive and curing on compatible printing equipment. It can support faster inline production for labels, cards, and selected packaging jobs, but it depends heavily on the adhesive system, curing condition, substrate, and press setup.',
+            'Neither process is universally better. The right choice depends on order size, equipment, substrate, artwork detail, registration tolerance, effect requirement, and total production cost.',
+          ],
+          cn: [
+            '热烫膜通过温度、压力、停留时间和烫版接触完成装饰层转移，常用于高端包装、精细文字、Logo、纸盒、塑料件、皮具，以及需要清晰边缘和强视觉层次的场景。',
+            '冷烫膜需要配合胶水和固化工艺，在兼容的印刷设备上使用，可用于部分标签、卡片和包装的联机高速生产，但对胶水体系、固化条件、底材和设备状态依赖更强。',
+            '热烫和冷烫没有绝对优劣。正确选择取决于订单量、设备、底材、图案细节、套准要求、效果要求和综合生产成本。',
+          ],
+        },
+      },
+      {
+        title: { en: 'Typical foil structure', cn: '典型膜层结构' },
+        body: {
+          en: [
+            'A common M-PET metallized hot stamping foil uses a multilayer structure: PET carrier film, release layer, color or lacquer layer, metallized aluminum layer, and adhesive layer. Some pigment, plastic, holographic, or cold foil products use modified structures for different transfer behavior.',
+            'The PET carrier supports coating, slitting, winding, and stamping. The release layer decides how easily the decorative layer leaves the carrier. The color or lacquer layer controls shade, gloss, opacity, and surface appearance. The metallized layer creates mirror reflectivity. The adhesive layer determines whether the foil bonds to paper, plastic, leather, varnish, or label stock.',
+            'When buyers report peeling, missing transfer, dull gloss, fuzzy edges, or poor fine-line performance, the cause is often related to the release layer, adhesive layer, surface treatment, stamping pressure, or heat window rather than color alone.',
+          ],
+          cn: [
+            '常见 M-PET 电镀烫金膜采用多层结构：PET 基膜、离型层、色层或清漆层、镀铝层和胶层。颜料箔、塑胶箔、镭射箔或冷烫箔可能会根据转移行为做结构调整。',
+            'PET 基膜负责涂布、分切、收卷和烫印支撑；离型层决定装饰层离开载体的难易；色层或清漆层控制颜色、光泽、遮盖力和表观；镀铝层提供镜面金属反射；胶层决定其能否附着在纸张、塑料、皮革、光油或标签材料上。',
+            '当采购或工厂遇到掉金、缺金、光泽发暗、边缘发糊或细线不清时，原因往往与离型层、胶层、表面处理、烫印压力或温度窗口有关，而不只是颜色问题。',
+          ],
+        },
+        bullets: {
+          en: ['PET carrier film: commonly selected according to coating and stamping requirements.', 'Release and color layers: affect edge definition, shade, gloss, and transfer cleanliness.', 'Metallized and adhesive layers: affect metallic reflection, bonding strength, and substrate compatibility.'],
+          cn: ['PET 基膜：通常根据涂布和烫印要求选择。', '离型与色层：影响边缘清晰度、色相、光泽和转移干净程度。', '镀铝与胶层：影响金属反射、结合强度和底材兼容性。'],
+        },
+      },
+      {
+        title: { en: 'Specification information buyers should confirm', cn: '采购前应确认的规格信息' },
+        body: {
+          en: [
+            'For general hot stamping transfer foil, buyers commonly confirm carrier thickness range, finished roll width, roll length, core size, slitting tolerance, color or effect, and suitable process. For reference, many PET-based foil products are discussed in the 12-25 micrometer carrier film range, while final specification should follow the selected PINTE series and production requirement.',
+            'Roll width should be chosen according to artwork layout and machine width to reduce waste. Finished width can be slit according to production needs within available slitting capability. Roll length and core size should match the stamping machine and storage method.',
+            'Technical settings such as temperature, pressure, dwell time, and speed should never be treated as fixed numbers. PINTE can provide starting recommendations, but final parameters must be confirmed by sampling on the actual substrate.',
+          ],
+          cn: [
+            '采购通用烫金转写膜时，通常需要确认基膜厚度范围、成品宽度、卷长、卷芯、分切公差、颜色或效果，以及适用工艺。作为参考，许多 PET 基烫金膜会围绕 12-25 微米基膜范围讨论，但最终规格应以所选 PINTE 系列和生产需求为准。',
+            '卷宽应根据图案排版和设备宽度选择，以减少损耗。成品宽度可在可分切范围内按生产需求分切。卷长和卷芯需要匹配烫印设备与仓储方式。',
+            '温度、压力、停留时间和速度等技术参数不能被视为固定值。PINTE 可提供起始建议，但最终参数必须在真实底材上打样确认。',
+          ],
+        },
+      },
+      {
+        title: { en: 'How PINTE rewrites this product for practical procurement', cn: 'PINTE 如何把产品介绍转成采购可执行信息' },
+        body: {
+          en: [
+            'Instead of presenting hot stamping transfer foil only as a generic film product, PINTE organizes it by application and substrate: paper packaging foil, plastic hot stamping foil, pigment foil, holographic foil, leather logo foil, and digital/cold foil.',
+            'This makes quotation and sampling faster. A buyer can send the substrate, product photo, artwork size, target color, machine type, durability test, and expected order quantity, then receive a series recommendation, color card, sample roll, and slitting suggestion.',
+            'For bulk orders, the most important confirmation is repeatability: color consistency, release stability, adhesion, edge sharpness, winding quality, packaging, delivery time, and after-sales technical response.',
+          ],
+          cn: [
+            'PINTE 不把烫金转写膜只作为泛泛的薄膜产品介绍，而是按应用和底材拆分：纸包装烫金膜、塑胶烫金膜、颜料箔、镭射箔、皮革 Logo 箔和数码/冷烫箔。',
+            '这样能让报价和打样更快。采购只需提供底材、产品照片、图案尺寸、目标颜色、设备类型、耐性测试和预计采购量，即可获得系列推荐、色卡、样卷和分切建议。',
+            '批量订单最重要的是复购稳定性：颜色一致性、离型稳定、附着力、边缘清晰度、收卷质量、包装方式、交期和售后技术响应。',
+          ],
+        },
+      },
+    ],
+    selectionTable: [
+      {
+        factor: { en: 'Product type', cn: '产品类型' },
+        confirm: { en: 'Hot foil, cold foil, M-PET metallized foil, pigment foil, holographic foil, or plastic foil.', cn: '热烫膜、冷烫膜、M-PET 电镀膜、颜料箔、镭射箔或塑胶箔。' },
+        why: { en: 'Different foil families are built for different transfer, appearance, and substrate behavior.', cn: '不同膜系列对应不同转移、外观和底材表现。' },
+        ask: { en: 'Which PINTE series fits my substrate and process?', cn: '我的底材和工艺适合哪个 PINTE 系列？' },
+      },
+      {
+        factor: { en: 'Substrate', cn: '底材' },
+        confirm: { en: 'Paper, coated paper, laminated paper, label stock, plastic, leather, synthetic leather, stationery, or coated surface.', cn: '纸张、涂布纸、覆膜纸、标签材料、塑料、皮革、合成革、文具或涂层表面。' },
+        why: { en: 'Adhesive and release behavior must match the receiving surface.', cn: '胶层和离型表现必须匹配承印表面。' },
+        ask: { en: 'Can I send real substrate samples for testing?', cn: '我可以寄真实底材做测试吗？' },
+      },
+      {
+        factor: { en: 'Appearance target', cn: '外观目标' },
+        confirm: { en: 'Mirror metallic, matte metallic, pigment color, pearl, holographic, anti-counterfeit, fine logo, or large-area stamping.', cn: '镜面金属、哑光金属、颜料色、珠光、镭射、防伪、精细 Logo 或大面积烫印。' },
+        why: { en: 'Fine artwork and large solid blocks require different release and transfer control.', cn: '精细图案和大面积实地需要不同离型与转移控制。' },
+        ask: { en: 'Can you provide color cards or sample rolls for this effect?', cn: '能否提供这个效果的色卡或样卷？' },
+      },
+      {
+        factor: { en: 'Roll specification', cn: '卷料规格' },
+        confirm: { en: 'Roll width, roll length, core size, slitting range, packaging, and storage requirements.', cn: '卷宽、卷长、卷芯、分切范围、包装和储存要求。' },
+        why: { en: 'Wrong width increases waste and may not fit the stamping machine.', cn: '宽幅错误会增加损耗，也可能不适配设备。' },
+        ask: { en: 'What width and length do you recommend for my artwork layout?', cn: '按我的图案排版推荐什么宽幅和米数？' },
+      },
+    ],
+    processNotes: [
+      {
+        title: { en: 'Hot stamping strengths', cn: '热烫优势' },
+        body: {
+          en: 'Hot stamping is usually preferred when buyers need a flat, bright, premium surface, clean cutting edges, fine text clarity, and strong decorative impact.',
+          cn: '当客户需要平整亮丽的高端表面、清晰切边、细小文字清晰度和强装饰效果时，通常优先考虑热烫。',
+        },
+      },
+      {
+        title: { en: 'Cold foil strengths', cn: '冷烫优势' },
+        body: {
+          en: 'Cold foil can support faster inline conversion on compatible label or printing lines, with lower heat input and process advantages when adhesive and curing conditions are stable.',
+          cn: '在兼容的标签或印刷线上，冷烫可支持更快联机加工，并在胶水和固化稳定时具备低热输入和效率优势。',
+        },
+      },
+      {
+        title: { en: 'Application-driven selection', cn: '按应用选型' },
+        body: {
+          en: 'Cards, invitations, labels, paper boxes, plastic parts, stationery, and leather logos should not be quoted with one universal foil grade.',
+          cn: '卡片、请柬、标签、纸盒、塑料件、文具和皮革 Logo 不应直接用一个通用型号报价。',
+        },
+      },
+      {
+        title: { en: 'Sampling before bulk order', cn: '批量前必须打样' },
+        body: {
+          en: 'Use real substrate samples to confirm adhesion, rub resistance, edge clarity, color, transfer completeness, and machine parameters before production.',
+          cn: '量产前应使用真实底材确认附着力、耐磨、边缘清晰度、颜色、转移完整度和设备参数。',
+        },
+      },
+    ],
+    substrateFit: [
+      {
+        substrate: { en: 'Greeting cards and invitation cards', cn: '贺卡 / 请柬' },
+        recommendedFoil: 'PK Brown Back / Metallic Packaging Foil',
+        note: { en: 'Focus on bright appearance, clean fine text, and smooth transfer on printed paper.', cn: '关注亮丽外观、细字清晰和印刷纸面转移平整。' },
+      },
+      {
+        substrate: { en: 'Paper boxes and color cartons', cn: '纸盒 / 彩盒' },
+        recommendedFoil: 'PK Brown Back Series',
+        note: { en: 'Match coated, laminated, rough, or printed surfaces; test large solid areas and folding lines.', cn: '匹配涂布、覆膜、粗面或印刷表面；测试大面积实地和折线位置。' },
+      },
+      {
+        substrate: { en: 'Labels and roll-fed work', cn: '标签 / 卷筒材料' },
+        recommendedFoil: 'Digital / Cold Foil or Fine-detail Hot Foil',
+        note: { en: 'Confirm line speed, release, registration, and compatibility with adhesive or UV systems.', cn: '确认线速、离型、套准，以及与胶水或 UV 体系的兼容性。' },
+      },
+      {
+        substrate: { en: 'Plastic boxes, caps, and parts', cn: '塑料盒 / 瓶盖 / 塑料件' },
+        recommendedFoil: 'PC Plastic / Alcohol Resistant Foil',
+        note: { en: 'Test surface energy, pretreatment, adhesion, alcohol resistance, and scratch resistance.', cn: '测试表面能、预处理、附着力、耐酒精和耐刮。' },
+      },
+      {
+        substrate: { en: 'Leather and synthetic leather', cn: '皮革 / 合成革' },
+        recommendedFoil: 'Leather-suitable Metallic Foil',
+        note: { en: 'Check texture filling, heat mark, flexibility, edge clarity, and long-term rub resistance.', cn: '检查纹理填充、热压痕、柔韧性、边缘清晰度和长期耐磨。' },
+      },
+      {
+        substrate: { en: 'Stationery and decorative goods', cn: '文具 / 装饰品' },
+        recommendedFoil: 'Metallic, Pigment, Pearl or Holographic Foil',
+        note: { en: 'Select by effect, substrate, production method, and expected handling durability.', cn: '按效果、底材、生产方式和使用耐性选择。' },
+      },
+    ],
+    troubleshooting: [
+      {
+        issue: { en: 'Foil does not transfer completely', cn: '转移不完整 / 缺金' },
+        likelyCause: { en: 'Temperature too low, pressure insufficient, release too tight, substrate too rough, or die contact uneven.', cn: '温度偏低、压力不足、离型偏紧、底材过粗或烫版接触不均。' },
+        action: { en: 'Adjust heat and pressure step by step, test a different release grade, and inspect die flatness.', cn: '逐步调整温度和压力，测试不同离型等级，并检查烫版平整度。' },
+      },
+      {
+        issue: { en: 'Foil peels or metallic layer comes off', cn: '掉金 / 金属层脱落' },
+        likelyCause: { en: 'Adhesive layer does not match the substrate, surface is contaminated, or post-use durability exceeds the foil grade.', cn: '胶层不匹配底材、表面污染，或使用耐性超过该膜等级。' },
+        action: { en: 'Clean or pretreat the substrate, choose a stronger adhesive grade, and run tape/rub/alcohol tests as required.', cn: '清洁或预处理底材，选择附着更强的型号，并按需求做胶带、耐磨或耐酒精测试。' },
+      },
+      {
+        issue: { en: 'Fine text becomes blurry', cn: '细字发糊 / 毛边' },
+        likelyCause: { en: 'Heat or dwell time too high, release too easy, die not sharp, or pressure not balanced.', cn: '温度或停留时间过高、离型过易、烫版不清晰或压力不均。' },
+        action: { en: 'Reduce heat, shorten dwell time, use cleaner-release foil, and verify die engraving quality.', cn: '降低温度、缩短停留时间、使用离型更干净的膜，并确认烫版雕刻质量。' },
+      },
+      {
+        issue: { en: 'Large-area stamping looks mottled', cn: '大面积烫印发花' },
+        likelyCause: { en: 'Uneven pressure, rough coating, dust, roll tension issue, or foil not suitable for large solid areas.', cn: '压力不均、涂层粗糙、灰尘、收卷张力问题，或膜不适合大面积实地。' },
+        action: { en: 'Clean material, inspect coating, adjust pressure/tension, and request a grade for solid-area stamping.', cn: '清洁材料，检查涂层，调整压力和张力，并测试适合大面积实地的型号。' },
+      },
+    ],
+    samplingChecklist: {
+      en: [
+        'Send the real substrate, surface treatment, ink, coating, lamination, or plastic resin information.',
+        'Provide artwork size, minimum line width, stamping area, color target, and final application.',
+        'Confirm whether the process is hot stamping, cold foil, digital enhancement, roll-on stamping, or flat stamping.',
+        'Test adhesion, rub resistance, scratch resistance, alcohol resistance, heat resistance, and transfer completeness where relevant.',
+        'Confirm roll width, roll length, core size, slitting tolerance, MOQ, sample policy, lead time, and repeat-order stability.',
+      ],
+      cn: [
+        '提供真实底材、表面处理、油墨、涂层、覆膜或塑料树脂信息。',
+        '提供图案尺寸、最小线宽、烫印面积、目标颜色和最终应用场景。',
+        '确认工艺是热烫、冷烫、数码增效、滚烫还是平烫。',
+        '按需求测试附着力、耐磨、耐刮、耐酒精、耐温和转移完整度。',
+        '确认卷宽、卷长、卷芯、分切公差、MOQ、样品政策、交期和复购稳定性。',
+      ],
+    },
+    faqs: [
+      {
+        question: { en: 'Is hot stamping transfer foil the same as hot stamping foil?', cn: '烫金转写膜和烫金膜是同一种产品吗？' },
+        answer: { en: 'In many B2B conversations they refer to the same category of decorative transfer foil. Buyers may also call it hot foil, hot stamping paper, electrochemical aluminum foil, PET hot stamping foil, or metallic transfer foil. The exact grade still depends on substrate and process.', cn: '在很多 B2B 场景中，它们指向同一类装饰转移箔。采购也可能称为热烫箔、烫金纸、电化铝、PET 烫金膜或金属转写膜。具体型号仍取决于底材和工艺。' },
+      },
+      {
+        question: { en: 'Can the same foil be used for paper, plastic, and leather?', cn: '纸张、塑料和皮革可以用同一种膜吗？' },
+        answer: { en: 'Sometimes a foil can cover more than one substrate, but it should never be assumed. Paper, plastic, leather, varnish, and label materials need separate sampling because their adhesion and heat response are different.', cn: '有些型号可以覆盖多个底材，但不能默认通用。纸张、塑料、皮革、光油和标签材料的附着与受热反应不同，需要分别打样。' },
+      },
+      {
+        question: { en: 'What thickness should I choose?', cn: '烫金膜厚度应该怎么选？' },
+        answer: { en: 'Do not choose by thickness alone. Many PET-based foil products are discussed around carrier film ranges such as 12-25 micrometers, but actual performance depends on release, color, metallized layer, adhesive, slitting quality, and substrate fit.', cn: '不要只按厚度选择。许多 PET 基烫金膜会围绕 12-25 微米基膜范围讨论，但实际表现取决于离型、色层、镀铝层、胶层、分切质量和底材匹配。' },
+      },
+      {
+        question: { en: 'What information should I provide before asking for a quotation?', cn: '询价前需要提供哪些信息？' },
+        answer: { en: 'Provide substrate, surface treatment, product photo, artwork size, color or effect, machine type, hot or cold process, target roll width, expected quantity, and required tests. This allows PINTE to recommend the correct series faster.', cn: '建议提供底材、表面处理、产品照片、图案尺寸、颜色或效果、设备类型、热烫或冷烫工艺、目标卷宽、预计数量和测试要求。这样 PINTE 能更快推荐合适系列。' },
+      },
+      {
+        question: { en: 'Can PINTE provide sample rolls and slitting?', cn: 'PINTE 可以提供样卷和分切吗？' },
+        answer: { en: 'Yes. PINTE can provide color cards, sample rolls, substrate-based model recommendations, and slitting options according to available production specifications.', cn: '可以。PINTE 可根据可生产规格提供色卡、样卷、按底材推荐型号和分切方案。' },
+      },
+    ],
+    relatedRoutes: [
+      'products/category/PK',
+      'products/category/PC',
+      'products/category/PLPY',
+      'products/category/DIGITAL',
+      'guides/hot-stamping-foil-structure-selection-guide',
+      'guides/hot-stamping-foil-buying-guide',
+      'guides/hot-foil-vs-cold-foil-vs-holographic',
+      'quote',
+    ],
+  },
 ];
 
 export const getGeoGuide = (slug?: string) => GEO_GUIDES.find((guide) => guide.slug === slug);
