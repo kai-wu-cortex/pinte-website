@@ -14,7 +14,7 @@
  */
 
 import { CONTENT_EN, CONTENT_ZH } from '../data/content.js';
-import { GEO_GUIDES, getGeoGuide } from '../data/geoGuides.js';
+import { GEO_GUIDES, getGeoGuide, guideCustomerText } from '../data/geoGuides.js';
 import { mergeProductSeoProfile } from '../data/productSeoProfiles.js';
 // @ts-ignore - .mjs 配置文件,无类型声明
 import seoSop from '../scripts/seo-geo-sop.config.mjs';
@@ -347,7 +347,7 @@ function buildBreadcrumb(
       home,
       guideListCrumb,
       ...(guide
-        ? [{ label: guide.title[lang], href: langPath(`guides/${guide.slug}`, lang) + '/' }]
+        ? [{ label: guideCustomerText(guide.title[lang], lang), href: langPath(`guides/${guide.slug}`, lang) + '/' }]
         : []),
     ];
   }
@@ -1629,21 +1629,23 @@ function buildGuideListSnapshot(lang: Lang): SnapshotResult {
   const geoTargets = defaultGeoForRoute(route, lang);
   const title =
     lang === 'cn'
-      ? '烫金膜采购指南与 GEO 文章导航 — PINTE'
-      : 'Hot Stamping Foil Procurement Guides and GEO Article Directory — PINTE';
+      ? '烫金膜采购指南与技术文章导航 — PINTE'
+      : 'Hot Stamping Foil Procurement Guides and Technical Article Directory — PINTE';
   const description =
     lang === 'cn'
-      ? '浏览 PINTE 烫金膜采购指南、底材选型、故障排查、热烫冷烫对比、化妆品包装、纸盒包装和 AI 搜索 GEO 内容。'
-      : 'Browse PINTE hot stamping foil procurement guides, substrate selection, troubleshooting, hot foil vs cold foil comparisons, cosmetic packaging, paper box packaging, and AI-search-ready GEO content.';
+      ? '浏览 PINTE 烫金膜采购指南、底材选型、故障排查、热烫冷烫对比、化妆品包装、纸盒包装和技术资料。'
+      : 'Browse PINTE hot stamping foil procurement guides, substrate selection, troubleshooting, hot foil vs cold foil comparisons, cosmetic packaging, paper box packaging, and technical resources.';
   const guides = [...GEO_GUIDES].sort(
     (a, b) => a.priority - b.priority || a.title[lang].localeCompare(b.title[lang])
   );
   const guideLinks = guides
     .map(
       (guide) => `<article><h2><a href="${langPath(`guides/${guide.slug}`, lang)}/">${escapeHtml(
-        guide.title[lang]
-      )}</a></h2><p>${escapeHtml(guide.metaDescription[lang])}</p><p>${escapeHtml(
-        [guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang].slice(0, 4)].join(', ')
+        guideCustomerText(guide.title[lang], lang)
+      )}</a></h2><p>${escapeHtml(guideCustomerText(guide.metaDescription[lang], lang))}</p><p>${escapeHtml(
+        [guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang].slice(0, 4)]
+          .map((keyword) => guideCustomerText(keyword, lang))
+          .join(', ')
       )}</p></article>`
     )
     .join('');
@@ -1664,7 +1666,7 @@ function buildGuideListSnapshot(lang: Lang): SnapshotResult {
         name: title,
         url,
         items: guides.map((guide) => ({
-          name: guide.title[lang],
+          name: guideCustomerText(guide.title[lang], lang),
           url: buildCanonicalUrl(`guides/${guide.slug}`, lang),
         })),
       }),
@@ -1676,8 +1678,8 @@ function buildGuideListSnapshot(lang: Lang): SnapshotResult {
         'hot stamping foil guides',
         'hot stamping foil buying guide',
         'foil troubleshooting',
-        'GEO',
-        'AI search optimization',
+        'foil stamping technical resources',
+        'procurement guide',
       ]),
       geoTargets,
       type: 'website',
@@ -1804,15 +1806,16 @@ function buildPintefoilsSnapshot(lang: Lang): SnapshotResult {
 function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null {
   const guide = getGeoGuide(slug);
   if (!guide) return null;
+  const text = (value: string) => guideCustomerText(value, lang);
 
   const route = `guides/${guide.slug}`;
   const url = buildCanonicalUrl(route, lang);
-  const title = `${guide.title[lang]} | PINTE`;
-  const description = guide.metaDescription[lang];
+  const title = `${text(guide.title[lang])} | PINTE`;
+  const description = text(guide.metaDescription[lang]);
   const keywords = Array.from(
     new Set([
-      guide.primaryKeyword[lang],
-      ...guide.secondaryKeywords[lang],
+      text(guide.primaryKeyword[lang]),
+      ...guide.secondaryKeywords[lang].map(text),
       'hot stamping foil',
       'PINTE',
     ])
@@ -1823,8 +1826,8 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
   const factorRows = guide.factors
     .map(
       (factor) =>
-        `<tr><td>${escapeHtml(factor.label[lang])}</td><td>${escapeHtml(
-          factor.guidance[lang]
+        `<tr><td>${escapeHtml(text(factor.label[lang]))}</td><td>${escapeHtml(
+          text(factor.guidance[lang])
         )}</td></tr>`
     )
     .join('');
@@ -1832,27 +1835,27 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
   const processNotes = guide.processNotes
     ?.map(
       (note) =>
-        `<article><h3>${escapeHtml(note.title[lang])}</h3><p>${escapeHtml(
-          note.body[lang]
+        `<article><h3>${escapeHtml(text(note.title[lang]))}</h3><p>${escapeHtml(
+          text(note.body[lang])
         )}</p></article>`
     )
     .join('');
 
   const articleSections = guide.articleSections
     ?.map((section) => {
-      const paragraphs = section.body[lang].map((paragraph) => `<p>${escapeHtml(paragraph)}</p>`).join('');
-      const bullets = section.bullets?.[lang]?.length ? ul(section.bullets[lang]) : '';
-      return `<section><h2>${escapeHtml(section.title[lang])}</h2>${paragraphs}${bullets}</section>`;
+      const paragraphs = section.body[lang].map((paragraph) => `<p>${escapeHtml(text(paragraph))}</p>`).join('');
+      const bullets = section.bullets?.[lang]?.length ? ul(section.bullets[lang].map(text)) : '';
+      return `<section><h2>${escapeHtml(text(section.title[lang]))}</h2>${paragraphs}${bullets}</section>`;
     })
     .join('');
 
   const selectionRows = guide.selectionTable
     ?.map(
       (row) =>
-        `<tr><td>${escapeHtml(row.factor[lang])}</td><td>${escapeHtml(
-          row.confirm[lang]
-        )}</td><td>${escapeHtml(row.why[lang])}</td><td>${escapeHtml(
-          row.ask[lang]
+        `<tr><td>${escapeHtml(text(row.factor[lang]))}</td><td>${escapeHtml(
+          text(row.confirm[lang])
+        )}</td><td>${escapeHtml(text(row.why[lang]))}</td><td>${escapeHtml(
+          text(row.ask[lang])
         )}</td></tr>`
     )
     .join('');
@@ -1860,35 +1863,35 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
   const substrateRows = guide.substrateFit
     .map(
       (row) =>
-        `<tr><td>${escapeHtml(row.substrate[lang])}</td><td>${escapeHtml(
-          row.recommendedFoil
-        )}</td><td>${escapeHtml(row.note[lang])}</td></tr>`
+        `<tr><td>${escapeHtml(text(row.substrate[lang]))}</td><td>${escapeHtml(
+          text(row.recommendedFoil)
+        )}</td><td>${escapeHtml(text(row.note[lang]))}</td></tr>`
     )
     .join('');
 
   const troubleshootingRows = guide.troubleshooting
     .map(
       (row) =>
-        `<tr><td>${escapeHtml(row.issue[lang])}</td><td>${escapeHtml(
-          row.likelyCause[lang]
-        )}</td><td>${escapeHtml(row.action[lang])}</td></tr>`
+        `<tr><td>${escapeHtml(text(row.issue[lang]))}</td><td>${escapeHtml(
+          text(row.likelyCause[lang])
+        )}</td><td>${escapeHtml(text(row.action[lang]))}</td></tr>`
     )
     .join('');
 
   const faq = guide.faqs.map((item) => ({
-    q: item.question[lang],
-    a: item.answer[lang],
+    q: text(item.question[lang]),
+    a: text(item.answer[lang]),
   }));
 
   const researchRows = guide.researchMatrix
     ?.map(
       (row, index) =>
-        `<tr><td>${index + 1}</td><td>${escapeHtml(row.scenario[lang])}</td><td>${escapeHtml(
-          row.question[lang]
-        )}</td><td>${escapeHtml(row.intent[lang])}</td><td>${escapeHtml(
-          row.concern[lang]
-        )}</td><td>${escapeHtml(row.sources[lang])}</td><td>${escapeHtml(
-          row.pageType[lang]
+        `<tr><td>${index + 1}</td><td>${escapeHtml(text(row.scenario[lang]))}</td><td>${escapeHtml(
+          text(row.question[lang])
+        )}</td><td>${escapeHtml(text(row.intent[lang]))}</td><td>${escapeHtml(
+          text(row.concern[lang])
+        )}</td><td>${escapeHtml(text(row.sources[lang]))}</td><td>${escapeHtml(
+          text(row.pageType[lang])
         )}</td><td>${row.conversionScore}</td><td>${row.citationScore}</td><td>${escapeHtml(
           row.priority
         )}</td></tr>`
@@ -1896,25 +1899,25 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
     .join('');
 
   const recommendationItems = guide.pageRecommendations
-    ? guide.pageRecommendations[lang].map((item) => `${item.pageType}: ${item.questions}`)
+    ? guide.pageRecommendations[lang].map((item) => text(`${item.pageType}: ${item.questions}`))
     : [];
   const sourceLinks = guide.sourceReferences?.map((source) => ({
-    label: `${source.label}. ${source.title}`,
+    label: `${source.label}. ${text(source.title)}`,
     href: source.url,
   })) || [];
 
   const relatedLinks = guide.relatedRoutes.map((routePath) => ({
     label: routePath.startsWith('guides/')
-      ? getGeoGuide(routePath.split('/')[1])?.title[lang] || routePath
+      ? text(getGeoGuide(routePath.split('/')[1])?.title[lang] || routePath)
       : routePath,
     href: langPath(routePath, lang) + '/',
   }));
 
   const inner = `
-    <h1>${escapeHtml(guide.title[lang])}</h1>
-    <p class="seo-lead">${escapeHtml(guide.answer[lang])}</p>
+    <h1>${escapeHtml(text(guide.title[lang]))}</h1>
+    <p class="seo-lead">${escapeHtml(text(guide.answer[lang]))}</p>
     <p><strong>${lang === 'cn' ? '目标读者' : 'Audience'}:</strong> ${escapeHtml(
-      guide.audience[lang]
+      text(guide.audience[lang])
     )}</p>
 
     <section>
@@ -1956,7 +1959,7 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
     ${
       researchRows
         ? `<section>
-      <h2>${lang === 'cn' ? 'ChatGPT 高概率采购问题矩阵' : 'ChatGPT Buyer Question Matrix'}</h2>
+      <h2>${lang === 'cn' ? '采购高频问题矩阵' : 'Buyer Question Matrix'}</h2>
       <table><thead><tr><th>#</th><th>${lang === 'cn' ? '用途场景' : 'Scenario'}</th><th>${
             lang === 'cn' ? '问题' : 'Question'
           }</th><th>${lang === 'cn' ? '意图' : 'Intent'}</th><th>${
@@ -1964,7 +1967,7 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
           }</th><th>${lang === 'cn' ? '常见引用来源' : 'Common sources'}</th><th>${
             lang === 'cn' ? '页面类型' : 'Page type'
           }</th><th>${lang === 'cn' ? '转化' : 'Conversion'}</th><th>${
-            lang === 'cn' ? 'AI引用' : 'AI citation'
+            lang === 'cn' ? '参考价值' : 'Reference value'
           }</th><th>${lang === 'cn' ? '优先级' : 'Priority'}</th></tr></thead><tbody>${researchRows}</tbody></table>
     </section>`
         : ''
@@ -1995,7 +1998,7 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
 
     <section>
       <h2>${lang === 'cn' ? '采购前打样测试清单' : 'Sampling Checklist Before Bulk Purchase'}</h2>
-      ${ul(guide.samplingChecklist[lang])}
+      ${ul(guide.samplingChecklist[lang].map(text))}
     </section>
 
     <section>
@@ -2017,7 +2020,7 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
   `;
 
   const article = generateArticleSchema({
-    title: guide.title[lang],
+    title: text(guide.title[lang]),
     description,
     datePublished: '2026-06-26',
     dateModified: '2026-06-26',
@@ -2034,7 +2037,7 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
     jsonLd: [
       crumbsToSchema(crumbs),
       article,
-      pageTypeSchema({ type: 'WebPage', name: guide.title[lang], description, url }),
+      pageTypeSchema({ type: 'WebPage', name: text(guide.title[lang]), description, url }),
       ...(fq ? [fq] : []),
     ],
     meta: {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { ArrowRight, BookOpenText, ClipboardCheck, Layers, SearchCheck, Wrench } from 'lucide-react';
 import SEOMeta, { generateBreadcrumbSchema } from '../components/SEOMeta';
-import { GEO_GUIDES, type GeoGuide, type GuideLang } from '../data/geoGuides';
+import { GEO_GUIDES, guideCustomerText, type GeoGuide, type GuideLang } from '../data/geoGuides';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const SITE_URL = 'https://www.pintecl.com';
@@ -18,7 +18,7 @@ const guideCategory = (guide: GeoGuide, lang: GuideLang) => {
     return lang === 'cn' ? '工艺与产品对比' : 'Process and Product Comparison';
   }
   if (text.includes('chatgpt') || text.includes('geo') || text.includes('buyer question') || text.includes('aig') || text.includes('ai')) {
-    return lang === 'cn' ? 'AI 搜索与 GEO 内容策略' : 'AI Search and GEO Content Strategy';
+    return lang === 'cn' ? '采购问题与选型资料' : 'Buyer Questions and Selection Resources';
   }
   return lang === 'cn' ? '核心采购指南' : 'Core Procurement Guides';
 };
@@ -33,13 +33,14 @@ const categoryIcon = (category: string) => {
 const categoryId = (category: string) => {
   if (category.includes('故障') || category.includes('Troubleshooting')) return 'structure-troubleshooting';
   if (category.includes('对比') || category.includes('Comparison')) return 'process-comparison';
-  if (category.includes('AI') || category.includes('GEO')) return 'ai-geo';
+  if (category.includes('AI') || category.includes('GEO')) return 'buyer-questions';
   return 'procurement-guides';
 };
 
 const GeoGuideCatalog: React.FC = () => {
   const { lang: currentLang } = useLanguage();
   const lang = asGuideLang(currentLang);
+  const text = (value: string) => guideCustomerText(value, lang);
   const sortedGuides = [...GEO_GUIDES].sort((a, b) => a.priority - b.priority || a.title[lang].localeCompare(b.title[lang]));
   const groups = sortedGuides.reduce<Record<string, GeoGuide[]>>((acc, guide) => {
     const category = guideCategory(guide, lang);
@@ -49,15 +50,15 @@ const GeoGuideCatalog: React.FC = () => {
   }, {});
 
   const title = lang === 'cn'
-    ? '烫金膜采购指南与 GEO 文章导航'
-    : 'Hot Stamping Foil Procurement Guides and GEO Article Directory';
+    ? '烫金膜采购指南与技术文章导航'
+    : 'Hot Stamping Foil Procurement Guides and Technical Article Directory';
   const description = lang === 'cn'
-    ? '浏览 PINTE 烫金膜采购指南、底材选型、故障排查、热烫冷烫对比、化妆品包装、纸盒包装和 AI 搜索 GEO 内容。'
-    : 'Browse PINTE hot stamping foil procurement guides, substrate selection, troubleshooting, hot foil vs cold foil comparisons, cosmetic packaging, paper box packaging, and AI-search-ready GEO content.';
+    ? '浏览 PINTE 烫金膜采购指南、底材选型、故障排查、热烫冷烫对比、化妆品包装、纸盒包装和技术资料。'
+    : 'Browse PINTE hot stamping foil procurement guides, substrate selection, troubleshooting, hot foil vs cold foil comparisons, cosmetic packaging, paper box packaging, and technical resources.';
   const canonicalUrl = `/${lang}/guides`;
   const keywords = lang === 'cn'
-    ? ['烫金膜采购指南', '烫金膜选型', '烫金膜故障排查', '热烫膜', '冷烫膜', 'GEO', 'AI 搜索优化']
-    : ['hot stamping foil guides', 'hot stamping foil buying guide', 'foil troubleshooting', 'hot foil', 'cold foil', 'GEO', 'AI search optimization'];
+    ? ['烫金膜采购指南', '烫金膜选型', '烫金膜故障排查', '热烫膜', '冷烫膜', '包装烫金技术']
+    : ['hot stamping foil guides', 'hot stamping foil buying guide', 'foil troubleshooting', 'hot foil', 'cold foil', 'foil stamping technical resources'];
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: lang === 'cn' ? '首页' : 'Home', url: `${SITE_URL}/${lang}/` },
     { name: lang === 'cn' ? '采购指南' : 'Procurement Guides', url: `${SITE_URL}${canonicalUrl}/` },
@@ -70,7 +71,7 @@ const GeoGuideCatalog: React.FC = () => {
     itemListElement: sortedGuides.map((guide, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: guide.title[lang],
+      name: text(guide.title[lang]),
       url: `${SITE_URL}/${lang}/guides/${guide.slug}/`,
     })),
   };
@@ -92,7 +93,7 @@ const GeoGuideCatalog: React.FC = () => {
         <section className="max-w-[1120px] mx-auto px-6">
           <div className="mb-10">
             <p className="text-sm font-bold tracking-wide uppercase text-pinte-blue mb-4">
-              {lang === 'cn' ? 'Procurement Guides / GEO Content Hub' : 'Procurement Guides / GEO Content Hub'}
+              {lang === 'cn' ? 'Procurement Guides / Technical Resource Center' : 'Procurement Guides / Technical Resource Center'}
             </p>
             <h1 className="text-3xl md:text-5xl font-display font-bold text-neutral-950 leading-tight mb-5">
               {title}
@@ -129,7 +130,7 @@ const GeoGuideCatalog: React.FC = () => {
                     <div>
                       <h2 className="text-2xl font-bold text-neutral-950">{category}</h2>
                       <p className="text-sm text-neutral-500">
-                        {lang === 'cn' ? '用于采购判断、技术选型和 AI 搜索可引用答案。' : 'For procurement decisions, technical selection, and AI-search-citable answers.'}
+                        {lang === 'cn' ? '用于采购判断、技术选型和生产问题排查。' : 'For procurement decisions, technical selection, and production troubleshooting.'}
                       </p>
                     </div>
                   </div>
@@ -145,14 +146,14 @@ const GeoGuideCatalog: React.FC = () => {
                         </div>
                         <h3 className="text-xl font-bold text-neutral-950 leading-snug mb-3">
                           <Link to={`/${lang}/guides/${guide.slug}`} className="hover:text-pinte-blue transition-colors">
-                            {guide.title[lang]}
+                            {text(guide.title[lang])}
                           </Link>
                         </h3>
                         <p className="text-neutral-600 leading-relaxed mb-5">
-                          {guide.metaDescription[lang]}
+                          {text(guide.metaDescription[lang])}
                         </p>
                         <div className="flex flex-wrap gap-2 mb-5">
-                          {[guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang].slice(0, 3)].map((keyword) => (
+                          {[guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang].slice(0, 3)].map((keyword) => text(keyword)).map((keyword) => (
                             <span key={keyword} className="text-xs text-neutral-600 bg-neutral-50 border border-neutral-100 rounded-full px-3 py-1">
                               {keyword}
                             </span>

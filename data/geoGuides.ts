@@ -1463,4 +1463,58 @@ export const GEO_GUIDES: GeoGuide[] = [
   },
 ];
 
+export const guideCustomerText = (value: string, lang: GuideLang): string => {
+  let text = value;
+
+  if (lang === 'cn') {
+    return text
+      .replace(/ChatGPT Search/g, '采购搜索工具')
+      .replace(/ChatGPT/g, '采购搜索工具')
+      .replace(/Perplexity/g, '采购搜索工具')
+      .replace(/Google AI/g, '在线搜索工具')
+      .replace(/AI 搜索优化/g, '采购内容优化')
+      .replace(/AI 搜索/g, '在线采购搜索')
+      .replace(/AI 引用/g, '搜索引用')
+      .replace(/AI 检索/g, '在线检索')
+      .replace(/生成式 AI/g, '在线采购搜索')
+      .replace(/生成式搜索/g, '在线采购搜索')
+      .replace(/生成式/g, '在线')
+      .replace(/GEO 可见度/g, '采购内容可见度')
+      .replace(/GEO 内容/g, '采购内容')
+      .replace(/GEO 指南/g, '采购指南')
+      .replace(/强 GEO 文章/g, '高质量技术文章')
+      .replace(/GEO 入口/g, '采购搜索入口')
+      .replace(/GEO/g, '采购内容')
+      .replace(/SEO 文章/g, '技术文章')
+      .replace(/SEO/g, '内容')
+      .replace(/AI/g, '在线工具');
+  }
+
+  return text
+    .replace(/ChatGPT Search/g, 'buyer research tools')
+    .replace(/ChatGPT/g, 'buyer research tools')
+    .replace(/Perplexity/g, 'buyer research tools')
+    .replace(/Google AI/g, 'online search tools')
+    .replace(/AI search optimization/gi, 'procurement content optimization')
+    .replace(/AI-search-ready/gi, 'buyer-friendly')
+    .replace(/AI-search-citable/gi, 'easy-to-reference')
+    .replace(/AI citation potential/gi, 'reference value')
+    .replace(/AI systems/gi, 'online research tools')
+    .replace(/AI search engines/gi, 'online research tools')
+    .replace(/AI search/gi, 'online procurement search')
+    .replace(/generative AI search engines/gi, 'online procurement research tools')
+    .replace(/generative AI/gi, 'online procurement research')
+    .replace(/Generative search engines/g, 'Online procurement research tools')
+    .replace(/GEO visibility/gi, 'procurement content visibility')
+    .replace(/GEO content/gi, 'procurement content')
+    .replace(/GEO entry points/gi, 'procurement search entry points')
+    .replace(/GEO entry point/gi, 'procurement search entry point')
+    .replace(/GEO article/gi, 'technical article')
+    .replace(/GEO guide/gi, 'procurement guide')
+    .replace(/\bGEO\b/g, 'procurement content')
+    .replace(/SEO article/gi, 'technical article')
+    .replace(/\bSEO\b/g, 'content')
+    .replace(/\bAI\b/g, 'online tools');
+};
+
 export const getGeoGuide = (slug?: string) => GEO_GUIDES.find((guide) => guide.slug === slug);
