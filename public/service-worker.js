@@ -1,14 +1,15 @@
 // Service Worker for caching static assets (images, videos)
 // Reduces traffic from remote object storage by caching locally
 
-const CACHE_NAME = 'pinte-assets-cache-v1';
+const CACHE_NAME = 'pinte-media-cache-v2';
 const ASSETS_TO_CACHE = [
   // Cache image file extensions
   /\.(png|jpg|jpeg|gif|webp|avif|svg|ico)$/i,
   // Cache video file extensions
   /\.(mp4|webm|ogg|mov)$/i,
-  // Cache other static assets
-  /\.(css|js|woff|woff2|ttf)$/i,
+  // Cache font files. Do not cache JS/CSS module files; hashed chunks must update
+  // immediately after deployment or old entry bundles can import missing chunks.
+  /\.(woff|woff2|ttf)$/i,
 ];
 
 // Maximum cache size for images/videos (approx 50MB)
