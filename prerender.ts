@@ -336,6 +336,7 @@ export const prerender = {
       'quote',
       'tour',
       'blog',
+      'guides',
       ...guideRoutes,
       'seo-geo-sop',
       ...solutionRoutes,

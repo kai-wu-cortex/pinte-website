@@ -62,6 +62,11 @@ const staticPages = [
     priority: '0.9',
   },
   {
+    loc: 'guides',
+    changefreq: 'weekly',
+    priority: '0.9',
+  },
+  {
     loc: 'pintefoils',
     changefreq: 'monthly',
     priority: '0.8',

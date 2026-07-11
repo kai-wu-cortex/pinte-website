@@ -14,7 +14,7 @@
  */
 
 import { CONTENT_EN, CONTENT_ZH } from '../data/content.js';
-import { getGeoGuide } from '../data/geoGuides.js';
+import { GEO_GUIDES, getGeoGuide } from '../data/geoGuides.js';
 import { mergeProductSeoProfile } from '../data/productSeoProfiles.js';
 // @ts-ignore - .mjs 配置文件,无类型声明
 import seoSop from '../scripts/seo-geo-sop.config.mjs';
@@ -339,12 +339,13 @@ function buildBreadcrumb(
   if (parts[0] === 'seo-geo-sop') return [home, { label: t('seoSop', lang), href: langPath('seo-geo-sop', lang) + '/' }];
   if (parts[0] === 'guides') {
     const guide = getGeoGuide(parts[1]);
+    const guideListCrumb = {
+      label: lang === 'cn' ? '采购指南' : 'Procurement Guides',
+      href: langPath('guides', lang) + '/',
+    };
     return [
       home,
-      {
-        label: lang === 'cn' ? '采购指南' : 'Procurement Guides',
-        href: guide ? langPath(`guides/${guide.slug}`, lang) + '/' : langPath('products', lang) + '/',
-      },
+      guideListCrumb,
       ...(guide
         ? [{ label: guide.title[lang], href: langPath(`guides/${guide.slug}`, lang) + '/' }]
         : []),
@@ -1622,6 +1623,68 @@ function buildBlogListSnapshot(lang: Lang): SnapshotResult {
   };
 }
 
+function buildGuideListSnapshot(lang: Lang): SnapshotResult {
+  const route = 'guides';
+  const url = buildCanonicalUrl(route, lang);
+  const geoTargets = defaultGeoForRoute(route, lang);
+  const title =
+    lang === 'cn'
+      ? '烫金膜采购指南与 GEO 文章导航 — PINTE'
+      : 'Hot Stamping Foil Procurement Guides and GEO Article Directory — PINTE';
+  const description =
+    lang === 'cn'
+      ? '浏览 PINTE 烫金膜采购指南、底材选型、故障排查、热烫冷烫对比、化妆品包装、纸盒包装和 AI 搜索 GEO 内容。'
+      : 'Browse PINTE hot stamping foil procurement guides, substrate selection, troubleshooting, hot foil vs cold foil comparisons, cosmetic packaging, paper box packaging, and AI-search-ready GEO content.';
+  const guides = [...GEO_GUIDES].sort(
+    (a, b) => a.priority - b.priority || a.title[lang].localeCompare(b.title[lang])
+  );
+  const guideLinks = guides
+    .map(
+      (guide) => `<article><h2><a href="${langPath(`guides/${guide.slug}`, lang)}/">${escapeHtml(
+        guide.title[lang]
+      )}</a></h2><p>${escapeHtml(guide.metaDescription[lang])}</p><p>${escapeHtml(
+        [guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang].slice(0, 4)].join(', ')
+      )}</p></article>`
+    )
+    .join('');
+
+  const inner = `
+    <h1>${escapeHtml(title)}</h1>
+    <p class="seo-lead">${escapeHtml(description)}</p>
+    <section>${guideLinks}</section>
+    ${geoLine(lang, geoTargets)}
+  `;
+  const crumbs = buildBreadcrumb(route, lang);
+  return {
+    html: wrapMain({ route, lang, breadcrumb: breadcrumbHtml(lang, crumbs), inner }),
+    jsonLd: [
+      crumbsToSchema(crumbs),
+      pageTypeSchema({ type: 'CollectionPage', name: title, description, url }),
+      itemListSchema({
+        name: title,
+        url,
+        items: guides.map((guide) => ({
+          name: guide.title[lang],
+          url: buildCanonicalUrl(`guides/${guide.slug}`, lang),
+        })),
+      }),
+    ],
+    meta: {
+      title,
+      description,
+      keywords: defaultKeywords(route, lang, [
+        'hot stamping foil guides',
+        'hot stamping foil buying guide',
+        'foil troubleshooting',
+        'GEO',
+        'AI search optimization',
+      ]),
+      geoTargets,
+      type: 'website',
+    },
+  };
+}
+
 function buildBlogPostSnapshot(article: BlogArticleLike, lang: Lang): SnapshotResult {
   const route = `blog/${article.slug}`;
   const url = buildCanonicalUrl(route, lang);
@@ -2002,6 +2065,7 @@ export function buildSnapshot(
   if (route === 'privacy') return buildLegalSnapshot('privacy', lang);
   if (route === 'terms') return buildLegalSnapshot('terms', lang);
   if (route === 'blog') return buildBlogListSnapshot(lang);
+  if (route === 'guides') return buildGuideListSnapshot(lang);
   if (route === 'seo-geo-sop') return buildSeoSopSnapshot(lang);
   if (route === 'pintefoils') return buildPintefoilsSnapshot(lang);
   if (route.startsWith('guides/')) {

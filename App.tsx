@@ -23,6 +23,7 @@ const Privacy = React.lazy(() => import('./pages/Privacy'));
 const Terms = React.lazy(() => import('./pages/Terms'));
 const PinteFoils = React.lazy(() => import('./pages/PinteFoils'));
 const SeoGeoSop = React.lazy(() => import('./pages/SeoGeoSop'));
+const GeoGuideCatalog = React.lazy(() => import('./pages/GeoGuideCatalog'));
 const GeoGuide = React.lazy(() => import('./pages/GeoGuide'));
 
 // Loading spinner component for Suspense
@@ -91,6 +92,7 @@ const AppRoutes = () => {
       <Route path="/tour" element={<Navigate to="/cn/tour" replace />} />
       <Route path="/blog" element={<Navigate to="/cn/blog" replace />} />
       <Route path="/blog/:slug" element={<RedirectToCn buildPath={(params) => `/cn/blog/${params.slug}`} />} />
+      <Route path="/guides" element={<Navigate to="/cn/guides" replace />} />
       <Route path="/guides/:slug" element={<RedirectToCn buildPath={(params) => `/cn/guides/${params.slug}`} />} />
       <Route path="/privacy" element={<Navigate to="/cn/privacy" replace />} />
       <Route path="/terms" element={<Navigate to="/cn/terms" replace />} />
@@ -111,6 +113,7 @@ const AppRoutes = () => {
         <Route path="tour" element={<FactoryTour />} />
         <Route path="blog" element={<BlogCatalog />} />
         <Route path="blog/:slug" element={<BlogItem />} />
+        <Route path="guides" element={<GeoGuideCatalog />} />
         <Route path="guides/:slug" element={<GeoGuide />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
