@@ -1,53 +1,76 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { ArrowRight, BookOpenText, ClipboardCheck, Layers, SearchCheck, Wrench } from 'lucide-react';
+import { ArrowRight, BookOpenText } from 'lucide-react';
 import SEOMeta, { generateBreadcrumbSchema } from '../components/SEOMeta';
-import { GEO_GUIDES, guideCustomerText, type GeoGuide, type GuideLang } from '../data/geoGuides';
+import { getPublishedGuideSummaries } from '../data/guideContent';
+import {
+  GUIDE_CLUSTERS,
+  LEGACY_GUIDE_CLUSTERS,
+  resolveGuideClusterId,
+  type GuideClusterId,
+} from '../data/guideClusters';
+import { GEO_GUIDES, guideCustomerText, type GuideLang } from '../data/geoGuides';
 import { useLanguage } from '../contexts/LanguageContext';
 
 const SITE_URL = 'https://www.pintecl.com';
+const GENERATED_GUIDE_DEFAULT_PRIORITY = 100;
 
 const asGuideLang = (lang: string): GuideLang => (lang === 'cn' ? 'cn' : 'en');
 
-const guideCategory = (guide: GeoGuide, lang: GuideLang) => {
-  const text = `${guide.slug} ${guide.title.en} ${guide.title.cn}`.toLowerCase();
-  if (text.includes('troubleshooting') || text.includes('structure') || text.includes('substrate') || text.includes('故障') || text.includes('结构') || text.includes('底材')) {
-    return lang === 'cn' ? '结构、底材与故障排查' : 'Structure, Substrate and Troubleshooting';
-  }
-  if (text.includes('cold') || text.includes('holographic') || text.includes('foil-vs') || text.includes('冷烫') || text.includes('镭射')) {
-    return lang === 'cn' ? '工艺与产品对比' : 'Process and Product Comparison';
-  }
-  if (text.includes('chatgpt') || text.includes('geo') || text.includes('buyer question') || text.includes('aig') || text.includes('ai')) {
-    return lang === 'cn' ? '采购问题与选型资料' : 'Buyer Questions and Selection Resources';
-  }
-  return lang === 'cn' ? '核心采购指南' : 'Core Procurement Guides';
-};
+interface CatalogGuideSummary {
+  readonly slug: string;
+  readonly title: string;
+  readonly description: string;
+  readonly cluster: GuideClusterId;
+  readonly priority: number;
+}
 
-const categoryIcon = (category: string) => {
-  if (category.includes('故障') || category.includes('Troubleshooting')) return Wrench;
-  if (category.includes('对比') || category.includes('Comparison')) return Layers;
-  if (category.includes('AI') || category.includes('GEO')) return SearchCheck;
-  return ClipboardCheck;
-};
-
-const categoryId = (category: string) => {
-  if (category.includes('故障') || category.includes('Troubleshooting')) return 'structure-troubleshooting';
-  if (category.includes('对比') || category.includes('Comparison')) return 'process-comparison';
-  if (category.includes('AI') || category.includes('GEO')) return 'buyer-questions';
-  return 'procurement-guides';
+const compareTitles = (a: string, b: string) => {
+  if (a === b) return 0;
+  return a < b ? -1 : 1;
 };
 
 const GeoGuideCatalog: React.FC = () => {
   const { lang: currentLang } = useLanguage();
   const lang = asGuideLang(currentLang);
-  const text = (value: string) => guideCustomerText(value, lang);
-  const sortedGuides = [...GEO_GUIDES].sort((a, b) => a.priority - b.priority || a.title[lang].localeCompare(b.title[lang]));
-  const groups = sortedGuides.reduce<Record<string, GeoGuide[]>>((acc, guide) => {
-    const category = guideCategory(guide, lang);
-    acc[category] = acc[category] || [];
-    acc[category].push(guide);
-    return acc;
-  }, {});
+  const text = (value: string | undefined, fallback = '') => guideCustomerText(value ?? fallback, lang);
+  const descriptionFallback = lang === 'cn'
+    ? '查看本指南，了解烫金膜选型、打样和生产确认要点。'
+    : 'Read this guide for hot stamping foil selection, sampling, and production checks.';
+  const clusterOrder = new Map(GUIDE_CLUSTERS.map((cluster) => [cluster.id, cluster.order]));
+  const mergedGuides = new Map<string, CatalogGuideSummary>();
+
+  GEO_GUIDES.forEach((guide) => {
+    mergedGuides.set(guide.slug, {
+      slug: guide.slug,
+      title: text(guide.title[lang]),
+      description: text(guide.metaDescription[lang], descriptionFallback),
+      cluster: resolveGuideClusterId(LEGACY_GUIDE_CLUSTERS[guide.slug]),
+      priority: guide.priority,
+    });
+  });
+
+  getPublishedGuideSummaries(lang).forEach((guide) => {
+    mergedGuides.set(guide.slug, {
+      slug: guide.slug,
+      title: text(guide.title),
+      description: text(guide.description, descriptionFallback),
+      cluster: resolveGuideClusterId(guide.cluster),
+      priority: GENERATED_GUIDE_DEFAULT_PRIORITY,
+    });
+  });
+
+  const sortedGuides = [...mergedGuides.values()].sort((a, b) => (
+    (clusterOrder.get(a.cluster) ?? Number.MAX_SAFE_INTEGER)
+      - (clusterOrder.get(b.cluster) ?? Number.MAX_SAFE_INTEGER)
+    || a.priority - b.priority
+    || compareTitles(a.title, b.title)
+    || compareTitles(a.slug, b.slug)
+  ));
+  const groupedGuides = new Map<GuideClusterId, CatalogGuideSummary[]>(
+    GUIDE_CLUSTERS.map((cluster) => [cluster.id, []]),
+  );
+  sortedGuides.forEach((guide) => groupedGuides.get(guide.cluster)?.push(guide));
 
   const title = lang === 'cn'
     ? '烫金膜采购指南与技术文章导航'
@@ -93,9 +116,9 @@ const GeoGuideCatalog: React.FC = () => {
         <section className="max-w-[1120px] mx-auto px-6">
           <div className="mb-10">
             <p className="text-sm font-bold tracking-wide uppercase text-pinte-blue mb-4">
-              {lang === 'cn' ? 'Procurement Guides / Technical Resource Center' : 'Procurement Guides / Technical Resource Center'}
+              {lang === 'cn' ? '采购指南 / 技术资料中心' : 'Procurement Guides / Technical Resource Center'}
             </p>
-            <h1 className="text-3xl md:text-5xl font-display font-bold text-neutral-950 leading-tight mb-5">
+            <h1 className="text-3xl md:text-4xl font-display font-bold text-neutral-950 leading-tight mb-5">
               {title}
             </h1>
             <p className="text-lg text-neutral-600 leading-relaxed max-w-4xl">
@@ -103,69 +126,57 @@ const GeoGuideCatalog: React.FC = () => {
             </p>
           </div>
 
-          <nav className="grid sm:grid-cols-2 lg:grid-cols-4 gap-3 mb-12" aria-label={lang === 'cn' ? '指南分类导航' : 'Guide category navigation'}>
-            {Object.keys(groups).map((category) => {
-              const Icon = categoryIcon(category);
-              return (
-                <a key={category} href={`#${categoryId(category)}`} className="bg-white border border-neutral-100 rounded-2xl p-4 hover:border-pinte-blue/30 hover:shadow-sm transition-all">
-                  <Icon size={20} className="text-pinte-blue mb-3" />
-                  <span className="block font-bold text-neutral-950">{category}</span>
-                  <span className="block text-sm text-neutral-500 mt-1">
-                    {groups[category].length} {lang === 'cn' ? '篇' : 'guides'}
-                  </span>
-                </a>
-              );
-            })}
+          <nav className="-mx-6 mb-12 overflow-x-auto px-6 pb-2" aria-label={lang === 'cn' ? '指南分类导航' : 'Guide category navigation'}>
+            <ul className="flex min-w-max gap-2 lg:min-w-0 lg:flex-wrap">
+              {GUIDE_CLUSTERS.map((cluster) => (
+                <li key={cluster.id}>
+                  <a
+                    href={`#${cluster.id}`}
+                    className="inline-flex min-h-11 items-center gap-2 rounded-md border border-neutral-200 bg-white px-3 py-2 text-sm font-semibold text-neutral-800 transition-colors hover:border-pinte-blue/40 hover:text-pinte-blue focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-pinte-blue"
+                  >
+                    <span>{cluster.label[lang]}</span>
+                    <span className="text-neutral-500">{groupedGuides.get(cluster.id)?.length ?? 0}</span>
+                  </a>
+                </li>
+              ))}
+            </ul>
           </nav>
 
           <div className="space-y-12">
-            {Object.entries(groups).map(([category, guides]) => {
-              const Icon = categoryIcon(category);
+            {GUIDE_CLUSTERS.map((cluster) => {
+              const guides = groupedGuides.get(cluster.id) ?? [];
               return (
-                <section key={category} id={categoryId(category)} className="scroll-mt-28">
-                  <div className="flex items-center gap-3 mb-5">
-                    <div className="w-10 h-10 rounded-xl bg-pinte-blue/10 text-pinte-blue flex items-center justify-center">
-                      <Icon size={21} />
-                    </div>
-                    <div>
-                      <h2 className="text-2xl font-bold text-neutral-950">{category}</h2>
-                      <p className="text-sm text-neutral-500">
-                        {lang === 'cn' ? '用于采购判断、技术选型和生产问题排查。' : 'For procurement decisions, technical selection, and production troubleshooting.'}
-                      </p>
-                    </div>
-                  </div>
+                <section key={cluster.id} id={cluster.id} className="scroll-mt-28">
+                  <header className="mb-3 max-w-3xl">
+                    <h2 className="text-2xl font-bold text-neutral-950">{cluster.label[lang]}</h2>
+                    <p className="mt-2 text-neutral-600 leading-relaxed">{cluster.description[lang]}</p>
+                  </header>
 
-                  <div className="grid md:grid-cols-2 gap-5">
-                    {guides.map((guide) => (
-                      <article key={guide.slug} className="bg-white border border-neutral-100 rounded-2xl p-6 hover:border-pinte-blue/30 hover:shadow-sm transition-all">
-                        <div className="flex items-start justify-between gap-4 mb-4">
-                          <BookOpenText size={22} className="text-pinte-blue shrink-0 mt-1" />
-                          <span className="text-xs font-bold text-neutral-500 bg-neutral-100 rounded-full px-3 py-1">
-                            P{guide.priority}
-                          </span>
-                        </div>
-                        <h3 className="text-xl font-bold text-neutral-950 leading-snug mb-3">
-                          <Link to={`/${lang}/guides/${guide.slug}`} className="hover:text-pinte-blue transition-colors">
-                            {text(guide.title[lang])}
+                  {guides.length > 0 ? (
+                    <div className="grid md:grid-cols-2 md:gap-x-8">
+                      {guides.map((guide) => (
+                        <article key={guide.slug} className="min-w-0 border-t border-neutral-200 py-6">
+                          <BookOpenText size={21} className="mb-3 text-pinte-blue" aria-hidden="true" />
+                          <h3 className="text-xl font-bold text-neutral-950 leading-snug mb-3">
+                            <Link to={`/${lang}/guides/${guide.slug}`} className="hover:text-pinte-blue transition-colors">
+                              {guide.title}
+                            </Link>
+                          </h3>
+                          <p className="text-neutral-600 leading-relaxed mb-5">
+                            {guide.description}
+                          </p>
+                          <Link to={`/${lang}/guides/${guide.slug}`} className="inline-flex items-center gap-2 text-pinte-blue font-bold">
+                            {lang === 'cn' ? '阅读指南' : 'Read guide'}
+                            <ArrowRight size={17} aria-hidden="true" />
                           </Link>
-                        </h3>
-                        <p className="text-neutral-600 leading-relaxed mb-5">
-                          {text(guide.metaDescription[lang])}
-                        </p>
-                        <div className="flex flex-wrap gap-2 mb-5">
-                          {[guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang].slice(0, 3)].map((keyword) => text(keyword)).map((keyword) => (
-                            <span key={keyword} className="text-xs text-neutral-600 bg-neutral-50 border border-neutral-100 rounded-full px-3 py-1">
-                              {keyword}
-                            </span>
-                          ))}
-                        </div>
-                        <Link to={`/${lang}/guides/${guide.slug}`} className="inline-flex items-center gap-2 text-pinte-blue font-bold">
-                          {lang === 'cn' ? '阅读指南' : 'Read guide'}
-                          <ArrowRight size={17} />
-                        </Link>
-                      </article>
-                    ))}
-                  </div>
+                        </article>
+                      ))}
+                    </div>
+                  ) : (
+                    <p className="border-t border-neutral-200 py-5 text-sm text-neutral-500">
+                      {lang === 'cn' ? '更多相关指南正在整理中。' : 'More guides on this topic are in preparation.'}
+                    </p>
+                  )}
                 </section>
               );
             })}
