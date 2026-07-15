@@ -162,14 +162,14 @@ const GeoGuideCatalog: React.FC = () => {
                         <article key={guide.slug} className="min-w-0 border-t border-neutral-200 py-6">
                           <BookOpenText size={21} className="mb-3 text-pinte-blue" aria-hidden="true" />
                           <h3 className="text-xl font-bold text-neutral-950 leading-snug mb-3">
-                            <Link to={`/${lang}/guides/${guide.slug}`} className="hover:text-pinte-blue transition-colors">
+                            <Link to={`/${lang}/guides/${guide.slug}/`} className="hover:text-pinte-blue transition-colors">
                               {guide.title}
                             </Link>
                           </h3>
                           <p className="text-neutral-600 leading-relaxed mb-5">
                             {guide.description}
                           </p>
-                          <Link to={`/${lang}/guides/${guide.slug}`} className="inline-flex items-center gap-2 text-pinte-blue font-bold">
+                          <Link to={`/${lang}/guides/${guide.slug}/`} className="inline-flex items-center gap-2 text-pinte-blue font-bold">
                             {lang === 'cn' ? '阅读指南' : 'Read guide'}
                             <ArrowRight size={17} aria-hidden="true" />
                           </Link>
