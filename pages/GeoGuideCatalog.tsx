@@ -51,11 +51,15 @@ const GeoGuideCatalog: React.FC = () => {
   });
 
   getPublishedGuideSummaries(lang).forEach((guide) => {
-    mergedGuides.set(guide.slug, {
-      slug: guide.slug,
-      title: text(guide.title),
-      description: text(guide.description, descriptionFallback),
-      cluster: resolveGuideClusterId(guide.cluster),
+    const slug = guide.slug?.trim();
+    const title = guide.title?.trim();
+    if (!slug || !title) return;
+
+    mergedGuides.set(slug, {
+      slug,
+      title: text(title),
+      description: text(guide.description?.trim(), descriptionFallback),
+      cluster: resolveGuideClusterId(guide.cluster?.trim()),
       priority: GENERATED_GUIDE_DEFAULT_PRIORITY,
     });
   });
@@ -94,7 +98,7 @@ const GeoGuideCatalog: React.FC = () => {
     itemListElement: sortedGuides.map((guide, index) => ({
       '@type': 'ListItem',
       position: index + 1,
-      name: text(guide.title[lang]),
+      name: guide.title,
       url: `${SITE_URL}/${lang}/guides/${guide.slug}/`,
     })),
   };
