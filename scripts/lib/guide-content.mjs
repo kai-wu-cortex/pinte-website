@@ -11,6 +11,15 @@ const REQUIRED_PUBLISHED_FIELDS = [
 ];
 const FORBIDDEN_PUBLIC_TERMS = /\b(?:SEO|GEO|ChatGPT|Perplexity|Google AI|AI search(?: optimization)?)\b/i;
 const ALLOWED_TAGS = ['h2', 'h3', 'h4', 'p', 'ul', 'ol', 'li', 'strong', 'em', 'a', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'blockquote', 'code', 'pre', 'hr'];
+const EXCLUDED_BODY_SECTIONS = new Set([
+  'faq',
+  'frequently asked questions',
+  '常见问题',
+  'references',
+  'sources',
+  '参考资料',
+  '参考来源',
+]);
 const SAMPLING_CONFIRMATION_PATTERNS = [
   /\bfinal\s+(?:settings?|parameters?)\b[\s\S]{0,80}\b(?:require|requires|must|need|needs|should)\b[\s\S]{0,80}\b(?:test(?:ing)?|sample(?:s|d)?|sampling|trial|proof|confirm(?:ation|ed|ing)?)\b/i,
   /(?:最终(?:设置|参数)|最终的?(?:设置|参数))[\s\S]{0,80}(?:需|需要|必须|应|应当)[\s\S]{0,80}(?:测试|试样|打样|样品|确认)/,
@@ -25,7 +34,16 @@ const SAMPLING_DIMENSIONS = [
 export function parseGuideFile(filePath) {
   const raw = fs.readFileSync(filePath, 'utf8');
   const parsed = matter(raw);
-  const bodyHtml = sanitizeHtml(marked.parse(parsed.content), {
+  let excludeSection = false;
+  const bodyTokens = marked.lexer(parsed.content).filter((token) => {
+    if (token.type === 'heading' && token.depth === 2) {
+      const sectionName = token.text.trim().replace(/\s+/g, ' ').toLowerCase();
+      excludeSection = EXCLUDED_BODY_SECTIONS.has(sectionName);
+      return !excludeSection;
+    }
+    return !excludeSection;
+  });
+  const bodyHtml = sanitizeHtml(marked.parser(bodyTokens), {
     allowedTags: ALLOWED_TAGS,
     allowedAttributes: { a: ['href', 'title', 'target', 'rel'] },
     allowedSchemes: ['http', 'https', 'mailto'],
@@ -54,6 +72,19 @@ function sourceMetadata(source) {
   if (!source || typeof source !== 'object') return source;
   const { url, ...metadata } = source;
   return metadata;
+}
+
+function isValidSourceUrl(value) {
+  if (typeof value !== 'string' || !/^https:\/\//i.test(value)) return false;
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:'
+      && url.hostname.length > 0
+      && url.username === ''
+      && url.password === '';
+  } catch {
+    return false;
+  }
 }
 
 function hasForbiddenPublicTerm(record) {
@@ -125,6 +156,13 @@ export function validateGuideRecords(records) {
       if (hasForbiddenPublicTerm(record)) errors.push({ code: 'forbidden-public-term', filePath: record.filePath });
       if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.slug || '')) errors.push({ code: 'invalid-slug', filePath: record.filePath });
       if (!Array.isArray(record.sources) || record.sources.length < 2) errors.push({ code: 'insufficient-sources', filePath: record.filePath });
+      if (Array.isArray(record.sources)) {
+        record.sources.forEach((source, sourceIndex) => {
+          if (!isValidSourceUrl(source?.url)) {
+            errors.push({ code: 'invalid-source-url', sourceIndex, filePath: record.filePath });
+          }
+        });
+      }
       if (!hasSamplingQualification(record)) errors.push({ code: 'missing-sampling-qualification', filePath: record.filePath });
     }
   }

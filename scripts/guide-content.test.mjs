@@ -4,7 +4,7 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { loadGuidePairs, validateGuideRecords, buildPublishedManifest } from './lib/guide-content.mjs';
+import { parseGuideFile, loadGuidePairs, validateGuideRecords, buildPublishedManifest } from './lib/guide-content.mjs';
 
 test('build CLI creates a TypeScript manifest', () => {
   const result = spawnSync(process.execPath, ['scripts/build-guide-content.mjs'], { encoding: 'utf8' });
@@ -85,6 +85,106 @@ function writeGuide(root, topicId, lang, options) {
   fs.writeFileSync(filePath, frontmatter({ topicId, lang, ...options }));
   return filePath;
 }
+
+test('omits dedicated FAQ and reference sections from bodyHtml while preserving frontmatter arrays', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  const filePath = writeGuide(root, 'HF-BODY-SECTIONS', 'en', {
+    title: 'Foil Guide',
+    body: `${QUALIFIED_BODY}
+
+## FAQ
+
+FAQ body sentinel.
+
+### FAQ child heading
+
+FAQ child sentinel.
+
+## Keep after FAQ
+
+Visible section one.
+
+## Frequently Asked Questions
+
+Frequently asked body sentinel.
+
+## Keep after frequently asked questions
+
+Visible section two.
+
+## 常见问题
+
+Chinese FAQ body sentinel.
+
+## Keep after Chinese FAQ
+
+Visible section three.
+
+## References
+
+References body sentinel.
+
+## Keep after references
+
+Visible section four.
+
+## Sources
+
+Sources body sentinel.
+
+## Keep after sources
+
+Visible section five.
+
+## 参考资料
+
+Chinese references body sentinel.
+
+## Keep after Chinese references
+
+Visible section six.
+
+## 参考来源
+
+Chinese sources body sentinel.`,
+  });
+
+  const record = parseGuideFile(filePath);
+
+  assert.match(record.markdown, /FAQ body sentinel/);
+  assert.match(record.markdown, /Chinese sources body sentinel/);
+  assert.doesNotMatch(record.bodyHtml, /FAQ body sentinel|FAQ child sentinel|Frequently asked body sentinel/);
+  assert.doesNotMatch(record.bodyHtml, /Chinese FAQ body sentinel|References body sentinel|Sources body sentinel/);
+  assert.doesNotMatch(record.bodyHtml, /Chinese references body sentinel|Chinese sources body sentinel/);
+  assert.match(record.bodyHtml, /Visible section one/);
+  assert.match(record.bodyHtml, /Visible section six/);
+  assert.equal(record.faqs[0].question, 'Why does foil peel?');
+  assert.equal(record.sources[0].url, 'https://example.com/source-one');
+});
+
+test('rejects non-HTTPS and unsafe published source URLs', async () => {
+  const cases = [
+    ['javascript URL', 'javascript:alert(1)'],
+    ['data URL', 'data:text/plain,source'],
+    ['relative URL', '/technical-source'],
+    ['HTTP URL', 'http://example.com/source'],
+    ['credentialed URL', 'https://user:password@example.com/source'],
+    ['malformed URL', 'https://[invalid'],
+  ];
+
+  for (const [label, sourceOneUrl] of cases) {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+    const topicId = `HF-SOURCE-${label.replaceAll(' ', '-').toUpperCase()}`;
+    const enPath = writeGuide(root, topicId, 'en', { title: 'Foil Guide', sourceOneUrl });
+    writeGuide(root, topicId, 'cn', { title: '烫金指南' });
+    const result = validateGuideRecords(await loadGuidePairs(root));
+
+    assert.ok(
+      result.errors.some((issue) => issue.code === 'invalid-source-url' && issue.filePath === enPath),
+      `expected invalid-source-url for ${label}`,
+    );
+  }
+});
 
 test('publishes only complete bilingual pairs', async () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
