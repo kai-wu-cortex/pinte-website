@@ -11,6 +11,16 @@ const REQUIRED_PUBLISHED_FIELDS = [
 ];
 const FORBIDDEN_PUBLIC_TERMS = /\b(?:SEO|GEO|ChatGPT|Perplexity|Google AI|AI search(?: optimization)?)\b/i;
 const ALLOWED_TAGS = ['h2', 'h3', 'h4', 'p', 'ul', 'ol', 'li', 'strong', 'em', 'a', 'table', 'thead', 'tbody', 'tr', 'th', 'td', 'blockquote', 'code', 'pre', 'hr'];
+const SAMPLING_CONFIRMATION_PATTERNS = [
+  /\bfinal\s+(?:settings?|parameters?)\b[\s\S]{0,80}\b(?:require|requires|must|need|needs|should)\b[\s\S]{0,80}\b(?:test(?:ing)?|sample(?:s|d)?|sampling|trial|proof|confirm(?:ation|ed|ing)?)\b/i,
+  /(?:最终(?:设置|参数)|最终的?(?:设置|参数))[\s\S]{0,80}(?:需|需要|必须|应|应当)[\s\S]{0,80}(?:测试|试样|打样|样品|确认)/,
+];
+const SAMPLING_DIMENSIONS = [
+  [/(?:\b(?:actual|production)\s+(?:substrate|material|stock)\b)/i, /(?:实际|真实|生产)(?:承印物|基材|材料)/],
+  [/\b(?:machine|press|equipment)\b/i, /(?:机器|机台|设备|印刷机)/],
+  [/\b(?:artwork|design)\b/i, /(?:图稿|设计稿|版面|图案|设计)/],
+  [/\b(?:speed|press speed|production speed)\b/i, /(?:速度|车速|运行速度)/],
+];
 
 export function parseGuideFile(filePath) {
   const raw = fs.readFileSync(filePath, 'utf8');
@@ -33,6 +43,50 @@ export async function loadGuidePairs(contentRoot) {
       .map(parseGuideFile));
 }
 
+function collectText(value) {
+  if (typeof value === 'string') return [value];
+  if (Array.isArray(value)) return value.flatMap(collectText);
+  if (value && typeof value === 'object') return Object.values(value).flatMap(collectText);
+  return [];
+}
+
+function hasForbiddenPublicTerm(record) {
+  const publicCopy = [
+    record.title,
+    record.description,
+    record.primary_keyword,
+    record.secondary_keywords,
+    record.related_products,
+    record.related_guides,
+    record.author,
+    record.reviewer,
+    record.hero_alt,
+    record.answer,
+    record.faqs,
+    record.markdown,
+    record.bodyHtml,
+    Array.isArray(record.sources) ? record.sources.map((source) => source?.title) : [],
+  ].flatMap(collectText).join('\n');
+  return FORBIDDEN_PUBLIC_TERMS.test(publicCopy);
+}
+
+function hasSamplingQualification(record) {
+  const visibleCopy = [record.answer, record.markdown, record.bodyHtml].filter(Boolean).join('\n');
+  return SAMPLING_CONFIRMATION_PATTERNS.some((pattern) => pattern.test(visibleCopy))
+    && SAMPLING_DIMENSIONS.every((patterns) => patterns.some((pattern) => pattern.test(visibleCopy)));
+}
+
+function isCompletePublishedPair(records) {
+  if (records.length !== 2) return false;
+  const en = records.filter((record) => record.lang === 'en');
+  const cn = records.filter((record) => record.lang === 'cn');
+  return en.length === 1
+    && cn.length === 1
+    && en[0].status === 'published'
+    && cn[0].status === 'published'
+    && en[0].slug === cn[0].slug;
+}
+
 export function validateGuideRecords(records) {
   const errors = [];
   const warnings = [];
@@ -51,10 +105,10 @@ export function validateGuideRecords(records) {
           errors.push({ code: 'missing-required-field', field, filePath: record.filePath });
         }
       }
-      const publicCopy = [record.title, record.description, record.answer, record.markdown].join('\n');
-      if (FORBIDDEN_PUBLIC_TERMS.test(publicCopy)) errors.push({ code: 'forbidden-public-term', filePath: record.filePath });
+      if (hasForbiddenPublicTerm(record)) errors.push({ code: 'forbidden-public-term', filePath: record.filePath });
       if (!/^[a-z0-9]+(?:-[a-z0-9]+)*$/.test(record.slug || '')) errors.push({ code: 'invalid-slug', filePath: record.filePath });
       if (!Array.isArray(record.sources) || record.sources.length < 2) errors.push({ code: 'insufficient-sources', filePath: record.filePath });
+      if (!hasSamplingQualification(record)) errors.push({ code: 'missing-sampling-qualification', filePath: record.filePath });
     }
   }
   for (const [topicId, pair] of byTopic) {
@@ -68,8 +122,14 @@ export function validateGuideRecords(records) {
 }
 
 export function buildPublishedManifest(records) {
-  return records
-    .filter((record) => record.status === 'published')
+  const byTopic = new Map();
+  for (const record of records) {
+    if (!byTopic.has(record.topic_id)) byTopic.set(record.topic_id, []);
+    byTopic.get(record.topic_id).push(record);
+  }
+  return [...byTopic.values()]
+    .filter(isCompletePublishedPair)
+    .flat()
     .map((record) => ({
       topicId: record.topic_id,
       lang: record.lang,
