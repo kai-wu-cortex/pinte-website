@@ -50,6 +50,12 @@ function collectText(value) {
   return [];
 }
 
+function sourceMetadata(source) {
+  if (!source || typeof source !== 'object') return source;
+  const { url, ...metadata } = source;
+  return metadata;
+}
+
 function hasForbiddenPublicTerm(record) {
   const publicCopy = [
     record.title,
@@ -60,20 +66,31 @@ function hasForbiddenPublicTerm(record) {
     record.related_guides,
     record.author,
     record.reviewer,
+    record.hero_image,
     record.hero_alt,
     record.answer,
     record.faqs,
     record.markdown,
     record.bodyHtml,
-    Array.isArray(record.sources) ? record.sources.map((source) => source?.title) : [],
+    Array.isArray(record.sources) ? record.sources.map(sourceMetadata) : [],
   ].flatMap(collectText).join('\n');
   return FORBIDDEN_PUBLIC_TERMS.test(publicCopy);
 }
 
+function samplingStatements(value) {
+  if (typeof value !== 'string') return [];
+  return value
+    .split(/\r?\n\s*\r?\n/)
+    .flatMap((paragraph) => [paragraph, ...paragraph.split(/(?<=[.!?。！？])\s+/)])
+    .map((statement) => statement.trim())
+    .filter(Boolean);
+}
+
 function hasSamplingQualification(record) {
-  const visibleCopy = [record.answer, record.markdown, record.bodyHtml].filter(Boolean).join('\n');
-  return SAMPLING_CONFIRMATION_PATTERNS.some((pattern) => pattern.test(visibleCopy))
-    && SAMPLING_DIMENSIONS.every((patterns) => patterns.some((pattern) => pattern.test(visibleCopy)));
+  return [record.answer, record.markdown]
+    .flatMap(samplingStatements)
+    .some((statement) => SAMPLING_CONFIRMATION_PATTERNS.some((pattern) => pattern.test(statement))
+      && SAMPLING_DIMENSIONS.every((patterns) => patterns.some((pattern) => pattern.test(statement))));
 }
 
 function isCompletePublishedPair(records) {

@@ -17,11 +17,14 @@ const frontmatter = ({
   description = 'Practical diagnosis for foil adhesion.',
   primaryKeyword = 'foil adhesion test',
   secondaryKeywords = '[foil peeling]',
+  heroImage = '',
   heroAlt = '',
   answer = QUALIFIED_ANSWER,
   faqQuestion = 'Why does foil peel?',
   faqAnswer = 'Check surface condition, heat, pressure, and foil grade.',
+  sourceOneLabel = 'S1',
   sourceOneTitle = 'Technical source one',
+  sourceOnePublisher = 'Technical publisher',
   sourceOneUrl = 'https://example.com/source-one',
   body = QUALIFIED_BODY,
 }) => `---
@@ -41,14 +44,16 @@ author: PINTE Technical Team
 reviewer: PINTE Application Engineer
 date_published: 2026-07-16
 date_modified: 2026-07-16
+hero_image: ${heroImage}
 hero_alt: ${heroAlt}
 answer: ${answer}
 faqs:
   - question: ${faqQuestion}
     answer: ${faqAnswer}
 sources:
-  - label: S1
+  - label: ${sourceOneLabel}
     title: ${sourceOneTitle}
+    publisher: ${sourceOnePublisher}
     url: ${sourceOneUrl}
   - label: S2
     title: Technical source two
@@ -136,8 +141,11 @@ test('rejects forbidden terms in public FAQ and metadata fields', async () => {
     { field: 'secondary keyword', options: { secondaryKeywords: '[GEO guidance]' } },
     { field: 'FAQ question', options: { faqQuestion: 'Can ChatGPT set foil parameters?' } },
     { field: 'FAQ answer', options: { faqAnswer: 'Ask ChatGPT for a recommendation.' } },
+    { field: 'hero image', options: { heroImage: 'https://cdn.example.com/seo-foil.jpg' } },
     { field: 'hero alt', options: { heroAlt: 'GEO guide image' } },
+    { field: 'source label', options: { sourceOneLabel: 'GEO source' } },
     { field: 'source title', options: { sourceOneTitle: 'Perplexity technical source' } },
+    { field: 'source metadata', options: { sourceOnePublisher: 'Google AI reference library' } },
   ];
 
   for (const { field, options } of cases) {
@@ -200,9 +208,31 @@ test('accepts sampling wording for final settings', async () => {
   assert.deepEqual(result.errors, []);
 });
 
-test('accepts Chinese sampling qualification language', async () => {
+test('rejects sampling details scattered across unrelated paragraphs', async () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
-  writeGuide(root, 'HF-CHINESE-QUALIFICATION', 'en', { title: 'Foil Guide' });
+  const enPath = writeGuide(root, 'HF-SCATTERED-QUALIFICATION', 'en', {
+    title: 'Foil Guide',
+    answer: 'Final settings require sampling confirmation.',
+    body: `The actual substrate determines surface response.
+
+Machine condition affects heat transfer.
+
+Artwork details affect coverage.
+
+Speed changes dwell time.`,
+  });
+  writeGuide(root, 'HF-SCATTERED-QUALIFICATION', 'cn', { title: '烫金指南' });
+  const result = validateGuideRecords(await loadGuidePairs(root));
+
+  assert.ok(result.errors.some((issue) => issue.code === 'missing-sampling-qualification' && issue.filePath === enPath));
+});
+
+test('accepts canonical English and Chinese sampling qualification language', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  writeGuide(root, 'HF-CHINESE-QUALIFICATION', 'en', {
+    title: 'Foil Guide',
+    answer: 'Final settings require test sample confirmation on the actual substrate, machine, artwork, and speed.',
+  });
   writeGuide(root, 'HF-CHINESE-QUALIFICATION', 'cn', {
     title: '烫金指南',
     answer: '最终参数必须通过实际承印物、机台、图稿和速度的打样确认。',
