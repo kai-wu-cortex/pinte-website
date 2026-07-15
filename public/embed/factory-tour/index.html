@@ -1,0 +1,238 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+  <meta name="robots" content="noindex,nofollow">
+  <title>PINTE 360 Factory Tour</title>
+  <style>
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;background:#050505;color:#fff;font-family:Arial,Helvetica,sans-serif}
+    #app{position:relative;width:100%;height:100%;min-height:420px;background:#050505}
+    #canvas{position:absolute;inset:0;cursor:grab;background:#050505}
+    #canvas:active{cursor:grabbing}
+    #top{position:absolute;left:18px;right:18px;top:18px;z-index:4;display:flex;align-items:flex-start;justify-content:space-between;pointer-events:none}
+    #title{pointer-events:auto;display:flex;align-items:center;gap:10px;padding:10px 16px;border:1px solid rgba(255,255,255,.16);border-radius:999px;background:rgba(0,0,0,.42);backdrop-filter:blur(10px);font-size:15px;font-weight:700}
+    #dot{width:10px;height:10px;border-radius:50%;background:#22c55e;box-shadow:0 0 0 6px rgba(34,197,94,.18)}
+    #fs{pointer-events:auto;width:42px;height:42px;border:1px solid rgba(255,255,255,.18);border-radius:999px;background:rgba(0,0,0,.42);color:#fff;font-size:20px;line-height:1;cursor:pointer}
+    #status{position:absolute;inset:0;z-index:3;display:flex;align-items:center;justify-content:center;text-align:center;background:rgba(0,0,0,.72)}
+    #status strong{display:block;margin-bottom:8px;font-size:16px;letter-spacing:.08em;text-transform:uppercase}
+    #status span{display:block;font-size:12px;color:rgba(255,255,255,.64)}
+    #notice{position:absolute;left:50%;top:78px;z-index:5;transform:translateX(-50%);display:none;max-width:80%;padding:10px 14px;border:1px solid rgba(249,115,22,.45);border-radius:12px;background:rgba(0,0,0,.75);font-size:12px}
+    #hint{position:absolute;left:50%;top:50%;z-index:2;transform:translate(-50%,-50%);padding:14px 18px;border-radius:18px;background:rgba(0,0,0,.5);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;animation:fadeHint 4s ease forwards}
+    #scenes{position:absolute;left:50%;bottom:18px;z-index:4;transform:translateX(-50%);display:flex;gap:10px;max-width:92%;padding:8px;border:1px solid rgba(255,255,255,.12);border-radius:18px;background:rgba(0,0,0,.36);backdrop-filter:blur(10px);overflow-x:auto}
+    .scene{position:relative;flex:0 0 auto;width:118px;height:74px;border:2px solid rgba(255,255,255,.35);border-radius:10px;overflow:hidden;background:#111;color:#fff;cursor:pointer;padding:0}
+    .scene.active{border-color:#ff6a00;box-shadow:0 0 0 2px rgba(255,106,0,.22)}
+    .scene img{display:block;width:100%;height:100%;object-fit:cover}
+    .scene span{position:absolute;left:0;right:0;bottom:0;padding:16px 6px 6px;background:linear-gradient(transparent,rgba(0,0,0,.82));font-size:12px;font-weight:700;text-align:center}
+    #fallback{position:absolute;left:18px;right:18px;bottom:112px;z-index:5;display:none;padding:12px 14px;border-radius:14px;background:rgba(0,0,0,.76);font-size:13px;line-height:1.5;text-align:center}
+    #fallback a{color:#fff;font-weight:700}
+    @keyframes fadeHint{0%,65%{opacity:1}100%{opacity:0;visibility:hidden}}
+    @media(max-width:640px){#title{font-size:13px;padding:9px 12px}.scene{width:96px;height:62px}#hint{font-size:10px}#scenes{bottom:10px}}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <div id="canvas"></div>
+    <div id="top">
+      <div id="title"><i id="dot"></i><span id="sceneName">Factory Entrance</span></div>
+      <button id="fs" type="button" aria-label="Fullscreen">⛶</button>
+    </div>
+    <div id="status"><div><strong>Loading 360 Tour</strong><span>Drag to look around. Scroll or pinch to zoom.</span></div></div>
+    <div id="notice"></div>
+    <div id="hint">Drag to look • Scroll to zoom • Choose scenes</div>
+    <div id="fallback">If the tour does not load, <a href="https://www.pintecl.com/cn/tour/" target="_blank" rel="noopener">open the factory tour in a new tab</a>.</div>
+    <div id="scenes"></div>
+  </div>
+  <script type="module">
+    import * as THREE from 'https://esm.sh/three@0.182.0';
+
+    const safeFallbackImage = 'https://images.unsplash.com/photo-1557971370-e7298ed473ab?q=80&w=2560&auto=format&fit=crop';
+    const scenes = [
+      { id: 'lobby', name: 'Factory Entrance', image: 'https://cos.pintecl.com/pano/AGC_20260104_111134262.PHOTOSPHERE%20%282%29.jpg' },
+      { id: 'production', name: 'Workshop', image: 'https://cos.pintecl.com/pano/AGC_20260104_112425867.PHOTOSPHERE%20%282%29.jpg' },
+      { id: 'warehouse', name: 'Warehouse', image: 'https://cos.pintecl.com/pano/AGC_20260104_112622403.PHOTOSPHERE%20%282%29.jpg' },
+      { id: 'showroom', name: 'Showroom', image: 'https://cos.pintecl.com/pano/AGC_20260104_112832421.PHOTOSPHERE%20%282%29.jpg' },
+      { id: 'showroom2', name: 'Showroom 2', image: 'https://cos.pintecl.com/pano/AGC_20260104_113103477.PHOTOSPHERE%20%282%29.jpg' },
+      { id: 'showroom3', name: 'Showroom 3', image: 'https://cos.pintecl.com/pano/AGC_20260104_113426100.PHOTOSPHERE%20%282%29.jpg' },
+      { id: 'showroom4', name: 'Showroom 4', image: 'https://cos.pintecl.com/pano/AGC_20260104_113829272.PHOTOSPHERE%20%282%29.jpg' }
+    ];
+
+    const mount = document.getElementById('canvas');
+    const status = document.getElementById('status');
+    const notice = document.getElementById('notice');
+    const fallback = document.getElementById('fallback');
+    const sceneName = document.getElementById('sceneName');
+    const sceneButtons = document.getElementById('scenes');
+    const app = document.getElementById('app');
+
+    let scene;
+    let camera;
+    let renderer;
+    let sphere;
+    let lon = 0;
+    let lat = 0;
+    let isDown = false;
+    let startX = 0;
+    let startY = 0;
+    let startLon = 0;
+    let startLat = 0;
+    let currentScene = scenes[0];
+
+    function showNotice(message) {
+      notice.textContent = message;
+      notice.style.display = 'block';
+      window.setTimeout(() => { notice.style.display = 'none'; }, 4200);
+    }
+
+    function init() {
+      scene = new THREE.Scene();
+      camera = new THREE.PerspectiveCamera(75, app.clientWidth / app.clientHeight, 0.1, 1000);
+      camera.position.set(0, 0, 0.1);
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: false });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+      renderer.setSize(app.clientWidth, app.clientHeight);
+      mount.appendChild(renderer.domElement);
+
+      const geometry = new THREE.SphereGeometry(500, 80, 48);
+      geometry.scale(-1, 1, 1);
+      sphere = new THREE.Mesh(geometry, new THREE.MeshBasicMaterial({ color: 0x111111 }));
+      scene.add(sphere);
+
+      renderButtons();
+      bindEvents();
+      loadScene(currentScene);
+      animate();
+    }
+
+    function renderButtons() {
+      sceneButtons.innerHTML = '';
+      for (const item of scenes) {
+        const button = document.createElement('button');
+        button.type = 'button';
+        button.className = 'scene' + (item.id === currentScene.id ? ' active' : '');
+        button.innerHTML = '<img alt=""><span></span>';
+        button.querySelector('img').src = item.image;
+        button.querySelector('img').alt = item.name;
+        button.querySelector('span').textContent = item.name;
+        button.addEventListener('click', () => {
+          currentScene = item;
+          renderButtons();
+          loadScene(item);
+        });
+        sceneButtons.appendChild(button);
+      }
+    }
+
+    function loadImage(url) {
+      return new Promise((resolve, reject) => {
+        const loader = new THREE.ImageLoader();
+        loader.setCrossOrigin('anonymous');
+        loader.load(url, resolve, undefined, reject);
+      });
+    }
+
+    async function makeTexture(url) {
+      let image;
+      try {
+        image = await loadImage(url);
+      } catch (error) {
+        try {
+          image = await loadImage('https://corsproxy.io/?' + encodeURIComponent(url));
+          showNotice('Using image proxy for this network.');
+        } catch (proxyError) {
+          image = await loadImage(safeFallbackImage);
+          showNotice('Factory panorama could not load on this network. Showing demo view.');
+        }
+      }
+
+      const maxSize = renderer.capabilities.maxTextureSize || 4096;
+      let source = image;
+      if (image.width > maxSize || image.height > maxSize) {
+        const scale = Math.min(maxSize / image.width, maxSize / image.height);
+        const canvas = document.createElement('canvas');
+        canvas.width = Math.floor(image.width * scale);
+        canvas.height = Math.floor(image.height * scale);
+        canvas.getContext('2d').drawImage(image, 0, 0, canvas.width, canvas.height);
+        source = canvas;
+      }
+      const texture = new THREE.Texture(source);
+      texture.colorSpace = THREE.SRGBColorSpace;
+      texture.minFilter = THREE.LinearFilter;
+      texture.generateMipmaps = false;
+      texture.needsUpdate = true;
+      return texture;
+    }
+
+    async function loadScene(item) {
+      currentScene = item;
+      sceneName.textContent = item.name;
+      status.style.display = 'flex';
+      try {
+        const texture = await makeTexture(item.image);
+        if (sphere.material.map) sphere.material.map.dispose();
+        sphere.material.map = texture;
+        sphere.material.color.set(0xffffff);
+        sphere.material.needsUpdate = true;
+        status.style.display = 'none';
+      } catch (error) {
+        status.style.display = 'none';
+        fallback.style.display = 'block';
+      }
+    }
+
+    function bindEvents() {
+      renderer.domElement.addEventListener('pointerdown', (event) => {
+        isDown = true;
+        startX = event.clientX;
+        startY = event.clientY;
+        startLon = lon;
+        startLat = lat;
+        renderer.domElement.setPointerCapture(event.pointerId);
+      });
+      renderer.domElement.addEventListener('pointermove', (event) => {
+        if (!isDown) return;
+        lon = (startX - event.clientX) * 0.1 + startLon;
+        lat = (event.clientY - startY) * 0.1 + startLat;
+      });
+      renderer.domElement.addEventListener('pointerup', () => { isDown = false; });
+      renderer.domElement.addEventListener('wheel', (event) => {
+        event.preventDefault();
+        camera.fov = THREE.MathUtils.clamp(camera.fov + event.deltaY * 0.05, 30, 100);
+        camera.updateProjectionMatrix();
+      }, { passive: false });
+      window.addEventListener('resize', resize);
+      document.getElementById('fs').addEventListener('click', () => {
+        if (document.fullscreenElement) document.exitFullscreen();
+        else app.requestFullscreen?.();
+      });
+    }
+
+    function resize() {
+      camera.aspect = app.clientWidth / app.clientHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(app.clientWidth, app.clientHeight);
+    }
+
+    function animate() {
+      requestAnimationFrame(animate);
+      lat = Math.max(-85, Math.min(85, lat));
+      const phi = THREE.MathUtils.degToRad(90 - lat);
+      const theta = THREE.MathUtils.degToRad(lon);
+      const target = new THREE.Vector3(
+        500 * Math.sin(phi) * Math.cos(theta),
+        500 * Math.cos(phi),
+        500 * Math.sin(phi) * Math.sin(theta)
+      );
+      camera.lookAt(target);
+      renderer.render(scene, camera);
+    }
+
+    try {
+      init();
+    } catch (error) {
+      status.style.display = 'none';
+      fallback.style.display = 'block';
+    }
+  </script>
+</body>
+</html>

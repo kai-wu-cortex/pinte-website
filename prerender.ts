@@ -347,19 +347,6 @@ export const prerender = {
     const rootIndexPath = path.join(distDir, 'index.html');
     const rootIndexTemplate = fs.readFileSync(rootIndexPath, 'utf8');
 
-    // Standalone embeddable widget routes are not language-prefixed.
-    // They intentionally render through React only, without the normal site shell.
-    try {
-      const embedRoute = 'embed/factory-tour';
-      const embedHtml = fixAssetPaths(rootIndexTemplate, 2, indexJsFilename, vendorJsFilename);
-      const embedFilePath = path.join(distDir, embedRoute, 'index.html');
-      fs.mkdirSync(path.dirname(embedFilePath), { recursive: true });
-      fs.writeFileSync(embedFilePath, embedHtml);
-      console.log(`✅ Generated embed route: /${embedRoute}/index.html`);
-    } catch (error) {
-      console.error('❌ Failed to generate embed route /embed/factory-tour:', error);
-    }
-
     for (const lang of languages) {
       const langDir = path.join(distDir, lang);
       if (!fs.existsSync(langDir)) fs.mkdirSync(langDir, { recursive: true });
