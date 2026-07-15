@@ -25,7 +25,7 @@ const Terms = React.lazy(() => import('./pages/Terms'));
 const PinteFoils = React.lazy(() => import('./pages/PinteFoils'));
 const SeoGeoSop = React.lazy(() => import('./pages/SeoGeoSop'));
 const GeoGuideCatalog = React.lazy(() => import('./pages/GeoGuideCatalog'));
-const GeoGuide = React.lazy(() => import('./pages/GeoGuide'));
+const GuideRoute = React.lazy(() => import('./pages/GuideRoute'));
 
 // Loading spinner component for Suspense
 const PageLoader = () => (
@@ -120,7 +120,7 @@ const AppRoutes = () => {
         <Route path="blog" element={<BlogCatalog />} />
         <Route path="blog/:slug" element={<BlogItem />} />
         <Route path="guides" element={<GeoGuideCatalog />} />
-        <Route path="guides/:slug" element={<GeoGuide />} />
+        <Route path="guides/:slug" element={<GuideRoute />} />
         <Route path="privacy" element={<Privacy />} />
         <Route path="terms" element={<Terms />} />
         <Route path="seo-geo-sop" element={<SeoGeoSop />} />
