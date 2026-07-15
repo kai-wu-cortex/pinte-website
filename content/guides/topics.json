@@ -1,0 +1,11 @@
+[
+  {
+    "topic_id": "HF-000001",
+    "slug": "hot-stamping-foil-label-sampling",
+    "status": "published",
+    "cluster": "label-printing",
+    "intent": "selection",
+    "related_products": ["PC"],
+    "related_guides": ["hot-stamping-troubleshooting"]
+  }
+]

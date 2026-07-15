@@ -1,9 +1,17 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
+import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
 import { loadGuidePairs, validateGuideRecords, buildPublishedManifest } from './lib/guide-content.mjs';
+
+test('build CLI creates a TypeScript manifest', () => {
+  const result = spawnSync(process.execPath, ['scripts/build-guide-content.mjs'], { encoding: 'utf8' });
+
+  assert.equal(result.status, 0, result.stderr);
+  assert.match(fs.readFileSync('data/generatedGuides.ts', 'utf8'), /AUTO-GENERATED/);
+});
 
 const QUALIFIED_ANSWER = 'Final settings require test sample confirmation on the actual substrate, machine, artwork, and speed.';
 const QUALIFIED_BODY = 'Test the actual substrate, machine, artwork, and speed together before finalizing settings.';
