@@ -17,6 +17,7 @@ const SolutionDetail = React.lazy(() => import('./pages/SolutionDetail'));
 const Culture = React.lazy(() => import('./pages/Culture'));
 const Quote = React.lazy(() => import('./pages/Quote'));
 const FactoryTour = React.lazy(() => import('./pages/FactoryTour'));
+const FactoryTourEmbed = React.lazy(() => import('./pages/FactoryTourEmbed'));
 const BlogCatalog = React.lazy(() => import('./pages/BlogCatalog'));
 const BlogItem = React.lazy(() => import('./pages/BlogItem'));
 const Privacy = React.lazy(() => import('./pages/Privacy'));
@@ -79,6 +80,11 @@ const AppRoutes = () => {
       {/* PinteFoils standalone page - no NavBar/Footer */}
       <Route path="/pintefoils" element={<PinteFoils />} />
       <Route path="/:lang/pintefoils" element={<PinteFoils />} />
+      <Route path="/embed/factory-tour" element={
+        <Suspense fallback={<PageLoader />}>
+          <FactoryTourEmbed />
+        </Suspense>
+      } />
 
       {/* Redirect any non-language prefixed routes to default language (Chinese) */}
       <Route path="/about" element={<Navigate to="/cn/about" replace />} />

@@ -85,10 +85,11 @@ const SCENES: Record<string, Scene> = {
 };
 
 interface FactoryTour360Props {
-  onClose: () => void;
+  onClose?: () => void;
+  embedded?: boolean;
 }
 
-const FactoryTour360: React.FC<FactoryTour360Props> = ({ onClose }) => {
+const FactoryTour360: React.FC<FactoryTour360Props> = ({ onClose, embedded = false }) => {
   const mountRef = useRef<HTMLDivElement>(null);
   const [currentSceneId, setCurrentSceneId] = useState<string>('lobby');
   const [isLoaded, setIsLoaded] = useState(false);
@@ -521,7 +522,7 @@ const FactoryTour360: React.FC<FactoryTour360Props> = ({ onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 z-[100] bg-black text-white font-sans overflow-hidden animate-in fade-in duration-500">
+    <div className={`${embedded ? 'relative w-full h-screen min-h-[520px]' : 'fixed inset-0 z-[100]'} bg-black text-white font-sans overflow-hidden animate-in fade-in duration-500`}>
       
       {/* 3D Canvas Mount Point */}
       <div ref={mountRef} className="absolute inset-0 cursor-move active:cursor-grabbing bg-black" />
@@ -529,7 +530,7 @@ const FactoryTour360: React.FC<FactoryTour360Props> = ({ onClose }) => {
       {/* --- UI Overlays --- */}
 
       {/* NEW: Debug Coordinate Tooltip (Near Cursor) */}
-      {cursorCoords && !hoveredHotspot && (
+      {!embedded && cursorCoords && !hoveredHotspot && (
          <div 
             className="fixed z-[110] pointer-events-none bg-black/70 text-green-400 font-mono text-[10px] px-2 py-1 rounded border border-green-500/30 backdrop-blur-sm"
             style={{ 
@@ -549,12 +550,14 @@ const FactoryTour360: React.FC<FactoryTour360Props> = ({ onClose }) => {
                 {currentScene.name}
             </h2>
          </div>
-         <button 
-            onClick={onClose}
-            className="bg-white/10 hover:bg-red-500/80 backdrop-blur-md p-3 rounded-full border border-white/10 transition-colors pointer-events-auto"
-         >
-            <X size={24} />
-         </button>
+         {!embedded && onClose && (
+            <button
+               onClick={onClose}
+               className="bg-white/10 hover:bg-red-500/80 backdrop-blur-md p-3 rounded-full border border-white/10 transition-colors pointer-events-auto"
+            >
+               <X size={24} />
+            </button>
+         )}
       </div>
 
       {/* Hotspot Tooltip */}

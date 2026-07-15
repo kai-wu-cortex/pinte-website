@@ -22,6 +22,8 @@ interface SEOMetaProps {
   locale?: string;
   canonicalUrl?: string;
   includeOrganizationSchema?: boolean;
+  noIndex?: boolean;
+  disableHreflang?: boolean;
 }
 
 const SEOMeta: React.FC<SEOMetaProps> = ({
@@ -40,7 +42,9 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   geoPosition,
   locale = 'en_US',
   canonicalUrl,
-  includeOrganizationSchema = false
+  includeOrganizationSchema = false,
+  noIndex = false,
+  disableHreflang = false
 }) => {
   const siteName = 'PINTE';
   const siteUrl = 'https://www.pintecl.com';
@@ -96,13 +100,14 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
+      {noIndex && <meta name="robots" content="noindex, nofollow" />}
       {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
 
       {/* Canonical URL */}
       {canonicalUrl && <link rel="canonical" href={`${siteUrl}${canonicalUrl}`} />}
 
       {/* Hreflang Tags - International SEO */}
-      {generateHreflangTags()}
+      {!disableHreflang && generateHreflangTags()}
 
       {/* Open Graph - Facebook & LinkedIn */}
       <meta property="og:type" content={type} />

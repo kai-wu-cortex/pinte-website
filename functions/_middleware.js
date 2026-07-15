@@ -7,9 +7,9 @@ export async function onRequest(context) {
     return context.next();
   }
 
-  // For /cn/* and /en/* deep paths, try to serve the file first
+  // For /cn/*, /en/*, and embeddable widget paths, try to serve the file first
   // If 404, return index.html for React Router
-  if (pathname.startsWith('/cn/') || pathname.startsWith('/en/')) {
+  if (pathname.startsWith('/cn/') || pathname.startsWith('/en/') || pathname.startsWith('/embed/')) {
     try {
       const response = await context.next();
       if (response.status === 404) {
