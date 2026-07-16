@@ -27,5 +27,5 @@ Passed focused compiled-snapshot assertions for English and Chinese generated gu
 
 ## Follow-up
 
-- Related product links in generated static guide snapshots now include the localized action and localized product name: `View product: <name>` or `查看产品: <name>`.
+- Related product links in generated static guide snapshots now match the runtime text order: `<name> View product` or `<name> 查看产品`.
 - The existing escaped link rendering and language-prefixed trailing-slash URL behavior are preserved.

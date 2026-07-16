@@ -2192,7 +2192,7 @@ function buildGeneratedGuideSnapshot(slug: string, lang: Lang): SnapshotResult |
     if (!product?.name) return [];
 
     return [{
-      label: `${viewProductLabel}: ${product.name}`,
+      label: `${product.name} ${viewProductLabel}`,
       href: langPath(`products/category/${encodeURIComponent(id)}`, lang) + '/',
     }];
   });
