@@ -1,0 +1,1945 @@
+[
+  {
+    "topic_id": "HF-008368",
+    "slug": "why-poor-adhesion-peeling-happens-film-label-facestock-narrow-web-cold-foil-transfer-c-15effpa",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 1,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Poor adhesion or peeling Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Poor adhesion or peeling",
+      "cn": "薄膜标签面材出现附着不牢或掉金的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 附着不牢或掉金）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose poor adhesion or peeling on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Poor adhesion or peeling?",
+      "cn": "薄膜标签面材出现附着不牢或掉金时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 附着不牢或掉金）？"
+    },
+    "selectionRule": "uv-label-adhesion",
+    "selectionReason": "Covers UV or treated label adhesion questions from converters.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Adhesion or surface-energy source",
+      "PINTE product-fit review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "iso-2409-2020-cross-cut",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Poor adhesion or peeling for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-008365",
+    "slug": "why-incomplete-missing-transfer-happens-film-label-facestock-narrow-web-cold-foil-tran-01s6895",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 2,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Incomplete or missing transfer Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Incomplete or missing transfer",
+      "cn": "薄膜标签面材出现缺金或转移不完整的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 缺金或转移不完整）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose incomplete or missing transfer on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Incomplete or missing transfer?",
+      "cn": "薄膜标签面材出现缺金或转移不完整时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 缺金或转移不完整）？"
+    },
+    "selectionRule": "uv-label-incomplete-transfer",
+    "selectionReason": "Covers missing transfer on UV or digital label jobs.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Transfer-completeness check",
+      "Process-window sample",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Incomplete or missing transfer for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-005495",
+    "slug": "dry-rub-abrasion-comparison-film-label-facestock-foil-approval-scratch-scuff-rub-failu-0ty3ta4",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 3,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "testing",
+    "title": {
+      "en": "Dry rub or abrasion comparison for Film label facestock Foil Approval - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure / Dry rub or abrasion comparison",
+      "cn": "薄膜标签面材烫金确认中的干擦或耐磨对比（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）"
+    },
+    "topicQuestion": {
+      "en": "When is dry rub or abrasion comparison useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure / Dry rub or abrasion comparison?",
+      "cn": "薄膜标签面材烫金确认何时使用干擦或耐磨对比（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）？"
+    },
+    "selectionRule": "film-label-rub",
+    "selectionReason": "Covers durability concerns on film labels.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Dry rub or scratch test",
+      "Approved master comparison",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "astm-d5264-98r19-abrasion",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "inx-hot-cold-foil-guide"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check."
+  },
+  {
+    "topic_id": "HF-008502",
+    "slug": "why-scratch-scuff-rub-failure-happens-polypropylene-pp-narrow-web-cold-foil-transfer-c-0u5smt0",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 4,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Scratch, scuff, or rub failure Happens on Polypropylene (PP) - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure",
+      "cn": "PP 聚丙烯出现刮擦或耐磨失败的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose scratch, scuff, or rub failure on polypropylene (PP) under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure?",
+      "cn": "PP 聚丙烯出现刮擦或耐磨失败时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败）？"
+    },
+    "selectionRule": "pp-scratch",
+    "selectionReason": "Covers low-surface-energy PP durability concerns.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Surface treatment record",
+      "Rub or scratch acceptance method",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d5264-98r19-abrasion",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-narrow-web-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Scratch, scuff, or rub failure for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-008469",
+    "slug": "why-scratch-scuff-rub-failure-happens-polyethylene-pe-narrow-web-cold-foil-transfer-co-03jouvq",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 5,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Scratch, scuff, or rub failure Happens on Polyethylene (PE) - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure",
+      "cn": "PE 聚乙烯出现刮擦或耐磨失败的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose scratch, scuff, or rub failure on polyethylene (PE) under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure?",
+      "cn": "PE 聚乙烯出现刮擦或耐磨失败时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败）？"
+    },
+    "selectionRule": "pe-scratch",
+    "selectionReason": "Covers low-surface-energy PE durability concerns.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Surface treatment record",
+      "Rub or scratch acceptance method",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d5264-98r19-abrasion",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-narrow-web-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Scratch, scuff, or rub failure for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-002934",
+    "slug": "foil-grade-selection-continuous-holographic-pattern-polypropylene-pp-corona-plasma-tre-0o2l26t",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 6,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "label-printing",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Continuous holographic pattern on Polypropylene (PP) - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Cosmetics and personal care / Continuous holographic pattern",
+      "cn": "PP 聚丙烯连续镭射纹理烫金膜选型（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 化妆品和个人护理包装 / 连续镭射纹理）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for continuous holographic pattern on polypropylene (PP) under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Cosmetics and personal care / Continuous holographic pattern?",
+      "cn": "PP 聚丙烯连续镭射纹理选膜时要确认哪些条件（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 化妆品和个人护理包装 / 连续镭射纹理）？"
+    },
+    "selectionRule": "pp-surface-energy",
+    "selectionReason": "Covers PP wetting and treatment checks before grade choice.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Surface-energy check",
+      "Treatment age record",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d5264-98r19-abrasion",
+      "heidelberg-foilstar",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "kurz-cold-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Continuous holographic pattern, Polypropylene (PP), Corona or plasma treatment, and Narrow-web cold foil transfer."
+  },
+  {
+    "topic_id": "HF-002862",
+    "slug": "foil-grade-selection-continuous-holographic-pattern-polyethylene-pe-corona-plasma-trea-0w33ox7",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 7,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "label-printing",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Continuous holographic pattern on Polyethylene (PE) - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Cosmetics and personal care / Continuous holographic pattern",
+      "cn": "PE 聚乙烯连续镭射纹理烫金膜选型（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 化妆品和个人护理包装 / 连续镭射纹理）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for continuous holographic pattern on polyethylene (PE) under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Cosmetics and personal care / Continuous holographic pattern?",
+      "cn": "PE 聚乙烯连续镭射纹理选膜时要确认哪些条件（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 化妆品和个人护理包装 / 连续镭射纹理）？"
+    },
+    "selectionRule": "pe-surface-energy",
+    "selectionReason": "Covers PE treatment checks before sampling.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Surface-energy check",
+      "Treatment age record",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d5264-98r19-abrasion",
+      "heidelberg-foilstar",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "kurz-cold-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Continuous holographic pattern, Polyethylene (PE), Corona or plasma treatment, and Narrow-web cold foil transfer."
+  },
+  {
+    "topic_id": "HF-003607",
+    "slug": "foil-grade-selection-fine-lines-small-type-natural-leather-as-supplied-uncoated-surfac-18fiqfr",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 8,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "leather",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Fine lines and small type on Natural leather - As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type",
+      "cn": "天然皮革细线和小文字烫金膜选型（原始未涂布表面 / 平压平热烫 / 天然和合成皮革热烫 / 皮具和书封装帧 / 细线和小文字）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for fine lines and small type on natural leather under As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type?",
+      "cn": "天然皮革细线和小文字选膜时要确认哪些条件（适用条件：原始未涂布表面 / 平压平热烫 / 天然和合成皮革热烫 / 皮具和书封装帧 / 细线和小文字）？"
+    },
+    "selectionRule": "natural-leather-logo",
+    "selectionReason": "Covers leather logo projects and texture-sensitive approval.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Leather lot sample",
+      "Heat response and adhesion check",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "fsea-foil-cheat-sheet",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "kurz-decoration-processes",
+      "kurz-hot-stamping"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Fine lines and small type, Natural leather, As-supplied or uncoated surface, and Flatbed or platen hot stamping."
+  },
+  {
+    "topic_id": "HF-003615",
+    "slug": "foil-grade-selection-fine-lines-small-type-pu-synthetic-leather-as-supplied-uncoated-s-0uge2zl",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 9,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "leather",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Fine lines and small type on PU synthetic leather - As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type",
+      "cn": "PU 合成革细线和小文字烫金膜选型（原始未涂布表面 / 平压平热烫 / 天然和合成皮革热烫 / 皮具和书封装帧 / 细线和小文字）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for fine lines and small type on pU synthetic leather under As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type?",
+      "cn": "PU 合成革细线和小文字选膜时要确认哪些条件（适用条件：原始未涂布表面 / 平压平热烫 / 天然和合成皮革热烫 / 皮具和书封装帧 / 细线和小文字）？"
+    },
+    "selectionRule": "pu-leather-logo",
+    "selectionReason": "Covers PU leather logo projects.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "PU topcoat identification",
+      "Representative logo artwork sample",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "fsea-foil-cheat-sheet",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "kurz-decoration-processes",
+      "kurz-hot-stamping"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Fine lines and small type, PU synthetic leather, As-supplied or uncoated surface, and Flatbed or platen hot stamping."
+  },
+  {
+    "topic_id": "HF-003623",
+    "slug": "foil-grade-selection-fine-lines-small-type-pvc-synthetic-leather-book-cover-as-supplie-0olyp5r",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 10,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "leather",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Fine lines and small type on PVC synthetic leather or book cover - As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type",
+      "cn": "PVC 合成革或书封细线和小文字烫金膜选型（原始未涂布表面 / 平压平热烫 / 天然和合成皮革热烫 / 皮具和书封装帧 / 细线和小文字）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for fine lines and small type on pVC synthetic leather or book cover under As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type?",
+      "cn": "PVC 合成革或书封细线和小文字选膜时要确认哪些条件（适用条件：原始未涂布表面 / 平压平热烫 / 天然和合成皮革热烫 / 皮具和书封装帧 / 细线和小文字）？"
+    },
+    "selectionRule": "pvc-leather-book-cover",
+    "selectionReason": "Covers PVC leather/book-cover selection.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Plasticizer/topcoat note",
+      "Heat and adhesion sample",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "fsea-foil-cheat-sheet",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "kurz-decoration-processes",
+      "kurz-hot-stamping"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Fine lines and small type, PVC synthetic leather or book cover, As-supplied or uncoated surface, and Flatbed or platen hot stamping."
+  },
+  {
+    "topic_id": "HF-003677",
+    "slug": "foil-grade-selection-continuous-holographic-pattern-folding-carton-board-primer-adhesi-14h6vff",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 11,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "paper-carton-packaging",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Continuous holographic pattern on Folding carton board - Primer or adhesion-promoting coating / Sheet-fed offset cold foil transfer / Coated paper and carton cold transfer / Commercial print finishing / Continuous holographic pattern",
+      "cn": "折叠纸盒纸板连续镭射纹理烫金膜选型（底涂或增附着涂层 / 单张纸胶印冷烫 / 涂布纸和彩盒冷烫 / 商业印后加工 / 连续镭射纹理）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for continuous holographic pattern on folding carton board under Primer or adhesion-promoting coating / Sheet-fed offset cold foil transfer / Coated paper and carton cold transfer / Commercial print finishing / Continuous holographic pattern?",
+      "cn": "折叠纸盒纸板连续镭射纹理选膜时要确认哪些条件（适用条件：底涂或增附着涂层 / 单张纸胶印冷烫 / 涂布纸和彩盒冷烫 / 商业印后加工 / 连续镭射纹理）？"
+    },
+    "selectionRule": "coated-paper-carton",
+    "selectionReason": "Covers coated paper and carton selection.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Coating and print stack record",
+      "Transfer completeness check",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d5264-98r19-abrasion",
+      "fsea-foil-cheat-sheet",
+      "heidelberg-foilstar",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Continuous holographic pattern, Folding carton board, Primer or adhesion-promoting coating, and Sheet-fed offset cold foil transfer."
+  },
+  {
+    "topic_id": "HF-003078",
+    "slug": "foil-grade-selection-continuous-holographic-pattern-paper-label-facestock-uv-varnish-c-0x29n5d",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 12,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "label-printing",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Continuous holographic pattern on Paper label facestock - UV varnish or coating / Flatbed or platen hot stamping / Paper label hot stamping / Cosmetics and personal care / Continuous holographic pattern",
+      "cn": "纸质标签面材连续镭射纹理烫金膜选型（UV 光油或涂层 / 平压平热烫 / 纸质标签热烫 / 化妆品和个人护理包装 / 连续镭射纹理）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for continuous holographic pattern on paper label facestock under UV varnish or coating / Flatbed or platen hot stamping / Paper label hot stamping / Cosmetics and personal care / Continuous holographic pattern?",
+      "cn": "纸质标签面材连续镭射纹理选膜时要确认哪些条件（适用条件：UV 光油或涂层 / 平压平热烫 / 纸质标签热烫 / 化妆品和个人护理包装 / 连续镭射纹理）？"
+    },
+    "selectionRule": "uv-varnished-paper",
+    "selectionReason": "Covers UV varnish and coating risk on paper packaging.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Varnish cure state",
+      "Adhesion and edge inspection",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d5264-98r19-abrasion",
+      "fsea-foil-cheat-sheet",
+      "heidelberg-foilstar",
+      "foilco-d4-grade-guide",
+      "kurz-cold-transfer"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Continuous holographic pattern, Paper label facestock, UV varnish or coating, and Flatbed or platen hot stamping."
+  },
+  {
+    "topic_id": "HF-003805",
+    "slug": "foil-grade-selection-continuous-holographic-pattern-folding-carton-board-opp-pet-lamin-1cbqwdp",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 13,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "paper-carton-packaging",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Continuous holographic pattern on Folding carton board - OPP or PET lamination / Flatbed or platen hot stamping / Opaque pigment foil on paper and board / Cosmetics and personal care / Continuous holographic pattern",
+      "cn": "折叠纸盒纸板连续镭射纹理烫金膜选型（OPP 或 PET 覆膜 / 平压平热烫 / 纸张纸板颜料箔热烫 / 化妆品和个人护理包装 / 连续镭射纹理）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for continuous holographic pattern on folding carton board under OPP or PET lamination / Flatbed or platen hot stamping / Opaque pigment foil on paper and board / Cosmetics and personal care / Continuous holographic pattern?",
+      "cn": "折叠纸盒纸板连续镭射纹理选膜时要确认哪些条件（适用条件：OPP 或 PET 覆膜 / 平压平热烫 / 纸张纸板颜料箔热烫 / 化妆品和个人护理包装 / 连续镭射纹理）？"
+    },
+    "selectionRule": "laminated-paperboard",
+    "selectionReason": "Covers film-laminated paperboard selection.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Film chemistry confirmation",
+      "Transfer and adhesion sample",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d5264-98r19-abrasion",
+      "fsea-foil-cheat-sheet",
+      "foilco-d4-grade-guide",
+      "kurz-decoration-processes",
+      "kurz-hot-stamping"
+    ],
+    "relatedProducts": [
+      "PLPY"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Continuous holographic pattern, Folding carton board, OPP or PET lamination, and Flatbed or platen hot stamping."
+  },
+  {
+    "topic_id": "HF-003789",
+    "slug": "foil-grade-selection-continuous-holographic-pattern-textured-specialty-paper-as-suppli-13h8cj2",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 14,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "paper-carton-packaging",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Continuous holographic pattern on Textured or specialty paper - As-supplied or uncoated surface / Combined foil stamping and embossing / Textured, kraft, and difficult paper hot stamping / Folding carton and paper packaging / Continuous holographic pattern",
+      "cn": "纹理特种纸连续镭射纹理烫金膜选型（原始未涂布表面 / 烫金压凸 / 纹理纸和困难纸张热烫 / 折叠纸盒和彩盒包装 / 连续镭射纹理）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for continuous holographic pattern on textured or specialty paper under As-supplied or uncoated surface / Combined foil stamping and embossing / Textured, kraft, and difficult paper hot stamping / Folding carton and paper packaging / Continuous holographic pattern?",
+      "cn": "纹理特种纸连续镭射纹理选膜时要确认哪些条件（适用条件：原始未涂布表面 / 烫金压凸 / 纹理纸和困难纸张热烫 / 折叠纸盒和彩盒包装 / 连续镭射纹理）？"
+    },
+    "selectionRule": "textured-kraft-paper",
+    "selectionReason": "Covers rough and absorbent paper risks.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Surface roughness comparison",
+      "Solid-area sample",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d5264-98r19-abrasion",
+      "gietz-hot-foil-machines",
+      "foilco-d4-grade-guide",
+      "kurz-hot-stamping",
+      "univacco-hot-stamping-foil"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Continuous holographic pattern, Textured or specialty paper, As-supplied or uncoated surface, and Combined foil stamping and embossing."
+  },
+  {
+    "topic_id": "HF-007747",
+    "slug": "batch-consistency-traceability-checklist-rigid-gift-box-wrap-board-foil-flatbed-platen-01hsyny",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 15,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "procurement-specifications",
+    "intent": "procurement",
+    "title": {
+      "en": "Batch consistency and traceability Checklist for Rigid gift-box wrap or board Foil - Anti-scratch coating or film / Flatbed or platen hot stamping / Textured, kraft, and difficult paper hot stamping / Batch consistency and traceability / China",
+      "cn": "精品礼盒裱纸或纸板烫金膜批次一致性和追溯清单（耐刮膜或耐刮涂层 / 平压平热烫 / 纹理纸和困难纸张热烫 / 批次一致性和追溯 / 中国）"
+    },
+    "topicQuestion": {
+      "en": "What should buyers ask about batch consistency and traceability for rigid gift-box wrap or board foil under Anti-scratch coating or film / Flatbed or platen hot stamping / Textured, kraft, and difficult paper hot stamping / Batch consistency and traceability / China?",
+      "cn": "采购精品礼盒裱纸或纸板烫金膜时如何确认批次一致性和追溯（适用条件：耐刮膜或耐刮涂层 / 平压平热烫 / 纹理纸和困难纸张热烫 / 批次一致性和追溯 / 中国）？"
+    },
+    "selectionRule": "soft-touch-paper",
+    "selectionReason": "Covers specialty coating surfaces.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Coating identification",
+      "Adhesion and rub check",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "fsea-foil-cheat-sheet",
+      "kurz-decoration-processes",
+      "kurz-hot-stamping",
+      "univacco-hot-stamping-foil",
+      "reddit-leathercraft-machine-buying"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Turns a procurement concern into a concrete supplier checklist for one substrate, process, surface condition, and region context."
+  },
+  {
+    "topic_id": "HF-007075",
+    "slug": "narrow-web-cold-foil-transfer-vs-flatbed-platen-hot-stamping-paper-label-facestock-19h6lg7",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 16,
+    "originalPriority": "P2",
+    "batchPriority": "P0",
+    "cluster": "process-comparison",
+    "intent": "comparison",
+    "title": {
+      "en": "Narrow-web cold foil transfer vs Flatbed or platen hot stamping for Paper label facestock - UV or LED-UV printed ink layer / Narrow-web cold foil transfer / Decorative continuous holographic transfer",
+      "cn": "纸质标签面材选择窄幅冷烫还是平压平热烫（UV 或 LED-UV 油墨层 / 窄幅冷烫 / 装饰性连续镭射转印）"
+    },
+    "topicQuestion": {
+      "en": "Should Paper label facestock use narrow-web cold foil transfer or flatbed or platen hot stamping under UV or LED-UV printed ink layer / Narrow-web cold foil transfer / Decorative continuous holographic transfer?",
+      "cn": "纸质标签面材应选择窄幅冷烫还是平压平热烫（适用条件：UV 或 LED-UV 油墨层 / 窄幅冷烫 / 装饰性连续镭射转印）？"
+    },
+    "selectionRule": "hot-vs-cold-paper",
+    "selectionReason": "Covers process comparison for cartons.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Process route comparison",
+      "Artwork and run-length assumptions",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "fsea-foil-cheat-sheet",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "kurz-cold-transfer",
+      "kurz-decoration-processes"
+    ],
+    "relatedProducts": [],
+    "relatedGuides": [],
+    "difference": "Compares two compatible processes for the same Paper label facestock and surface condition instead of describing foil transfer in general.",
+    "informationalOnlyReason": "No confirmed PINTE product-series mapping is available yet; keep this as a qualification or buyer-education topic until evidence supports a product recommendation."
+  },
+  {
+    "topic_id": "HF-006995",
+    "slug": "digital-uv-varnish-foil-transfer-vs-screen-printed-uv-adhesive-foil-transfer-folding-c-1lukesk",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 17,
+    "originalPriority": "P2",
+    "batchPriority": "P0",
+    "cluster": "process-comparison",
+    "intent": "comparison",
+    "title": {
+      "en": "Digital UV varnish foil transfer vs Screen-printed UV adhesive foil transfer for Folding carton board - UV varnish or coating / Digital UV varnish foil transfer / Digital or screen-printed UV foil enhancement",
+      "cn": "折叠纸盒纸板选择数码 UV 光油烫金还是丝印 UV 胶冷转印（UV 光油或涂层 / 数码 UV 光油烫金 / 数码或丝印 UV 增效烫金）"
+    },
+    "topicQuestion": {
+      "en": "Should Folding carton board use digital UV varnish foil transfer or screen-printed UV adhesive foil transfer under UV varnish or coating / Digital UV varnish foil transfer / Digital or screen-printed UV foil enhancement?",
+      "cn": "折叠纸盒纸板应选择数码 UV 光油烫金还是丝印 UV 胶冷转印（适用条件：UV 光油或涂层 / 数码 UV 光油烫金 / 数码或丝印 UV 增效烫金）？"
+    },
+    "selectionRule": "hot-vs-digital",
+    "selectionReason": "Covers the available digital embellishment comparison baseline; no exact hot-versus-digital generated topic exists in the current inventory.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Machine availability",
+      "Order size and artwork detail",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "fsea-foil-cheat-sheet",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "kurz-decoration-processes",
+      "kurz-digital-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Compares two compatible processes for the same Folding carton board and surface condition instead of describing foil transfer in general."
+  },
+  {
+    "topic_id": "HF-006996",
+    "slug": "digital-uv-varnish-foil-transfer-vs-screen-printed-uv-adhesive-foil-transfer-film-labe-1fspkm7",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 18,
+    "originalPriority": "P2",
+    "batchPriority": "P0",
+    "cluster": "process-comparison",
+    "intent": "comparison",
+    "title": {
+      "en": "Digital UV varnish foil transfer vs Screen-printed UV adhesive foil transfer for Film label facestock - UV varnish or coating / Digital UV varnish foil transfer / Digital or screen-printed UV foil enhancement",
+      "cn": "薄膜标签面材选择数码 UV 光油烫金还是丝印 UV 胶冷转印（UV 光油或涂层 / 数码 UV 光油烫金 / 数码或丝印 UV 增效烫金）"
+    },
+    "topicQuestion": {
+      "en": "Should Film label facestock use digital UV varnish foil transfer or screen-printed UV adhesive foil transfer under UV varnish or coating / Digital UV varnish foil transfer / Digital or screen-printed UV foil enhancement?",
+      "cn": "薄膜标签面材应选择数码 UV 光油烫金还是丝印 UV 胶冷转印（适用条件：UV 光油或涂层 / 数码 UV 光油烫金 / 数码或丝印 UV 增效烫金）？"
+    },
+    "selectionRule": "cold-vs-digital",
+    "selectionReason": "Covers cold/digital embellishment comparison.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Adhesive or varnish system note",
+      "Run-length assumptions",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "fsea-foil-cheat-sheet",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "kurz-decoration-processes",
+      "kurz-digital-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Compares two compatible processes for the same Film label facestock and surface condition instead of describing foil transfer in general."
+  },
+  {
+    "topic_id": "HF-006999",
+    "slug": "combined-foil-stamping-embossing-vs-flatbed-platen-hot-stamping-folding-carton-board-09l7cpz",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 19,
+    "originalPriority": "P2",
+    "batchPriority": "P0",
+    "cluster": "process-comparison",
+    "intent": "comparison",
+    "title": {
+      "en": "Combined foil stamping and embossing vs Flatbed or platen hot stamping for Folding carton board - As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping",
+      "cn": "折叠纸盒纸板选择烫金压凸还是平压平热烫（原始未涂布表面 / 烫金压凸 / 标准纸张盒彩热烫）"
+    },
+    "topicQuestion": {
+      "en": "Should Folding carton board use combined foil stamping and embossing or flatbed or platen hot stamping under As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping?",
+      "cn": "折叠纸盒纸板应选择烫金压凸还是平压平热烫（适用条件：原始未涂布表面 / 烫金压凸 / 标准纸张盒彩热烫）？"
+    },
+    "selectionRule": "foil-emboss-vs-flat",
+    "selectionReason": "Covers foil+emboss process choice.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Emboss depth and register check",
+      "Die condition review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "fsea-foil-cheat-sheet",
+      "gietz-hot-foil-machines",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "kurz-decoration-processes"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Compares two compatible processes for the same Folding carton board and surface condition instead of describing foil transfer in general."
+  },
+  {
+    "topic_id": "HF-008369",
+    "slug": "why-register-shift-hologram-placement-error-happens-film-label-facestock-narrow-web-co-0gwjhwv",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 20,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Register shift or hologram placement error Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error",
+      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose register shift or hologram placement error on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error?",
+      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）？"
+    },
+    "selectionRule": "holographic-vs-standard",
+    "selectionReason": "Covers holographic and brand-protection selection.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Decorative versus security scope",
+      "Origination/control evidence",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "bobst-novafoil-106-hologram",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Register shift or hologram placement error for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-003685",
+    "slug": "foil-grade-selection-large-solid-area-folding-carton-board-primer-adhesion-promoting-c-0f2eefz",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 21,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "paper-carton-packaging",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Large solid area on Folding carton board - Primer or adhesion-promoting coating / Sheet-fed offset cold foil transfer / Coated paper and carton cold transfer / Commercial print finishing / Large solid area",
+      "cn": "折叠纸盒纸板大面积实地烫金膜选型（底涂或增附着涂层 / 单张纸胶印冷烫 / 涂布纸和彩盒冷烫 / 商业印后加工 / 大面积实地）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for large solid area on folding carton board under Primer or adhesion-promoting coating / Sheet-fed offset cold foil transfer / Coated paper and carton cold transfer / Commercial print finishing / Large solid area?",
+      "cn": "折叠纸盒纸板大面积实地选膜时要确认哪些条件（适用条件：底涂或增附着涂层 / 单张纸胶印冷烫 / 涂布纸和彩盒冷烫 / 商业印后加工 / 大面积实地）？"
+    },
+    "selectionRule": "large-solid-carton",
+    "selectionReason": "Covers large-area mottling and coverage risk.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Large solid area sample",
+      "Pressure distribution check",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d5264-98r19-abrasion",
+      "fsea-foil-cheat-sheet",
+      "heidelberg-foilstar",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Large solid area, Folding carton board, Primer or adhesion-promoting coating, and Sheet-fed offset cold foil transfer."
+  },
+  {
+    "topic_id": "HF-009344",
+    "slug": "wine-spirits-gifts-foil-stamping-folding-carton-board-large-solid-area-as-supplied-unc-1hjzp3w",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 22,
+    "originalPriority": "P2",
+    "batchPriority": "P0",
+    "cluster": "wine-gift-packaging",
+    "intent": "application",
+    "title": {
+      "en": "Wine, spirits, and gifts Foil Stamping on Folding carton board - As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping / Wine, spirits, and gifts / Large solid area",
+      "cn": "酒类和礼盒包装折叠纸盒纸板烫金应用（原始未涂布表面 / 烫金压凸 / 标准纸张盒彩热烫 / 酒类和礼盒包装 / 大面积实地）"
+    },
+    "topicQuestion": {
+      "en": "What should wine, spirits, and gifts confirm before foil stamping folding carton board under As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping / Wine, spirits, and gifts / Large solid area?",
+      "cn": "酒类和礼盒包装在折叠纸盒纸板烫金前要确认什么（适用条件：原始未涂布表面 / 烫金压凸 / 标准纸张盒彩热烫 / 酒类和礼盒包装 / 大面积实地）？"
+    },
+    "selectionRule": "large-solid-wine-gift",
+    "selectionReason": "Covers premium gift and wine packaging solids.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Approved master sample",
+      "Mottling/pinhole inspection",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "gietz-hot-foil-machines",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "univacco-sheetfed-cold-foil",
+      "kurz-hot-stamping"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Frames the topic around a real buying application, artwork style, substrate, and process route."
+  },
+  {
+    "topic_id": "HF-008366",
+    "slug": "why-mottling-pinholes-uneven-solid-coverage-happens-film-label-facestock-narrow-web-co-1985a98",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 23,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Mottling, pinholes, or uneven solid coverage Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Mottling, pinholes, or uneven solid coverage",
+      "cn": "薄膜标签面材出现发花、针孔或大面积不均的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 发花、针孔或大面积不均）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose mottling, pinholes, or uneven solid coverage on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Mottling, pinholes, or uneven solid coverage?",
+      "cn": "薄膜标签面材出现发花、针孔或大面积不均时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 发花、针孔或大面积不均）？"
+    },
+    "selectionRule": "pinholes-mottling",
+    "selectionReason": "Covers pinhole and uneven transfer diagnosis.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Visual transfer inspection",
+      "Substrate smoothness and pressure review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Mottling, pinholes, or uneven solid coverage for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-002649",
+    "slug": "foil-grade-selection-fine-lines-small-type-film-label-facestock-corona-plasma-treatmen-12ppr63",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 24,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "label-printing",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Fine lines and small type on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Cosmetics and personal care / Fine lines and small type",
+      "cn": "薄膜标签面材细线和小文字烫金膜选型（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 化妆品和个人护理包装 / 细线和小文字）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for fine lines and small type on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Cosmetics and personal care / Fine lines and small type?",
+      "cn": "薄膜标签面材细线和小文字选膜时要确认哪些条件（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 化妆品和个人护理包装 / 细线和小文字）？"
+    },
+    "selectionRule": "fine-lines",
+    "selectionReason": "Covers fine-detail artwork limits.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Magnified edge inspection",
+      "Minimum artwork feature review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d5264-98r19-abrasion",
+      "heidelberg-foilstar",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "kurz-cold-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Fine lines and small type, Film label facestock, Corona or plasma treatment, and Narrow-web cold foil transfer."
+  },
+  {
+    "topic_id": "HF-008361",
+    "slug": "why-blurred-detail-filling-loss-of-negative-space-happens-film-label-facestock-narrow-0844096",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 25,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Blurred detail, filling, or loss of negative space Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Blurred detail, filling, or loss of negative space",
+      "cn": "薄膜标签面材出现糊边、糊版或细节丢失的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 糊边、糊版或细节丢失）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose blurred detail, filling, or loss of negative space on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Blurred detail, filling, or loss of negative space?",
+      "cn": "薄膜标签面材出现糊边、糊版或细节丢失时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 糊边、糊版或细节丢失）？"
+    },
+    "selectionRule": "reverse-knockout",
+    "selectionReason": "Covers filled detail and negative-space risk.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Magnified edge inspection",
+      "Die/release review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Blurred detail, filling, or loss of negative space for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-008380",
+    "slug": "why-register-shift-hologram-placement-error-happens-film-label-facestock-narrow-web-co-1iwcser",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 26,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Register shift or hologram placement error Happens on Film label facestock - Primer or adhesion-promoting coating / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error",
+      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差的原因（底涂或增附着涂层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose register shift or hologram placement error on film label facestock under Primer or adhesion-promoting coating / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error?",
+      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差时应如何排查（适用条件：底涂或增附着涂层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）？"
+    },
+    "selectionRule": "emboss-register",
+    "selectionReason": "Covers emboss and foil alignment problems.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Registration measurement",
+      "Die and substrate batch note",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "bobst-novafoil-106-hologram",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Register shift or hologram placement error for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-008391",
+    "slug": "why-register-shift-hologram-placement-error-happens-film-label-facestock-narrow-web-co-1fums44",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 27,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Register shift or hologram placement error Happens on Film label facestock - Printed cold-foil adhesive / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error",
+      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差的原因（印刷冷烫胶层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose register shift or hologram placement error on film label facestock under Printed cold-foil adhesive / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error?",
+      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差时应如何排查（适用条件：印刷冷烫胶层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）？"
+    },
+    "selectionRule": "registered-hologram-placement",
+    "selectionReason": "Covers registered hologram placement.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Pitch/register measurement",
+      "Origination control",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "bobst-novafoil-106-hologram",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Register shift or hologram placement error for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-005501",
+    "slug": "job-specific-tape-pull-film-label-facestock-foil-approval-poor-adhesion-peeling-corona-1dfhiu0",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 28,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "testing",
+    "title": {
+      "en": "Job-specific tape pull for Film label facestock Foil Approval - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Poor adhesion or peeling / Job-specific tape pull",
+      "cn": "薄膜标签面材烫金确认中的项目约定胶带测试（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 附着不牢或掉金 / 项目约定胶带测试）"
+    },
+    "topicQuestion": {
+      "en": "When is job-specific tape pull useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Poor adhesion or peeling / Job-specific tape pull?",
+      "cn": "薄膜标签面材烫金确认何时使用项目约定胶带测试（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 附着不牢或掉金 / 项目约定胶带测试）？"
+    },
+    "selectionRule": "tape-test",
+    "selectionReason": "Covers job-specific tape pull acceptance.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Tape pull method",
+      "Pass/fail criterion",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check."
+  },
+  {
+    "topic_id": "HF-005494",
+    "slug": "dry-rub-abrasion-comparison-film-label-facestock-foil-approval-foil-flaking-dusting-ed-0iazmwv",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 29,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "testing",
+    "title": {
+      "en": "Dry rub or abrasion comparison for Film label facestock Foil Approval - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Foil flaking, dusting, or edge debris / Dry rub or abrasion comparison",
+      "cn": "薄膜标签面材烫金确认中的干擦或耐磨对比（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 掉粉、碎金或边缘碎屑 / 干擦或耐磨对比）"
+    },
+    "topicQuestion": {
+      "en": "When is dry rub or abrasion comparison useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Foil flaking, dusting, or edge debris / Dry rub or abrasion comparison?",
+      "cn": "薄膜标签面材烫金确认何时使用干擦或耐磨对比（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 掉粉、碎金或边缘碎屑 / 干擦或耐磨对比）？"
+    },
+    "selectionRule": "dry-rub-test",
+    "selectionReason": "Covers dry rub durability.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Dry rub method",
+      "Approved master comparison",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "astm-d5264-98r19-abrasion",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "inx-hot-cold-foil-guide"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check."
+  },
+  {
+    "topic_id": "HF-009107",
+    "slug": "why-alcohol-chemical-resistance-failure-happens-abs-flatbed-platen-hot-stamping-as-sup-0amqn5n",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 30,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Alcohol or chemical resistance failure Happens on ABS - As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Alcohol or chemical resistance failure",
+      "cn": "ABS 塑料出现酒精或化学擦拭失败的原因（原始未涂布表面 / 平压平热烫 / 硬质塑料件热烫 / 酒精或化学擦拭失败）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose alcohol or chemical resistance failure on aBS under As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Alcohol or chemical resistance failure?",
+      "cn": "ABS 塑料出现酒精或化学擦拭失败时应如何排查（适用条件：原始未涂布表面 / 平压平热烫 / 硬质塑料件热烫 / 酒精或化学擦拭失败）？"
+    },
+    "selectionRule": "alcohol-rub-test",
+    "selectionReason": "Covers cosmetic and packaging chemical resistance.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Specified-agent rub method",
+      "Exposure limit",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "iso-2836-2021-print-resistance",
+      "fsea-foil-cheat-sheet",
+      "kurz-decoration-processes",
+      "kurz-hot-stamping",
+      "univacco-hot-stamping-foil"
+    ],
+    "relatedProducts": [
+      "PC"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Alcohol or chemical resistance failure for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-005513",
+    "slug": "dry-rub-abrasion-comparison-film-label-facestock-foil-approval-scratch-scuff-rub-failu-0y6sdi8",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 31,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "testing",
+    "title": {
+      "en": "Dry rub or abrasion comparison for Film label facestock Foil Approval - Primer or adhesion-promoting coating / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure / Dry rub or abrasion comparison",
+      "cn": "薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）"
+    },
+    "topicQuestion": {
+      "en": "When is dry rub or abrasion comparison useful for film label facestock foil approval under Primer or adhesion-promoting coating / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure / Dry rub or abrasion comparison?",
+      "cn": "薄膜标签面材烫金确认何时使用干擦或耐磨对比（适用条件：底涂或增附着涂层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）？"
+    },
+    "selectionRule": "scratch-test",
+    "selectionReason": "Covers scratch resistance requests.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Scratch method",
+      "Acceptance threshold",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "astm-d5264-98r19-abrasion",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "inx-hot-cold-foil-guide"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check."
+  },
+  {
+    "topic_id": "HF-009064",
+    "slug": "why-foil-flaking-dusting-edge-debris-happens-laminated-paper-paperboard-flatbed-platen-02yrlxj",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 32,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Foil flaking, dusting, or edge debris Happens on Laminated paper or paperboard - Anti-scratch coating or film / Flatbed or platen hot stamping / Laminated paperboard hot stamping / Foil flaking, dusting, or edge debris",
+      "cn": "覆膜纸板出现掉粉、碎金或边缘碎屑的原因（耐刮膜或耐刮涂层 / 平压平热烫 / 覆膜纸板热烫 / 掉粉、碎金或边缘碎屑）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose foil flaking, dusting, or edge debris on laminated paper or paperboard under Anti-scratch coating or film / Flatbed or platen hot stamping / Laminated paperboard hot stamping / Foil flaking, dusting, or edge debris?",
+      "cn": "覆膜纸板出现掉粉、碎金或边缘碎屑时应如何排查（适用条件：耐刮膜或耐刮涂层 / 平压平热烫 / 覆膜纸板热烫 / 掉粉、碎金或边缘碎屑）？"
+    },
+    "selectionRule": "fold-crease-test",
+    "selectionReason": "Covers folding carton crease durability.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Fold/crease sample",
+      "Post-fold adhesion inspection",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "astm-d5264-98r19-abrasion",
+      "fsea-foil-cheat-sheet",
+      "kurz-decoration-processes",
+      "kurz-hot-stamping"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Foil flaking, dusting, or edge debris for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-005493",
+    "slug": "agreed-cross-cut-classification-film-label-facestock-foil-approval-poor-adhesion-peeli-170ipst",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 33,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "testing",
+    "title": {
+      "en": "Agreed cross-cut classification for Film label facestock Foil Approval - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Poor adhesion or peeling / Agreed cross-cut classification",
+      "cn": "薄膜标签面材烫金确认中的约定百格分级（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 附着不牢或掉金 / 约定百格分级）"
+    },
+    "topicQuestion": {
+      "en": "When is agreed cross-cut classification useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Poor adhesion or peeling / Agreed cross-cut classification?",
+      "cn": "薄膜标签面材烫金确认何时使用约定百格分级（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 附着不牢或掉金 / 约定百格分级）？"
+    },
+    "selectionRule": "cross-cut-test",
+    "selectionReason": "Covers cross-cut style adhesion checks.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Agreed classification",
+      "Method limitation note",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check."
+  },
+  {
+    "topic_id": "HF-005197",
+    "slug": "toner-transfer-lamination-temperature-checks-digital-toner-electro-ink-foil-transfer-f-0wm2zyk",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 34,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "parameter",
+    "title": {
+      "en": "Toner-transfer lamination temperature Checks for Digital toner or electro-ink foil transfer on Folding carton board - Digital toner or electro-ink receiving layer / Digital toner or electro-ink foil transfer / Digital toner foil enhancement / Toner-transfer lamination temperature / Digital toner foiling system",
+      "cn": "折叠纸盒纸板数码碳粉烫金的覆膜转印温度检查（数码碳粉或电子油墨接收层 / 数码碳粉烫金 / 数码碳粉增效烫金 / 覆膜转印温度 / 数码碳粉烫金系统）"
+    },
+    "topicQuestion": {
+      "en": "How should toner-transfer lamination temperature be checked before approving folding carton board under Digital toner or electro-ink receiving layer / Digital toner or electro-ink foil transfer / Digital toner foil enhancement / Toner-transfer lamination temperature / Digital toner foiling system?",
+      "cn": "折叠纸盒纸板打样前如何检查覆膜转印温度（适用条件：数码碳粉或电子油墨接收层 / 数码碳粉烫金 / 数码碳粉增效烫金 / 覆膜转印温度 / 数码碳粉烫金系统）？"
+    },
+    "selectionRule": "temperature-variable",
+    "selectionReason": "Covers temperature as a controllable variable.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Temperature record",
+      "Controlled process-window sample",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "fsea-foil-cheat-sheet",
+      "kurz-digital-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Focuses on one controllable variable inside a compatible substrate-process tuple and avoids unverified universal settings."
+  },
+  {
+    "topic_id": "HF-005085",
+    "slug": "nip-pressure-checks-narrow-web-cold-foil-transfer-film-label-facestock-corona-plasma-t-0s6ns0n",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 35,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "parameter",
+    "title": {
+      "en": "Nip pressure Checks for Narrow-web cold foil transfer on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Nip pressure / Narrow-web flexo or letterpress cold-foil module",
+      "cn": "薄膜标签面材窄幅冷烫的压辊压力检查（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 压辊压力 / 窄幅柔印或凸印冷烫模块）"
+    },
+    "topicQuestion": {
+      "en": "How should nip pressure be checked before approving film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Nip pressure / Narrow-web flexo or letterpress cold-foil module?",
+      "cn": "薄膜标签面材打样前如何检查压辊压力（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 压辊压力 / 窄幅柔印或凸印冷烫模块）？"
+    },
+    "selectionRule": "pressure-variable",
+    "selectionReason": "Covers pressure as a controllable variable.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Pressure record",
+      "Edge/solid comparison",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Focuses on one controllable variable inside a compatible substrate-process tuple and avoids unverified universal settings."
+  },
+  {
+    "topic_id": "HF-005233",
+    "slug": "contact-dwell-time-checks-combined-foil-stamping-embossing-folding-carton-board-as-sup-0l87lql",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 36,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "parameter",
+    "title": {
+      "en": "Contact or dwell time Checks for Combined foil stamping and embossing on Folding carton board - As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping / Contact or dwell time / Automatic flatbed hot-foil press",
+      "cn": "折叠纸盒纸板烫金压凸的接触时间检查（原始未涂布表面 / 烫金压凸 / 标准纸张盒彩热烫 / 接触时间 / 自动平压平烫金机）"
+    },
+    "topicQuestion": {
+      "en": "How should contact or dwell time be checked before approving folding carton board under As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping / Contact or dwell time / Automatic flatbed hot-foil press?",
+      "cn": "折叠纸盒纸板打样前如何检查接触时间（适用条件：原始未涂布表面 / 烫金压凸 / 标准纸张盒彩热烫 / 接触时间 / 自动平压平烫金机）？"
+    },
+    "selectionRule": "dwell-time-variable",
+    "selectionReason": "Covers dwell time adjustment.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Dwell-time record",
+      "Heat-damage check",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "bobst-novafoil-106-hologram",
+      "gietz-hot-foil-machines"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Focuses on one controllable variable inside a compatible substrate-process tuple and avoids unverified universal settings."
+  },
+  {
+    "topic_id": "HF-005084",
+    "slug": "machine-web-speed-checks-narrow-web-cold-foil-transfer-film-label-facestock-corona-pla-1t8eoim",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 37,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "parameter",
+    "title": {
+      "en": "Machine or web speed Checks for Narrow-web cold foil transfer on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Machine or web speed / Narrow-web flexo or letterpress cold-foil module",
+      "cn": "薄膜标签面材窄幅冷烫的机器或走料速度检查（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 机器或走料速度 / 窄幅柔印或凸印冷烫模块）"
+    },
+    "topicQuestion": {
+      "en": "How should machine or web speed be checked before approving film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Machine or web speed / Narrow-web flexo or letterpress cold-foil module?",
+      "cn": "薄膜标签面材打样前如何检查机器或走料速度（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 机器或走料速度 / 窄幅柔印或凸印冷烫模块）？"
+    },
+    "selectionRule": "line-speed-variable",
+    "selectionReason": "Covers production speed effects.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Speed ladder",
+      "Transfer completeness check",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Focuses on one controllable variable inside a compatible substrate-process tuple and avoids unverified universal settings."
+  },
+  {
+    "topic_id": "HF-005232",
+    "slug": "die-material-hardness-relief-level-wear-checks-combined-foil-stamping-embossing-foldin-14zq6dl",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 38,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "parameter",
+    "title": {
+      "en": "Die material, hardness, relief, level, and wear Checks for Combined foil stamping and embossing on Folding carton board - As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping / Die material, hardness, relief, level, and wear / Automatic flatbed hot-foil press",
+      "cn": "折叠纸盒纸板烫金压凸的烫版状态检查（原始未涂布表面 / 烫金压凸 / 标准纸张盒彩热烫 / 烫版状态 / 自动平压平烫金机）"
+    },
+    "topicQuestion": {
+      "en": "How should die material, hardness, relief, level, and wear be checked before approving folding carton board under As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping / Die material, hardness, relief, level, and wear / Automatic flatbed hot-foil press?",
+      "cn": "折叠纸盒纸板打样前如何检查烫版状态（适用条件：原始未涂布表面 / 烫金压凸 / 标准纸张盒彩热烫 / 烫版状态 / 自动平压平烫金机）？"
+    },
+    "selectionRule": "die-condition-variable",
+    "selectionReason": "Covers die condition and leveling.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Die inspection",
+      "Edge detail comparison",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "bobst-novafoil-106-hologram",
+      "gietz-hot-foil-machines"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Focuses on one controllable variable inside a compatible substrate-process tuple and avoids unverified universal settings."
+  },
+  {
+    "topic_id": "HF-005924",
+    "slug": "what-foil-web-tension-feed-means-foil-stamping-1366n1k",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 39,
+    "originalPriority": "P2",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "definition",
+    "title": {
+      "en": "What Foil web tension and feed Means in Foil Stamping",
+      "cn": "膜带张力和走膜在烫金中的含义"
+    },
+    "topicQuestion": {
+      "en": "What does foil web tension and feed mean for a foil stamping project?",
+      "cn": "膜带张力和走膜对烫金项目意味着什么？"
+    },
+    "selectionRule": "foil-tension-variable",
+    "selectionReason": "Covers web tension/feed on rotary jobs.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Tension/feed record",
+      "Register and flaking check",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "inx-hot-cold-foil-guide",
+      "kurz-hot-stamping"
+    ],
+    "relatedProducts": [],
+    "relatedGuides": [],
+    "difference": "Defines Foil web tension and feed as a planning term and links it to sampling, process limits, and buyer decisions.",
+    "informationalOnlyReason": "No confirmed PINTE product-series mapping is available yet; keep this as a qualification or buyer-education topic until evidence supports a product recommendation."
+  },
+  {
+    "topic_id": "HF-005487",
+    "slug": "controlled-process-window-sampling-film-label-facestock-foil-approval-blurred-detail-f-0k95dga",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 40,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "parameters-testing",
+    "intent": "testing",
+    "title": {
+      "en": "Controlled process-window sampling for Film label facestock Foil Approval - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Blurred detail, filling, or loss of negative space / Controlled process-window sampling",
+      "cn": "薄膜标签面材烫金确认中的工艺窗口打样（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 糊边、糊版或细节丢失 / 工艺窗口打样）"
+    },
+    "topicQuestion": {
+      "en": "When is controlled process-window sampling useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Blurred detail, filling, or loss of negative space / Controlled process-window sampling?",
+      "cn": "薄膜标签面材烫金确认何时使用工艺窗口打样（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 糊边、糊版或细节丢失 / 工艺窗口打样）？"
+    },
+    "selectionRule": "sampling-checklist",
+    "selectionReason": "Covers sample approval workflow.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Substrate/machine/artwork/speed record",
+      "Pass/fail criteria",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check."
+  },
+  {
+    "topic_id": "HF-008358",
+    "slug": "what-roll-width-length-winding-core-means-foil-stamping-0off6dg",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 41,
+    "originalPriority": "P2",
+    "batchPriority": "P0",
+    "cluster": "procurement-specifications",
+    "intent": "definition",
+    "title": {
+      "en": "What Roll width, length, winding, and core Means in Foil Stamping",
+      "cn": "宽幅、长度、绕向和卷芯在烫金中的含义"
+    },
+    "topicQuestion": {
+      "en": "What does roll width, length, winding, and core mean for a foil stamping project?",
+      "cn": "宽幅、长度、绕向和卷芯对烫金项目意味着什么？"
+    },
+    "selectionRule": "roll-specs",
+    "selectionReason": "Covers roll specification confirmation.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Width/length/core/winding confirmation",
+      "Machine fit check",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-hot-stamping",
+      "univacco-hot-stamping-foil",
+      "reddit-leathercraft-machine-buying",
+      "foilco-d4-grade-guide"
+    ],
+    "relatedProducts": [],
+    "relatedGuides": [],
+    "difference": "Defines Roll width, length, winding, and core as a planning term and links it to sampling, process limits, and buyer decisions.",
+    "informationalOnlyReason": "No confirmed PINTE product-series mapping is available yet; keep this as a qualification or buyer-education topic until evidence supports a product recommendation."
+  },
+  {
+    "topic_id": "HF-008355",
+    "slug": "what-moq-order-quantity-means-foil-stamping-086or6b",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 42,
+    "originalPriority": "P2",
+    "batchPriority": "P0",
+    "cluster": "procurement-specifications",
+    "intent": "definition",
+    "title": {
+      "en": "What MOQ and order quantity Means in Foil Stamping",
+      "cn": "起订量和采购数量在烫金中的含义"
+    },
+    "topicQuestion": {
+      "en": "What does mOQ and order quantity mean for a foil stamping project?",
+      "cn": "起订量和采购数量对烫金项目意味着什么？"
+    },
+    "selectionRule": "moq-quantity",
+    "selectionReason": "Covers MOQ planning.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "MOQ and lead-time note",
+      "Color/grade availability",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-hot-stamping",
+      "univacco-hot-stamping-foil",
+      "reddit-leathercraft-machine-buying",
+      "foilco-d4-grade-guide"
+    ],
+    "relatedProducts": [],
+    "relatedGuides": [],
+    "difference": "Defines MOQ and order quantity as a planning term and links it to sampling, process limits, and buyer decisions.",
+    "informationalOnlyReason": "No confirmed PINTE product-series mapping is available yet; keep this as a qualification or buyer-education topic until evidence supports a product recommendation."
+  },
+  {
+    "topic_id": "HF-007509",
+    "slug": "batch-consistency-traceability-checklist-film-label-facestock-foil-narrow-web-cold-foi-1me3p1h",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 43,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "procurement-specifications",
+    "intent": "procurement",
+    "title": {
+      "en": "Batch consistency and traceability Checklist for Film label facestock Foil - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Batch consistency and traceability / China",
+      "cn": "薄膜标签面材烫金膜批次一致性和追溯清单（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 批次一致性和追溯 / 中国）"
+    },
+    "topicQuestion": {
+      "en": "What should buyers ask about batch consistency and traceability for film label facestock foil under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Batch consistency and traceability / China?",
+      "cn": "采购薄膜标签面材烫金膜时如何确认批次一致性和追溯（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 批次一致性和追溯 / 中国）？"
+    },
+    "selectionRule": "supplier-evaluation",
+    "selectionReason": "Covers supplier screening.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Source traceability",
+      "Technical document request",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Turns a procurement concern into a concrete supplier checklist for one substrate, process, surface condition, and region context."
+  },
+  {
+    "topic_id": "HF-008353",
+    "slug": "what-lead-time-logistics-means-foil-stamping-1eqpqwb",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 44,
+    "originalPriority": "P2",
+    "batchPriority": "P0",
+    "cluster": "procurement-specifications",
+    "intent": "definition",
+    "title": {
+      "en": "What Lead time and logistics Means in Foil Stamping",
+      "cn": "交期和物流在烫金中的含义"
+    },
+    "topicQuestion": {
+      "en": "What does lead time and logistics mean for a foil stamping project?",
+      "cn": "交期和物流对烫金项目意味着什么？"
+    },
+    "selectionRule": "lead-time-logistics",
+    "selectionReason": "Covers purchasing schedule risk.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Lead-time note",
+      "Repeat-order tolerance",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-hot-stamping",
+      "univacco-hot-stamping-foil",
+      "reddit-leathercraft-machine-buying",
+      "foilco-d4-grade-guide"
+    ],
+    "relatedProducts": [],
+    "relatedGuides": [],
+    "difference": "Defines Lead time and logistics as a planning term and links it to sampling, process limits, and buyer decisions.",
+    "informationalOnlyReason": "No confirmed PINTE product-series mapping is available yet; keep this as a qualification or buyer-education topic until evidence supports a product recommendation."
+  },
+  {
+    "topic_id": "HF-008363",
+    "slug": "why-color-gloss-optical-effect-variation-happens-film-label-facestock-narrow-web-cold-1yzn6x1",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 45,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Color, gloss, or optical-effect variation Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Color, gloss, or optical-effect variation",
+      "cn": "薄膜标签面材出现颜色、光泽或光学效果差异的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 颜色、光泽或光学效果差异）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose color, gloss, or optical-effect variation on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Color, gloss, or optical-effect variation?",
+      "cn": "薄膜标签面材出现颜色、光泽或光学效果差异时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 颜色、光泽或光学效果差异）？"
+    },
+    "selectionRule": "color-finish-master",
+    "selectionReason": "Covers visual master approval.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Approved master comparison",
+      "Batch record",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Color, gloss, or optical-effect variation for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-007510",
+    "slug": "batch-consistency-traceability-checklist-film-label-facestock-foil-narrow-web-cold-foi-0my3xg8",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 46,
+    "originalPriority": "P0",
+    "batchPriority": "P0",
+    "cluster": "procurement-specifications",
+    "intent": "procurement",
+    "title": {
+      "en": "Batch consistency and traceability Checklist for Film label facestock Foil - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Batch consistency and traceability / Europe",
+      "cn": "薄膜标签面材烫金膜批次一致性和追溯清单（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 批次一致性和追溯 / 欧洲）"
+    },
+    "topicQuestion": {
+      "en": "What should buyers ask about batch consistency and traceability for film label facestock foil under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Batch consistency and traceability / Europe?",
+      "cn": "采购薄膜标签面材烫金膜时如何确认批次一致性和追溯（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 批次一致性和追溯 / 欧洲）？"
+    },
+    "selectionRule": "batch-traceability",
+    "selectionReason": "Covers repeatability and traceability.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Batch record",
+      "Repeat-run comparison",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Turns a procurement concern into a concrete supplier checklist for one substrate, process, surface condition, and region context."
+  },
+  {
+    "topic_id": "HF-000001",
+    "slug": "foil-grade-selection-fine-lines-small-type-coated-glass-container-primer-adhesion-prom-0j3va8v",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 47,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "cosmetic-packaging",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Fine lines and small type on Coated glass container - Primer or adhesion-promoting coating / Roll-on hot stamping for shaped parts / Coated glass specialty hot stamping / Cosmetics and personal care / Fine lines and small type",
+      "cn": "涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层 / 异形件滚烫 / 涂层玻璃特殊热烫 / 化妆品和个人护理包装 / 细线和小文字）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for fine lines and small type on coated glass container under Primer or adhesion-promoting coating / Roll-on hot stamping for shaped parts / Coated glass specialty hot stamping / Cosmetics and personal care / Fine lines and small type?",
+      "cn": "涂层玻璃容器细线和小文字选膜时要确认哪些条件（适用条件：底涂或增附着涂层 / 异形件滚烫 / 涂层玻璃特殊热烫 / 化妆品和个人护理包装 / 细线和小文字）？"
+    },
+    "selectionRule": "cosmetic-packaging",
+    "selectionReason": "Covers cosmetics packaging applications.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-foil-guide, cosmetic-packaging-hot-stamping-troubleshooting, hot-foil-vs-cold-foil-cosmetic-packaging. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Packaging substrate matrix",
+      "Durability test plan",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "kurz-decoration-processes",
+      "univacco-sheetfed-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Fine lines and small type, Coated glass container, Primer or adhesion-promoting coating, and Roll-on hot stamping for shaped parts.",
+    "informationalOnlyReason": "No confirmed PINTE product-series mapping is available yet; keep this as a qualification or buyer-education topic until evidence supports a product recommendation."
+  },
+  {
+    "topic_id": "HF-009341",
+    "slug": "wine-spirits-gifts-foil-stamping-folding-carton-board-fine-lines-small-type-as-supplie-116wtbk",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 48,
+    "originalPriority": "P2",
+    "batchPriority": "P0",
+    "cluster": "wine-gift-packaging",
+    "intent": "application",
+    "title": {
+      "en": "Wine, spirits, and gifts Foil Stamping on Folding carton board - As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping / Wine, spirits, and gifts / Fine lines and small type",
+      "cn": "酒类和礼盒包装折叠纸盒纸板烫金应用（原始未涂布表面 / 烫金压凸 / 标准纸张盒彩热烫 / 酒类和礼盒包装 / 细线和小文字）"
+    },
+    "topicQuestion": {
+      "en": "What should wine, spirits, and gifts confirm before foil stamping folding carton board under As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping / Wine, spirits, and gifts / Fine lines and small type?",
+      "cn": "酒类和礼盒包装在折叠纸盒纸板烫金前要确认什么（适用条件：原始未涂布表面 / 烫金压凸 / 标准纸张盒彩热烫 / 酒类和礼盒包装 / 细线和小文字）？"
+    },
+    "selectionRule": "wine-gift-packaging",
+    "selectionReason": "Covers wine/gift premium packaging.",
+    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Premium finish master",
+      "Large-area and register sample",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "gietz-hot-foil-machines",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "univacco-sheetfed-cold-foil",
+      "kurz-hot-stamping"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Frames the topic around a real buying application, artwork style, substrate, and process route."
+  },
+  {
+    "topic_id": "HF-005949",
+    "slug": "foil-grade-selection-continuous-holographic-pattern-abs-as-supplied-uncoated-surface-15e1hfw",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 49,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "plastics",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Continuous holographic pattern on ABS - As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Consumer plastic products / Continuous holographic pattern",
+      "cn": "ABS 塑料连续镭射纹理烫金膜选型（原始未涂布表面 / 平压平热烫 / 硬质塑料件热烫 / 消费品塑料件 / 连续镭射纹理）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for continuous holographic pattern on aBS under As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Consumer plastic products / Continuous holographic pattern?",
+      "cn": "ABS 塑料连续镭射纹理选膜时要确认哪些条件（适用条件：原始未涂布表面 / 平压平热烫 / 硬质塑料件热烫 / 消费品塑料件 / 连续镭射纹理）？"
+    },
+    "selectionRule": "plastic-caps-parts",
+    "selectionReason": "Covers molded plastic part stamping.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Part geometry note",
+      "Heat tolerance check",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "fsea-foil-cheat-sheet",
+      "foilco-d4-grade-guide",
+      "kurz-decoration-processes",
+      "kurz-hot-stamping",
+      "univacco-hot-stamping-foil"
+    ],
+    "relatedProducts": [
+      "PC"
+    ],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Continuous holographic pattern, ABS, As-supplied or uncoated surface, and Flatbed or platen hot stamping."
+  },
+  {
+    "topic_id": "HF-001813",
+    "slug": "foil-grade-selection-continuous-holographic-pattern-film-label-facestock-printed-cold-1ub6mjy",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 50,
+    "originalPriority": "P1",
+    "batchPriority": "P0",
+    "cluster": "holographic-security",
+    "intent": "substrate-selection",
+    "title": {
+      "en": "Foil Grade Selection for Continuous holographic pattern on Film label facestock - Printed cold-foil adhesive / Narrow-web cold foil transfer / Decorative continuous holographic transfer / Folding carton and paper packaging / Continuous holographic pattern",
+      "cn": "薄膜标签面材连续镭射纹理烫金膜选型（印刷冷烫胶层 / 窄幅冷烫 / 装饰性连续镭射转印 / 折叠纸盒和彩盒包装 / 连续镭射纹理）"
+    },
+    "topicQuestion": {
+      "en": "Which foil selection checks matter for continuous holographic pattern on film label facestock under Printed cold-foil adhesive / Narrow-web cold foil transfer / Decorative continuous holographic transfer / Folding carton and paper packaging / Continuous holographic pattern?",
+      "cn": "薄膜标签面材连续镭射纹理选膜时要确认哪些条件（适用条件：印刷冷烫胶层 / 窄幅冷烫 / 装饰性连续镭射转印 / 折叠纸盒和彩盒包装 / 连续镭射纹理）？"
+    },
+    "selectionRule": "security-packaging",
+    "selectionReason": "Covers anti-counterfeit packaging selection.",
+    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Security scope definition",
+      "Origination/control documentation",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "bobst-novafoil-106-hologram",
+      "inx-hot-cold-foil-guide",
+      "foilco-d4-grade-guide",
+      "kurz-cold-transfer",
+      "kurz-holograms"
+    ],
+    "relatedProducts": [],
+    "relatedGuides": [],
+    "difference": "Narrows grade selection to Continuous holographic pattern, Film label facestock, Printed cold-foil adhesive, and Narrow-web cold foil transfer.",
+    "informationalOnlyReason": "No confirmed PINTE product-series mapping is available yet; keep this as a qualification or buyer-education topic until evidence supports a product recommendation."
+  }
+]
