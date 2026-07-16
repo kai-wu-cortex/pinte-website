@@ -2186,12 +2186,13 @@ function buildGeneratedGuideSnapshot(slug: string, lang: Lang): SnapshotResult |
   const heroImage = absoluteUrl(guide.heroImage);
   const sourceLinks = guide.sources.filter((source) => isHttpsUrl(source.url));
   const crumbs = buildBreadcrumb(route, lang);
+  const viewProductLabel = lang === 'cn' ? '查看产品' : 'View product';
   const relatedProducts = uniqueNonEmptyValues(guide.relatedProducts).flatMap((id) => {
     const product = (getContent(lang).PRODUCT_DATA as Record<string, { name?: string }>)[id];
     if (!product?.name) return [];
 
     return [{
-      label: product?.name || id,
+      label: `${viewProductLabel}: ${product.name}`,
       href: langPath(`products/category/${encodeURIComponent(id)}`, lang) + '/',
     }];
   });

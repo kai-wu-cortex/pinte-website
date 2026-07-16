@@ -24,3 +24,8 @@ Passed focused compiled-snapshot assertions for English and Chinese generated gu
 - Article and BreadcrumbList identifiers equal the trailing-slash canonical URL.
 - Related product and legacy related-guide links render with language-prefixed trailing-slash paths.
 - The guide catalog includes both generated and legacy guides.
+
+## Follow-up
+
+- Related product links in generated static guide snapshots now include the localized action and localized product name: `View product: <name>` or `查看产品: <name>`.
+- The existing escaped link rendering and language-prefixed trailing-slash URL behavior are preserved.
