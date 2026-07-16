@@ -335,7 +335,7 @@ test('requires published source metadata to match its registry record', async ()
   ]) {
     const registry = [{ ...matching, [field]: value }];
     const result = validateGuideRecords(records, { registry });
-    const expectedCode = field === 'topic_id' ? 'missing-published-registry-record' : 'registry-source-mismatch';
+    const expectedCode = field === 'topic_id' ? 'missing-source-registry-record' : 'registry-source-mismatch';
     assert.ok(
       result.errors.some((issue) => issue.code === expectedCode && (field === 'topic_id' || issue.field === field)),
       `expected ${field} parity failure`,
@@ -360,22 +360,83 @@ test('allows draft or reviewed registry and source records outside the manifest'
   assert.deepEqual(buildPublishedManifest(records), []);
 });
 
-test('derives only GEO_GUIDES slugs and exposes an explicit empty migration allowlist', () => {
+test('rejects a published registry entry without exactly one published bilingual source pair', () => {
+  const registry = [
+    registryRecord({ topicId: 'HF-PUBLISHED-ORPHAN', slug: 'published-orphan' }),
+    registryRecord({ topicId: 'HF-DRAFT-INVENTORY', slug: 'draft-inventory', status: 'draft' }),
+  ];
+
+  const result = validateGuideRecords([], { registry });
+
+  assert.ok(result.errors.some((issue) => (
+    issue.code === 'published-registry-source-pair' && issue.topicId === 'HF-PUBLISHED-ORPHAN'
+  )));
+  assert.ok(!result.errors.some((issue) => issue.topicId === 'HF-DRAFT-INVENTORY'));
+});
+
+test('rejects reviewed source metadata that differs from its registry entry', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  writeGuide(root, 'HF-REVIEWED-MISMATCH', 'en', {
+    slug: 'reviewed-mismatch',
+    status: 'reviewed',
+    cluster: 'troubleshooting',
+    title: 'Reviewed Mismatch',
+  });
+  const registry = [registryRecord({
+    topicId: 'HF-REVIEWED-MISMATCH',
+    slug: 'reviewed-mismatch',
+    status: 'reviewed',
+    cluster: 'selection',
+  })];
+
+  const result = validateGuideRecords(await loadGuidePairs(root), { registry });
+
+  assert.ok(result.errors.some((issue) => (
+    issue.code === 'registry-source-mismatch'
+      && issue.topicId === 'HF-REVIEWED-MISMATCH'
+      && issue.field === 'cluster'
+  )));
+});
+
+test('extracts GEO_GUIDES slugs through TypeScript syntax regardless of formatting', () => {
   const source = `
 interface Example { slug: string }
-export const GEO_GUIDES = [
+export const GEO_GUIDES =
+[
+\t{
+\t\t"slug"
+      :
+      "legacy-double-quote",
+\t\tnested: { slug: 'nested-ignore' },
+\t},
   {
-    slug: 'legacy-one',
-    nested: { slug: 'nested-ignore' },
-  },
-  {
-    slug: 'legacy-two',
-  },
-];
+    slug
+      :
+      'legacy-single-quote'
+  }
+] satisfies readonly unknown[];
 `;
 
-  assert.deepEqual(extractLegacyGuideSlugs(source), ['legacy-one', 'legacy-two']);
+  assert.deepEqual(
+    extractLegacyGuideSlugs(source),
+    ['legacy-double-quote', 'legacy-single-quote'],
+  );
   assert.deepEqual(GENERATED_GUIDE_LEGACY_SLUG_MIGRATIONS, []);
+});
+
+test('legacy slug extraction fails closed with actionable TypeScript errors', () => {
+  assert.throws(
+    () => extractLegacyGuideSlugs('export const GEO_GUIDES = [{ slug: "broken" '),
+    /cannot parse data\/geoGuides\.ts.*line \d+/i,
+  );
+  assert.throws(
+    () => extractLegacyGuideSlugs('export const OTHER_GUIDES = [];'),
+    /cannot find GEO_GUIDES/i,
+  );
+  assert.throws(
+    () => extractLegacyGuideSlugs('export const GEO_GUIDES = [];'),
+    /GEO_GUIDES.*no slugs/i,
+  );
 });
 
 test('rejects generated published slugs that collide with GEO_GUIDES slugs', async () => {
@@ -462,6 +523,23 @@ Keep the approved sample settings and production material together for final ord
   const result = validateGuideRecords(await loadGuidePairs(root));
 
   assert.ok(result.errors.some((issue) => issue.code === 'high-body-similarity' && issue.lang === 'en'));
+});
+
+test('ignores identical excluded references when visible guide bodies differ', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  const visibleA = Array.from({ length: 45 }, (_, index) => `alpha${index}`).join(' ');
+  const visibleB = Array.from({ length: 45 }, (_, index) => `bravo${index}`).join(' ');
+  const sharedReferences = Array.from({ length: 1000 }, (_, index) => `reference${index}`).join(' ');
+  const bodyA = `${visibleA}\n\n## References\n\n${sharedReferences}`;
+  const bodyB = `${visibleB}\n\n## References\n\n${sharedReferences}`;
+  writeGuide(root, 'HF-EXCLUDED-A', 'en', { slug: 'excluded-a', title: 'Excluded A', body: bodyA });
+  writeGuide(root, 'HF-EXCLUDED-A', 'cn', { slug: 'excluded-a', title: '排除 A', body: '中文可见内容 A。' });
+  writeGuide(root, 'HF-EXCLUDED-B', 'en', { slug: 'excluded-b', title: 'Excluded B', body: bodyB });
+  writeGuide(root, 'HF-EXCLUDED-B', 'cn', { slug: 'excluded-b', title: '排除 B', body: '中文可见内容 B。' });
+
+  const result = validateGuideRecords(await loadGuidePairs(root));
+
+  assert.ok(!result.errors.some((issue) => issue.code === 'high-body-similarity'));
 });
 
 test('does not compare bilingual counterparts for duplicate content', async () => {

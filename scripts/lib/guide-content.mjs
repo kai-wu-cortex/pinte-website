@@ -160,7 +160,10 @@ function normalizedDuplicateText(value) {
 }
 
 function bodyTokens(record) {
-  const normalized = normalizedDuplicateText(record.markdown || '');
+  const visibleBody = typeof record.bodyHtml === 'string'
+    ? record.bodyHtml.replace(/<[^>]*>/g, ' ')
+    : '';
+  const normalized = normalizedDuplicateText(visibleBody);
   return normalized.match(/[\p{Script=Han}]|[\p{L}\p{N}]+/gu) || [];
 }
 
@@ -202,27 +205,53 @@ function validateRegistry(registry, errors) {
   });
 }
 
-function validatePublishedRegistryParity(records, byTopic, registry, errors) {
+function validateRegistrySourceParity(records, registry, errors) {
   const registryByTopic = new Map(registry.map((record) => [record?.topic_id, record]));
-  for (const [topicId, pair] of byTopic) {
-    if (!isCompletePublishedPair(pair)) continue;
-    const registryRecord = registryByTopic.get(topicId);
+  const sourcesByTopic = new Map();
+  for (const record of records) {
+    if (!sourcesByTopic.has(record.topic_id)) sourcesByTopic.set(record.topic_id, []);
+    sourcesByTopic.get(record.topic_id).push(record);
+    const registryRecord = registryByTopic.get(record.topic_id);
     if (!registryRecord) {
-      errors.push({ code: 'missing-published-registry-record', topicId });
+      errors.push({
+        code: 'missing-source-registry-record',
+        topicId: record.topic_id,
+        lang: record.lang,
+        field: 'topic_id',
+        filePath: record.filePath,
+      });
       continue;
     }
-    for (const record of pair) {
-      for (const field of REGISTRY_PARITY_FIELDS) {
-        if (!isDeepStrictEqual(record[field], registryRecord[field])) {
-          errors.push({
-            code: 'registry-source-mismatch',
-            topicId,
-            lang: record.lang,
-            field,
-            filePath: record.filePath,
-          });
-        }
+    for (const field of REGISTRY_PARITY_FIELDS) {
+      if (!isDeepStrictEqual(record[field], registryRecord[field])) {
+        errors.push({
+          code: 'registry-source-mismatch',
+          topicId: record.topic_id,
+          lang: record.lang,
+          field,
+          filePath: record.filePath,
+        });
       }
+    }
+  }
+
+  for (const registryRecord of registry) {
+    const topicId = registryRecord?.topic_id;
+    const topicSources = sourcesByTopic.get(topicId) || [];
+    if (registryRecord?.status === 'published') {
+      const publishedEnglish = topicSources.filter((record) => record.status === 'published' && record.lang === 'en');
+      const publishedChinese = topicSources.filter((record) => record.status === 'published' && record.lang === 'cn');
+      if (publishedEnglish.length !== 1 || publishedChinese.length !== 1) {
+        errors.push({
+          code: 'published-registry-source-pair',
+          topicId,
+          field: 'status/lang',
+          publishedEnglish: publishedEnglish.length,
+          publishedChinese: publishedChinese.length,
+        });
+      }
+    } else if (registryRecord?.status === 'reviewed' && topicSources.length === 0) {
+      errors.push({ code: 'reviewed-registry-source-required', topicId, field: 'status' });
     }
   }
 }
@@ -353,7 +382,7 @@ export function validateGuideRecords(records, {
   }
   if (registry) {
     validateRegistry(registry, errors);
-    validatePublishedRegistryParity(records, byTopic, registry, errors);
+    validateRegistrySourceParity(records, registry, errors);
   }
   validatePublishedDuplicates(records, errors);
   return { errors, warnings };
