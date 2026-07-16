@@ -276,8 +276,29 @@ function xmlAttribute(tag, attribute) {
   return match?.[2];
 }
 
-export function validateGuideSitemap(manifest, errors, sitemap = read('public/sitemap.xml')) {
-  const entries = [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => {
+export function getLegacyGuideSlugs(source = read('data/geoGuides.ts')) {
+  const slugs = [...source.matchAll(/^\s{4}slug:\s*'([a-z0-9]+(?:-[a-z0-9]+)*)',\s*$/gm)]
+    .map((match) => match[1]);
+  if (slugs.length === 0) throw new Error('could not find GEO_GUIDES slugs in data/geoGuides.ts');
+  return [...new Set(slugs)].sort();
+}
+
+function guideSitemapUrl(lang, slug) {
+  return `${SITE_URL}/${lang}/guides/${slug}/`;
+}
+
+function guideSitemapLocation(loc) {
+  try {
+    const url = new URL(loc);
+    const match = url.pathname.match(/^\/(en|cn)\/guides\/([^/]+)\/$/);
+    return match ? { lang: match[1], slug: match[2] } : null;
+  } catch {
+    return null;
+  }
+}
+
+function sitemapEntries(sitemap) {
+  return [...sitemap.matchAll(/<url>([\s\S]*?)<\/url>/g)].map((match) => {
     const block = match[1];
     const locs = [...block.matchAll(/<loc>([^<]+)<\/loc>/g)].map((locMatch) => locMatch[1].trim());
     const alternates = [...block.matchAll(/<xhtml:link\b[^>]*>/g)]
@@ -286,34 +307,55 @@ export function validateGuideSitemap(manifest, errors, sitemap = read('public/si
       .map((tag) => ({ hreflang: xmlAttribute(tag, 'hreflang'), href: xmlAttribute(tag, 'href') }));
     return { locs, alternates };
   });
-  const slugs = new Map();
-  for (const record of manifest) {
-    if (hasText(record?.slug) && !slugs.has(record.slug)) slugs.set(record.slug, record.topicId);
-  }
+}
 
-  for (const [slug, topicId] of slugs) {
-    const canonical = {
-      en: `${SITE_URL}/en/guides/${slug}/`,
-      cn: `${SITE_URL}/cn/guides/${slug}/`,
-    };
+function expectedGuideLocations(manifest, legacySlugs) {
+  const expected = new Map();
+  for (const slug of legacySlugs) {
     for (const lang of GUIDE_LANGUAGES) {
-      const locCount = entries
-        .flatMap((entry) => entry.locs)
-        .filter((loc) => loc === canonical[lang]).length;
-      const matches = entries.filter((entry) => entry.locs.includes(canonical[lang]));
-      if (locCount !== 1 || matches.length !== 1) {
-        addGuideError(errors, {
-          topicId,
-          lang,
-          field: 'sitemap.loc',
-          message: `expected canonical ${canonical[lang]} exactly once; found ${locCount}`,
-        });
-        continue;
-      }
+      expected.set(`${lang}:${slug}`, { topicId: `legacy:${slug}`, lang, slug, generated: false });
+    }
+  }
+  for (const record of manifest) {
+    if (record?.status !== 'published' || !hasText(record?.slug) || !GUIDE_LANGUAGES.includes(record?.lang)) continue;
+    expected.set(`${record.lang}:${record.slug}`, {
+      topicId: record.topicId || '<missing>',
+      lang: record.lang,
+      slug: record.slug,
+      generated: true,
+    });
+  }
+  return expected;
+}
+
+export function validateGuideSitemap(
+  manifest,
+  errors,
+  sitemap = read('public/sitemap.xml'),
+  legacySlugs = getLegacyGuideSlugs(),
+) {
+  const entries = sitemapEntries(sitemap);
+  const locs = entries.flatMap((entry) => entry.locs);
+  const expected = expectedGuideLocations(manifest, legacySlugs);
+
+  for (const expectedLocation of expected.values()) {
+    const canonical = guideSitemapUrl(expectedLocation.lang, expectedLocation.slug);
+    const locCount = locs.filter((loc) => loc === canonical).length;
+    const matches = entries.filter((entry) => entry.locs.includes(canonical));
+    if (locCount !== 1 || matches.length !== 1) {
+      addGuideError(errors, {
+        topicId: expectedLocation.topicId,
+        lang: expectedLocation.lang,
+        field: 'sitemap.loc',
+        message: `expected canonical ${canonical} for slug=${expectedLocation.slug} exactly once; found ${locCount}`,
+      });
+      continue;
+    }
+    if (expectedLocation.generated) {
       const requiredAlternates = [
-        { hreflang: 'en', href: canonical.en },
-        { hreflang: 'zh-CN', href: canonical.cn },
-        { hreflang: 'x-default', href: canonical.en },
+        { hreflang: 'en', href: guideSitemapUrl('en', expectedLocation.slug) },
+        { hreflang: 'zh-CN', href: guideSitemapUrl('cn', expectedLocation.slug) },
+        { hreflang: 'x-default', href: guideSitemapUrl('en', expectedLocation.slug) },
       ];
       for (const alternate of requiredAlternates) {
         const count = matches[0].alternates.filter((candidate) => (
@@ -321,14 +363,25 @@ export function validateGuideSitemap(manifest, errors, sitemap = read('public/si
         )).length;
         if (count !== 1) {
           addGuideError(errors, {
-            topicId,
-            lang,
+            topicId: expectedLocation.topicId,
+            lang: expectedLocation.lang,
             field: `sitemap.hreflang[${alternate.hreflang}]`,
             message: `expected reciprocal href=${alternate.href} exactly once; found ${count}`,
           });
         }
       }
     }
+  }
+
+  for (const loc of locs) {
+    const location = guideSitemapLocation(loc);
+    if (!location || expected.has(`${location.lang}:${location.slug}`)) continue;
+    addGuideError(errors, {
+      topicId: `<unknown:${location.slug}>`,
+      lang: location.lang,
+      field: 'sitemap.loc',
+      message: `unexpected guide URL for slug=${location.slug}; it is not a legacy or published generated guide`,
+    });
   }
 }
 
@@ -354,7 +407,7 @@ export function validateGuidePublicationState({ sourceRecords, manifest, sitemap
   manifest.forEach((record, recordIndex) => validateManifestRecord(record, recordIndex, errors));
   validateManifestPairs(manifest, errors);
   validateManifestMatchesSource(manifest, sourceRecords, errors);
-  validateGuideSitemap(manifest, errors, sitemap);
+  validateGuideSitemap(buildGeneratedManifest(sourceRecords), errors, sitemap);
   return errors;
 }
 
@@ -412,10 +465,14 @@ function readGuideSourceRecords(contentRoot, errors) {
   return sourceRecords;
 }
 
+export function loadGuideSourceRecords(contentRoot = path.join(root, 'content/guides')) {
+  const errors = [];
+  const sourceRecords = readGuideSourceRecords(contentRoot, errors);
+  return { sourceRecords, errors };
+}
+
 export async function validateGeneratedGuidePublication() {
-  const readErrors = [];
-  const contentRoot = path.join(root, 'content/guides');
-  const sourceRecords = readGuideSourceRecords(contentRoot, readErrors);
+  const { sourceRecords, errors: readErrors } = loadGuideSourceRecords();
 
   let manifest = [];
   let sitemap = '';

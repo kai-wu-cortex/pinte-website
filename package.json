@@ -13,7 +13,7 @@
     "generate-sitemap": "npm run guides:build && node --loader ts-node/esm scripts/generate-sitemap.js",
     "guides:build": "node scripts/build-guide-content.mjs",
     "guides:validate": "node scripts/validate-guide-content.mjs",
-    "guides:test": "node --test scripts/guide-content.test.mjs",
+    "guides:test": "node --test scripts/guide-content.test.mjs scripts/seo-source-check.test.mjs",
     "guides:check": "npm run guides:test && npm run guides:validate && npm run guides:build && node scripts/seo-source-check.mjs",
     "seo:sop": "node scripts/seo-geo-sop.mjs",
     "seo:sop:test": "node scripts/seo-geo-sop.test.mjs",
