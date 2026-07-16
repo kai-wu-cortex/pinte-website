@@ -1,0 +1,17 @@
+{
+  "name": "PINTE 品特烫金膜",
+  "short_name": "PINTE",
+  "description": "PINTE 品特 hot stamping foil manufacturer",
+  "start_url": "/en/",
+  "display": "standalone",
+  "background_color": "#0f172a",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

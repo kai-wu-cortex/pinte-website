@@ -34,10 +34,10 @@ const articleSchema = (guide: NonNullable<ReturnType<typeof getGeoGuide>>, lang:
   },
   publisher: {
     '@type': 'Organization',
-    name: 'PINTE',
+    name: 'PINTE 品特',
     logo: {
       '@type': 'ImageObject',
-      url: `${SITE_URL}/logo.png`,
+      url: `${SITE_URL}/logo.svg`,
     },
   },
   mainEntityOfPage: `${SITE_URL}/${lang}/guides/${guide.slug}/`,

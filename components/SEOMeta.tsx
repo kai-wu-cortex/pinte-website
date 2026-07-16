@@ -3,7 +3,7 @@
  * 为每个页面注入SEO/SEM/GEO优化标签
  */
 
-import React from 'react';
+import React, { useEffect } from 'react';
 
 interface SEOMetaProps {
   title: string;
@@ -46,12 +46,18 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   noIndex = false,
   disableHreflang = false
 }) => {
-  const siteName = 'PINTE';
+  const siteName = 'PINTE 品特';
+  const shortSiteName = 'PINTE';
   const siteUrl = 'https://www.pintecl.com';
+  const logoUrl = `${siteUrl}/logo.svg`;
   const pagePath = url || canonicalUrl || '';
   const fullUrl = pagePath ? `${siteUrl}${pagePath}` : siteUrl;
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
-  const fullTitle = title;
+  const fullTitle = /pinte|品特/i.test(title) ? title : `${title} | ${siteName}`;
+
+  useEffect(() => {
+    document.title = fullTitle;
+  }, [fullTitle]);
 
   // Supported languages for hreflang implementation
   // URL format: /en/path  /cn/path
@@ -152,7 +158,7 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       {geoPosition && <meta name="geo.position" content={geoPosition} />}
 
       {/* Business Info */}
-      <meta name="author" content={author || siteName} />
+      <meta name="author" content={author || shortSiteName} />
       <meta name="robots" content="index, follow" />
       <meta name="googlebot" content="index, follow" />
 
@@ -162,10 +168,10 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
           {JSON.stringify({
           "@context": "https://schema.org",
           "@type": "Manufacturer",
-          "name": "PINTE (品特)",
+          "name": "PINTE 品特",
           "alternateName": "Dongguan Best Craftwork Products Co., Ltd.",
           "url": "https://www.pintecl.com",
-          "logo": "https://www.pintecl.com/logo.png",
+          "logo": logoUrl,
           "description": "High-end hot stamping foil manufacturer specializing in hot stamping foil, cold foil, digital foil, pigment foil, holographic foil, metallic foil for packaging, leather, plastic, digital printing applications. Serving Vietnam, Southeast Asia, Thailand, Malaysia, Indonesia, Singapore, United States, United Kingdom, Europe.",
           "foundingDate": "2000",
           "foundingLocation": "Dongguan, Guangdong, China",
@@ -273,10 +279,10 @@ export const generateArticleSchema = (article: {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "PINTE",
+      "name": "PINTE 品特",
       "logo": {
         "@type": "ImageObject",
-        "url": `${siteUrl}/logo.png`
+        "url": `${siteUrl}/logo.svg`
       }
     },
     "mainEntityOfPage": {
@@ -320,7 +326,8 @@ export const generateWebsiteSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "WebSite",
-    "name": "PINTE",
+    "name": "PINTE 品特烫金膜",
+    "alternateName": ["PINTE", "品特", "PINTE Hot Stamping Foils"],
     "url": "https://www.pintecl.com",
     "potentialAction": {
       "@type": "SearchAction",
@@ -340,9 +347,10 @@ export const generateOrganizationSchema = () => {
   return {
     "@context": "https://schema.org",
     "@type": "Organization",
-    "name": "PINTE",
+    "name": "PINTE 品特",
+    "alternateName": ["PINTE", "品特", "品特烫金膜"],
     "url": "https://www.pintecl.com",
-    "logo": "https://www.pintecl.com/logo.png",
+    "logo": "https://www.pintecl.com/logo.svg",
     "description": "Premium hot stamping foil manufacturer",
     "sameAs": [
       "https://facebook.com/pinte",

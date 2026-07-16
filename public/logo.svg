@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-labelledby="title desc">
+  <title id="title">PINTE 品特 logo</title>
+  <desc id="desc">PINTE hot stamping foil manufacturer brand mark</desc>
+  <rect width="512" height="512" rx="96" fill="#0f172a"/>
+  <rect x="112" y="220" width="64" height="184" rx="12" fill="#d4af37"/>
+  <rect x="304" y="332" width="64" height="72" rx="12" fill="#d4af37"/>
+  <path d="M304 108c48 0 88 39 88 88v24h-88V108Z" fill="#ffffff"/>
+  <rect x="208" y="220" width="64" height="184" rx="12" fill="#ffffff"/>
+  <path d="M272 260v-40h120c0 22-18 40-40 40H272Z" fill="#ffffff"/>
+  <path d="M112 176v-68h192v68H112Z" fill="#ffffff"/>
+  <path d="M120 432h272" stroke="#d4af37" stroke-width="20" stroke-linecap="round"/>
+</svg>

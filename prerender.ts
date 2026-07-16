@@ -36,6 +36,10 @@ const escapeHtml = (value: string) =>
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#39;');
 
+function formatPageTitle(title: string): string {
+  return /pinte|品特/i.test(title) ? title : `${title} | PINTE 品特`;
+}
+
 function buildCanonicalUrl(route: string, lang: 'cn' | 'en'): string {
   const pathPart = route ? `/${route}/` : '/';
   return `https://www.pintecl.com/${lang}${pathPart}`;
@@ -200,6 +204,7 @@ function injectSnapshot(
   const ogLocale = lang === 'cn' ? 'zh_CN' : 'en_US';
   const ogLocaleAlt = lang === 'cn' ? 'en_US' : 'zh_CN';
   const ogImage = meta.image || 'https://www.pintecl.com/og-image.jpg';
+  const pageTitle = formatPageTitle(meta.title);
 
   // Build extra head tags
   const extraHead = `
@@ -213,10 +218,10 @@ function injectSnapshot(
 
   <meta property="og:type" content="${meta.type || 'website'}">
   <meta property="og:url" content="${escapeHtml(canonical)}">
-  <meta property="og:title" content="${escapeHtml(meta.title)}">
+  <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(meta.description)}">
   <meta property="og:image" content="${escapeHtml(ogImage)}">
-  <meta property="og:site_name" content="PINTE">
+  <meta property="og:site_name" content="PINTE 品特">
   <meta property="og:locale" content="${ogLocale}">
   <meta property="og:locale:alternate" content="${ogLocaleAlt}">
   ${
@@ -227,7 +232,7 @@ function injectSnapshot(
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:url" content="${escapeHtml(canonical)}">
-  <meta name="twitter:title" content="${escapeHtml(meta.title)}">
+  <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(meta.description)}">
   <meta name="twitter:image" content="${escapeHtml(ogImage)}">
 
@@ -242,9 +247,9 @@ function injectSnapshot(
 
   // title
   if (/<title>[^<]*<\/title>/.test(html)) {
-    html = html.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(meta.title)}</title>`);
+    html = html.replace(/<title>[^<]*<\/title>/, `<title>${escapeHtml(pageTitle)}</title>`);
   } else {
-    html = html.replace(/<head>/, `<head>\n  <title>${escapeHtml(meta.title)}</title>`);
+    html = html.replace(/<head>/, `<head>\n  <title>${escapeHtml(pageTitle)}</title>`);
   }
   // description
   if (/<meta name="description"[^>]*>/.test(html)) {

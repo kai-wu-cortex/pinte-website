@@ -62,8 +62,10 @@ const ProductItem: React.FC = () => {
     },
     manufacturer: {
       '@type': 'Organization',
-      name: 'Dongguan Best Craftwork Products Co., Ltd.',
+      name: 'PINTE 品特',
+      legalName: 'Dongguan Best Craftwork Products Co., Ltd.',
       url: 'https://www.pintecl.com',
+      logo: 'https://www.pintecl.com/logo.svg',
     },
     category: enrichedItem.subtitle || 'Hot Stamping Foil',
     material: enrichedItem.compatibleSubstrates?.join(', ') || enrichedItem.tags?.join(', '),

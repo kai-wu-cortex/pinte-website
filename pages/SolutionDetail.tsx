@@ -44,8 +44,9 @@ const SolutionDetail: React.FC = () => {
     serviceType: 'Hot stamping foil application solution',
     provider: {
       '@type': 'Organization',
-      name: 'PINTE',
+      name: 'PINTE 品特',
       url: 'https://www.pintecl.com',
+      logo: 'https://www.pintecl.com/logo.svg',
     },
     areaServed: [
       'China',

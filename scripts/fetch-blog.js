@@ -191,10 +191,10 @@ function generateSchema(article, siteUrl) {
     },
     "publisher": {
       "@type": "Organization",
-      "name": "PINTE",
+      "name": "PINTE 品特",
       "logo": {
         "@type": "ImageObject",
-        "url": `${siteUrl}/logo.png`
+        "url": `${siteUrl}/logo.svg`
       }
     },
     "mainEntityOfPage": {

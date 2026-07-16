@@ -22,6 +22,11 @@ import sanitizeHtml from 'sanitize-html';
 import seoSop from '../scripts/seo-geo-sop.config.mjs';
 import { t, htmlLangAttr, type Lang } from './i18n.js';
 
+const BRAND_NAME = 'PINTE 品特';
+const BRAND_SHORT_NAME = 'PINTE';
+const BRAND_SITE_NAME = 'PINTE 品特烫金膜';
+const BRAND_LOGO_URL = 'https://www.pintecl.com/logo.svg';
+
 // Inline schema helpers — 不从 SEOMeta.tsx import,避免 TSX 在 prerender tsc 里报错。
 // 与 components/SEOMeta.tsx 中同名 helper 保持一致。
 function generateBreadcrumbSchema(items: Array<{ name: string; url: string }>) {
@@ -62,11 +67,11 @@ function generateArticleSchema(article: {
       : `${siteUrl}/og-image.jpg`,
     datePublished: article.datePublished,
     dateModified: article.dateModified || article.datePublished,
-    author: { '@type': 'Organization', name: article.author || 'PINTE' },
+    author: { '@type': 'Organization', name: article.author || BRAND_SHORT_NAME },
     publisher: {
       '@type': 'Organization',
-      name: 'PINTE',
-      logo: { '@type': 'ImageObject', url: `${siteUrl}/logo.png` },
+      name: BRAND_NAME,
+      logo: { '@type': 'ImageObject', url: BRAND_LOGO_URL },
     },
     mainEntityOfPage: {
       '@type': 'WebPage',
@@ -364,11 +369,12 @@ function productSchema(opts: {
       name: property.name,
       value: property.value,
     })),
-    brand: { '@type': 'Brand', name: opts.brand || 'PINTE' },
+    brand: { '@type': 'Brand', name: opts.brand || BRAND_SHORT_NAME },
     manufacturer: {
       '@type': 'Organization',
-      name: 'PINTE',
+      name: BRAND_NAME,
       url: SITE,
+      logo: BRAND_LOGO_URL,
       address: {
         '@type': 'PostalAddress',
         addressLocality: 'Dongguan',
@@ -398,8 +404,9 @@ function serviceSchema(opts: {
     url: opts.url,
     provider: {
       '@type': 'Organization',
-      name: 'PINTE',
+      name: BRAND_NAME,
       url: SITE,
+      logo: BRAND_LOGO_URL,
     },
     areaServed: opts.areaServed.map((c) => ({ '@type': 'Country', name: c })),
   };
@@ -417,7 +424,12 @@ function pageTypeSchema(opts: {
     name: opts.name,
     description: opts.description,
     url: opts.url,
-    isPartOf: { '@type': 'WebSite', name: 'PINTE', url: SITE },
+    isPartOf: {
+      '@type': 'WebSite',
+      name: BRAND_SITE_NAME,
+      alternateName: ['PINTE', '品特', 'PINTE Hot Stamping Foils'],
+      url: SITE,
+    },
   };
 }
 
