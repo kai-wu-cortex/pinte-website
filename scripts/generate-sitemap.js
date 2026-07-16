@@ -9,6 +9,7 @@ import path from 'path';
 import dotenv from 'dotenv';
 import { CONTENT_EN } from '../data/content.ts';
 import { GEO_GUIDES } from '../data/geoGuides.ts';
+import GENERATED_GUIDES from '../data/generatedGuides.ts';
 import { mergeProductSeoProfile } from '../data/productSeoProfiles.ts';
 
 dotenv.config();
@@ -95,7 +96,7 @@ const productItems = Array.from(new Set(
     .map((product) => product.id)
 ));
 const solutions = Object.keys(CONTENT_EN.SOLUTIONS_DATA);
-const guidePages = GEO_GUIDES.map((guide) => ({
+const legacyGuidePages = GEO_GUIDES.map((guide) => ({
   loc: `guides/${guide.slug}`,
   changefreq: 'monthly',
   priority: guide.priority <= 2 ? '0.9' : '0.8',
@@ -118,6 +119,62 @@ function trimText(value, maxLength = 180) {
 function localizedCaption(caption, lang) {
   if (!caption) return '';
   return typeof caption === 'object' ? caption[lang] || caption.en || caption.cn || '' : caption;
+}
+
+function localizedImageLocation(location, lang) {
+  if (!location) return '';
+  return typeof location === 'object' ? location[lang] || '' : location;
+}
+
+function normalizedDateModified(value) {
+  const timestamp = Date.parse(value);
+  return Number.isNaN(timestamp) ? '' : new Date(timestamp).toISOString().slice(0, 10);
+}
+
+function getGeneratedGuidePages() {
+  const guidesBySlug = new Map();
+
+  GENERATED_GUIDES.forEach((guide) => {
+    if (guide.status !== 'published' || !guide.slug || !['en', 'cn'].includes(guide.lang)) return;
+    const records = guidesBySlug.get(guide.slug) || [];
+    records.push(guide);
+    guidesBySlug.set(guide.slug, records);
+  });
+
+  return Array.from(guidesBySlug, ([slug, records]) => {
+    const en = records.filter((guide) => guide.lang === 'en');
+    const cn = records.filter((guide) => guide.lang === 'cn');
+    if (en.length !== 1 || cn.length !== 1) return null;
+
+    const [enGuide] = en;
+    const [cnGuide] = cn;
+    const lastmod = [enGuide.dateModified, cnGuide.dateModified]
+      .map(normalizedDateModified)
+      .filter(Boolean)
+      .sort()
+      .at(-1);
+
+    return {
+      loc: `guides/${slug}`,
+      changefreq: 'monthly',
+      priority: '0.8',
+      ...(lastmod ? { lastmod } : {}),
+      images: [
+        {
+          loc: { en: enGuide.heroImage, cn: cnGuide.heroImage },
+          caption: { en: enGuide.heroAlt, cn: cnGuide.heroAlt },
+        },
+      ],
+    };
+  }).filter(Boolean);
+}
+
+function getGuidePages() {
+  return Array.from(
+    new Map(
+      [...legacyGuidePages, ...getGeneratedGuidePages()].map((guide) => [guide.loc, guide])
+    ).values()
+  );
 }
 
 function getNotionDate(page) {
@@ -222,7 +279,8 @@ function generateSitemap(blogPages = []) {
       const enHref = `${siteUrl}${routePath('en', route)}`;
       const cnHref = `${siteUrl}${routePath('cn', route)}`;
       const imageXml = images
-        .filter((image) => image?.loc)
+        .map((image) => ({ ...image, loc: localizedImageLocation(image?.loc, lang) }))
+        .filter((image) => image.loc)
         .map((image) => {
           const caption = localizedCaption(image.caption, lang);
           return `    <image:image>
@@ -254,7 +312,7 @@ ${imageXml ? `${imageXml}\n` : ''}  </url>
     });
   });
 
-  guidePages.forEach((page) => {
+  getGuidePages().forEach((page) => {
     addUrl({
       route: page.loc,
       changefreq: page.changefreq,
