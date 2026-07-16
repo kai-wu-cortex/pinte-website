@@ -6,6 +6,7 @@
 
 import fs from 'fs';
 import path from 'path';
+import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { CONTENT_EN } from '../data/content.ts';
 import { GEO_GUIDES } from '../data/geoGuides.ts';
@@ -121,9 +122,22 @@ function localizedCaption(caption, lang) {
   return typeof caption === 'object' ? caption[lang] || caption.en || caption.cn || '' : caption;
 }
 
-function localizedImageLocation(location, lang) {
-  if (!location) return '';
-  return typeof location === 'object' ? location[lang] || '' : location;
+export function localizedImageLocation(location, lang) {
+  const localized = typeof location === 'object' && location !== null
+    ? location[lang] || ''
+    : location;
+
+  if (typeof localized !== 'string' || !localized.trim()) return '';
+
+  try {
+    const url = new URL(localized, siteUrl);
+    if (!['http:', 'https:'].includes(url.protocol) || !url.hostname || url.username || url.password) {
+      return '';
+    }
+    return url.href;
+  } catch {
+    return '';
+  }
 }
 
 function normalizedDateModified(value) {
@@ -265,7 +279,7 @@ async function collectBlogPages() {
 }
 
 // Generate XML sitemap
-function generateSitemap(blogPages = []) {
+export function generateSitemap(blogPages = [], guidePages = getGuidePages()) {
   const today = new Date().toISOString().split('T')[0];
   let xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
@@ -312,11 +326,13 @@ ${imageXml ? `${imageXml}\n` : ''}  </url>
     });
   });
 
-  getGuidePages().forEach((page) => {
+  guidePages.forEach((page) => {
     addUrl({
       route: page.loc,
       changefreq: page.changefreq,
       priority: page.priority,
+      lastmod: page.lastmod,
+      images: page.images,
     });
   });
 
@@ -550,14 +566,15 @@ function generateProductFeed() {
   console.log(`✅ product-feed.json generated at: ${outputPath}`);
 }
 
-// Run both generators
-await writeSitemap();
-generateRobotsTxt();
-generateProductFeed();
+if (process.argv[1] === fileURLToPath(import.meta.url)) {
+  await writeSitemap();
+  generateRobotsTxt();
+  generateProductFeed();
 
-console.log('\n🎉 Sitemap generation complete!');
-console.log(`📌 Next steps:
+  console.log('\n🎉 Sitemap generation complete!');
+  console.log(`📌 Next steps:
 1. Test the sitemap at ${siteUrl}/sitemap.xml
 2. Submit the sitemap to Google Search Console
 3. Submit the sitemap to Bing Webmaster Tools
 4. Submit with IndexNow after deployment`);
+}
