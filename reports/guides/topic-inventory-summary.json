@@ -1,0 +1,88 @@
+{
+  "targetCount": 10000,
+  "total": 10000,
+  "counts": {
+    "cluster": {
+      "cosmetic-packaging": 833,
+      "fundamentals-terminology": 979,
+      "holographic-security": 833,
+      "label-printing": 960,
+      "leather": 71,
+      "paper-carton-packaging": 999,
+      "parameters-testing": 1273,
+      "plastics": 596,
+      "process-comparison": 543,
+      "procurement-specifications": 1273,
+      "troubleshooting": 980,
+      "wine-gift-packaging": 660
+    },
+    "intent": {
+      "application": 2817,
+      "comparison": 91,
+      "compliance": 421,
+      "definition": 117,
+      "design-prepress": 1295,
+      "equipment": 406,
+      "parameter": 405,
+      "procurement": 421,
+      "substrate-selection": 2136,
+      "sustainability": 519,
+      "testing": 404,
+      "troubleshooting": 968
+    },
+    "substrate": {
+      "board-folding-carton": 1310,
+      "board-rigid-gift": 682,
+      "glass-container": 26,
+      "label-film-facestock": 799,
+      "label-paper-facestock": 1319,
+      "leather-natural": 62,
+      "leather-pu-synthetic": 96,
+      "leather-pvc-synthetic": 90,
+      "paper-coated": 1470,
+      "paper-kraft": 343,
+      "paper-textured-specialty": 284,
+      "paper-uncoated": 659,
+      "paperboard-laminated": 404,
+      "plastic-abs": 183,
+      "plastic-pet-film": 540,
+      "plastic-pmma": 179,
+      "plastic-polyethylene": 517,
+      "plastic-polypropylene": 517,
+      "plastic-polystyrene": 179,
+      "plastic-pvc-rigid": 224,
+      "unspecified": 117
+    },
+    "industry": {
+      "commercial-print-finishing": 266,
+      "consumer-plastic-products": 378,
+      "cosmetics-personal-care": 1412,
+      "folding-carton-packaging": 950,
+      "labels-narrow-web": 763,
+      "leather-goods-bookbinding": 70,
+      "security-brand-protection": 60,
+      "unspecified": 5047,
+      "wine-spirits-gifts": 1054
+    },
+    "priority": {
+      "P0": 1810,
+      "P1": 3343,
+      "P2": 4847
+    },
+    "relatedProduct": {
+      "DIGITAL": 3100,
+      "informational-only": 1145,
+      "PC": 1249,
+      "PK": 3802,
+      "PLPY": 704
+    }
+  },
+  "duplicates": {
+    "slugs": 0,
+    "intentKeys": 0,
+    "topicIds": 0
+  },
+  "forbiddenTerms": {
+    "publicRecords": 0
+  }
+}

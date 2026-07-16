@@ -1,16 +1,16 @@
 ---
 topic_id: HF-000001
 lang: en
-slug: hot-stamping-foil-label-sampling
-status: published
-cluster: label-printing
-intent: selection
+slug: foil-grade-selection-fine-lines-small-type-coated-glass-container-primer-adhesion-prom-0j3va8v
+status: draft
+cluster: cosmetic-packaging
+intent: substrate-selection
 title: 'Hot Stamping Foil for Labels: A Sampling Guide'
 description: A practical starting point for selecting and sampling hot stamping foil for label work.
 primary_keyword: hot stamping foil for labels
 secondary_keywords: [label foil sampling, foil adhesion check]
-related_products: [PC]
-related_guides: [hot-stamping-troubleshooting]
+related_products: []
+related_guides: []
 author: PINTE Technical Team
 reviewer: PINTE Application Engineer
 date_published: 2026-07-16

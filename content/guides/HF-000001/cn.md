@@ -1,16 +1,16 @@
 ---
 topic_id: HF-000001
 lang: cn
-slug: hot-stamping-foil-label-sampling
-status: published
-cluster: label-printing
-intent: selection
+slug: foil-grade-selection-fine-lines-small-type-coated-glass-container-primer-adhesion-prom-0j3va8v
+status: draft
+cluster: cosmetic-packaging
+intent: substrate-selection
 title: 标签烫金膜：打样确认指南
 description: 用于标签烫金膜选型和打样确认的实用起点。
 primary_keyword: 标签烫金膜
 secondary_keywords: [标签烫金打样, 烫金附着检查]
-related_products: [PC]
-related_guides: [hot-stamping-troubleshooting]
+related_products: []
+related_guides: []
 author: PINTE 技术团队
 reviewer: PINTE 应用工程师
 date_published: 2026-07-16

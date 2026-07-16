@@ -15,6 +15,8 @@
     "sync-blog": "node scripts/fetch-blog.js",
     "generate-sitemap": "npm run guides:build && node --loader ts-node/esm scripts/generate-sitemap.js",
     "guides:build": "node scripts/build-guide-content.mjs",
+    "guides:topics": "node scripts/generate-guide-topics.mjs",
+    "guides:topics:test": "node --test scripts/guide-topics.test.mjs",
     "guides:validate": "node scripts/validate-guide-content.mjs",
     "guides:test": "node --test scripts/guide-content.test.mjs scripts/seo-source-check.test.mjs",
     "guides:verify": "node scripts/build-guide-content.mjs --check && node scripts/seo-source-check.mjs",

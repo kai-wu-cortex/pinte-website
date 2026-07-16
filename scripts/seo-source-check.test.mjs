@@ -21,7 +21,31 @@ const sourceDirectory = path.join(root, 'content/guides/HF-000001');
 const siteUrl = 'https://www.pintecl.com';
 
 function publishedRecords() {
-  return ['en', 'cn'].map((lang) => parseGuideFile(path.join(sourceDirectory, `${lang}.md`)));
+  return ['en', 'cn'].map((lang) => ({
+    ...parseGuideFile(path.join(sourceDirectory, `${lang}.md`)),
+    status: 'published',
+    related_products: ['PC'],
+    related_guides: ['hot-stamping-troubleshooting'],
+  }));
+}
+
+function registryFor(records) {
+  const registry = loadGuideTopicRegistry(path.join(root, 'content/guides/topics.json'));
+  const recordByTopic = new Map(records.map((record) => [record.topic_id, record]));
+  return registry.map((topic) => {
+    const source = recordByTopic.get(topic.topic_id);
+    return source
+      ? {
+        ...topic,
+        slug: source.slug,
+        status: source.status,
+        cluster: source.cluster,
+        intent: source.intent,
+        related_products: source.related_products,
+        related_guides: source.related_guides,
+      }
+      : topic;
+  });
 }
 
 function serializedManifest(records) {
@@ -142,7 +166,7 @@ test('matches serialized source dates and rejects a stale manifest date', () => 
 test('publication state enforces the loaded topic registry', () => {
   const records = publishedRecords();
   const manifest = serializedManifest(records);
-  const registry = loadGuideTopicRegistry(path.join(root, 'content/guides/topics.json'));
+  const registry = registryFor(records);
 
   assert.deepEqual(validateGuidePublicationState({
     sourceRecords: records,
@@ -166,7 +190,10 @@ test('allows a reviewed one-sided source directory but rejects a published one',
   const topicId = 'HF-000101';
   const topicDirectory = path.join(temporaryRoot, topicId);
   const enSource = fs.readFileSync(path.join(sourceDirectory, 'en.md'), 'utf8')
-    .replace('topic_id: HF-000001', `topic_id: ${topicId}`);
+    .replace('topic_id: HF-000001', `topic_id: ${topicId}`)
+    .replace(/^status: .+$/m, 'status: published')
+    .replace(/^related_products: .+$/m, 'related_products: [PC]')
+    .replace(/^related_guides: .+$/m, 'related_guides: [hot-stamping-troubleshooting]');
   fs.mkdirSync(topicDirectory, { recursive: true });
   fs.writeFileSync(path.join(topicDirectory, 'en.md'), enSource.replace('status: published', 'status: reviewed'));
 
