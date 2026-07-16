@@ -290,7 +290,7 @@ function guideSitemapUrl(lang, slug) {
 function guideSitemapLocation(loc) {
   try {
     const url = new URL(loc);
-    const match = url.pathname.match(/^\/(en|cn)\/guides\/([^/]+)\/$/);
+    const match = url.pathname.match(/^\/+(en|cn)\/+guides\/+([^/]+)\/*$/);
     return match ? { lang: match[1], slug: match[2] } : null;
   } catch {
     return null;
@@ -375,13 +375,26 @@ export function validateGuideSitemap(
 
   for (const loc of locs) {
     const location = guideSitemapLocation(loc);
-    if (!location || expected.has(`${location.lang}:${location.slug}`)) continue;
-    addGuideError(errors, {
-      topicId: `<unknown:${location.slug}>`,
-      lang: location.lang,
-      field: 'sitemap.loc',
-      message: `unexpected guide URL for slug=${location.slug}; it is not a legacy or published generated guide`,
-    });
+    if (!location) continue;
+    const expectedLocation = expected.get(`${location.lang}:${location.slug}`);
+    if (!expectedLocation) {
+      addGuideError(errors, {
+        topicId: `<unknown:${location.slug}>`,
+        lang: location.lang,
+        field: 'sitemap.loc',
+        message: `unexpected guide URL for slug=${location.slug}; it is not a legacy or published generated guide`,
+      });
+      continue;
+    }
+    const canonical = guideSitemapUrl(location.lang, location.slug);
+    if (loc !== canonical) {
+      addGuideError(errors, {
+        topicId: expectedLocation.topicId,
+        lang: location.lang,
+        field: 'sitemap.loc',
+        message: `noncanonical guide URL for slug=${location.slug}; expected ${canonical}, found ${loc}`,
+      });
+    }
   }
 }
 

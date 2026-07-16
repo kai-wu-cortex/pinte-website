@@ -71,6 +71,28 @@ test('allows legacy guide URLs but rejects an unknown sitemap guide URL', () => 
   assert.equal(errors.filter((error) => error.includes('hot-stamping-foil-buying-guide')).length, 0);
 });
 
+test('rejects noncanonical full URLs for known legacy and generated guide slugs', () => {
+  const manifest = serializedManifest(publishedRecords());
+  const legacySlug = getLegacyGuideSlugs()[0];
+  const generatedSlug = manifest[0].slug;
+  const cases = [
+    { slug: legacySlug, lang: 'en', loc: `https://foreign.example/en/guides/${legacySlug}/` },
+    { slug: legacySlug, lang: 'cn', loc: `${guideUrl('cn', legacySlug)}?campaign=test` },
+    { slug: generatedSlug, lang: 'en', loc: `https://foreign.example/en/guides/${generatedSlug}/` },
+    { slug: generatedSlug, lang: 'cn', loc: `${guideUrl('cn', generatedSlug)}?campaign=test` },
+    { slug: legacySlug, lang: 'en', loc: `${guideUrl('en', legacySlug)}#details` },
+    { slug: generatedSlug, lang: 'cn', loc: `http://www.pintecl.com/cn/guides/${generatedSlug}/` },
+    { slug: legacySlug, lang: 'cn', loc: `https://www.pintecl.com:8443/cn/guides/${legacySlug}/` },
+    { slug: generatedSlug, lang: 'en', loc: `https://www.pintecl.com//en/guides/${generatedSlug}/` },
+  ];
+
+  for (const { slug, lang, loc } of cases) {
+    const errors = [];
+    validateGuideSitemap(manifest, errors, `${sitemapFor(manifest)}<url><loc>${loc}</loc></url>`);
+    assertError(errors, `lang=${lang} field=sitemap.loc: noncanonical guide URL for slug=${slug}`);
+  }
+});
+
 test('requires generated localized guide URLs and all localized alternates', () => {
   const manifest = serializedManifest(publishedRecords());
   const slug = manifest[0].slug;
