@@ -24,3 +24,10 @@
 - Browser console output contained only the existing Tailwind CDN development warning.
 - `npm run build` completed successfully in 3m 1s and generated both localized runtime guide routes. During unrelated blog prerendering, the existing writer logged a recoverable `ENOENT` for `/dist/en/blog/33bf8285a7fd8143a05fe8eab81da8c1/index.html`; the process continued and exited `0`.
 - `git diff --check` passed before the report was added.
+
+## Source URL Follow-Up
+
+- Replaced the runtime reference filter in `pages/LongFormGuide.tsx` with the same invariant used by `scripts/lib/guide-content.mjs`: a source URL must be a parseable absolute `https:` URL with a hostname and no username or password.
+- The runtime filter now rejects `http:`, credentialed URLs, relative URLs, `javascript:`, `data:`, malformed HTTPS values, and non-URL text before rendering a reference link.
+- Focused source assertion passed all eight cases: one valid HTTPS URL plus the seven rejected forms above.
+- Browser check at `http://127.0.0.1:4173/en/guides/hot-stamping-foil-label-sampling/` rendered two reference links; both had `https:` protocol, non-empty hostnames, and empty username/password fields. No browser console errors were recorded.

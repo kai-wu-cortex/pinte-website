@@ -19,10 +19,15 @@ const absoluteUrl = (value: string) => {
   return `${SITE_URL}${value.startsWith('/') ? value : `/${value}`}`;
 };
 
-const isSafeExternalUrl = (value: string) => {
+const isValidSourceUrl = (value: string) => {
+  if (typeof value !== 'string' || !/^https:\/\//i.test(value)) return false;
+
   try {
-    const { protocol } = new URL(value);
-    return protocol === 'http:' || protocol === 'https:';
+    const url = new URL(value);
+    return url.protocol === 'https:'
+      && url.hostname.length > 0
+      && url.username === ''
+      && url.password === '';
   } catch {
     return false;
   }
@@ -65,7 +70,7 @@ const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
 
     return [{ slug, title: guideCustomerText(legacyGuide.title[lang], lang) }];
   });
-  const safeSources = guide.sources.filter((source) => isSafeExternalUrl(source.url));
+  const safeSources = guide.sources.filter((source) => isValidSourceUrl(source.url));
 
   const articleSchema = {
     '@context': 'https://schema.org',
