@@ -2,8 +2,10 @@ import React from 'react';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import SEOMeta, { generateBreadcrumbSchema } from '../components/SEOMeta';
-import type { GeneratedGuideRecord } from '../data/guideContent';
-import type { GuideLang } from '../data/geoGuides';
+import { getGeneratedGuide, type GeneratedGuideRecord } from '../data/guideContent';
+import { getGeoGuide, guideCustomerText, type GuideLang } from '../data/geoGuides';
+import { CONTENT_EN, CONTENT_ZH } from '../data/content';
+import type { ProductId } from '../types';
 
 const SITE_URL = 'https://www.pintecl.com';
 
@@ -17,17 +19,53 @@ const absoluteUrl = (value: string) => {
   return `${SITE_URL}${value.startsWith('/') ? value : `/${value}`}`;
 };
 
+const isSafeExternalUrl = (value: string) => {
+  try {
+    const { protocol } = new URL(value);
+    return protocol === 'http:' || protocol === 'https:';
+  } catch {
+    return false;
+  }
+};
+
 const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
   const bodyRef = React.useRef<HTMLDivElement>(null);
   const isChinese = lang === 'cn';
-  const canonicalPath = `/${lang}/guides/${guide.slug}`;
+  const canonicalPath = `/${lang}/guides/${guide.slug}/`;
   const canonicalUrl = `${SITE_URL}${canonicalPath}`;
   const languageCode = isChinese ? 'zh-CN' : 'en';
   const homeLabel = isChinese ? '首页' : 'Home';
   const guidesLabel = isChinese ? '指南' : 'Guides';
   const faqTitle = isChinese ? '常见问题' : 'Frequently Asked Questions';
   const referencesTitle = isChinese ? '参考资料' : 'References';
+  const relatedProductsTitle = isChinese ? '相关产品' : 'Related products';
+  const relatedGuidesTitle = isChinese ? '相关指南' : 'Related guides';
+  const viewProductLabel = isChinese ? '查看产品' : 'View product';
+  const readGuideLabel = isChinese ? '阅读指南' : 'Read guide';
   const heroImage = absoluteUrl(guide.heroImage);
+  const productData = (isChinese ? CONTENT_ZH : CONTENT_EN).PRODUCT_DATA;
+  const relatedProducts = guide.relatedProducts.flatMap((productId) => {
+    const product = productData[productId as ProductId];
+    if (!product) return [];
+
+    return [{
+      id: productId,
+      name: product.name,
+      path: `/${lang}/products/category/${productId}/`,
+    }];
+  });
+  const relatedGuides = guide.relatedGuides.flatMap((slug) => {
+    const generatedGuide = getGeneratedGuide(slug, lang);
+    if (generatedGuide) {
+      return [{ slug, title: generatedGuide.title }];
+    }
+
+    const legacyGuide = getGeoGuide(slug);
+    if (!legacyGuide) return [];
+
+    return [{ slug, title: guideCustomerText(legacyGuide.title[lang], lang) }];
+  });
+  const safeSources = guide.sources.filter((source) => isSafeExternalUrl(source.url));
 
   const articleSchema = {
     '@context': 'https://schema.org',
@@ -72,8 +110,8 @@ const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
   };
 
   const breadcrumbs = [
-    { name: homeLabel, path: `/${lang}` },
-    { name: guidesLabel, path: `/${lang}/guides` },
+    { name: homeLabel, path: `/${lang}/` },
+    { name: guidesLabel, path: `/${lang}/guides/` },
     { name: guide.title, path: canonicalPath },
   ];
   const breadcrumbSchema = generateBreadcrumbSchema(
@@ -196,7 +234,7 @@ const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
               {referencesTitle}
             </h2>
             <ol className="space-y-6">
-              {guide.sources.map((source) => (
+              {safeSources.map((source) => (
                 <li key={source.url} className="border-l-2 border-neutral-200 pl-4">
                   <a
                     href={source.url}
@@ -214,6 +252,58 @@ const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
             </ol>
           </section>
 
+          {relatedProducts.length > 0 && (
+            <section aria-labelledby="guide-related-products-title" className="py-10 border-t border-neutral-200">
+              <nav aria-labelledby="guide-related-products-title">
+                <h2 id="guide-related-products-title" className="text-2xl font-bold text-neutral-950 mb-5">
+                  {relatedProductsTitle}
+                </h2>
+                <ul className="border-t border-neutral-200">
+                  {relatedProducts.map((product) => (
+                    <li key={product.id} className="border-b border-neutral-200">
+                      <Link
+                        to={product.path}
+                        className="flex items-center justify-between gap-4 py-4 font-bold text-neutral-950 hover:text-pinte-blue transition-colors"
+                      >
+                        <span>{product.name}</span>
+                        <span className="inline-flex shrink-0 items-center gap-2 text-sm">
+                          {viewProductLabel}
+                          <ArrowRight size={16} aria-hidden="true" />
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </section>
+          )}
+
+          {relatedGuides.length > 0 && (
+            <section aria-labelledby="guide-related-guides-title" className="py-10 border-t border-neutral-200">
+              <nav aria-labelledby="guide-related-guides-title">
+                <h2 id="guide-related-guides-title" className="text-2xl font-bold text-neutral-950 mb-5">
+                  {relatedGuidesTitle}
+                </h2>
+                <ul className="border-t border-neutral-200">
+                  {relatedGuides.map((relatedGuide) => (
+                    <li key={relatedGuide.slug} className="border-b border-neutral-200">
+                      <Link
+                        to={`/${lang}/guides/${relatedGuide.slug}/`}
+                        className="flex items-center justify-between gap-4 py-4 font-bold text-neutral-950 hover:text-pinte-blue transition-colors"
+                      >
+                        <span>{relatedGuide.title}</span>
+                        <span className="inline-flex shrink-0 items-center gap-2 text-sm">
+                          {readGuideLabel}
+                          <ArrowRight size={16} aria-hidden="true" />
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </nav>
+            </section>
+          )}
+
           <section className="py-10 border-t border-neutral-200">
             <h2 className="text-2xl font-bold text-neutral-950 mb-3">
               {isChinese ? '需要针对实际材料进行打样？' : 'Need to sample on your actual material?'}
@@ -224,7 +314,7 @@ const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
                 : 'Share your substrate, machine, artwork, and production requirements so we can help define a practical sampling starting point.'}
             </p>
             <Link
-              to={`/${lang}/quote`}
+              to={`/${lang}/quote/`}
               className="inline-flex items-center gap-2 rounded bg-pinte-blue px-5 py-3 font-bold text-white hover:bg-pinte-blue/90 transition-colors"
             >
               {isChinese ? '申请样品 / 报价' : 'Request Sample / Quote'}
