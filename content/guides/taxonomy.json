@@ -1,0 +1,977 @@
+{
+  "schemaVersion": 1,
+  "updatedDate": "2026-07-16",
+  "generatorPolicy": {
+    "combinationMode": "compatibility-groups-only",
+    "instructions": [
+      "Generate a topic only from an explicit compatibilityGroup; do not form a Cartesian product from taxonomy arrays.",
+      "Apply every matching compatibilityRule before selecting a product series or making a process recommendation.",
+      "Treat confirmed-internal mappings as selection starting points that still require production-representative sampling.",
+      "Treat uncertain-internal mappings as research or qualification topics, never as product-performance claims."
+    ]
+  },
+  "clusters": [
+    { "id": "fundamentals-terminology", "label": "Fundamentals and Terminology" },
+    { "id": "paper-carton-packaging", "label": "Paper and Carton Packaging" },
+    { "id": "cosmetic-packaging", "label": "Cosmetic Packaging" },
+    { "id": "wine-gift-packaging", "label": "Wine and Gift Packaging" },
+    { "id": "label-printing", "label": "Label Printing" },
+    { "id": "plastics", "label": "Plastics" },
+    { "id": "leather", "label": "Leather" },
+    { "id": "holographic-security", "label": "Holographic and Security Effects" },
+    { "id": "process-comparison", "label": "Process Comparisons" },
+    { "id": "troubleshooting", "label": "Troubleshooting" },
+    { "id": "parameters-testing", "label": "Parameters and Testing" },
+    { "id": "procurement-specifications", "label": "Procurement and Specifications" }
+  ],
+  "industries": [
+    {
+      "id": "commercial-print-finishing",
+      "label": "Commercial print finishing",
+      "clusterIds": ["fundamentals-terminology", "process-comparison", "parameters-testing", "procurement-specifications"]
+    },
+    {
+      "id": "folding-carton-packaging",
+      "label": "Folding carton and paper packaging",
+      "clusterIds": ["paper-carton-packaging", "cosmetic-packaging", "wine-gift-packaging"]
+    },
+    {
+      "id": "cosmetics-personal-care",
+      "label": "Cosmetics and personal care",
+      "clusterIds": ["cosmetic-packaging", "label-printing", "plastics"]
+    },
+    {
+      "id": "wine-spirits-gifts",
+      "label": "Wine, spirits, and gifts",
+      "clusterIds": ["wine-gift-packaging", "paper-carton-packaging", "label-printing"]
+    },
+    {
+      "id": "labels-narrow-web",
+      "label": "Labels and narrow-web converting",
+      "clusterIds": ["label-printing", "process-comparison", "parameters-testing"]
+    },
+    {
+      "id": "consumer-plastic-products",
+      "label": "Consumer plastic products",
+      "clusterIds": ["plastics", "cosmetic-packaging", "troubleshooting"]
+    },
+    {
+      "id": "leather-goods-bookbinding",
+      "label": "Leather goods and bookbinding",
+      "clusterIds": ["leather", "troubleshooting", "parameters-testing"]
+    },
+    {
+      "id": "security-brand-protection",
+      "label": "Security and brand protection",
+      "clusterIds": ["holographic-security", "label-printing", "procurement-specifications"]
+    }
+  ],
+  "substrates": [
+    {
+      "id": "paper-coated",
+      "label": "Coated paper",
+      "materialFamily": "paper",
+      "clusterIds": ["paper-carton-packaging", "cosmetic-packaging", "wine-gift-packaging", "label-printing"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "cold-foil-sheetfed-offset", "cold-foil-narrow-web"],
+      "compatibilityGroupIds": ["standard-paper-hot", "paper-label-hot", "coated-paper-cold"],
+      "qualificationNotes": ["Record coating, ink, varnish, smoothness, and cure state before selecting a grade."]
+    },
+    {
+      "id": "paper-uncoated",
+      "label": "Uncoated paper",
+      "materialFamily": "paper",
+      "clusterIds": ["paper-carton-packaging", "wine-gift-packaging", "label-printing"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary"],
+      "compatibilityGroupIds": ["standard-paper-hot", "textured-paper-hot", "paper-label-hot"],
+      "qualificationNotes": ["Absorbency and surface roughness can change transfer completeness and gloss."]
+    },
+    {
+      "id": "paper-textured-specialty",
+      "label": "Textured or specialty paper",
+      "materialFamily": "paper",
+      "clusterIds": ["paper-carton-packaging", "wine-gift-packaging", "troubleshooting"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-embossing"],
+      "compatibilityGroupIds": ["textured-paper-hot"],
+      "qualificationNotes": ["Texture depth, compressibility, and large-area coverage must be sampled together."]
+    },
+    {
+      "id": "paper-kraft",
+      "label": "Kraft paper or board",
+      "materialFamily": "paper",
+      "clusterIds": ["paper-carton-packaging", "wine-gift-packaging"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat"],
+      "compatibilityGroupIds": ["textured-paper-hot", "pigment-paper-hot"],
+      "qualificationNotes": ["Surface variation and background color make opacity and adhesion job-specific."]
+    },
+    {
+      "id": "board-folding-carton",
+      "label": "Folding carton board",
+      "materialFamily": "paperboard",
+      "clusterIds": ["paper-carton-packaging", "cosmetic-packaging", "wine-gift-packaging"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-embossing", "cold-foil-sheetfed-offset"],
+      "compatibilityGroupIds": ["standard-paper-hot", "pigment-paper-hot", "coated-paper-cold"],
+      "qualificationNotes": ["Use the printed, varnished, or laminated production construction for approval."]
+    },
+    {
+      "id": "board-rigid-gift",
+      "label": "Rigid gift-box wrap or board",
+      "materialFamily": "paperboard",
+      "clusterIds": ["wine-gift-packaging", "cosmetic-packaging", "paper-carton-packaging"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-embossing"],
+      "compatibilityGroupIds": ["standard-paper-hot", "textured-paper-hot", "pigment-paper-hot"],
+      "qualificationNotes": ["Qualify the wrap material separately from the underlying board and adhesive construction."]
+    },
+    {
+      "id": "paperboard-laminated",
+      "label": "Laminated paper or paperboard",
+      "materialFamily": "laminate",
+      "clusterIds": ["paper-carton-packaging", "cosmetic-packaging", "wine-gift-packaging", "troubleshooting"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary"],
+      "compatibilityGroupIds": ["laminated-paper-hot"],
+      "qualificationNotes": ["Identify the film chemistry and treatment; similar-looking laminates are not interchangeable."]
+    },
+    {
+      "id": "label-paper-facestock",
+      "label": "Paper label facestock",
+      "materialFamily": "label-paper",
+      "clusterIds": ["label-printing", "wine-gift-packaging", "cosmetic-packaging"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-rotary", "cold-foil-narrow-web"],
+      "compatibilityGroupIds": ["paper-label-hot", "label-cold-transfer"],
+      "qualificationNotes": ["Facestock coating, print, varnish, and converting speed belong in the same trial record."]
+    },
+    {
+      "id": "label-film-facestock",
+      "label": "Film label facestock",
+      "materialFamily": "label-film",
+      "clusterIds": ["label-printing", "cosmetic-packaging", "plastics"],
+      "processIds": ["hot-stamping-rotary", "cold-foil-narrow-web"],
+      "compatibilityGroupIds": ["film-label-hot", "label-cold-transfer"],
+      "qualificationNotes": ["Identify polymer, primer, corona history, ink system, and heat tolerance."]
+    },
+    {
+      "id": "plastic-abs",
+      "label": "ABS",
+      "materialFamily": "plastic",
+      "clusterIds": ["plastics", "cosmetic-packaging", "troubleshooting"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-roll-on"],
+      "compatibilityGroupIds": ["rigid-plastic-hot"],
+      "qualificationNotes": ["Mold release, additives, coating, and part geometry can change adhesion."]
+    },
+    {
+      "id": "plastic-polystyrene",
+      "label": "Polystyrene (PS)",
+      "materialFamily": "plastic",
+      "clusterIds": ["plastics", "cosmetic-packaging"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-roll-on"],
+      "compatibilityGroupIds": ["rigid-plastic-hot"],
+      "qualificationNotes": ["Confirm heat tolerance and part deformation at production dwell and pressure."]
+    },
+    {
+      "id": "plastic-pvc-rigid",
+      "label": "Rigid PVC",
+      "materialFamily": "plastic",
+      "clusterIds": ["plastics", "cosmetic-packaging"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-roll-on"],
+      "compatibilityGroupIds": ["rigid-plastic-hot"],
+      "qualificationNotes": ["Plasticizer, coating, and heat history require grade-specific testing."]
+    },
+    {
+      "id": "plastic-pmma",
+      "label": "PMMA (acrylic)",
+      "materialFamily": "plastic",
+      "clusterIds": ["plastics", "cosmetic-packaging"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-roll-on"],
+      "compatibilityGroupIds": ["rigid-plastic-hot"],
+      "qualificationNotes": ["Check coating, stress sensitivity, geometry, and cosmetic durability requirements."]
+    },
+    {
+      "id": "plastic-pet-film",
+      "label": "PET or PETG film/component",
+      "materialFamily": "plastic",
+      "clusterIds": ["plastics", "label-printing", "cosmetic-packaging"],
+      "processIds": ["hot-stamping-rotary", "hot-stamping-roll-on", "cold-foil-narrow-web"],
+      "compatibilityGroupIds": ["film-label-hot", "label-cold-transfer", "rigid-plastic-hot"],
+      "qualificationNotes": ["Distinguish film facestock, laminate, and molded component; they are separate constructions."]
+    },
+    {
+      "id": "plastic-polypropylene",
+      "label": "Polypropylene (PP)",
+      "materialFamily": "low-surface-energy-plastic",
+      "clusterIds": ["plastics", "label-printing", "cosmetic-packaging", "troubleshooting"],
+      "processIds": ["hot-stamping-rotary", "hot-stamping-roll-on", "cold-foil-narrow-web"],
+      "compatibilityGroupIds": ["low-surface-energy-plastic-hot", "label-cold-transfer"],
+      "qualificationNotes": ["Surface treatment and surface-energy verification are normally part of qualification; no universal grade is implied."]
+    },
+    {
+      "id": "plastic-polyethylene",
+      "label": "Polyethylene (PE)",
+      "materialFamily": "low-surface-energy-plastic",
+      "clusterIds": ["plastics", "label-printing", "cosmetic-packaging", "troubleshooting"],
+      "processIds": ["hot-stamping-rotary", "hot-stamping-roll-on", "cold-foil-narrow-web"],
+      "compatibilityGroupIds": ["low-surface-energy-plastic-hot", "label-cold-transfer"],
+      "qualificationNotes": ["Resin grade, additives, treatment decay, and flexibility make adhesion strongly system-dependent."]
+    },
+    {
+      "id": "leather-natural",
+      "label": "Natural leather",
+      "materialFamily": "leather",
+      "clusterIds": ["leather", "troubleshooting", "parameters-testing"],
+      "processIds": ["hot-stamping-flatbed"],
+      "compatibilityGroupIds": ["leather-hot"],
+      "qualificationNotes": ["Tannery finish, oils, texture, thickness, and heat response vary; test each leather lot."]
+    },
+    {
+      "id": "leather-pu-synthetic",
+      "label": "PU synthetic leather",
+      "materialFamily": "synthetic-leather",
+      "clusterIds": ["leather", "cosmetic-packaging", "troubleshooting"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-roll-on"],
+      "compatibilityGroupIds": ["leather-hot"],
+      "qualificationNotes": ["Topcoat and texture must be identified; PU constructions are not interchangeable."]
+    },
+    {
+      "id": "leather-pvc-synthetic",
+      "label": "PVC synthetic leather or book cover",
+      "materialFamily": "synthetic-leather",
+      "clusterIds": ["leather", "wine-gift-packaging", "troubleshooting"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-roll-on"],
+      "compatibilityGroupIds": ["leather-hot"],
+      "qualificationNotes": ["Plasticizer, finish, and heat response require a representative sample."]
+    },
+    {
+      "id": "glass-container",
+      "label": "Coated glass container",
+      "materialFamily": "glass",
+      "clusterIds": ["cosmetic-packaging", "wine-gift-packaging", "troubleshooting"],
+      "processIds": ["hot-stamping-roll-on"],
+      "compatibilityGroupIds": ["coated-glass-specialty-hot"],
+      "qualificationNotes": ["Internal notes mention glass, but coating and equipment details are unresolved; treat as a qualification topic, not a default PC claim."]
+    }
+  ],
+  "surfaceTreatments": [
+    {
+      "id": "surface-as-supplied",
+      "label": "As-supplied or uncoated surface",
+      "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "hot-stamping-roll-on", "hot-stamping-embossing"]
+    },
+    {
+      "id": "printed-conventional-ink",
+      "label": "Conventional printed ink layer",
+      "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "cold-foil-sheetfed-offset"]
+    },
+    {
+      "id": "printed-uv-ink",
+      "label": "UV or LED-UV printed ink layer",
+      "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-rotary", "cold-foil-narrow-web", "cold-foil-sheetfed-offset"]
+    },
+    {
+      "id": "varnish-water-based",
+      "label": "Water-based varnish",
+      "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary"]
+    },
+    {
+      "id": "varnish-uv",
+      "label": "UV varnish or coating",
+      "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-rotary", "digital-uv-varnish-transfer", "screen-printed-uv-cold-transfer"]
+    },
+    {
+      "id": "lamination-opp-or-pet",
+      "label": "OPP or PET lamination",
+      "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary"]
+    },
+    {
+      "id": "soft-touch-coating-or-film",
+      "label": "Soft-touch coating or film",
+      "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat"]
+    },
+    {
+      "id": "anti-scratch-coating-or-film",
+      "label": "Anti-scratch coating or film",
+      "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat"]
+    },
+    {
+      "id": "primer",
+      "label": "Primer or adhesion-promoting coating",
+      "compatibleProcessIds": ["hot-stamping-rotary", "hot-stamping-roll-on", "cold-foil-narrow-web", "cold-foil-sheetfed-offset"]
+    },
+    {
+      "id": "corona-or-plasma",
+      "label": "Corona or plasma treatment",
+      "compatibleProcessIds": ["hot-stamping-rotary", "hot-stamping-roll-on", "cold-foil-narrow-web"]
+    },
+    {
+      "id": "digital-toner-layer",
+      "label": "Digital toner or electro-ink receiving layer",
+      "compatibleProcessIds": ["digital-toner-transfer"]
+    },
+    {
+      "id": "printed-cold-foil-adhesive",
+      "label": "Printed cold-foil adhesive",
+      "compatibleProcessIds": ["cold-foil-narrow-web", "cold-foil-sheetfed-offset", "screen-printed-uv-cold-transfer"]
+    }
+  ],
+  "processes": [
+    {
+      "id": "hot-stamping-flatbed",
+      "label": "Flatbed or platen hot stamping",
+      "processFamily": "hot-stamping",
+      "requiredVariables": ["temperature", "pressure", "dwell-time", "die-condition", "foil-grade", "substrate-construction"]
+    },
+    {
+      "id": "hot-stamping-round-flat",
+      "label": "Round-flat or cylinder hot stamping",
+      "processFamily": "hot-stamping",
+      "requiredVariables": ["temperature", "pressure", "line-speed", "die-condition", "foil-grade", "substrate-construction"]
+    },
+    {
+      "id": "hot-stamping-rotary",
+      "label": "Rotary or web-fed hot stamping",
+      "processFamily": "hot-stamping",
+      "requiredVariables": ["temperature", "nip-pressure", "line-speed", "foil-tension", "register-control", "foil-grade"]
+    },
+    {
+      "id": "hot-stamping-roll-on",
+      "label": "Roll-on hot stamping for shaped parts",
+      "processFamily": "hot-stamping",
+      "requiredVariables": ["temperature", "nip-pressure", "line-speed", "part-geometry", "surface-cleanliness", "foil-grade"]
+    },
+    {
+      "id": "hot-stamping-embossing",
+      "label": "Combined foil stamping and embossing",
+      "processFamily": "hot-stamping",
+      "requiredVariables": ["temperature", "pressure", "dwell-time", "die-condition", "artwork-feature-size", "substrate-compressibility"]
+    },
+    {
+      "id": "cold-foil-narrow-web",
+      "label": "Narrow-web cold foil transfer",
+      "processFamily": "cold-transfer",
+      "requiredVariables": ["adhesive-system", "adhesive-coat-weight", "uv-dose", "nip-pressure", "line-speed", "surface-treatment"]
+    },
+    {
+      "id": "cold-foil-sheetfed-offset",
+      "label": "Sheet-fed offset cold foil transfer",
+      "processFamily": "cold-transfer",
+      "requiredVariables": ["adhesive-system", "adhesive-coat-weight", "uv-dose", "nip-pressure", "register-control", "substrate-smoothness"]
+    },
+    {
+      "id": "screen-printed-uv-cold-transfer",
+      "label": "Screen-printed UV adhesive foil transfer",
+      "processFamily": "cold-transfer",
+      "requiredVariables": ["adhesive-system", "adhesive-coat-weight", "uv-dose", "nip-pressure", "surface-treatment"]
+    },
+    {
+      "id": "digital-toner-transfer",
+      "label": "Digital toner or electro-ink foil transfer",
+      "processFamily": "digital-transfer",
+      "requiredVariables": ["toner-system", "lamination-temperature", "nip-pressure", "line-speed", "foil-grade"]
+    },
+    {
+      "id": "digital-uv-varnish-transfer",
+      "label": "Digital UV varnish foil transfer",
+      "processFamily": "digital-transfer",
+      "requiredVariables": ["varnish-system", "varnish-height", "uv-dose", "nip-pressure", "foil-grade"]
+    },
+    {
+      "id": "registered-hologram-transfer",
+      "label": "Registered hologram transfer",
+      "processFamily": "registered-transfer",
+      "requiredVariables": ["register-control", "foil-tension", "pitch", "temperature", "pressure", "security-origination"]
+    }
+  ],
+  "diagnosticVariables": [
+    { "id": "substrate-construction", "label": "Substrate identity and construction" },
+    { "id": "surface-treatment", "label": "Surface treatment, coating, or lamination" },
+    { "id": "surface-cleanliness", "label": "Surface contamination or mold release" },
+    { "id": "substrate-smoothness", "label": "Surface roughness or smoothness" },
+    { "id": "substrate-compressibility", "label": "Substrate compressibility" },
+    { "id": "substrate-batch", "label": "Substrate batch variation" },
+    { "id": "ink-coating-cure", "label": "Ink, coating, or varnish cure state" },
+    { "id": "surface-energy", "label": "Surface energy or wetting condition" },
+    { "id": "foil-grade", "label": "Foil grade and adhesive/release formulation" },
+    { "id": "foil-batch", "label": "Foil batch or roll variation" },
+    { "id": "release-characteristic", "label": "Foil release characteristic" },
+    { "id": "temperature", "label": "Actual die or roller temperature" },
+    { "id": "pressure", "label": "Applied stamping pressure" },
+    { "id": "dwell-time", "label": "Contact or dwell time" },
+    { "id": "line-speed", "label": "Machine or web speed" },
+    { "id": "nip-pressure", "label": "Nip pressure" },
+    { "id": "foil-tension", "label": "Foil web tension and feed" },
+    { "id": "die-condition", "label": "Die material, hardness, relief, level, and wear" },
+    { "id": "equipment-alignment", "label": "Platen, anvil, roller, or part alignment" },
+    { "id": "register-control", "label": "Register sensing and control" },
+    { "id": "artwork-feature-size", "label": "Minimum line, text, knockout, or gap size" },
+    { "id": "stamping-area", "label": "Solid coverage and stamping area" },
+    { "id": "part-geometry", "label": "Part curvature and geometry" },
+    { "id": "adhesive-system", "label": "Cold-transfer adhesive chemistry" },
+    { "id": "adhesive-coat-weight", "label": "Adhesive or varnish coat weight" },
+    { "id": "uv-dose", "label": "UV or LED-UV cure dose" },
+    { "id": "toner-system", "label": "Toner or electro-ink system" },
+    { "id": "varnish-system", "label": "Digital varnish system" },
+    { "id": "varnish-height", "label": "Digital varnish or relief height" },
+    { "id": "lamination-temperature", "label": "Toner-transfer lamination temperature" },
+    { "id": "pitch", "label": "Hologram image pitch" },
+    { "id": "security-origination", "label": "Security image origination and control" },
+    { "id": "ambient-conditions", "label": "Temperature and humidity" },
+    { "id": "test-method", "label": "Agreed test method and pass/fail criterion" }
+  ],
+  "defects": [
+    {
+      "id": "incomplete-transfer",
+      "label": "Incomplete or missing transfer",
+      "clusterIds": ["troubleshooting", "parameters-testing"],
+      "diagnosticVariableIds": ["substrate-construction", "surface-treatment", "surface-cleanliness", "foil-grade", "temperature", "pressure", "dwell-time", "line-speed", "die-condition", "equipment-alignment"]
+    },
+    {
+      "id": "poor-adhesion-peeling",
+      "label": "Poor adhesion or peeling",
+      "clusterIds": ["troubleshooting", "plastics", "leather"],
+      "diagnosticVariableIds": ["substrate-construction", "surface-treatment", "surface-energy", "surface-cleanliness", "ink-coating-cure", "foil-grade", "temperature", "pressure", "test-method"]
+    },
+    {
+      "id": "blurred-or-filled-detail",
+      "label": "Blurred detail, filling, or loss of negative space",
+      "clusterIds": ["troubleshooting", "label-printing"],
+      "diagnosticVariableIds": ["artwork-feature-size", "release-characteristic", "temperature", "pressure", "dwell-time", "line-speed", "die-condition", "substrate-compressibility"]
+    },
+    {
+      "id": "overtransfer-halo",
+      "label": "Over-transfer, halo, or foil outside the image",
+      "clusterIds": ["troubleshooting", "leather"],
+      "diagnosticVariableIds": ["temperature", "pressure", "dwell-time", "die-condition", "equipment-alignment", "release-characteristic", "substrate-compressibility"]
+    },
+    {
+      "id": "mottling-pinholes",
+      "label": "Mottling, pinholes, or uneven solid coverage",
+      "clusterIds": ["troubleshooting", "wine-gift-packaging", "paper-carton-packaging"],
+      "diagnosticVariableIds": ["substrate-smoothness", "surface-treatment", "stamping-area", "foil-grade", "temperature", "pressure", "die-condition", "equipment-alignment"]
+    },
+    {
+      "id": "foil-flaking-dusting",
+      "label": "Foil flaking, dusting, or edge debris",
+      "clusterIds": ["troubleshooting", "label-printing"],
+      "diagnosticVariableIds": ["foil-grade", "foil-batch", "release-characteristic", "die-condition", "line-speed", "foil-tension", "artwork-feature-size"]
+    },
+    {
+      "id": "scratch-scuff-failure",
+      "label": "Scratch, scuff, or rub failure",
+      "clusterIds": ["troubleshooting", "cosmetic-packaging", "parameters-testing"],
+      "diagnosticVariableIds": ["substrate-construction", "surface-treatment", "foil-grade", "ink-coating-cure", "test-method", "ambient-conditions"]
+    },
+    {
+      "id": "alcohol-chemical-failure",
+      "label": "Alcohol or chemical resistance failure",
+      "clusterIds": ["troubleshooting", "cosmetic-packaging", "plastics"],
+      "diagnosticVariableIds": ["substrate-construction", "surface-treatment", "foil-grade", "ink-coating-cure", "test-method", "dwell-time"]
+    },
+    {
+      "id": "register-shift",
+      "label": "Register shift or hologram placement error",
+      "clusterIds": ["troubleshooting", "holographic-security", "label-printing"],
+      "diagnosticVariableIds": ["register-control", "foil-tension", "pitch", "line-speed", "equipment-alignment", "substrate-batch"]
+    },
+    {
+      "id": "color-gloss-variation",
+      "label": "Color, gloss, or optical-effect variation",
+      "clusterIds": ["troubleshooting", "holographic-security", "procurement-specifications"],
+      "diagnosticVariableIds": ["foil-batch", "substrate-construction", "surface-treatment", "temperature", "pressure", "stamping-area", "ambient-conditions"]
+    },
+    {
+      "id": "substrate-heat-damage",
+      "label": "Heat damage, distortion, or excessive indentation",
+      "clusterIds": ["troubleshooting", "plastics", "leather"],
+      "diagnosticVariableIds": ["substrate-construction", "temperature", "pressure", "dwell-time", "line-speed", "part-geometry", "die-condition"]
+    },
+    {
+      "id": "cold-foil-spread-or-voids",
+      "label": "Cold-foil dot spread, voids, or weak metallic density",
+      "clusterIds": ["troubleshooting", "label-printing", "process-comparison"],
+      "diagnosticVariableIds": ["adhesive-system", "adhesive-coat-weight", "uv-dose", "nip-pressure", "line-speed", "surface-treatment", "substrate-smoothness"]
+    }
+  ],
+  "tests": [
+    {
+      "id": "controlled-sampling-ladder",
+      "label": "Controlled process-window sampling",
+      "applicableDefectIds": ["incomplete-transfer", "poor-adhesion-peeling", "blurred-or-filled-detail", "overtransfer-halo", "mottling-pinholes", "substrate-heat-damage"],
+      "scopeNote": "Change one recorded variable at a time on production-representative material; supplier settings are starting points only."
+    },
+    {
+      "id": "visual-transfer-completeness",
+      "label": "Visual transfer-completeness inspection",
+      "applicableDefectIds": ["incomplete-transfer", "mottling-pinholes", "cold-foil-spread-or-voids"],
+      "scopeNote": "Define viewing conditions and acceptance examples before testing."
+    },
+    {
+      "id": "edge-definition-magnified",
+      "label": "Magnified edge and fine-detail inspection",
+      "applicableDefectIds": ["blurred-or-filled-detail", "overtransfer-halo", "foil-flaking-dusting", "cold-foil-spread-or-voids"],
+      "scopeNote": "Use the production artwork and agreed minimum features."
+    },
+    {
+      "id": "tape-adhesion-job-specific",
+      "label": "Job-specific tape pull",
+      "applicableDefectIds": ["poor-adhesion-peeling", "foil-flaking-dusting"],
+      "scopeNote": "Record tape, pressure, dwell, peel angle, peel rate, conditioning, and acceptance criterion; do not call it a standards test unless the full standard applies."
+    },
+    {
+      "id": "cross-cut-adhesion-agreed",
+      "label": "Agreed cross-cut classification",
+      "applicableDefectIds": ["poor-adhesion-peeling"],
+      "scopeNote": "ISO 2409 and ASTM D3359 have defined scopes and limitations; confirm applicability to the complete decoration system before citing either method."
+    },
+    {
+      "id": "dry-rub-abrasion",
+      "label": "Dry rub or abrasion comparison",
+      "applicableDefectIds": ["scratch-scuff-failure", "foil-flaking-dusting"],
+      "scopeNote": "Specify load, receptor, cycles, conditioning, and pass/fail criterion."
+    },
+    {
+      "id": "alcohol-chemical-rub",
+      "label": "Alcohol or specified-agent rub test",
+      "applicableDefectIds": ["alcohol-chemical-failure", "poor-adhesion-peeling"],
+      "scopeNote": "Specify agent, concentration, applicator, load, cycles, dwell, and visual acceptance; avoid a generic 'alcohol resistant' claim."
+    },
+    {
+      "id": "scratch-resistance-agreed",
+      "label": "Agreed scratch-resistance test",
+      "applicableDefectIds": ["scratch-scuff-failure"],
+      "scopeNote": "Select a method suitable for the decorated article and define whether the result is pass/fail or comparative."
+    },
+    {
+      "id": "fold-crease-durability",
+      "label": "Fold or crease durability",
+      "applicableDefectIds": ["poor-adhesion-peeling", "foil-flaking-dusting"],
+      "scopeNote": "Use the production board grain, crease geometry, and post-stamp sequence."
+    },
+    {
+      "id": "registration-measurement",
+      "label": "Registration and pitch measurement",
+      "applicableDefectIds": ["register-shift"],
+      "scopeNote": "Set tolerances from artwork, repeat length, sensor, equipment, and security specification."
+    },
+    {
+      "id": "color-gloss-master-comparison",
+      "label": "Color and gloss comparison to approved master",
+      "applicableDefectIds": ["color-gloss-variation"],
+      "scopeNote": "Keep substrate, lighting, viewing geometry, and instrument method consistent."
+    },
+    {
+      "id": "surface-energy-check",
+      "label": "Surface-energy or wetting check",
+      "applicableDefectIds": ["poor-adhesion-peeling", "cold-foil-spread-or-voids"],
+      "scopeNote": "Use as a process-control indicator, not as proof that a particular foil grade will adhere."
+    },
+    {
+      "id": "repeat-run-stability",
+      "label": "Repeat-run and batch stability check",
+      "applicableDefectIds": ["color-gloss-variation", "incomplete-transfer", "register-shift"],
+      "scopeNote": "Retain approved samples and setup records, then compare substrate and foil batches under controlled settings."
+    }
+  ],
+  "equipment": [
+    { "id": "manual-platen-press", "label": "Manual or clamshell platen press", "processIds": ["hot-stamping-flatbed"] },
+    { "id": "automatic-flatbed-press", "label": "Automatic flatbed hot-foil press", "processIds": ["hot-stamping-flatbed", "hot-stamping-embossing", "registered-hologram-transfer"] },
+    { "id": "round-flat-cylinder-press", "label": "Round-flat or cylinder press", "processIds": ["hot-stamping-round-flat"] },
+    { "id": "rotary-web-hot-foil-unit", "label": "Rotary web-fed hot-foil unit", "processIds": ["hot-stamping-rotary", "registered-hologram-transfer"] },
+    { "id": "roll-on-parts-stamper", "label": "Roll-on stamper for shaped parts", "processIds": ["hot-stamping-roll-on"] },
+    { "id": "sheetfed-offset-cold-foil-module", "label": "Sheet-fed offset cold-foil module", "processIds": ["cold-foil-sheetfed-offset"] },
+    { "id": "narrow-web-cold-foil-module", "label": "Narrow-web flexo or letterpress cold-foil module", "processIds": ["cold-foil-narrow-web"] },
+    { "id": "screen-printing-cold-foil-line", "label": "Screen-printing UV cold-foil line", "processIds": ["screen-printed-uv-cold-transfer"] },
+    { "id": "digital-toner-foiling-system", "label": "Digital toner foiling system", "processIds": ["digital-toner-transfer"] },
+    { "id": "digital-uv-embellishment-system", "label": "Digital UV varnish embellishment system", "processIds": ["digital-uv-varnish-transfer"] },
+    { "id": "registered-hologram-press", "label": "Registered hologram hot-foil press", "processIds": ["registered-hologram-transfer"] }
+  ],
+  "artworkTypes": [
+    { "id": "fine-lines-small-type", "label": "Fine lines and small type", "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-rotary", "cold-foil-narrow-web", "cold-foil-sheetfed-offset", "digital-toner-transfer", "digital-uv-varnish-transfer"] },
+    { "id": "large-solid-area", "label": "Large solid area", "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "cold-foil-sheetfed-offset"] },
+    { "id": "reverse-knockout", "label": "Reverse or knockout detail", "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-rotary", "cold-foil-narrow-web", "cold-foil-sheetfed-offset"] },
+    { "id": "halftone-gradient", "label": "Halftone or gradient", "compatibleProcessIds": ["cold-foil-narrow-web", "cold-foil-sheetfed-offset", "digital-uv-varnish-transfer"] },
+    { "id": "foil-and-emboss-relief", "label": "Foil with embossing or relief", "compatibleProcessIds": ["hot-stamping-embossing", "digital-uv-varnish-transfer"] },
+    { "id": "variable-data-personalization", "label": "Variable data or personalization", "compatibleProcessIds": ["digital-toner-transfer", "digital-uv-varnish-transfer"] },
+    { "id": "registered-single-image-hologram", "label": "Registered single-image hologram", "compatibleProcessIds": ["registered-hologram-transfer"] },
+    { "id": "continuous-holographic-pattern", "label": "Continuous holographic pattern", "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-rotary", "cold-foil-narrow-web", "cold-foil-sheetfed-offset"] }
+  ],
+  "procurementConcerns": [
+    { "id": "substrate-grade-selection", "label": "Substrate-specific foil grade selection" },
+    { "id": "representative-sampling", "label": "Production-representative sample approval" },
+    { "id": "durability-acceptance", "label": "Durability method and pass/fail criteria" },
+    { "id": "roll-width-length-core", "label": "Roll width, length, winding, and core" },
+    { "id": "color-finish-master", "label": "Color, finish, and approved master" },
+    { "id": "batch-consistency-traceability", "label": "Batch consistency and traceability" },
+    { "id": "moq-order-quantity", "label": "MOQ and order quantity" },
+    { "id": "lead-time-logistics", "label": "Lead time and logistics" },
+    { "id": "machine-process-compatibility", "label": "Machine and process compatibility" },
+    { "id": "compliance-documentation", "label": "Application-specific compliance documentation" },
+    { "id": "security-origination-control", "label": "Security origination, ownership, and access control" },
+    { "id": "repeat-order-change-control", "label": "Repeat-order tolerances and change control" }
+  ],
+  "regions": [
+    { "id": "global", "label": "Global", "usage": "General technical content; verify local legal and customer requirements." },
+    { "id": "china", "label": "China", "usage": "Language, logistics, and procurement context only." },
+    { "id": "southeast-asia", "label": "Southeast Asia", "usage": "Climate, logistics, language, and procurement context only." },
+    { "id": "europe", "label": "Europe", "usage": "Market and documentation context; do not infer compliance from region." },
+    { "id": "north-america", "label": "North America", "usage": "Market and standards-selection context only." },
+    { "id": "latin-america", "label": "Latin America", "usage": "Language, logistics, and procurement context only." },
+    { "id": "middle-east-africa", "label": "Middle East and Africa", "usage": "Climate, logistics, and procurement context only." }
+  ],
+  "productSeries": [
+    {
+      "id": "PK",
+      "label": "PK Brown Back Series",
+      "catalogSeriesIds": ["PK"],
+      "productFamily": "metallic-hot-stamping-foil",
+      "evidenceStatus": "confirmed-internal",
+      "confirmedProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "hot-stamping-embossing"],
+      "confirmedSubstrateIds": ["paper-coated", "paper-uncoated", "paper-textured-specialty", "paper-kraft", "board-folding-carton", "board-rigid-gift", "paperboard-laminated", "label-paper-facestock", "leather-natural", "leather-pu-synthetic", "leather-pvc-synthetic"],
+      "compatibilityGroupIds": ["standard-paper-hot", "textured-paper-hot", "laminated-paper-hot", "paper-label-hot", "leather-hot"],
+      "uncertainties": [
+        "The public catalog does not map individual PK color codes to substrate-specific adhesive/release grades.",
+        "Leather and difficult coatings are grade- and finish-specific despite being named in internal product evidence.",
+        "No numeric temperature, adhesion, or durability claim should be generated without a current technical data sheet and sample approval."
+      ]
+    },
+    {
+      "id": "PC",
+      "label": "PC Plastic/Cold Foils Series",
+      "catalogSeriesIds": ["PC"],
+      "productFamily": "plastic-hot-stamping-and-grade-specific-cold-foil",
+      "evidenceStatus": "confirmed-internal",
+      "confirmedProcessIds": ["hot-stamping-flatbed", "hot-stamping-rotary", "hot-stamping-roll-on"],
+      "gradeSpecificProcessIds": ["cold-foil-narrow-web", "screen-printed-uv-cold-transfer", "digital-uv-varnish-transfer"],
+      "confirmedSubstrateIds": ["plastic-abs", "plastic-polystyrene", "plastic-pvc-rigid", "plastic-pmma", "plastic-pet-film", "plastic-polypropylene", "plastic-polyethylene"],
+      "compatibilityGroupIds": ["rigid-plastic-hot", "low-surface-energy-plastic-hot", "film-label-hot"],
+      "uncertainties": [
+        "Internal sources mention both plastic hot-stamping grades and cold/digital variants; membership in PC alone does not prove cold-foil compatibility.",
+        "PP and PE require treatment and application-specific qualification and must not be described as universally compatible.",
+        "The internal glass reference lacks coating and equipment detail and is excluded from confirmed substrate mappings.",
+        "Alcohol resistance requires a named method and acceptance criterion; the series name alone is not evidence of a pass."
+      ]
+    },
+    {
+      "id": "PLPY",
+      "label": "PL/PY Pigment Foils",
+      "catalogSeriesIds": ["PL", "PY"],
+      "productFamily": "pigment-hot-stamping-foil",
+      "evidenceStatus": "confirmed-internal",
+      "confirmedProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary"],
+      "confirmedSubstrateIds": ["paper-coated", "paper-uncoated", "paper-kraft", "board-folding-carton", "board-rigid-gift", "paperboard-laminated"],
+      "compatibilityGroupIds": ["pigment-paper-hot"],
+      "uncertainSubstrateIds": ["plastic-abs", "plastic-polystyrene", "plastic-pvc-rigid", "leather-natural", "leather-pu-synthetic", "leather-pvc-synthetic"],
+      "uncertainties": [
+        "Internal sources consistently support paper and packaging uses but differ on the breadth of plastics and leather compatibility.",
+        "PL is glossy and PY is matte in the current catalog grouping; exact opacity, color match, and grade suitability require sampling.",
+        "Do not generate plastics or leather recommendations for PLPY unless an individual grade is qualified."
+      ]
+    },
+    {
+      "id": "DIGITAL",
+      "label": "Digital / Cold Foil",
+      "catalogSeriesIds": [],
+      "productFamily": "digital-and-cold-transfer-foil",
+      "evidenceStatus": "uncertain-internal",
+      "confirmedProcessIds": [],
+      "gradeSpecificProcessIds": ["cold-foil-narrow-web", "cold-foil-sheetfed-offset", "screen-printed-uv-cold-transfer", "digital-toner-transfer", "digital-uv-varnish-transfer"],
+      "confirmedSubstrateIds": [],
+      "compatibilityGroupIds": ["coated-paper-cold", "label-cold-transfer", "digital-toner-enhancement", "digital-uv-enhancement"],
+      "uncertainties": [
+        "DIGITAL exists in PINTE category content but has no item-level entries in data/foil_data.ts.",
+        "MGI, Scodix, toner, UV-varnish, screen-printed adhesive, narrow-web, and sheet-fed cold transfer are distinct systems and cannot share a blanket compatibility claim.",
+        "Generate DIGITAL content as process qualification and procurement guidance until grade-level technical data is available."
+      ]
+    }
+  ],
+  "compatibilityGroups": [
+    {
+      "id": "standard-paper-hot",
+      "label": "Standard paper and carton hot stamping",
+      "status": "supported-with-sampling",
+      "clusterIds": ["paper-carton-packaging", "cosmetic-packaging", "wine-gift-packaging"],
+      "industryIds": ["folding-carton-packaging", "cosmetics-personal-care", "wine-spirits-gifts"],
+      "substrateIds": ["paper-coated", "paper-uncoated", "board-folding-carton", "board-rigid-gift"],
+      "surfaceTreatmentIds": ["surface-as-supplied", "printed-conventional-ink", "printed-uv-ink", "varnish-water-based"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "hot-stamping-embossing"],
+      "productSeriesIds": ["PK"],
+      "testIds": ["controlled-sampling-ladder", "visual-transfer-completeness", "edge-definition-magnified", "tape-adhesion-job-specific"]
+    },
+    {
+      "id": "textured-paper-hot",
+      "label": "Textured, kraft, and difficult paper hot stamping",
+      "status": "supported-with-sampling",
+      "clusterIds": ["paper-carton-packaging", "wine-gift-packaging", "troubleshooting"],
+      "industryIds": ["folding-carton-packaging", "wine-spirits-gifts"],
+      "substrateIds": ["paper-uncoated", "paper-textured-specialty", "paper-kraft", "board-rigid-gift"],
+      "surfaceTreatmentIds": ["surface-as-supplied", "printed-conventional-ink", "soft-touch-coating-or-film", "anti-scratch-coating-or-film"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-embossing"],
+      "productSeriesIds": ["PK"],
+      "testIds": ["controlled-sampling-ladder", "visual-transfer-completeness", "edge-definition-magnified", "dry-rub-abrasion"]
+    },
+    {
+      "id": "laminated-paper-hot",
+      "label": "Laminated paperboard hot stamping",
+      "status": "conditional",
+      "clusterIds": ["paper-carton-packaging", "cosmetic-packaging", "wine-gift-packaging", "troubleshooting"],
+      "industryIds": ["folding-carton-packaging", "cosmetics-personal-care", "wine-spirits-gifts"],
+      "substrateIds": ["paperboard-laminated"],
+      "surfaceTreatmentIds": ["lamination-opp-or-pet", "soft-touch-coating-or-film", "anti-scratch-coating-or-film"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary"],
+      "productSeriesIds": ["PK"],
+      "testIds": ["controlled-sampling-ladder", "tape-adhesion-job-specific", "dry-rub-abrasion", "fold-crease-durability"]
+    },
+    {
+      "id": "paper-label-hot",
+      "label": "Paper label hot stamping",
+      "status": "supported-with-sampling",
+      "clusterIds": ["label-printing", "wine-gift-packaging", "cosmetic-packaging"],
+      "industryIds": ["labels-narrow-web", "wine-spirits-gifts", "cosmetics-personal-care"],
+      "substrateIds": ["paper-coated", "paper-uncoated", "label-paper-facestock"],
+      "surfaceTreatmentIds": ["surface-as-supplied", "printed-conventional-ink", "printed-uv-ink", "varnish-water-based", "varnish-uv"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-rotary"],
+      "productSeriesIds": ["PK"],
+      "testIds": ["controlled-sampling-ladder", "edge-definition-magnified", "tape-adhesion-job-specific", "repeat-run-stability"]
+    },
+    {
+      "id": "film-label-hot",
+      "label": "Film label hot stamping",
+      "status": "conditional",
+      "clusterIds": ["label-printing", "plastics", "cosmetic-packaging"],
+      "industryIds": ["labels-narrow-web", "cosmetics-personal-care"],
+      "substrateIds": ["label-film-facestock", "plastic-pet-film"],
+      "surfaceTreatmentIds": ["primer", "corona-or-plasma", "printed-uv-ink"],
+      "processIds": ["hot-stamping-rotary"],
+      "productSeriesIds": ["PC"],
+      "testIds": ["controlled-sampling-ladder", "surface-energy-check", "tape-adhesion-job-specific", "dry-rub-abrasion"]
+    },
+    {
+      "id": "rigid-plastic-hot",
+      "label": "Rigid plastic component hot stamping",
+      "status": "supported-with-sampling",
+      "clusterIds": ["plastics", "cosmetic-packaging", "troubleshooting"],
+      "industryIds": ["consumer-plastic-products", "cosmetics-personal-care"],
+      "substrateIds": ["plastic-abs", "plastic-polystyrene", "plastic-pvc-rigid", "plastic-pmma", "plastic-pet-film"],
+      "surfaceTreatmentIds": ["surface-as-supplied", "primer", "corona-or-plasma"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-roll-on"],
+      "productSeriesIds": ["PC"],
+      "testIds": ["controlled-sampling-ladder", "tape-adhesion-job-specific", "dry-rub-abrasion", "alcohol-chemical-rub", "scratch-resistance-agreed"]
+    },
+    {
+      "id": "low-surface-energy-plastic-hot",
+      "label": "PP and PE component hot stamping",
+      "status": "conditional",
+      "clusterIds": ["plastics", "cosmetic-packaging", "troubleshooting", "parameters-testing"],
+      "industryIds": ["consumer-plastic-products", "cosmetics-personal-care"],
+      "substrateIds": ["plastic-polypropylene", "plastic-polyethylene"],
+      "surfaceTreatmentIds": ["primer", "corona-or-plasma"],
+      "processIds": ["hot-stamping-rotary", "hot-stamping-roll-on"],
+      "productSeriesIds": ["PC"],
+      "testIds": ["controlled-sampling-ladder", "surface-energy-check", "tape-adhesion-job-specific", "alcohol-chemical-rub", "repeat-run-stability"]
+    },
+    {
+      "id": "leather-hot",
+      "label": "Natural and synthetic leather hot stamping",
+      "status": "conditional",
+      "clusterIds": ["leather", "troubleshooting", "parameters-testing"],
+      "industryIds": ["leather-goods-bookbinding"],
+      "substrateIds": ["leather-natural", "leather-pu-synthetic", "leather-pvc-synthetic"],
+      "surfaceTreatmentIds": ["surface-as-supplied"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-roll-on"],
+      "productSeriesIds": ["PK"],
+      "testIds": ["controlled-sampling-ladder", "visual-transfer-completeness", "edge-definition-magnified", "dry-rub-abrasion", "fold-crease-durability"]
+    },
+    {
+      "id": "pigment-paper-hot",
+      "label": "Opaque pigment foil on paper and board",
+      "status": "supported-with-sampling",
+      "clusterIds": ["paper-carton-packaging", "cosmetic-packaging", "wine-gift-packaging"],
+      "industryIds": ["folding-carton-packaging", "cosmetics-personal-care", "wine-spirits-gifts"],
+      "substrateIds": ["paper-coated", "paper-uncoated", "paper-kraft", "board-folding-carton", "board-rigid-gift", "paperboard-laminated"],
+      "surfaceTreatmentIds": ["surface-as-supplied", "printed-conventional-ink", "lamination-opp-or-pet"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary"],
+      "productSeriesIds": ["PLPY"],
+      "testIds": ["controlled-sampling-ladder", "visual-transfer-completeness", "edge-definition-magnified", "color-gloss-master-comparison"]
+    },
+    {
+      "id": "coated-paper-cold",
+      "label": "Coated paper and carton cold transfer",
+      "status": "conditional",
+      "clusterIds": ["paper-carton-packaging", "process-comparison", "parameters-testing"],
+      "industryIds": ["commercial-print-finishing", "folding-carton-packaging"],
+      "substrateIds": ["paper-coated", "board-folding-carton"],
+      "surfaceTreatmentIds": ["printed-cold-foil-adhesive", "primer"],
+      "processIds": ["cold-foil-sheetfed-offset"],
+      "productSeriesIds": ["DIGITAL"],
+      "testIds": ["controlled-sampling-ladder", "visual-transfer-completeness", "edge-definition-magnified", "dry-rub-abrasion"]
+    },
+    {
+      "id": "label-cold-transfer",
+      "label": "Paper and film label cold transfer",
+      "status": "conditional",
+      "clusterIds": ["label-printing", "process-comparison", "parameters-testing"],
+      "industryIds": ["labels-narrow-web", "cosmetics-personal-care", "wine-spirits-gifts"],
+      "substrateIds": ["label-paper-facestock", "label-film-facestock", "plastic-pet-film", "plastic-polypropylene", "plastic-polyethylene"],
+      "surfaceTreatmentIds": ["printed-cold-foil-adhesive", "primer", "corona-or-plasma"],
+      "processIds": ["cold-foil-narrow-web"],
+      "productSeriesIds": ["DIGITAL"],
+      "testIds": ["controlled-sampling-ladder", "edge-definition-magnified", "surface-energy-check", "dry-rub-abrasion", "repeat-run-stability"]
+    },
+    {
+      "id": "digital-toner-enhancement",
+      "label": "Digital toner foil enhancement",
+      "status": "research-required",
+      "clusterIds": ["process-comparison", "label-printing", "procurement-specifications"],
+      "industryIds": ["commercial-print-finishing", "labels-narrow-web"],
+      "substrateIds": ["paper-coated", "board-folding-carton", "label-paper-facestock"],
+      "surfaceTreatmentIds": ["digital-toner-layer"],
+      "processIds": ["digital-toner-transfer"],
+      "productSeriesIds": ["DIGITAL"],
+      "testIds": ["controlled-sampling-ladder", "edge-definition-magnified", "dry-rub-abrasion"]
+    },
+    {
+      "id": "digital-uv-enhancement",
+      "label": "Digital or screen-printed UV foil enhancement",
+      "status": "research-required",
+      "clusterIds": ["process-comparison", "cosmetic-packaging", "label-printing", "procurement-specifications"],
+      "industryIds": ["commercial-print-finishing", "folding-carton-packaging", "labels-narrow-web"],
+      "substrateIds": ["paper-coated", "board-folding-carton", "label-paper-facestock", "label-film-facestock"],
+      "surfaceTreatmentIds": ["varnish-uv", "printed-cold-foil-adhesive", "primer"],
+      "processIds": ["screen-printed-uv-cold-transfer", "digital-uv-varnish-transfer"],
+      "productSeriesIds": ["DIGITAL"],
+      "testIds": ["controlled-sampling-ladder", "edge-definition-magnified", "dry-rub-abrasion", "repeat-run-stability"]
+    },
+    {
+      "id": "decorative-holographic-transfer",
+      "label": "Decorative continuous holographic transfer",
+      "status": "supplier-grade-required",
+      "clusterIds": ["holographic-security", "cosmetic-packaging", "wine-gift-packaging", "label-printing"],
+      "industryIds": ["folding-carton-packaging", "cosmetics-personal-care", "wine-spirits-gifts", "labels-narrow-web"],
+      "substrateIds": ["paper-coated", "board-folding-carton", "label-paper-facestock", "label-film-facestock"],
+      "surfaceTreatmentIds": ["surface-as-supplied", "printed-conventional-ink", "printed-uv-ink", "printed-cold-foil-adhesive"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-rotary", "cold-foil-narrow-web", "cold-foil-sheetfed-offset"],
+      "productSeriesIds": [],
+      "testIds": ["visual-transfer-completeness", "registration-measurement", "color-gloss-master-comparison"]
+    },
+    {
+      "id": "registered-security-hologram",
+      "label": "Registered security hologram",
+      "status": "security-specialist-required",
+      "clusterIds": ["holographic-security", "procurement-specifications"],
+      "industryIds": ["security-brand-protection"],
+      "substrateIds": ["paper-coated", "board-folding-carton", "label-paper-facestock", "label-film-facestock", "plastic-pvc-rigid"],
+      "surfaceTreatmentIds": ["surface-as-supplied", "primer"],
+      "processIds": ["registered-hologram-transfer"],
+      "productSeriesIds": [],
+      "testIds": ["registration-measurement", "repeat-run-stability", "color-gloss-master-comparison"]
+    },
+    {
+      "id": "coated-glass-specialty-hot",
+      "label": "Coated glass specialty hot stamping",
+      "status": "research-required",
+      "clusterIds": ["cosmetic-packaging", "wine-gift-packaging", "troubleshooting"],
+      "industryIds": ["cosmetics-personal-care", "wine-spirits-gifts"],
+      "substrateIds": ["glass-container"],
+      "surfaceTreatmentIds": ["primer"],
+      "processIds": ["hot-stamping-roll-on"],
+      "productSeriesIds": [],
+      "testIds": ["controlled-sampling-ladder", "tape-adhesion-job-specific", "dry-rub-abrasion", "alcohol-chemical-rub"]
+    }
+  ],
+  "compatibilityRules": [
+    {
+      "id": "generate-from-explicit-group-only",
+      "priority": 1,
+      "appliesWhen": { "always": true },
+      "effect": { "requireCompatibilityGroup": true, "forbidCartesianExpansion": true },
+      "rationale": "Industry, substrate, treatment, process, artwork, defect, and region arrays are vocabularies, not independent dimensions."
+    },
+    {
+      "id": "require-production-representative-sample",
+      "priority": 2,
+      "appliesWhen": { "always": true },
+      "effect": { "requireTestIds": ["controlled-sampling-ladder"], "forbidGuaranteeLanguage": true },
+      "rationale": "Compatibility and settings depend on the actual substrate construction, machine, artwork, speed, and acceptance method."
+    },
+    {
+      "id": "foil-grade-must-match-substrate-and-artwork",
+      "priority": 10,
+      "appliesWhen": { "processFamily": "hot-stamping" },
+      "effect": { "requireDiagnosticVariableIds": ["foil-grade", "substrate-construction", "surface-treatment", "artwork-feature-size", "stamping-area"] },
+      "rationale": "Fine detail, large solids, rough stock, plastics, and leather can require different release and adhesive behavior."
+    },
+    {
+      "id": "cold-transfer-is-a-system",
+      "priority": 10,
+      "appliesWhen": { "processFamily": "cold-transfer" },
+      "effect": { "requireDiagnosticVariableIds": ["adhesive-system", "adhesive-coat-weight", "uv-dose", "nip-pressure", "surface-treatment"], "forbidSurfaceAsSuppliedWithoutAdhesive": true },
+      "rationale": "Cold transfer depends on a matched adhesive, substrate, foil, curing, nip, and printing system."
+    },
+    {
+      "id": "pp-pe-are-conditional",
+      "priority": 20,
+      "appliesWhen": { "substrateIdsAny": ["plastic-polypropylene", "plastic-polyethylene"] },
+      "effect": { "requireSurfaceTreatmentIdsAny": ["primer", "corona-or-plasma", "printed-cold-foil-adhesive"], "requireTestIds": ["surface-energy-check", "tape-adhesion-job-specific"], "forbidUniversalCompatibilityClaim": true },
+      "rationale": "Low-surface-energy plastics and treatment decay make adhesion application-specific."
+    },
+    {
+      "id": "pc-cold-foil-is-grade-specific",
+      "priority": 20,
+      "appliesWhen": { "productSeriesId": "PC", "processFamiliesAny": ["cold-transfer", "digital-transfer"] },
+      "effect": { "requireGradeLevelEvidence": true, "forbidSeriesLevelRecommendation": true },
+      "rationale": "Internal sources mention PC cold/digital variants but do not make every PC catalog item a cold-transfer foil."
+    },
+    {
+      "id": "digital-series-needs-grade-data",
+      "priority": 20,
+      "appliesWhen": { "productSeriesId": "DIGITAL" },
+      "effect": { "contentMode": "qualification-guidance", "requireGradeLevelEvidence": true, "forbidPerformanceClaim": true },
+      "rationale": "The DIGITAL category has internal descriptions but no item-level entries in the current foil catalog."
+    },
+    {
+      "id": "plpy-plastic-leather-unresolved",
+      "priority": 20,
+      "appliesWhen": { "productSeriesId": "PLPY", "materialFamiliesAny": ["plastic", "low-surface-energy-plastic", "leather", "synthetic-leather"] },
+      "effect": { "contentMode": "research-question", "requireGradeLevelEvidence": true, "forbidSeriesLevelRecommendation": true },
+      "rationale": "Internal evidence is consistent for paper packaging but inconsistent or broad for plastics and leather."
+    },
+    {
+      "id": "glass-is-not-confirmed-pc",
+      "priority": 20,
+      "appliesWhen": { "substrateId": "glass-container" },
+      "effect": { "allowedCompatibilityGroupIds": ["coated-glass-specialty-hot"], "forbidProductSeriesIds": ["PC"], "contentMode": "qualification-guidance" },
+      "rationale": "The internal glass reference lacks coating, grade, and equipment detail."
+    },
+    {
+      "id": "decorative-hologram-is-not-security",
+      "priority": 20,
+      "appliesWhen": { "compatibilityGroupId": "decorative-holographic-transfer" },
+      "effect": { "forbidSecurityClaim": true, "forbidCounterfeitResistanceClaim": true },
+      "rationale": "A diffraction or rainbow effect is decorative unless controlled security features and verification requirements are specified."
+    },
+    {
+      "id": "registered-security-needs-controlled-origination",
+      "priority": 20,
+      "appliesWhen": { "compatibilityGroupId": "registered-security-hologram" },
+      "effect": { "requireProcurementConcernIds": ["security-origination-control", "batch-consistency-traceability"], "requireDiagnosticVariableIds": ["security-origination", "pitch", "register-control"] },
+      "rationale": "Security performance depends on feature design, controlled origination, production, registration, and verification, not appearance alone."
+    },
+    {
+      "id": "test-standard-scope-must-be-agreed",
+      "priority": 30,
+      "appliesWhen": { "testIdsAny": ["cross-cut-adhesion-agreed", "dry-rub-abrasion", "scratch-resistance-agreed", "alcohol-chemical-rub"] },
+      "effect": { "requireProcurementConcernIds": ["durability-acceptance"], "forbidUnqualifiedStandardsClaim": true },
+      "rationale": "Standards and shop tests have defined substrates, apparatus, conditioning, and limitations; the buyer and supplier must agree what applies."
+    },
+    {
+      "id": "defect-topic-must-carry-diagnostics",
+      "priority": 30,
+      "appliesWhen": { "clusterId": "troubleshooting" },
+      "effect": { "requireDefectDiagnosticVariables": true, "requireAtLeastOneTest": true, "forbidSingleCauseDiagnosis": true },
+      "rationale": "The same visible defect can arise from substrate, foil, machine, artwork, or process variables."
+    },
+    {
+      "id": "region-does-not-change-technical-fit",
+      "priority": 40,
+      "appliesWhen": { "regionIdPresent": true },
+      "effect": { "forbidCompatibilityInferenceFromRegion": true, "allowRegionalizationFor": ["language", "logistics", "standards-selection", "documentation", "market-context"] },
+      "rationale": "A geographic market is not evidence that a foil, substrate, or process combination is compatible or compliant."
+    }
+  ]
+}

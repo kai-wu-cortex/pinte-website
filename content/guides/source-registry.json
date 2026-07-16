@@ -1,0 +1,222 @@
+[
+  {
+    "id": "iso-2409-2020-cross-cut",
+    "title": "ISO 2409:2020 - Paints and varnishes - Cross-cut test",
+    "url": "https://www.iso.org/standard/76041.html",
+    "publisher": "International Organization for Standardization",
+    "sourceType": "standard",
+    "supportedTopics": ["cross-cut-adhesion-agreed", "poor-adhesion-peeling", "durability-acceptance", "parameters-testing"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official scope and limitations for classifying resistance of paint and varnish coatings to separation by a cross-cut method. It is not a direct measurement of adhesion and must not be presented as automatically applicable to every foil/substrate system."
+  },
+  {
+    "id": "astm-d3359-23-tape-test",
+    "title": "ASTM D3359-23 Standard Test Methods for Rating Adhesion by Tape Test",
+    "url": "https://store.astm.org/d3359-23.html",
+    "publisher": "ASTM International",
+    "sourceType": "standard",
+    "supportedTopics": ["tape-adhesion-job-specific", "cross-cut-adhesion-agreed", "poor-adhesion-peeling", "parameters-testing"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official scope, significance, and limitations for tape-test ratings of relatively ductile coatings, developed for metallic substrates. The page explicitly notes limitations for non-metallic substrates, tape selection, and operator technique."
+  },
+  {
+    "id": "astm-d5264-98r19-abrasion",
+    "title": "ASTM D5264-98(2019) Standard Practice for Abrasion Resistance of Printed Materials by the Sutherland Rub Tester",
+    "url": "https://store.astm.org/d5264-98r19.html",
+    "publisher": "ASTM International",
+    "sourceType": "standard",
+    "supportedTopics": ["dry-rub-abrasion", "scratch-scuff-failure", "label-printing", "paper-carton-packaging"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official active practice for comparative laboratory abrasion testing of flat printed materials including labels and folding cartons. It supports method selection, not an unqualified durability guarantee."
+  },
+  {
+    "id": "iso-2836-2021-print-resistance",
+    "title": "ISO 2836:2021 - Graphic technology - Prints and printing inks - Assessment of resistance of prints to various agents",
+    "url": "https://www.iso.org/standard/76452.html",
+    "publisher": "International Organization for Standardization",
+    "sourceType": "standard",
+    "supportedTopics": ["alcohol-chemical-rub", "alcohol-chemical-failure", "durability-acceptance", "parameters-testing"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official scope for assessing printed-material resistance to specified liquid and solid agents, solvents, varnishes, and acids across traditional and digital printing. Food-safety claims are outside its scope."
+  },
+  {
+    "id": "kurz-hot-stamping",
+    "title": "KURZ Hot Stamping | Get the Exceptional",
+    "url": "https://www.kurz-graphics.com/en/hot-stamping/",
+    "publisher": "LEONHARD KURZ",
+    "sourceType": "manufacturer",
+    "supportedTopics": ["fundamentals-terminology", "hot-stamping-flatbed", "hot-stamping-rotary", "paper-carton-packaging", "label-printing", "paper-textured-specialty"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official overview of graphic hot stamping, use cases, effect families, and paper, cardboard, laminated, label, and difficult-surface applications. Product-specific performance still requires grade selection and sampling."
+  },
+  {
+    "id": "kurz-cold-transfer",
+    "title": "KURZ Cold Transfer | Fast & Brilliant Finishing",
+    "url": "https://www.kurz-graphics.com/en/cold-transfer/",
+    "publisher": "LEONHARD KURZ",
+    "sourceType": "manufacturer",
+    "supportedTopics": ["cold-foil-narrow-web", "cold-foil-sheetfed-offset", "process-comparison", "label-cold-transfer", "label-printing"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official overview of sheet-fed and web-fed cold transfer, application types, design capabilities, and label substrates. It supports process taxonomy, not PINTE grade compatibility."
+  },
+  {
+    "id": "kurz-digital-transfer",
+    "title": "Digital Transfer | Digital Metallization & Embellishment",
+    "url": "https://www.kurz-graphics.com/en/digital-transfer/",
+    "publisher": "LEONHARD KURZ",
+    "sourceType": "manufacturer",
+    "supportedTopics": ["digital-toner-transfer", "digital-uv-varnish-transfer", "digital-toner-enhancement", "digital-uv-enhancement", "variable-data-personalization", "process-comparison"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official distinction among toner/electro-ink, inkjet, sheet-fed, web-fed, 2D, and 3D digital transfer systems. It supports separating digital processes rather than treating them as one interchangeable method."
+  },
+  {
+    "id": "kurz-decoration-processes",
+    "title": "Decoration Processes",
+    "url": "https://www.kurz-world.com/en/solutions/decoration-processes/",
+    "publisher": "LEONHARD KURZ",
+    "sourceType": "manufacturer",
+    "supportedTopics": ["plastics", "hot-stamping-roll-on", "hot-stamping-flatbed", "plastic-abs", "plastic-pmma", "process-comparison"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official overview of hot stamping and related decoration processes for plastic surfaces, including partial and full-surface decoration and complex geometries. It does not identify PINTE grades or validate every resin."
+  },
+  {
+    "id": "kurz-holograms",
+    "title": "Product Enhancement par Excellence with Holograms",
+    "url": "https://www.kurz-world.com/en/solutions/holograms/",
+    "publisher": "LEONHARD KURZ",
+    "sourceType": "manufacturer",
+    "supportedTopics": ["holographic-security", "decorative-holographic-transfer", "registered-security-hologram", "registered-hologram-transfer", "security-origination-control"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official overview distinguishing holographic decoration, registered transfer, and security-feature applications across labels and packaging. Security performance remains feature- and system-specific."
+  },
+  {
+    "id": "univacco-hot-stamping-foil",
+    "title": "Hot Stamping Foil | Univacco High-Quality Metallic Foil Supplier",
+    "url": "https://www.univacco.com/hot-stamping-foil.htm",
+    "publisher": "UNIVACCO Technology Inc.",
+    "sourceType": "manufacturer",
+    "supportedTopics": ["fundamentals-terminology", "hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "paper-coated", "paper-textured-specialty", "label-film-facestock", "leather-pu-synthetic"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official hot-stamping overview listing heat-and-pressure transfer, machine categories, and substrate categories. It demonstrates why substrate-specific grades exist but does not validate a PINTE series."
+  },
+  {
+    "id": "univacco-narrow-web-cold-foil",
+    "title": "Metallic Narrow-web Cold Foil",
+    "url": "https://www.univacco.com/narrow-web-cold-foil.htm",
+    "publisher": "UNIVACCO Technology Inc.",
+    "sourceType": "manufacturer",
+    "supportedTopics": ["cold-foil-narrow-web", "label-cold-transfer", "printed-cold-foil-adhesive", "surface-energy-check", "cold-foil-spread-or-voids"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official description of narrow-web cold transfer for label and packaging presses, including adhesive, treatment, anilox coat weight, nip, and process-adjustment factors."
+  },
+  {
+    "id": "univacco-sheetfed-cold-foil",
+    "title": "Metallic Sheet-fed Offset Cold Foil",
+    "url": "https://www.univacco.com/sheet-fed-offset-cold-foil.htm",
+    "publisher": "UNIVACCO Technology Inc.",
+    "sourceType": "manufacturer",
+    "supportedTopics": ["cold-foil-sheetfed-offset", "coated-paper-cold", "paper-coated", "board-folding-carton", "fine-lines-small-type", "halftone-gradient"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official description of sheet-fed offset cold foil for coated paper and carton board, with adhesive-system and equipment context. It supports a conditional coated-paper group only."
+  },
+  {
+    "id": "foilco-d4-grade-guide",
+    "title": "Foilco D4 Foil Grade Guide - Edition 1",
+    "url": "https://www.foilco.com/app/uploads/2019/05/Grade-Guide-Booklet_E_Doc.pdf",
+    "publisher": "Foilco Limited",
+    "sourceType": "manufacturer",
+    "supportedTopics": ["substrate-grade-selection", "representative-sampling", "large-solid-area", "fine-lines-small-type", "pigment-paper-hot", "decorative-holographic-transfer"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official grade-selection guide covering finish families, typical applications, and grade-dependent substrate/artwork fit. The guide itself says its information is general and recommends testing and technical support."
+  },
+  {
+    "id": "inx-hot-cold-foil-guide",
+    "title": "Mastering the Art of Foil Printing: A Complete Guide to Hot and Cold Techniques",
+    "url": "https://www.inxinternational.com/blog/shelf-appeal/mastering-art-foil-printing-complete-guide-hot-and-cold-techniques",
+    "publisher": "INX International Ink Co.",
+    "sourceType": "manufacturer-technical",
+    "supportedTopics": ["fundamentals-terminology", "process-comparison", "cold-foil-narrow-web", "cold-foil-sheetfed-offset", "printed-cold-foil-adhesive", "fine-lines-small-type", "large-solid-area"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Technical overview by an ink and coating manufacturer covering foil construction, hot versus cold transfer, adhesive curing, design preparation, and process tradeoffs. Use for process explanation, not machine- or foil-grade guarantees."
+  },
+  {
+    "id": "heidelberg-foilstar",
+    "title": "Cold transfer unit FoilStar",
+    "url": "https://www.heidelberg.com/global/en/print_and_packaging/products/offset_printing/peripherals/printing_and_coating_unit/foil_star/product_information_19/foil_star.jsp",
+    "publisher": "Heidelberger Druckmaschinen AG",
+    "sourceType": "equipment-manufacturer",
+    "supportedTopics": ["sheetfed-offset-cold-foil-module", "cold-foil-sheetfed-offset", "label-printing", "coated-paper-cold", "register-control", "machine-process-compatibility"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official equipment page for inline sheet-fed cold transfer, including UV/LED-UV applications, register, multi-reel operation, fine elements, solids, and IML variants. Claims are FoilStar-specific."
+  },
+  {
+    "id": "bobst-novafoil-106-hologram",
+    "title": "BOBST combines a new benchmark hologram application system with connected tools to achieve maximum quality and efficiency",
+    "url": "https://media.bobst.com/en/news/detail/article/1692017402-bobst-combines-a-new-benchmark-hologram-application-system-with-connected-tools-to-achieve-maximum-quality-and-efficiency/",
+    "publisher": "BOBST",
+    "sourceType": "equipment-manufacturer",
+    "supportedTopics": ["automatic-flatbed-press", "registered-hologram-press", "registered-hologram-transfer", "register-shift", "holographic-security"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official equipment release describing a hot-foil press configured for hologram application, including dwell, platen temperature, pressure, register, and foil-use considerations. Claims are machine-specific."
+  },
+  {
+    "id": "gietz-hot-foil-machines",
+    "title": "GIETZ | Hot Foil Stamping | Tray Forming machines",
+    "url": "https://www.gietz.ch/en/home.html",
+    "publisher": "Gietz AG",
+    "sourceType": "equipment-manufacturer",
+    "supportedTopics": ["automatic-flatbed-press", "rotary-web-hot-foil-unit", "registered-hologram-press", "hot-stamping-embossing", "machine-process-compatibility"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Official manufacturer entry point confirming Gietz as a supplier of hot-foil equipment for printing and packaging. Use linked model documentation for any numeric machine claim."
+  },
+  {
+    "id": "labels-labeling-hot-foiling-process",
+    "title": "Reviewing the hot foiling process",
+    "url": "https://www.labelsandlabeling.com/labels/label-academy/article/reviewing-hot-foiling-process",
+    "publisher": "Labels & Labeling",
+    "sourceType": "trade-publication",
+    "supportedTopics": ["label-printing", "hot-stamping-rotary", "cold-foil-narrow-web", "foil-grade", "temperature", "pressure", "dwell-time", "line-speed", "substrate-grade-selection"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Trade education article covering foil structure, label hot-foil equipment, temperature/pressure/dwell controls, grade selection, and the cold-foil alternative. Use alongside current manufacturer evidence."
+  },
+  {
+    "id": "fsea-foil-cheat-sheet",
+    "title": "FSEA and PaperSpecs Release Print Decorating Reference for Designers: Foil Cheat Sheet",
+    "url": "https://fsea.com/uncategorized/2020/fsea-and-paperspecs-release-print-decorating-reference-for-designers-foil-cheat-sheet/",
+    "publisher": "Foil & Specialty Effects Association",
+    "sourceType": "trade-association",
+    "supportedTopics": ["process-comparison", "hot-stamping-flatbed", "cold-foil-sheetfed-offset", "digital-toner-transfer", "digital-uv-varnish-transfer", "variable-data-personalization"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Association overview confirming distinct hot foil, cold foil, toner digital foil, varnish digital foil, and foil-substrate categories for designer process comparison."
+  },
+  {
+    "id": "reddit-leathercraft-advice-hot-foil",
+    "title": "Advice for hot foil stamping",
+    "url": "https://www.reddit.com/r/Leathercraft/comments/1373gxw/advice_for_hot_foil_stamping/",
+    "publisher": "Reddit r/Leathercraft",
+    "sourceType": "question-research",
+    "supportedTopics": ["leather", "overtransfer-halo", "equipment-alignment", "temperature", "pressure", "dwell-time", "controlled-sampling-ladder"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Real-user question language about uneven pressure and excess foil on leather. Use only to identify questions and vocabulary; never use comments as sole technical evidence or as a temperature recommendation."
+  },
+  {
+    "id": "reddit-commercialprinting-uv-inkjet-hot-foil",
+    "title": "UV Inkjet and Hot Foil",
+    "url": "https://www.reddit.com/r/CommercialPrinting/comments/1k87760/uv_inkjet_and_hot_foil/",
+    "publisher": "Reddit r/CommercialPrinting",
+    "sourceType": "question-research",
+    "supportedTopics": ["label-printing", "printed-uv-ink", "poor-adhesion-peeling", "incomplete-transfer", "surface-energy", "ink-coating-cure"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Real converter question language about incomplete transfer and scratch-off over UV-inkjet labels on paper, PP, and PE. Use only for topic discovery; diagnose with manufacturer evidence and controlled testing."
+  },
+  {
+    "id": "reddit-leathercraft-machine-buying",
+    "title": "What to consider when buying a hot foil stamping machine?",
+    "url": "https://www.reddit.com/r/Leathercraft/comments/1bhmxew/",
+    "publisher": "Reddit r/Leathercraft",
+    "sourceType": "question-research",
+    "supportedTopics": ["leather", "machine-process-compatibility", "manual-platen-press", "representative-sampling", "procurement-specifications"],
+    "accessDate": "2026-07-16",
+    "claimScope": "Real-user procurement question language about machine choice, die mounting, and leather projects. Use only to frame buyer questions; equipment recommendations require manufacturer specifications and application trials."
+  }
+]
