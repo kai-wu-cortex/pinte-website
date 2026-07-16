@@ -4,13 +4,47 @@ import { spawnSync } from 'node:child_process';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { parseGuideFile, loadGuidePairs, validateGuideRecords, buildPublishedManifest } from './lib/guide-content.mjs';
+import {
+  buildPublishedManifest,
+  loadGuidePairs,
+  loadGuideTopicRegistry,
+  parseGuideFile,
+  validateGuideRecords,
+} from './lib/guide-content.mjs';
+import {
+  GENERATED_GUIDE_LEGACY_SLUG_MIGRATIONS,
+  extractLegacyGuideSlugs,
+} from './lib/guide-slugs.mjs';
 
-test('build CLI creates a TypeScript manifest', () => {
-  const result = spawnSync(process.execPath, ['scripts/build-guide-content.mjs'], { encoding: 'utf8' });
+test('build CLI writes only to an explicit temporary output', (t) => {
+  const temporaryRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guide-cli-'));
+  const output = path.join(temporaryRoot, 'generatedGuides.ts');
+  const productionManifest = fs.readFileSync('data/generatedGuides.ts', 'utf8');
+  t.after(() => fs.rmSync(temporaryRoot, { recursive: true, force: true }));
+
+  const result = spawnSync(process.execPath, ['scripts/build-guide-content.mjs', '--output', output], { encoding: 'utf8' });
 
   assert.equal(result.status, 0, result.stderr);
-  assert.match(fs.readFileSync('data/generatedGuides.ts', 'utf8'), /AUTO-GENERATED/);
+  assert.match(fs.readFileSync(output, 'utf8'), /AUTO-GENERATED/);
+  assert.equal(fs.readFileSync('data/generatedGuides.ts', 'utf8'), productionManifest);
+});
+
+test('build CLI check mode detects a stale manifest without rewriting it', (t) => {
+  const temporaryRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guide-check-'));
+  const output = path.join(temporaryRoot, 'generatedGuides.ts');
+  const staleManifest = '// stale manifest\nexport default [] as const;\n';
+  fs.writeFileSync(output, staleManifest);
+  t.after(() => fs.rmSync(temporaryRoot, { recursive: true, force: true }));
+
+  const result = spawnSync(
+    process.execPath,
+    ['scripts/build-guide-content.mjs', '--check', '--output', output],
+    { encoding: 'utf8' },
+  );
+
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /out of date/i);
+  assert.equal(fs.readFileSync(output, 'utf8'), staleManifest);
 });
 
 const QUALIFIED_ANSWER = 'Final settings require test sample confirmation on the actual substrate, machine, artwork, and speed.';
@@ -34,20 +68,24 @@ const frontmatter = ({
   sourceOneTitle = 'Technical source one',
   sourceOnePublisher = 'Technical publisher',
   sourceOneUrl = 'https://example.com/source-one',
+  cluster = 'troubleshooting',
+  intent = 'troubleshooting',
+  relatedProducts = '[PC]',
+  relatedGuides = '[hot-stamping-troubleshooting]',
   body = QUALIFIED_BODY,
 }) => `---
 topic_id: ${topicId}
 lang: ${lang}
 slug: ${slug}
 status: ${status}
-cluster: troubleshooting
-intent: troubleshooting
+cluster: ${cluster}
+intent: ${intent}
 title: ${title}
 description: ${description}
 primary_keyword: ${primaryKeyword}
 secondary_keywords: ${secondaryKeywords}
-related_products: [PC]
-related_guides: [hot-stamping-troubleshooting]
+related_products: ${relatedProducts}
+related_guides: ${relatedGuides}
 author: PINTE Technical Team
 reviewer: PINTE Application Engineer
 date_published: 2026-07-16
@@ -85,6 +123,36 @@ function writeGuide(root, topicId, lang, options) {
   fs.writeFileSync(filePath, frontmatter({ topicId, lang, ...options }));
   return filePath;
 }
+
+function registryRecord({
+  topicId,
+  slug,
+  status = 'published',
+  cluster = 'troubleshooting',
+  intent = 'troubleshooting',
+  relatedProducts = ['PC'],
+  relatedGuides = ['hot-stamping-troubleshooting'],
+}) {
+  return {
+    topic_id: topicId,
+    slug,
+    status,
+    cluster,
+    intent,
+    related_products: relatedProducts,
+    related_guides: relatedGuides,
+  };
+}
+
+test('package deployment scripts verify guides without mutating source artifacts', () => {
+  const pkg = JSON.parse(fs.readFileSync('package.json', 'utf8'));
+
+  assert.equal(pkg.engines?.node, '>=22.12.0');
+  assert.match(pkg.scripts['guides:verify'], /build-guide-content\.mjs --check/);
+  assert.doesNotMatch(pkg.scripts['guides:check'], /guides:build/);
+  assert.match(pkg.scripts.build, /^npm run guides:verify && vite build$/);
+  assert.match(pkg.scripts['build:seo'], /^npm run guides:verify && vite build/);
+});
 
 test('omits dedicated FAQ and reference sections from bodyHtml while preserving frontmatter arrays', () => {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
@@ -216,6 +284,197 @@ test('rejects internal strategy terms in published customer copy', async () => {
   fs.writeFileSync(path.join(topic, 'cn.md'), frontmatter({ lang: 'cn', title: 'UV 标签烫金附着测试' }));
   const result = validateGuideRecords(await loadGuidePairs(root));
   assert.ok(result.errors.some((issue) => issue.code === 'forbidden-public-term'));
+});
+
+test('rejects punctuation variants of AI search terminology', async () => {
+  for (const [index, title] of ['AI-search for foil', 'AI search optimization for foil', 'AI–search optimization'].entries()) {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+    const topicId = `HF-AI-TERM-${index}`;
+    writeGuide(root, topicId, 'en', { title });
+    writeGuide(root, topicId, 'cn', { title: `烫金指南 ${index}` });
+
+    const result = validateGuideRecords(await loadGuidePairs(root));
+
+    assert.ok(result.errors.some((issue) => issue.code === 'forbidden-public-term'), title);
+  }
+});
+
+test('loads the topic registry and rejects duplicate IDs and slugs', () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-registry-'));
+  const registryPath = path.join(root, 'topics.json');
+  fs.writeFileSync(registryPath, JSON.stringify([
+    registryRecord({ topicId: 'HF-REGISTRY-1', slug: 'registry-one' }),
+    registryRecord({ topicId: 'HF-REGISTRY-1', slug: 'registry-two' }),
+    registryRecord({ topicId: 'HF-REGISTRY-3', slug: 'registry-two' }),
+  ]));
+
+  const registry = loadGuideTopicRegistry(registryPath);
+  const result = validateGuideRecords([], { registry });
+
+  assert.ok(result.errors.some((issue) => issue.code === 'duplicate-registry-topic-id'));
+  assert.ok(result.errors.some((issue) => issue.code === 'duplicate-registry-slug'));
+});
+
+test('requires published source metadata to match its registry record', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  writeGuide(root, 'HF-REGISTRY-MATCH', 'en', { slug: 'registry-match', title: 'Registry Match' });
+  writeGuide(root, 'HF-REGISTRY-MATCH', 'cn', { slug: 'registry-match', title: '注册表匹配' });
+  const records = await loadGuidePairs(root);
+  const matching = registryRecord({ topicId: 'HF-REGISTRY-MATCH', slug: 'registry-match' });
+
+  assert.deepEqual(validateGuideRecords(records, { registry: [matching] }).errors, []);
+
+  for (const [field, value] of [
+    ['topic_id', 'HF-WRONG-ID'],
+    ['slug', 'wrong-slug'],
+    ['status', 'reviewed'],
+    ['cluster', 'selection'],
+    ['intent', 'selection'],
+    ['related_products', ['PK']],
+    ['related_guides', ['hot-stamping-foil-buying-guide']],
+  ]) {
+    const registry = [{ ...matching, [field]: value }];
+    const result = validateGuideRecords(records, { registry });
+    const expectedCode = field === 'topic_id' ? 'missing-published-registry-record' : 'registry-source-mismatch';
+    assert.ok(
+      result.errors.some((issue) => issue.code === expectedCode && (field === 'topic_id' || issue.field === field)),
+      `expected ${field} parity failure`,
+    );
+  }
+});
+
+test('allows draft or reviewed registry and source records outside the manifest', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  writeGuide(root, 'HF-REVIEWED-ONLY', 'en', {
+    slug: 'reviewed-only',
+    status: 'reviewed',
+    title: 'Reviewed Only',
+  });
+  const records = await loadGuidePairs(root);
+  const registry = [
+    registryRecord({ topicId: 'HF-REVIEWED-ONLY', slug: 'reviewed-only', status: 'reviewed' }),
+    registryRecord({ topicId: 'HF-DRAFT-REGISTRY', slug: 'draft-registry', status: 'draft' }),
+  ];
+
+  assert.deepEqual(validateGuideRecords(records, { registry }).errors, []);
+  assert.deepEqual(buildPublishedManifest(records), []);
+});
+
+test('derives only GEO_GUIDES slugs and exposes an explicit empty migration allowlist', () => {
+  const source = `
+interface Example { slug: string }
+export const GEO_GUIDES = [
+  {
+    slug: 'legacy-one',
+    nested: { slug: 'nested-ignore' },
+  },
+  {
+    slug: 'legacy-two',
+  },
+];
+`;
+
+  assert.deepEqual(extractLegacyGuideSlugs(source), ['legacy-one', 'legacy-two']);
+  assert.deepEqual(GENERATED_GUIDE_LEGACY_SLUG_MIGRATIONS, []);
+});
+
+test('rejects generated published slugs that collide with GEO_GUIDES slugs', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  writeGuide(root, 'HF-LEGACY-COLLISION', 'en', { slug: 'legacy-guide', title: 'Legacy Collision' });
+  writeGuide(root, 'HF-LEGACY-COLLISION', 'cn', { slug: 'legacy-guide', title: '旧指南冲突' });
+
+  const result = validateGuideRecords(await loadGuidePairs(root), {
+    legacySlugs: ['legacy-guide', 'hot-stamping-troubleshooting'],
+  });
+
+  assert.ok(result.errors.some((issue) => issue.code === 'legacy-slug-collision'));
+});
+
+test('validates related products and complete guide targets', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  writeGuide(root, 'HF-REFERENCE-A', 'en', {
+    slug: 'reference-a',
+    title: 'Reference A',
+    relatedProducts: '[PK, PC, PLPY, DIGITAL]',
+    relatedGuides: '[reference-b, legacy-guide]',
+  });
+  writeGuide(root, 'HF-REFERENCE-A', 'cn', {
+    slug: 'reference-a',
+    title: '引用 A',
+    relatedProducts: '[PK, PC, PLPY, DIGITAL]',
+    relatedGuides: '[reference-b, legacy-guide]',
+  });
+  writeGuide(root, 'HF-REFERENCE-B', 'en', { slug: 'reference-b', title: 'Reference B' });
+  writeGuide(root, 'HF-REFERENCE-B', 'cn', { slug: 'reference-b', title: '引用 B' });
+
+  const result = validateGuideRecords(await loadGuidePairs(root), {
+    legacySlugs: ['legacy-guide', 'hot-stamping-troubleshooting'],
+  });
+
+  assert.deepEqual(result.errors, []);
+});
+
+test('rejects unsupported products and self or missing related guides', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  writeGuide(root, 'HF-BAD-REFERENCE', 'en', {
+    slug: 'bad-reference',
+    title: 'Bad Reference',
+    relatedProducts: '[PC, UNKNOWN]',
+    relatedGuides: '[bad-reference, missing-guide]',
+  });
+  writeGuide(root, 'HF-BAD-REFERENCE', 'cn', {
+    slug: 'bad-reference',
+    title: '错误引用',
+    relatedProducts: '[PC, UNKNOWN]',
+    relatedGuides: '[bad-reference, missing-guide]',
+  });
+
+  const result = validateGuideRecords(await loadGuidePairs(root), { legacySlugs: [] });
+
+  assert.ok(result.errors.some((issue) => issue.code === 'unsupported-related-product'));
+  assert.ok(result.errors.some((issue) => issue.code === 'self-related-guide'));
+  assert.ok(result.errors.some((issue) => issue.code === 'missing-related-guide'));
+});
+
+test('rejects normalized duplicate title and intent within one language', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  writeGuide(root, 'HF-DUPLICATE-A', 'en', { slug: 'duplicate-a', title: 'Foil - Selection Guide!' });
+  writeGuide(root, 'HF-DUPLICATE-A', 'cn', { slug: 'duplicate-a', title: '烫金选择指南 A' });
+  writeGuide(root, 'HF-DUPLICATE-B', 'en', { slug: 'duplicate-b', title: '  foil selection guide  ' });
+  writeGuide(root, 'HF-DUPLICATE-B', 'cn', { slug: 'duplicate-b', title: '烫金选择指南 B' });
+
+  const result = validateGuideRecords(await loadGuidePairs(root));
+
+  assert.ok(result.errors.some((issue) => issue.code === 'duplicate-title-intent'));
+});
+
+test('rejects highly similar published bodies within one language', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  const duplicatedBody = `Inspect the substrate coating and surface energy before selecting a foil grade.
+Record machine temperature pressure dwell speed and artwork coverage during every controlled sample.
+Compare edge definition transfer completeness gloss and adhesion using the agreed acceptance method.
+Keep the approved sample settings and production material together for final order confirmation.`;
+  writeGuide(root, 'HF-SIMILAR-A', 'en', { slug: 'similar-a', title: 'Similarity A', body: duplicatedBody });
+  writeGuide(root, 'HF-SIMILAR-A', 'cn', { slug: 'similar-a', title: '相似性 A', body: '这是一篇不同的中文技术内容。' });
+  writeGuide(root, 'HF-SIMILAR-B', 'en', { slug: 'similar-b', title: 'Similarity B', body: duplicatedBody });
+  writeGuide(root, 'HF-SIMILAR-B', 'cn', { slug: 'similar-b', title: '相似性 B', body: '另一篇独立的中文技术内容。' });
+
+  const result = validateGuideRecords(await loadGuidePairs(root));
+
+  assert.ok(result.errors.some((issue) => issue.code === 'high-body-similarity' && issue.lang === 'en'));
+});
+
+test('does not compare bilingual counterparts for duplicate content', async () => {
+  const root = fs.mkdtempSync(path.join(os.tmpdir(), 'pinte-guides-'));
+  const sharedBody = `Inspect substrate coating and surface energy before selecting the foil grade.
+Record machine temperature pressure dwell speed and artwork coverage during each controlled sample.
+Compare transfer completeness edge definition gloss and adhesion with the agreed acceptance method.`;
+  writeGuide(root, 'HF-BILINGUAL-CONTENT', 'en', { title: 'Shared Technical Guide', body: sharedBody });
+  writeGuide(root, 'HF-BILINGUAL-CONTENT', 'cn', { title: 'Shared Technical Guide', body: sharedBody });
+
+  const result = validateGuideRecords(await loadGuidePairs(root));
+
+  assert.ok(!result.errors.some((issue) => ['duplicate-title-intent', 'high-body-similarity'].includes(issue.code)));
 });
 
 test('publishes only complete, non-duplicate bilingual pairs', async () => {

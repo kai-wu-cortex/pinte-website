@@ -5,6 +5,7 @@ import path from 'node:path';
 import test from 'node:test';
 import {
   buildPublishedManifest,
+  loadGuideTopicRegistry,
   parseGuideFile,
 } from './lib/guide-content.mjs';
 import {
@@ -136,6 +137,27 @@ test('matches serialized source dates and rejects a stale manifest date', () => 
   const staleErrors = [];
   validateManifestMatchesSource(manifest, records, staleErrors);
   assertError(staleErrors, 'field=dateModified: generated manifest value is stale');
+});
+
+test('publication state enforces the loaded topic registry', () => {
+  const records = publishedRecords();
+  const manifest = serializedManifest(records);
+  const registry = loadGuideTopicRegistry(path.join(root, 'content/guides/topics.json'));
+
+  assert.deepEqual(validateGuidePublicationState({
+    sourceRecords: records,
+    manifest,
+    sitemap: sitemapFor(manifest),
+    registry,
+  }), []);
+
+  const errors = validateGuidePublicationState({
+    sourceRecords: records,
+    manifest,
+    sitemap: sitemapFor(manifest),
+    registry: registry.map((record) => ({ ...record, cluster: 'stale-cluster' })),
+  });
+  assertError(errors, 'field=cluster: authoring validator rejected record (registry-source-mismatch)');
 });
 
 test('allows a reviewed one-sided source directory but rejects a published one', (t) => {

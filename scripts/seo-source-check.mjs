@@ -4,9 +4,11 @@ import { isDeepStrictEqual } from 'node:util';
 import { fileURLToPath } from 'node:url';
 import {
   buildPublishedManifest,
+  loadGuideTopicRegistry,
   parseGuideFile,
   validateGuideRecords,
 } from './lib/guide-content.mjs';
+import { extractLegacyGuideSlugs, loadLegacyGuideSlugs } from './lib/guide-slugs.mjs';
 
 const root = process.cwd();
 const read = (file) => fs.readFileSync(path.join(root, file), 'utf8');
@@ -78,6 +80,18 @@ function validationIssueField(issue) {
     'missing-sampling-qualification': 'answer/bodyHtml',
     'missing-language-pair': 'lang',
     'pair-slug-mismatch': 'slug',
+    'duplicate-registry-topic-id': 'topics.json topic_id',
+    'duplicate-registry-slug': 'topics.json slug',
+    'missing-published-registry-record': 'topics.json topic_id',
+    'registry-source-mismatch': issue.field || 'topics.json parity',
+    'legacy-slug-collision': 'slug',
+    'invalid-related-products': 'related_products',
+    'unsupported-related-product': 'related_products',
+    'invalid-related-guides': 'related_guides',
+    'self-related-guide': 'related_guides',
+    'missing-related-guide': 'related_guides',
+    'duplicate-title-intent': 'title/intent',
+    'high-body-similarity': 'bodyHtml',
   };
   return issue.field || fields[issue.code] || 'record';
 }
@@ -277,10 +291,7 @@ function xmlAttribute(tag, attribute) {
 }
 
 export function getLegacyGuideSlugs(source = read('data/geoGuides.ts')) {
-  const slugs = [...source.matchAll(/^\s{4}slug:\s*'([a-z0-9]+(?:-[a-z0-9]+)*)',\s*$/gm)]
-    .map((match) => match[1]);
-  if (slugs.length === 0) throw new Error('could not find GEO_GUIDES slugs in data/geoGuides.ts');
-  return [...new Set(slugs)].sort();
+  return extractLegacyGuideSlugs(source);
 }
 
 function guideSitemapUrl(lang, slug) {
@@ -398,8 +409,8 @@ export function validateGuideSitemap(
   }
 }
 
-function addSharedValidationErrors(sourceRecords, errors) {
-  const sourceValidation = validateGuideRecords(sourceRecords);
+function addSharedValidationErrors(sourceRecords, errors, options) {
+  const sourceValidation = validateGuideRecords(sourceRecords, options);
   for (const issue of sourceValidation.errors) {
     const record = issue.filePath
       ? sourceRecords.find((candidate) => path.resolve(candidate.filePath) === path.resolve(issue.filePath))
@@ -414,9 +425,15 @@ function addSharedValidationErrors(sourceRecords, errors) {
   }
 }
 
-export function validateGuidePublicationState({ sourceRecords, manifest, sitemap }) {
+export function validateGuidePublicationState({
+  sourceRecords,
+  manifest,
+  sitemap,
+  registry,
+  legacySlugs = getLegacyGuideSlugs(),
+}) {
   const errors = [];
-  addSharedValidationErrors(sourceRecords, errors);
+  addSharedValidationErrors(sourceRecords, errors, { registry, legacySlugs });
   manifest.forEach((record, recordIndex) => validateManifestRecord(record, recordIndex, errors));
   validateManifestPairs(manifest, errors);
   validateManifestMatchesSource(manifest, sourceRecords, errors);
@@ -489,6 +506,8 @@ export async function validateGeneratedGuidePublication() {
 
   let manifest = [];
   let sitemap = '';
+  let registry;
+  let legacySlugs = [];
   try {
     manifest = parseGeneratedManifest();
   } catch (error) {
@@ -499,7 +518,20 @@ export async function validateGeneratedGuidePublication() {
   } catch (error) {
     addGuideError(readErrors, { field: 'public/sitemap.xml', message: `cannot read sitemap: ${error.message}` });
   }
-  return [...readErrors, ...validateGuidePublicationState({ sourceRecords, manifest, sitemap })];
+  try {
+    registry = loadGuideTopicRegistry(path.join(root, 'content/guides/topics.json'));
+  } catch (error) {
+    addGuideError(readErrors, { field: 'content/guides/topics.json', message: `cannot read topic registry: ${error.message}` });
+  }
+  try {
+    legacySlugs = loadLegacyGuideSlugs(path.join(root, 'data/geoGuides.ts'));
+  } catch (error) {
+    addGuideError(readErrors, { field: 'data/geoGuides.ts', message: `cannot derive legacy guide slugs: ${error.message}` });
+  }
+  return [
+    ...readErrors,
+    ...validateGuidePublicationState({ sourceRecords, manifest, sitemap, registry, legacySlugs }),
+  ];
 }
 
 const isMainModule = process.argv[1]

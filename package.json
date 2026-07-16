@@ -3,10 +3,13 @@
   "private": true,
   "version": "1.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "dev": "npm run guides:build && vite",
-    "build": "npm run guides:build && vite build",
-    "build:seo": "npm run guides:build && vite build && npx tsc --skipLibCheck -p tsconfig.prerender.json && mkdir -p ./tmp-prerender/scripts && cp ./scripts/seo-geo-sop.config.mjs ./tmp-prerender/scripts/seo-geo-sop.config.mjs && node ./tmp-prerender/prerender.js && rm -rf ./tmp-prerender",
+    "build": "npm run guides:verify && vite build",
+    "build:seo": "npm run guides:verify && vite build && npx tsc --skipLibCheck -p tsconfig.prerender.json && mkdir -p ./tmp-prerender/scripts && cp ./scripts/seo-geo-sop.config.mjs ./tmp-prerender/scripts/seo-geo-sop.config.mjs && node ./tmp-prerender/prerender.js && rm -rf ./tmp-prerender",
     "prerender": "npm run guides:build && npx tsc --skipLibCheck -p tsconfig.prerender.json && mkdir -p ./tmp-prerender/scripts && cp ./scripts/seo-geo-sop.config.mjs ./tmp-prerender/scripts/seo-geo-sop.config.mjs && node ./tmp-prerender/prerender.js && rm -rf ./tmp-prerender",
     "preview": "vite preview",
     "sync-blog": "node scripts/fetch-blog.js",
@@ -14,7 +17,8 @@
     "guides:build": "node scripts/build-guide-content.mjs",
     "guides:validate": "node scripts/validate-guide-content.mjs",
     "guides:test": "node --test scripts/guide-content.test.mjs scripts/seo-source-check.test.mjs",
-    "guides:check": "npm run guides:test && npm run guides:validate && npm run guides:build && node scripts/seo-source-check.mjs",
+    "guides:verify": "node scripts/build-guide-content.mjs --check && node scripts/seo-source-check.mjs",
+    "guides:check": "npm run guides:test && npm run guides:verify",
     "seo:sop": "node scripts/seo-geo-sop.mjs",
     "seo:sop:test": "node scripts/seo-geo-sop.test.mjs",
     "indexnow": "ts-node scripts/submit-sitemap-indexnow.ts"
