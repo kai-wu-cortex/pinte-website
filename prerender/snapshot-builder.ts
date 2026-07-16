@@ -14,8 +14,10 @@
  */
 
 import { CONTENT_EN, CONTENT_ZH } from '../data/content.js';
+import generatedGuides from '../data/generatedGuides.js';
 import { GEO_GUIDES, getGeoGuide, guideCustomerText } from '../data/geoGuides.js';
 import { mergeProductSeoProfile } from '../data/productSeoProfiles.js';
+import sanitizeHtml from 'sanitize-html';
 // @ts-ignore - .mjs 配置文件,无类型声明
 import seoSop from '../scripts/seo-geo-sop.config.mjs';
 import { t, htmlLangAttr, type Lang } from './i18n.js';
@@ -110,7 +112,46 @@ export interface BlogArticleLike {
   contentMarkdown?: string;
 }
 
+interface GeneratedGuideRecord {
+  readonly lang: Lang;
+  readonly slug: string;
+  readonly status: 'published';
+  readonly title: string;
+  readonly description: string;
+  readonly primaryKeyword: string;
+  readonly secondaryKeywords: readonly string[];
+  readonly author: string;
+  readonly reviewer: string;
+  readonly datePublished: string;
+  readonly dateModified: string;
+  readonly heroImage: string;
+  readonly heroAlt: string;
+  readonly answer: string;
+  readonly faqs: ReadonlyArray<{
+    readonly question: string;
+    readonly answer: string;
+  }>;
+  readonly sources: ReadonlyArray<{
+    readonly label: string;
+    readonly title: string;
+    readonly publisher?: string;
+    readonly url: string;
+    readonly summary?: string;
+  }>;
+  readonly bodyHtml: string;
+}
+
 const SITE = 'https://www.pintecl.com';
+
+const publishedGeneratedGuides = generatedGuides
+  .filter((guide) => guide.status === 'published') as unknown as readonly GeneratedGuideRecord[];
+
+const GENERATED_GUIDE_DEFAULT_PRIORITY = 100;
+
+const GENERATED_GUIDE_BODY_TAGS = [
+  'h2', 'h3', 'h4', 'p', 'ul', 'ol', 'li', 'strong', 'em', 'a', 'table', 'thead',
+  'tbody', 'tr', 'th', 'td', 'blockquote', 'code', 'pre', 'hr',
+];
 
 const escapeHtml = (value: string) =>
   String(value ?? '')
@@ -122,6 +163,29 @@ const escapeHtml = (value: string) =>
 
 const trim = (s: string, max: number) =>
   s.length <= max ? s : s.slice(0, max - 1).trimEnd() + '…';
+
+const sanitizeGeneratedGuideBody = (bodyHtml: string) => sanitizeHtml(bodyHtml, {
+  allowedTags: GENERATED_GUIDE_BODY_TAGS,
+  allowedAttributes: { a: ['href', 'title', 'target', 'rel'] },
+  allowedSchemes: ['http', 'https', 'mailto'],
+});
+
+const absoluteUrl = (value: string) => {
+  if (!value || value.startsWith('http://') || value.startsWith('https://')) return value;
+  return `${SITE}${value.startsWith('/') ? value : `/${value}`}`;
+};
+
+const isHttpsUrl = (value: string) => {
+  try {
+    const url = new URL(value);
+    return url.protocol === 'https:'
+      && url.hostname.length > 0
+      && url.username === ''
+      && url.password === '';
+  } catch {
+    return false;
+  }
+};
 
 const getContent = (lang: Lang) => (lang === 'cn' ? CONTENT_ZH : CONTENT_EN);
 
@@ -1635,18 +1699,44 @@ function buildGuideListSnapshot(lang: Lang): SnapshotResult {
     lang === 'cn'
       ? '浏览 PINTE 烫金膜采购指南、底材选型、故障排查、热烫冷烫对比、化妆品包装、纸盒包装和技术资料。'
       : 'Browse PINTE hot stamping foil procurement guides, substrate selection, troubleshooting, hot foil vs cold foil comparisons, cosmetic packaging, paper box packaging, and technical resources.';
-  const guides = [...GEO_GUIDES].sort(
-    (a, b) => a.priority - b.priority || a.title[lang].localeCompare(b.title[lang])
+  const mergedGuides = new Map<string, {
+    slug: string;
+    title: string;
+    description: string;
+    priority: number;
+  }>();
+
+  GEO_GUIDES.forEach((guide) => {
+    mergedGuides.set(guide.slug, {
+      slug: guide.slug,
+      title: guideCustomerText(guide.title[lang], lang),
+      description: guideCustomerText(guide.metaDescription[lang], lang),
+      priority: guide.priority,
+    });
+  });
+
+  publishedGeneratedGuides
+    .filter((guide) => guide.lang === lang)
+    .forEach((guide) => {
+      const slug = guide.slug.trim();
+      const guideTitle = guide.title.trim();
+      if (!slug || !guideTitle) return;
+      mergedGuides.set(slug, {
+        slug,
+        title: guideCustomerText(guideTitle, lang),
+        description: guideCustomerText(guide.description.trim(), lang),
+        priority: GENERATED_GUIDE_DEFAULT_PRIORITY,
+      });
+    });
+
+  const guides = [...mergedGuides.values()].sort(
+    (a, b) => a.priority - b.priority || a.title.localeCompare(b.title) || a.slug.localeCompare(b.slug)
   );
   const guideLinks = guides
     .map(
       (guide) => `<article><h2><a href="${langPath(`guides/${guide.slug}`, lang)}/">${escapeHtml(
-        guideCustomerText(guide.title[lang], lang)
-      )}</a></h2><p>${escapeHtml(guideCustomerText(guide.metaDescription[lang], lang))}</p><p>${escapeHtml(
-        [guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang].slice(0, 4)]
-          .map((keyword) => guideCustomerText(keyword, lang))
-          .join(', ')
-      )}</p></article>`
+        guide.title
+      )}</a></h2><p>${escapeHtml(guide.description)}</p></article>`
     )
     .join('');
 
@@ -1666,7 +1756,7 @@ function buildGuideListSnapshot(lang: Lang): SnapshotResult {
         name: title,
         url,
         items: guides.map((guide) => ({
-          name: guideCustomerText(guide.title[lang], lang),
+          name: guide.title,
           url: buildCanonicalUrl(`guides/${guide.slug}`, lang),
         })),
       }),
@@ -2051,6 +2141,127 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
   };
 }
 
+function buildGeneratedGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null {
+  const guide = publishedGeneratedGuides.find(
+    (candidate) => candidate.slug === slug && candidate.lang === lang
+  );
+  if (!guide) return null;
+
+  const route = `guides/${guide.slug}`;
+  const canonicalPath = `/${lang}/${route}`;
+  const canonicalUrl = `${SITE}${canonicalPath}`;
+  const languageCode = lang === 'cn' ? 'zh-CN' : 'en';
+  const homeLabel = lang === 'cn' ? '首页' : 'Home';
+  const guidesLabel = lang === 'cn' ? '指南' : 'Guides';
+  const faqTitle = lang === 'cn' ? '常见问题' : 'Frequently Asked Questions';
+  const referencesTitle = lang === 'cn' ? '参考资料' : 'References';
+  const authorLabel = lang === 'cn' ? '作者' : 'Author';
+  const reviewerLabel = lang === 'cn' ? '审核' : 'Reviewer';
+  const publishedLabel = lang === 'cn' ? '发布' : 'Published';
+  const updatedLabel = lang === 'cn' ? '更新' : 'Updated';
+  const heroImage = absoluteUrl(guide.heroImage);
+  const sourceLinks = guide.sources.filter((source) => isHttpsUrl(source.url));
+  const crumbs = [
+    { label: homeLabel, href: `/${lang}` },
+    { label: guidesLabel, href: `/${lang}/guides` },
+    { label: guide.title, href: canonicalPath },
+  ];
+
+  const metadata = [
+    { label: authorLabel, value: guide.author },
+    { label: reviewerLabel, value: guide.reviewer },
+  ].map(({ label, value }) => (
+    `<div><dt>${escapeHtml(label)}</dt><dd>${escapeHtml(value)}</dd></div>`
+  )).join('');
+  const dates = [
+    { label: publishedLabel, value: guide.datePublished },
+    { label: updatedLabel, value: guide.dateModified },
+  ].map(({ label, value }) => (
+    `<div><dt>${escapeHtml(label)}</dt><dd><time datetime="${escapeHtml(value)}">${escapeHtml(value)}</time></dd></div>`
+  )).join('');
+  const faq = guide.faqs.map((item) => ({ q: item.question, a: item.answer }));
+  const faqSection = `
+    <section class="seo-guide-faq" aria-labelledby="guide-faq-title">
+      <h2 id="guide-faq-title">${escapeHtml(faqTitle)}</h2>
+      <dl>${faq.map((item) => (
+        `<dt>${escapeHtml(item.q)}</dt><dd>${escapeHtml(item.a)}</dd>`
+      )).join('')}</dl>
+    </section>`;
+  const sourcesSection = `
+    <section class="seo-guide-sources" aria-labelledby="guide-references-title">
+      <h2 id="guide-references-title">${escapeHtml(referencesTitle)}</h2>
+      <ol>${sourceLinks.map((source) => `
+        <li>
+          <a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(
+            `${source.label}: ${source.title}`
+          )}</a>
+          ${source.publisher ? `<p>${escapeHtml(source.publisher)}</p>` : ''}
+          ${source.summary ? `<p>${escapeHtml(source.summary)}</p>` : ''}
+        </li>`).join('')}
+      </ol>
+    </section>`;
+
+  const inner = `
+    <article>
+      <header>
+        <p class="seo-keyword">${escapeHtml(guide.primaryKeyword)}</p>
+        <h1>${escapeHtml(guide.title)}</h1>
+        <p class="seo-description">${escapeHtml(guide.description)}</p>
+        <p class="seo-lead">${escapeHtml(guide.answer)}</p>
+        <dl class="seo-meta">${metadata}${dates}</dl>
+      </header>
+      ${heroImage ? `<figure><img src="${escapeHtml(heroImage)}" alt="${escapeHtml(guide.heroAlt)}">${
+        guide.heroAlt ? `<figcaption>${escapeHtml(guide.heroAlt)}</figcaption>` : ''
+      }</figure>` : ''}
+      <div class="seo-guide-body">${sanitizeGeneratedGuideBody(guide.bodyHtml)}</div>
+      ${faqSection}
+      ${sourcesSection}
+    </article>`;
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guide.title,
+    description: guide.description,
+    datePublished: guide.datePublished,
+    dateModified: guide.dateModified,
+    author: { '@type': 'Organization', name: guide.author },
+    reviewedBy: { '@type': 'Organization', name: guide.reviewer },
+    mainEntityOfPage: { '@type': 'WebPage', '@id': canonicalUrl },
+    inLanguage: languageCode,
+    ...(heroImage ? {
+      image: {
+        '@type': 'ImageObject',
+        url: heroImage,
+        ...(guide.heroAlt ? { caption: guide.heroAlt } : {}),
+      },
+    } : {}),
+  };
+  const generatedFaqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faq.map((item) => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  };
+
+  return {
+    html: wrapMain({ route, lang, breadcrumb: breadcrumbHtml(lang, crumbs), inner }),
+    jsonLd: [articleSchema, generatedFaqSchema, crumbsToSchema(crumbs)],
+    meta: {
+      title: guide.title,
+      description: guide.description,
+      keywords: [guide.primaryKeyword],
+      geoTargets: defaultGeoForRoute(route, lang),
+      image: guide.heroImage || undefined,
+      type: 'article',
+      publishedTime: guide.datePublished,
+    },
+  };
+}
+
 // ----------------------------- Public API ----------------------------- //
 
 export function buildSnapshot(
@@ -2073,7 +2284,7 @@ export function buildSnapshot(
   if (route === 'pintefoils') return buildPintefoilsSnapshot(lang);
   if (route.startsWith('guides/')) {
     const slug = route.split('/')[1];
-    return buildGeoGuideSnapshot(slug, lang);
+    return buildGeneratedGuideSnapshot(slug, lang) || buildGeoGuideSnapshot(slug, lang);
   }
 
   if (route.startsWith('products/category/')) {

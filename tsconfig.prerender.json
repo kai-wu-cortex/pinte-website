@@ -9,5 +9,5 @@
     "outDir": "./tmp-prerender",
     "noEmit": false
   },
-  "include": ["prerender.ts", "prerender/**/*.ts", "data/**/*.ts"]
+  "include": ["prerender.ts", "prerender/**/*.ts"]
 }
