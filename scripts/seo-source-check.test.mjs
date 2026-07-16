@@ -29,23 +29,22 @@ function publishedRecords() {
   }));
 }
 
-function registryFor(records) {
-  const registry = loadGuideTopicRegistry(path.join(root, 'content/guides/topics.json'));
-  const recordByTopic = new Map(records.map((record) => [record.topic_id, record]));
-  return registry.map((topic) => {
-    const source = recordByTopic.get(topic.topic_id);
-    return source
-      ? {
-        ...topic,
-        slug: source.slug,
-        status: source.status,
-        cluster: source.cluster,
-        intent: source.intent,
-        related_products: source.related_products,
-        related_guides: source.related_guides,
-      }
-      : topic;
-  });
+function registryForPublishedFixture(records) {
+  const registry = new Map();
+  for (const record of records) {
+    if (!registry.has(record.topic_id)) {
+      registry.set(record.topic_id, {
+        topic_id: record.topic_id,
+        slug: record.slug,
+        status: record.status,
+        cluster: record.cluster,
+        intent: record.intent,
+        related_products: record.related_products,
+        related_guides: record.related_guides,
+      });
+    }
+  }
+  return [...registry.values()];
 }
 
 function serializedManifest(records) {
@@ -163,10 +162,10 @@ test('matches serialized source dates and rejects a stale manifest date', () => 
   assertError(staleErrors, 'field=dateModified: generated manifest value is stale');
 });
 
-test('publication state enforces the loaded topic registry', () => {
+test('publication state enforces registry and source parity', () => {
   const records = publishedRecords();
   const manifest = serializedManifest(records);
-  const registry = registryFor(records);
+  const registry = registryForPublishedFixture(records);
 
   assert.deepEqual(validateGuidePublicationState({
     sourceRecords: records,
