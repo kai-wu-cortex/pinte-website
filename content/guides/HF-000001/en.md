@@ -1,72 +1,185 @@
 ---
 topic_id: HF-000001
 lang: en
-slug: foil-grade-selection-fine-lines-small-type-coated-glass-container-primer-adhesion-prom-0j3va8v
-status: draft
+slug: >-
+  foil-grade-selection-fine-lines-small-type-coated-glass-container-primer-adhesion-prom-0j3va8v
+status: published
 cluster: cosmetic-packaging
 intent: substrate-selection
-title: 'Hot Stamping Foil for Labels: A Sampling Guide'
-description: A practical starting point for selecting and sampling hot stamping foil for label work.
-primary_keyword: hot stamping foil for labels
-secondary_keywords: [label foil sampling, foil adhesion check]
-related_products: []
-related_guides: []
+title: >-
+  Fine lines and small type: Coated glass container Guide for Roll-on hot
+  stamping for shaped parts
+description: >-
+  A practical guide to choosing, testing, and buying hot stamping foil for
+  Coated glass container when the main concern is fine lines and small type.
+primary_keyword: >-
+  fine lines and small type: coated glass container guide for roll-on hot
+  stamping for shaped parts
+secondary_keywords:
+  - Selection
+  - Fine Lines Small Type
+  - Cosmetics Personal Care
+  - Coated Glass Specialty Hot
+related_products:
+  - PK
+related_guides:
+  - cosmetic-packaging-foil-guide
+  - hot-stamping-foil-substrate-compatibility-and-compliance
 author: PINTE Technical Team
 reviewer: PINTE Application Engineer
-date_published: 2026-07-16
-date_modified: 2026-07-16
+date_published: '2026-07-16'
+date_modified: '2026-07-16'
 hero_image: ''
 hero_alt: ''
-answer: Start with a foil grade intended for the label substrate and process, then compare transfer completeness and edge definition on a controlled sample. Final settings require confirmation through sampling on the actual substrate, machine, artwork/design, and speed.
+answer: >-
+  For Coated glass container, choose foil by substrate stack, surface treatment,
+  process route, artwork detail, and required durability tests. Final settings
+  require sampling on the actual substrate, machine, artwork/design, and speed
+  before bulk production.
 faqs:
-  - question: What should be checked first when sampling foil for labels?
-    answer: Confirm the actual label substrate and surface treatment, then review transfer completeness, edge definition, and adhesion using the production artwork and process.
-  - question: Can one foil grade be assumed to suit every label material?
-    answer: No. Label facestock, coatings, varnishes, inks, and process conditions can differ, so a production-representative sample is needed before final selection.
+  - question: Can this foil choice be confirmed from the material name alone?
+    answer: >-
+      No. Coated glass container, Roll-on hot stamping for shaped parts, Coated
+      glass specialty hot stamping, artwork detail, and machine speed must be
+      checked together before bulk ordering.
+  - question: What should a buyer send before asking for a firm recommendation?
+    answer: >-
+      Send the substrate sample, surface treatment, artwork, machine type,
+      expected speed, target finish, and the durability checks required by the
+      final package.
+  - question: When should the final production setting be locked?
+    answer: >-
+      Final settings should be locked only after sampling on the actual
+      substrate, machine, artwork/design, and speed, with an approved reference
+      sample kept for production comparison.
 sources:
-  - label: UNIVACCO hot stamping foil overview
-    title: Hot Stamping Foil
+  - label: INX International Ink Co.
+    title: >-
+      Mastering the Art of Foil Printing: A Complete Guide to Hot and Cold
+      Techniques
+    publisher: INX International Ink Co.
+    url: >-
+      https://www.inxinternational.com/blog/shelf-appeal/mastering-art-foil-printing-complete-guide-hot-and-cold-techniques
+    summary: >-
+      Technical overview by an ink and coating manufacturer covering foil
+      construction, hot versus cold transfer, adhesive curing, design
+      preparation, and process tradeoffs. Use for process explanation, not
+      machine- or foil-grade guarantees.
+  - label: Foilco Limited
+    title: Foilco D4 Foil Grade Guide - Edition 1
+    publisher: Foilco Limited
+    url: 'https://www.foilco.com/app/uploads/2019/05/Grade-Guide-Booklet_E_Doc.pdf'
+    summary: >-
+      Official grade-selection guide covering finish families, typical
+      applications, and grade-dependent substrate/artwork fit. The guide itself
+      says its information is general and recommends testing and technical
+      support.
+  - label: LEONHARD KURZ
+    title: Decoration Processes
+    publisher: LEONHARD KURZ
+    url: 'https://www.kurz-world.com/en/solutions/decoration-processes/'
+    summary: >-
+      Official overview of hot stamping and related decoration processes for
+      plastic surfaces, including partial and full-surface decoration and
+      complex geometries. It does not identify PINTE grades or validate every
+      resin.
+  - label: UNIVACCO Technology Inc.
+    title: Metallic Sheet-fed Offset Cold Foil
     publisher: UNIVACCO Technology Inc.
-    url: https://www.univacco.com/hot-stamping-foil.htm
-    summary: Describes heat-and-pressure transfer and lists substrate and machine categories for hot stamping foil.
-  - label: HEIDELBERG FoilStar product information
-    title: Cold transfer unit FoilStar
-    publisher: HEIDELBERG
-    url: https://www.heidelberg.com/global/en/print_and_packaging/products/offset_printing/peripherals/printing_and_coating_unit/foil_star/product_information_19/foil_star.jsp
-    summary: Describes a cold-transfer configuration using adhesive, substrate, and UV curing for label material.
+    url: 'https://www.univacco.com/sheet-fed-offset-cold-foil.htm'
+    summary: >-
+      Official description of sheet-fed offset cold foil for coated paper and
+      carton board, with adhesive-system and equipment context. It supports a
+      conditional coated-paper group only.
 ---
-
 ## Direct answer
 
-For label work, choose a foil grade as a starting point based on the label substrate and the intended process, then sample it with the finished surface and production artwork. A supplier's compatibility information can help narrow the starting options, but it does not replace a job-specific trial.
+For Coated glass container, evaluate hot stamping foil by the real surface stack, the transfer process, the artwork detail, and the durability test expected after packaging. In this case the key context is Roll-on hot stamping for shaped parts, Coated glass specialty hot stamping, and Cosmetics and personal care. A suitable foil should transfer cleanly, keep the edges readable, and stay attached after the agreed test method. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
 
-## Diagnosis table
+## Where this topic applies
 
-| Observation | Check first | Conservative next step |
+This guide is written for buyers and production teams working with Cosmetics and personal care. The specific buying question is Which foil selection checks matter for fine lines and small type on coated glass container under Primer or adhesion-promoting coating / Roll-on hot stamping for shaped parts / Coated glass specialty hot stamping / Cosmetics and personal care / Fine lines and small type?. It is most relevant when the job involves fine lines and small type and when the supplier must recommend a foil starting point rather than a generic catalogue item.
+
+The working assumptions are:
+
+- Substrate or component: Coated glass container
+- Surface condition: Roll-on hot stamping for shaped parts
+- Stamping route: Coated glass specialty hot stamping
+- Application: Cosmetics and personal care
+- Main risk: Fine lines and small type
+- Related product family: general hot stamping foil for paper, packaging, and leather trials
+
+## Job-specific notes for this page
+
+Treat this as a job-specific foil decision, not a generic color selection. The approved sample should represent the substrate, process, artwork difficulty, and durability expectation of the final order.
+
+For this article, keep the approval language tied to these working labels: Selection; Fine Lines Small Type; Cosmetics Personal Care; Coated Glass Specialty Hot. The source set planned for the page is inx-hot-cold-foil-guide, foilco-d4-grade-guide, kurz-decoration-processes, univacco-sheetfed-cold-foil, labels-labeling-hot-foiling-process. In practical purchasing terms, this means the buyer should not ask only for a gold, silver, holographic, or pigment color. The request should name Coated glass container, describe Roll-on hot stamping for shaped parts, identify Coated glass specialty hot stamping, and state whether fine lines and small type is a visual issue, a durability issue, or a machine-setting issue.
+
+When comparing suppliers, ask each one to quote against the same job card. That job card should include the material stack, roll or sheet size, machine route, color target, artwork difficulty, sampling quantity, packing condition, and repeat-order requirement. This prevents one supplier from quoting a decorative foil for a job that actually needs a durability-focused or registration-focused grade.
+
+## Recommended RFQ wording
+
+Use a specific RFQ line such as: "Foil Grade Selection for Fine lines and small type on Coated glass container - Primer or adhesion-promoting coating / Roll-on hot stamping for shaped parts / Coated glass specialty hot stamping / Cosmetics and personal care / Fine lines and small type Which foil selection checks matter for fine lines and small type on coated glass container under Primer or adhesion-promoting coating / Roll-on hot stamping for shaped parts / Coated glass specialty hot stamping / Cosmetics and personal care / Fine lines and small type? Narrows grade selection to Fine lines and small type, Coated glass container, Primer or adhesion-promoting coating, and Roll-on hot stamping for shaped parts. Cluster cosmetic-packaging Intent substrate-selection Batch position 41".
+
+The supplier should answer that RFQ with a foil family, a test method, and a roll specification. If the reply does not mention Coated glass container, Roll-on hot stamping for shaped parts, Coated glass specialty hot stamping, and Fine lines and small type, the recommendation is probably too generic for production approval. Ask for the sample note to repeat those same terms so that purchasing, press operators, and quality inspectors are judging the same job.
+
+## Buying decision points
+
+1. **Confirm the substrate stack.** The same material name can behave differently after coating, lamination, ink, varnish, corona treatment, primer, or handling contamination. Ask the supplier to recommend a foil for the complete stack, not only for the base material.
+2. **Match the release and adhesive behavior to the process.** Coated glass specialty hot stamping may need a different release window from flatbed hot stamping, rotary hot stamping, cold transfer, or digital transfer. A foil that works on one process should not be assumed to work on another.
+3. **Separate visual approval from durability approval.** A sample can look bright and still fail tape pull, dry rub, scratch, alcohol rub, or fold checks. Decide the acceptance method before ordering rolls.
+4. **Check artwork difficulty.** Large solids, fine lines, small type, registered holographic effects, and reverse detail create different risks. The test artwork should include the hardest area of the real design.
+5. **Ask for production fit.** Roll width, winding direction, core size, machine path, and slitting tolerance affect waste and uptime as much as the foil grade itself.
+
+## Practical selection matrix
+
+| Factor | What to confirm | Why it matters for this job |
 | --- | --- | --- |
-| Incomplete transfer | Surface condition, die contact, and foil grade | Compare a small set of controlled samples before changing several variables at once. |
-| Soft or filled detail | Artwork detail, die condition, and dwell | Sample the production artwork and inspect the smallest required details. |
-| Uneven appearance | Substrate variation, coating, and pressure distribution | Keep the sample material representative of the production label. |
+| Surface | Roll-on hot stamping for shaped parts | Adhesion and release behavior depend on the final printable or decorated surface. |
+| Process | Coated glass specialty hot stamping | Temperature, pressure, dwell, adhesive cure, or nip condition changes the transfer window. |
+| Artwork | Fine lines and small type | The hardest detail determines whether the sample is representative. |
+| Durability | Tape, rub, scratch, fold, or chemical exposure as required | Passing appearance alone is not enough for packaging that will be handled, shipped, or filled. |
+| Roll specification | Width, length, core, winding, splice policy, and slitting range | A correct grade can still cause waste if the roll format does not fit the machine. |
 
-## Sampling steps
+## Troubleshooting logic
 
-1. Record the label facestock, coating or varnish, artwork detail, and machine setup used for the sample.
-2. Run a controlled sample while changing one practical variable at a time.
-3. Inspect transfer completeness, edge definition, and adhesion according to the job's agreed acceptance method.
+| Symptom | Likely area to check | Sampling action |
+| --- | --- | --- |
+| Poor adhesion or peeling | Surface energy, coating compatibility, contamination, wrong foil grade | Clean the sample area, compare an approved substrate, and test one alternative foil family. |
+| Incomplete transfer | Contact, pressure balance, adhesive activation, release mismatch | Run a small process window and inspect transfer completeness under the same artwork. |
+| Blurred edges or filled detail | Die condition, dwell time, artwork gap, foil release | Use the smallest text and reverse detail from the real design as the acceptance target. |
+| Mottling, pinholes, or dull gloss | Surface smoothness, pressure distribution, roll handling | Compare a solid patch, a fine-detail patch, and the approved master sample. |
+| Scratch or rub failure | Topcoat, cure, foil surface, handling route | Use the agreed rub or scratch method instead of a casual finger test. |
 
-Final settings require confirmation through sampling on the actual substrate, machine, artwork/design, and speed. Keep the approved sample and its setup record with the job information.
+## Sampling workflow
+
+Start with a small controlled trial. Record the foil batch, roll width, machine, die or plate, substrate batch, surface treatment, speed, pressure setting, temperature or curing condition, and artwork area used for approval. Change one variable at a time. For Coated glass container, keep one sample focused on fine lines and small type and another sample focused on the most common production area.
+
+Before bulk ordering, ask for a written sample note that includes the recommended foil family, suitable substrates, roll specification, storage notes, and the limits of the recommendation. Final settings require sampling on the actual substrate, machine, artwork/design, and speed; published supplier ranges should be treated as starting points, not as universal production settings.
+
+## What to ask the supplier
+
+- Which foil family is recommended for Coated glass container with Roll-on hot stamping for shaped parts?
+- Has the grade been used on a similar Coated glass specialty hot stamping route?
+- What roll width, length, core, and winding direction should be ordered?
+- Which durability checks are realistic for Cosmetics and personal care?
+- What sample size, color card, lead time, and MOQ apply before bulk purchase?
+- What information should be kept with the approved sample for repeat orders?
+
+## Source context
+
+The sources below support process boundaries, substrate awareness, and test-method selection. They do not replace a production trial on PINTE material and the buyer's actual job. INX International Ink Co. is useful for Technical overview by an ink and coating manufacturer covering foil construction, hot versus cold transfer, adhesive curing, design preparation, and process tradeoffs. Use for process explanation, not machine- or foil-grade guarantees. Foilco Limited is useful for Official grade-selection guide covering finish families, typical applications, and grade-dependent substrate/artwork fit. The guide itself says its information is general and recommends testing and technical support. LEONHARD KURZ is useful for Official overview of hot stamping and related decoration processes for plastic surfaces, including partial and full-surface decoration and complex geometries. It does not identify PINTE grades or validate every resin. UNIVACCO Technology Inc. is useful for Official description of sheet-fed offset cold foil for coated paper and carton board, with adhesive-system and equipment context. It supports a conditional coated-paper group only.
 
 ## FAQ
 
-### What should be checked first when sampling foil for labels?
+### Can this foil choice be confirmed from the material name alone?
 
-Confirm the actual label substrate and surface treatment, then review transfer completeness, edge definition, and adhesion using the production artwork and process.
+No. Coated glass container, Roll-on hot stamping for shaped parts, Coated glass specialty hot stamping, artwork detail, and machine speed must be checked together before bulk ordering.
 
-### Can one foil grade be assumed to suit every label material?
+### What should a buyer send before asking for a firm recommendation?
 
-No. Label facestock, coatings, varnishes, inks, and process conditions can differ, so a production-representative sample is needed before final selection.
+Send the substrate sample, surface treatment, artwork, machine type, expected speed, target finish, and the durability checks required by the final package.
 
-## References
+### When should the final production setting be locked?
 
-- [UNIVACCO: Hot Stamping Foil](https://www.univacco.com/hot-stamping-foil.htm) describes heat-and-pressure transfer and lists substrate and machine categories.
-- [HEIDELBERG: Cold transfer unit FoilStar](https://www.heidelberg.com/global/en/print_and_packaging/products/offset_printing/peripherals/printing_and_coating_unit/foil_star/product_information_19/foil_star.jsp) describes a label-transfer configuration using adhesive, substrate, and UV curing.
+Final settings should be locked only after sampling on the actual substrate, machine, artwork/design, and speed, with an approved reference sample kept for production comparison.
