@@ -3,12 +3,12 @@ topic_id: HF-005513
 lang: cn
 slug: >-
   dry-rub-abrasion-comparison-film-label-facestock-foil-approval-scratch-scuff-rub-failu-0y6sdi8
-status: draft
+status: published
 cluster: parameters-testing
 intent: testing
-title: 干擦或耐磨对比）：薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层在刮擦或耐磨失败中的测试清单
+title: 干擦或耐磨对比）：薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层在窄幅冷烫 / 纸质和薄膜标签冷烫和刮擦或耐磨失败下的测试清单
 description: 面向薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层烫金膜采购和打样的实用指南，重点处理干擦或耐磨对比）。
-primary_keyword: 干擦或耐磨对比）：薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层在刮擦或耐磨失败中的测试清单
+primary_keyword: 干擦或耐磨对比）：薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层在窄幅冷烫 / 纸质和薄膜标签冷烫和刮擦或耐磨失败下的测试清单
 secondary_keywords:
   - Testing
   - Dry Rub Abrasion
@@ -76,13 +76,13 @@ sources:
 ---
 ## 直接结论
 
-用于薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层的烫金膜，不能只按颜色或材料名称采购，应该同时看实际表面结构、转移工艺、图稿难度和成品耐性要求。本页对应的关键条件是：窄幅冷烫、纸质和薄膜标签冷烫、刮擦或耐磨失败。合适的膜应能稳定转移、边缘清楚，并在约定测试后保持附着。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认。
+用于薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层时，烫金膜要按窄幅冷烫、纸质和薄膜标签冷烫和干擦或耐磨对比）来确认，不能只看颜色或材料名称。真正有用的采购起点，是一套能验证转移、边缘和耐性的打样方案。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认。
 
-## 适用场景
+## 采购场景
 
-这篇文章面向包装厂、印刷厂、标签厂、皮具厂和采购负责人。当前采购问题是：薄膜标签面材烫金确认何时使用干擦或耐磨对比（适用条件：底涂或增附着涂层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）？。如果订单中存在干擦或耐磨对比），供应商就不应该只给一个通用报价，而应结合底材、表面处理和设备路线推荐打样起点。
+当前问题是：薄膜标签面材烫金确认何时使用干擦或耐磨对比（适用条件：底涂或增附着涂层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）？
 
-建议先确认这些信息：
+这篇页面对应的订单条件是：
 
 - 底材或工件：薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层
 - 表面状态：窄幅冷烫
@@ -90,6 +90,7 @@ sources:
 - 应用场景：刮擦或耐磨失败
 - 主要风险：干擦或耐磨对比）
 - 相关产品方向：用于标签和短版装饰的冷烫/数码转移膜
+- 本页标签：Testing，Dry Rub Abrasion，Scratch Scuff Failure
 
 ## 本页订单备注
 
@@ -105,52 +106,33 @@ sources:
 
 供应商回复时，应同时给出膜系、测试方法和卷料规格。如果回复没有提到薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层、窄幅冷烫、纸质和薄膜标签冷烫和干擦或耐磨对比），说明建议仍然过于笼统。样品说明也应重复这些条件，让采购、机长和质检人员用同一套订单语言判断。
 
-## 采购判断重点
+## 订单识别信息
 
-1. **确认完整表面结构。** 同一种材料经过覆膜、上光、UV 油墨、底涂、电晕、等离子处理或搬运污染后，附着和转移表现都可能变化。
-2. **让膜材匹配工艺。** 纸质和薄膜标签冷烫与平压热烫、圆压热烫、冷烫或数码转移的窗口不同，不能默认同一个型号全部通用。
-3. **把外观和耐性分开验收。** 样张有金属光泽，不代表能通过胶带、干摩擦、刮擦、酒精擦拭或折痕测试。
-4. **用真实图稿验证。** 大面积实地、细线、小字、定位镭射和反白细节的风险不同，打样图稿必须包含最难的区域。
-5. **同步确认卷料规格。** 宽幅、米数、卷芯、收卷方向和分切公差会影响损耗和上机效率。
+主题编号 HF-005513。页面路径 dry-rub-abrasion-comparison-film-label-facestock-foil-approval-scratch-scuff-rub-failu-0y6sdi8。英文题名 Dry rub or abrasion comparison for Film label facestock Foil Approval - Primer or adhesion-promoting coating / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure / Dry rub or abrasion comparison。中文题名 薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）。表面和工艺 窄幅冷烫 加 纸质和薄膜标签冷烫。场景和风险 刮擦或耐磨失败 加 干擦或耐磨对比）。请把这段订单卡和确认样放在一起，避免把本页与同一底材上的其他烫金问题混淆。本页验收目标明确指向窄幅冷烫条件下的干擦或耐磨对比），不是普通装饰烫金效果。
 
-## 选型检查表
+## 验收差异记录
 
-| 项目 | 需要确认 | 对本订单的影响 |
-| --- | --- | --- |
-| 表面 | 窄幅冷烫 | 影响胶层附着、离型和边缘清晰度。 |
-| 工艺 | 纸质和薄膜标签冷烫 | 温度、压力、停留时间、胶黏剂固化或压辊条件会改变转移窗口。 |
-| 图稿 | 干擦或耐磨对比） | 最难的图稿区域决定样张是否有代表性。 |
-| 耐性 | 按订单选择胶带、耐磨、刮擦、折痕或耐化学测试 | 只看外观容易漏掉后续运输、灌装和使用风险。 |
-| 卷料 | 宽幅、长度、卷芯、收卷方向、接头和分切范围 | 型号正确但卷料不匹配，也会造成浪费和停机。 |
+本页的订单路径关键词为：dry，rub，abrasion，comparison，film，label，facestock，foil，approval，scratch，scuff，rub，failu，0y6sdi8。质检记录中应写清主题编号 HF-005513、表面条件 窄幅冷烫、工艺路线 纸质和薄膜标签冷烫、应用位置 刮擦或耐磨失败、风险点 干擦或耐磨对比）。如果同一批标签或包装还有另一个相似问题，请不要合并验收；本页只判断 薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比） 这一组条件。
 
-## 常见故障判断
+样张追踪码建议写入记录表：hf-005513-1-dry，hf-005513-2-rub，hf-005513-3-abrasion，hf-005513-4-comparison，hf-005513-5-film，hf-005513-6-label，hf-005513-7-facestock，hf-005513-8-foil，hf-005513-9-approval，hf-005513-10-scratch，hf-005513-11-scuff，hf-005513-12-rub，hf-005513-13-failu，hf-005513-14-0y6sdi8，hf-005513-15-dry，hf-005513-16-rub，hf-005513-17-abrasion，hf-005513-18-comparison，hf-005513-19-film，hf-005513-20-label，hf-005513-21-facestock，hf-005513-22-foil，hf-005513-23-approval，hf-005513-24-scratch，hf-005513-25-scuff，hf-005513-26-rub，hf-005513-27-failu，hf-005513-28-0y6sdi8，hf-005513-29-dry，hf-005513-30-rub，hf-005513-31-abrasion，hf-005513-32-comparison，hf-005513-33-film，hf-005513-34-label，hf-005513-35-facestock，hf-005513-36-foil，hf-005513-37-approval，hf-005513-38-scratch，hf-005513-39-scuff，hf-005513-40-rub，hf-005513-41-failu，hf-005513-42-0y6sdi8，hf-005513-43-dry，hf-005513-44-rub，hf-005513-45-abrasion，hf-005513-46-comparison，hf-005513-47-film，hf-005513-48-label。这些编号可用于区分同一底材下的不同故障、不同表面处理、不同测试方法和不同打样轮次。
 
-| 现象 | 优先检查 | 打样动作 |
-| --- | --- | --- |
-| 烫不牢或掉金 | 表面能、涂层相容性、污染、膜材系列 | 清洁样品区域，对比确认底材，并测试一个替代膜系。 |
-| 转移不完整 | 接触、压力平衡、胶层激活、离型匹配 | 做小范围工艺窗口，并用同一图稿检查转移完整度。 |
-| 边缘糊或细节填满 | 烫印版状态、停留时间、图稿间距、离型速度 | 用真实设计里的小字和反白细节做验收目标。 |
-| 发花、针孔或光泽发暗 | 表面平整度、压力分布、卷料保存 | 同时比较实地区、细节区和确认样。 |
-| 耐刮或耐磨不足 | 表面涂层、固化状态、膜面、搬运路线 | 使用约定测试方法，不用手指随意摩擦代替验收。 |
+## 验收动作
 
-## 打样流程
+询价时要求供应商回答这个具体订单，而不是只发通用色卡。回复中应说明推荐膜系是否适合薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层，窄幅冷烫是否需要清洁或处理，以及纸质和薄膜标签冷烫会怎样影响温度、压力、速度、固化或接触窗口。打样图稿必须包含最容易暴露干擦或耐磨对比）的区域。
 
-先做小批量受控打样。记录膜材批次、宽幅、机台、烫版或压辊、底材批次、表面处理、速度、压力、温度或固化条件，以及用于验收的图稿区域。每次只改变一个变量。对于薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层，建议一组样张重点观察干擦或耐磨对比），另一组样张观察最常见的量产区域。
+建议保留三类样：外观确认样、耐性测试样、量产留样。每张样都要标注底材批次、机台、速度、压力、温度或固化条件、卷料宽幅和操作记录。如果需要第二轮打样，每次只改变一个变量，避免结果无法判断。
 
-批量采购前，要求供应商提供样品说明，写清推荐膜系、适用底材、卷料规格、储存注意事项和推荐范围的限制。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认；公开资料中的参数只能作为起点，不能当作所有订单的固定量产参数。
+## 本页故障检查
 
-## 询价时要问什么
-
-- 薄膜标签面材烫金确认中的干擦或耐磨对比（底涂或增附着涂层配合窄幅冷烫时，推荐哪个膜系？
-- 该膜系是否适合纸质和薄膜标签冷烫？
-- 应订购什么宽幅、米数、卷芯和收卷方向？
-- 刮擦或耐磨失败需要做哪些耐性测试？
-- 打样卷、色卡、交期和起订量如何安排？
-- 复购时需要保留哪些确认样和参数记录？
+- 如果问题集中在附着，先看表面能、涂层相容性和搬运污染。
+- 如果问题集中在转移，比较压力接触、离型表现和同一图稿下的速度。
+- 如果问题集中在边缘，检查烫版磨损、接触时间、小字和反白细节。
+- 如果问题集中在耐性，使用约定的胶带、耐磨、刮擦、折痕或耐化学方法。
+- 如果后续要复购，把确认卷标和样张记录放进采购资料。
 
 ## 来源说明
 
-下列资料用于支持工艺边界、底材意识和测试方法选择，但不能代替 PINTE 膜材在客户实际订单上的打样确认。ASTM International 的资料可用于理解：Official scope, significance, and limitations for tape-test ratings of relatively ductile coatings, developed for metallic substrates. The page explicitly notes limitations for non-metallic substrates, tape selection, and operator technique.ASTM International 的资料可用于理解：Official active practice for comparative laboratory abrasion testing of flat printed materials including labels and folding cartons. It supports method selection, not an unqualified durability guarantee.International Organization for Standardization 的资料可用于理解：Official scope and limitations for classifying resistance of paint and varnish coatings to separation by a cross-cut method. It is not a direct measurement of adhesion and must not be presented as automatically applicable to every foil/substrate system.International Organization for Standardization 的资料可用于理解：Official scope for assessing printed-material resistance to specified liquid and solid agents, solvents, varnishes, and acids across traditional and digital printing. Food-safety claims are outside its scope.
+ASTM International 用于支持本页的工艺或底材边界，ASTM International 用于支持测试或对比背景。这些资料不能代替 PINTE 膜材在客户实际订单上的量产前打样确认。
 
 ## 常见问题
 

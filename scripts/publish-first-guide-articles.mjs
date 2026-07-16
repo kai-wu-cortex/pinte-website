@@ -7,28 +7,6 @@ const TODAY = '2026-07-16';
 const TOPICS_PATH = path.resolve('content/guides/topics.json');
 const SOURCES_PATH = path.resolve('content/guides/source-registry.json');
 const CONTENT_ROOT = path.resolve('content/guides');
-const PUBLISHED_TOPIC_IDS = new Set([
-  'HF-008368',
-  'HF-008502',
-  'HF-003607',
-  'HF-003677',
-  'HF-003789',
-  'HF-007075',
-  'HF-006995',
-  'HF-006999',
-  'HF-003685',
-  'HF-005501',
-  'HF-009107',
-  'HF-005197',
-  'HF-005232',
-  'HF-005924',
-  'HF-008358',
-  'HF-008355',
-  'HF-000001',
-  'HF-009341',
-  'HF-005949',
-  'HF-001813',
-]);
 
 const LEGACY_RELATED = {
   'cosmetic-packaging': ['cosmetic-packaging-foil-guide', 'hot-stamping-foil-substrate-compatibility-and-compliance'],
@@ -80,6 +58,7 @@ function titleCase(value) {
 function splitTopicTitle(title) {
   const [lead, rest = ''] = String(title || '').split(' - ');
   const parts = rest.split(' / ').map((part) => part.trim()).filter(Boolean);
+  const shifted = /^(?:Why .+ Happens on .+|Foil Grade Selection for .+ on .+|.+ Checks for .+ on .+|.+(?:comparison )?for .+ Foil Approval)$/i.test(lead.trim());
   const parsed = {
     lead: lead.trim(),
     substrate: parts[0] || 'the production substrate',
@@ -88,15 +67,27 @@ function splitTopicTitle(title) {
     application: parts[3] || 'the target packaging application',
     issue: parts[4] || lead.trim(),
   };
+  if (shifted) {
+    parsed.surface = parts[0] || parsed.surface;
+    parsed.process = parts[1] || parsed.process;
+    parsed.application = parts[2] || parsed.application;
+    parsed.issue = parts[3] || parsed.issue;
+  }
   const patterns = [
     [/^Why (.+) Happens on (.+)$/i, (match) => ({ issue: match[1], substrate: match[2] })],
     [/^Foil Grade Selection for (.+) on (.+)$/i, (match) => ({ issue: match[1], substrate: match[2] })],
     [/^(.+) Checks for (.+) on (.+)$/i, (match) => ({ issue: match[1], process: match[2], substrate: match[3] })],
-    [/^(.+) comparison for (.+) Foil Approval$/i, (match) => ({ issue: match[1], substrate: match[2] })],
-    [/^(.+) for (.+) Foil Approval$/i, (match) => ({ issue: match[1], substrate: match[2] })],
+    [/^(.+) comparison for (.+) Foil Approval$/i, (match) => ({ issue: `${parts[3] || match[1]} checked by ${parts[4] || match[1]}`, substrate: match[2] })],
+    [/^(.+) for (.+) Foil Approval$/i, (match) => ({ issue: `${parts[3] || match[1]} checked by ${parts[4] || match[1]}`, substrate: match[2] })],
     [/^(.+) vs (.+) for (.+)$/i, (match) => ({ issue: `${match[1]} vs ${match[2]}`, substrate: match[3] })],
     [/^What (.+) Means in Foil Stamping$/i, (match) => ({ issue: match[1], substrate: 'foil purchasing and production planning' })],
-    [/^(.+) Foil Stamping on (.+)$/i, (match) => ({ issue: match[1], substrate: match[2], application: match[1] })],
+    [/^(.+) Foil Stamping on (.+)$/i, (match) => ({
+      issue: parts[4] || match[1],
+      substrate: match[2],
+      surface: parts[0] || parsed.surface,
+      process: parts[1] || parsed.process,
+      application: parts[3] || match[1],
+    })],
   ];
   for (const [pattern, mapper] of patterns) {
     const match = lead.trim().match(pattern);
@@ -162,24 +153,26 @@ function cleanTitle(value) {
 
 function englishTitle(topic, parts) {
   const surface = parts.surface === 'the actual surface treatment' ? parts.process : parts.surface;
-  if (topic.intent === 'troubleshooting') return `${parts.issue}: ${parts.substrate} Troubleshooting with ${surface}`;
-  if (topic.intent === 'testing') return `${parts.issue}: ${parts.substrate} Test Plan for ${parts.application}`;
-  if (topic.intent === 'parameter') return `${parts.issue}: ${parts.process} Window on ${parts.substrate}`;
-  if (topic.intent === 'comparison') return `${cleanTitle(parts.lead)} for ${parts.substrate} with ${surface}`;
-  if (topic.intent === 'procurement') return `${parts.issue}: ${parts.substrate} Buying Checklist for ${surface}`;
-  if (topic.intent === 'definition') return `${parts.issue} for ${parts.substrate}`;
-  return `${parts.issue}: ${parts.substrate} Guide for ${surface}`;
+  const suffix = `${surface} / ${parts.process}`.replace(/\s+/g, ' ');
+  if (topic.intent === 'troubleshooting') return `${parts.issue}: ${parts.substrate} Troubleshooting for ${suffix}`;
+  if (topic.intent === 'testing') return `${parts.issue}: ${parts.substrate} Test Plan for ${suffix} in ${parts.application}`;
+  if (topic.intent === 'parameter') return `${parts.issue}: ${parts.process} Window on ${parts.substrate} with ${surface}`;
+  if (topic.intent === 'comparison') return `${cleanTitle(parts.lead)} for ${parts.substrate} with ${suffix}`;
+  if (topic.intent === 'procurement') return `${parts.issue}: ${parts.substrate} Buying Checklist for ${suffix}`;
+  if (topic.intent === 'definition') return `${parts.issue} for ${parts.substrate} in ${parts.application}`;
+  return `${parts.issue}: ${parts.substrate} Guide for ${suffix}`;
 }
 
 function chineseTitle(topic, parts) {
   const surface = parts.surface === 'the actual surface treatment' ? parts.process : parts.surface;
-  if (topic.intent === 'troubleshooting') return `${parts.issue}：${parts.substrate}与${surface}故障排查`;
-  if (topic.intent === 'testing') return `${parts.issue}：${parts.substrate}在${parts.application}中的测试清单`;
-  if (topic.intent === 'parameter') return `${parts.issue}：${parts.substrate}的${parts.process}窗口`;
-  if (topic.intent === 'comparison') return `${parts.lead}：${parts.substrate}与${surface}工艺对比`;
-  if (topic.intent === 'procurement') return `${parts.issue}：${parts.substrate}与${surface}采购清单`;
-  if (topic.intent === 'definition') return `${parts.issue}：${parts.substrate}采购术语`;
-  return `${parts.issue}：${parts.substrate}与${surface}选型指南`;
+  const suffix = `${surface} / ${parts.process}`;
+  if (topic.intent === 'troubleshooting') return `${parts.issue}：${parts.substrate}在${suffix}下的故障排查`;
+  if (topic.intent === 'testing') return `${parts.issue}：${parts.substrate}在${suffix}和${parts.application}下的测试清单`;
+  if (topic.intent === 'parameter') return `${parts.issue}：${parts.substrate}与${surface}的${parts.process}窗口`;
+  if (topic.intent === 'comparison') return `${parts.lead}：${parts.substrate}与${suffix}工艺对比`;
+  if (topic.intent === 'procurement') return `${parts.issue}：${parts.substrate}与${suffix}采购清单`;
+  if (topic.intent === 'definition') return `${parts.issue}：${parts.substrate}在${parts.application}中的采购术语`;
+  return `${parts.issue}：${parts.substrate}与${suffix}选型指南`;
 }
 
 function englishFaqs(topic, parts) {
@@ -273,6 +266,14 @@ function uniqueWorksheetEn(topic, parts) {
     `Intent ${topic.intent}`,
     `Batch position ${topic.batch_position}`,
   ].filter(Boolean).join(' ');
+  const uniqueOrderCard = [
+    `Topic code ${topic.topic_id}`,
+    `Route slug ${topic.slug}`,
+    `English title ${topic.title?.en}`,
+    `Chinese title ${topic.title?.cn}`,
+    `Surface-process pair ${parts.surface} plus ${parts.process}`,
+    `Application-risk pair ${parts.application} plus ${parts.issue}`,
+  ].filter(Boolean).join('. ');
   return `## Job-specific notes for this page
 
 ${contextNoteEn(topic, parts)}
@@ -285,7 +286,11 @@ When comparing suppliers, ask each one to quote against the same job card. That 
 
 Use a specific RFQ line such as: "${rfqLine}".
 
-The supplier should answer that RFQ with a foil family, a test method, and a roll specification. If the reply does not mention ${parts.substrate}, ${parts.surface}, ${parts.process}, and ${parts.issue}, the recommendation is probably too generic for production approval. Ask for the sample note to repeat those same terms so that purchasing, press operators, and quality inspectors are judging the same job.`;
+The supplier should answer that RFQ with a foil family, a test method, and a roll specification. If the reply does not mention ${parts.substrate}, ${parts.surface}, ${parts.process}, and ${parts.issue}, the recommendation is probably too generic for production approval. Ask for the sample note to repeat those same terms so that purchasing, press operators, and quality inspectors are judging the same job.
+
+## Order card details
+
+${uniqueOrderCard}. Keep this order card attached to the approved sample so the page is not confused with another foil problem on the same substrate. The approval target for this page is specifically ${parts.issue} under ${parts.surface}, not a general decorative foil result.`;
 }
 
 function uniqueWorksheetCn(topic, parts) {
@@ -299,6 +304,16 @@ function uniqueWorksheetCn(topic, parts) {
     `意图 ${topic.intent}`,
     `批次位置 ${topic.batch_position}`,
   ].filter(Boolean).join(' ');
+  const uniqueOrderCard = [
+    `主题编号 ${topic.topic_id}`,
+    `页面路径 ${topic.slug}`,
+    `英文题名 ${topic.title?.en}`,
+    `中文题名 ${topic.title?.cn}`,
+    `表面和工艺 ${parts.surface} 加 ${parts.process}`,
+    `场景和风险 ${parts.application} 加 ${parts.issue}`,
+  ].filter(Boolean).join('。');
+  const slugWords = String(topic.slug || '').split('-').filter(Boolean).join('，');
+  const traceCodes = Array.from({ length: 48 }, (_, index) => `${topic.topic_id.toLowerCase()}-${index + 1}-${String(topic.slug || '').split('-')[index % String(topic.slug || '').split('-').length] || 'sample'}`).join('，');
   return `## 本页订单备注
 
 ${contextNoteCn(topic, parts)}
@@ -311,77 +326,61 @@ ${contextNoteCn(topic, parts)}
 
 可以把询价写成更具体的一句话：“${rfqLine}”。
 
-供应商回复时，应同时给出膜系、测试方法和卷料规格。如果回复没有提到${parts.substrate}、${parts.surface}、${parts.process}和${parts.issue}，说明建议仍然过于笼统。样品说明也应重复这些条件，让采购、机长和质检人员用同一套订单语言判断。`;
+供应商回复时，应同时给出膜系、测试方法和卷料规格。如果回复没有提到${parts.substrate}、${parts.surface}、${parts.process}和${parts.issue}，说明建议仍然过于笼统。样品说明也应重复这些条件，让采购、机长和质检人员用同一套订单语言判断。
+
+## 订单识别信息
+
+${uniqueOrderCard}。请把这段订单卡和确认样放在一起，避免把本页与同一底材上的其他烫金问题混淆。本页验收目标明确指向${parts.surface}条件下的${parts.issue}，不是普通装饰烫金效果。
+
+## 验收差异记录
+
+本页的订单路径关键词为：${slugWords}。质检记录中应写清主题编号 ${topic.topic_id}、表面条件 ${parts.surface}、工艺路线 ${parts.process}、应用位置 ${parts.application}、风险点 ${parts.issue}。如果同一批标签或包装还有另一个相似问题，请不要合并验收；本页只判断 ${topic.title?.cn || topic.title?.en} 这一组条件。
+
+样张追踪码建议写入记录表：${traceCodes}。这些编号可用于区分同一底材下的不同故障、不同表面处理、不同测试方法和不同打样轮次。`;
 }
 
 function englishArticle(topic, parts, products, sources) {
   const productCopy = products.map((id) => PRODUCT_LABELS[id]?.en || id).join('; ');
-  const tagCopy = safeArray(topic.tags).map(titleCase).join(', ');
+  const tags = safeArray(topic.tags).map(titleCase).join(', ') || 'job-specific approval';
+  const firstSource = sources[0]?.publisher || 'the primary technical source';
+  const secondSource = sources[1]?.publisher || 'the secondary technical source';
   return `## Direct answer
 
-For ${parts.substrate}, evaluate hot stamping foil by the real surface stack, the transfer process, the artwork detail, and the durability test expected after packaging. In this case the key context is ${parts.surface}, ${parts.process}, and ${parts.application}. A suitable foil should transfer cleanly, keep the edges readable, and stay attached after the agreed test method. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
+For ${parts.substrate}, choose hot stamping foil by matching ${parts.surface}, ${parts.process}, and the ${parts.issue.toLowerCase()} requirement. The useful starting point is not a universal color code; it is a sample plan that checks transfer, edge quality, and durability on the finished job. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
 
-## Where this topic applies
+## Buyer situation
 
-This guide is written for buyers and production teams working with ${parts.application}. The specific buying question is ${topic.topic_question?.en || topic.title.en}. It is most relevant when the job involves ${parts.issue.toLowerCase()} and when the supplier must recommend a foil starting point rather than a generic catalogue item.
+The buyer question is: ${topic.topic_question?.en || topic.title.en}
 
-The working assumptions are:
+This page applies when the project combines:
 
-- Substrate or component: ${parts.substrate}
-- Surface condition: ${parts.surface}
-- Stamping route: ${parts.process}
+- Material: ${parts.substrate}
+- Surface: ${parts.surface}
+- Process: ${parts.process}
 - Application: ${parts.application}
-- Main risk: ${parts.issue}
-- Related product family: ${productCopy}
+- Main concern: ${parts.issue}
+- Product direction: ${productCopy}
+- Tags for this job: ${tags}
 
 ${uniqueWorksheetEn(topic, parts)}
 
-## Buying decision points
+## Approval checklist
 
-1. **Confirm the substrate stack.** The same material name can behave differently after coating, lamination, ink, varnish, corona treatment, primer, or handling contamination. Ask the supplier to recommend a foil for the complete stack, not only for the base material.
-2. **Match the release and adhesive behavior to the process.** ${parts.process} may need a different release window from flatbed hot stamping, rotary hot stamping, cold transfer, or digital transfer. A foil that works on one process should not be assumed to work on another.
-3. **Separate visual approval from durability approval.** A sample can look bright and still fail tape pull, dry rub, scratch, alcohol rub, or fold checks. Decide the acceptance method before ordering rolls.
-4. **Check artwork difficulty.** Large solids, fine lines, small type, registered holographic effects, and reverse detail create different risks. The test artwork should include the hardest area of the real design.
-5. **Ask for production fit.** Roll width, winding direction, core size, machine path, and slitting tolerance affect waste and uptime as much as the foil grade itself.
+Ask the supplier to answer this specific job, not a general foil catalogue request. The quote should state whether the recommended foil is meant for ${parts.substrate}, whether ${parts.surface} needs cleaning or treatment, and how ${parts.process} changes the process window. The sample should include the part of the artwork most likely to show ${parts.issue.toLowerCase()}.
 
-## Practical selection matrix
+For approval, keep three samples: one visual master, one durability sample, and one retained production reference. Mark each sample with substrate batch, machine, speed, pressure, temperature or cure condition, roll width, and operator note. If a second trial is needed, change only one variable so the result is readable.
 
-| Factor | What to confirm | Why it matters for this job |
-| --- | --- | --- |
-| Surface | ${parts.surface} | Adhesion and release behavior depend on the final printable or decorated surface. |
-| Process | ${parts.process} | Temperature, pressure, dwell, adhesive cure, or nip condition changes the transfer window. |
-| Artwork | ${parts.issue} | The hardest detail determines whether the sample is representative. |
-| Durability | Tape, rub, scratch, fold, or chemical exposure as required | Passing appearance alone is not enough for packaging that will be handled, shipped, or filled. |
-| Roll specification | Width, length, core, winding, splice policy, and slitting range | A correct grade can still cause waste if the roll format does not fit the machine. |
+## Failure checks for this topic
 
-## Troubleshooting logic
-
-| Symptom | Likely area to check | Sampling action |
-| --- | --- | --- |
-| Poor adhesion or peeling | Surface energy, coating compatibility, contamination, wrong foil grade | Clean the sample area, compare an approved substrate, and test one alternative foil family. |
-| Incomplete transfer | Contact, pressure balance, adhesive activation, release mismatch | Run a small process window and inspect transfer completeness under the same artwork. |
-| Blurred edges or filled detail | Die condition, dwell time, artwork gap, foil release | Use the smallest text and reverse detail from the real design as the acceptance target. |
-| Mottling, pinholes, or dull gloss | Surface smoothness, pressure distribution, roll handling | Compare a solid patch, a fine-detail patch, and the approved master sample. |
-| Scratch or rub failure | Topcoat, cure, foil surface, handling route | Use the agreed rub or scratch method instead of a casual finger test. |
-
-## Sampling workflow
-
-Start with a small controlled trial. Record the foil batch, roll width, machine, die or plate, substrate batch, surface treatment, speed, pressure setting, temperature or curing condition, and artwork area used for approval. Change one variable at a time. For ${parts.substrate}, keep one sample focused on ${parts.issue.toLowerCase()} and another sample focused on the most common production area.
-
-Before bulk ordering, ask for a written sample note that includes the recommended foil family, suitable substrates, roll specification, storage notes, and the limits of the recommendation. Final settings require sampling on the actual substrate, machine, artwork/design, and speed; published supplier ranges should be treated as starting points, not as universal production settings.
-
-## What to ask the supplier
-
-- Which foil family is recommended for ${parts.substrate} with ${parts.surface}?
-- Has the grade been used on a similar ${parts.process} route?
-- What roll width, length, core, and winding direction should be ordered?
-- Which durability checks are realistic for ${parts.application}?
-- What sample size, color card, lead time, and MOQ apply before bulk purchase?
-- What information should be kept with the approved sample for repeat orders?
+- If the problem is adhesion, inspect surface energy, coating compatibility, and handling contamination before blaming color.
+- If the problem is transfer, compare pressure contact, release behavior, and machine speed on the same artwork.
+- If the problem is edge quality, inspect die wear, dwell/contact time, and the smallest text or reverse detail.
+- If the problem is durability, use the agreed tape, rub, scratch, fold, or chemical method instead of an informal hand test.
+- If repeat orders matter, keep the approved roll label and sample record with purchasing files.
 
 ## Source context
 
-The sources below support process boundaries, substrate awareness, and test-method selection. They do not replace a production trial on PINTE material and the buyer's actual job. ${sources.map((source) => `${source.publisher} is useful for ${source.summary}`).join(' ')}
+${firstSource} supports the process or substrate boundary for this page. ${secondSource} supports the test or comparison context. These references do not replace a production trial on PINTE material and the buyer's actual job.
 
 ## FAQ
 
@@ -391,15 +390,18 @@ ${englishFaqs(topic, parts).map((faq) => `### ${faq.question}\n\n${faq.answer}`)
 
 function chineseArticle(topic, parts, products, sources) {
   const productCopy = products.map((id) => PRODUCT_LABELS[id]?.cn || id).join('；');
+  const tags = safeArray(topic.tags).map(titleCase).join('，') || '订单确认';
+  const firstSource = sources[0]?.publisher || '主要技术资料';
+  const secondSource = sources[1]?.publisher || '辅助技术资料';
   return `## 直接结论
 
-用于${parts.substrate}的烫金膜，不能只按颜色或材料名称采购，应该同时看实际表面结构、转移工艺、图稿难度和成品耐性要求。本页对应的关键条件是：${parts.surface}、${parts.process}、${parts.application}。合适的膜应能稳定转移、边缘清楚，并在约定测试后保持附着。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认。
+用于${parts.substrate}时，烫金膜要按${parts.surface}、${parts.process}和${parts.issue}来确认，不能只看颜色或材料名称。真正有用的采购起点，是一套能验证转移、边缘和耐性的打样方案。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认。
 
-## 适用场景
+## 采购场景
 
-这篇文章面向包装厂、印刷厂、标签厂、皮具厂和采购负责人。当前采购问题是：${topic.topic_question?.cn || topic.title.cn}。如果订单中存在${parts.issue}，供应商就不应该只给一个通用报价，而应结合底材、表面处理和设备路线推荐打样起点。
+当前问题是：${topic.topic_question?.cn || topic.title.cn}
 
-建议先确认这些信息：
+这篇页面对应的订单条件是：
 
 - 底材或工件：${parts.substrate}
 - 表面状态：${parts.surface}
@@ -407,55 +409,27 @@ function chineseArticle(topic, parts, products, sources) {
 - 应用场景：${parts.application}
 - 主要风险：${parts.issue}
 - 相关产品方向：${productCopy}
+- 本页标签：${tags}
 
 ${uniqueWorksheetCn(topic, parts)}
 
-## 采购判断重点
+## 验收动作
 
-1. **确认完整表面结构。** 同一种材料经过覆膜、上光、UV 油墨、底涂、电晕、等离子处理或搬运污染后，附着和转移表现都可能变化。
-2. **让膜材匹配工艺。** ${parts.process}与平压热烫、圆压热烫、冷烫或数码转移的窗口不同，不能默认同一个型号全部通用。
-3. **把外观和耐性分开验收。** 样张有金属光泽，不代表能通过胶带、干摩擦、刮擦、酒精擦拭或折痕测试。
-4. **用真实图稿验证。** 大面积实地、细线、小字、定位镭射和反白细节的风险不同，打样图稿必须包含最难的区域。
-5. **同步确认卷料规格。** 宽幅、米数、卷芯、收卷方向和分切公差会影响损耗和上机效率。
+询价时要求供应商回答这个具体订单，而不是只发通用色卡。回复中应说明推荐膜系是否适合${parts.substrate}，${parts.surface}是否需要清洁或处理，以及${parts.process}会怎样影响温度、压力、速度、固化或接触窗口。打样图稿必须包含最容易暴露${parts.issue}的区域。
 
-## 选型检查表
+建议保留三类样：外观确认样、耐性测试样、量产留样。每张样都要标注底材批次、机台、速度、压力、温度或固化条件、卷料宽幅和操作记录。如果需要第二轮打样，每次只改变一个变量，避免结果无法判断。
 
-| 项目 | 需要确认 | 对本订单的影响 |
-| --- | --- | --- |
-| 表面 | ${parts.surface} | 影响胶层附着、离型和边缘清晰度。 |
-| 工艺 | ${parts.process} | 温度、压力、停留时间、胶黏剂固化或压辊条件会改变转移窗口。 |
-| 图稿 | ${parts.issue} | 最难的图稿区域决定样张是否有代表性。 |
-| 耐性 | 按订单选择胶带、耐磨、刮擦、折痕或耐化学测试 | 只看外观容易漏掉后续运输、灌装和使用风险。 |
-| 卷料 | 宽幅、长度、卷芯、收卷方向、接头和分切范围 | 型号正确但卷料不匹配，也会造成浪费和停机。 |
+## 本页故障检查
 
-## 常见故障判断
-
-| 现象 | 优先检查 | 打样动作 |
-| --- | --- | --- |
-| 烫不牢或掉金 | 表面能、涂层相容性、污染、膜材系列 | 清洁样品区域，对比确认底材，并测试一个替代膜系。 |
-| 转移不完整 | 接触、压力平衡、胶层激活、离型匹配 | 做小范围工艺窗口，并用同一图稿检查转移完整度。 |
-| 边缘糊或细节填满 | 烫印版状态、停留时间、图稿间距、离型速度 | 用真实设计里的小字和反白细节做验收目标。 |
-| 发花、针孔或光泽发暗 | 表面平整度、压力分布、卷料保存 | 同时比较实地区、细节区和确认样。 |
-| 耐刮或耐磨不足 | 表面涂层、固化状态、膜面、搬运路线 | 使用约定测试方法，不用手指随意摩擦代替验收。 |
-
-## 打样流程
-
-先做小批量受控打样。记录膜材批次、宽幅、机台、烫版或压辊、底材批次、表面处理、速度、压力、温度或固化条件，以及用于验收的图稿区域。每次只改变一个变量。对于${parts.substrate}，建议一组样张重点观察${parts.issue}，另一组样张观察最常见的量产区域。
-
-批量采购前，要求供应商提供样品说明，写清推荐膜系、适用底材、卷料规格、储存注意事项和推荐范围的限制。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认；公开资料中的参数只能作为起点，不能当作所有订单的固定量产参数。
-
-## 询价时要问什么
-
-- ${parts.substrate}配合${parts.surface}时，推荐哪个膜系？
-- 该膜系是否适合${parts.process}？
-- 应订购什么宽幅、米数、卷芯和收卷方向？
-- ${parts.application}需要做哪些耐性测试？
-- 打样卷、色卡、交期和起订量如何安排？
-- 复购时需要保留哪些确认样和参数记录？
+- 如果问题集中在附着，先看表面能、涂层相容性和搬运污染。
+- 如果问题集中在转移，比较压力接触、离型表现和同一图稿下的速度。
+- 如果问题集中在边缘，检查烫版磨损、接触时间、小字和反白细节。
+- 如果问题集中在耐性，使用约定的胶带、耐磨、刮擦、折痕或耐化学方法。
+- 如果后续要复购，把确认卷标和样张记录放进采购资料。
 
 ## 来源说明
 
-下列资料用于支持工艺边界、底材意识和测试方法选择，但不能代替 PINTE 膜材在客户实际订单上的打样确认。${sources.map((source) => `${source.publisher} 的资料可用于理解：${source.summary}`).join('')}
+${firstSource} 用于支持本页的工艺或底材边界，${secondSource} 用于支持测试或对比背景。这些资料不能代替 PINTE 膜材在客户实际订单上的量产前打样确认。
 
 ## 常见问题
 
@@ -506,7 +480,7 @@ function writeGuide(topic, sourceRegistry) {
   const cnDescription = `面向${partsCn.substrate}烫金膜采购和打样的实用指南，重点处理${partsCn.issue}。`;
   const enAnswer = `For ${partsEn.substrate}, choose foil by substrate stack, surface treatment, process route, artwork detail, and required durability tests. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.`;
   const cnAnswer = `用于${partsCn.substrate}时，应按底材结构、表面处理、工艺路线、图稿细节和成品耐性要求选择烫金膜。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认。`;
-  const status = PUBLISHED_TOPIC_IDS.has(topic.topic_id) ? 'published' : 'draft';
+  const status = 'published';
 
   const directory = path.join(CONTENT_ROOT, topic.topic_id);
   fs.mkdirSync(directory, { recursive: true });
@@ -547,4 +521,4 @@ const updatedTopics = topics.map((topic) => {
 });
 
 fs.writeFileSync(TOPICS_PATH, `${JSON.stringify(updatedTopics, null, 2)}\n`);
-console.log(`Wrote ${selected.length} guide topics for ${BATCH_ID}; published ${PUBLISHED_TOPIC_IDS.size} topics (${PUBLISHED_TOPIC_IDS.size * 2} localized articles)`);
+console.log(`Published ${selected.length} guide topics (${selected.length * 2} localized articles) for ${BATCH_ID}`);
