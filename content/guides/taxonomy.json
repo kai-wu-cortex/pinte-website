@@ -1,10 +1,39 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "updatedDate": "2026-07-16",
   "generatorPolicy": {
     "combinationMode": "compatibility-groups-only",
+    "compatibilityTuplePolicy": {
+      "mode": "candidate-pool-intersection",
+      "tupleDimensions": ["compatibilityGroupId", "substrateId", "surfaceTreatmentId", "processId"],
+      "candidatePoolFields": {
+        "compatibilityGroupId": "compatibilityGroups[].id",
+        "substrateId": "compatibilityGroups[].substrateIds",
+        "surfaceTreatmentId": "compatibilityGroups[].surfaceTreatmentIds",
+        "processId": "compatibilityGroups[].processIds"
+      },
+      "constraints": [
+        {
+          "dimension": "compatibilityGroupId",
+          "operator": "member-of",
+          "collection": "substrates[substrateId].compatibilityGroupIds"
+        },
+        {
+          "dimension": "processId",
+          "operator": "member-of",
+          "collection": "substrates[substrateId].processIds"
+        },
+        {
+          "dimension": "processId",
+          "operator": "member-of",
+          "collection": "surfaceTreatments[surfaceTreatmentId].compatibleProcessIds"
+        }
+      ],
+      "requireAtLeastOneAllowedTuplePerGroup": true
+    },
     "instructions": [
       "Generate a topic only from an explicit compatibilityGroup; do not form a Cartesian product from taxonomy arrays.",
+      "Treat each compatibilityGroup array as a candidate pool and keep only tuples that satisfy every compatibilityTuplePolicy constraint.",
       "Apply every matching compatibilityRule before selecting a product series or making a process recommendation.",
       "Treat confirmed-internal mappings as selection starting points that still require production-representative sampling.",
       "Treat uncertain-internal mappings as research or qualification topics, never as product-performance claims."
@@ -72,8 +101,8 @@
       "label": "Coated paper",
       "materialFamily": "paper",
       "clusterIds": ["paper-carton-packaging", "cosmetic-packaging", "wine-gift-packaging", "label-printing"],
-      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "cold-foil-sheetfed-offset", "cold-foil-narrow-web"],
-      "compatibilityGroupIds": ["standard-paper-hot", "paper-label-hot", "coated-paper-cold"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "cold-foil-sheetfed-offset", "cold-foil-narrow-web", "screen-printed-uv-cold-transfer", "digital-toner-transfer", "digital-uv-varnish-transfer", "registered-hologram-transfer"],
+      "compatibilityGroupIds": ["standard-paper-hot", "paper-label-hot", "pigment-paper-hot", "coated-paper-cold", "digital-toner-enhancement", "digital-uv-enhancement", "decorative-holographic-transfer", "registered-security-hologram"],
       "qualificationNotes": ["Record coating, ink, varnish, smoothness, and cure state before selecting a grade."]
     },
     {
@@ -82,7 +111,7 @@
       "materialFamily": "paper",
       "clusterIds": ["paper-carton-packaging", "wine-gift-packaging", "label-printing"],
       "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary"],
-      "compatibilityGroupIds": ["standard-paper-hot", "textured-paper-hot", "paper-label-hot"],
+      "compatibilityGroupIds": ["standard-paper-hot", "textured-paper-hot", "paper-label-hot", "pigment-paper-hot"],
       "qualificationNotes": ["Absorbency and surface roughness can change transfer completeness and gloss."]
     },
     {
@@ -108,8 +137,8 @@
       "label": "Folding carton board",
       "materialFamily": "paperboard",
       "clusterIds": ["paper-carton-packaging", "cosmetic-packaging", "wine-gift-packaging"],
-      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-embossing", "cold-foil-sheetfed-offset"],
-      "compatibilityGroupIds": ["standard-paper-hot", "pigment-paper-hot", "coated-paper-cold"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-embossing", "cold-foil-sheetfed-offset", "screen-printed-uv-cold-transfer", "digital-toner-transfer", "digital-uv-varnish-transfer", "registered-hologram-transfer"],
+      "compatibilityGroupIds": ["standard-paper-hot", "pigment-paper-hot", "coated-paper-cold", "digital-toner-enhancement", "digital-uv-enhancement", "decorative-holographic-transfer", "registered-security-hologram"],
       "qualificationNotes": ["Use the printed, varnished, or laminated production construction for approval."]
     },
     {
@@ -127,7 +156,7 @@
       "materialFamily": "laminate",
       "clusterIds": ["paper-carton-packaging", "cosmetic-packaging", "wine-gift-packaging", "troubleshooting"],
       "processIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary"],
-      "compatibilityGroupIds": ["laminated-paper-hot"],
+      "compatibilityGroupIds": ["laminated-paper-hot", "pigment-paper-hot"],
       "qualificationNotes": ["Identify the film chemistry and treatment; similar-looking laminates are not interchangeable."]
     },
     {
@@ -135,8 +164,8 @@
       "label": "Paper label facestock",
       "materialFamily": "label-paper",
       "clusterIds": ["label-printing", "wine-gift-packaging", "cosmetic-packaging"],
-      "processIds": ["hot-stamping-flatbed", "hot-stamping-rotary", "cold-foil-narrow-web"],
-      "compatibilityGroupIds": ["paper-label-hot", "label-cold-transfer"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-rotary", "cold-foil-narrow-web", "screen-printed-uv-cold-transfer", "digital-toner-transfer", "digital-uv-varnish-transfer", "registered-hologram-transfer"],
+      "compatibilityGroupIds": ["paper-label-hot", "label-cold-transfer", "digital-toner-enhancement", "digital-uv-enhancement", "decorative-holographic-transfer", "registered-security-hologram"],
       "qualificationNotes": ["Facestock coating, print, varnish, and converting speed belong in the same trial record."]
     },
     {
@@ -144,8 +173,8 @@
       "label": "Film label facestock",
       "materialFamily": "label-film",
       "clusterIds": ["label-printing", "cosmetic-packaging", "plastics"],
-      "processIds": ["hot-stamping-rotary", "cold-foil-narrow-web"],
-      "compatibilityGroupIds": ["film-label-hot", "label-cold-transfer"],
+      "processIds": ["hot-stamping-rotary", "cold-foil-narrow-web", "screen-printed-uv-cold-transfer", "digital-uv-varnish-transfer", "registered-hologram-transfer"],
+      "compatibilityGroupIds": ["film-label-hot", "label-cold-transfer", "digital-uv-enhancement", "decorative-holographic-transfer", "registered-security-hologram"],
       "qualificationNotes": ["Identify polymer, primer, corona history, ink system, and heat tolerance."]
     },
     {
@@ -171,8 +200,8 @@
       "label": "Rigid PVC",
       "materialFamily": "plastic",
       "clusterIds": ["plastics", "cosmetic-packaging"],
-      "processIds": ["hot-stamping-flatbed", "hot-stamping-roll-on"],
-      "compatibilityGroupIds": ["rigid-plastic-hot"],
+      "processIds": ["hot-stamping-flatbed", "hot-stamping-roll-on", "registered-hologram-transfer"],
+      "compatibilityGroupIds": ["rigid-plastic-hot", "registered-security-hologram"],
       "qualificationNotes": ["Plasticizer, coating, and heat history require grade-specific testing."]
     },
     {
@@ -252,7 +281,7 @@
     {
       "id": "surface-as-supplied",
       "label": "As-supplied or uncoated surface",
-      "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "hot-stamping-roll-on", "hot-stamping-embossing"]
+      "compatibleProcessIds": ["hot-stamping-flatbed", "hot-stamping-round-flat", "hot-stamping-rotary", "hot-stamping-roll-on", "hot-stamping-embossing", "registered-hologram-transfer"]
     },
     {
       "id": "printed-conventional-ink",
@@ -292,7 +321,7 @@
     {
       "id": "primer",
       "label": "Primer or adhesion-promoting coating",
-      "compatibleProcessIds": ["hot-stamping-rotary", "hot-stamping-roll-on", "cold-foil-narrow-web", "cold-foil-sheetfed-offset"]
+      "compatibleProcessIds": ["hot-stamping-rotary", "hot-stamping-roll-on", "cold-foil-narrow-web", "cold-foil-sheetfed-offset", "registered-hologram-transfer"]
     },
     {
       "id": "corona-or-plasma",
@@ -832,7 +861,7 @@
       "clusterIds": ["process-comparison", "cosmetic-packaging", "label-printing", "procurement-specifications"],
       "industryIds": ["commercial-print-finishing", "folding-carton-packaging", "labels-narrow-web"],
       "substrateIds": ["paper-coated", "board-folding-carton", "label-paper-facestock", "label-film-facestock"],
-      "surfaceTreatmentIds": ["varnish-uv", "printed-cold-foil-adhesive", "primer"],
+      "surfaceTreatmentIds": ["varnish-uv", "printed-cold-foil-adhesive"],
       "processIds": ["screen-printed-uv-cold-transfer", "digital-uv-varnish-transfer"],
       "productSeriesIds": ["DIGITAL"],
       "testIds": ["controlled-sampling-ladder", "edge-definition-magnified", "dry-rub-abrasion", "repeat-run-stability"]

@@ -133,3 +133,103 @@ Additional semantic validation passed for:
 ## Commit
 
 Commit message: `Add curated hot stamping topic taxonomy`
+
+## Task Review Fix: Compatibility Tuple Semantics
+
+The compatibility-group arrays are candidate pools, not permission to combine every listed value. Schema version 2 adds a machine-readable `candidate-pool-intersection` policy. A tuple is allowed only when its group is declared by the substrate and its process is declared by both the substrate and surface treatment.
+
+The substrate declarations were completed for the existing digital-transfer and registered-hologram groups, and the unused primer candidate was removed from `digital-uv-enhancement`. No cluster ID, topic record, route, sitemap entry, source record, or public taxonomy label changed.
+
+### Required JSON parse
+
+Command:
+
+```bash
+node -e "JSON.parse(require('fs').readFileSync('content/guides/taxonomy.json')); JSON.parse(require('fs').readFileSync('content/guides/source-registry.json'));"
+```
+
+Pristine output (exit 0):
+
+```text
+```
+
+### Compatibility-group semantic validation
+
+Command:
+
+```bash
+node <<'NODE'
+const assert = require('assert');
+const taxonomy = JSON.parse(require('fs').readFileSync('content/guides/taxonomy.json'));
+const policy = taxonomy.generatorPolicy.compatibilityTuplePolicy;
+assert.equal(policy.mode, 'candidate-pool-intersection');
+assert.deepEqual(policy.constraints, [
+  { dimension: 'compatibilityGroupId', operator: 'member-of', collection: 'substrates[substrateId].compatibilityGroupIds' },
+  { dimension: 'processId', operator: 'member-of', collection: 'substrates[substrateId].processIds' },
+  { dimension: 'processId', operator: 'member-of', collection: 'surfaceTreatments[surfaceTreatmentId].compatibleProcessIds' }
+]);
+const substrates = new Map(taxonomy.substrates.map(record => [record.id, record]));
+const treatments = new Map(taxonomy.surfaceTreatments.map(record => [record.id, record]));
+let allowedTotal = 0;
+let rejectedTotal = 0;
+for (const group of taxonomy.compatibilityGroups) {
+  const allowed = [];
+  for (const substrateId of group.substrateIds) {
+    const substrate = substrates.get(substrateId);
+    assert(substrate, `${group.id}: missing substrate ${substrateId}`);
+    for (const surfaceTreatmentId of group.surfaceTreatmentIds) {
+      const treatment = treatments.get(surfaceTreatmentId);
+      assert(treatment, `${group.id}: missing treatment ${surfaceTreatmentId}`);
+      for (const processId of group.processIds) {
+        const tuple = { compatibilityGroupId: group.id, substrateId, surfaceTreatmentId, processId };
+        const passes = substrate.compatibilityGroupIds.includes(group.id)
+          && substrate.processIds.includes(processId)
+          && treatment.compatibleProcessIds.includes(processId);
+        if (passes) {
+          assert(substrate.compatibilityGroupIds.includes(tuple.compatibilityGroupId));
+          assert(substrate.processIds.includes(tuple.processId));
+          assert(treatment.compatibleProcessIds.includes(tuple.processId));
+          allowed.push(tuple);
+          allowedTotal++;
+        } else {
+          rejectedTotal++;
+        }
+      }
+    }
+  }
+  assert(allowed.length > 0, `${group.id}: no allowed tuple`);
+  for (const [field, tupleField] of [['substrateIds', 'substrateId'], ['surfaceTreatmentIds', 'surfaceTreatmentId'], ['processIds', 'processId']]) {
+    for (const id of group[field]) assert(allowed.some(tuple => tuple[tupleField] === id), `${group.id}: unused candidate ${id}`);
+  }
+  console.log(`${group.id}: ${allowed.length} allowed`);
+}
+const rigid = taxonomy.compatibilityGroups.find(group => group.id === 'rigid-plastic-hot');
+const abs = substrates.get('plastic-abs');
+const primer = treatments.get('primer');
+assert(rigid.substrateIds.includes(abs.id) && rigid.surfaceTreatmentIds.includes(primer.id) && rigid.processIds.includes('hot-stamping-flatbed'));
+assert(!(abs.compatibilityGroupIds.includes(rigid.id) && abs.processIds.includes('hot-stamping-flatbed') && primer.compatibleProcessIds.includes('hot-stamping-flatbed')));
+console.log(`PASS: ${taxonomy.compatibilityGroups.length} groups; ${allowedTotal} allowed tuples; ${rejectedTotal} incompatible candidate tuples rejected`);
+NODE
+```
+
+Pristine output (exit 0):
+
+```text
+standard-paper-hot: 35 allowed
+textured-paper-hot: 30 allowed
+laminated-paper-hot: 7 allowed
+paper-label-hot: 30 allowed
+film-label-hot: 6 allowed
+rigid-plastic-hot: 19 allowed
+low-surface-energy-plastic-hot: 8 allowed
+leather-hot: 5 allowed
+pigment-paper-hot: 42 allowed
+coated-paper-cold: 4 allowed
+label-cold-transfer: 15 allowed
+digital-toner-enhancement: 3 allowed
+digital-uv-enhancement: 12 allowed
+decorative-holographic-transfer: 30 allowed
+registered-security-hologram: 10 allowed
+coated-glass-specialty-hot: 1 allowed
+PASS: 16 groups; 257 allowed tuples; 111 incompatible candidate tuples rejected
+```
