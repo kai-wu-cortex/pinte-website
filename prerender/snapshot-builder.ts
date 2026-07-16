@@ -116,6 +116,8 @@ interface GeneratedGuideRecord {
   readonly lang: Lang;
   readonly slug: string;
   readonly status: 'published';
+  readonly relatedProducts: readonly string[];
+  readonly relatedGuides: readonly string[];
   readonly title: string;
   readonly description: string;
   readonly primaryKeyword: string;
@@ -147,6 +149,56 @@ const publishedGeneratedGuides = generatedGuides
   .filter((guide) => guide.status === 'published') as unknown as readonly GeneratedGuideRecord[];
 
 const GENERATED_GUIDE_DEFAULT_PRIORITY = 100;
+
+interface StaticGuideSummary {
+  readonly slug: string;
+  readonly title: string;
+  readonly description: string;
+  readonly priority: number;
+}
+
+const generatedGuideRecordKey = (lang: Lang, slug: string) => `${lang}:${slug}`;
+const generatedGuidesByLangSlug = new Map<string, GeneratedGuideRecord>();
+const generatedGuideSummariesByLang: Record<Lang, StaticGuideSummary[]> = { cn: [], en: [] };
+
+for (const guide of publishedGeneratedGuides) {
+  const slug = guide.slug.trim();
+  const title = guide.title.trim();
+  if (!slug || !title) continue;
+
+  generatedGuidesByLangSlug.set(generatedGuideRecordKey(guide.lang, slug), guide);
+  generatedGuideSummariesByLang[guide.lang].push({
+    slug,
+    title: guideCustomerText(title, guide.lang),
+    description: guideCustomerText(guide.description.trim(), guide.lang),
+    priority: GENERATED_GUIDE_DEFAULT_PRIORITY,
+  });
+}
+
+const staticGuideCatalogByLang: Record<Lang, readonly StaticGuideSummary[]> = { cn: [], en: [] };
+const staticGuideSummariesByLangSlug = new Map<string, StaticGuideSummary>();
+
+for (const lang of ['cn', 'en'] as const) {
+  const summaries = new Map<string, StaticGuideSummary>();
+
+  for (const guide of GEO_GUIDES) {
+    summaries.set(guide.slug, {
+      slug: guide.slug,
+      title: guideCustomerText(guide.title[lang], lang),
+      description: guideCustomerText(guide.metaDescription[lang], lang),
+      priority: guide.priority,
+    });
+  }
+  for (const guide of generatedGuideSummariesByLang[lang]) {
+    summaries.set(guide.slug, guide);
+  }
+
+  const catalog = [...summaries.values()];
+  staticGuideCatalogByLang[lang] = catalog;
+  for (const guide of catalog) {
+    staticGuideSummariesByLangSlug.set(generatedGuideRecordKey(lang, guide.slug), guide);
+  }
+}
 
 const GENERATED_GUIDE_BODY_TAGS = [
   'h2', 'h3', 'h4', 'p', 'ul', 'ol', 'li', 'strong', 'em', 'a', 'table', 'thead',
@@ -198,6 +250,12 @@ const buildCanonicalUrl = (route: string, lang: Lang) => {
 
 const langPath = (route: string, lang: Lang) =>
   route ? `${langPrefix(lang)}/${route}` : langPrefix(lang);
+
+const getStaticGuideSummary = (slug: string | undefined, lang: Lang) =>
+  slug ? staticGuideSummariesByLangSlug.get(generatedGuideRecordKey(lang, slug)) : undefined;
+
+const uniqueNonEmptyValues = (values: readonly string[]) =>
+  Array.from(new Set(values.map((value) => String(value ?? '').trim()).filter(Boolean)));
 
 // ----------------------------- SEO config lookup ----------------------------- //
 
@@ -402,7 +460,7 @@ function buildBreadcrumb(
   if (parts[0] === 'pintefoils') return [home, { label: t('pintefoils', lang), href: langPath('pintefoils', lang) + '/' }];
   if (parts[0] === 'seo-geo-sop') return [home, { label: t('seoSop', lang), href: langPath('seo-geo-sop', lang) + '/' }];
   if (parts[0] === 'guides') {
-    const guide = getGeoGuide(parts[1]);
+    const guide = getStaticGuideSummary(parts[1], lang);
     const guideListCrumb = {
       label: lang === 'cn' ? '采购指南' : 'Procurement Guides',
       href: langPath('guides', lang) + '/',
@@ -411,7 +469,7 @@ function buildBreadcrumb(
       home,
       guideListCrumb,
       ...(guide
-        ? [{ label: guideCustomerText(guide.title[lang], lang), href: langPath(`guides/${guide.slug}`, lang) + '/' }]
+        ? [{ label: guide.title, href: langPath(`guides/${guide.slug}`, lang) + '/' }]
         : []),
     ];
   }
@@ -1699,37 +1757,7 @@ function buildGuideListSnapshot(lang: Lang): SnapshotResult {
     lang === 'cn'
       ? '浏览 PINTE 烫金膜采购指南、底材选型、故障排查、热烫冷烫对比、化妆品包装、纸盒包装和技术资料。'
       : 'Browse PINTE hot stamping foil procurement guides, substrate selection, troubleshooting, hot foil vs cold foil comparisons, cosmetic packaging, paper box packaging, and technical resources.';
-  const mergedGuides = new Map<string, {
-    slug: string;
-    title: string;
-    description: string;
-    priority: number;
-  }>();
-
-  GEO_GUIDES.forEach((guide) => {
-    mergedGuides.set(guide.slug, {
-      slug: guide.slug,
-      title: guideCustomerText(guide.title[lang], lang),
-      description: guideCustomerText(guide.metaDescription[lang], lang),
-      priority: guide.priority,
-    });
-  });
-
-  publishedGeneratedGuides
-    .filter((guide) => guide.lang === lang)
-    .forEach((guide) => {
-      const slug = guide.slug.trim();
-      const guideTitle = guide.title.trim();
-      if (!slug || !guideTitle) return;
-      mergedGuides.set(slug, {
-        slug,
-        title: guideCustomerText(guideTitle, lang),
-        description: guideCustomerText(guide.description.trim(), lang),
-        priority: GENERATED_GUIDE_DEFAULT_PRIORITY,
-      });
-    });
-
-  const guides = [...mergedGuides.values()].sort(
+  const guides = [...staticGuideCatalogByLang[lang]].sort(
     (a, b) => a.priority - b.priority || a.title.localeCompare(b.title) || a.slug.localeCompare(b.slug)
   );
   const guideLinks = guides
@@ -2115,7 +2143,7 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
     datePublished: '2026-06-26',
     dateModified: '2026-06-26',
     author: 'PINTE',
-    url: `/${lang}/${route}`,
+    url: `${langPath(route, lang)}/`,
     category: ['Hot Stamping Foil Procurement'],
     tags: keywords,
     geo: { language: lang === 'cn' ? 'zh-CN' : 'en-US', region: geoTargets.join(', ') },
@@ -2142,17 +2170,13 @@ function buildGeoGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null 
 }
 
 function buildGeneratedGuideSnapshot(slug: string, lang: Lang): SnapshotResult | null {
-  const guide = publishedGeneratedGuides.find(
-    (candidate) => candidate.slug === slug && candidate.lang === lang
-  );
+  const guide = generatedGuidesByLangSlug.get(generatedGuideRecordKey(lang, slug));
   if (!guide) return null;
 
   const route = `guides/${guide.slug}`;
-  const canonicalPath = `/${lang}/${route}`;
+  const canonicalPath = `${langPath(route, lang)}/`;
   const canonicalUrl = `${SITE}${canonicalPath}`;
   const languageCode = lang === 'cn' ? 'zh-CN' : 'en';
-  const homeLabel = lang === 'cn' ? '首页' : 'Home';
-  const guidesLabel = lang === 'cn' ? '指南' : 'Guides';
   const faqTitle = lang === 'cn' ? '常见问题' : 'Frequently Asked Questions';
   const referencesTitle = lang === 'cn' ? '参考资料' : 'References';
   const authorLabel = lang === 'cn' ? '作者' : 'Author';
@@ -2161,11 +2185,29 @@ function buildGeneratedGuideSnapshot(slug: string, lang: Lang): SnapshotResult |
   const updatedLabel = lang === 'cn' ? '更新' : 'Updated';
   const heroImage = absoluteUrl(guide.heroImage);
   const sourceLinks = guide.sources.filter((source) => isHttpsUrl(source.url));
-  const crumbs = [
-    { label: homeLabel, href: `/${lang}` },
-    { label: guidesLabel, href: `/${lang}/guides` },
-    { label: guide.title, href: canonicalPath },
-  ];
+  const crumbs = buildBreadcrumb(route, lang);
+  const relatedProducts = uniqueNonEmptyValues(guide.relatedProducts).flatMap((id) => {
+    const product = (getContent(lang).PRODUCT_DATA as Record<string, { name?: string }>)[id];
+    if (!product?.name) return [];
+
+    return [{
+      label: product?.name || id,
+      href: langPath(`products/category/${encodeURIComponent(id)}`, lang) + '/',
+    }];
+  });
+  const relatedGuides = uniqueNonEmptyValues(guide.relatedGuides)
+    .filter((relatedSlug) => relatedSlug !== guide.slug)
+    .flatMap((relatedSlug) => {
+      const relatedGuide = getStaticGuideSummary(relatedSlug, lang);
+      if (!relatedGuide) return [];
+
+      return [{
+        label: relatedGuide.title,
+        href: langPath(`guides/${encodeURIComponent(relatedSlug)}`, lang) + '/',
+      }];
+    });
+  const relatedProductsTitle = lang === 'cn' ? '相关产品' : 'Related products';
+  const relatedGuidesTitle = lang === 'cn' ? '相关指南' : 'Related guides';
 
   const metadata = [
     { label: authorLabel, value: guide.author },
@@ -2215,6 +2257,22 @@ function buildGeneratedGuideSnapshot(slug: string, lang: Lang): SnapshotResult |
       }</figure>` : ''}
       <div class="seo-guide-body">${sanitizeGeneratedGuideBody(guide.bodyHtml)}</div>
       ${faqSection}
+      ${
+        relatedProducts.length
+          ? `<section class="seo-guide-related-products">
+        <h2>${escapeHtml(relatedProductsTitle)}</h2>
+        ${linkList(relatedProducts)}
+      </section>`
+          : ''
+      }
+      ${
+        relatedGuides.length
+          ? `<section class="seo-guide-related-guides">
+        <h2>${escapeHtml(relatedGuidesTitle)}</h2>
+        ${linkList(relatedGuides)}
+      </section>`
+          : ''
+      }
       ${sourcesSection}
     </article>`;
 
