@@ -5,7 +5,12 @@
     "batch": "2026-07-p0-01",
     "batchPosition": 1,
     "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "troubleshooting",
     "intent": "troubleshooting",
     "title": {
@@ -18,7 +23,11 @@
     },
     "selectionRule": "uv-label-adhesion",
     "selectionReason": "Covers UV or treated label adhesion questions from converters.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Adhesion or surface-energy source",
@@ -44,7 +53,12 @@
     "batch": "2026-07-p0-01",
     "batchPosition": 2,
     "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "troubleshooting",
     "intent": "troubleshooting",
     "title": {
@@ -57,7 +71,11 @@
     },
     "selectionRule": "uv-label-incomplete-transfer",
     "selectionReason": "Covers missing transfer on UV or digital label jobs.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Transfer-completeness check",
@@ -78,51 +96,17 @@
     "difference": "Diagnoses Incomplete or missing transfer for a defined substrate, surface, and process instead of splitting the same user problem by test method."
   },
   {
-    "topic_id": "HF-005495",
-    "slug": "dry-rub-abrasion-comparison-film-label-facestock-foil-approval-scratch-scuff-rub-failu-0ty3ta4",
-    "batch": "2026-07-p0-01",
-    "batchPosition": 3,
-    "originalPriority": "P1",
-    "batchPriority": "P0",
-    "cluster": "parameters-testing",
-    "intent": "testing",
-    "title": {
-      "en": "Dry rub or abrasion comparison for Film label facestock Foil Approval - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure / Dry rub or abrasion comparison",
-      "cn": "薄膜标签面材烫金确认中的干擦或耐磨对比（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）"
-    },
-    "topicQuestion": {
-      "en": "When is dry rub or abrasion comparison useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure / Dry rub or abrasion comparison?",
-      "cn": "薄膜标签面材烫金确认何时使用干擦或耐磨对比（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）？"
-    },
-    "selectionRule": "film-label-rub",
-    "selectionReason": "Covers durability concerns on film labels.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
-    "requiredEvidence": [
-      "Representative production substrate, machine, artwork, and speed sample",
-      "Dry rub or scratch test",
-      "Approved master comparison",
-      "Documented pass/fail criteria before publication"
-    ],
-    "sourceKeys": [
-      "astm-d3359-23-tape-test",
-      "astm-d5264-98r19-abrasion",
-      "iso-2409-2020-cross-cut",
-      "iso-2836-2021-print-resistance",
-      "inx-hot-cold-foil-guide"
-    ],
-    "relatedProducts": [
-      "DIGITAL"
-    ],
-    "relatedGuides": [],
-    "difference": "Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check."
-  },
-  {
     "topic_id": "HF-008502",
     "slug": "why-scratch-scuff-rub-failure-happens-polypropylene-pp-narrow-web-cold-foil-transfer-c-0u5smt0",
     "batch": "2026-07-p0-01",
-    "batchPosition": 4,
+    "batchPosition": 3,
     "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "troubleshooting",
     "intent": "troubleshooting",
     "title": {
@@ -135,7 +119,11 @@
     },
     "selectionRule": "pp-scratch",
     "selectionReason": "Covers low-surface-energy PP durability concerns.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Surface treatment record",
@@ -159,9 +147,14 @@
     "topic_id": "HF-008469",
     "slug": "why-scratch-scuff-rub-failure-happens-polyethylene-pe-narrow-web-cold-foil-transfer-co-03jouvq",
     "batch": "2026-07-p0-01",
-    "batchPosition": 5,
+    "batchPosition": 4,
     "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "troubleshooting",
     "intent": "troubleshooting",
     "title": {
@@ -174,7 +167,11 @@
     },
     "selectionRule": "pe-scratch",
     "selectionReason": "Covers low-surface-energy PE durability concerns.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Surface treatment record",
@@ -198,9 +195,19 @@
     "topic_id": "HF-002934",
     "slug": "foil-grade-selection-continuous-holographic-pattern-polypropylene-pp-corona-plasma-tre-0o2l26t",
     "batch": "2026-07-p0-01",
-    "batchPosition": 6,
-    "originalPriority": "P1",
+    "batchPosition": 5,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "label-printing",
     "intent": "substrate-selection",
     "title": {
@@ -213,7 +220,11 @@
     },
     "selectionRule": "pp-surface-energy",
     "selectionReason": "Covers PP wetting and treatment checks before grade choice.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Surface-energy check",
@@ -237,9 +248,19 @@
     "topic_id": "HF-002862",
     "slug": "foil-grade-selection-continuous-holographic-pattern-polyethylene-pe-corona-plasma-trea-0w33ox7",
     "batch": "2026-07-p0-01",
-    "batchPosition": 7,
-    "originalPriority": "P1",
+    "batchPosition": 6,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "label-printing",
     "intent": "substrate-selection",
     "title": {
@@ -252,7 +273,11 @@
     },
     "selectionRule": "pe-surface-energy",
     "selectionReason": "Covers PE treatment checks before sampling.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Surface-energy check",
@@ -276,9 +301,19 @@
     "topic_id": "HF-003607",
     "slug": "foil-grade-selection-fine-lines-small-type-natural-leather-as-supplied-uncoated-surfac-18fiqfr",
     "batch": "2026-07-p0-01",
-    "batchPosition": 8,
-    "originalPriority": "P1",
+    "batchPosition": 7,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 3,
+      "max": 3
+    },
     "cluster": "leather",
     "intent": "substrate-selection",
     "title": {
@@ -291,7 +326,11 @@
     },
     "selectionRule": "natural-leather-logo",
     "selectionReason": "Covers leather logo projects and texture-sensitive approval.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Leather lot sample",
@@ -315,9 +354,19 @@
     "topic_id": "HF-003615",
     "slug": "foil-grade-selection-fine-lines-small-type-pu-synthetic-leather-as-supplied-uncoated-s-0uge2zl",
     "batch": "2026-07-p0-01",
-    "batchPosition": 9,
-    "originalPriority": "P1",
+    "batchPosition": 8,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 3,
+      "max": 3
+    },
     "cluster": "leather",
     "intent": "substrate-selection",
     "title": {
@@ -330,7 +379,11 @@
     },
     "selectionRule": "pu-leather-logo",
     "selectionReason": "Covers PU leather logo projects.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "PU topcoat identification",
@@ -354,9 +407,19 @@
     "topic_id": "HF-003623",
     "slug": "foil-grade-selection-fine-lines-small-type-pvc-synthetic-leather-book-cover-as-supplie-0olyp5r",
     "batch": "2026-07-p0-01",
-    "batchPosition": 10,
-    "originalPriority": "P1",
+    "batchPosition": 9,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 3,
+      "max": 3
+    },
     "cluster": "leather",
     "intent": "substrate-selection",
     "title": {
@@ -369,7 +432,11 @@
     },
     "selectionRule": "pvc-leather-book-cover",
     "selectionReason": "Covers PVC leather/book-cover selection.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Plasticizer/topcoat note",
@@ -393,9 +460,19 @@
     "topic_id": "HF-003677",
     "slug": "foil-grade-selection-continuous-holographic-pattern-folding-carton-board-primer-adhesi-14h6vff",
     "batch": "2026-07-p0-01",
-    "batchPosition": 11,
-    "originalPriority": "P1",
+    "batchPosition": 10,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "paper-carton-packaging",
     "intent": "substrate-selection",
     "title": {
@@ -408,7 +485,11 @@
     },
     "selectionRule": "coated-paper-carton",
     "selectionReason": "Covers coated paper and carton selection.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Coating and print stack record",
@@ -432,9 +513,19 @@
     "topic_id": "HF-003078",
     "slug": "foil-grade-selection-continuous-holographic-pattern-paper-label-facestock-uv-varnish-c-0x29n5d",
     "batch": "2026-07-p0-01",
-    "batchPosition": 12,
-    "originalPriority": "P1",
+    "batchPosition": 11,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "label-printing",
     "intent": "substrate-selection",
     "title": {
@@ -447,7 +538,11 @@
     },
     "selectionRule": "uv-varnished-paper",
     "selectionReason": "Covers UV varnish and coating risk on paper packaging.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Varnish cure state",
@@ -471,9 +566,19 @@
     "topic_id": "HF-003805",
     "slug": "foil-grade-selection-continuous-holographic-pattern-folding-carton-board-opp-pet-lamin-1cbqwdp",
     "batch": "2026-07-p0-01",
-    "batchPosition": 13,
-    "originalPriority": "P1",
+    "batchPosition": 12,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "paper-carton-packaging",
     "intent": "substrate-selection",
     "title": {
@@ -486,7 +591,11 @@
     },
     "selectionRule": "laminated-paperboard",
     "selectionReason": "Covers film-laminated paperboard selection.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Film chemistry confirmation",
@@ -510,9 +619,19 @@
     "topic_id": "HF-003789",
     "slug": "foil-grade-selection-continuous-holographic-pattern-textured-specialty-paper-as-suppli-13h8cj2",
     "batch": "2026-07-p0-01",
-    "batchPosition": 14,
-    "originalPriority": "P1",
+    "batchPosition": 13,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "paper-carton-packaging",
     "intent": "substrate-selection",
     "title": {
@@ -525,7 +644,11 @@
     },
     "selectionRule": "textured-kraft-paper",
     "selectionReason": "Covers rough and absorbent paper risks.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Surface roughness comparison",
@@ -546,51 +669,22 @@
     "difference": "Narrows grade selection to Continuous holographic pattern, Textured or specialty paper, As-supplied or uncoated surface, and Combined foil stamping and embossing."
   },
   {
-    "topic_id": "HF-007747",
-    "slug": "batch-consistency-traceability-checklist-rigid-gift-box-wrap-board-foil-flatbed-platen-01hsyny",
-    "batch": "2026-07-p0-01",
-    "batchPosition": 15,
-    "originalPriority": "P0",
-    "batchPriority": "P0",
-    "cluster": "procurement-specifications",
-    "intent": "procurement",
-    "title": {
-      "en": "Batch consistency and traceability Checklist for Rigid gift-box wrap or board Foil - Anti-scratch coating or film / Flatbed or platen hot stamping / Textured, kraft, and difficult paper hot stamping / Batch consistency and traceability / China",
-      "cn": "精品礼盒裱纸或纸板烫金膜批次一致性和追溯清单（耐刮膜或耐刮涂层 / 平压平热烫 / 纹理纸和困难纸张热烫 / 批次一致性和追溯 / 中国）"
-    },
-    "topicQuestion": {
-      "en": "What should buyers ask about batch consistency and traceability for rigid gift-box wrap or board foil under Anti-scratch coating or film / Flatbed or platen hot stamping / Textured, kraft, and difficult paper hot stamping / Batch consistency and traceability / China?",
-      "cn": "采购精品礼盒裱纸或纸板烫金膜时如何确认批次一致性和追溯（适用条件：耐刮膜或耐刮涂层 / 平压平热烫 / 纹理纸和困难纸张热烫 / 批次一致性和追溯 / 中国）？"
-    },
-    "selectionRule": "soft-touch-paper",
-    "selectionReason": "Covers specialty coating surfaces.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
-    "requiredEvidence": [
-      "Representative production substrate, machine, artwork, and speed sample",
-      "Coating identification",
-      "Adhesion and rub check",
-      "Documented pass/fail criteria before publication"
-    ],
-    "sourceKeys": [
-      "fsea-foil-cheat-sheet",
-      "kurz-decoration-processes",
-      "kurz-hot-stamping",
-      "univacco-hot-stamping-foil",
-      "reddit-leathercraft-machine-buying"
-    ],
-    "relatedProducts": [
-      "PK"
-    ],
-    "relatedGuides": [],
-    "difference": "Turns a procurement concern into a concrete supplier checklist for one substrate, process, surface condition, and region context."
-  },
-  {
     "topic_id": "HF-007075",
     "slug": "narrow-web-cold-foil-transfer-vs-flatbed-platen-hot-stamping-paper-label-facestock-19h6lg7",
     "batch": "2026-07-p0-01",
-    "batchPosition": 16,
-    "originalPriority": "P2",
+    "batchPosition": 14,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P2",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "process-comparison",
     "intent": "comparison",
     "title": {
@@ -603,7 +697,11 @@
     },
     "selectionRule": "hot-vs-cold-paper",
     "selectionReason": "Covers process comparison for cartons.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Process route comparison",
@@ -626,9 +724,19 @@
     "topic_id": "HF-006995",
     "slug": "digital-uv-varnish-foil-transfer-vs-screen-printed-uv-adhesive-foil-transfer-folding-c-1lukesk",
     "batch": "2026-07-p0-01",
-    "batchPosition": 17,
-    "originalPriority": "P2",
+    "batchPosition": 15,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P2",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "process-comparison",
     "intent": "comparison",
     "title": {
@@ -641,7 +749,11 @@
     },
     "selectionRule": "hot-vs-digital",
     "selectionReason": "Covers the available digital embellishment comparison baseline; no exact hot-versus-digital generated topic exists in the current inventory.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Machine availability",
@@ -665,9 +777,19 @@
     "topic_id": "HF-006996",
     "slug": "digital-uv-varnish-foil-transfer-vs-screen-printed-uv-adhesive-foil-transfer-film-labe-1fspkm7",
     "batch": "2026-07-p0-01",
-    "batchPosition": 18,
-    "originalPriority": "P2",
+    "batchPosition": 16,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P2",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "process-comparison",
     "intent": "comparison",
     "title": {
@@ -680,7 +802,11 @@
     },
     "selectionRule": "cold-vs-digital",
     "selectionReason": "Covers cold/digital embellishment comparison.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Adhesive or varnish system note",
@@ -704,9 +830,19 @@
     "topic_id": "HF-006999",
     "slug": "combined-foil-stamping-embossing-vs-flatbed-platen-hot-stamping-folding-carton-board-09l7cpz",
     "batch": "2026-07-p0-01",
-    "batchPosition": 19,
-    "originalPriority": "P2",
+    "batchPosition": 17,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P2",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "process-comparison",
     "intent": "comparison",
     "title": {
@@ -719,7 +855,11 @@
     },
     "selectionRule": "foil-emboss-vs-flat",
     "selectionReason": "Covers foil+emboss process choice.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Emboss depth and register check",
@@ -740,51 +880,22 @@
     "difference": "Compares two compatible processes for the same Folding carton board and surface condition instead of describing foil transfer in general."
   },
   {
-    "topic_id": "HF-008369",
-    "slug": "why-register-shift-hologram-placement-error-happens-film-label-facestock-narrow-web-co-0gwjhwv",
-    "batch": "2026-07-p0-01",
-    "batchPosition": 20,
-    "originalPriority": "P0",
-    "batchPriority": "P0",
-    "cluster": "troubleshooting",
-    "intent": "troubleshooting",
-    "title": {
-      "en": "Why Register shift or hologram placement error Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error",
-      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）"
-    },
-    "topicQuestion": {
-      "en": "How should a converter diagnose register shift or hologram placement error on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error?",
-      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）？"
-    },
-    "selectionRule": "holographic-vs-standard",
-    "selectionReason": "Covers holographic and brand-protection selection.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
-    "requiredEvidence": [
-      "Representative production substrate, machine, artwork, and speed sample",
-      "Decorative versus security scope",
-      "Origination/control evidence",
-      "Documented pass/fail criteria before publication"
-    ],
-    "sourceKeys": [
-      "bobst-novafoil-106-hologram",
-      "inx-hot-cold-foil-guide",
-      "kurz-cold-transfer",
-      "univacco-hot-stamping-foil",
-      "univacco-narrow-web-cold-foil"
-    ],
-    "relatedProducts": [
-      "DIGITAL"
-    ],
-    "relatedGuides": [],
-    "difference": "Diagnoses Register shift or hologram placement error for a defined substrate, surface, and process instead of splitting the same user problem by test method."
-  },
-  {
     "topic_id": "HF-003685",
     "slug": "foil-grade-selection-large-solid-area-folding-carton-board-primer-adhesion-promoting-c-0f2eefz",
     "batch": "2026-07-p0-01",
-    "batchPosition": 21,
-    "originalPriority": "P1",
+    "batchPosition": 18,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "paper-carton-packaging",
     "intent": "substrate-selection",
     "title": {
@@ -797,7 +908,11 @@
     },
     "selectionRule": "large-solid-carton",
     "selectionReason": "Covers large-area mottling and coverage risk.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Large solid area sample",
@@ -821,9 +936,19 @@
     "topic_id": "HF-009344",
     "slug": "wine-spirits-gifts-foil-stamping-folding-carton-board-large-solid-area-as-supplied-unc-1hjzp3w",
     "batch": "2026-07-p0-01",
-    "batchPosition": 22,
-    "originalPriority": "P2",
+    "batchPosition": 19,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P2",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 2,
+      "max": 2
+    },
     "cluster": "wine-gift-packaging",
     "intent": "application",
     "title": {
@@ -836,7 +961,11 @@
     },
     "selectionRule": "large-solid-wine-gift",
     "selectionReason": "Covers premium gift and wine packaging solids.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Approved master sample",
@@ -860,9 +989,14 @@
     "topic_id": "HF-008366",
     "slug": "why-mottling-pinholes-uneven-solid-coverage-happens-film-label-facestock-narrow-web-co-1985a98",
     "batch": "2026-07-p0-01",
-    "batchPosition": 23,
+    "batchPosition": 20,
     "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "troubleshooting",
     "intent": "troubleshooting",
     "title": {
@@ -875,7 +1009,11 @@
     },
     "selectionRule": "pinholes-mottling",
     "selectionReason": "Covers pinhole and uneven transfer diagnosis.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Visual transfer inspection",
@@ -899,9 +1037,19 @@
     "topic_id": "HF-002649",
     "slug": "foil-grade-selection-fine-lines-small-type-film-label-facestock-corona-plasma-treatmen-12ppr63",
     "batch": "2026-07-p0-01",
-    "batchPosition": 24,
-    "originalPriority": "P1",
+    "batchPosition": 21,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 4,
+      "max": 4
+    },
     "cluster": "label-printing",
     "intent": "substrate-selection",
     "title": {
@@ -914,7 +1062,11 @@
     },
     "selectionRule": "fine-lines",
     "selectionReason": "Covers fine-detail artwork limits.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Magnified edge inspection",
@@ -935,51 +1087,17 @@
     "difference": "Narrows grade selection to Fine lines and small type, Film label facestock, Corona or plasma treatment, and Narrow-web cold foil transfer."
   },
   {
-    "topic_id": "HF-008361",
-    "slug": "why-blurred-detail-filling-loss-of-negative-space-happens-film-label-facestock-narrow-0844096",
-    "batch": "2026-07-p0-01",
-    "batchPosition": 25,
-    "originalPriority": "P0",
-    "batchPriority": "P0",
-    "cluster": "troubleshooting",
-    "intent": "troubleshooting",
-    "title": {
-      "en": "Why Blurred detail, filling, or loss of negative space Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Blurred detail, filling, or loss of negative space",
-      "cn": "薄膜标签面材出现糊边、糊版或细节丢失的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 糊边、糊版或细节丢失）"
-    },
-    "topicQuestion": {
-      "en": "How should a converter diagnose blurred detail, filling, or loss of negative space on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Blurred detail, filling, or loss of negative space?",
-      "cn": "薄膜标签面材出现糊边、糊版或细节丢失时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 糊边、糊版或细节丢失）？"
-    },
-    "selectionRule": "reverse-knockout",
-    "selectionReason": "Covers filled detail and negative-space risk.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
-    "requiredEvidence": [
-      "Representative production substrate, machine, artwork, and speed sample",
-      "Magnified edge inspection",
-      "Die/release review",
-      "Documented pass/fail criteria before publication"
-    ],
-    "sourceKeys": [
-      "inx-hot-cold-foil-guide",
-      "kurz-cold-transfer",
-      "univacco-hot-stamping-foil",
-      "univacco-narrow-web-cold-foil",
-      "labels-labeling-hot-foiling-process"
-    ],
-    "relatedProducts": [
-      "DIGITAL"
-    ],
-    "relatedGuides": [],
-    "difference": "Diagnoses Blurred detail, filling, or loss of negative space for a defined substrate, surface, and process instead of splitting the same user problem by test method."
-  },
-  {
     "topic_id": "HF-008380",
     "slug": "why-register-shift-hologram-placement-error-happens-film-label-facestock-narrow-web-co-1iwcser",
     "batch": "2026-07-p0-01",
-    "batchPosition": 26,
+    "batchPosition": 22,
     "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "troubleshooting",
     "intent": "troubleshooting",
     "title": {
@@ -992,7 +1110,11 @@
     },
     "selectionRule": "emboss-register",
     "selectionReason": "Covers emboss and foil alignment problems.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Registration measurement",
@@ -1013,51 +1135,22 @@
     "difference": "Diagnoses Register shift or hologram placement error for a defined substrate, surface, and process instead of splitting the same user problem by test method."
   },
   {
-    "topic_id": "HF-008391",
-    "slug": "why-register-shift-hologram-placement-error-happens-film-label-facestock-narrow-web-co-1fums44",
-    "batch": "2026-07-p0-01",
-    "batchPosition": 27,
-    "originalPriority": "P0",
-    "batchPriority": "P0",
-    "cluster": "troubleshooting",
-    "intent": "troubleshooting",
-    "title": {
-      "en": "Why Register shift or hologram placement error Happens on Film label facestock - Printed cold-foil adhesive / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error",
-      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差的原因（印刷冷烫胶层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）"
-    },
-    "topicQuestion": {
-      "en": "How should a converter diagnose register shift or hologram placement error on film label facestock under Printed cold-foil adhesive / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error?",
-      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差时应如何排查（适用条件：印刷冷烫胶层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）？"
-    },
-    "selectionRule": "registered-hologram-placement",
-    "selectionReason": "Covers registered hologram placement.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
-    "requiredEvidence": [
-      "Representative production substrate, machine, artwork, and speed sample",
-      "Pitch/register measurement",
-      "Origination control",
-      "Documented pass/fail criteria before publication"
-    ],
-    "sourceKeys": [
-      "bobst-novafoil-106-hologram",
-      "inx-hot-cold-foil-guide",
-      "kurz-cold-transfer",
-      "univacco-hot-stamping-foil",
-      "univacco-narrow-web-cold-foil"
-    ],
-    "relatedProducts": [
-      "DIGITAL"
-    ],
-    "relatedGuides": [],
-    "difference": "Diagnoses Register shift or hologram placement error for a defined substrate, surface, and process instead of splitting the same user problem by test method."
-  },
-  {
     "topic_id": "HF-005501",
     "slug": "job-specific-tape-pull-film-label-facestock-foil-approval-poor-adhesion-peeling-corona-1dfhiu0",
     "batch": "2026-07-p0-01",
-    "batchPosition": 28,
-    "originalPriority": "P1",
+    "batchPosition": 23,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "testing",
     "title": {
@@ -1070,7 +1163,11 @@
     },
     "selectionRule": "tape-test",
     "selectionReason": "Covers job-specific tape pull acceptance.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Tape pull method",
@@ -1094,9 +1191,19 @@
     "topic_id": "HF-005494",
     "slug": "dry-rub-abrasion-comparison-film-label-facestock-foil-approval-foil-flaking-dusting-ed-0iazmwv",
     "batch": "2026-07-p0-01",
-    "batchPosition": 29,
-    "originalPriority": "P1",
+    "batchPosition": 24,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "testing",
     "title": {
@@ -1109,7 +1216,11 @@
     },
     "selectionRule": "dry-rub-test",
     "selectionReason": "Covers dry rub durability.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Dry rub method",
@@ -1133,9 +1244,14 @@
     "topic_id": "HF-009107",
     "slug": "why-alcohol-chemical-resistance-failure-happens-abs-flatbed-platen-hot-stamping-as-sup-0amqn5n",
     "batch": "2026-07-p0-01",
-    "batchPosition": 30,
+    "batchPosition": 25,
     "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "troubleshooting",
     "intent": "troubleshooting",
     "title": {
@@ -1148,7 +1264,11 @@
     },
     "selectionRule": "alcohol-rub-test",
     "selectionReason": "Covers cosmetic and packaging chemical resistance.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Specified-agent rub method",
@@ -1172,9 +1292,19 @@
     "topic_id": "HF-005513",
     "slug": "dry-rub-abrasion-comparison-film-label-facestock-foil-approval-scratch-scuff-rub-failu-0y6sdi8",
     "batch": "2026-07-p0-01",
-    "batchPosition": 31,
-    "originalPriority": "P1",
+    "batchPosition": 26,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "testing",
     "title": {
@@ -1187,7 +1317,11 @@
     },
     "selectionRule": "scratch-test",
     "selectionReason": "Covers scratch resistance requests.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Scratch method",
@@ -1211,9 +1345,14 @@
     "topic_id": "HF-009064",
     "slug": "why-foil-flaking-dusting-edge-debris-happens-laminated-paper-paperboard-flatbed-platen-02yrlxj",
     "batch": "2026-07-p0-01",
-    "batchPosition": 32,
+    "batchPosition": 27,
     "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "troubleshooting",
     "intent": "troubleshooting",
     "title": {
@@ -1226,7 +1365,11 @@
     },
     "selectionRule": "fold-crease-test",
     "selectionReason": "Covers folding carton crease durability.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Fold/crease sample",
@@ -1250,9 +1393,19 @@
     "topic_id": "HF-005493",
     "slug": "agreed-cross-cut-classification-film-label-facestock-foil-approval-poor-adhesion-peeli-170ipst",
     "batch": "2026-07-p0-01",
-    "batchPosition": 33,
-    "originalPriority": "P1",
+    "batchPosition": 28,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "testing",
     "title": {
@@ -1265,7 +1418,11 @@
     },
     "selectionRule": "cross-cut-test",
     "selectionReason": "Covers cross-cut style adhesion checks.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Agreed classification",
@@ -1289,9 +1446,19 @@
     "topic_id": "HF-005197",
     "slug": "toner-transfer-lamination-temperature-checks-digital-toner-electro-ink-foil-transfer-f-0wm2zyk",
     "batch": "2026-07-p0-01",
-    "batchPosition": 34,
-    "originalPriority": "P1",
+    "batchPosition": 29,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "parameter",
     "title": {
@@ -1304,7 +1471,11 @@
     },
     "selectionRule": "temperature-variable",
     "selectionReason": "Covers temperature as a controllable variable.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Temperature record",
@@ -1328,9 +1499,19 @@
     "topic_id": "HF-005085",
     "slug": "nip-pressure-checks-narrow-web-cold-foil-transfer-film-label-facestock-corona-plasma-t-0s6ns0n",
     "batch": "2026-07-p0-01",
-    "batchPosition": 35,
-    "originalPriority": "P1",
+    "batchPosition": 30,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "parameter",
     "title": {
@@ -1343,7 +1524,11 @@
     },
     "selectionRule": "pressure-variable",
     "selectionReason": "Covers pressure as a controllable variable.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Pressure record",
@@ -1367,9 +1552,19 @@
     "topic_id": "HF-005233",
     "slug": "contact-dwell-time-checks-combined-foil-stamping-embossing-folding-carton-board-as-sup-0l87lql",
     "batch": "2026-07-p0-01",
-    "batchPosition": 36,
-    "originalPriority": "P1",
+    "batchPosition": 31,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "parameter",
     "title": {
@@ -1382,7 +1577,11 @@
     },
     "selectionRule": "dwell-time-variable",
     "selectionReason": "Covers dwell time adjustment.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Dwell-time record",
@@ -1406,9 +1605,19 @@
     "topic_id": "HF-005084",
     "slug": "machine-web-speed-checks-narrow-web-cold-foil-transfer-film-label-facestock-corona-pla-1t8eoim",
     "batch": "2026-07-p0-01",
-    "batchPosition": 37,
-    "originalPriority": "P1",
+    "batchPosition": 32,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "parameter",
     "title": {
@@ -1421,7 +1630,11 @@
     },
     "selectionRule": "line-speed-variable",
     "selectionReason": "Covers production speed effects.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Speed ladder",
@@ -1445,9 +1658,19 @@
     "topic_id": "HF-005232",
     "slug": "die-material-hardness-relief-level-wear-checks-combined-foil-stamping-embossing-foldin-14zq6dl",
     "batch": "2026-07-p0-01",
-    "batchPosition": 38,
-    "originalPriority": "P1",
+    "batchPosition": 33,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "parameter",
     "title": {
@@ -1460,7 +1683,11 @@
     },
     "selectionRule": "die-condition-variable",
     "selectionReason": "Covers die condition and leveling.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Die inspection",
@@ -1484,9 +1711,19 @@
     "topic_id": "HF-005924",
     "slug": "what-foil-web-tension-feed-means-foil-stamping-1366n1k",
     "batch": "2026-07-p0-01",
-    "batchPosition": 39,
-    "originalPriority": "P2",
+    "batchPosition": 34,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P2",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "definition",
     "title": {
@@ -1499,7 +1736,11 @@
     },
     "selectionRule": "foil-tension-variable",
     "selectionReason": "Covers web tension/feed on rotary jobs.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Tension/feed record",
@@ -1522,9 +1763,19 @@
     "topic_id": "HF-005487",
     "slug": "controlled-process-window-sampling-film-label-facestock-foil-approval-blurred-detail-f-0k95dga",
     "batch": "2026-07-p0-01",
-    "batchPosition": 40,
-    "originalPriority": "P1",
+    "batchPosition": 35,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
     "cluster": "parameters-testing",
     "intent": "testing",
     "title": {
@@ -1537,7 +1788,11 @@
     },
     "selectionRule": "sampling-checklist",
     "selectionReason": "Covers sample approval workflow.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Substrate/machine/artwork/speed record",
@@ -1561,9 +1816,19 @@
     "topic_id": "HF-008358",
     "slug": "what-roll-width-length-winding-core-means-foil-stamping-0off6dg",
     "batch": "2026-07-p0-01",
-    "batchPosition": 41,
-    "originalPriority": "P2",
+    "batchPosition": 36,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P2",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 6,
+      "max": 6
+    },
     "cluster": "procurement-specifications",
     "intent": "definition",
     "title": {
@@ -1576,7 +1841,11 @@
     },
     "selectionRule": "roll-specs",
     "selectionReason": "Covers roll specification confirmation.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Width/length/core/winding confirmation",
@@ -1599,9 +1868,19 @@
     "topic_id": "HF-008355",
     "slug": "what-moq-order-quantity-means-foil-stamping-086or6b",
     "batch": "2026-07-p0-01",
-    "batchPosition": 42,
-    "originalPriority": "P2",
+    "batchPosition": 37,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P2",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 6,
+      "max": 6
+    },
     "cluster": "procurement-specifications",
     "intent": "definition",
     "title": {
@@ -1614,7 +1893,11 @@
     },
     "selectionRule": "moq-quantity",
     "selectionReason": "Covers MOQ planning.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "MOQ and lead-time note",
@@ -1637,9 +1920,14 @@
     "topic_id": "HF-007509",
     "slug": "batch-consistency-traceability-checklist-film-label-facestock-foil-narrow-web-cold-foi-1me3p1h",
     "batch": "2026-07-p0-01",
-    "batchPosition": 43,
+    "batchPosition": 38,
     "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 6,
+      "max": 6
+    },
     "cluster": "procurement-specifications",
     "intent": "procurement",
     "title": {
@@ -1652,7 +1940,11 @@
     },
     "selectionRule": "supplier-evaluation",
     "selectionReason": "Covers supplier screening.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Source traceability",
@@ -1676,9 +1968,19 @@
     "topic_id": "HF-008353",
     "slug": "what-lead-time-logistics-means-foil-stamping-1eqpqwb",
     "batch": "2026-07-p0-01",
-    "batchPosition": 44,
-    "originalPriority": "P2",
+    "batchPosition": 39,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P2",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 6,
+      "max": 6
+    },
     "cluster": "procurement-specifications",
     "intent": "definition",
     "title": {
@@ -1691,7 +1993,11 @@
     },
     "selectionRule": "lead-time-logistics",
     "selectionReason": "Covers purchasing schedule risk.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Lead-time note",
@@ -1711,51 +2017,17 @@
     "informationalOnlyReason": "No confirmed PINTE product-series mapping is available yet; keep this as a qualification or buyer-education topic until evidence supports a product recommendation."
   },
   {
-    "topic_id": "HF-008363",
-    "slug": "why-color-gloss-optical-effect-variation-happens-film-label-facestock-narrow-web-cold-1yzn6x1",
-    "batch": "2026-07-p0-01",
-    "batchPosition": 45,
-    "originalPriority": "P0",
-    "batchPriority": "P0",
-    "cluster": "troubleshooting",
-    "intent": "troubleshooting",
-    "title": {
-      "en": "Why Color, gloss, or optical-effect variation Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Color, gloss, or optical-effect variation",
-      "cn": "薄膜标签面材出现颜色、光泽或光学效果差异的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 颜色、光泽或光学效果差异）"
-    },
-    "topicQuestion": {
-      "en": "How should a converter diagnose color, gloss, or optical-effect variation on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Color, gloss, or optical-effect variation?",
-      "cn": "薄膜标签面材出现颜色、光泽或光学效果差异时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 颜色、光泽或光学效果差异）？"
-    },
-    "selectionRule": "color-finish-master",
-    "selectionReason": "Covers visual master approval.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-hot-stamping-troubleshooting, hot-stamping-troubleshooting. Selected record has topic-specific substrate/process/test context.",
-    "requiredEvidence": [
-      "Representative production substrate, machine, artwork, and speed sample",
-      "Approved master comparison",
-      "Batch record",
-      "Documented pass/fail criteria before publication"
-    ],
-    "sourceKeys": [
-      "inx-hot-cold-foil-guide",
-      "kurz-cold-transfer",
-      "univacco-hot-stamping-foil",
-      "univacco-narrow-web-cold-foil",
-      "labels-labeling-hot-foiling-process"
-    ],
-    "relatedProducts": [
-      "DIGITAL"
-    ],
-    "relatedGuides": [],
-    "difference": "Diagnoses Color, gloss, or optical-effect variation for a defined substrate, surface, and process instead of splitting the same user problem by test method."
-  },
-  {
     "topic_id": "HF-007510",
     "slug": "batch-consistency-traceability-checklist-film-label-facestock-foil-narrow-web-cold-foi-0my3xg8",
     "batch": "2026-07-p0-01",
-    "batchPosition": 46,
+    "batchPosition": 40,
     "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 6,
+      "max": 6
+    },
     "cluster": "procurement-specifications",
     "intent": "procurement",
     "title": {
@@ -1768,7 +2040,11 @@
     },
     "selectionRule": "batch-traceability",
     "selectionReason": "Covers repeatability and traceability.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Batch record",
@@ -1792,9 +2068,19 @@
     "topic_id": "HF-000001",
     "slug": "foil-grade-selection-fine-lines-small-type-coated-glass-container-primer-adhesion-prom-0j3va8v",
     "batch": "2026-07-p0-01",
-    "batchPosition": 47,
-    "originalPriority": "P1",
+    "batchPosition": 41,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 1,
+      "max": 1
+    },
     "cluster": "cosmetic-packaging",
     "intent": "substrate-selection",
     "title": {
@@ -1807,7 +2093,11 @@
     },
     "selectionRule": "cosmetic-packaging",
     "selectionReason": "Covers cosmetics packaging applications.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): cosmetic-packaging-foil-guide, cosmetic-packaging-hot-stamping-troubleshooting, hot-foil-vs-cold-foil-cosmetic-packaging. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Packaging substrate matrix",
@@ -1830,9 +2120,19 @@
     "topic_id": "HF-009341",
     "slug": "wine-spirits-gifts-foil-stamping-folding-carton-board-fine-lines-small-type-as-supplie-116wtbk",
     "batch": "2026-07-p0-01",
-    "batchPosition": 48,
-    "originalPriority": "P2",
+    "batchPosition": 42,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P2",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 2,
+      "max": 2
+    },
     "cluster": "wine-gift-packaging",
     "intent": "application",
     "title": {
@@ -1845,7 +2145,11 @@
     },
     "selectionRule": "wine-gift-packaging",
     "selectionReason": "Covers wine/gift premium packaging.",
-    "legacyOverlapCheck": "No direct legacy slug overlap detected by intent/tag terms.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Premium finish master",
@@ -1869,9 +2173,19 @@
     "topic_id": "HF-005949",
     "slug": "foil-grade-selection-continuous-holographic-pattern-abs-as-supplied-uncoated-surface-15e1hfw",
     "batch": "2026-07-p0-01",
-    "batchPosition": 49,
-    "originalPriority": "P1",
+    "batchPosition": 43,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 1,
+      "max": 1
+    },
     "cluster": "plastics",
     "intent": "substrate-selection",
     "title": {
@@ -1884,7 +2198,11 @@
     },
     "selectionRule": "plastic-caps-parts",
     "selectionReason": "Covers molded plastic part stamping.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Part geometry note",
@@ -1908,9 +2226,19 @@
     "topic_id": "HF-001813",
     "slug": "foil-grade-selection-continuous-holographic-pattern-film-label-facestock-printed-cold-1ub6mjy",
     "batch": "2026-07-p0-01",
-    "batchPosition": 50,
-    "originalPriority": "P1",
+    "batchPosition": 44,
+    "originalPriority": "P0",
+    "priority": "P0",
     "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 1,
+      "max": 1
+    },
     "cluster": "holographic-security",
     "intent": "substrate-selection",
     "title": {
@@ -1923,7 +2251,11 @@
     },
     "selectionRule": "security-packaging",
     "selectionReason": "Covers anti-counterfeit packaging selection.",
-    "legacyOverlapCheck": "Narrower than legacy guide(s): hot-stamping-foil-structure-selection-guide. Selected record has topic-specific substrate/process/test context.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
     "requiredEvidence": [
       "Representative production substrate, machine, artwork, and speed sample",
       "Security scope definition",
@@ -1941,5 +2273,298 @@
     "relatedGuides": [],
     "difference": "Narrows grade selection to Continuous holographic pattern, Film label facestock, Printed cold-foil adhesive, and Narrow-web cold foil transfer.",
     "informationalOnlyReason": "No confirmed PINTE product-series mapping is available yet; keep this as a qualification or buyer-education topic until evidence supports a product recommendation."
+  },
+  {
+    "topic_id": "HF-005495",
+    "slug": "dry-rub-abrasion-comparison-film-label-facestock-foil-approval-scratch-scuff-rub-failu-0ty3ta4",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 45,
+    "originalPriority": "P0",
+    "priority": "P0",
+    "batchPriority": "P0",
+    "priorityPromotion": {
+      "batch": "2026-07-p0-01",
+      "from": "P1",
+      "rationale": "Promoted for required first-batch coverage and its explicit cluster quota; the original inventory contains no native P0 topics in this cluster."
+    },
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
+    "cluster": "parameters-testing",
+    "intent": "testing",
+    "title": {
+      "en": "Dry rub or abrasion comparison for Film label facestock Foil Approval - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure / Dry rub or abrasion comparison",
+      "cn": "薄膜标签面材烫金确认中的干擦或耐磨对比（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）"
+    },
+    "topicQuestion": {
+      "en": "When is dry rub or abrasion comparison useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Scratch, scuff, or rub failure / Dry rub or abrasion comparison?",
+      "cn": "薄膜标签面材烫金确认何时使用干擦或耐磨对比（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 刮擦或耐磨失败 / 干擦或耐磨对比）？"
+    },
+    "selectionRule": "cluster-quota-parameters-testing",
+    "selectionReason": "Fills the remaining parameters-testing quota after required coverage selection.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Source verification from registered source keys",
+      "Internal product-fit review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "astm-d3359-23-tape-test",
+      "astm-d5264-98r19-abrasion",
+      "iso-2409-2020-cross-cut",
+      "iso-2836-2021-print-resistance",
+      "inx-hot-cold-foil-guide"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check."
+  },
+  {
+    "topic_id": "HF-007747",
+    "slug": "batch-consistency-traceability-checklist-rigid-gift-box-wrap-board-foil-flatbed-platen-01hsyny",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 46,
+    "originalPriority": "P0",
+    "priority": "P0",
+    "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 6,
+      "max": 6
+    },
+    "cluster": "procurement-specifications",
+    "intent": "procurement",
+    "title": {
+      "en": "Batch consistency and traceability Checklist for Rigid gift-box wrap or board Foil - Anti-scratch coating or film / Flatbed or platen hot stamping / Textured, kraft, and difficult paper hot stamping / Batch consistency and traceability / China",
+      "cn": "精品礼盒裱纸或纸板烫金膜批次一致性和追溯清单（耐刮膜或耐刮涂层 / 平压平热烫 / 纹理纸和困难纸张热烫 / 批次一致性和追溯 / 中国）"
+    },
+    "topicQuestion": {
+      "en": "What should buyers ask about batch consistency and traceability for rigid gift-box wrap or board foil under Anti-scratch coating or film / Flatbed or platen hot stamping / Textured, kraft, and difficult paper hot stamping / Batch consistency and traceability / China?",
+      "cn": "采购精品礼盒裱纸或纸板烫金膜时如何确认批次一致性和追溯（适用条件：耐刮膜或耐刮涂层 / 平压平热烫 / 纹理纸和困难纸张热烫 / 批次一致性和追溯 / 中国）？"
+    },
+    "selectionRule": "cluster-quota-procurement-specifications",
+    "selectionReason": "Fills the remaining procurement-specifications quota after required coverage selection.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Source verification from registered source keys",
+      "Internal product-fit review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "fsea-foil-cheat-sheet",
+      "kurz-decoration-processes",
+      "kurz-hot-stamping",
+      "univacco-hot-stamping-foil",
+      "reddit-leathercraft-machine-buying"
+    ],
+    "relatedProducts": [
+      "PK"
+    ],
+    "relatedGuides": [],
+    "difference": "Turns a procurement concern into a concrete supplier checklist for one substrate, process, surface condition, and region context."
+  },
+  {
+    "topic_id": "HF-008369",
+    "slug": "why-register-shift-hologram-placement-error-happens-film-label-facestock-narrow-web-co-0gwjhwv",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 47,
+    "originalPriority": "P0",
+    "priority": "P0",
+    "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Register shift or hologram placement error Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error",
+      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose register shift or hologram placement error on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error?",
+      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）？"
+    },
+    "selectionRule": "cluster-quota-troubleshooting",
+    "selectionReason": "Fills the remaining troubleshooting quota after required coverage selection.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Source verification from registered source keys",
+      "Internal product-fit review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "bobst-novafoil-106-hologram",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Register shift or hologram placement error for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-008361",
+    "slug": "why-blurred-detail-filling-loss-of-negative-space-happens-film-label-facestock-narrow-0844096",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 48,
+    "originalPriority": "P0",
+    "priority": "P0",
+    "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Blurred detail, filling, or loss of negative space Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Blurred detail, filling, or loss of negative space",
+      "cn": "薄膜标签面材出现糊边、糊版或细节丢失的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 糊边、糊版或细节丢失）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose blurred detail, filling, or loss of negative space on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Blurred detail, filling, or loss of negative space?",
+      "cn": "薄膜标签面材出现糊边、糊版或细节丢失时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 糊边、糊版或细节丢失）？"
+    },
+    "selectionRule": "cluster-quota-troubleshooting",
+    "selectionReason": "Fills the remaining troubleshooting quota after required coverage selection.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Source verification from registered source keys",
+      "Internal product-fit review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Blurred detail, filling, or loss of negative space for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-008391",
+    "slug": "why-register-shift-hologram-placement-error-happens-film-label-facestock-narrow-web-co-1fums44",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 49,
+    "originalPriority": "P0",
+    "priority": "P0",
+    "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Register shift or hologram placement error Happens on Film label facestock - Printed cold-foil adhesive / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error",
+      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差的原因（印刷冷烫胶层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose register shift or hologram placement error on film label facestock under Printed cold-foil adhesive / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error?",
+      "cn": "薄膜标签面材出现套准偏移或镭射定位偏差时应如何排查（适用条件：印刷冷烫胶层 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 套准偏移或镭射定位偏差）？"
+    },
+    "selectionRule": "cluster-quota-troubleshooting",
+    "selectionReason": "Fills the remaining troubleshooting quota after required coverage selection.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Source verification from registered source keys",
+      "Internal product-fit review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "bobst-novafoil-106-hologram",
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Register shift or hologram placement error for a defined substrate, surface, and process instead of splitting the same user problem by test method."
+  },
+  {
+    "topic_id": "HF-008363",
+    "slug": "why-color-gloss-optical-effect-variation-happens-film-label-facestock-narrow-web-cold-1yzn6x1",
+    "batch": "2026-07-p0-01",
+    "batchPosition": 50,
+    "originalPriority": "P0",
+    "priority": "P0",
+    "batchPriority": "P0",
+    "clusterQuota": {
+      "min": 12,
+      "max": 12
+    },
+    "cluster": "troubleshooting",
+    "intent": "troubleshooting",
+    "title": {
+      "en": "Why Color, gloss, or optical-effect variation Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Color, gloss, or optical-effect variation",
+      "cn": "薄膜标签面材出现颜色、光泽或光学效果差异的原因（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 颜色、光泽或光学效果差异）"
+    },
+    "topicQuestion": {
+      "en": "How should a converter diagnose color, gloss, or optical-effect variation on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Color, gloss, or optical-effect variation?",
+      "cn": "薄膜标签面材出现颜色、光泽或光学效果差异时应如何排查（适用条件：电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 颜色、光泽或光学效果差异）？"
+    },
+    "selectionRule": "cluster-quota-troubleshooting",
+    "selectionReason": "Fills the remaining troubleshooting quota after required coverage selection.",
+    "legacyOverlapCheck": {
+      "decision": "no-direct-overlap",
+      "matchingLegacySlugs": [],
+      "rationale": "No direct legacy slug duplicate after removing the generated topic suffix."
+    },
+    "requiredEvidence": [
+      "Representative production substrate, machine, artwork, and speed sample",
+      "Source verification from registered source keys",
+      "Internal product-fit review",
+      "Documented pass/fail criteria before publication"
+    ],
+    "sourceKeys": [
+      "inx-hot-cold-foil-guide",
+      "kurz-cold-transfer",
+      "univacco-hot-stamping-foil",
+      "univacco-narrow-web-cold-foil",
+      "labels-labeling-hot-foiling-process"
+    ],
+    "relatedProducts": [
+      "DIGITAL"
+    ],
+    "relatedGuides": [],
+    "difference": "Diagnoses Color, gloss, or optical-effect variation for a defined substrate, surface, and process instead of splitting the same user problem by test method."
   }
 ]
