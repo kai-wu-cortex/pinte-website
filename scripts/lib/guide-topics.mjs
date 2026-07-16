@@ -106,6 +106,182 @@ function label(item, fallback = '') {
   return item?.label ?? fallback;
 }
 
+const CN_LABELS = Object.freeze({
+  'commercial-print-finishing': '商业印后加工',
+  'folding-carton-packaging': '折叠纸盒和彩盒包装',
+  'cosmetics-personal-care': '化妆品和个人护理包装',
+  'wine-spirits-gifts': '酒类和礼盒包装',
+  'labels-narrow-web': '标签和窄幅印刷',
+  'consumer-plastic-products': '消费品塑料件',
+  'leather-goods-bookbinding': '皮具和书封装帧',
+  'security-brand-protection': '防伪和品牌保护',
+  'paper-coated': '铜版纸',
+  'paper-uncoated': '未涂布纸',
+  'paper-textured-specialty': '纹理特种纸',
+  'paper-kraft': '牛皮纸或纸板',
+  'board-folding-carton': '折叠纸盒纸板',
+  'board-rigid-gift': '精品礼盒裱纸或纸板',
+  'paperboard-laminated': '覆膜纸板',
+  'label-paper-facestock': '纸质标签面材',
+  'label-film-facestock': '薄膜标签面材',
+  'plastic-abs': 'ABS 塑料',
+  'plastic-polystyrene': 'PS 塑料',
+  'plastic-pvc-rigid': '硬质 PVC',
+  'plastic-pmma': 'PMMA 亚克力',
+  'plastic-pet-film': 'PET 或 PETG 薄膜/部件',
+  'plastic-polypropylene': 'PP 聚丙烯',
+  'plastic-polyethylene': 'PE 聚乙烯',
+  'leather-natural': '天然皮革',
+  'leather-pu-synthetic': 'PU 合成革',
+  'leather-pvc-synthetic': 'PVC 合成革或书封',
+  'glass-container': '涂层玻璃容器',
+  'surface-as-supplied': '原始未涂布表面',
+  'printed-conventional-ink': '普通油墨印刷层',
+  'printed-uv-ink': 'UV 或 LED-UV 油墨层',
+  'varnish-water-based': '水性光油',
+  'varnish-uv': 'UV 光油或涂层',
+  'lamination-opp-or-pet': 'OPP 或 PET 覆膜',
+  'soft-touch-coating-or-film': '触感膜或触感涂层',
+  'anti-scratch-coating-or-film': '耐刮膜或耐刮涂层',
+  primer: '底涂或增附着涂层',
+  'corona-or-plasma': '电晕或等离子处理',
+  'digital-toner-layer': '数码碳粉或电子油墨接收层',
+  'printed-cold-foil-adhesive': '印刷冷烫胶层',
+  'hot-stamping-flatbed': '平压平热烫',
+  'hot-stamping-round-flat': '圆压平热烫',
+  'hot-stamping-rotary': '轮转热烫',
+  'hot-stamping-roll-on': '异形件滚烫',
+  'hot-stamping-embossing': '烫金压凸',
+  'cold-foil-narrow-web': '窄幅冷烫',
+  'cold-foil-sheetfed-offset': '单张纸胶印冷烫',
+  'screen-printed-uv-cold-transfer': '丝印 UV 胶冷转印',
+  'digital-toner-transfer': '数码碳粉烫金',
+  'digital-uv-varnish-transfer': '数码 UV 光油烫金',
+  'registered-hologram-transfer': '定位镭射转印',
+  'substrate-construction': '底材结构',
+  'surface-treatment': '表面处理或涂层',
+  'surface-cleanliness': '表面污染或脱模剂',
+  'substrate-smoothness': '表面粗糙度和平滑度',
+  'substrate-compressibility': '底材压缩性',
+  'substrate-batch': '底材批次差异',
+  'ink-coating-cure': '油墨或涂层固化状态',
+  'surface-energy': '表面能和润湿状态',
+  'foil-grade': '烫金膜型号和胶层/离型配方',
+  'foil-batch': '烫金膜批次或卷料差异',
+  'release-characteristic': '烫金膜离型特性',
+  temperature: '实际版温或辊温',
+  pressure: '烫印压力',
+  'dwell-time': '接触时间',
+  'line-speed': '机器或走料速度',
+  'nip-pressure': '压辊压力',
+  'foil-tension': '膜带张力和走膜',
+  'die-condition': '烫版状态',
+  'equipment-alignment': '设备对位和平整度',
+  'register-control': '套准控制',
+  'artwork-feature-size': '最小线条文字和间隙',
+  'stamping-area': '烫印面积',
+  'part-geometry': '部件曲面和几何形状',
+  'adhesive-system': '冷转印胶水体系',
+  'adhesive-coat-weight': '胶水或光油涂布量',
+  'uv-dose': 'UV 或 LED-UV 固化能量',
+  'toner-system': '碳粉或电子油墨体系',
+  'varnish-system': '数码光油体系',
+  'varnish-height': '数码光油高度',
+  'lamination-temperature': '覆膜转印温度',
+  pitch: '镭射图案间距',
+  'security-origination': '防伪图案制版和管控',
+  'ambient-conditions': '环境温湿度',
+  'test-method': '约定测试方法和判定标准',
+  'incomplete-transfer': '缺金或转移不完整',
+  'poor-adhesion-peeling': '附着不牢或掉金',
+  'blurred-or-filled-detail': '糊边、糊版或细节丢失',
+  'overtransfer-halo': '飞金、毛边或图案外转移',
+  'mottling-pinholes': '发花、针孔或大面积不均',
+  'foil-flaking-dusting': '掉粉、碎金或边缘碎屑',
+  'scratch-scuff-failure': '刮擦或耐磨失败',
+  'alcohol-chemical-failure': '酒精或化学擦拭失败',
+  'register-shift': '套准偏移或镭射定位偏差',
+  'color-gloss-variation': '颜色、光泽或光学效果差异',
+  'substrate-heat-damage': '底材热损伤、变形或压痕过深',
+  'cold-foil-spread-or-voids': '冷烫扩点、空洞或金属密度不足',
+  'controlled-sampling-ladder': '工艺窗口打样',
+  'visual-transfer-completeness': '转移完整度目视检查',
+  'edge-definition-magnified': '边缘和细节放大检查',
+  'tape-adhesion-job-specific': '项目约定胶带测试',
+  'cross-cut-adhesion-agreed': '约定百格分级',
+  'dry-rub-abrasion': '干擦或耐磨对比',
+  'alcohol-chemical-rub': '酒精或指定介质擦拭',
+  'scratch-resistance-agreed': '约定耐刮测试',
+  'fold-crease-durability': '折痕或压线耐久',
+  'registration-measurement': '套准和图案间距测量',
+  'color-gloss-master-comparison': '颜色光泽对照样比对',
+  'surface-energy-check': '表面能或润湿检查',
+  'repeat-run-stability': '复单和批次稳定性检查',
+  'manual-platen-press': '手动平压烫金机',
+  'automatic-flatbed-press': '自动平压平烫金机',
+  'round-flat-cylinder-press': '圆压平烫金机',
+  'rotary-web-hot-foil-unit': '轮转热烫单元',
+  'roll-on-parts-stamper': '异形件滚烫机',
+  'sheetfed-offset-cold-foil-module': '单张纸胶印冷烫模块',
+  'narrow-web-cold-foil-module': '窄幅柔印或凸印冷烫模块',
+  'screen-printing-cold-foil-line': '丝印 UV 冷烫线',
+  'digital-toner-foiling-system': '数码碳粉烫金系统',
+  'digital-uv-embellishment-system': '数码 UV 增效系统',
+  'registered-hologram-press': '定位镭射烫金机',
+  'fine-lines-small-type': '细线和小文字',
+  'large-solid-area': '大面积实地',
+  'reverse-knockout': '反白或镂空细节',
+  'halftone-gradient': '网点或渐变',
+  'foil-and-emboss-relief': '烫金加压凸',
+  'variable-data-personalization': '可变数据或个性化',
+  'registered-single-image-hologram': '定位单枚镭射图案',
+  'continuous-holographic-pattern': '连续镭射纹理',
+  'substrate-grade-selection': '底材适配选型',
+  'representative-sampling': '生产代表性打样',
+  'durability-acceptance': '耐久测试和判定标准',
+  'roll-width-length-core': '宽幅、长度、绕向和卷芯',
+  'color-finish-master': '颜色、效果和确认样',
+  'batch-consistency-traceability': '批次一致性和追溯',
+  'moq-order-quantity': '起订量和采购数量',
+  'lead-time-logistics': '交期和物流',
+  'machine-process-compatibility': '机器和工艺适配',
+  'compliance-documentation': '应用合规文件',
+  'security-origination-control': '防伪制版、所有权和权限',
+  'repeat-order-change-control': '复单公差和变更控制',
+  global: '全球',
+  china: '中国',
+  'southeast-asia': '东南亚',
+  europe: '欧洲',
+  'north-america': '北美',
+  'latin-america': '拉美',
+  'middle-east-africa': '中东和非洲',
+  PK: 'PK 棕背纸盒彩盒系列',
+  PC: 'PC 塑料和冷烫系列',
+  PLPY: 'PL/PY 颜料箔系列',
+  DIGITAL: '数码和冷烫系列',
+  'standard-paper-hot': '标准纸张盒彩热烫',
+  'textured-paper-hot': '纹理纸和困难纸张热烫',
+  'laminated-paper-hot': '覆膜纸板热烫',
+  'paper-label-hot': '纸质标签热烫',
+  'film-label-hot': '薄膜标签热烫',
+  'rigid-plastic-hot': '硬质塑料件热烫',
+  'low-surface-energy-plastic-hot': 'PP/PE 低表面能塑料热烫',
+  'leather-hot': '天然和合成皮革热烫',
+  'pigment-paper-hot': '纸张纸板颜料箔热烫',
+  'coated-paper-cold': '涂布纸和彩盒冷烫',
+  'label-cold-transfer': '纸质和薄膜标签冷烫',
+  'digital-toner-enhancement': '数码碳粉增效烫金',
+  'digital-uv-enhancement': '数码或丝印 UV 增效烫金',
+  'decorative-holographic-transfer': '装饰性连续镭射转印',
+  'registered-security-hologram': '定位防伪镭射转印',
+  'coated-glass-specialty-hot': '涂层玻璃特殊热烫',
+});
+
+function cnLabel(item, fallback = '') {
+  if (!item) return fallback;
+  return item.cn ?? item.labelCn ?? CN_LABELS[item.id] ?? fallback ?? item.label ?? item.id;
+}
+
 function lowerFirst(value) {
   return value ? `${value.slice(0, 1).toLocaleLowerCase('en-US')}${value.slice(1)}` : value;
 }
@@ -217,6 +393,85 @@ function makeEvidence(index, tuple, extra = {}) {
   ];
 }
 
+function dimensionItem(index, field, value) {
+  if (!value) return null;
+  const maps = {
+    industryId: index.industries,
+    artworkTypeId: index.artworkTypes,
+    defectId: index.defects,
+    testId: index.tests,
+    diagnosticVariableId: index.diagnosticVariables,
+    equipmentId: index.equipment,
+    procurementConcernId: index.procurementConcerns,
+    regionId: index.regions,
+    leftProcessId: index.processes,
+    rightProcessId: index.processes,
+  };
+  const mapped = maps[field]?.get(value);
+  if (mapped) return mapped;
+  const compliance = COMPLIANCE_FOCI.find((item) => item.id === value);
+  if (compliance) return { id: compliance.id, label: compliance.label, cn: compliance.cn };
+  const sustainability = SUSTAINABILITY_FOCI.find((item) => item.id === value);
+  if (sustainability) return { id: sustainability.id, label: sustainability.label, cn: sustainability.cn };
+  return { id: value, label: value };
+}
+
+function uniqueContextItems(items) {
+  const seen = new Set();
+  const result = [];
+  for (const item of items.filter(Boolean)) {
+    const key = item.id ?? item.label;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    result.push(item);
+  }
+  return result;
+}
+
+function titleContext(index, tuple, dimensions = {}) {
+  if (!tuple) return { en: '', cn: '' };
+  const items = uniqueContextItems([
+    tuple.surfaceTreatment,
+    tuple.process,
+    tuple.group,
+    ...[
+      'industryId',
+      'artworkTypeId',
+      'defectId',
+      'testId',
+      'diagnosticVariableId',
+      'equipmentId',
+      'procurementConcernId',
+      'regionId',
+      'complianceFocus',
+      'sustainabilityFocus',
+    ].map((field) => dimensionItem(index, field, dimensions[field])),
+  ]);
+  return {
+    en: items.map((item) => label(item)).join(' / '),
+    cn: items.map((item) => cnLabel(item, label(item))).join(' / '),
+  };
+}
+
+function withTitleContext(title, context) {
+  if (!context.en && !context.cn) return title;
+  return {
+    en: context.en ? `${title.en} - ${context.en}` : title.en,
+    cn: context.cn ? `${title.cn}（${context.cn}）` : title.cn,
+  };
+}
+
+function withQuestionContext(question, context) {
+  if (!context.en && !context.cn) return question;
+  const enQuestion = context.en
+    ? `${question.en.replace(/\?$/, '')} under ${context.en}?`
+    : question.en;
+  const cnQuestion = context.cn
+    ? `${question.cn.replace(/[？?]$/, '')}（适用条件：${context.cn}）？`
+    : question.cn;
+  return { en: enQuestion, cn: cnQuestion };
+}
+
 function scoreCandidate(candidate) {
   const buyer = BUYER_PROXIMITY[candidate.intent] ?? 2;
   const technicalFields = [
@@ -277,6 +532,8 @@ export function normalizeIntentKey(candidate) {
 }
 
 function buildCandidate(index, tuple, details) {
+  const dimensions = details.dimensions ?? {};
+  const context = titleContext(index, tuple, dimensions);
   const sourceKeys = sourceKeysFor([
     tuple?.compatibilityGroupId,
     tuple?.processId,
@@ -300,9 +557,9 @@ function buildCandidate(index, tuple, details) {
     cluster: details.cluster,
     intent: details.intent,
     buyer_stage: details.buyerStage,
-    title: details.title,
+    title: withTitleContext(details.title, context),
     slug: details.slug,
-    topic_question: details.topicQuestion,
+    topic_question: withQuestionContext(details.topicQuestion, context),
     difference: details.difference,
     evidenceNeeded: details.evidenceNeeded ?? makeEvidence(index, tuple, details),
     sourceKeys,
@@ -311,7 +568,7 @@ function buildCandidate(index, tuple, details) {
     substrateId: tuple?.substrateId,
     surfaceTreatmentId: tuple?.surfaceTreatmentId,
     processId: tuple?.processId,
-    ...details.dimensions,
+    ...dimensions,
   };
   candidate.intent_key = normalizeIntentKey(candidate);
   candidate.slug = slugWithIntent(candidate.slug, candidate.intent_key);
@@ -361,12 +618,12 @@ function buildDefinitionCandidates(taxonomy) {
       buyerStage: subject.type === 'procurement' ? 'supplier-shortlist' : 'research',
       title: {
         en: `What ${subjectName} Means in Foil Stamping`,
-        cn: `${subjectName}在烫金中的含义`,
+        cn: `${cnLabel(subject.item, subjectName)}在烫金中的含义`,
       },
       slug: slugify(`what ${subjectName} means foil stamping`),
       topicQuestion: {
         en: `What does ${lowerFirst(subjectName)} mean for a foil stamping project?`,
-        cn: `${subjectName}对烫金项目意味着什么？`,
+        cn: `${cnLabel(subject.item, subjectName)}对烫金项目意味着什么？`,
       },
       difference: `Defines ${subjectName} as a planning term and links it to sampling, process limits, and buyer decisions.`,
       evidenceNeeded: ['Taxonomy definition', 'Supplier sampling notes', 'Related process or test source'],
@@ -402,12 +659,12 @@ function buildComparisonCandidates(taxonomy, index, tuples) {
         buyerStage: 'process-selection',
         title: {
           en: `${label(left)} vs ${label(right)} for ${substrateName}`,
-          cn: `${substrateName}选择${label(left)}还是${label(right)}`,
+          cn: `${cnLabel(tuple.substrate, substrateName)}选择${cnLabel(left, label(left))}还是${cnLabel(right, label(right))}`,
         },
         slug: slugify(`${label(left)} vs ${label(right)} ${substrateName}`),
         topicQuestion: {
           en: `Should ${substrateName} use ${lowerFirst(label(left))} or ${lowerFirst(label(right))}?`,
-          cn: `${substrateName}应选择${label(left)}还是${label(right)}？`,
+          cn: `${cnLabel(tuple.substrate, substrateName)}应选择${cnLabel(left, label(left))}还是${cnLabel(right, label(right))}？`,
         },
         difference: `Compares two compatible processes for the same ${substrateName} and surface condition instead of describing foil transfer in general.`,
         dimensions: { leftProcessId, rightProcessId },
@@ -432,12 +689,12 @@ function buildSubstrateSelectionCandidates(taxonomy, index, tuples) {
           buyerStage: 'grade-selection',
           title: {
             en: `Foil Grade Selection for ${artwork.label} on ${substrateName}`,
-            cn: `${substrateName}${artwork.label}烫金膜选型`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}${cnLabel(artwork, artwork.label)}烫金膜选型`,
           },
           slug: slugify(`foil grade selection ${artwork.label} ${substrateName} ${label(tuple.surfaceTreatment)}`),
           topicQuestion: {
             en: `Which foil selection checks matter for ${lowerFirst(artwork.label)} on ${lowerFirst(substrateName)}?`,
-            cn: `${substrateName}${artwork.label}选膜时要确认哪些条件？`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}${cnLabel(artwork, artwork.label)}选膜时要确认哪些条件？`,
           },
           difference: `Narrows grade selection to ${artwork.label}, ${substrateName}, ${label(tuple.surfaceTreatment)}, and ${label(tuple.process)}.`,
           dimensions: {
@@ -467,12 +724,12 @@ function buildTroubleshootingCandidates(taxonomy, index, tuples) {
             buyerStage: 'problem-solving',
             title: {
               en: `Why ${defect.label} Happens on ${substrateName}`,
-              cn: `${substrateName}出现${defect.label}的原因`,
+              cn: `${cnLabel(tuple.substrate, substrateName)}出现${cnLabel(defect, defect.label)}的原因`,
             },
             slug: slugify(`why ${defect.label} happens ${substrateName} ${label(tuple.process)} ${label(tuple.surfaceTreatment)} ${equipment?.label ?? ''}`),
             topicQuestion: {
               en: `How should a converter diagnose ${lowerFirst(defect.label)} on ${lowerFirst(substrateName)}?`,
-              cn: `${substrateName}出现${defect.label}时应如何排查？`,
+              cn: `${cnLabel(tuple.substrate, substrateName)}出现${cnLabel(defect, defect.label)}时应如何排查？`,
             },
             difference: `Diagnoses ${defect.label} for a defined substrate, surface, process, and verification method rather than listing generic defects.`,
             dimensions: {
@@ -504,12 +761,12 @@ function buildParameterCandidates(taxonomy, index, tuples) {
           buyerStage: 'sample-approval',
           title: {
             en: `${variable.label} Checks for ${label(tuple.process)} on ${substrateName}`,
-            cn: `${substrateName}${label(tuple.process)}的${variable.label}检查`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}${cnLabel(tuple.process, label(tuple.process))}的${cnLabel(variable, variable.label)}检查`,
           },
           slug: slugify(`${variable.label} checks ${label(tuple.process)} ${substrateName} ${label(tuple.surfaceTreatment)} ${equipment?.label ?? ''}`),
           topicQuestion: {
             en: `How should ${lowerFirst(variable.label)} be checked before approving ${lowerFirst(substrateName)}?`,
-            cn: `${substrateName}打样前如何检查${variable.label}？`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}打样前如何检查${cnLabel(variable, variable.label)}？`,
           },
           difference: `Focuses on one controllable variable inside a compatible substrate-process tuple and avoids unverified universal settings.`,
           dimensions: {
@@ -540,12 +797,12 @@ function buildTestingCandidates(taxonomy, index, tuples) {
           buyerStage: 'acceptance-testing',
           title: {
             en: `${testMethod.label} for ${substrateName} Foil Approval`,
-            cn: `${substrateName}烫金确认中的${testMethod.label}`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}烫金确认中的${cnLabel(testMethod, testMethod.label)}`,
           },
           slug: slugify(`${testMethod.label} ${substrateName} foil approval ${defect?.label ?? ''} ${label(tuple.surfaceTreatment)}`),
           topicQuestion: {
             en: `When is ${lowerFirst(testMethod.label)} useful for ${lowerFirst(substrateName)} foil approval?`,
-            cn: `${substrateName}烫金确认何时使用${testMethod.label}？`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}烫金确认何时使用${cnLabel(testMethod, testMethod.label)}？`,
           },
           difference: `Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check.`,
           dimensions: {
@@ -576,12 +833,12 @@ function buildApplicationCandidates(taxonomy, index, tuples) {
           buyerStage: 'application-planning',
           title: {
             en: `${industry.label} Foil Stamping on ${substrateName}`,
-            cn: `${industry.label}${substrateName}烫金应用`,
+            cn: `${cnLabel(industry, industry.label)}${cnLabel(tuple.substrate, substrateName)}烫金应用`,
           },
           slug: slugify(`${industry.label} foil stamping ${substrateName} ${artwork.label} ${label(tuple.surfaceTreatment)}`),
           topicQuestion: {
             en: `What should ${lowerFirst(industry.label)} confirm before foil stamping ${lowerFirst(substrateName)}?`,
-            cn: `${industry.label}在${substrateName}烫金前要确认什么？`,
+            cn: `${cnLabel(industry, industry.label)}在${cnLabel(tuple.substrate, substrateName)}烫金前要确认什么？`,
           },
           difference: `Frames the topic around a real buying application, artwork style, substrate, and process route.`,
           dimensions: {
@@ -609,12 +866,12 @@ function buildEquipmentCandidates(taxonomy, index, tuples) {
           buyerStage: 'machine-fit',
           title: {
             en: `${equipment.label} Fit for ${substrateName} Foil Work`,
-            cn: `${equipment.label}用于${substrateName}烫金的适配`,
+            cn: `${cnLabel(equipment, equipment.label)}用于${cnLabel(tuple.substrate, substrateName)}烫金的适配`,
           },
           slug: slugify(`${equipment.label} fit ${substrateName} foil work ${artwork.label} ${label(tuple.surfaceTreatment)}`),
           topicQuestion: {
             en: `Is ${lowerFirst(equipment.label)} suitable for ${lowerFirst(substrateName)} with ${lowerFirst(artwork.label)}?`,
-            cn: `${equipment.label}是否适合${substrateName}${artwork.label}？`,
+            cn: `${cnLabel(equipment, equipment.label)}是否适合${cnLabel(tuple.substrate, substrateName)}${cnLabel(artwork, artwork.label)}？`,
           },
           difference: `Checks machine fit against the process, substrate, surface, and artwork instead of treating equipment as interchangeable.`,
           dimensions: {
@@ -642,12 +899,12 @@ function buildProcurementCandidates(taxonomy, index, tuples) {
           buyerStage: 'supplier-shortlist',
           title: {
             en: `${concern.label} Checklist for ${substrateName} Foil`,
-            cn: `${substrateName}烫金膜${concern.label}清单`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}烫金膜${cnLabel(concern, concern.label)}清单`,
           },
           slug: slugify(`${concern.label} checklist ${substrateName} foil ${label(tuple.process)} ${label(tuple.surfaceTreatment)} ${region.label}`),
           topicQuestion: {
             en: `What should buyers ask about ${lowerFirst(concern.label)} for ${lowerFirst(substrateName)} foil?`,
-            cn: `采购${substrateName}烫金膜时如何确认${concern.label}？`,
+            cn: `采购${cnLabel(tuple.substrate, substrateName)}烫金膜时如何确认${cnLabel(concern, concern.label)}？`,
           },
           difference: `Turns a procurement concern into a concrete supplier checklist for one substrate, process, surface condition, and region context.`,
           dimensions: {
@@ -675,12 +932,12 @@ function buildComplianceCandidates(taxonomy, index, tuples) {
           buyerStage: 'technical-document-review',
           title: {
             en: `${focus.label} for ${substrateName} Foil Projects`,
-            cn: `${substrateName}烫金项目的${focus.cn}`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}烫金项目的${focus.cn}`,
           },
           slug: slugify(`${focus.label} ${substrateName} foil projects ${label(tuple.process)} ${label(tuple.surfaceTreatment)} ${region.label}`),
           topicQuestion: {
             en: `Which ${focus.label} should be confirmed for ${lowerFirst(substrateName)} foil projects?`,
-            cn: `${substrateName}烫金项目需要确认哪些${focus.cn}？`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}烫金项目需要确认哪些${focus.cn}？`,
           },
           difference: `Keeps documentation claims limited to the application, region context, and test method instead of implying universal certification.`,
           dimensions: {
@@ -709,12 +966,12 @@ function buildSustainabilityCandidates(taxonomy, index, tuples) {
         buyerStage: 'sample-approval',
         title: {
           en: `${focus.label} in ${substrateName} Foil Approval`,
-          cn: `${substrateName}烫金确认中的${focus.cn}`,
+          cn: `${cnLabel(tuple.substrate, substrateName)}烫金确认中的${focus.cn}`,
         },
         slug: slugify(`${focus.label} ${substrateName} foil approval ${label(tuple.process)} ${label(tuple.surfaceTreatment)}`),
         topicQuestion: {
           en: `How can ${lowerFirst(focus.label)} be handled while approving ${lowerFirst(substrateName)} foil?`,
-          cn: `${substrateName}烫金确认时如何处理${focus.cn}？`,
+          cn: `${cnLabel(tuple.substrate, substrateName)}烫金确认时如何处理${focus.cn}？`,
         },
         difference: `Connects waste or reuse planning to an approval workflow for one substrate, process, and surface condition.`,
         dimensions: {
@@ -744,12 +1001,12 @@ function buildDesignPrepressCandidates(taxonomy, index, tuples) {
           buyerStage: 'artwork-preflight',
           title: {
             en: `Prepress Rules for ${artwork.label} on ${substrateName}`,
-            cn: `${substrateName}${artwork.label}烫金印前规则`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}${cnLabel(artwork, artwork.label)}烫金印前规则`,
           },
           slug: slugify(`prepress rules ${artwork.label} ${substrateName} ${defect.label} ${label(tuple.process)} ${label(tuple.surfaceTreatment)}`),
           topicQuestion: {
             en: `How should ${lowerFirst(artwork.label)} be prepared to reduce ${lowerFirst(defect.label)} on ${lowerFirst(substrateName)}?`,
-            cn: `${substrateName}${artwork.label}如何做印前准备以减少${defect.label}？`,
+            cn: `${cnLabel(tuple.substrate, substrateName)}${cnLabel(artwork, artwork.label)}如何做印前准备以减少${cnLabel(defect, defect.label)}？`,
           },
           difference: `Ties artwork preparation to a likely defect, substrate, process, and surface condition before sampling starts.`,
           dimensions: {
@@ -807,7 +1064,7 @@ function topicId(index) {
 }
 
 function toRecord(candidate, index) {
-  return {
+  const record = {
     topic_id: topicId(index),
     slug: candidate.slug,
     status: 'draft',
@@ -826,6 +1083,50 @@ function toRecord(candidate, index) {
     tags: candidate.tags,
     score: candidate.score,
   };
+  if (record.related_products.length === 0) {
+    record.informational_only_reason = 'No confirmed PINTE product-series mapping is available yet; keep this as a qualification or buyer-education topic until evidence supports a product recommendation.';
+  }
+  return record;
+}
+
+function groupBy(values, keyFn) {
+  const groups = new Map();
+  for (const value of values) {
+    const key = keyFn(value);
+    if (!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(value);
+  }
+  return groups;
+}
+
+function takeBalancedByIntent(candidates, targetCount, selectedKeys) {
+  const buckets = groupBy(candidates, (candidate) => candidate.intent);
+  const orderedIntents = [...buckets.keys()].sort((left, right) => {
+    const leftBest = buckets.get(left)?.[0]?.score ?? 0;
+    const rightBest = buckets.get(right)?.[0]?.score ?? 0;
+    return rightBest - leftBest || left.localeCompare(right);
+  });
+  const indexes = new Map(orderedIntents.map((intent) => [intent, 0]));
+  const selected = [];
+  let madeProgress = true;
+
+  while (selected.length < targetCount && madeProgress) {
+    madeProgress = false;
+    for (const intent of orderedIntents) {
+      if (selected.length >= targetCount) break;
+      const bucket = buckets.get(intent) ?? [];
+      let index = indexes.get(intent) ?? 0;
+      while (index < bucket.length && selectedKeys.has(bucket[index].intent_key)) index += 1;
+      indexes.set(intent, index + 1);
+      const candidate = bucket[index];
+      if (!candidate) continue;
+      selected.push(candidate);
+      selectedKeys.add(candidate.intent_key);
+      madeProgress = true;
+    }
+  }
+
+  return selected;
 }
 
 export function selectInventory(candidates, count) {
@@ -841,29 +1142,25 @@ export function selectInventory(candidates, count) {
   const selectedKeys = new Set();
 
   for (const cluster of clusterOrder) {
-    for (const candidate of sorted.filter((item) => item.cluster === cluster).slice(0, quota)) {
-      selected.push(candidate);
-      selectedKeys.add(candidate.intent_key);
-    }
+    selected.push(...takeBalancedByIntent(
+      sorted.filter((item) => item.cluster === cluster),
+      quota,
+      selectedKeys,
+    ));
   }
 
-  const selectedIntents = new Set(selected.map((candidate) => candidate.intent));
-  for (const intent of [...new Set(sorted.map((candidate) => candidate.intent))].sort()) {
+  const missingIntentCandidates = [...new Set(sorted.map((candidate) => candidate.intent))]
+    .sort()
+    .filter((intent) => !selected.some((candidate) => candidate.intent === intent))
+    .map((intent) => sorted.find((item) => item.intent === intent && !selectedKeys.has(item.intent_key)))
+    .filter(Boolean);
+  for (const candidate of missingIntentCandidates) {
     if (selected.length >= count) break;
-    if (selectedIntents.has(intent)) continue;
-    const candidate = sorted.find((item) => item.intent === intent && !selectedKeys.has(item.intent_key));
-    if (!candidate) continue;
-    selected.push(candidate);
-    selectedKeys.add(candidate.intent_key);
-    selectedIntents.add(candidate.intent);
-  }
-
-  for (const candidate of sorted) {
-    if (selected.length >= count) break;
-    if (selectedKeys.has(candidate.intent_key)) continue;
     selected.push(candidate);
     selectedKeys.add(candidate.intent_key);
   }
+
+  selected.push(...takeBalancedByIntent(sorted, count - selected.length, selectedKeys));
 
   return selected
     .sort((left, right) => (
