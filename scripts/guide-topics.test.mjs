@@ -68,6 +68,8 @@ test('normalizes intent at the search-question level', () => {
       substrateId: 'paper-coated',
       surfaceTreatmentId: 'printed-uv-ink',
       defectId: 'poor-adhesion-peeling',
+      testId: 'tape-adhesion-job-specific',
+      equipmentId: 'manual-platen-press',
       regionId: 'global',
     }),
     normalizeIntentKey({
@@ -78,7 +80,32 @@ test('normalizes intent at the search-question level', () => {
       defectId: 'poor-adhesion-peeling',
       artworkTypeId: 'fine-lines-small-type',
       procurementConcernId: 'representative-sampling',
+      testId: 'cross-cut-adhesion-agreed',
+      equipmentId: 'automatic-flatbed-press',
       regionId: 'global',
     }),
   );
+});
+
+test('keeps troubleshooting evidence tests defect-applicable', () => {
+  const inventory = selectInventory(generateCandidates(taxonomy), 10000);
+  const testByLabel = new Map(taxonomy.tests.map((item) => [item.label, item]));
+  const troubleshooting = inventory.filter((item) => item.intent === 'troubleshooting');
+  assert.ok(troubleshooting.length >= 25);
+
+  const seenProblemKeys = new Set();
+  for (const item of troubleshooting) {
+    const problemKey = item.intent_key;
+    assert.ok(!seenProblemKeys.has(problemKey), `duplicate troubleshooting problem: ${problemKey}`);
+    seenProblemKeys.add(problemKey);
+    const defectId = item.tags.find((tag) => taxonomy.defects.some((defect) => defect.id === tag));
+    for (const evidence of item.evidence_needed) {
+      const testMethod = testByLabel.get(evidence);
+      if (!testMethod) continue;
+      assert.ok(
+        (testMethod.applicableDefectIds ?? []).includes(defectId),
+        `${testMethod.id} should apply to ${defectId}`,
+      );
+    }
+  }
 });

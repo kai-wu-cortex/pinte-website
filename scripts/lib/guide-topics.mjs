@@ -9,7 +9,7 @@ const INTENT_DIMENSIONS = Object.freeze({
   definition: ['intent', 'subjectType', 'subjectId'],
   comparison: ['intent', 'leftProcessId', 'rightProcessId', 'substrateId', 'surfaceTreatmentId'],
   'substrate-selection': ['intent', 'processId', 'substrateId', 'surfaceTreatmentId', 'artworkTypeId', 'industryId'],
-  troubleshooting: ['intent', 'processId', 'substrateId', 'surfaceTreatmentId', 'defectId', 'testId', 'equipmentId'],
+  troubleshooting: ['intent', 'processId', 'substrateId', 'surfaceTreatmentId', 'defectId'],
   parameter: ['intent', 'processId', 'substrateId', 'surfaceTreatmentId', 'diagnosticVariableId', 'equipmentId'],
   testing: ['intent', 'processId', 'substrateId', 'surfaceTreatmentId', 'testId', 'defectId'],
   application: ['intent', 'industryId', 'processId', 'substrateId', 'surfaceTreatmentId', 'artworkTypeId'],
@@ -346,10 +346,12 @@ function processRequiredVariables(index, processId) {
 
 function applicableTests(index, group, defectId) {
   const groupTestIds = new Set(group.testIds ?? []);
-  return [...index.tests.values()].filter((testMethod) => (
-    groupTestIds.has(testMethod.id)
-    || (testMethod.applicableDefectIds ?? []).includes(defectId)
-  ));
+  return [...index.tests.values()].filter((testMethod) => {
+    const supportsDefect = defectId
+      ? (testMethod.applicableDefectIds ?? []).includes(defectId)
+      : true;
+    return supportsDefect && (!defectId || groupTestIds.size === 0 || groupTestIds.has(testMethod.id));
+  });
 }
 
 function buildCompatibilityTuples(taxonomy, index) {
@@ -713,35 +715,36 @@ function buildSubstrateSelectionCandidates(taxonomy, index, tuples) {
 function buildTroubleshootingCandidates(taxonomy, index, tuples) {
   const candidates = [];
   for (const tuple of tuples) {
-    const equipmentOptions = matchingEquipment(index, tuple.processId).slice(0, 2);
     for (const defect of taxonomy.defects ?? []) {
-      for (const testMethod of applicableTests(index, tuple.group, defect.id).slice(0, 3)) {
-        for (const equipment of equipmentOptions.length ? equipmentOptions : [undefined]) {
-          const substrateName = label(tuple.substrate);
-          candidates.push(buildCandidate(index, tuple, {
-            cluster: 'troubleshooting',
-            intent: 'troubleshooting',
-            buyerStage: 'problem-solving',
-            title: {
-              en: `Why ${defect.label} Happens on ${substrateName}`,
-              cn: `${cnLabel(tuple.substrate, substrateName)}出现${cnLabel(defect, defect.label)}的原因`,
-            },
-            slug: slugify(`why ${defect.label} happens ${substrateName} ${label(tuple.process)} ${label(tuple.surfaceTreatment)} ${equipment?.label ?? ''}`),
-            topicQuestion: {
-              en: `How should a converter diagnose ${lowerFirst(defect.label)} on ${lowerFirst(substrateName)}?`,
-              cn: `${cnLabel(tuple.substrate, substrateName)}出现${cnLabel(defect, defect.label)}时应如何排查？`,
-            },
-            difference: `Diagnoses ${defect.label} for a defined substrate, surface, process, and verification method rather than listing generic defects.`,
-            dimensions: {
-              defectId: defect.id,
-              testId: testMethod.id,
-              equipmentId: equipment?.id,
-            },
-            sourceTopicKeys: [defect.id, testMethod.id, equipment?.id],
-            tags: ['troubleshooting', defect.id, testMethod.id, equipment?.id].filter(Boolean),
-          }));
-        }
-      }
+      const testMethods = applicableTests(index, tuple.group, defect.id).slice(0, 3);
+      if (testMethods.length === 0) continue;
+      const substrateName = label(tuple.substrate);
+      const evidenceLabels = testMethods.map((testMethod) => testMethod.label);
+      candidates.push(buildCandidate(index, tuple, {
+        cluster: 'troubleshooting',
+        intent: 'troubleshooting',
+        buyerStage: 'problem-solving',
+        title: {
+          en: `Why ${defect.label} Happens on ${substrateName}`,
+          cn: `${cnLabel(tuple.substrate, substrateName)}出现${cnLabel(defect, defect.label)}的原因`,
+        },
+        slug: slugify(`why ${defect.label} happens ${substrateName} ${label(tuple.process)} ${label(tuple.surfaceTreatment)}`),
+        topicQuestion: {
+          en: `How should a converter diagnose ${lowerFirst(defect.label)} on ${lowerFirst(substrateName)}?`,
+          cn: `${cnLabel(tuple.substrate, substrateName)}出现${cnLabel(defect, defect.label)}时应如何排查？`,
+        },
+        difference: `Diagnoses ${defect.label} for a defined substrate, surface, and process instead of splitting the same user problem by test method.`,
+        evidenceNeeded: [
+          'Production-representative substrate, machine, artwork, and speed trial',
+          ...evidenceLabels,
+          'Supplier grade selection notes and recorded pass/fail criteria',
+        ],
+        dimensions: {
+          defectId: defect.id,
+        },
+        sourceTopicKeys: [defect.id, ...testMethods.map((testMethod) => testMethod.id)],
+        tags: ['troubleshooting', defect.id, ...testMethods.map((testMethod) => testMethod.id)],
+      }));
     }
   }
   return candidates;
