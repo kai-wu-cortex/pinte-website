@@ -81,8 +81,13 @@ const Footer: React.FC = () => {
                 <li className="flex items-center gap-3">
                   <Phone className="shrink-0 text-pinte-blue" size={18}/>
                   <div>
-                    <span className="text-sm text-neutral-500">{lang === 'cn' ? '电话 / 微信' : 'Phone / WhatsApp'}</span><br/>
-                    <a href="tel:+8613192267509" className="hover:text-pinte-blue font-medium text-neutral-800">+86-13192267509</a>
+                    <span className="text-sm text-neutral-500">{lang === 'cn' ? '电话 / 微信' : 'Phone / WeChat'}</span><br/>
+                    <div className="font-medium text-neutral-800 space-y-1">
+                      <a href="tel:+8613192267509" className="hover:text-pinte-blue block">+86-13192267509</a>
+                      <span>{lang === 'cn' ? '胡经理' : 'Manager Hu'}</span>
+                      <br />
+                      <a href="tel:+8613316693097" className="hover:text-pinte-blue">+86-13316693097</a>
+                    </div>
                   </div>
                 </li>
             </ul>
@@ -93,13 +98,16 @@ const Footer: React.FC = () => {
             <h4 className="font-bold text-lg mb-6 text-neutral-900">{ui.footer.wechat}</h4>
             <div className="bg-white p-4 rounded-2xl border border-neutral-100 shadow-sm inline-block">
                 <img
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://u.wechat.com/MHPZfF2HCiCARXbjSIeIcBY?s=2&color=1e40af"
-                  alt="WeChat QR Code"
-                  className="w-32 h-32 mb-3"
+                  src="/images/contact/wechat-hu-manager.jpg"
+                  alt={lang === 'cn' ? '胡经理微信二维码' : 'Manager Hu WeChat QR code'}
+                  className="w-40 h-auto mb-3 rounded-xl"
                   loading="lazy"
-                  width={128}
-                  height={128}
+                  width={160}
+                  height={231}
                 />
+                <p className="text-center text-sm text-neutral-700 font-semibold">
+                  {lang === 'cn' ? '胡经理 13316693097' : 'Manager Hu +86-13316693097'}
+                </p>
                 <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">{ui.footer.scan}</p>
             </div>
           </div>

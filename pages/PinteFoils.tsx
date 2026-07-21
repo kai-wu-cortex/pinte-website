@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useMemo, useEffect, useRef } from 'react';
-import { Search, Filter, ChevronDown, ArrowUpRight } from 'lucide-react';
+import { Search, Filter, ChevronDown, ArrowUpRight, Phone } from 'lucide-react';
 import { Canvas, useFrame } from '@react-three/fiber';
 import { OrbitControls, Environment } from '@react-three/drei';
 import * as THREE from 'three';
@@ -646,7 +646,7 @@ const PinteFoilsContent: React.FC = () => {
 
       {/* Footer */}
       <footer className="w-full border-t border-[#37393d]/15 bg-[#111316]">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 px-12 py-16 max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 px-12 py-16 max-w-7xl mx-auto">
           <div className="space-y-6">
             <div className="font-[Manrope] font-bold text-[#e9c349] text-2xl">PINTE</div>
             <p className="text-[#c5c6cd] text-[0.6875rem] uppercase tracking-widest max-w-xs">
@@ -654,6 +654,39 @@ const PinteFoilsContent: React.FC = () => {
             </p>
             <div className="text-[#c5c6cd] text-[0.6875rem] uppercase tracking-widest">
               © {new Date().getFullYear()} PINTE. ALL RIGHTS RESERVED.
+            </div>
+          </div>
+          <div className="space-y-4">
+            <h3 className="font-[Manrope] text-[#e2e2e6] text-xl">
+              {lang === 'cn' ? '联系方式' : 'Contact'}
+            </h3>
+            <div className="flex items-center gap-3 text-[#c5c6cd]">
+              <Phone className="w-5 h-5 text-[#e9c349]" />
+              <div>
+                <div className="text-sm">{lang === 'cn' ? '销售电话' : 'Sales Phone'}</div>
+                <a href="tel:+8613192267509" className="block text-[#e2e2e6] hover:text-[#e9c349] transition-colors">
+                  +86-13192267509
+                </a>
+                <div className="text-sm mt-2">{lang === 'cn' ? '胡经理' : 'Manager Hu'}</div>
+                <a href="tel:+8613316693097" className="text-[#e2e2e6] hover:text-[#e9c349] transition-colors">
+                  +86-13316693097
+                </a>
+              </div>
+            </div>
+          </div>
+          <div>
+            <h3 className="font-[Manrope] text-[#e2e2e6] text-xl mb-4">
+              {lang === 'cn' ? '微信二维码' : 'WeChat QR Code'}
+            </h3>
+            <div className="inline-block rounded-[0.125rem] bg-white p-3">
+              <img
+                src="/images/contact/wechat-hu-manager.jpg"
+                alt={lang === 'cn' ? '胡经理微信二维码' : 'Manager Hu WeChat QR code'}
+                className="w-36 h-auto"
+                loading="lazy"
+                width={144}
+                height={208}
+              />
             </div>
           </div>
         </div>

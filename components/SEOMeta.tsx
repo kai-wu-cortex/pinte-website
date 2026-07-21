@@ -182,13 +182,22 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
             "addressCountry": "CN",
             "streetAddress": "Chang'an Town"
           },
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": "+86-13192267509",
-            "contactType": "customer service",
-            "availableLanguage": ["English", "Chinese"],
-            "email": "sales@bestglitter.com"
-          },
+          "contactPoint": [
+            {
+              "@type": "ContactPoint",
+              "telephone": "+86-13192267509",
+              "contactType": "sales",
+              "availableLanguage": ["English", "Chinese"],
+              "email": "sales@bestglitter.com"
+            },
+            {
+              "@type": "ContactPoint",
+              "telephone": "+86-13316693097",
+              "contactType": "customer service",
+              "name": "Manager Hu",
+              "availableLanguage": ["English", "Chinese"]
+            }
+          ],
           "areaServed": [
             { "@type": "Country", "name": "Vietnam" },
             { "@type": "Country", "name": "Thailand" },
@@ -358,12 +367,21 @@ export const generateOrganizationSchema = () => {
       "https://linkedin.com/company/pinte",
       "https://instagram.com/pinte"
     ],
-    "contactPoint": {
-      "@type": "ContactPoint",
-      "telephone": "+86-13192267509",
-      "contactType": "customer service",
-      "availableLanguage": ["English", "Chinese"]
-    }
+    "contactPoint": [
+      {
+        "@type": "ContactPoint",
+        "telephone": "+86-13192267509",
+        "contactType": "sales",
+        "availableLanguage": ["English", "Chinese"]
+      },
+      {
+        "@type": "ContactPoint",
+        "telephone": "+86-13316693097",
+        "contactType": "customer service",
+        "name": "Manager Hu",
+        "availableLanguage": ["English", "Chinese"]
+      }
+    ]
   };
 };
 

@@ -1659,7 +1659,7 @@ function buildQuoteSnapshot(lang: Lang): SnapshotResult {
       <h2>${escapeHtml(t('quoteContact', lang))}</h2>
       <ul>
         <li>Email: <a href="mailto:sales@bestglitter.com">sales@bestglitter.com</a></li>
-        <li>${lang === 'cn' ? '电话/微信' : 'Phone / WeChat'}: <a href="tel:+8613192267509">+86-13192267509</a></li>
+        <li>${lang === 'cn' ? '电话/微信' : 'Phone / WeChat'}: <a href="tel:+8613192267509">+86-13192267509</a>; ${lang === 'cn' ? '胡经理 ' : 'Manager Hu '}<a href="tel:+8613316693097">+86-13316693097</a></li>
       </ul>
     </section>
     ${faqHtml(lang, faq)}
