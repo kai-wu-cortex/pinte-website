@@ -664,6 +664,7 @@ const PinteFoilsContent: React.FC = () => {
               <Phone className="w-5 h-5 text-[#e9c349]" />
               <div>
                 <div className="text-sm">{lang === 'cn' ? '销售电话' : 'Sales Phone'}</div>
+                <div className="text-sm mt-2">{lang === 'cn' ? '吴经理' : 'Manager Wu'}</div>
                 <a href="tel:+8613192267509" className="block text-[#e2e2e6] hover:text-[#e9c349] transition-colors">
                   +86-13192267509
                 </a>
@@ -678,15 +679,29 @@ const PinteFoilsContent: React.FC = () => {
             <h3 className="font-[Manrope] text-[#e2e2e6] text-xl mb-4">
               {lang === 'cn' ? '微信二维码' : 'WeChat QR Code'}
             </h3>
-            <div className="inline-block rounded-[0.125rem] bg-white p-3">
-              <img
-                src="/images/contact/wechat-hu-manager.jpg"
-                alt={lang === 'cn' ? '胡经理微信二维码' : 'Manager Hu WeChat QR code'}
-                className="w-36 h-auto"
-                loading="lazy"
-                width={144}
-                height={208}
-              />
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-[0.125rem] bg-white p-3 text-center">
+                <img
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://u.wechat.com/MHPZfF2HCiCARXbjSIeIcBY?s=2&color=1e40af"
+                  alt={lang === 'cn' ? '吴经理微信二维码' : 'Manager Wu WeChat QR code'}
+                  className="w-28 h-28 mx-auto"
+                  loading="lazy"
+                  width={112}
+                  height={112}
+                />
+                <p className="mt-2 text-xs text-[#111316] font-semibold">{lang === 'cn' ? '吴经理' : 'Manager Wu'}</p>
+              </div>
+              <div className="rounded-[0.125rem] bg-white p-3 text-center">
+                <img
+                  src="/images/contact/wechat-hu-manager.jpg"
+                  alt={lang === 'cn' ? '胡经理微信二维码' : 'Manager Hu WeChat QR code'}
+                  className="w-28 h-auto mx-auto"
+                  loading="lazy"
+                  width={112}
+                  height={162}
+                />
+                <p className="mt-2 text-xs text-[#111316] font-semibold">{lang === 'cn' ? '胡经理' : 'Manager Hu'}</p>
+              </div>
             </div>
           </div>
         </div>

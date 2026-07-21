@@ -187,6 +187,7 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
               "@type": "ContactPoint",
               "telephone": "+86-13192267509",
               "contactType": "sales",
+              "name": "Manager Wu",
               "availableLanguage": ["English", "Chinese"],
               "email": "sales@bestglitter.com"
             },
@@ -372,6 +373,7 @@ export const generateOrganizationSchema = () => {
         "@type": "ContactPoint",
         "telephone": "+86-13192267509",
         "contactType": "sales",
+        "name": "Manager Wu",
         "availableLanguage": ["English", "Chinese"]
       },
       {

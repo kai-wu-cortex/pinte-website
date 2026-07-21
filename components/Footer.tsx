@@ -83,6 +83,8 @@ const Footer: React.FC = () => {
                   <div>
                     <span className="text-sm text-neutral-500">{lang === 'cn' ? '电话 / 微信' : 'Phone / WeChat'}</span><br/>
                     <div className="font-medium text-neutral-800 space-y-1">
+                      <span>{lang === 'cn' ? '吴经理' : 'Manager Wu'}</span>
+                      <br />
                       <a href="tel:+8613192267509" className="hover:text-pinte-blue block">+86-13192267509</a>
                       <span>{lang === 'cn' ? '胡经理' : 'Manager Hu'}</span>
                       <br />
@@ -96,7 +98,22 @@ const Footer: React.FC = () => {
           {/* WeChat QR Code */}
           <div>
             <h4 className="font-bold text-lg mb-6 text-neutral-900">{ui.footer.wechat}</h4>
-            <div className="bg-white p-4 rounded-2xl border border-neutral-100 shadow-sm inline-block">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-white p-4 rounded-2xl border border-neutral-100 shadow-sm inline-block">
+                <img
+                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://u.wechat.com/MHPZfF2HCiCARXbjSIeIcBY?s=2&color=1e40af"
+                  alt={lang === 'cn' ? '吴经理微信二维码' : 'Manager Wu WeChat QR code'}
+                  className="w-32 h-32 mb-3 rounded-xl mx-auto"
+                  loading="lazy"
+                  width={128}
+                  height={128}
+                />
+                <p className="text-center text-sm text-neutral-700 font-semibold">
+                  {lang === 'cn' ? '吴经理 13192267509' : 'Manager Wu +86-13192267509'}
+                </p>
+                <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">{ui.footer.scan}</p>
+              </div>
+              <div className="bg-white p-4 rounded-2xl border border-neutral-100 shadow-sm inline-block">
                 <img
                   src="/images/contact/wechat-hu-manager.jpg"
                   alt={lang === 'cn' ? '胡经理微信二维码' : 'Manager Hu WeChat QR code'}
@@ -109,6 +126,7 @@ const Footer: React.FC = () => {
                   {lang === 'cn' ? '胡经理 13316693097' : 'Manager Hu +86-13316693097'}
                 </p>
                 <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">{ui.footer.scan}</p>
+              </div>
             </div>
           </div>
         </div>
