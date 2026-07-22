@@ -19,6 +19,7 @@ const Terms: React.FC = () => {
         type="website"
         locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
         canonicalUrl={`/${lang}/terms`}
+        noIndex
       />
 
       <main className="pt-24 pb-20 bg-neutral-50 min-h-screen">

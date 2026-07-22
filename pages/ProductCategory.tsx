@@ -247,6 +247,67 @@ const ProductCategory: React.FC = () => {
         : `Flat stamping reference: ${product.temp.flat}; round or curved stamping reference: ${product.temp.round}. Final parameters should be confirmed by sampling with the substrate, machine, and artwork area.`,
     },
   ];
+  const procurementProfiles: Record<string, {
+    process: string;
+    machineType: string;
+    testWindow: string;
+    qualityTests: string;
+    moqPolicy: string;
+    sampleNote: string;
+  }> = {
+    PC: lang === 'cn'
+      ? {
+          process: '塑料件热烫、圆面滚烫、局部 Logo 转印，必要时配合底涂、火焰或电晕处理。',
+          machineType: '平烫机、滚烫机、瓶盖/化妆品包材自动烫印设备。',
+          testWindow: `可从平面 ${product.temp.flat}、圆面 ${product.temp.round} 做起点测试；最终温度、压力、速度和停留时间需用真实 ABS、PP、PVC、PET 或亚克力部件打样确认。`,
+          qualityTests: '百格附着、耐酒精擦拭、耐磨、耐刮、耐温、转移完整度。',
+          moqPolicy: '可提供色卡、样卷、分切规格和按塑料底材推荐型号；起订量、卷长和定制周期按颜色、宽幅和订单需求确认。',
+          sampleNote: '塑胶件请提供树脂类型、表面处理、油污清洁方式、图案面积和耐性测试标准。',
+        }
+      : {
+          process: 'Plastic hot stamping, roll-on stamping, local logo transfer, with primer, flame, or corona treatment if required.',
+          machineType: 'Flat hot stamping machines, roll-on stamping machines, automatic cap and cosmetic component decorators.',
+          testWindow: `Start testing around ${product.temp.flat} for flat parts and ${product.temp.round} for round parts; final temperature, pressure, speed, and dwell time must be confirmed on real ABS, PP, PVC, PET, or acrylic components.`,
+          qualityTests: 'Cross-cut adhesion, alcohol rub, abrasion, scratch, heat resistance, and transfer completeness.',
+          moqPolicy: 'Color cards, sample rolls, slitting specifications, and substrate-based model recommendations are available. MOQ, roll length, and custom lead time depend on color, width, and order requirement.',
+          sampleNote: 'For plastic parts, send resin type, surface treatment, cleaning method, artwork area, and required durability tests.',
+        },
+    DIGITAL: lang === 'cn'
+      ? {
+          process: '冷烫、数码冷烫、UV/LED 固化转印、短单和可变数据金属效果。',
+          machineType: 'MGI、Scodix、数码增效设备、标签冷烫线和 UV 胶水系统。',
+          testWindow: '重点确认 UV 胶水、固化能量、线速、套准和离型状态；冷烫参数需按设备、胶水和标签材料打样确认。',
+          qualityTests: '转移完整度、套准、耐磨、耐刮、胶水固化、收卷稳定和后加工兼容性。',
+          moqPolicy: '可提供样卷、宽幅分切、金银/镭射/特殊效果匹配；起订量和交期按宽幅、效果和设备测试要求确认。',
+          sampleNote: '请提供设备型号、UV 胶水品牌、标签材料、线速范围、图案面积和是否需要覆膜或上光。',
+        }
+      : {
+          process: 'Cold foil transfer, digital cold foil, UV/LED curing transfer, short-run and variable metallic decoration.',
+          machineType: 'MGI, Scodix, digital embellishment equipment, label cold foil lines, and UV adhesive systems.',
+          testWindow: 'Confirm UV adhesive, curing energy, line speed, registration, and release behavior. Cold foil settings must be sampled with the machine, adhesive, and label stock.',
+          qualityTests: 'Transfer completeness, registration, rub, scratch, adhesive curing, rewinding stability, and post-process compatibility.',
+          moqPolicy: 'Sample rolls, slitting widths, metallic/holographic/special finishes, and equipment-based matching are available. MOQ and lead time depend on width, effect, and testing requirement.',
+          sampleNote: 'Send machine model, UV adhesive brand, label material, line speed range, artwork area, and whether lamination or varnish is required.',
+        },
+    default: lang === 'cn'
+      ? {
+          process: '热烫、局部转印、金属色/颜料色效果和按底材匹配的烫印工艺。',
+          machineType: '平烫机、圆压圆/滚烫设备、标签线和包装后道烫印设备。',
+          testWindow: `参考温度为平面 ${product.temp.flat}、圆面 ${product.temp.round}；实际参数需按底材、设备、图案面积和版材打样确认。`,
+          qualityTests: '附着力、耐磨、耐酒精、耐刮、耐温、耐折和转移完整度。',
+          moqPolicy: '支持色卡、样卷、分切规格和定制颜色；起订量、卷长、宽幅和交期按订单确认。',
+          sampleNote: '请提供真实底材、表面处理、印刷/覆膜信息、图案面积和验收测试标准。',
+        }
+      : {
+          process: 'Hot stamping, local transfer, metallic/pigment effects, and substrate-matched foil stamping processes.',
+          machineType: 'Flat stamping machines, rotary/roll-on equipment, label lines, and packaging finishing machines.',
+          testWindow: `Reference settings are ${product.temp.flat} for flat stamping and ${product.temp.round} for round stamping; final settings must be confirmed by sampling with substrate, machine, artwork area, and die.`,
+          qualityTests: 'Adhesion, rub, alcohol, scratch, heat, folding, and transfer completeness.',
+          moqPolicy: 'Color cards, sample rolls, slitting specifications, and custom colors are supported. MOQ, roll length, width, and lead time are confirmed by order.',
+          sampleNote: 'Send real substrate, surface treatment, printing/lamination details, artwork area, and acceptance test standard.',
+        },
+  };
+  const procurementProfile = procurementProfiles[id] || procurementProfiles.default;
   const categoryFaqSchema = {
     '@context': 'https://schema.org',
     '@type': 'FAQPage',
@@ -330,7 +391,7 @@ const ProductCategory: React.FC = () => {
         <section className="bg-white rounded-[2rem] border border-neutral-100 shadow-sm p-6 md:p-8 mb-12">
           <div className="mb-8">
             <span className="text-xs font-bold uppercase tracking-[0.24em] text-pinte-blue">
-              {lang === 'cn' ? '产品 SEO 信息' : 'Product SEO Information'}
+              {lang === 'cn' ? '采购选型信息' : 'Buyer Selection Information'}
             </span>
             <h2 className="mt-3 text-2xl md:text-3xl font-display font-bold text-neutral-900">
               {lang === 'cn'
@@ -413,8 +474,28 @@ const ProductCategory: React.FC = () => {
                     <tr>
                       <th className="bg-neutral-50 px-4 py-3 text-left font-semibold text-neutral-600">{lang === 'cn' ? '建议测试' : 'Recommended Tests'}</th>
                       <td className="px-4 py-3 font-medium text-neutral-900">
-                        {lang === 'cn' ? '附着力、耐磨、耐酒精、耐刮、转移完整度；量产前需打样确认。' : 'Adhesion, rub, alcohol, scratch, and transfer completeness; sampling is required before mass production.'}
+                        {procurementProfile.qualityTests}
                       </td>
+                    </tr>
+                    <tr className="border-t border-neutral-100">
+                      <th className="bg-neutral-50 px-4 py-3 text-left font-semibold text-neutral-600">{lang === 'cn' ? '适用工艺' : 'Suitable Process'}</th>
+                      <td className="px-4 py-3 font-medium text-neutral-900">{procurementProfile.process}</td>
+                    </tr>
+                    <tr className="border-t border-neutral-100">
+                      <th className="bg-neutral-50 px-4 py-3 text-left font-semibold text-neutral-600">{lang === 'cn' ? '机器类型' : 'Machine Type'}</th>
+                      <td className="px-4 py-3 font-medium text-neutral-900">{procurementProfile.machineType}</td>
+                    </tr>
+                    <tr className="border-t border-neutral-100">
+                      <th className="bg-neutral-50 px-4 py-3 text-left font-semibold text-neutral-600">{lang === 'cn' ? '建议打样参数' : 'Sampling Parameters'}</th>
+                      <td className="px-4 py-3 font-medium text-neutral-900">{procurementProfile.testWindow}</td>
+                    </tr>
+                    <tr className="border-t border-neutral-100">
+                      <th className="bg-neutral-50 px-4 py-3 text-left font-semibold text-neutral-600">{lang === 'cn' ? 'MOQ / 样品政策' : 'MOQ / Sample Policy'}</th>
+                      <td className="px-4 py-3 font-medium text-neutral-900">{procurementProfile.moqPolicy}</td>
+                    </tr>
+                    <tr className="border-t border-neutral-100">
+                      <th className="bg-neutral-50 px-4 py-3 text-left font-semibold text-neutral-600">{lang === 'cn' ? '询价资料' : 'Quote Information'}</th>
+                      <td className="px-4 py-3 font-medium text-neutral-900">{procurementProfile.sampleNote}</td>
                     </tr>
                   </tbody>
                 </table>

@@ -36,9 +36,9 @@ export const CONTENT_EN: ContentData = {
   {
     "id": 1,
     "image": "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/%E8%83%8C%E6%99%AF.png",
-    "title": "Focus on <br/><span class=\"text-pinte-gold\">\"Foil Aesthetics\"</span>",
-    "subtitle": "The Expert in High-End Hot Stamping Foils",
-    "description": "PINTE® specializes in developing premium hot stamping materials, endowing packaging with superior visual impact and brand value. From metallic foils to pigment and digital cold foils, we define the art of light and shadow.",
+    "title": "Hot Stamping Foil <br/><span class=\"text-pinte-gold\">Manufacturer</span>",
+    "subtitle": "Foil for Paper Packaging, Labels, Plastic Parts and Leather Logos",
+    "description": "PINTE manufactures hot stamping foil, cold foil, holographic foil, pigment foil and electro aluminum foil for packaging converters, printers and brand suppliers. Match foil by substrate, finish, machine process and required durability tests before bulk orders.",
     "buttonText": "Product Center"
   },
   {
@@ -1014,9 +1014,9 @@ export const CONTENT_ZH: ContentData = {
     {
       id: 1,
       image: "https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/%E8%83%8C%E6%99%AF.png",
-      title: '专注 <br/><span class="text-pinte-gold">"烫金表面美学"</span>',
-      subtitle: "做高端烫金膜专家",
-      description: "品特®专注于研发高端烫金材料，赋予包装卓越的视觉冲击力与品牌价值。从电化铝，颜料箔到数码冷烫，定义光影艺术。",
+      title: '烫金膜 / 电化铝 <br/><span class="text-pinte-gold">制造厂家</span>',
+      subtitle: "适用于纸盒、标签、塑料件、皮革 Logo 和化妆品包装",
+      description: "品特 PINTE 生产烫金膜、冷烫膜、镭射烫金膜、颜料箔和电化铝，服务包装厂、印刷厂、标签厂和品牌包材供应链。采购前可按底材、效果、设备和耐性测试进行打样确认。",
       buttonText: "产品中心"
     },
     {

@@ -774,39 +774,39 @@ export const GEO_GUIDES: GeoGuide[] = [
     slug: 'hot-stamping-foil-community-qa-citation-guide',
     priority: 2,
     title: {
-      en: 'How Hot Stamping Foil Suppliers Can Build GEO Visibility with Technical Q&A Content',
-      cn: '烫金膜厂家如何通过技术问答内容提升 GEO 可见度',
+      en: 'Hot Stamping Foil Technical Q&A: Adhesion, Temperature, Substrates and Troubleshooting',
+      cn: '烫金膜技术问答：附着力、温度、底材和掉金问题',
     },
     metaDescription: {
-      en: 'Learn how hot stamping foil suppliers can improve ChatGPT Search, Perplexity, Google AI, and organic visibility by publishing answer-first technical content for real buyer questions.',
-      cn: '了解烫金膜厂家如何通过答案优先的技术内容，提升 ChatGPT Search、Perplexity、Google AI 和自然搜索中的可见度。',
+      en: 'Practical answers for buyers and production teams comparing hot stamping foil grades, substrate fit, sampling, adhesion, peeling, blurry edges, process parameters, and quote information.',
+      cn: '面向采购和生产团队的烫金膜技术问答，覆盖底材适配、打样、附着、掉金、糊边、参数和询价资料。',
     },
     primaryKeyword: {
-      en: 'hot stamping foil GEO visibility',
-      cn: '烫金膜 GEO 可见度',
+      en: 'hot stamping foil technical questions',
+      cn: '烫金膜技术问答',
     },
     secondaryKeywords: {
       en: [
-        'hot stamping foil SEO',
+        'hot stamping foil troubleshooting',
         'hot stamping foil technical content',
-        'ChatGPT Search hot stamping foil',
-        'AI search optimization for foil suppliers',
+        'hot stamping foil adhesion',
+        'hot stamping foil temperature',
         'hot foil stamping buyer questions',
       ],
-      cn: ['烫金膜 SEO', '烫金膜技术内容', 'ChatGPT Search 烫金膜', '烫金膜 AI 搜索优化', '烫金膜采购问题'],
+      cn: ['烫金膜故障排查', '烫金膜技术内容', '烫金膜附着力', '烫金温度', '烫金膜采购问题'],
     },
     audience: {
-      en: 'Hot stamping foil manufacturers, packaging material suppliers, printing consumable exporters, and marketing teams that want their technical pages to be cited by AI search engines.',
-      cn: '希望被 AI 搜索引用的烫金膜厂家、包装材料供应商、印刷耗材出口商和内容营销团队。',
+      en: 'Packaging buyers, printing factories, label converters, cosmetic packaging teams, and production engineers comparing foil choices before sampling.',
+      cn: '打样前需要比较烫金膜选择的包装采购、印刷厂、标签厂、化妆品包材团队和生产工程师。',
     },
     answer: {
-      en: 'To be discovered by AI search, a hot stamping foil website should not only list products. It should answer the technical questions buyers ask before contacting a supplier: why foil peels off, what temperature to test, which foil works on leather or plastic, how hot foil differs from cold foil, and what information is needed for sampling. These answer-first pages help search engines and AI systems understand the supplier as a technical source, not just a catalog.',
-      cn: '想被 AI 搜索发现，烫金膜网站不能只放产品目录，还要回答采购在联系供应商前会问的技术问题：为什么掉金、温度怎么试、皮革或塑料该用什么膜、热烫和冷烫有什么区别、打样前要提供什么信息。答案优先的页面能让搜索引擎和生成式 AI 把网站识别为技术来源，而不只是产品目录。',
+      en: 'Before buying hot stamping foil, buyers should ask technical questions about substrate fit, temperature range, pressure, speed, adhesive performance, release behavior, durability tests, roll width, MOQ, and sampling support. The best answer is not one universal foil grade; the foil must be matched to paper, plastic, leather, label stock, surface treatment, machine type, and the final adhesion or resistance test.',
+      cn: '采购烫金膜前，应先确认底材适配、温度范围、压力、速度、胶层附着、离型、耐性测试、宽幅、起订量和打样支持。烫金膜通常不能只用一个通用型号解决所有问题，必须按纸张、塑料、皮革、标签材料、表面处理、设备类型和最终附着/耐性标准匹配。',
     },
     factors: [
       {
         label: { en: 'Answer real buyer doubts', cn: '回答真实采购顾虑' },
-        guidance: { en: 'AI search favors pages that solve specific questions about adhesion, substrate fit, process choice, sampling, and production risk.', cn: 'AI 搜索更容易引用能解决附着、底材适配、工艺选择、打样和量产风险的具体页面。' },
+        guidance: { en: 'Prioritize pages that solve specific questions about adhesion, substrate fit, process choice, sampling, and production risk.', cn: '优先解决附着、底材适配、工艺选择、打样和量产风险等具体问题。' },
       },
       {
         label: { en: 'Publish crawlable technical pages', cn: '发布可抓取技术页面' },
@@ -819,7 +819,7 @@ export const GEO_GUIDES: GeoGuide[] = [
     ],
     articleSections: [
       {
-        title: { en: 'Why GEO matters for hot stamping foil suppliers', cn: '为什么烫金膜厂家需要做 GEO' },
+        title: { en: 'Why technical answers matter before buying hot stamping foil', cn: '为什么采购烫金膜前要先看技术答案' },
         body: {
           en: [
             'Generative search engines do not behave like traditional keyword search pages. When a packaging buyer asks ChatGPT Search or Perplexity how to choose foil for a cosmetic box, the answer is assembled from pages that look trustworthy, specific, and technically useful.',
@@ -1008,28 +1008,28 @@ export const GEO_GUIDES: GeoGuide[] = [
     slug: 'hot-stamping-foil-buyer-questions',
     priority: 1,
     title: {
-      en: '30 Hot Stamping Foil Questions Buyers Ask ChatGPT Before Purchasing',
-      cn: '买烫金膜前采购负责人最可能问 ChatGPT 的 30 个问题',
+      en: '30 Hot Stamping Foil Questions Buyers Ask Before Purchasing',
+      cn: '买烫金膜前采购负责人常问的 30 个问题',
     },
     metaDescription: {
-      en: 'A GEO content map for hot stamping foil buyers: 30 procurement questions by intent, concern, source type, page format, conversion value, and AI citation potential.',
-      cn: '面向烫金膜采购的 GEO 内容地图：按采购意图、真实顾虑、引用来源、页面类型、转化价值和 AI 引用概率整理 30 个高频问题。',
+      en: 'A buyer question map for hot stamping foil procurement: 30 questions by intent, concern, source type, page format, conversion value, and reference value.',
+      cn: '面向烫金膜采购的问题地图：按采购意图、真实顾虑、参考来源、页面类型、转化价值和资料参考价值整理 30 个高频问题。',
     },
     primaryKeyword: {
       en: 'hot stamping foil buyer questions',
       cn: '烫金膜采购问题',
     },
     secondaryKeywords: {
-      en: ['hot stamping foil procurement', 'hot foil buyer guide', 'foil stamping questions', 'GEO content for hot stamping foil'],
-      cn: ['烫金膜采购指南', '烫金纸采购问题', '电化铝采购', '生成式 AI 检索优化'],
+      en: ['hot stamping foil procurement', 'hot foil buyer guide', 'foil stamping questions', 'hot stamping foil supplier checklist'],
+      cn: ['烫金膜采购指南', '烫金纸采购问题', '电化铝采购', '烫金膜供应商清单'],
     },
     audience: {
       en: 'Packaging factory buyers, print factory buyers, gift box makers, cosmetic packaging buyers, label printers, plastic decoration suppliers, and leather goods factories.',
       cn: '包装厂、印刷厂、礼盒厂、化妆品包材厂、标签印刷厂、塑料件烫印厂和皮具厂采购负责人。',
     },
     answer: {
-      en: 'Buyers usually ask ChatGPT about hot stamping foil in five intent groups: procurement, comparison, troubleshooting, parameters, and application scenarios. The highest-converting pages are not generic definitions; they combine substrate, application, defect risk, stamping parameters, sample testing, and supplier questions in an answer-first format that AI search can cite.',
-      cn: '采购负责人在 ChatGPT 里问烫金膜，通常集中在五类意图：采购型、对比型、故障解决型、参数型和应用场景型。最有转化价值的页面不是泛泛解释“什么是烫金膜”，而是把底材、用途、故障风险、工艺参数、打样测试和供应商筛选做成答案优先、可引用的采购页面。',
+      en: 'Buyers usually research hot stamping foil in five intent groups: procurement, comparison, troubleshooting, parameters, and application scenarios. The highest-converting pages are not generic definitions; they combine substrate, application, defect risk, stamping parameters, sample testing, and supplier questions in an answer-first format that buyers can quickly evaluate.',
+      cn: '采购负责人研究烫金膜时，通常集中在五类意图：采购型、对比型、故障解决型、参数型和应用场景型。最有转化价值的页面不是泛泛解释“什么是烫金膜”，而是把底材、用途、故障风险、工艺参数、打样测试和供应商筛选做成答案优先、便于评估的采购页面。',
     },
     factors: [
       {
@@ -1085,23 +1085,23 @@ export const GEO_GUIDES: GeoGuide[] = [
         'Put the 30-question matrix into a crawlable HTML table, not an image.',
         'Add FAQPage schema for troubleshooting, parameters, sampling, and supplier-selection questions.',
         'Link every guide to relevant product categories and the sample/quote page.',
-        'Refresh llms.txt and sitemap whenever new GEO guide pages are added.',
+        'Keep product category and quote links clear whenever new guide pages are added.',
       ],
       cn: [
         '优先为高意图采购问题建立答案优先页面。',
         '把 30 个问题矩阵做成可抓取 HTML 表格，不要做成图片。',
         '为故障、参数、打样和供应商筛选问题增加 FAQPage 结构化数据。',
         '每个指南都链接到相关产品分类页和样品/报价页。',
-        '新增 GEO 指南后同步更新 llms.txt 和 sitemap。',
+        '新增指南后同步检查产品分类和询价入口是否清晰。',
       ],
     },
     faqs: [
       {
         question: { en: 'Which buyer questions should become core pages first?', cn: '哪些采购问题最适合先做核心页面？' },
-        answer: { en: 'Prioritize questions that combine high purchase intent with AI citation potential: substrate selection, paper carton parameters, troubleshooting, hot vs cold foil, holographic foil, cosmetic packaging, sampling checklist, supplier selection, and roll specifications.', cn: '优先做同时具备高采购意图和高 AI 引用概率的问题：底材选型、纸盒彩盒参数、故障排查、热烫/冷烫对比、镭射箔、化妆品包装、打样清单、供应商筛选和卷料规格。' },
+        answer: { en: 'Prioritize questions that combine high purchase intent with clear reference value: substrate selection, paper carton parameters, troubleshooting, hot vs cold foil, holographic foil, cosmetic packaging, sampling checklist, supplier selection, and roll specifications.', cn: '优先做同时具备高采购意图和高资料参考价值的问题：底材选型、纸盒彩盒参数、故障排查、热烫/冷烫对比、镭射箔、化妆品包装、打样清单、供应商筛选和卷料规格。' },
       },
       {
-        question: { en: 'What content format is easiest for AI search to cite?', cn: '什么内容形式最容易被 AI 搜索引用？' },
+        question: { en: 'What content format is easiest for buyers to compare?', cn: '什么内容形式最方便采购比较？' },
         answer: { en: 'Use concise answers, comparison tables, defect-cause-action tables, FAQ schema, sample checklists, and application-specific pages with clear internal links.', cn: '使用简短直接答案、对比表、问题-原因-处理表、FAQ 结构化数据、打样清单，以及带清晰内链的应用场景页。' },
       },
     ],
@@ -1468,53 +1468,55 @@ export const guideCustomerText = (value: string, lang: GuideLang): string => {
 
   if (lang === 'cn') {
     return text
-      .replace(/ChatGPT Search/g, '采购搜索工具')
-      .replace(/ChatGPT/g, '采购搜索工具')
-      .replace(/Perplexity/g, '采购搜索工具')
-      .replace(/Google AI/g, '在线搜索工具')
-      .replace(/AI 搜索优化/g, '采购内容优化')
-      .replace(/AI 搜索/g, '在线采购搜索')
-      .replace(/AI 引用/g, '搜索引用')
-      .replace(/AI 检索/g, '在线检索')
-      .replace(/生成式 AI/g, '在线采购搜索')
-      .replace(/生成式搜索/g, '在线采购搜索')
-      .replace(/生成式/g, '在线')
-      .replace(/GEO 可见度/g, '采购内容可见度')
-      .replace(/GEO 内容/g, '采购内容')
-      .replace(/GEO 指南/g, '采购指南')
+      .replace(/ChatGPT Search/g, '在线资料')
+      .replace(/ChatGPT/g, '在线资料')
+      .replace(/Perplexity/g, '在线资料')
+      .replace(/Google AI/g, '在线资料')
+      .replace(/AI 搜索优化/g, '资料整理')
+      .replace(/AI-citable/gi, 'easy-to-reference')
+      .replace(/AI 搜索/g, '在线资料检索')
+      .replace(/AI 引用/g, '资料引用')
+      .replace(/AI 检索/g, '在线资料检索')
+      .replace(/生成式 AI/g, '在线资料检索')
+      .replace(/生成式搜索/g, '在线资料检索')
+      .replace(/生成式/g, '在线资料')
+      .replace(/GEO 可见度/g, '技术资料完整度')
+      .replace(/GEO 内容/g, '技术资料')
+      .replace(/GEO 指南/g, '技术指南')
       .replace(/强 GEO 文章/g, '高质量技术文章')
-      .replace(/GEO 入口/g, '采购搜索入口')
-      .replace(/GEO/g, '采购内容')
+      .replace(/GEO 入口/g, '技术资料入口')
+      .replace(/GEO/g, '技术资料')
       .replace(/SEO 文章/g, '技术文章')
-      .replace(/SEO/g, '内容')
-      .replace(/AI/g, '在线工具');
+      .replace(/SEO/g, '技术内容')
+      .replace(/AI/g, '在线资料');
   }
 
   return text
-    .replace(/ChatGPT Search/g, 'buyer research tools')
-    .replace(/ChatGPT/g, 'buyer research tools')
-    .replace(/Perplexity/g, 'buyer research tools')
-    .replace(/Google AI/g, 'online search tools')
-    .replace(/AI search optimization/gi, 'procurement content optimization')
+    .replace(/ChatGPT Search/g, 'online research')
+    .replace(/ChatGPT/g, 'online research')
+    .replace(/Perplexity/g, 'online research')
+    .replace(/Google AI/g, 'online research')
+    .replace(/AI search optimization/gi, 'technical content organization')
+    .replace(/AI-citable/gi, 'easy-to-reference')
     .replace(/AI-search-ready/gi, 'buyer-friendly')
     .replace(/AI-search-citable/gi, 'easy-to-reference')
     .replace(/AI citation potential/gi, 'reference value')
     .replace(/AI systems/gi, 'online research tools')
     .replace(/AI search engines/gi, 'online research tools')
-    .replace(/AI search/gi, 'online procurement search')
-    .replace(/generative AI search engines/gi, 'online procurement research tools')
-    .replace(/generative AI/gi, 'online procurement research')
-    .replace(/Generative search engines/g, 'Online procurement research tools')
-    .replace(/GEO visibility/gi, 'procurement content visibility')
-    .replace(/GEO content/gi, 'procurement content')
-    .replace(/GEO entry points/gi, 'procurement search entry points')
-    .replace(/GEO entry point/gi, 'procurement search entry point')
+    .replace(/AI search/gi, 'online research')
+    .replace(/generative AI search engines/gi, 'online research tools')
+    .replace(/generative AI/gi, 'online research')
+    .replace(/Generative search engines/g, 'Online research tools')
+    .replace(/GEO visibility/gi, 'technical reference coverage')
+    .replace(/GEO content/gi, 'technical reference content')
+    .replace(/GEO entry points/gi, 'technical reference entry points')
+    .replace(/GEO entry point/gi, 'technical reference entry point')
     .replace(/GEO article/gi, 'technical article')
-    .replace(/GEO guide/gi, 'procurement guide')
-    .replace(/\bGEO\b/g, 'procurement content')
+    .replace(/GEO guide/gi, 'technical guide')
+    .replace(/\bGEO\b/g, 'technical reference')
     .replace(/SEO article/gi, 'technical article')
-    .replace(/\bSEO\b/g, 'content')
-    .replace(/\bAI\b/g, 'online tools');
+    .replace(/\bSEO\b/g, 'technical content')
+    .replace(/\bAI\b/g, 'online research');
 };
 
 export const getGeoGuide = (slug?: string) => GEO_GUIDES.find((guide) => guide.slug === slug);

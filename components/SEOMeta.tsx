@@ -50,7 +50,14 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   const shortSiteName = 'PINTE';
   const siteUrl = 'https://www.pintecl.com';
   const logoUrl = `${siteUrl}/logo.svg`;
-  const pagePath = url || canonicalUrl || '';
+  const normalizePath = (path?: string) => {
+    if (!path) return '';
+    const withLeadingSlash = path.startsWith('/') ? path : `/${path}`;
+    if (withLeadingSlash === '/') return '/';
+    return withLeadingSlash.endsWith('/') ? withLeadingSlash : `${withLeadingSlash}/`;
+  };
+  const canonicalPath = normalizePath(canonicalUrl);
+  const pagePath = normalizePath(url) || canonicalPath;
   const fullUrl = pagePath ? `${siteUrl}${pagePath}` : siteUrl;
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
   const fullTitle = /pinte|品特/i.test(title) ? title : `${title} | ${siteName}`;
@@ -74,20 +81,20 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       if (langInfo.isDefault) {
         // x-default points to the English global page instead of the root Chinese redirect.
         if (!canonicalUrl) {
-          alternateUrl = `${siteUrl}/en`;
+          alternateUrl = `${siteUrl}/en/`;
         } else {
-          const pathParts = canonicalUrl.split('/');
+          const pathParts = canonicalPath.split('/');
           const pathWithoutLang = pathParts.slice(2).join('/');
-          alternateUrl = `${siteUrl}/en${pathWithoutLang ? `/${pathWithoutLang}` : ''}`;
+          alternateUrl = `${siteUrl}/en/${pathWithoutLang}`;
         }
       } else if (!canonicalUrl) {
         // No canonicalUrl means this is the homepage for the current language
-        alternateUrl = `${siteUrl}/${langInfo.lang}`;
+        alternateUrl = `${siteUrl}/${langInfo.lang}/`;
       } else {
         // canonicalUrl is already /currentLang/path, extract the path part after language
-        const pathParts = canonicalUrl.split('/');
+        const pathParts = canonicalPath.split('/');
         const pathWithoutLang = pathParts.slice(2).join('/');
-        alternateUrl = `${siteUrl}/${langInfo.lang}${pathWithoutLang ? `/${pathWithoutLang}` : ''}`;
+        alternateUrl = `${siteUrl}/${langInfo.lang}/${pathWithoutLang}`;
       }
 
       return (
@@ -106,11 +113,10 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       {/* Basic Meta Tags */}
       <title>{fullTitle}</title>
       <meta name="description" content={description} />
-      {noIndex && <meta name="robots" content="noindex, nofollow" />}
       {keywords.length > 0 && <meta name="keywords" content={keywords.join(', ')} />}
 
       {/* Canonical URL */}
-      {canonicalUrl && <link rel="canonical" href={`${siteUrl}${canonicalUrl}`} />}
+      {canonicalPath && <link rel="canonical" href={`${siteUrl}${canonicalPath}`} />}
 
       {/* Hreflang Tags - International SEO */}
       {!disableHreflang && generateHreflangTags()}
@@ -159,8 +165,8 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
 
       {/* Business Info */}
       <meta name="author" content={author || shortSiteName} />
-      <meta name="robots" content="index, follow" />
-      <meta name="googlebot" content="index, follow" />
+      <meta name="robots" content={noIndex ? 'noindex, follow' : 'index, follow'} />
+      <meta name="googlebot" content={noIndex ? 'noindex, follow' : 'index, follow'} />
 
       {/* JSON-LD Structured Data - Manufacturer */}
       {includeOrganizationSchema && (

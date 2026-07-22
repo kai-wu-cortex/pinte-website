@@ -2,7 +2,7 @@
  * Snapshot builder — 预渲染 SEO/GEO 文本块生成器
  *
  * 给每个静态路由 + blog 详情页输出:
- *   - <main class="seo-snapshot"> ... HTML 文本块,带:H1、lead、行业痛点段落、规格、应用、FAQ、相关链接、GEO 标识
+ *   - <main class="seo-snapshot"> ... HTML 文本块,带:H1、lead、行业痛点段落、规格、应用、FAQ、相关链接、地区标识
  *   - JSON-LD 数组(BreadcrumbList + 路由对应的主 schema: Product / Service / FAQPage / AboutPage / Article …)
  *
  * 所有材料均来自仓库已有数据源(data/content.ts + scripts/seo-geo-sop.config.mjs),不编造规格。
@@ -104,6 +104,7 @@ export interface SnapshotResult {
     image?: string;
     type?: 'website' | 'article';
     publishedTime?: string;
+    noIndex?: boolean;
   };
 }
 
@@ -594,12 +595,12 @@ function buildHomeSnapshot(lang: Lang): SnapshotResult {
   const meta = {
     title:
       lang === 'cn'
-        ? '品特PINTE - 高端烫金膜制造专家｜中国东莞烫金膜制造商'
-        : 'PINTE - Premium Hot Stamping Foil Manufacturer | Dongguan China',
+        ? 'PINTE 品特｜烫金膜/电化铝/冷烫膜制造商｜纸盒、塑料、皮革、标签包装'
+        : 'PINTE Hot Stamping Foil Manufacturer for Packaging, Labels, Plastic and Leather',
     description:
       lang === 'cn'
-        ? '主营烫金箔、烫金膜、冷烫箔、电化铝、颜料箔、全息烫金箔,拥有25年涂布经验,专业定制化生产,供应越南、东南亚、马来西亚、泰国、印尼等全球市场。'
-        : 'PINTE is a leading manufacturer of high-end hot stamping foils based in Dongguan China with 25 years of coating experience. We supply hot stamping foil, cold foil, digital foil, pigment foil, and holographic foil to Vietnam, Southeast Asia, Malaysia, Thailand, Indonesia, and global markets.',
+        ? '品特 PINTE 是东莞烫金膜、电化铝、冷烫膜、镭射烫金膜和颜料箔制造商，服务纸盒彩盒、化妆品包装、标签、塑料件和皮革 Logo 烫印。可提供色卡、样卷、分切规格和按底材打样测试。'
+        : 'PINTE manufactures hot stamping foil, cold foil, holographic foil, pigment foil and electro aluminum foil for paper boxes, cosmetic packaging, labels, plastic caps, ABS parts and leather logos. Request color cards, sample rolls and substrate-based testing support.',
     keywords: defaultKeywords(route, lang),
     geoTargets,
     type: 'website' as const,
@@ -1721,6 +1722,7 @@ function buildLegalSnapshot(
       keywords: defaultKeywords(route, lang),
       geoTargets: defaultGeoForRoute(route, lang),
       type: 'website',
+      noIndex: true,
     },
   };
 }

@@ -603,10 +603,10 @@ const Home: React.FC = () => {
           </div>
        </section>
       <SEOMeta
-        title={lang === 'cn' ? '品特PINTE - 高端烫金膜制造专家｜中国东莞烫金膜制造商，拥有多年涂布，定制化生产经验' : 'PINTE - Premium Hot Stamping Foil Manufacturer | Dongguan China, Years of Coating Experience, Custom Production'}
+        title={lang === 'cn' ? 'PINTE 品特｜烫金膜/电化铝/冷烫膜制造商｜纸盒、塑料、皮革、标签包装' : 'PINTE Hot Stamping Foil Manufacturer for Packaging, Labels, Plastic and Leather'}
         description={lang === 'cn'
-          ? '主营烫金箔、烫金膜、冷烫箔、电化铝、颜料箔、全息烫金箔，拥有多年涂布经验，专业定制化生产，供应越南、东南亚、马来西亚、泰国、印尼等全球市场。'
-          : 'PINTE is a leading manufacturer of high-end hot stamping foils based in Dongguan China with years of coating experience and custom production capabilities. We supply hot stamping foil, cold foil, digital foil, pigment foil, holographic foil to Vietnam, Southeast Asia, Malaysia, Thailand, Indonesia and global markets.'
+          ? '品特 PINTE 是东莞烫金膜、电化铝、冷烫膜、镭射烫金膜和颜料箔制造商，服务纸盒彩盒、化妆品包装、标签、塑料件和皮革 Logo 烫印。可提供色卡、样卷、分切规格和按底材打样测试。'
+          : 'PINTE manufactures hot stamping foil, cold foil, holographic foil, pigment foil and electro aluminum foil for paper boxes, cosmetic packaging, labels, plastic caps, ABS parts and leather logos. Request color cards, sample rolls and substrate-based testing support.'
         }
         keywords={lang === 'cn'
           ? ['烫金箔', '烫金膜', '电化铝', '冷烫箔', '颜料箔', '全息烫金箔', '烫金', '包装印刷', '东莞', '中国', '东南亚', '越南', '东莞烫金膜', '塑胶烫金膜', '颜料箔', '化妆品烫印箔', '化妆品烫金', '纸张烫印', '纸张烫金加工', '东莞高端烫金箔生产厂家', '中国冷烫箔供应商', '东南亚烫金膜批发', '越南电化铝定制', '全息烫金箔厂家直销', '颜料箔生产厂家', '包装印刷用烫金箔', '塑胶皮革烫金膜', '数码冷烫', '数码冷烫烫金膜', '丝印冷烫', '丝印冷烫烫金膜', '数码印刷烫金箔', '出口东南亚烫金箔', '品特PINTE烫金箔', '烫金膜涂布', '定制化烫金箔']

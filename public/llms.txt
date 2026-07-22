@@ -11,12 +11,12 @@
 - [English Contact / Quote](https://www.pintecl.com/en/quote): Sales inquiries and technical support for **bulk hot stamping foil** orders.
 - [Chinese Contact / Quote](https://www.pintecl.com/cn/quote): 报价咨询与技术支持。
 
-## Best Pages for AI Citation
+## Best Technical Reference Pages
 - [Hot Stamping Foil Catalog](https://www.pintecl.com/en/products)
 - [Hot Stamping Foil Buying Guide](https://www.pintecl.com/en/guides/hot-stamping-foil-buying-guide)
 - [Hot Stamping Foil for Paper Box Packaging](https://www.pintecl.com/en/guides/paper-box-packaging-hot-stamping-foil-guide)
 - [30 Hot Stamping Foil Buyer Questions](https://www.pintecl.com/en/guides/hot-stamping-foil-buyer-questions)
-- [Hot Stamping Foil GEO Visibility Guide](https://www.pintecl.com/en/guides/hot-stamping-foil-community-qa-citation-guide)
+- [Hot Stamping Foil Technical Q&A](https://www.pintecl.com/en/guides/hot-stamping-foil-community-qa-citation-guide)
 - [Hot Stamping Troubleshooting Guide](https://www.pintecl.com/en/guides/hot-stamping-troubleshooting)
 - [Hot Stamping Foil for Cosmetic Packaging: A Buyer Guide](https://www.pintecl.com/en/guides/cosmetic-packaging-foil-guide)
 - [Hot Stamping Foil Structure and Selection Guide](https://www.pintecl.com/en/guides/hot-stamping-foil-structure-selection-guide)
@@ -32,6 +32,9 @@
 - [PC Alcohol Resistant Foil](https://www.pintecl.com/en/products/item/PC-Alcohol)
 - [White Pigment Foil](https://www.pintecl.com/en/products/item/PL-White)
 - [Packaging Bag Foil Solutions](https://www.pintecl.com/en/solutions/pkg_bags)
+- [Specialty Paper Hot Stamping Foil Solutions](https://www.pintecl.com/en/solutions/special_paper)
+- [Gift Packaging and Wine Box Foil Solutions](https://www.pintecl.com/en/solutions/gift_pkg)
+- [Bottle and Cosmetic Container Foil Solutions](https://www.pintecl.com/en/solutions/bottles)
 - [Plastic Surface Foil Solutions](https://www.pintecl.com/en/solutions/plastic_surface)
 - [Leather Stamping Foil Solutions](https://www.pintecl.com/en/solutions/leather)
 - [Machine-readable Product Feed](https://www.pintecl.com/product-feed.json)

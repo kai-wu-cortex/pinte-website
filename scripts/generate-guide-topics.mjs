@@ -10,7 +10,7 @@ import {
 const TARGET_COUNT = 10000;
 const TOPICS_PATH = path.resolve('content/guides/topics.json');
 const SUMMARY_PATH = path.resolve('reports/guides/topic-inventory-summary.json');
-const FORBIDDEN_PUBLIC_TERMS = /\b(?:SEO|GEO|ChatGPT|Perplexity|Google[\s\p{Pd}_/]+AI|AI[\s\p{Pd}_/]+search(?:[\s\p{Pd}_/]+optimization)?)\b/iu;
+const FORBIDDEN_PUBLIC_TERMS = /(?:\b(?:SEO|GEO|ChatGPT|Perplexity|Google[\s\p{Pd}_/]+AI|AI[\s\p{Pd}_/]+search(?:[\s\p{Pd}_/]+optimization)?)\b|采购搜索工具|采购内容可见度|AI\s*搜索|AI\s*引用|AI\s*检索|生成式\s*AI|生成式搜索)/iu;
 
 function countBy(values) {
   const counts = new Map();

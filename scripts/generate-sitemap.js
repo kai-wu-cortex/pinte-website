@@ -8,7 +8,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
-import { CONTENT_EN } from '../data/content.ts';
+import { CONTENT_EN, CONTENT_ZH } from '../data/content.ts';
 import { GEO_GUIDES } from '../data/geoGuides.ts';
 import GENERATED_GUIDES from '../data/generatedGuides.ts';
 import { mergeProductSeoProfile } from '../data/productSeoProfiles.ts';
@@ -382,10 +382,19 @@ ${imageXml ? `${imageXml}\n` : ''}  </url>
 
   // Add solution detail pages
   solutions.forEach((solutionId) => {
+    const solution = CONTENT_EN.SOLUTIONS_DATA[solutionId];
+    const cnSolution = CONTENT_ZH.SOLUTIONS_DATA[solutionId] || solution;
     addUrl({
       route: `solutions/${solutionId}`,
       changefreq: 'weekly',
       priority: '0.8',
+      images: solution?.img ? [{
+        loc: solution.img,
+        caption: {
+          en: `${solution.title} hot stamping foil application for ${solution.features.join(', ')}.`,
+          cn: `${cnSolution.title} 烫金膜应用方案，重点包括 ${cnSolution.features.join('、')}。`,
+        },
+      }] : [],
     });
   });
 

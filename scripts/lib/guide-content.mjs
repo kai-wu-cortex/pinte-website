@@ -14,7 +14,7 @@ const REQUIRED_PUBLISHED_FIELDS = [
   'description', 'primary_keyword', 'related_products', 'related_guides',
   'author', 'reviewer', 'date_published', 'date_modified', 'answer', 'faqs', 'sources',
 ];
-const FORBIDDEN_PUBLIC_TERMS = /\b(?:SEO|GEO|ChatGPT|Perplexity|Google[\s\p{Pd}_/]+AI|AI[\s\p{Pd}_/]+search(?:[\s\p{Pd}_/]+optimization)?)\b/iu;
+const FORBIDDEN_PUBLIC_TERMS = /(?:\b(?:SEO|GEO|ChatGPT|Perplexity|Google[\s\p{Pd}_/]+AI|AI[\s\p{Pd}_/]+search(?:[\s\p{Pd}_/]+optimization)?)\b|采购搜索工具|采购内容可见度|AI\s*搜索|AI\s*引用|AI\s*检索|生成式\s*AI|生成式搜索)/iu;
 const REGISTRY_PARITY_FIELDS = [
   'topic_id', 'slug', 'status', 'cluster', 'intent', 'related_products', 'related_guides',
 ];

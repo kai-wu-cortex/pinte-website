@@ -1,9 +1,9 @@
 /**
- * 预渲染插件 - 构建时生成静态 SEO 页面
+ * 预渲染插件 - 构建时生成静态可索引页面
  *
  * 关键职责:
  *   1. 给每个静态路由(及 blog 详情)生成独立的 index.html
- *   2. 把页面级 SEO 文本快照 (<main class="seo-snapshot">) + JSON-LD + 完整 meta 注入
+ *   2. 把页面级文本快照 (<main class="seo-snapshot">) + JSON-LD + 完整 meta 注入
  *   3. 校正 asset 路径,使各级嵌套目录都能正确引用 /assets/*
  *
  * 所有页面级文案与 schema 由 ./prerender/snapshot-builder.ts 统一产出,
@@ -210,8 +210,8 @@ function injectSnapshot(
   const extraHead = `
   <meta name="keywords" content="${escapeHtml(meta.keywords.join(', '))}">
   <meta name="author" content="Dongguan Best Craftwork Products Co., Ltd.">
-  <meta name="robots" content="index, follow">
-  <meta name="googlebot" content="index, follow">
+  <meta name="robots" content="${meta.noIndex ? 'noindex, follow' : 'index, follow'}">
+  <meta name="googlebot" content="${meta.noIndex ? 'noindex, follow' : 'index, follow'}">
   <meta name="geo.region" content="CN-44">
   <meta name="geo.placename" content="Dongguan">
   <meta name="geo.position" content="23.0489;113.7447">
