@@ -286,6 +286,7 @@ const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
                     width={image.width}
                     height={image.height}
                     loading="lazy"
+                    decoding="async"
                     className="aspect-[16/9] w-full rounded object-cover"
                   />
                   <figcaption className="mt-3 text-sm leading-relaxed text-neutral-600">

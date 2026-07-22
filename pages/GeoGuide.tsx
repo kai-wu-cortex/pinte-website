@@ -209,6 +209,7 @@ const GeoGuide: React.FC = () => {
                     width={image.width}
                     height={image.height}
                     loading="lazy"
+                    decoding="async"
                     className="aspect-[16/9] w-full rounded-xl object-cover"
                   />
                   <figcaption className="mt-3 px-1 text-sm leading-relaxed text-neutral-600">

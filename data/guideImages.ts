@@ -126,6 +126,136 @@ export const GUIDE_IMAGE_ASSETS = {
       cn: '采购规格应锁定宽幅、长度、纸芯、收卷方向、批次追溯、包装和确认样记录。',
     },
   },
+  sourceGoldFloralPaperSample: {
+    src: '/images/guides/source/hot-stamping-foil-gold-floral-paper-sample-1200x675.webp',
+    width: 1200,
+    height: 675,
+    alt: {
+      en: 'Gold hot stamping foil transfer on a floral paper packaging sample',
+      cn: '纸张包装样品上的金色烫金膜花纹转移效果',
+    },
+    caption: {
+      en: 'Fine floral details show whether the foil release is clean enough for thin lines and decorative patterns.',
+      cn: '细花纹可以判断膜材离型是否足够干净，适合细线和装饰纹样。',
+    },
+  },
+  sourceMultiApplicationPackagingSamples: {
+    src: '/images/guides/source/hot-stamping-foil-multi-application-packaging-samples-1200x675.webp',
+    width: 1200,
+    height: 675,
+    alt: {
+      en: 'Hot stamping foil application samples on paper packaging, bottle packaging, leather, and tags',
+      cn: '烫金膜在纸包装、瓶类包装、皮革和吊牌上的应用样品',
+    },
+    caption: {
+      en: 'Different substrates need separate sample approval because paper, leather, coated board, and bottles respond differently.',
+      cn: '不同底材需要分别确认样，因为纸张、皮革、涂布纸板和瓶类包装的附着反应不同。',
+    },
+  },
+  sourceMetallicFoilRollLibrary: {
+    src: '/images/guides/source/hot-stamping-foil-metallic-roll-library-1200x675.webp',
+    width: 1200,
+    height: 675,
+    alt: {
+      en: 'Gold, silver, and holographic hot stamping foil rolls for color and finish selection',
+      cn: '用于颜色和表面效果选择的金色、银色和镭射烫金膜卷料',
+    },
+    caption: {
+      en: 'Use physical roll and sample comparisons to confirm metallic shade, gloss, and holographic effect before ordering.',
+      cn: '下单前应通过实物卷料和样品对比确认金属色相、光泽和镭射效果。',
+    },
+  },
+  sourceRollSizeSpecification: {
+    src: '/images/guides/source/hot-stamping-foil-roll-size-specification-1200x675.webp',
+    width: 1200,
+    height: 675,
+    alt: {
+      en: 'Hot stamping foil roll size specification showing width, length, and PET carrier film',
+      cn: '烫金膜卷料规格示意，展示宽幅、长度和 PET 基膜',
+    },
+    caption: {
+      en: 'Roll width, roll length, core size, and winding direction should be confirmed before production planning.',
+      cn: '排产前应确认卷宽、卷长、纸芯尺寸和收卷方向。',
+    },
+  },
+  sourceHolographicLabelPrintSample: {
+    src: '/images/guides/source/holographic-cold-foil-label-print-sample-1200x675.webp',
+    width: 1200,
+    height: 675,
+    alt: {
+      en: 'Holographic cold foil label print sample with colorful metallic pattern transfer',
+      cn: '镭射冷烫标签印刷样品，展示彩色金属图案转移效果',
+    },
+    caption: {
+      en: 'Holographic label work needs stable registration, web tension, adhesive control, and repeatable optical effect.',
+      cn: '镭射标签工艺需要稳定套准、张力、胶量控制和可复现的光学效果。',
+    },
+  },
+  sourcePremiumPackagingSamples: {
+    src: '/images/guides/source/hot-stamping-foil-premium-packaging-samples-1200x675.webp',
+    width: 1200,
+    height: 675,
+    alt: {
+      en: 'Premium paper box and gift packaging samples with metallic hot stamping foil details',
+      cn: '高端纸盒和礼品包装样品，带有金属烫金膜细节',
+    },
+    caption: {
+      en: 'Premium packaging should check both decorative appeal and practical durability after folding, handling, and packing.',
+      cn: '高端包装既要看装饰效果，也要验证折叠、搬运和包装后的实际耐性。',
+    },
+  },
+  sourceGiftPackagingSamples: {
+    src: '/images/guides/source/hot-stamping-foil-gift-packaging-samples-1200x675.webp',
+    width: 1200,
+    height: 675,
+    alt: {
+      en: 'Gift packaging boxes and shopping bag with gold hot stamping foil decoration',
+      cn: '礼品包装盒和手提袋上的金色烫金膜装饰效果',
+    },
+    caption: {
+      en: 'Gift packaging often combines large decorative areas with fine details, so both coverage and edge quality matter.',
+      cn: '礼品包装常同时包含大面积装饰和细节纹样，因此覆盖完整度和边缘质量都很重要。',
+    },
+  },
+  sourceShippingPackagingRolls: {
+    src: '/images/guides/source/hot-stamping-foil-shipping-packaging-rolls-1200x675.webp',
+    width: 1200,
+    height: 675,
+    alt: {
+      en: 'Hot stamping foil rolls packed in cartons for shipping and inventory control',
+      cn: '装入纸箱的烫金膜卷料，用于发货和库存管理',
+    },
+    caption: {
+      en: 'Packaging, carton protection, labels, and batch separation reduce damage and mix-ups during international delivery.',
+      cn: '包装保护、箱唛、标签和批次区分可以减少国际运输中的损坏和混料。',
+    },
+  },
+  sourceCosmeticPackagingDisplay: {
+    src: '/images/guides/source/hot-stamping-foil-cosmetic-packaging-display-1200x675.webp',
+    width: 1200,
+    height: 675,
+    alt: {
+      en: 'Cosmetic packaging display with holographic and metallic hot stamping foil decoration',
+      cn: '化妆品包装展示，包含镭射和金属烫金膜装饰效果',
+    },
+    caption: {
+      en: 'Cosmetic packaging requires consistent color, clean edges, and surface compatibility across boxes, labels, and containers.',
+      cn: '化妆品包装需要在盒子、标签和容器上保持颜色稳定、边缘干净和表面适配。',
+    },
+  },
+  sourceBlackMatteFoilRoll: {
+    src: '/images/guides/source/black-matte-hot-stamping-foil-roll-1200x675.webp',
+    width: 1200,
+    height: 675,
+    alt: {
+      en: 'Black matte hot stamping foil roll for dark finish and specialty packaging applications',
+      cn: '黑色哑面烫金膜卷料，用于深色效果和特殊包装应用',
+    },
+    caption: {
+      en: 'Dark and matte foil effects should be sampled on the real substrate because gloss, opacity, and adhesion can vary.',
+      cn: '深色和哑面膜效果应在真实底材上打样，因为光泽、遮盖力和附着会有差异。',
+    },
+  },
 } as const satisfies Record<string, GuideImageAsset>;
 
 interface GuideImageContext {
@@ -189,7 +319,11 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
   const haystack = `${slug} ${cluster} ${intent} ${primaryKeyword}`.toLowerCase();
 
   if (haystack.includes('cosmetic') || haystack.includes('化妆')) {
-    return [GUIDE_IMAGE_ASSETS.cosmeticPackaging, GUIDE_IMAGE_ASSETS.substrateCompatibility];
+    return [
+      GUIDE_IMAGE_ASSETS.sourceCosmeticPackagingDisplay,
+      GUIDE_IMAGE_ASSETS.cosmeticPackaging,
+      GUIDE_IMAGE_ASSETS.sourceMultiApplicationPackagingSamples,
+    ];
   }
 
   if (haystack.includes('paper-carton-packaging')
@@ -200,7 +334,11 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('paper label')
     || haystack.includes('纸')
     || haystack.includes('纸盒')) {
-    return [GUIDE_IMAGE_ASSETS.paperCartonPackaging, GUIDE_IMAGE_ASSETS.substrateCompatibility];
+    return [
+      GUIDE_IMAGE_ASSETS.sourcePremiumPackagingSamples,
+      GUIDE_IMAGE_ASSETS.sourceGoldFloralPaperSample,
+      GUIDE_IMAGE_ASSETS.paperCartonPackaging,
+    ];
   }
 
   if (haystack.includes('label')
@@ -209,7 +347,11 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('cold foil')
     || haystack.includes('标签')
     || haystack.includes('冷烫')) {
-    return [GUIDE_IMAGE_ASSETS.labelColdFoil, GUIDE_IMAGE_ASSETS.processComparison];
+    return [
+      GUIDE_IMAGE_ASSETS.sourceHolographicLabelPrintSample,
+      GUIDE_IMAGE_ASSETS.labelColdFoil,
+      GUIDE_IMAGE_ASSETS.sourceMetallicFoilRollLibrary,
+    ];
   }
 
   if (haystack.includes('process-comparison')
@@ -217,7 +359,11 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('-vs-')
     || haystack.includes('comparison')
     || haystack.includes('对比')) {
-    return [GUIDE_IMAGE_ASSETS.processComparison, GUIDE_IMAGE_ASSETS.paperCartonPackaging];
+    return [
+      GUIDE_IMAGE_ASSETS.processComparison,
+      GUIDE_IMAGE_ASSETS.sourceHolographicLabelPrintSample,
+      GUIDE_IMAGE_ASSETS.sourcePremiumPackagingSamples,
+    ];
   }
 
   if (haystack.includes('procurement')
@@ -230,7 +376,11 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('规格')
     || haystack.includes('起订')
     || haystack.includes('交期')) {
-    return [GUIDE_IMAGE_ASSETS.procurementSpecifications, GUIDE_IMAGE_ASSETS.sampling];
+    return [
+      GUIDE_IMAGE_ASSETS.sourceRollSizeSpecification,
+      GUIDE_IMAGE_ASSETS.sourceShippingPackagingRolls,
+      GUIDE_IMAGE_ASSETS.procurementSpecifications,
+    ];
   }
 
   if (haystack.includes('plastic')
@@ -244,7 +394,11 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('底材')
     || haystack.includes('镭射')
     || haystack.includes('防伪')) {
-    return [GUIDE_IMAGE_ASSETS.substrateCompatibility, GUIDE_IMAGE_ASSETS.processComparison];
+    return [
+      GUIDE_IMAGE_ASSETS.sourceMultiApplicationPackagingSamples,
+      GUIDE_IMAGE_ASSETS.substrateCompatibility,
+      GUIDE_IMAGE_ASSETS.sourceBlackMatteFoilRoll,
+    ];
   }
 
   if (haystack.includes('troubleshooting')
@@ -256,7 +410,11 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('故障')
     || haystack.includes('掉')
     || haystack.includes('不牢')) {
-    return [GUIDE_IMAGE_ASSETS.troubleshooting, GUIDE_IMAGE_ASSETS.sampling];
+    return [
+      GUIDE_IMAGE_ASSETS.troubleshooting,
+      GUIDE_IMAGE_ASSETS.sourceGoldFloralPaperSample,
+      GUIDE_IMAGE_ASSETS.sampling,
+    ];
   }
 
   if (haystack.includes('parameter')
@@ -269,8 +427,16 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('参数')
     || haystack.includes('测试')
     || haystack.includes('打样')) {
-    return [GUIDE_IMAGE_ASSETS.sampling, GUIDE_IMAGE_ASSETS.procurementSpecifications];
+    return [
+      GUIDE_IMAGE_ASSETS.sampling,
+      GUIDE_IMAGE_ASSETS.sourceRollSizeSpecification,
+      GUIDE_IMAGE_ASSETS.sourceShippingPackagingRolls,
+    ];
   }
 
-  return [GUIDE_IMAGE_ASSETS.paperCartonPackaging, GUIDE_IMAGE_ASSETS.substrateCompatibility];
+  return [
+    GUIDE_IMAGE_ASSETS.sourceMetallicFoilRollLibrary,
+    GUIDE_IMAGE_ASSETS.sourceMultiApplicationPackagingSamples,
+    GUIDE_IMAGE_ASSETS.sourceGoldFloralPaperSample,
+  ];
 };
