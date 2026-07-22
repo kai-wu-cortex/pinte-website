@@ -11,6 +11,7 @@ import {
 } from '../data/guideClusters';
 import { GEO_GUIDES, guideCustomerText, type GuideLang } from '../data/geoGuides';
 import { useLanguage } from '../contexts/LanguageContext';
+import { resolveGuideImageAsset } from '../data/guideImages';
 
 const SITE_URL = 'https://www.pintecl.com';
 const GENERATED_GUIDE_DEFAULT_PRIORITY = 100;
@@ -23,6 +24,8 @@ interface CatalogGuideSummary {
   readonly description: string;
   readonly cluster: GuideClusterId;
   readonly priority: number;
+  readonly imageSrc: string;
+  readonly imageAlt: string;
 }
 
 const compareTitles = (a: string, b: string) => {
@@ -47,6 +50,16 @@ const GeoGuideCatalog: React.FC = () => {
       description: text(guide.metaDescription[lang], descriptionFallback),
       cluster: resolveGuideClusterId(LEGACY_GUIDE_CLUSTERS[guide.slug]),
       priority: guide.priority,
+      imageSrc: resolveGuideImageAsset({
+        slug: guide.slug,
+        cluster: LEGACY_GUIDE_CLUSTERS[guide.slug],
+        primaryKeyword: guide.primaryKeyword[lang],
+      }).src,
+      imageAlt: resolveGuideImageAsset({
+        slug: guide.slug,
+        cluster: LEGACY_GUIDE_CLUSTERS[guide.slug],
+        primaryKeyword: guide.primaryKeyword[lang],
+      }).alt[lang],
     });
   });
 
@@ -61,6 +74,16 @@ const GeoGuideCatalog: React.FC = () => {
       description: text(guide.description?.trim(), descriptionFallback),
       cluster: resolveGuideClusterId(guide.cluster?.trim()),
       priority: GENERATED_GUIDE_DEFAULT_PRIORITY,
+      imageSrc: resolveGuideImageAsset({
+        slug,
+        cluster: guide.cluster,
+        primaryKeyword: guide.title,
+      }).src,
+      imageAlt: resolveGuideImageAsset({
+        slug,
+        cluster: guide.cluster,
+        primaryKeyword: guide.title,
+      }).alt[lang],
     });
   });
 
@@ -130,6 +153,34 @@ const GeoGuideCatalog: React.FC = () => {
             </p>
           </div>
 
+          <section className="mb-12 grid gap-5 md:grid-cols-3" aria-label={lang === 'cn' ? '指南使用方法' : 'How to use these guides'}>
+            {[
+              {
+                title: lang === 'cn' ? '按底材开始' : 'Start from substrate',
+                body: lang === 'cn'
+                  ? '先确认纸张、塑料、皮革、UV 光油、覆膜或标签面材，再筛选膜系和打样范围。'
+                  : 'Confirm paper, plastic, leather, UV varnish, lamination, or label facestock before choosing foil families and sample scope.',
+              },
+              {
+                title: lang === 'cn' ? '按问题定位' : 'Locate the defect',
+                body: lang === 'cn'
+                  ? '把掉金、缺金、糊边、断线、套准偏移和颜色差异分开排查，避免混合调整。'
+                  : 'Separate peeling, missing transfer, blurred edges, broken lines, registration shift, and color variation before changing settings.',
+              },
+              {
+                title: lang === 'cn' ? '按打样锁定' : 'Lock by sampling',
+                body: lang === 'cn'
+                  ? '所有建议都应回到真实底材、机台、图稿和速度条件下验证，并保留确认样。'
+                  : 'Validate every recommendation on the actual substrate, press, artwork, and speed, then keep an approved sample.',
+              },
+            ].map((item) => (
+              <div key={item.title} className="rounded-2xl border border-neutral-200 bg-white p-5 shadow-sm">
+                <h2 className="mb-2 text-lg font-bold text-neutral-950">{item.title}</h2>
+                <p className="text-sm leading-relaxed text-neutral-600">{item.body}</p>
+              </div>
+            ))}
+          </section>
+
           <nav className="-mx-6 mb-12 overflow-x-auto px-6 pb-2" aria-label={lang === 'cn' ? '指南分类导航' : 'Guide category navigation'}>
             <ul className="flex min-w-max gap-2 lg:min-w-0 lg:flex-wrap">
               {GUIDE_CLUSTERS.map((cluster) => (
@@ -160,6 +211,16 @@ const GeoGuideCatalog: React.FC = () => {
                     <div className="grid md:grid-cols-2 md:gap-x-8">
                       {guides.map((guide) => (
                         <article key={guide.slug} className="min-w-0 border-t border-neutral-200 py-6">
+                          <Link to={`/${lang}/guides/${guide.slug}/`} className="group mb-4 block overflow-hidden rounded-xl bg-neutral-100">
+                            <img
+                              src={guide.imageSrc}
+                              alt={guide.imageAlt}
+                              width={1200}
+                              height={675}
+                              loading="lazy"
+                              className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                          </Link>
                           <BookOpenText size={21} className="mb-3 text-pinte-blue" aria-hidden="true" />
                           <h3 className="text-xl font-bold text-neutral-950 leading-snug mb-3">
                             <Link to={`/${lang}/guides/${guide.slug}/`} className="hover:text-pinte-blue transition-colors">

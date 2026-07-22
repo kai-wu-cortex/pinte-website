@@ -4,6 +4,7 @@ import { ArrowLeft, CheckCircle2, ClipboardCheck, HelpCircle, Layers, Wrench } f
 import SEOMeta, { generateBreadcrumbSchema } from '../components/SEOMeta';
 import { GEO_GUIDES, getGeoGuide, guideCustomerText, type GuideLang } from '../data/geoGuides';
 import { useLanguage } from '../contexts/LanguageContext';
+import { resolveGuideImageAsset, resolveGuideInlineImageAssets } from '../data/guideImages';
 
 const SITE_URL = 'https://www.pintecl.com';
 
@@ -22,31 +23,46 @@ const faqSchema = (guide: NonNullable<ReturnType<typeof getGeoGuide>>, lang: Gui
   })),
 });
 
-const articleSchema = (guide: NonNullable<ReturnType<typeof getGeoGuide>>, lang: GuideLang) => ({
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: guideCustomerText(guide.title[lang], lang),
-  description: guideCustomerText(guide.metaDescription[lang], lang),
-  author: {
-    '@type': 'Organization',
-    name: 'PINTE',
-    url: SITE_URL,
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'PINTE 品特',
-    logo: {
-      '@type': 'ImageObject',
-      url: `${SITE_URL}/logo.svg`,
+const articleSchema = (guide: NonNullable<ReturnType<typeof getGeoGuide>>, lang: GuideLang) => {
+  const image = resolveGuideImageAsset({
+    slug: guide.slug,
+    cluster: guide.primaryKeyword[lang],
+    primaryKeyword: guide.primaryKeyword[lang],
+  });
+
+  return {
+    '@context': 'https://schema.org',
+    '@type': 'Article',
+    headline: guideCustomerText(guide.title[lang], lang),
+    description: guideCustomerText(guide.metaDescription[lang], lang),
+    author: {
+      '@type': 'Organization',
+      name: 'PINTE',
+      url: SITE_URL,
     },
-  },
-  mainEntityOfPage: `${SITE_URL}/${lang}/guides/${guide.slug}/`,
-  articleSection: 'Hot Stamping Foil Procurement Guide',
-  keywords: [guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang]]
-    .map((keyword) => guideCustomerText(keyword, lang))
-    .join(', '),
-  inLanguage: lang === 'cn' ? 'zh-CN' : 'en',
-});
+    publisher: {
+      '@type': 'Organization',
+      name: 'PINTE 品特',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/logo.svg`,
+      },
+    },
+    mainEntityOfPage: `${SITE_URL}/${lang}/guides/${guide.slug}/`,
+    articleSection: 'Hot Stamping Foil Procurement Guide',
+    keywords: [guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang]]
+      .map((keyword) => guideCustomerText(keyword, lang))
+      .join(', '),
+    inLanguage: lang === 'cn' ? 'zh-CN' : 'en',
+    image: {
+      '@type': 'ImageObject',
+      url: `${SITE_URL}${image.src}`,
+      width: image.width,
+      height: image.height,
+      caption: image.caption[lang],
+    },
+  };
+};
 
 const GeoGuide: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -73,6 +89,16 @@ const GeoGuide: React.FC = () => {
 
   const canonicalUrl = `/${lang}/guides/${guide.slug}`;
   const keywords = [guide.primaryKeyword[lang], ...guide.secondaryKeywords[lang], 'PINTE', 'hot stamping foil'].map(text);
+  const guideImage = resolveGuideImageAsset({
+    slug: guide.slug,
+    cluster: guide.primaryKeyword[lang],
+    primaryKeyword: guide.primaryKeyword[lang],
+  });
+  const inlineImages = resolveGuideInlineImageAssets({
+    slug: guide.slug,
+    cluster: guide.primaryKeyword[lang],
+    primaryKeyword: guide.primaryKeyword[lang],
+  });
   const breadcrumbSchema = generateBreadcrumbSchema([
     { name: lang === 'cn' ? '首页' : 'Home', url: `${SITE_URL}/${lang}/` },
     { name: lang === 'cn' ? '采购指南' : 'Procurement Guides', url: `${SITE_URL}/${lang}/guides/` },
@@ -90,6 +116,7 @@ const GeoGuide: React.FC = () => {
         author="PINTE"
         section="Hot Stamping Foil Procurement"
         tags={keywords}
+        image={guideImage.src}
         locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
         canonicalUrl={canonicalUrl}
       />
@@ -121,6 +148,75 @@ const GeoGuide: React.FC = () => {
               {lang === 'cn' ? '目标读者：' : 'Audience: '}
               {text(guide.audience[lang])}
             </p>
+          </section>
+
+          <figure className="bg-white border border-neutral-100 rounded-3xl p-4 md:p-5 shadow-sm mb-8">
+            <img
+              src={guideImage.src}
+              alt={guideImage.alt[lang]}
+              width={guideImage.width}
+              height={guideImage.height}
+              loading="eager"
+              className="aspect-[16/9] w-full rounded-2xl object-cover"
+            />
+            <figcaption className="mt-3 px-1 text-sm text-neutral-500">
+              {guideImage.caption[lang]}
+            </figcaption>
+          </figure>
+
+          <section className="bg-white border border-neutral-100 rounded-3xl p-6 md:p-8 mb-8">
+            <h2 className="text-2xl font-bold text-neutral-950 mb-4">
+              {lang === 'cn' ? '深度判断框架' : 'Deep evaluation framework'}
+            </h2>
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="rounded-2xl bg-neutral-50 p-5">
+                <h3 className="font-bold text-neutral-950 mb-2">{lang === 'cn' ? '订单边界' : 'Job boundary'}</h3>
+                <p className="text-neutral-600 leading-relaxed">
+                  {lang === 'cn'
+                    ? '先确认底材、表面处理、烫印工艺和图稿难度，避免把不同问题混在同一次判断里。'
+                    : 'Confirm substrate, surface treatment, stamping process, and artwork difficulty before mixing multiple issues in one decision.'}
+                </p>
+              </div>
+              <div className="rounded-2xl bg-neutral-50 p-5">
+                <h3 className="font-bold text-neutral-950 mb-2">{lang === 'cn' ? '验证动作' : 'Validation action'}</h3>
+                <p className="text-neutral-600 leading-relaxed">
+                  {lang === 'cn'
+                    ? '用真实承印物、机台、速度和量产图稿测试转移完整度、边缘清晰度、附着和耐磨表现。'
+                    : 'Test transfer completeness, edge definition, adhesion, and rub resistance on the actual material, press, speed, and production artwork.'}
+                </p>
+              </div>
+              <div className="rounded-2xl bg-neutral-50 p-5">
+                <h3 className="font-bold text-neutral-950 mb-2">{lang === 'cn' ? '采购结论' : 'Buying decision'}</h3>
+                <p className="text-neutral-600 leading-relaxed">
+                  {lang === 'cn'
+                    ? '只有打样记录、确认样和复购批次要求一致时，才适合锁定型号、宽幅和量产参数。'
+                    : 'Lock foil grade, width, and production settings only when sample records, approval samples, and repeat-order requirements align.'}
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="bg-white border border-neutral-100 rounded-3xl p-5 md:p-6 shadow-sm mb-8">
+            <h2 className="text-2xl font-bold text-neutral-950 mb-5">
+              {lang === 'cn' ? '图示检查点' : 'Visual checks'}
+            </h2>
+            <div className="grid gap-5 md:grid-cols-2">
+              {inlineImages.map((image) => (
+                <figure key={image.src} className="rounded-2xl bg-neutral-50 p-3">
+                  <img
+                    src={image.src}
+                    alt={image.alt[lang]}
+                    width={image.width}
+                    height={image.height}
+                    loading="lazy"
+                    className="aspect-[16/9] w-full rounded-xl object-cover"
+                  />
+                  <figcaption className="mt-3 px-1 text-sm leading-relaxed text-neutral-600">
+                    {image.caption[lang]}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
           </section>
 
           <section className="grid md:grid-cols-3 gap-5 mb-8">

@@ -5,6 +5,7 @@ import SEOMeta, { generateBreadcrumbSchema } from '../components/SEOMeta';
 import { getGeneratedGuide, type GeneratedGuideRecord } from '../data/guideContent';
 import { getGeoGuide, guideCustomerText, type GuideLang } from '../data/geoGuides';
 import { CONTENT_EN, CONTENT_ZH } from '../data/content';
+import { resolveGuideImageAsset, resolveGuideInlineImageAssets } from '../data/guideImages';
 import type { ProductId } from '../types';
 
 const SITE_URL = 'https://www.pintecl.com';
@@ -47,7 +48,34 @@ const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
   const relatedGuidesTitle = isChinese ? '相关指南' : 'Related guides';
   const viewProductLabel = isChinese ? '查看产品' : 'View product';
   const readGuideLabel = isChinese ? '阅读指南' : 'Read guide';
-  const heroImage = absoluteUrl(guide.heroImage);
+  const fallbackImage = resolveGuideImageAsset({
+    slug: guide.slug,
+    cluster: guide.cluster,
+    intent: guide.intent,
+    primaryKeyword: guide.primaryKeyword,
+  });
+  const inlineImages = resolveGuideInlineImageAssets({
+    slug: guide.slug,
+    cluster: guide.cluster,
+    intent: guide.intent,
+    primaryKeyword: guide.primaryKeyword,
+  });
+  const visualImage = guide.heroImage
+    ? {
+      src: guide.heroImage,
+      width: 1200,
+      height: 630,
+      alt: guide.heroAlt || guide.title,
+      caption: guide.heroAlt || guide.description,
+    }
+    : {
+      src: fallbackImage.src,
+      width: fallbackImage.width,
+      height: fallbackImage.height,
+      alt: fallbackImage.alt[lang],
+      caption: fallbackImage.caption[lang],
+    };
+  const heroImage = absoluteUrl(visualImage.src);
   const productData = (isChinese ? CONTENT_ZH : CONTENT_EN).PRODUCT_DATA;
   const relatedProducts = guide.relatedProducts.flatMap((productId) => {
     const product = productData[productId as ProductId];
@@ -96,7 +124,9 @@ const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
       image: {
         '@type': 'ImageObject',
         url: heroImage,
-        ...(guide.heroAlt ? { caption: guide.heroAlt } : {}),
+        width: visualImage.width,
+        height: visualImage.height,
+        caption: visualImage.caption,
       },
     } : {}),
   };
@@ -137,7 +167,7 @@ const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
         title={guide.title}
         description={guide.description}
         keywords={[guide.primaryKeyword]}
-        image={guide.heroImage || undefined}
+        image={visualImage.src}
         type="article"
         publishedTime={guide.datePublished}
         author={guide.author}
@@ -193,16 +223,78 @@ const LongFormGuide: React.FC<LongFormGuideProps> = ({ guide, lang }) => {
             </dl>
           </header>
 
-          {guide.heroImage && (
-            <figure className="py-8 border-b border-neutral-200">
-              <img
-                src={guide.heroImage}
-                alt={guide.heroAlt}
-                className="w-full max-h-[520px] object-cover rounded"
-              />
-              {guide.heroAlt && <figcaption className="mt-3 text-sm text-neutral-500">{guide.heroAlt}</figcaption>}
-            </figure>
-          )}
+          <figure className="py-8 border-b border-neutral-200">
+            <img
+              src={visualImage.src}
+              alt={visualImage.alt}
+              width={visualImage.width}
+              height={visualImage.height}
+              loading="eager"
+              className="w-full max-h-[520px] object-cover rounded"
+            />
+            <figcaption className="mt-3 text-sm text-neutral-500">{visualImage.caption}</figcaption>
+          </figure>
+
+          <section className="py-8 border-b border-neutral-200">
+            <h2 className="text-2xl font-bold text-neutral-950 mb-4">
+              {isChinese ? '这篇指南应该怎样使用？' : 'How to use this guide'}
+            </h2>
+            <div className="grid gap-4 md:grid-cols-3">
+              <div className="rounded border border-neutral-200 bg-neutral-50 p-4">
+                <h3 className="font-bold text-neutral-950 mb-2">
+                  {isChinese ? '先锁定订单条件' : 'Define the job first'}
+                </h3>
+                <p className="text-sm leading-relaxed text-neutral-600">
+                  {isChinese
+                    ? '把底材、表面处理、图稿细节、设备路线、速度和后处理要求写成同一张订单卡。'
+                    : 'Record substrate, surface treatment, artwork detail, machine route, speed, and post-process requirements in one job card.'}
+                </p>
+              </div>
+              <div className="rounded border border-neutral-200 bg-neutral-50 p-4">
+                <h3 className="font-bold text-neutral-950 mb-2">
+                  {isChinese ? '再设计打样变量' : 'Then plan sample variables'}
+                </h3>
+                <p className="text-sm leading-relaxed text-neutral-600">
+                  {isChinese
+                    ? '每轮只改变一个变量，例如温度、压力、停留时间、速度或膜材型号，避免结果无法归因。'
+                    : 'Change one variable per trial, such as temperature, pressure, dwell time, speed, or foil grade, so results remain readable.'}
+                </p>
+              </div>
+              <div className="rounded border border-neutral-200 bg-neutral-50 p-4">
+                <h3 className="font-bold text-neutral-950 mb-2">
+                  {isChinese ? '最后保留确认样' : 'Keep the approved sample'}
+                </h3>
+                <p className="text-sm leading-relaxed text-neutral-600">
+                  {isChinese
+                    ? '确认样应标注底材批次、卷料信息、机台、参数和测试结果，作为复购和量产比对标准。'
+                    : 'Mark the retained sample with substrate batch, roll details, press, settings, and test results for repeat orders and production checks.'}
+                </p>
+              </div>
+            </div>
+          </section>
+
+          <section className="py-8 border-b border-neutral-200">
+            <h2 className="text-2xl font-bold text-neutral-950 mb-4">
+              {isChinese ? '图示检查点' : 'Visual checks'}
+            </h2>
+            <div className="grid gap-5 md:grid-cols-2">
+              {inlineImages.map((image) => (
+                <figure key={image.src} className="rounded border border-neutral-200 bg-neutral-50 p-3">
+                  <img
+                    src={image.src}
+                    alt={image.alt[lang]}
+                    width={image.width}
+                    height={image.height}
+                    loading="lazy"
+                    className="aspect-[16/9] w-full rounded object-cover"
+                  />
+                  <figcaption className="mt-3 text-sm leading-relaxed text-neutral-600">
+                    {image.caption[lang]}
+                  </figcaption>
+                </figure>
+              ))}
+            </div>
+          </section>
 
           <div
             ref={bodyRef}
