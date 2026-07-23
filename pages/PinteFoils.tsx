@@ -10,9 +10,6 @@ import { FoilItem } from '../types';
 import SEOMeta from '../components/SEOMeta';
 import { LanguageProvider, useLanguage } from '../contexts/LanguageContext';
 
-import { HotStampingSimulator } from '../components/HotStampingSimulator/App';
-import { Language } from '../components/HotStampingSimulator/types';
-
 const PinteFoils: React.FC = () => {
   return (
     <LanguageProvider>
@@ -401,42 +398,6 @@ const PinteFoilsContent: React.FC = () => {
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Interactive Coating Process Simulator - Integrated from open source project */}
-        <section className="py-24 bg-[#0c0e11]">
-          <div className="container mx-auto px-12">
-            <div className="text-center mb-12">
-              <div className="inline-block py-1 px-3 bg-[#221a00] border-l-4 border-[#e9c349] mb-4">
-                <span className="text-[#e9c349] text-[0.6875rem] uppercase tracking-[0.2em] font-semibold">
-                  {lang === 'en' ? 'Interactive Demo' : '交互式模拟器'}
-                </span>
-              </div>
-              <h2 className="text-4xl font-[Manrope] font-extrabold tracking-tighter text-[#e2e2e6] uppercase mb-4">
-                {lang === 'en' ? 'Interactive Coating Process Simulator' : '交互式涂布工艺模拟器'}
-              </h2>
-              <p className="text-[#c5c6cd] max-w-3xl mx-auto">
-                {lang === 'en'
-                  ? 'Explore our precision coating process with this interactive production simulator. Adjust machine parameters in real-time and see how they affect coating quality, film thickness, and defect formation.'
-                  : '通过这个交互式生产模拟器探索我们的精密涂布工艺。实时调整机器参数，观察它们对涂布质量、膜厚和缺陷形成的影响。'
-                }
-              </p>
-            </div>
-
-            {/* Full Interactive Simulator */}
-            <div className="relative">
-              <HotStampingSimulator language={lang} />
-            </div>
-
-            <div className="mt-8 text-center text-[#c5c6cd] text-sm">
-              <p>
-                {lang === 'en'
-                  ? 'Tip: Use mouse to rotate, zoom and pan the 3D view. Click on any process step in the header to jump directly to that station.'
-                  : '提示：使用鼠标旋转、缩放和平移 3D 视图。点击顶部的任何工序步骤可直接跳转到该工位。'
-                }
-              </p>
             </div>
           </div>
         </section>
