@@ -26,5 +26,6 @@ dist/
 playwright-report/
 playwright/.cache/
 seo-geo-runs/
+.seo-cache/
 *.md
 !README.md

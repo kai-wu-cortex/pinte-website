@@ -1,0 +1,2000 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - button "中文" [ref=e5] [cursor=pointer]
+    - button "EN" [ref=e6] [cursor=pointer]
+  - generic [ref=e8]: PINTE
+  - main [ref=e9]:
+    - generic [ref=e14]:
+      - generic [ref=e15]: 源自2000 行业卓越品质
+      - heading "专业 烫金箔 制造商" [level=1] [ref=e16]:
+        - text: 专业 烫金箔
+        - text: 制造商
+      - paragraph [ref=e17]: PINTE品特位于中国东莞，是领先的烫金箔生产厂家。专业生产金属烫金箔、颜料烫金箔、镭射全息烫金箔、冷烫箔和特种烫金箔，广泛应用于包装、化妆品、皮革、塑胶、纺织品等行业。浏览我们全系列烫金箔颜色产品。
+      - generic [ref=e18]:
+        - button "浏览完整色卡" [ref=e19] [cursor=pointer]:
+          - text: 浏览完整色卡
+          - img [ref=e20]
+        - button "技术规格" [ref=e23] [cursor=pointer]
+    - generic [ref=e25]:
+      - generic [ref=e26]:
+        - generic [ref=e27]: 关于东莞佰仕特
+        - heading "中国东莞专业烫金箔生产厂家" [level=2] [ref=e28]
+        - paragraph [ref=e29]: 东莞佰仕特工艺制品有限公司创立于1998年，原是服务欧美知名品牌的金葱粉行业领军企业，2020年拓展烫金箔产业，推出高端品牌「品特PINTE」。凭借25年涂层制造经验，我们为全球客户提供高品质烫金箔产品。
+      - generic [ref=e30]:
+        - generic [ref=e31]:
+          - generic [ref=e32]:
+            - heading "公司简介" [level=3] [ref=e33]
+            - paragraph [ref=e34]: 各位全球伙伴，欢迎走进东莞佰仕特工艺制品有限公司 —— 这里是金葱粉与烫金膜两大产品的专业制造基地。
+            - paragraph [ref=e35]: 自 1998 年成立以来，我们以金葱粉为起点深耕葱粉领域，如今已成为行业内品类最全、技术领先的标杆企业。从美术印刷到建筑装饰，从圣诞工艺到美甲美妆，我们的金葱粉、亮片、金葱纸张等产品，凭借 ISO9001、SGS 等国际认证的品质，长期服务于欧美各大知名客户，200000㎡ 自有车间与全自动化生产线，确保稳定供应与卓越质感。
+            - paragraph [ref=e36]: 2020 年，我们延伸工艺优势成立烫金事业部，推出高端品牌 「品特 PINTE」，覆盖咖啡底、PC 底、颜料箔等全系列烫金膜。依托 「全、专、快、精、优」 核心能力：多色多尺寸定制适配包装、服装、车辆等全领域，精准温控与专利技术保障色彩稳定、离型可靠，高效响应与全流程品控让合作更省心。目前已助力众多品牌通过烫金工艺提升产品档次，赢得全球客户信赖。
+          - generic [ref=e37]:
+            - heading "企业理念" [level=3] [ref=e38]
+            - paragraph [ref=e39]: 从金葱粉的绚烂点缀到烫金膜的高端质感，佰仕特始终以 「彼此成就、合作共赢」 为理念，用专业工艺为您的产品赋能。即刻咨询，获取专属解决方案，期待与您携手开拓全球市场！
+          - generic [ref=e40]:
+            - generic [ref=e41]:
+              - heading "品类齐全" [level=4] [ref=e42]
+              - paragraph [ref=e43]: 覆盖PK粗面、PC塑胶、颜料箔等全系列烫金箔
+            - generic [ref=e44]:
+              - heading "专业研发" [level=4] [ref=e45]
+              - paragraph [ref=e46]: 持续工艺创新，多项专利技术保障
+            - generic [ref=e47]:
+              - heading "精准温控" [level=4] [ref=e48]
+              - paragraph [ref=e49]: ±0.5℃ 温度精度控制，保证色彩一致
+            - generic [ref=e50]:
+              - heading "出口全球" [level=4] [ref=e51]
+              - paragraph [ref=e52]: 产品远销越南、泰国、马来西亚、印尼、新加坡等东南亚地区
+          - generic [ref=e53]:
+            - heading "🎯 资质认证" [level=4] [ref=e54]
+            - paragraph [ref=e55]: ISO 9001 质量体系 • BSCI • SGS • MSDS • REACH • 符合 RoHS 环保要求
+        - generic [ref=e56]:
+          - heading "核心优势" [level=3] [ref=e57]
+          - generic [ref=e58]:
+            - generic [ref=e59]:
+              - generic [ref=e60]: ✦
+              - generic [ref=e61]:
+                - heading "品类齐全" [level=4] [ref=e62]
+                - paragraph [ref=e63]: PK粗面烫金箔、PC塑胶烫金箔、颜料烫金箔、镭射全息烫金箔、冷烫箔 — 全系列覆盖
+            - generic [ref=e64]:
+              - generic [ref=e65]: ✦
+              - generic [ref=e66]:
+                - heading "25年行业经验" [level=4] [ref=e67]
+                - paragraph [ref=e68]: 1998年进入涂层行业，从金葱粉到烫金箔，专业经验沉淀
+            - generic [ref=e69]:
+              - generic [ref=e70]: ✦
+              - generic [ref=e71]:
+                - heading "多色多尺寸定制" [level=4] [ref=e72]
+                - paragraph [ref=e73]: 接受特殊规格定制，满足不同应用领域需求
+            - generic [ref=e74]:
+              - generic [ref=e75]: ✦
+              - generic [ref=e76]:
+                - heading "精准温度控制" [level=4] [ref=e77]
+                - paragraph [ref=e78]: ±0.5℃ 精度管控，保证每一批次颜色一致
+            - generic [ref=e79]:
+              - generic [ref=e80]: ✦
+              - generic [ref=e81]:
+                - heading "东南亚主要供应商" [level=4] [ref=e82]
+                - paragraph [ref=e83]: 稳定供应越南、泰国、马来西亚、印尼、新加坡，本地仓备货
+            - generic [ref=e84]:
+              - generic [ref=e85]: ✦
+              - generic [ref=e86]:
+                - heading "国际认证齐全" [level=4] [ref=e87]
+                - paragraph [ref=e88]: ISO 9001、SGS、REACH、RoHS认证，符合出口要求
+          - generic [ref=e90]:
+            - paragraph [ref=e91]: 索取免费样品 获取报价
+            - link "立即联系" [ref=e92] [cursor=pointer]:
+              - /url: /cn/quote
+              - text: 立即联系
+              - img [ref=e93]
+    - generic [ref=e97]:
+      - generic [ref=e98]:
+        - generic [ref=e99]: 交互式模拟器
+        - heading "交互式涂布工艺模拟器" [level=2] [ref=e100]
+        - paragraph [ref=e101]: 通过这个交互式生产模拟器探索我们的精密涂布工艺。实时调整机器参数，观察它们对涂布质量、膜厚和缺陷形成的影响。
+      - generic [ref=e103]:
+        - generic [ref=e104]:
+          - generic [ref=e105]:
+            - generic [ref=e106]: F
+            - heading "CoatingSim Pro" [level=1] [ref=e107]
+            - generic [ref=e109]:
+              - button "🏗️ 全景" [ref=e110] [cursor=pointer]:
+                - generic [ref=e111]: 🏗️
+                - generic [ref=e112]: 全景
+              - button "🔄 放卷" [ref=e113] [cursor=pointer]:
+                - generic [ref=e114]: 🔄
+                - generic [ref=e115]: 放卷
+              - button "⚡ 前处理" [ref=e116] [cursor=pointer]:
+                - generic [ref=e117]: ⚡
+                - generic [ref=e118]: 前处理
+              - button "🖌️ 涂布" [ref=e119] [cursor=pointer]:
+                - generic [ref=e120]: 🖌️
+                - generic [ref=e121]: 涂布
+              - button "🔥 干燥" [ref=e122] [cursor=pointer]:
+                - generic [ref=e123]: 🔥
+                - generic [ref=e124]: 干燥
+              - button "⚙️ 后处理" [ref=e125] [cursor=pointer]:
+                - generic [ref=e126]: ⚙️
+                - generic [ref=e127]: 后处理
+              - button "🎁 收卷" [ref=e128] [cursor=pointer]:
+                - generic [ref=e129]: 🎁
+                - generic [ref=e130]: 收卷
+          - generic [ref=e131]:
+            - generic [ref=e132]:
+              - generic [ref=e133]: 总产量
+              - generic [ref=e134]: 0.1 m
+            - button "🔓 自由视角" [ref=e135] [cursor=pointer]
+            - generic [ref=e136]:
+              - generic [ref=e137]: 0.83 m/s
+              - generic [ref=e138]: 线速度
+        - generic [ref=e139]:
+          - generic:
+            - paragraph: "🖱️ 左键: 旋转视角"
+            - paragraph: "🖱️ 右键: 平移"
+            - paragraph: "🖱️ 滚轮: 缩放"
+            - paragraph: "👆 点击单元: 聚焦"
+        - generic [ref=e144]:
+          - generic [ref=e145]:
+            - heading "🎛️ 参数控制台" [level=2] [ref=e146]:
+              - generic [ref=e147]: 🎛️
+              - generic [ref=e148]: 参数控制台
+            - generic [ref=e150]: 全景概览
+          - generic [ref=e151]:
+            - generic [ref=e152]:
+              - heading "放卷与速度" [level=3] [ref=e153]
+              - generic [ref=e154]:
+                - generic [ref=e155]:
+                  - generic [ref=e156]:
+                    - generic [ref=e157]: 生产线速度
+                    - generic [ref=e158]: 50 m/min
+                  - slider [ref=e159] [cursor=pointer]: "50"
+                  - paragraph [ref=e160]: 影响干燥时间和流平效果
+                - generic [ref=e161]:
+                  - generic [ref=e162]:
+                    - generic [ref=e163]: 放卷张力
+                    - generic [ref=e164]: 30 N
+                  - slider [ref=e165] [cursor=pointer]: "30"
+                  - paragraph [ref=e166]: 过低导致松卷，过高导致变形
+            - generic [ref=e167]:
+              - heading "前处理" [level=3] [ref=e168]
+              - generic [ref=e169]:
+                - generic [ref=e170]:
+                  - generic [ref=e171]:
+                    - generic [ref=e172]: 电晕功率
+                    - generic [ref=e173]: 2.5 kW
+                  - slider [ref=e174] [cursor=pointer]: "2.5"
+                  - paragraph [ref=e175]: 提高表面附着力，减少缩孔
+                - generic [ref=e177]:
+                  - generic [ref=e178]:
+                    - generic [ref=e179]: 纠偏灵敏度
+                    - generic [ref=e180]: 80 %
+                  - slider [ref=e181] [cursor=pointer]: "80"
+                  - paragraph [ref=e182]: EPC 系统参数 (模拟固定)
+            - generic [ref=e183]:
+              - heading "涂布与配方" [level=3] [ref=e184]
+              - generic [ref=e185]:
+                - generic [ref=e186]:
+                  - generic [ref=e187]: 涂布方式
+                  - generic [ref=e188]:
+                    - button "狭缝涂布" [ref=e189] [cursor=pointer]
+                    - button "微凹涂布" [ref=e190] [cursor=pointer]
+                    - button "线棒涂布" [ref=e191] [cursor=pointer]
+                    - button "逗号刮刀" [ref=e192] [cursor=pointer]
+                - generic [ref=e193]:
+                  - generic [ref=e194]:
+                    - generic [ref=e195]:
+                      - generic [ref=e196]: 网纹辊目数
+                      - generic [ref=e197]: 50 Mesh
+                    - slider [ref=e198] [cursor=pointer]: "50"
+                  - generic [ref=e199]:
+                    - generic [ref=e200]:
+                      - generic [ref=e201]: 涂布速比
+                      - generic [ref=e202]: "1.5 : 1"
+                    - slider [ref=e203] [cursor=pointer]: "1.5"
+                    - paragraph [ref=e204]: 辊速/线速比 (主要影响微凹涂布膜厚)
+              - generic [ref=e205]:
+                - generic [ref=e206]:
+                  - generic [ref=e207]:
+                    - generic [ref=e208]: 粘度
+                    - generic [ref=e209]: 500 cps
+                  - slider [ref=e210] [cursor=pointer]: "500"
+                - generic [ref=e211]:
+                  - generic [ref=e212]:
+                    - generic [ref=e213]: 固含量
+                    - generic [ref=e214]: 30 %
+                  - slider [ref=e215] [cursor=pointer]: "30"
+                - generic [ref=e216]:
+                  - generic [ref=e217]:
+                    - generic [ref=e218]: 流平剂
+                    - generic [ref=e219]: 50 %
+                  - slider [ref=e220] [cursor=pointer]: "50"
+                - generic [ref=e221]:
+                  - generic [ref=e222]:
+                    - generic [ref=e223]: 消泡剂
+                    - generic [ref=e224]: 50 %
+                  - slider [ref=e225] [cursor=pointer]: "50"
+              - generic [ref=e226]:
+                - text: 溶剂类型
+                - combobox [ref=e227]:
+                  - option "快干溶剂 (如丙酮/乙酸乙酯)"
+                  - option "慢干溶剂 (如DBE/环己酮)"
+                  - option "平衡混合溶剂" [selected]
+            - generic [ref=e228]:
+              - heading "干燥烘箱" [level=3] [ref=e229]
+              - generic [ref=e230]:
+                - generic [ref=e231]:
+                  - generic [ref=e232]: 烘箱温度
+                  - generic [ref=e233]: 100 °C
+                - slider [ref=e234] [cursor=pointer]: "100"
+                - paragraph [ref=e235]: 温度过高可能导致溶剂沸腾产生橘皮
+              - generic [ref=e236]: "🔥 干燥效率: 83%"
+            - generic [ref=e237]:
+              - heading "后处理与主张力" [level=3] [ref=e238]
+              - generic [ref=e239]:
+                - generic [ref=e240]:
+                  - generic [ref=e241]: 系统主张力
+                  - generic [ref=e242]: 30 N
+                - slider [ref=e243] [cursor=pointer]: "30"
+                - paragraph [ref=e244]: 控制全线基材平整度
+              - generic [ref=e245]:
+                - generic [ref=e246]:
+                  - generic [ref=e247]: 复合压力
+                  - generic [ref=e248]: 3 bar
+                - slider [ref=e249] [cursor=pointer]: "3"
+            - generic [ref=e250]:
+              - heading "收卷单元" [level=3] [ref=e251]
+              - generic [ref=e252]:
+                - generic [ref=e253]:
+                  - generic [ref=e254]: 收卷张力
+                  - generic [ref=e255]: 40 N
+                - slider [ref=e256] [cursor=pointer]: "40"
+                - paragraph [ref=e257]: 锥度张力控制，防止菜心
+        - generic [ref=e258]:
+          - heading "模拟分析报告" [level=3] [ref=e259]
+          - generic [ref=e260]:
+            - generic [ref=e261]:
+              - generic [ref=e262]: 生产米数
+              - generic [ref=e263]: 0 m
+            - generic [ref=e264]:
+              - generic [ref=e265]: 预估膜厚
+              - generic [ref=e266]: 9 μm
+            - generic [ref=e267]:
+              - generic [ref=e268]: 综合评分
+              - generic [ref=e269]: 78 分
+          - generic [ref=e270]:
+            - heading "质量分布图 (实时QC)" [level=4] [ref=e271]
+            - generic [ref=e272]:
+              - generic [ref=e274]: REAL-TIME QC SCAN
+              - generic [ref=e275]: "FAIL: BUBBLES"
+            - generic [ref=e277]:
+              - generic [ref=e278]: "气泡: 100%"
+              - generic [ref=e279]: "条纹: 0%"
+      - paragraph [ref=e283]: 提示：使用鼠标旋转、缩放和平移 3D 视图。点击顶部的任何工序步骤可直接跳转到该工位。
+    - generic [ref=e285]:
+      - generic [ref=e287]:
+        - heading "完整烫金箔颜色目录" [level=2] [ref=e288]
+        - paragraph [ref=e289]: PINTE品特提供全系列烫金箔颜色，包括金属色、哑光、颜料色、镭射全息等多种类型，可按系列和光泽筛选，帮您找到完美匹配的烫金箔。
+      - generic [ref=e290]:
+        - generic [ref=e291]:
+          - img [ref=e292]
+          - textbox "按烫金箔名称、编号或类型搜索..." [ref=e295]
+        - generic [ref=e296]:
+          - combobox [ref=e297]:
+            - option "所有类型" [selected]
+            - option "Metallic"
+            - option "Matte"
+            - option "Pigment"
+          - combobox [ref=e298]:
+            - option "所有系列" [selected]
+            - option "PK 系列"
+            - option "PC 系列"
+            - option "PL 系列"
+            - option "PY 系列"
+        - generic [ref=e299]: 显示 167 / 共 167 种烫金箔
+      - generic [ref=e300]:
+        - generic [ref=e301]:
+          - img "PK-001 preview" [ref=e303]
+          - generic [ref=e305]:
+            - generic [ref=e307]:
+              - heading "PK-001" [level=3] [ref=e308]
+              - paragraph [ref=e309]: PK-001
+            - generic [ref=e310]:
+              - generic [ref=e311]: Metallic
+              - generic [ref=e312]: PK 系列
+              - generic [ref=e313]: Gloss
+        - generic [ref=e314]:
+          - img "PK-001M preview" [ref=e316]
+          - generic [ref=e318]:
+            - generic [ref=e320]:
+              - heading "PK-001M" [level=3] [ref=e321]
+              - paragraph [ref=e322]: PK-001M
+            - generic [ref=e323]:
+              - generic [ref=e324]: Metallic
+              - generic [ref=e325]: PK 系列
+              - generic [ref=e326]: Matte
+        - generic [ref=e327]:
+          - img "PK-002M preview" [ref=e329]
+          - generic [ref=e331]:
+            - generic [ref=e333]:
+              - heading "PK-002M" [level=3] [ref=e334]
+              - paragraph [ref=e335]: PK-002M
+            - generic [ref=e336]:
+              - generic [ref=e337]: Matte
+              - generic [ref=e338]: PK 系列
+              - generic [ref=e339]: Matte
+        - generic [ref=e340]:
+          - img "PK-003M preview" [ref=e342]
+          - generic [ref=e344]:
+            - generic [ref=e346]:
+              - heading "PK-003M" [level=3] [ref=e347]
+              - paragraph [ref=e348]: PK-003M
+            - generic [ref=e349]:
+              - generic [ref=e350]: Matte
+              - generic [ref=e351]: PK 系列
+              - generic [ref=e352]: Matte
+        - generic [ref=e353]:
+          - img "PK-101 preview" [ref=e355]
+          - generic [ref=e357]:
+            - generic [ref=e359]:
+              - heading "PK-101" [level=3] [ref=e360]
+              - paragraph [ref=e361]: PK-101
+            - generic [ref=e362]:
+              - generic [ref=e363]: Metallic
+              - generic [ref=e364]: PK 系列
+              - generic [ref=e365]: Gloss
+        - generic [ref=e366]:
+          - img "PK-110 preview" [ref=e368]
+          - generic [ref=e370]:
+            - generic [ref=e372]:
+              - heading "PK-110" [level=3] [ref=e373]
+              - paragraph [ref=e374]: PK-110
+            - generic [ref=e375]:
+              - generic [ref=e376]: Metallic
+              - generic [ref=e377]: PK 系列
+              - generic [ref=e378]: Gloss
+        - generic [ref=e379]:
+          - img "PK-111 preview" [ref=e381]
+          - generic [ref=e383]:
+            - generic [ref=e385]:
+              - heading "PK-111" [level=3] [ref=e386]
+              - paragraph [ref=e387]: PK-111
+            - generic [ref=e388]:
+              - generic [ref=e389]: Metallic
+              - generic [ref=e390]: PK 系列
+              - generic [ref=e391]: Gloss
+        - generic [ref=e392]:
+          - img "PK-112 preview" [ref=e394]
+          - generic [ref=e396]:
+            - generic [ref=e398]:
+              - heading "PK-112" [level=3] [ref=e399]
+              - paragraph [ref=e400]: PK-112
+            - generic [ref=e401]:
+              - generic [ref=e402]: Metallic
+              - generic [ref=e403]: PK 系列
+              - generic [ref=e404]: Gloss
+        - generic [ref=e405]:
+          - img "PK-101M preview" [ref=e407]
+          - generic [ref=e409]:
+            - generic [ref=e411]:
+              - heading "PK-101M" [level=3] [ref=e412]
+              - paragraph [ref=e413]: PK-101M
+            - generic [ref=e414]:
+              - generic [ref=e415]: Metallic
+              - generic [ref=e416]: PK 系列
+              - generic [ref=e417]: Matte
+        - generic [ref=e418]:
+          - img "PK-110M preview" [ref=e420]
+          - generic [ref=e422]:
+            - generic [ref=e424]:
+              - heading "PK-110M" [level=3] [ref=e425]
+              - paragraph [ref=e426]: PK-110M
+            - generic [ref=e427]:
+              - generic [ref=e428]: Metallic
+              - generic [ref=e429]: PK 系列
+              - generic [ref=e430]: Gloss
+        - generic [ref=e431]:
+          - img "PK-201 preview" [ref=e433]
+          - generic [ref=e435]:
+            - generic [ref=e437]:
+              - heading "PK-201" [level=3] [ref=e438]
+              - paragraph [ref=e439]: PK-201
+            - generic [ref=e440]:
+              - generic [ref=e441]: Metallic
+              - generic [ref=e442]: PK 系列
+              - generic [ref=e443]: Gloss
+        - generic [ref=e444]:
+          - img "PK-202 preview" [ref=e446]
+          - generic [ref=e448]:
+            - generic [ref=e450]:
+              - heading "PK-202" [level=3] [ref=e451]
+              - paragraph [ref=e452]: PK-202
+            - generic [ref=e453]:
+              - generic [ref=e454]: Metallic
+              - generic [ref=e455]: PK 系列
+              - generic [ref=e456]: Gloss
+        - generic [ref=e457]:
+          - img "PK-203 preview" [ref=e459]
+          - generic [ref=e461]:
+            - generic [ref=e463]:
+              - heading "PK-203" [level=3] [ref=e464]
+              - paragraph [ref=e465]: PK-203
+            - generic [ref=e466]:
+              - generic [ref=e467]: Metallic
+              - generic [ref=e468]: PK 系列
+              - generic [ref=e469]: Gloss
+        - generic [ref=e470]:
+          - img "PK-204 preview" [ref=e472]
+          - generic [ref=e474]:
+            - generic [ref=e476]:
+              - heading "PK-204" [level=3] [ref=e477]
+              - paragraph [ref=e478]: PK-204
+            - generic [ref=e479]:
+              - generic [ref=e480]: Metallic
+              - generic [ref=e481]: PK 系列
+              - generic [ref=e482]: Gloss
+        - generic [ref=e483]:
+          - img "PK-205 preview" [ref=e485]
+          - generic [ref=e487]:
+            - generic [ref=e489]:
+              - heading "PK-205" [level=3] [ref=e490]
+              - paragraph [ref=e491]: PK-205
+            - generic [ref=e492]:
+              - generic [ref=e493]: Metallic
+              - generic [ref=e494]: PK 系列
+              - generic [ref=e495]: Gloss
+        - generic [ref=e496]:
+          - img "PK-206 preview" [ref=e498]
+          - generic [ref=e500]:
+            - generic [ref=e502]:
+              - heading "PK-206" [level=3] [ref=e503]
+              - paragraph [ref=e504]: PK-206
+            - generic [ref=e505]:
+              - generic [ref=e506]: Metallic
+              - generic [ref=e507]: PK 系列
+              - generic [ref=e508]: Gloss
+        - generic [ref=e509]:
+          - img "PK-207 preview" [ref=e511]
+          - generic [ref=e513]:
+            - generic [ref=e515]:
+              - heading "PK-207" [level=3] [ref=e516]
+              - paragraph [ref=e517]: PK-207
+            - generic [ref=e518]:
+              - generic [ref=e519]: Metallic
+              - generic [ref=e520]: PK 系列
+              - generic [ref=e521]: Gloss
+        - generic [ref=e522]:
+          - img "PK-208 preview" [ref=e524]
+          - generic [ref=e526]:
+            - generic [ref=e528]:
+              - heading "PK-208" [level=3] [ref=e529]
+              - paragraph [ref=e530]: PK-208
+            - generic [ref=e531]:
+              - generic [ref=e532]: Metallic
+              - generic [ref=e533]: PK 系列
+              - generic [ref=e534]: Gloss
+        - generic [ref=e535]:
+          - img "PK-209 preview" [ref=e537]
+          - generic [ref=e539]:
+            - generic [ref=e541]:
+              - heading "PK-209" [level=3] [ref=e542]
+              - paragraph [ref=e543]: PK-209
+            - generic [ref=e544]:
+              - generic [ref=e545]: Metallic
+              - generic [ref=e546]: PK 系列
+              - generic [ref=e547]: Gloss
+        - generic [ref=e548]:
+          - img "PK-210 preview" [ref=e550]
+          - generic [ref=e552]:
+            - generic [ref=e554]:
+              - heading "PK-210" [level=3] [ref=e555]
+              - paragraph [ref=e556]: PK-210
+            - generic [ref=e557]:
+              - generic [ref=e558]: Metallic
+              - generic [ref=e559]: PK 系列
+              - generic [ref=e560]: Gloss
+        - generic [ref=e561]:
+          - img "PK-211 preview" [ref=e563]
+          - generic [ref=e565]:
+            - generic [ref=e567]:
+              - heading "PK-211" [level=3] [ref=e568]
+              - paragraph [ref=e569]: PK-211
+            - generic [ref=e570]:
+              - generic [ref=e571]: Metallic
+              - generic [ref=e572]: PK 系列
+              - generic [ref=e573]: Gloss
+        - generic [ref=e574]:
+          - img "PK-201M preview" [ref=e576]
+          - generic [ref=e578]:
+            - generic [ref=e580]:
+              - heading "PK-201M" [level=3] [ref=e581]
+              - paragraph [ref=e582]: PK-201M
+            - generic [ref=e583]:
+              - generic [ref=e584]: Metallic
+              - generic [ref=e585]: PK 系列
+              - generic [ref=e586]: Matte
+        - generic [ref=e587]:
+          - img "PK-202M preview" [ref=e589]
+          - generic [ref=e591]:
+            - generic [ref=e593]:
+              - heading "PK-202M" [level=3] [ref=e594]
+              - paragraph [ref=e595]: PK-202M
+            - generic [ref=e596]:
+              - generic [ref=e597]: Metallic
+              - generic [ref=e598]: PK 系列
+              - generic [ref=e599]: Matte
+        - generic [ref=e600]:
+          - img "PK-203M preview" [ref=e602]
+          - generic [ref=e604]:
+            - generic [ref=e606]:
+              - heading "PK-203M" [level=3] [ref=e607]
+              - paragraph [ref=e608]: PK-203M
+            - generic [ref=e609]:
+              - generic [ref=e610]: Metallic
+              - generic [ref=e611]: PK 系列
+              - generic [ref=e612]: Matte
+        - generic [ref=e613]:
+          - img "PK-204M preview" [ref=e615]
+          - generic [ref=e617]:
+            - generic [ref=e619]:
+              - heading "PK-204M" [level=3] [ref=e620]
+              - paragraph [ref=e621]: PK-204M
+            - generic [ref=e622]:
+              - generic [ref=e623]: Metallic
+              - generic [ref=e624]: PK 系列
+              - generic [ref=e625]: Matte
+        - generic [ref=e626]:
+          - img "PK-205M preview" [ref=e628]
+          - generic [ref=e630]:
+            - generic [ref=e632]:
+              - heading "PK-205M" [level=3] [ref=e633]
+              - paragraph [ref=e634]: PK-205M
+            - generic [ref=e635]:
+              - generic [ref=e636]: Metallic
+              - generic [ref=e637]: PK 系列
+              - generic [ref=e638]: Matte
+        - generic [ref=e639]:
+          - img "PK-206M preview" [ref=e641]
+          - generic [ref=e643]:
+            - generic [ref=e645]:
+              - heading "PK-206M" [level=3] [ref=e646]
+              - paragraph [ref=e647]: PK-206M
+            - generic [ref=e648]:
+              - generic [ref=e649]: Metallic
+              - generic [ref=e650]: PK 系列
+              - generic [ref=e651]: Matte
+        - generic [ref=e652]:
+          - img "PK-207M preview" [ref=e654]
+          - generic [ref=e656]:
+            - generic [ref=e658]:
+              - heading "PK-207M" [level=3] [ref=e659]
+              - paragraph [ref=e660]: PK-207M
+            - generic [ref=e661]:
+              - generic [ref=e662]: Metallic
+              - generic [ref=e663]: PK 系列
+              - generic [ref=e664]: Matte
+        - generic [ref=e665]:
+          - img "PK-208M preview" [ref=e667]
+          - generic [ref=e669]:
+            - generic [ref=e671]:
+              - heading "PK-208M" [level=3] [ref=e672]
+              - paragraph [ref=e673]: PK-208M
+            - generic [ref=e674]:
+              - generic [ref=e675]: Metallic
+              - generic [ref=e676]: PK 系列
+              - generic [ref=e677]: Matte
+        - generic [ref=e678]:
+          - img "PK-209M preview" [ref=e680]
+          - generic [ref=e682]:
+            - generic [ref=e684]:
+              - heading "PK-209M" [level=3] [ref=e685]
+              - paragraph [ref=e686]: PK-209M
+            - generic [ref=e687]:
+              - generic [ref=e688]: Metallic
+              - generic [ref=e689]: PK 系列
+              - generic [ref=e690]: Matte
+        - generic [ref=e691]:
+          - img "PK-210M preview" [ref=e693]
+          - generic [ref=e695]:
+            - generic [ref=e697]:
+              - heading "PK-210M" [level=3] [ref=e698]
+              - paragraph [ref=e699]: PK-210M
+            - generic [ref=e700]:
+              - generic [ref=e701]: Metallic
+              - generic [ref=e702]: PK 系列
+              - generic [ref=e703]: Matte
+        - generic [ref=e704]:
+          - img "PK-211M preview" [ref=e706]
+          - generic [ref=e708]:
+            - generic [ref=e710]:
+              - heading "PK-211M" [level=3] [ref=e711]
+              - paragraph [ref=e712]: PK-211M
+            - generic [ref=e713]:
+              - generic [ref=e714]: Metallic
+              - generic [ref=e715]: PK 系列
+              - generic [ref=e716]: Matte
+        - generic [ref=e717]:
+          - img "PK-212M preview" [ref=e719]
+          - generic [ref=e721]:
+            - generic [ref=e723]:
+              - heading "PK-212M" [level=3] [ref=e724]
+              - paragraph [ref=e725]: PK-212M
+            - generic [ref=e726]:
+              - generic [ref=e727]: Metallic
+              - generic [ref=e728]: PK 系列
+              - generic [ref=e729]: Matte
+        - generic [ref=e730]:
+          - img "PK-213M preview" [ref=e732]
+          - generic [ref=e734]:
+            - generic [ref=e736]:
+              - heading "PK-213M" [level=3] [ref=e737]
+              - paragraph [ref=e738]: PK-213M
+            - generic [ref=e739]:
+              - generic [ref=e740]: Metallic
+              - generic [ref=e741]: PK 系列
+              - generic [ref=e742]: Matte
+        - generic [ref=e743]:
+          - img "PK-214M preview" [ref=e745]
+          - generic [ref=e747]:
+            - generic [ref=e749]:
+              - heading "PK-214M" [level=3] [ref=e750]
+              - paragraph [ref=e751]: PK-214M
+            - generic [ref=e752]:
+              - generic [ref=e753]: Metallic
+              - generic [ref=e754]: PK 系列
+              - generic [ref=e755]: Matte
+        - generic [ref=e756]:
+          - img "PK-215M preview" [ref=e758]
+          - generic [ref=e760]:
+            - generic [ref=e762]:
+              - heading "PK-215M" [level=3] [ref=e763]
+              - paragraph [ref=e764]: PK-215M
+            - generic [ref=e765]:
+              - generic [ref=e766]: Metallic
+              - generic [ref=e767]: PK 系列
+              - generic [ref=e768]: Matte
+        - generic [ref=e769]:
+          - img "PK-216M preview" [ref=e771]
+          - generic [ref=e773]:
+            - generic [ref=e775]:
+              - heading "PK-216M" [level=3] [ref=e776]
+              - paragraph [ref=e777]: PK-216M
+            - generic [ref=e778]:
+              - generic [ref=e779]: Metallic
+              - generic [ref=e780]: PK 系列
+              - generic [ref=e781]: Matte
+        - generic [ref=e782]:
+          - img "PK-217M preview" [ref=e784]
+          - generic [ref=e786]:
+            - generic [ref=e788]:
+              - heading "PK-217M" [level=3] [ref=e789]
+              - paragraph [ref=e790]: PK-217M
+            - generic [ref=e791]:
+              - generic [ref=e792]: Metallic
+              - generic [ref=e793]: PK 系列
+              - generic [ref=e794]: Matte
+        - generic [ref=e795]:
+          - img "PK-218M preview" [ref=e797]
+          - generic [ref=e799]:
+            - generic [ref=e801]:
+              - heading "PK-218M" [level=3] [ref=e802]
+              - paragraph [ref=e803]: PK-218M
+            - generic [ref=e804]:
+              - generic [ref=e805]: Metallic
+              - generic [ref=e806]: PK 系列
+              - generic [ref=e807]: Matte
+        - generic [ref=e808]:
+          - img "PK-219M preview" [ref=e810]
+          - generic [ref=e812]:
+            - generic [ref=e814]:
+              - heading "PK-219M" [level=3] [ref=e815]
+              - paragraph [ref=e816]: PK-219M
+            - generic [ref=e817]:
+              - generic [ref=e818]: Metallic
+              - generic [ref=e819]: PK 系列
+              - generic [ref=e820]: Matte
+        - generic [ref=e821]:
+          - img "PK-220M preview" [ref=e823]
+          - generic [ref=e825]:
+            - generic [ref=e827]:
+              - heading "PK-220M" [level=3] [ref=e828]
+              - paragraph [ref=e829]: PK-220M
+            - generic [ref=e830]:
+              - generic [ref=e831]: Metallic
+              - generic [ref=e832]: PK 系列
+              - generic [ref=e833]: Matte
+        - generic [ref=e834]:
+          - img "PK-301 preview" [ref=e836]
+          - generic [ref=e838]:
+            - generic [ref=e840]:
+              - heading "PK-301" [level=3] [ref=e841]
+              - paragraph [ref=e842]: PK-301
+            - generic [ref=e843]:
+              - generic [ref=e844]: Metallic
+              - generic [ref=e845]: PK 系列
+              - generic [ref=e846]: Gloss
+        - generic [ref=e847]:
+          - img "PK-302 preview" [ref=e849]
+          - generic [ref=e851]:
+            - generic [ref=e853]:
+              - heading "PK-302" [level=3] [ref=e854]
+              - paragraph [ref=e855]: PK-302
+            - generic [ref=e856]:
+              - generic [ref=e857]: Metallic
+              - generic [ref=e858]: PK 系列
+              - generic [ref=e859]: Gloss
+        - generic [ref=e860]:
+          - img "PK-301M preview" [ref=e862]
+          - generic [ref=e864]:
+            - generic [ref=e866]:
+              - heading "PK-301M" [level=3] [ref=e867]
+              - paragraph [ref=e868]: PK-301M
+            - generic [ref=e869]:
+              - generic [ref=e870]: Metallic
+              - generic [ref=e871]: PK 系列
+              - generic [ref=e872]: Gloss
+        - generic [ref=e873]:
+          - img "PK-302M preview" [ref=e875]
+          - generic [ref=e877]:
+            - generic [ref=e879]:
+              - heading "PK-302M" [level=3] [ref=e880]
+              - paragraph [ref=e881]: PK-302M
+            - generic [ref=e882]:
+              - generic [ref=e883]: Metallic
+              - generic [ref=e884]: PK 系列
+              - generic [ref=e885]: Gloss
+        - generic [ref=e886]:
+          - img "PK-401 preview" [ref=e888]
+          - generic [ref=e890]:
+            - generic [ref=e892]:
+              - heading "PK-401" [level=3] [ref=e893]
+              - paragraph [ref=e894]: PK-401
+            - generic [ref=e895]:
+              - generic [ref=e896]: Metallic
+              - generic [ref=e897]: PK 系列
+              - generic [ref=e898]: Gloss
+        - generic [ref=e899]:
+          - img "PK-501 preview" [ref=e901]
+          - generic [ref=e903]:
+            - generic [ref=e905]:
+              - heading "PK-501" [level=3] [ref=e906]
+              - paragraph [ref=e907]: PK-501
+            - generic [ref=e908]:
+              - generic [ref=e909]: Metallic
+              - generic [ref=e910]: PK 系列
+              - generic [ref=e911]: Gloss
+        - generic [ref=e912]:
+          - img "PK-502 preview" [ref=e914]
+          - generic [ref=e916]:
+            - generic [ref=e918]:
+              - heading "PK-502" [level=3] [ref=e919]
+              - paragraph [ref=e920]: PK-502
+            - generic [ref=e921]:
+              - generic [ref=e922]: Metallic
+              - generic [ref=e923]: PK 系列
+              - generic [ref=e924]: Gloss
+        - generic [ref=e925]:
+          - img "PK-503 preview" [ref=e927]
+          - generic [ref=e929]:
+            - generic [ref=e931]:
+              - heading "PK-503" [level=3] [ref=e932]
+              - paragraph [ref=e933]: PK-503
+            - generic [ref=e934]:
+              - generic [ref=e935]: Metallic
+              - generic [ref=e936]: PK 系列
+              - generic [ref=e937]: Gloss
+        - generic [ref=e938]:
+          - img "PK-504 preview" [ref=e940]
+          - generic [ref=e942]:
+            - generic [ref=e944]:
+              - heading "PK-504" [level=3] [ref=e945]
+              - paragraph [ref=e946]: PK-504
+            - generic [ref=e947]:
+              - generic [ref=e948]: Metallic
+              - generic [ref=e949]: PK 系列
+              - generic [ref=e950]: Gloss
+        - generic [ref=e951]:
+          - img "PK-505 preview" [ref=e953]
+          - generic [ref=e955]:
+            - generic [ref=e957]:
+              - heading "PK-505" [level=3] [ref=e958]
+              - paragraph [ref=e959]: PK-505
+            - generic [ref=e960]:
+              - generic [ref=e961]: Metallic
+              - generic [ref=e962]: PK 系列
+              - generic [ref=e963]: Gloss
+        - generic [ref=e964]:
+          - img "PK-506 preview" [ref=e966]
+          - generic [ref=e968]:
+            - generic [ref=e970]:
+              - heading "PK-506" [level=3] [ref=e971]
+              - paragraph [ref=e972]: PK-506
+            - generic [ref=e973]:
+              - generic [ref=e974]: Metallic
+              - generic [ref=e975]: PK 系列
+              - generic [ref=e976]: Gloss
+        - generic [ref=e977]:
+          - img "PK-507 preview" [ref=e979]
+          - generic [ref=e981]:
+            - generic [ref=e983]:
+              - heading "PK-507" [level=3] [ref=e984]
+              - paragraph [ref=e985]: PK-507
+            - generic [ref=e986]:
+              - generic [ref=e987]: Metallic
+              - generic [ref=e988]: PK 系列
+              - generic [ref=e989]: Gloss
+        - generic [ref=e990]:
+          - img "PK-508 preview" [ref=e992]
+          - generic [ref=e994]:
+            - generic [ref=e996]:
+              - heading "PK-508" [level=3] [ref=e997]
+              - paragraph [ref=e998]: PK-508
+            - generic [ref=e999]:
+              - generic [ref=e1000]: Metallic
+              - generic [ref=e1001]: PK 系列
+              - generic [ref=e1002]: Gloss
+        - generic [ref=e1003]:
+          - img "PK-501M preview" [ref=e1005]
+          - generic [ref=e1007]:
+            - generic [ref=e1009]:
+              - heading "PK-501M" [level=3] [ref=e1010]
+              - paragraph [ref=e1011]: PK-501M
+            - generic [ref=e1012]:
+              - generic [ref=e1013]: Metallic
+              - generic [ref=e1014]: PK 系列
+              - generic [ref=e1015]: Gloss
+        - generic [ref=e1016]:
+          - img "PK-502M preview" [ref=e1018]
+          - generic [ref=e1020]:
+            - generic [ref=e1022]:
+              - heading "PK-502M" [level=3] [ref=e1023]
+              - paragraph [ref=e1024]: PK-502M
+            - generic [ref=e1025]:
+              - generic [ref=e1026]: Metallic
+              - generic [ref=e1027]: PK 系列
+              - generic [ref=e1028]: Gloss
+        - generic [ref=e1029]:
+          - img "PK-601 preview" [ref=e1031]
+          - generic [ref=e1033]:
+            - generic [ref=e1035]:
+              - heading "PK-601" [level=3] [ref=e1036]
+              - paragraph [ref=e1037]: PK-601
+            - generic [ref=e1038]:
+              - generic [ref=e1039]: Metallic
+              - generic [ref=e1040]: PK 系列
+              - generic [ref=e1041]: Gloss
+        - generic [ref=e1042]:
+          - img "PK-602 preview" [ref=e1044]
+          - generic [ref=e1046]:
+            - generic [ref=e1048]:
+              - heading "PK-602" [level=3] [ref=e1049]
+              - paragraph [ref=e1050]: PK-602
+            - generic [ref=e1051]:
+              - generic [ref=e1052]: Metallic
+              - generic [ref=e1053]: PK 系列
+              - generic [ref=e1054]: Gloss
+        - generic [ref=e1055]:
+          - img "PK-701 preview" [ref=e1057]
+          - generic [ref=e1059]:
+            - generic [ref=e1061]:
+              - heading "PK-701" [level=3] [ref=e1062]
+              - paragraph [ref=e1063]: PK-701
+            - generic [ref=e1064]:
+              - generic [ref=e1065]: Metallic
+              - generic [ref=e1066]: PK 系列
+              - generic [ref=e1067]: Gloss
+        - generic [ref=e1068]:
+          - img "PK-702 preview" [ref=e1070]
+          - generic [ref=e1072]:
+            - generic [ref=e1074]:
+              - heading "PK-702" [level=3] [ref=e1075]
+              - paragraph [ref=e1076]: PK-702
+            - generic [ref=e1077]:
+              - generic [ref=e1078]: Metallic
+              - generic [ref=e1079]: PK 系列
+              - generic [ref=e1080]: Gloss
+        - generic [ref=e1081]:
+          - img "PK-703 preview" [ref=e1083]
+          - generic [ref=e1085]:
+            - generic [ref=e1087]:
+              - heading "PK-703" [level=3] [ref=e1088]
+              - paragraph [ref=e1089]: PK-703
+            - generic [ref=e1090]:
+              - generic [ref=e1091]: Metallic
+              - generic [ref=e1092]: PK 系列
+              - generic [ref=e1093]: Gloss
+        - generic [ref=e1094]:
+          - img "PK-801 preview" [ref=e1096]
+          - generic [ref=e1098]:
+            - generic [ref=e1100]:
+              - heading "PK-801" [level=3] [ref=e1101]
+              - paragraph [ref=e1102]: PK-801
+            - generic [ref=e1103]:
+              - generic [ref=e1104]: Metallic
+              - generic [ref=e1105]: PK 系列
+              - generic [ref=e1106]: Gloss
+        - generic [ref=e1107]:
+          - img "PK-802 preview" [ref=e1109]
+          - generic [ref=e1111]:
+            - generic [ref=e1113]:
+              - heading "PK-802" [level=3] [ref=e1114]
+              - paragraph [ref=e1115]: PK-802
+            - generic [ref=e1116]:
+              - generic [ref=e1117]: Metallic
+              - generic [ref=e1118]: PK 系列
+              - generic [ref=e1119]: Gloss
+        - generic [ref=e1120]:
+          - img "PK-901 preview" [ref=e1122]
+          - generic [ref=e1124]:
+            - generic [ref=e1126]:
+              - heading "PK-901" [level=3] [ref=e1127]
+              - paragraph [ref=e1128]: PK-901
+            - generic [ref=e1129]:
+              - generic [ref=e1130]: Metallic
+              - generic [ref=e1131]: PK 系列
+              - generic [ref=e1132]: Gloss
+        - generic [ref=e1133]:
+          - img "PC-001 preview" [ref=e1135]
+          - generic [ref=e1137]:
+            - generic [ref=e1139]:
+              - heading "PC-001" [level=3] [ref=e1140]
+              - paragraph [ref=e1141]: PC-001
+            - generic [ref=e1142]:
+              - generic [ref=e1143]: Metallic
+              - generic [ref=e1144]: PC 系列
+              - generic [ref=e1145]: Gloss
+        - generic [ref=e1146]:
+          - img "PC-001M preview" [ref=e1148]
+          - generic [ref=e1150]:
+            - generic [ref=e1152]:
+              - heading "PC-001M" [level=3] [ref=e1153]
+              - paragraph [ref=e1154]: PC-001M
+            - generic [ref=e1155]:
+              - generic [ref=e1156]: Matte
+              - generic [ref=e1157]: PC 系列
+              - generic [ref=e1158]: Gloss
+        - generic [ref=e1159]:
+          - img "PC-002M preview" [ref=e1161]
+          - generic [ref=e1163]:
+            - generic [ref=e1165]:
+              - heading "PC-002M" [level=3] [ref=e1166]
+              - paragraph [ref=e1167]: PC-002M
+            - generic [ref=e1168]:
+              - generic [ref=e1169]: Metallic
+              - generic [ref=e1170]: PC 系列
+              - generic [ref=e1171]: Gloss
+        - generic [ref=e1172]:
+          - img "PC-101 preview" [ref=e1174]
+          - generic [ref=e1176]:
+            - generic [ref=e1178]:
+              - heading "PC-101" [level=3] [ref=e1179]
+              - paragraph [ref=e1180]: PC-101
+            - generic [ref=e1181]:
+              - generic [ref=e1182]: Metallic
+              - generic [ref=e1183]: PC 系列
+              - generic [ref=e1184]: Gloss
+        - generic [ref=e1185]:
+          - img "PC-111 preview" [ref=e1187]
+          - generic [ref=e1189]:
+            - generic [ref=e1191]:
+              - heading "PC-111" [level=3] [ref=e1192]
+              - paragraph [ref=e1193]: PC-111
+            - generic [ref=e1194]:
+              - generic [ref=e1195]: Metallic
+              - generic [ref=e1196]: PC 系列
+              - generic [ref=e1197]: Gloss
+        - generic [ref=e1198]:
+          - img "PC-112 preview" [ref=e1200]
+          - generic [ref=e1202]:
+            - generic [ref=e1204]:
+              - heading "PC-112" [level=3] [ref=e1205]
+              - paragraph [ref=e1206]: PC-112
+            - generic [ref=e1207]:
+              - generic [ref=e1208]: Metallic
+              - generic [ref=e1209]: PC 系列
+              - generic [ref=e1210]: Gloss
+        - generic [ref=e1211]:
+          - img "PC-201 preview" [ref=e1213]
+          - generic [ref=e1215]:
+            - generic [ref=e1217]:
+              - heading "PC-201" [level=3] [ref=e1218]
+              - paragraph [ref=e1219]: PC-201
+            - generic [ref=e1220]:
+              - generic [ref=e1221]: Metallic
+              - generic [ref=e1222]: PC 系列
+              - generic [ref=e1223]: Gloss
+        - generic [ref=e1224]:
+          - img "PC-202 preview" [ref=e1226]
+          - generic [ref=e1228]:
+            - generic [ref=e1230]:
+              - heading "PC-202" [level=3] [ref=e1231]
+              - paragraph [ref=e1232]: PC-202
+            - generic [ref=e1233]:
+              - generic [ref=e1234]: Metallic
+              - generic [ref=e1235]: PC 系列
+              - generic [ref=e1236]: Gloss
+        - generic [ref=e1237]:
+          - img "PC-203 preview" [ref=e1239]
+          - generic [ref=e1241]:
+            - generic [ref=e1243]:
+              - heading "PC-203" [level=3] [ref=e1244]
+              - paragraph [ref=e1245]: PC-203
+            - generic [ref=e1246]:
+              - generic [ref=e1247]: Metallic
+              - generic [ref=e1248]: PC 系列
+              - generic [ref=e1249]: Gloss
+        - generic [ref=e1250]:
+          - img "PC-204 preview" [ref=e1252]
+          - generic [ref=e1254]:
+            - generic [ref=e1256]:
+              - heading "PC-204" [level=3] [ref=e1257]
+              - paragraph [ref=e1258]: PC-204
+            - generic [ref=e1259]:
+              - generic [ref=e1260]: Metallic
+              - generic [ref=e1261]: PC 系列
+              - generic [ref=e1262]: Gloss
+        - generic [ref=e1263]:
+          - img "PC-205 preview" [ref=e1265]
+          - generic [ref=e1267]:
+            - generic [ref=e1269]:
+              - heading "PC-205" [level=3] [ref=e1270]
+              - paragraph [ref=e1271]: PC-205
+            - generic [ref=e1272]:
+              - generic [ref=e1273]: Metallic
+              - generic [ref=e1274]: PC 系列
+              - generic [ref=e1275]: Gloss
+        - generic [ref=e1276]:
+          - img "PC-206 preview" [ref=e1278]
+          - generic [ref=e1280]:
+            - generic [ref=e1282]:
+              - heading "PC-206" [level=3] [ref=e1283]
+              - paragraph [ref=e1284]: PC-206
+            - generic [ref=e1285]:
+              - generic [ref=e1286]: Metallic
+              - generic [ref=e1287]: PC 系列
+              - generic [ref=e1288]: Gloss
+        - generic [ref=e1289]:
+          - img "PC-207 preview" [ref=e1291]
+          - generic [ref=e1293]:
+            - generic [ref=e1295]:
+              - heading "PC-207" [level=3] [ref=e1296]
+              - paragraph [ref=e1297]: PC-207
+            - generic [ref=e1298]:
+              - generic [ref=e1299]: Metallic
+              - generic [ref=e1300]: PC 系列
+              - generic [ref=e1301]: Gloss
+        - generic [ref=e1302]:
+          - img "PC-201M preview" [ref=e1304]
+          - generic [ref=e1306]:
+            - generic [ref=e1308]:
+              - heading "PC-201M" [level=3] [ref=e1309]
+              - paragraph [ref=e1310]: PC-201M
+            - generic [ref=e1311]:
+              - generic [ref=e1312]: Matte
+              - generic [ref=e1313]: PC 系列
+              - generic [ref=e1314]: Gloss
+        - generic [ref=e1315]:
+          - img "PC-202M preview" [ref=e1317]
+          - generic [ref=e1319]:
+            - generic [ref=e1321]:
+              - heading "PC-202M" [level=3] [ref=e1322]
+              - paragraph [ref=e1323]: PC-202M
+            - generic [ref=e1324]:
+              - generic [ref=e1325]: Matte
+              - generic [ref=e1326]: PC 系列
+              - generic [ref=e1327]: Gloss
+        - generic [ref=e1328]:
+          - img "PC-203M preview" [ref=e1330]
+          - generic [ref=e1332]:
+            - generic [ref=e1334]:
+              - heading "PC-203M" [level=3] [ref=e1335]
+              - paragraph [ref=e1336]: PC-203M
+            - generic [ref=e1337]:
+              - generic [ref=e1338]: Matte
+              - generic [ref=e1339]: PC 系列
+              - generic [ref=e1340]: Gloss
+        - generic [ref=e1341]:
+          - img "PC-204M preview" [ref=e1343]
+          - generic [ref=e1345]:
+            - generic [ref=e1347]:
+              - heading "PC-204M" [level=3] [ref=e1348]
+              - paragraph [ref=e1349]: PC-204M
+            - generic [ref=e1350]:
+              - generic [ref=e1351]: Matte
+              - generic [ref=e1352]: PC 系列
+              - generic [ref=e1353]: Gloss
+        - generic [ref=e1354]:
+          - img "PC-205M preview" [ref=e1356]
+          - generic [ref=e1358]:
+            - generic [ref=e1360]:
+              - heading "PC-205M" [level=3] [ref=e1361]
+              - paragraph [ref=e1362]: PC-205M
+            - generic [ref=e1363]:
+              - generic [ref=e1364]: Matte
+              - generic [ref=e1365]: PC 系列
+              - generic [ref=e1366]: Gloss
+        - generic [ref=e1367]:
+          - img "PC-206M preview" [ref=e1369]
+          - generic [ref=e1371]:
+            - generic [ref=e1373]:
+              - heading "PC-206M" [level=3] [ref=e1374]
+              - paragraph [ref=e1375]: PC-206M
+            - generic [ref=e1376]:
+              - generic [ref=e1377]: Matte
+              - generic [ref=e1378]: PC 系列
+              - generic [ref=e1379]: Gloss
+        - generic [ref=e1380]:
+          - img "PC-207M preview" [ref=e1382]
+          - generic [ref=e1384]:
+            - generic [ref=e1386]:
+              - heading "PC-207M" [level=3] [ref=e1387]
+              - paragraph [ref=e1388]: PC-207M
+            - generic [ref=e1389]:
+              - generic [ref=e1390]: Matte
+              - generic [ref=e1391]: PC 系列
+              - generic [ref=e1392]: Gloss
+        - generic [ref=e1393]:
+          - img "PC-208M preview" [ref=e1395]
+          - generic [ref=e1397]:
+            - generic [ref=e1399]:
+              - heading "PC-208M" [level=3] [ref=e1400]
+              - paragraph [ref=e1401]: PC-208M
+            - generic [ref=e1402]:
+              - generic [ref=e1403]: Matte
+              - generic [ref=e1404]: PC 系列
+              - generic [ref=e1405]: Gloss
+        - generic [ref=e1406]:
+          - img "PC-209M preview" [ref=e1408]
+          - generic [ref=e1410]:
+            - generic [ref=e1412]:
+              - heading "PC-209M" [level=3] [ref=e1413]
+              - paragraph [ref=e1414]: PC-209M
+            - generic [ref=e1415]:
+              - generic [ref=e1416]: Matte
+              - generic [ref=e1417]: PC 系列
+              - generic [ref=e1418]: Gloss
+        - generic [ref=e1419]:
+          - img "PC-210M preview" [ref=e1421]
+          - generic [ref=e1423]:
+            - generic [ref=e1425]:
+              - heading "PC-210M" [level=3] [ref=e1426]
+              - paragraph [ref=e1427]: PC-210M
+            - generic [ref=e1428]:
+              - generic [ref=e1429]: Matte
+              - generic [ref=e1430]: PC 系列
+              - generic [ref=e1431]: Gloss
+        - generic [ref=e1432]:
+          - img "PC-301 preview" [ref=e1434]
+          - generic [ref=e1436]:
+            - generic [ref=e1438]:
+              - heading "PC-301" [level=3] [ref=e1439]
+              - paragraph [ref=e1440]: PC-301
+            - generic [ref=e1441]:
+              - generic [ref=e1442]: Metallic
+              - generic [ref=e1443]: PC 系列
+              - generic [ref=e1444]: Gloss
+        - generic [ref=e1445]:
+          - img "PC-302 preview" [ref=e1447]
+          - generic [ref=e1449]:
+            - generic [ref=e1451]:
+              - heading "PC-302" [level=3] [ref=e1452]
+              - paragraph [ref=e1453]: PC-302
+            - generic [ref=e1454]:
+              - generic [ref=e1455]: Metallic
+              - generic [ref=e1456]: PC 系列
+              - generic [ref=e1457]: Gloss
+        - generic [ref=e1458]:
+          - img "PC-401 preview" [ref=e1460]
+          - generic [ref=e1462]:
+            - generic [ref=e1464]:
+              - heading "PC-401" [level=3] [ref=e1465]
+              - paragraph [ref=e1466]: PC-401
+            - generic [ref=e1467]:
+              - generic [ref=e1468]: Metallic
+              - generic [ref=e1469]: PC 系列
+              - generic [ref=e1470]: Gloss
+        - generic [ref=e1471]:
+          - img "PC-402 preview" [ref=e1473]
+          - generic [ref=e1475]:
+            - generic [ref=e1477]:
+              - heading "PC-402" [level=3] [ref=e1478]
+              - paragraph [ref=e1479]: PC-402
+            - generic [ref=e1480]:
+              - generic [ref=e1481]: Metallic
+              - generic [ref=e1482]: PC 系列
+              - generic [ref=e1483]: Gloss
+        - generic [ref=e1484]:
+          - img "PC-501 preview" [ref=e1486]
+          - generic [ref=e1488]:
+            - generic [ref=e1490]:
+              - heading "PC-501" [level=3] [ref=e1491]
+              - paragraph [ref=e1492]: PC-501
+            - generic [ref=e1493]:
+              - generic [ref=e1494]: Metallic
+              - generic [ref=e1495]: PC 系列
+              - generic [ref=e1496]: Gloss
+        - generic [ref=e1497]:
+          - img "PC-502 preview" [ref=e1499]
+          - generic [ref=e1501]:
+            - generic [ref=e1503]:
+              - heading "PC-502" [level=3] [ref=e1504]
+              - paragraph [ref=e1505]: PC-502
+            - generic [ref=e1506]:
+              - generic [ref=e1507]: Metallic
+              - generic [ref=e1508]: PC 系列
+              - generic [ref=e1509]: Gloss
+        - generic [ref=e1510]:
+          - img "PC-503 preview" [ref=e1512]
+          - generic [ref=e1514]:
+            - generic [ref=e1516]:
+              - heading "PC-503" [level=3] [ref=e1517]
+              - paragraph [ref=e1518]: PC-503
+            - generic [ref=e1519]:
+              - generic [ref=e1520]: Metallic
+              - generic [ref=e1521]: PC 系列
+              - generic [ref=e1522]: Gloss
+        - generic [ref=e1523]:
+          - img "PC-510 preview" [ref=e1525]
+          - generic [ref=e1527]:
+            - generic [ref=e1529]:
+              - heading "PC-510" [level=3] [ref=e1530]
+              - paragraph [ref=e1531]: PC-510
+            - generic [ref=e1532]:
+              - generic [ref=e1533]: Metallic
+              - generic [ref=e1534]: PC 系列
+              - generic [ref=e1535]: Gloss
+        - generic [ref=e1536]:
+          - img "PC-511 preview" [ref=e1538]
+          - generic [ref=e1540]:
+            - generic [ref=e1542]:
+              - heading "PC-511" [level=3] [ref=e1543]
+              - paragraph [ref=e1544]: PC-511
+            - generic [ref=e1545]:
+              - generic [ref=e1546]: Metallic
+              - generic [ref=e1547]: PC 系列
+              - generic [ref=e1548]: Gloss
+        - generic [ref=e1549]:
+          - img "PC-601 preview" [ref=e1551]
+          - generic [ref=e1553]:
+            - generic [ref=e1555]:
+              - heading "PC-601" [level=3] [ref=e1556]
+              - paragraph [ref=e1557]: PC-601
+            - generic [ref=e1558]:
+              - generic [ref=e1559]: Metallic
+              - generic [ref=e1560]: PC 系列
+              - generic [ref=e1561]: Gloss
+        - generic [ref=e1562]:
+          - img "PC-611 preview" [ref=e1564]
+          - generic [ref=e1566]:
+            - generic [ref=e1568]:
+              - heading "PC-611" [level=3] [ref=e1569]
+              - paragraph [ref=e1570]: PC-611
+            - generic [ref=e1571]:
+              - generic [ref=e1572]: Metallic
+              - generic [ref=e1573]: PC 系列
+              - generic [ref=e1574]: Gloss
+        - generic [ref=e1575]:
+          - img "PC-610M preview" [ref=e1577]
+          - generic [ref=e1579]:
+            - generic [ref=e1581]:
+              - heading "PC-610M" [level=3] [ref=e1582]
+              - paragraph [ref=e1583]: PC-610M
+            - generic [ref=e1584]:
+              - generic [ref=e1585]: Matte
+              - generic [ref=e1586]: PC 系列
+              - generic [ref=e1587]: Gloss
+        - generic [ref=e1588]:
+          - img "PC-701 preview" [ref=e1590]
+          - generic [ref=e1592]:
+            - generic [ref=e1594]:
+              - heading "PC-701" [level=3] [ref=e1595]
+              - paragraph [ref=e1596]: PC-701
+            - generic [ref=e1597]:
+              - generic [ref=e1598]: Metallic
+              - generic [ref=e1599]: PC 系列
+              - generic [ref=e1600]: Gloss
+        - generic [ref=e1601]:
+          - img "PC-702 preview" [ref=e1603]
+          - generic [ref=e1605]:
+            - generic [ref=e1607]:
+              - heading "PC-702" [level=3] [ref=e1608]
+              - paragraph [ref=e1609]: PC-702
+            - generic [ref=e1610]:
+              - generic [ref=e1611]: Metallic
+              - generic [ref=e1612]: PC 系列
+              - generic [ref=e1613]: Gloss
+        - generic [ref=e1614]:
+          - img "PC-901 preview" [ref=e1616]
+          - generic [ref=e1618]:
+            - generic [ref=e1620]:
+              - heading "PC-901" [level=3] [ref=e1621]
+              - paragraph [ref=e1622]: PC-901
+            - generic [ref=e1623]:
+              - generic [ref=e1624]: Metallic
+              - generic [ref=e1625]: PC 系列
+              - generic [ref=e1626]: Gloss
+        - generic [ref=e1627]:
+          - img "PL-0001 preview" [ref=e1629]
+          - generic [ref=e1631]:
+            - generic [ref=e1633]:
+              - heading "白 白（White）" [level=3] [ref=e1634]
+              - paragraph [ref=e1635]: PL-0001
+            - generic [ref=e1636]:
+              - generic [ref=e1637]: Pigment
+              - generic [ref=e1638]: PL 系列
+              - generic [ref=e1639]: Gloss
+        - generic [ref=e1640]:
+          - img "PL-1001 preview" [ref=e1642]
+          - generic [ref=e1644]:
+            - generic [ref=e1646]:
+              - heading "黑 黑（Black）" [level=3] [ref=e1647]
+              - paragraph [ref=e1648]: PL-1001
+            - generic [ref=e1649]:
+              - generic [ref=e1650]: Pigment
+              - generic [ref=e1651]: PL 系列
+              - generic [ref=e1652]: Gloss
+        - generic [ref=e1653]:
+          - img "PL-1101 preview" [ref=e1655]
+          - generic [ref=e1657]:
+            - generic [ref=e1659]:
+              - heading "2379C 蓝灰色（Blue Gray）" [level=3] [ref=e1660]
+              - paragraph [ref=e1661]: PL-1101
+            - generic [ref=e1662]:
+              - generic [ref=e1663]: Pigment
+              - generic [ref=e1664]: PL 系列
+              - generic [ref=e1665]: Gloss
+        - generic [ref=e1666]:
+          - img "PL-1102 preview" [ref=e1668]
+          - generic [ref=e1670]:
+            - generic [ref=e1672]:
+              - heading "4130C 蓝灰色（Blue Gray）" [level=3] [ref=e1673]
+              - paragraph [ref=e1674]: PL-1102
+            - generic [ref=e1675]:
+              - generic [ref=e1676]: Pigment
+              - generic [ref=e1677]: PL 系列
+              - generic [ref=e1678]: Gloss
+        - generic [ref=e1679]:
+          - img "PL-1201 preview" [ref=e1681]
+          - generic [ref=e1683]:
+            - generic [ref=e1685]:
+              - heading "425C 灰色（Gray）" [level=3] [ref=e1686]
+              - paragraph [ref=e1687]: PL-1201
+            - generic [ref=e1688]:
+              - generic [ref=e1689]: Pigment
+              - generic [ref=e1690]: PL 系列
+              - generic [ref=e1691]: Gloss
+        - generic [ref=e1692]:
+          - img "PL-1202 preview" [ref=e1694]
+          - generic [ref=e1696]:
+            - generic [ref=e1698]:
+              - heading "424C 灰色（Gray）" [level=3] [ref=e1699]
+              - paragraph [ref=e1700]: PL-1202
+            - generic [ref=e1701]:
+              - generic [ref=e1702]: Pigment
+              - generic [ref=e1703]: PL 系列
+              - generic [ref=e1704]: Gloss
+        - generic [ref=e1705]:
+          - img "PL-1301 preview" [ref=e1707]
+          - generic [ref=e1709]:
+            - generic [ref=e1711]:
+              - heading "4C 浅灰（Light Gray）" [level=3] [ref=e1712]
+              - paragraph [ref=e1713]: PL-1301
+            - generic [ref=e1714]:
+              - generic [ref=e1715]: Pigment
+              - generic [ref=e1716]: PL 系列
+              - generic [ref=e1717]: Gloss
+        - generic [ref=e1718]:
+          - img "PL-1302 preview" [ref=e1720]
+          - generic [ref=e1722]:
+            - generic [ref=e1724]:
+              - heading "2230C 浅灰（Light Gray）" [level=3] [ref=e1725]
+              - paragraph [ref=e1726]: PL-1302
+            - generic [ref=e1727]:
+              - generic [ref=e1728]: Pigment
+              - generic [ref=e1729]: PL 系列
+              - generic [ref=e1730]: Gloss
+        - generic [ref=e1731]:
+          - img "PL-1303 preview" [ref=e1733]
+          - generic [ref=e1735]:
+            - generic [ref=e1737]:
+              - heading "2330C 浅灰（Light Gray）" [level=3] [ref=e1738]
+              - paragraph [ref=e1739]: PL-1303
+            - generic [ref=e1740]:
+              - generic [ref=e1741]: Pigment
+              - generic [ref=e1742]: PL 系列
+              - generic [ref=e1743]: Gloss
+        - generic [ref=e1744]:
+          - img "PL-2001 preview" [ref=e1746]
+          - generic [ref=e1748]:
+            - generic [ref=e1750]:
+              - heading "1655C 橙（Orange）" [level=3] [ref=e1751]
+              - paragraph [ref=e1752]: PL-2001
+            - generic [ref=e1753]:
+              - generic [ref=e1754]: Pigment
+              - generic [ref=e1755]: PL 系列
+              - generic [ref=e1756]: Gloss
+        - generic [ref=e1757]:
+          - img "PL-2002 preview" [ref=e1759]
+          - generic [ref=e1761]:
+            - generic [ref=e1763]:
+              - heading "021C 橙（Orange）" [level=3] [ref=e1764]
+              - paragraph [ref=e1765]: PL-2002
+            - generic [ref=e1766]:
+              - generic [ref=e1767]: Pigment
+              - generic [ref=e1768]: PL 系列
+              - generic [ref=e1769]: Gloss
+        - generic [ref=e1770]:
+          - img "PL-2003 preview" [ref=e1772]
+          - generic [ref=e1774]:
+            - generic [ref=e1776]:
+              - heading "橙 橙（Orange）" [level=3] [ref=e1777]
+              - paragraph [ref=e1778]: PL-2003
+            - generic [ref=e1779]:
+              - generic [ref=e1780]: Pigment
+              - generic [ref=e1781]: PL 系列
+              - generic [ref=e1782]: Gloss
+        - generic [ref=e1783]:
+          - img "PL-2004 preview" [ref=e1785]
+          - generic [ref=e1787]:
+            - generic [ref=e1789]:
+              - heading "橙 橙（Orange）" [level=3] [ref=e1790]
+              - paragraph [ref=e1791]: PL-2004
+            - generic [ref=e1792]:
+              - generic [ref=e1793]: Pigment
+              - generic [ref=e1794]: PL 系列
+              - generic [ref=e1795]: Gloss
+        - generic [ref=e1796]:
+          - img "PL-2005 preview" [ref=e1798]
+          - generic [ref=e1800]:
+            - generic [ref=e1802]:
+              - heading "橙 橙（Orange）" [level=3] [ref=e1803]
+              - paragraph [ref=e1804]: PL-2005
+            - generic [ref=e1805]:
+              - generic [ref=e1806]: Pigment
+              - generic [ref=e1807]: PL 系列
+              - generic [ref=e1808]: Gloss
+        - generic [ref=e1809]:
+          - img "PL-2101 preview" [ref=e1811]
+          - generic [ref=e1813]:
+            - generic [ref=e1815]:
+              - heading "1205C 米黄（Beige）" [level=3] [ref=e1816]
+              - paragraph [ref=e1817]: PL-2101
+            - generic [ref=e1818]:
+              - generic [ref=e1819]: Pigment
+              - generic [ref=e1820]: PL 系列
+              - generic [ref=e1821]: Gloss
+        - generic [ref=e1822]:
+          - img "PL-2102 preview" [ref=e1824]
+          - generic [ref=e1826]:
+            - generic [ref=e1828]:
+              - heading "米黄 米黄（Beige）" [level=3] [ref=e1829]
+              - paragraph [ref=e1830]: PL-2102
+            - generic [ref=e1831]:
+              - generic [ref=e1832]: Pigment
+              - generic [ref=e1833]: PL 系列
+              - generic [ref=e1834]: Gloss
+        - generic [ref=e1835]:
+          - img "PL-2103 preview" [ref=e1837]
+          - generic [ref=e1839]:
+            - generic [ref=e1841]:
+              - heading "米黄 米黄（Beige）" [level=3] [ref=e1842]
+              - paragraph [ref=e1843]: PL-2103
+            - generic [ref=e1844]:
+              - generic [ref=e1845]: Pigment
+              - generic [ref=e1846]: PL 系列
+              - generic [ref=e1847]: Gloss
+        - generic [ref=e1848]:
+          - img "PL-2104 preview" [ref=e1850]
+          - generic [ref=e1852]:
+            - generic [ref=e1854]:
+              - heading "米黄 米黄（Beige）" [level=3] [ref=e1855]
+              - paragraph [ref=e1856]: PL-2104
+            - generic [ref=e1857]:
+              - generic [ref=e1858]: Pigment
+              - generic [ref=e1859]: PL 系列
+              - generic [ref=e1860]: Gloss
+        - generic [ref=e1861]:
+          - img "PL-2105 preview" [ref=e1863]
+          - generic [ref=e1865]:
+            - generic [ref=e1867]:
+              - heading "米黄 米黄（Beige）" [level=3] [ref=e1868]
+              - paragraph [ref=e1869]: PL-2105
+            - generic [ref=e1870]:
+              - generic [ref=e1871]: Pigment
+              - generic [ref=e1872]: PL 系列
+              - generic [ref=e1873]: Gloss
+        - generic [ref=e1874]:
+          - img "PL-2106 preview" [ref=e1876]
+          - generic [ref=e1878]:
+            - generic [ref=e1880]:
+              - heading "米黄 米黄（Beige）" [level=3] [ref=e1881]
+              - paragraph [ref=e1882]: PL-2106
+            - generic [ref=e1883]:
+              - generic [ref=e1884]: Pigment
+              - generic [ref=e1885]: PL 系列
+              - generic [ref=e1886]: Gloss
+        - generic [ref=e1887]:
+          - img "PL-3001 preview" [ref=e1889]
+          - generic [ref=e1891]:
+            - generic [ref=e1893]:
+              - heading "2347C 红（Red）" [level=3] [ref=e1894]
+              - paragraph [ref=e1895]: PL-3001
+            - generic [ref=e1896]:
+              - generic [ref=e1897]: Pigment
+              - generic [ref=e1898]: PL 系列
+              - generic [ref=e1899]: Gloss
+        - generic [ref=e1900]:
+          - img "PL-3002 preview" [ref=e1902]
+          - generic [ref=e1904]:
+            - generic [ref=e1906]:
+              - heading "185C 红（Red）" [level=3] [ref=e1907]
+              - paragraph [ref=e1908]: PL-3002
+            - generic [ref=e1909]:
+              - generic [ref=e1910]: Pigment
+              - generic [ref=e1911]: PL 系列
+              - generic [ref=e1912]: Gloss
+        - generic [ref=e1913]:
+          - img "PL-3003 preview" [ref=e1915]
+          - generic [ref=e1917]:
+            - generic [ref=e1919]:
+              - heading "红 红（Red）" [level=3] [ref=e1920]
+              - paragraph [ref=e1921]: PL-3003
+            - generic [ref=e1922]:
+              - generic [ref=e1923]: Pigment
+              - generic [ref=e1924]: PL 系列
+              - generic [ref=e1925]: Gloss
+        - generic [ref=e1926]:
+          - img "PL-3101 preview" [ref=e1928]
+          - generic [ref=e1930]:
+            - generic [ref=e1932]:
+              - heading "1815C 暗红（Dark Red）" [level=3] [ref=e1933]
+              - paragraph [ref=e1934]: PL-3101
+            - generic [ref=e1935]:
+              - generic [ref=e1936]: Pigment
+              - generic [ref=e1937]: PL 系列
+              - generic [ref=e1938]: Gloss
+        - generic [ref=e1939]:
+          - img "PL-3102 preview" [ref=e1941]
+          - generic [ref=e1943]:
+            - generic [ref=e1945]:
+              - heading "195C 暗红（Dark Red）" [level=3] [ref=e1946]
+              - paragraph [ref=e1947]: PL-3102
+            - generic [ref=e1948]:
+              - generic [ref=e1949]: Pigment
+              - generic [ref=e1950]: PL 系列
+              - generic [ref=e1951]: Gloss
+        - generic [ref=e1952]:
+          - img "PL-4001 preview" [ref=e1954]
+          - generic [ref=e1956]:
+            - generic [ref=e1958]:
+              - heading "440C 咖啡（Coffee/Brown）" [level=3] [ref=e1959]
+              - paragraph [ref=e1960]: PL-4001
+            - generic [ref=e1961]:
+              - generic [ref=e1962]: Pigment
+              - generic [ref=e1963]: PL 系列
+              - generic [ref=e1964]: Gloss
+        - generic [ref=e1965]:
+          - img "PL-6001 preview" [ref=e1967]
+          - generic [ref=e1969]:
+            - generic [ref=e1971]:
+              - heading "5615C 墨绿（Black Green）" [level=3] [ref=e1972]
+              - paragraph [ref=e1973]: PL-6001
+            - generic [ref=e1974]:
+              - generic [ref=e1975]: Pigment
+              - generic [ref=e1976]: PL 系列
+              - generic [ref=e1977]: Gloss
+        - generic [ref=e1978]:
+          - img "PL-6101 preview" [ref=e1980]
+          - generic [ref=e1982]:
+            - generic [ref=e1984]:
+              - heading "360C 绿色（Green）" [level=3] [ref=e1985]
+              - paragraph [ref=e1986]: PL-6101
+            - generic [ref=e1987]:
+              - generic [ref=e1988]: Pigment
+              - generic [ref=e1989]: PL 系列
+              - generic [ref=e1990]: Gloss
+        - generic [ref=e1991]:
+          - img "PL-7001 preview" [ref=e1993]
+          - generic [ref=e1995]:
+            - generic [ref=e1997]:
+              - heading "282C 墨兰色（Black Blue）" [level=3] [ref=e1998]
+              - paragraph [ref=e1999]: PL-7001
+            - generic [ref=e2000]:
+              - generic [ref=e2001]: Pigment
+              - generic [ref=e2002]: PL 系列
+              - generic [ref=e2003]: Gloss
+        - generic [ref=e2004]:
+          - img "PL-7101 preview" [ref=e2006]
+          - generic [ref=e2008]:
+            - generic [ref=e2010]:
+              - heading "294C 宝蓝色（Royal Blue）" [level=3] [ref=e2011]
+              - paragraph [ref=e2012]: PL-7101
+            - generic [ref=e2013]:
+              - generic [ref=e2014]: Pigment
+              - generic [ref=e2015]: PL 系列
+              - generic [ref=e2016]: Gloss
+        - generic [ref=e2017]:
+          - img "PL-7102 preview" [ref=e2019]
+          - generic [ref=e2021]:
+            - generic [ref=e2023]:
+              - heading "2748C 宝蓝色（Royal Blue）" [level=3] [ref=e2024]
+              - paragraph [ref=e2025]: PL-7102
+            - generic [ref=e2026]:
+              - generic [ref=e2027]: Pigment
+              - generic [ref=e2028]: PL 系列
+              - generic [ref=e2029]: Gloss
+        - generic [ref=e2030]:
+          - img "PL-7103 preview" [ref=e2032]
+          - generic [ref=e2034]:
+            - generic [ref=e2036]:
+              - heading "7686C 宝蓝色（Royal Blue）" [level=3] [ref=e2037]
+              - paragraph [ref=e2038]: PL-7103
+            - generic [ref=e2039]:
+              - generic [ref=e2040]: Pigment
+              - generic [ref=e2041]: PL 系列
+              - generic [ref=e2042]: Gloss
+        - generic [ref=e2043]:
+          - img "PL-7201 preview" [ref=e2045]
+          - generic [ref=e2047]:
+            - generic [ref=e2049]:
+              - heading "2145C 蓝色（Blue）" [level=3] [ref=e2050]
+              - paragraph [ref=e2051]: PL-7201
+            - generic [ref=e2052]:
+              - generic [ref=e2053]: Pigment
+              - generic [ref=e2054]: PL 系列
+              - generic [ref=e2055]: Gloss
+        - generic [ref=e2056]:
+          - img "PL-7202 preview" [ref=e2058]
+          - generic [ref=e2060]:
+            - generic [ref=e2062]:
+              - heading "2174C 蓝色（Blue）" [level=3] [ref=e2063]
+              - paragraph [ref=e2064]: PL-7202
+            - generic [ref=e2065]:
+              - generic [ref=e2066]: Pigment
+              - generic [ref=e2067]: PL 系列
+              - generic [ref=e2068]: Gloss
+        - generic [ref=e2069]:
+          - img "PL-9002 preview" [ref=e2071]
+          - generic [ref=e2073]:
+            - generic [ref=e2075]:
+              - heading "204C 粉红（Pink）" [level=3] [ref=e2076]
+              - paragraph [ref=e2077]: PL-9002
+            - generic [ref=e2078]:
+              - generic [ref=e2079]: Pigment
+              - generic [ref=e2080]: PL 系列
+              - generic [ref=e2081]: Gloss
+        - generic [ref=e2082]:
+          - img "PL-9001 preview" [ref=e2084]
+          - generic [ref=e2086]:
+            - generic [ref=e2088]:
+              - heading "2307C 粉红（Pink）" [level=3] [ref=e2089]
+              - paragraph [ref=e2090]: PL-9001
+            - generic [ref=e2091]:
+              - generic [ref=e2092]: Pigment
+              - generic [ref=e2093]: PL 系列
+              - generic [ref=e2094]: Gloss
+        - generic [ref=e2095]:
+          - img "PY-0001 preview" [ref=e2097]
+          - generic [ref=e2099]:
+            - generic [ref=e2101]:
+              - heading "白 白（White）" [level=3] [ref=e2102]
+              - paragraph [ref=e2103]: PY-0001
+            - generic [ref=e2104]:
+              - generic [ref=e2105]: Pigment
+              - generic [ref=e2106]: PY 系列
+              - generic [ref=e2107]: Matte
+        - generic [ref=e2108]:
+          - img "PY-1001 preview" [ref=e2110]
+          - generic [ref=e2112]:
+            - generic [ref=e2114]:
+              - heading "黑 黑（Black）" [level=3] [ref=e2115]
+              - paragraph [ref=e2116]: PY-1001
+            - generic [ref=e2117]:
+              - generic [ref=e2118]: Pigment
+              - generic [ref=e2119]: PY 系列
+              - generic [ref=e2120]: Matte
+        - generic [ref=e2121]:
+          - img "PY-1002 preview" [ref=e2123]
+          - generic [ref=e2125]:
+            - generic [ref=e2127]:
+              - heading "黑 黑（Black）" [level=3] [ref=e2128]
+              - paragraph [ref=e2129]: PY-1002
+            - generic [ref=e2130]:
+              - generic [ref=e2131]: Pigment
+              - generic [ref=e2132]: PY 系列
+              - generic [ref=e2133]: Matte
+        - generic [ref=e2134]:
+          - img "PY-1003 preview" [ref=e2136]
+          - generic [ref=e2138]:
+            - generic [ref=e2140]:
+              - heading "黑 黑（Black）" [level=3] [ref=e2141]
+              - paragraph [ref=e2142]: PY-1003
+            - generic [ref=e2143]:
+              - generic [ref=e2144]: Pigment
+              - generic [ref=e2145]: PY 系列
+              - generic [ref=e2146]: Matte
+        - generic [ref=e2147]:
+          - img "PY-1201 preview" [ref=e2149]
+          - generic [ref=e2151]:
+            - generic [ref=e2153]:
+              - heading "4138U 哑灰色（Matte Gray）" [level=3] [ref=e2154]
+              - paragraph [ref=e2155]: PY-1201
+            - generic [ref=e2156]:
+              - generic [ref=e2157]: Pigment
+              - generic [ref=e2158]: PY 系列
+              - generic [ref=e2159]: Matte
+        - generic [ref=e2160]:
+          - img "PY-1202 preview" [ref=e2162]
+          - generic [ref=e2164]:
+            - generic [ref=e2166]:
+              - heading "4136U 哑灰色（Matte Gray）" [level=3] [ref=e2167]
+              - paragraph [ref=e2168]: PY-1202
+            - generic [ref=e2169]:
+              - generic [ref=e2170]: Pigment
+              - generic [ref=e2171]: PY 系列
+              - generic [ref=e2172]: Matte
+        - generic [ref=e2173]:
+          - img "PY-1301 preview" [ref=e2175]
+          - generic [ref=e2177]:
+            - generic [ref=e2179]:
+              - heading "哑浅灰 哑浅灰（Matte Light Gray）" [level=3] [ref=e2180]
+              - paragraph [ref=e2181]: PY-1301
+            - generic [ref=e2182]:
+              - generic [ref=e2183]: Pigment
+              - generic [ref=e2184]: PY 系列
+              - generic [ref=e2185]: Matte
+        - generic [ref=e2186]:
+          - img "PY-1401 preview" [ref=e2188]
+          - generic [ref=e2190]:
+            - generic [ref=e2192]:
+              - heading "哑浅灰 哑浅灰（Matte Light Gray）" [level=3] [ref=e2193]
+              - paragraph [ref=e2194]: PY-1401
+            - generic [ref=e2195]:
+              - generic [ref=e2196]: Pigment
+              - generic [ref=e2197]: PY 系列
+              - generic [ref=e2198]: Matte
+        - generic [ref=e2199]:
+          - img "PY-1501 preview" [ref=e2201]
+          - generic [ref=e2203]:
+            - generic [ref=e2205]:
+              - heading "435U 哑浅灰（Matte Light Gray）" [level=3] [ref=e2206]
+              - paragraph [ref=e2207]: PY-1501
+            - generic [ref=e2208]:
+              - generic [ref=e2209]: Pigment
+              - generic [ref=e2210]: PY 系列
+              - generic [ref=e2211]: Matte
+        - generic [ref=e2212]:
+          - img "PY-2001 preview" [ref=e2214]
+          - generic [ref=e2216]:
+            - generic [ref=e2218]:
+              - heading "165U 哑橙（Matte Orange）" [level=3] [ref=e2219]
+              - paragraph [ref=e2220]: PY-2001
+            - generic [ref=e2221]:
+              - generic [ref=e2222]: Pigment
+              - generic [ref=e2223]: PY 系列
+              - generic [ref=e2224]: Matte
+        - generic [ref=e2225]:
+          - img "PY-2002 preview" [ref=e2227]
+          - generic [ref=e2229]:
+            - generic [ref=e2231]:
+              - heading "021U 哑橙（Matte Orange）" [level=3] [ref=e2232]
+              - paragraph [ref=e2233]: PY-2002
+            - generic [ref=e2234]:
+              - generic [ref=e2235]: Pigment
+              - generic [ref=e2236]: PY 系列
+              - generic [ref=e2237]: Matte
+        - generic [ref=e2238]:
+          - img "PY-2003 preview" [ref=e2240]
+          - generic [ref=e2242]:
+            - generic [ref=e2244]:
+              - heading "149U 哑橙（Matte Orange）" [level=3] [ref=e2245]
+              - paragraph [ref=e2246]: PY-2003
+            - generic [ref=e2247]:
+              - generic [ref=e2248]: Pigment
+              - generic [ref=e2249]: PY 系列
+              - generic [ref=e2250]: Matte
+        - generic [ref=e2251]:
+          - img "PY-2101 preview" [ref=e2253]
+          - generic [ref=e2255]:
+            - generic [ref=e2257]:
+              - heading "121U 哑黄（Matte Yellow）" [level=3] [ref=e2258]
+              - paragraph [ref=e2259]: PY-2101
+            - generic [ref=e2260]:
+              - generic [ref=e2261]: Pigment
+              - generic [ref=e2262]: PY 系列
+              - generic [ref=e2263]: Matte
+        - generic [ref=e2264]:
+          - img "PY-2102 preview" [ref=e2266]
+          - generic [ref=e2268]:
+            - generic [ref=e2270]:
+              - heading "122U 哑黄（Matte Yellow）" [level=3] [ref=e2271]
+              - paragraph [ref=e2272]: PY-2102
+            - generic [ref=e2273]:
+              - generic [ref=e2274]: Pigment
+              - generic [ref=e2275]: PY 系列
+              - generic [ref=e2276]: Matte
+        - generic [ref=e2277]:
+          - img "PY-2201 preview" [ref=e2279]
+          - generic [ref=e2281]:
+            - generic [ref=e2283]:
+              - heading "475U 哑米黄（Matte Beige）" [level=3] [ref=e2284]
+              - paragraph [ref=e2285]: PY-2201
+            - generic [ref=e2286]:
+              - generic [ref=e2287]: Pigment
+              - generic [ref=e2288]: PY 系列
+              - generic [ref=e2289]: Matte
+        - generic [ref=e2290]:
+          - img "PY-2202 preview" [ref=e2292]
+          - generic [ref=e2294]:
+            - generic [ref=e2296]:
+              - heading "米黄 米黄（Beige）" [level=3] [ref=e2297]
+              - paragraph [ref=e2298]: PY-2202
+            - generic [ref=e2299]:
+              - generic [ref=e2300]: Pigment
+              - generic [ref=e2301]: PY 系列
+              - generic [ref=e2302]: Matte
+        - generic [ref=e2303]:
+          - img "PY-2203 preview" [ref=e2305]
+          - generic [ref=e2307]:
+            - generic [ref=e2309]:
+              - heading "米黄 米黄（Beige）" [level=3] [ref=e2310]
+              - paragraph [ref=e2311]: PY-2203
+            - generic [ref=e2312]:
+              - generic [ref=e2313]: Pigment
+              - generic [ref=e2314]: PY 系列
+              - generic [ref=e2315]: Matte
+        - generic [ref=e2316]:
+          - img "PY-6001 preview" [ref=e2318]
+          - generic [ref=e2320]:
+            - generic [ref=e2322]:
+              - heading "342U 哑墨绿（Matte Black Green）" [level=3] [ref=e2323]
+              - paragraph [ref=e2324]: PY-6001
+            - generic [ref=e2325]:
+              - generic [ref=e2326]: Pigment
+              - generic [ref=e2327]: PY 系列
+              - generic [ref=e2328]: Matte
+        - generic [ref=e2329]:
+          - img "PY-6010 preview" [ref=e2331]
+          - generic [ref=e2333]:
+            - generic [ref=e2335]:
+              - heading "624U 哑浅绿（Matte Light Green）" [level=3] [ref=e2336]
+              - paragraph [ref=e2337]: PY-6010
+            - generic [ref=e2338]:
+              - generic [ref=e2339]: Pigment
+              - generic [ref=e2340]: PY 系列
+              - generic [ref=e2341]: Matte
+        - generic [ref=e2342]:
+          - img "PY-6101 preview" [ref=e2344]
+          - generic [ref=e2346]:
+            - generic [ref=e2348]:
+              - heading "347U 哑绿（Matte Green）" [level=3] [ref=e2349]
+              - paragraph [ref=e2350]: PY-6101
+            - generic [ref=e2351]:
+              - generic [ref=e2352]: Pigment
+              - generic [ref=e2353]: PY 系列
+              - generic [ref=e2354]: Matte
+        - generic [ref=e2355]:
+          - img "PY-6102 preview" [ref=e2357]
+          - generic [ref=e2359]:
+            - generic [ref=e2361]:
+              - heading "361U 哑绿（Matte Green）" [level=3] [ref=e2362]
+              - paragraph [ref=e2363]: PY-6102
+            - generic [ref=e2364]:
+              - generic [ref=e2365]: Pigment
+              - generic [ref=e2366]: PY 系列
+              - generic [ref=e2367]: Matte
+        - generic [ref=e2368]:
+          - img "PY-6103 preview" [ref=e2370]
+          - generic [ref=e2372]:
+            - generic [ref=e2374]:
+              - heading "7488U 哑绿（Matte Green）" [level=3] [ref=e2375]
+              - paragraph [ref=e2376]: PY-6103
+            - generic [ref=e2377]:
+              - generic [ref=e2378]: Pigment
+              - generic [ref=e2379]: PY 系列
+              - generic [ref=e2380]: Matte
+        - generic [ref=e2381]:
+          - img "PY-7001 preview" [ref=e2383]
+          - generic [ref=e2385]:
+            - generic [ref=e2387]:
+              - heading "280U 哑墨蓝（Matte Black Blue）" [level=3] [ref=e2388]
+              - paragraph [ref=e2389]: PY-7001
+            - generic [ref=e2390]:
+              - generic [ref=e2391]: Pigment
+              - generic [ref=e2392]: PY 系列
+              - generic [ref=e2393]: Matte
+        - generic [ref=e2394]:
+          - img "PY-7101 preview" [ref=e2396]
+          - generic [ref=e2398]:
+            - generic [ref=e2400]:
+              - heading "072U 哑宝蓝（Matte Royal Blue）" [level=3] [ref=e2401]
+              - paragraph [ref=e2402]: PY-7101
+            - generic [ref=e2403]:
+              - generic [ref=e2404]: Pigment
+              - generic [ref=e2405]: PY 系列
+              - generic [ref=e2406]: Matte
+        - generic [ref=e2407]:
+          - img "PY-7201 preview" [ref=e2409]
+          - generic [ref=e2411]:
+            - generic [ref=e2413]:
+              - heading "2190U 哑蓝（Matte Blue）" [level=3] [ref=e2414]
+              - paragraph [ref=e2415]: PY-7201
+            - generic [ref=e2416]:
+              - generic [ref=e2417]: Pigment
+              - generic [ref=e2418]: PY 系列
+              - generic [ref=e2419]: Matte
+        - generic [ref=e2420]:
+          - img "PY-7301 preview" [ref=e2422]
+          - generic [ref=e2424]:
+            - generic [ref=e2426]:
+              - heading "290U 哑湖蓝（Matte Lake Blue）" [level=3] [ref=e2427]
+              - paragraph [ref=e2428]: PY-7301
+            - generic [ref=e2429]:
+              - generic [ref=e2430]: Pigment
+              - generic [ref=e2431]: PY 系列
+              - generic [ref=e2432]: Matte
+        - generic [ref=e2433]:
+          - img "PY-9001 preview" [ref=e2435]
+          - generic [ref=e2437]:
+            - generic [ref=e2439]:
+              - heading "2375U 粉红（Pink）" [level=3] [ref=e2440]
+              - paragraph [ref=e2441]: PY-9001
+            - generic [ref=e2442]:
+              - generic [ref=e2443]: Pigment
+              - generic [ref=e2444]: PY 系列
+              - generic [ref=e2445]: Matte
+        - generic [ref=e2446]:
+          - img "PY-9002 preview" [ref=e2448]
+          - generic [ref=e2450]:
+            - generic [ref=e2452]:
+              - heading "224U 粉红（Pink）" [level=3] [ref=e2453]
+              - paragraph [ref=e2454]: PY-9002
+            - generic [ref=e2455]:
+              - generic [ref=e2456]: Pigment
+              - generic [ref=e2457]: PY 系列
+              - generic [ref=e2458]: Matte
+        - generic [ref=e2459]:
+          - img "PY-9003 preview" [ref=e2461]
+          - generic [ref=e2463]:
+            - generic [ref=e2465]:
+              - heading "粉红 粉红（Pink）" [level=3] [ref=e2466]
+              - paragraph [ref=e2467]: PY-9003
+            - generic [ref=e2468]:
+              - generic [ref=e2469]: Pigment
+              - generic [ref=e2470]: PY 系列
+              - generic [ref=e2471]: Matte
+    - generic [ref=e2473]:
+      - heading "精密制造工艺规格" [level=2] [ref=e2474]
+      - generic [ref=e2475]:
+        - generic [ref=e2476]:
+          - heading "0.012μm" [level=2] [ref=e2477]
+          - heading "涂层精度公差" [level=3] [ref=e2478]
+          - paragraph [ref=e2479]: 我们的真空镀铝工艺达到纳米级涂层精度公差，在 2000 米原卷上保证零偏差。
+        - generic [ref=e2481]:
+          - generic [ref=e2482]:
+            - heading "耐热性" [level=4] [ref=e2484]
+            - paragraph [ref=e2485]: 耐高温可达 240°C，满足高速轮转烫金应用要求。
+          - generic [ref=e2486]:
+            - heading "PET 基材厚度" [level=4] [ref=e2488]
+            - paragraph [ref=e2489]: 提供 12μm 至 19μm PET 薄膜基材，优化生产过程张力控制。
+          - generic [ref=e2490]:
+            - heading "表面张力" [level=4] [ref=e2492]
+            - paragraph [ref=e2493]: 表面张力经过优化，适用于 UV 油墨、OPP 薄膜和多孔纸张。
+          - generic [ref=e2494]:
+            - heading "颜色一致性" [level=4] [ref=e2496]
+            - paragraph [ref=e2497]: Delta E < 0.5 颜色精度，整卷保持一致色彩，保证品牌印刷一致性。
+          - generic [ref=e2498]:
+            - heading "卷长规格" [level=4] [ref=e2500]
+            - paragraph [ref=e2501]: 标准原卷长达 2000 米，便于高效生产计划。
+          - generic [ref=e2502]:
+            - heading "纸芯内径" [level=4] [ref=e2504]
+            - paragraph [ref=e2505]: 标准 3英寸 和 7英寸 纸芯，适配大部分自动烫金机。
+    - generic [ref=e2508]:
+      - heading "需要定制烫金箔供应？" [level=2] [ref=e2509]
+      - paragraph [ref=e2510]: 立即联系PINTE品特获取免费报价和样品。我们为包装印刷厂、 converter 制造商提供高品质烫金箔，产品远销越南、泰国、马来西亚、印尼、新加坡等东南亚地区。
+      - link "获取报价和样品" [ref=e2511] [cursor=pointer]:
+        - /url: /cn/quote
+        - text: 获取报价和样品
+        - img [ref=e2512]
+  - contentinfo [ref=e2515]:
+    - generic [ref=e2517]:
+      - generic [ref=e2518]: PINTE
+      - paragraph [ref=e2519]: Pioneering industrial hot stamping foil technology with the prestige of artisanal craftsmanship.
+      - generic [ref=e2520]: © 2026 PINTE. ALL RIGHTS RESERVED.

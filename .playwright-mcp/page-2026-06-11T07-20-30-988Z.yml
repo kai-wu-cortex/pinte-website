@@ -1,0 +1,247 @@
+- generic [ref=e3]:
+  - navigation [ref=e4]:
+    - generic [ref=e5] [cursor=pointer]:
+      - img [ref=e6]
+      - generic [ref=e13]: PINTE
+    - generic [ref=e14]:
+      - button "网站首页" [ref=e16] [cursor=pointer]
+      - button "解决方案" [ref=e18] [cursor=pointer]:
+        - text: 解决方案
+        - img [ref=e19]
+      - button "关于品特" [ref=e22] [cursor=pointer]
+      - button "产品中心" [ref=e24] [cursor=pointer]:
+        - text: 产品中心
+        - img [ref=e25]
+      - button "博客" [ref=e28] [cursor=pointer]
+      - button "联系我们" [ref=e30] [cursor=pointer]
+      - button "在线看厂" [ref=e32] [cursor=pointer]
+    - generic [ref=e33]:
+      - button "中" [ref=e34] [cursor=pointer]:
+        - img [ref=e35]
+        - generic [ref=e39]: 中
+      - link "获取报价" [ref=e40] [cursor=pointer]:
+        - /url: /cn/quote
+  - generic [ref=e41]:
+    - generic [ref=e42]:
+      - generic [ref=e43]:
+        - img [ref=e44]
+        - generic [ref=e51]: PINTE
+      - button [ref=e52] [cursor=pointer]:
+        - img [ref=e53]
+    - generic [ref=e56]:
+      - button "网站首页" [ref=e58] [cursor=pointer]:
+        - generic [ref=e59]: 网站首页
+      - generic [ref=e60]:
+        - button "解决方案" [ref=e61] [cursor=pointer]:
+          - generic [ref=e62]: 解决方案
+          - img [ref=e63]
+        - generic [ref=e65]:
+          - link "包装与手提袋专用烫金解决方案 包装与手提袋专用烫金解决方案" [ref=e66] [cursor=pointer]:
+            - /url: /cn/solutions/pkg_bags
+            - img "包装与手提袋专用烫金解决方案" [ref=e67]
+            - text: 包装与手提袋专用烫金解决方案
+          - link "印刷特种纸烫金解决方案 印刷特种纸烫金解决方案" [ref=e68] [cursor=pointer]:
+            - /url: /cn/solutions/special_paper
+            - img "印刷特种纸烫金解决方案" [ref=e69]
+            - text: 印刷特种纸烫金解决方案
+          - link "皮革烫金解决方案 皮革烫金解决方案" [ref=e70] [cursor=pointer]:
+            - /url: /cn/solutions/leather
+            - img "皮革烫金解决方案" [ref=e71]
+            - text: 皮革烫金解决方案
+          - link "塑胶产品表面烫金解决方案 塑胶产品表面烫金解决方案" [ref=e72] [cursor=pointer]:
+            - /url: /cn/solutions/plastic_surface
+            - img "塑胶产品表面烫金解决方案" [ref=e73]
+            - text: 塑胶产品表面烫金解决方案
+          - link "数码/丝印冷烫解决方案 数码/丝印冷烫解决方案" [ref=e74] [cursor=pointer]:
+            - /url: /cn/solutions/digital_cold
+            - img "数码/丝印冷烫解决方案" [ref=e75]
+            - text: 数码/丝印冷烫解决方案
+          - link "酒瓶/化妆瓶/玻璃烫印解决方案 酒瓶/化妆瓶/玻璃烫印解决方案" [ref=e76] [cursor=pointer]:
+            - /url: /cn/solutions/bottles
+            - img "酒瓶/化妆瓶/玻璃烫印解决方案" [ref=e77]
+            - text: 酒瓶/化妆瓶/玻璃烫印解决方案
+          - link "印刷礼品包装解决方案 印刷礼品包装解决方案" [ref=e78] [cursor=pointer]:
+            - /url: /cn/solutions/gift_pkg
+            - img "印刷礼品包装解决方案" [ref=e79]
+            - text: 印刷礼品包装解决方案
+          - link "逆向UV/触感膜解决方案 逆向UV/触感膜解决方案" [ref=e80] [cursor=pointer]:
+            - /url: /cn/solutions/reverse_uv
+            - img "逆向UV/触感膜解决方案" [ref=e81]
+            - text: 逆向UV/触感膜解决方案
+      - button "关于品特" [ref=e83] [cursor=pointer]:
+        - generic [ref=e84]: 关于品特
+      - generic [ref=e85]:
+        - button "产品中心" [ref=e86] [cursor=pointer]:
+          - generic [ref=e87]: 产品中心
+          - img [ref=e88]
+        - generic [ref=e90]:
+          - link "PK 咖啡底系列 PK 咖啡底系列" [ref=e91] [cursor=pointer]:
+            - /url: /cn/products/category/PK
+            - img "PK 咖啡底系列" [ref=e92]
+            - text: PK 咖啡底系列
+          - link "PC 塑胶/冷烫系列 PC 塑胶/冷烫系列" [ref=e93] [cursor=pointer]:
+            - /url: /cn/products/category/PC
+            - img "PC 塑胶/冷烫系列" [ref=e94]
+            - text: PC 塑胶/冷烫系列
+          - link "PL/PY 颜料箔 PL/PY 颜料箔" [ref=e95] [cursor=pointer]:
+            - /url: /cn/products/category/PLPY
+            - img "PL/PY 颜料箔" [ref=e96]
+            - text: PL/PY 颜料箔
+          - link "数码/冷烫系列 数码/冷烫系列" [ref=e97] [cursor=pointer]:
+            - /url: /cn/products/category/DIGITAL
+            - img "数码/冷烫系列" [ref=e98]
+            - text: 数码/冷烫系列
+          - link "金葱粉系列 金葱粉系列" [ref=e99] [cursor=pointer]:
+            - /url: /cn/products/category/GLITTER
+            - img "金葱粉系列" [ref=e100]
+            - text: 金葱粉系列
+          - link "查看所有系列" [ref=e101] [cursor=pointer]:
+            - /url: /cn/products
+            - text: 查看所有系列
+            - img [ref=e102]
+      - button "博客" [ref=e105] [cursor=pointer]:
+        - generic [ref=e106]: 博客
+      - button "联系我们" [ref=e108] [cursor=pointer]:
+        - generic [ref=e109]: 联系我们
+      - button "在线看厂" [ref=e111] [cursor=pointer]:
+        - generic [ref=e112]: 在线看厂
+      - generic [ref=e113]:
+        - link "获取报价" [ref=e114] [cursor=pointer]:
+          - /url: /cn/quote
+        - button "Switch to English" [ref=e115] [cursor=pointer]:
+          - img [ref=e116]
+          - generic [ref=e120]: Switch to English
+  - main [ref=e121]:
+    - generic [ref=e122]:
+      - generic [ref=e124]:
+        - button "返回列表" [ref=e125] [cursor=pointer]:
+          - img [ref=e126]
+          - generic [ref=e128]: 返回列表
+        - generic [ref=e129]: Product Detail
+        - button "获取报价" [ref=e130] [cursor=pointer]
+      - generic [ref=e131]:
+        - generic [ref=e132]:
+          - generic [ref=e133]:
+            - img "PK 强力型 (Heavy)" [ref=e134]
+            - generic [ref=e135]:
+              - generic [ref=e136]: Anti-Oxidation
+              - generic [ref=e137]: Strong Adhesion
+          - generic [ref=e138]:
+            - paragraph [ref=e139]: Product Detail
+            - heading "PK 强力型 (Heavy)" [level=1] [ref=e140]
+            - paragraph [ref=e141]: 重油墨克星，抗氧化配方
+            - generic [ref=e142]:
+              - text: 针对深色、重油墨纸张开发。传统烫金膜在未干透的油墨上容易氧化变黑，PK 强力型通过特殊的背涂层技术彻底解决了这一痛点。
+              - paragraph [ref=e143]: 除了抗氧化，该系列还增强了胶水层的抓力，特别适合表面粗糙的艺术纸、触感纸以及布纹纸。即使在细线条表现上，也能保持极高的完整度。
+            - generic [ref=e144]:
+              - generic [ref=e145]:
+                - img [ref=e147]
+                - generic [ref=e150]:
+                  - heading "抗氧化" [level=4] [ref=e151]
+                  - paragraph [ref=e152]: 在UV油墨或深色胶印油墨上永不发黑
+              - generic [ref=e153]:
+                - img [ref=e155]
+                - generic [ref=e158]:
+                  - heading "超强附着" [level=4] [ref=e159]
+                  - paragraph [ref=e160]: 通过3M胶带拉扯测试
+              - generic [ref=e161]:
+                - img [ref=e163]
+                - generic [ref=e166]:
+                  - heading "适应粗糙表面" [level=4] [ref=e167]
+                  - paragraph [ref=e168]: 填充纸张纹理，烫印平整
+        - generic [ref=e169]:
+          - generic [ref=e171]:
+            - button "技术参数 (参数)" [ref=e172] [cursor=pointer]
+            - button "推荐应用场景 (应用)" [ref=e173] [cursor=pointer]
+          - generic [ref=e176]:
+            - generic [ref=e177]:
+              - heading "技术参数" [level=3] [ref=e178]:
+                - img [ref=e179]
+                - text: 技术参数
+              - generic [ref=e183]:
+                - generic [ref=e184]:
+                  - generic [ref=e185]: 厚度
+                  - generic [ref=e186]: 15 micron (加厚)
+                - generic [ref=e187]:
+                  - generic [ref=e188]: 标准宽度
+                  - generic [ref=e189]: 640mm
+                - generic [ref=e190]:
+                  - generic [ref=e191]: 胶水类型
+                  - generic [ref=e192]: 特种丙烯酸树脂
+            - generic [ref=e193]:
+              - heading "烫印温度推荐" [level=3] [ref=e194]:
+                - img [ref=e195]
+                - text: 烫印温度推荐
+              - generic [ref=e197]:
+                - generic [ref=e199]:
+                  - generic [ref=e200]: 平压平烫金
+                  - generic [ref=e201]: 100 - 120°C
+                - generic [ref=e205]:
+                  - generic [ref=e206]: 圆压圆烫金
+                  - generic [ref=e207]: 140 - 170°C
+                - paragraph [ref=e210]: "* Note: Actual temperature may vary by machine speed, pressure, and substrate. Testing recommended before mass production."
+  - contentinfo [ref=e211]:
+    - generic [ref=e212]:
+      - generic [ref=e213]:
+        - generic [ref=e214]:
+          - generic [ref=e215]:
+            - img [ref=e216]
+            - generic [ref=e223]: PINTE
+          - paragraph [ref=e224]:
+            - text: 做高端烫金膜专家
+            - text: 以技术为核心，以品质为根本，以客户为中心，以信誉为资本
+          - generic [ref=e225]:
+            - link [ref=e226] [cursor=pointer]:
+              - /url: https://www.facebook.com/profile.php?id=61569812755745
+              - img [ref=e227]
+            - img [ref=e230] [cursor=pointer]
+            - img [ref=e234] [cursor=pointer]
+        - generic [ref=e237]:
+          - heading "快速链接" [level=4] [ref=e238]
+          - list [ref=e239]:
+            - listitem [ref=e240]:
+              - button "网站首页" [ref=e241] [cursor=pointer]
+            - listitem [ref=e242]:
+              - link "产品中心" [ref=e243] [cursor=pointer]:
+                - /url: /cn/products
+            - listitem [ref=e244]:
+              - button "解决方案" [ref=e245] [cursor=pointer]
+            - listitem [ref=e246]:
+              - link "关于品特" [ref=e247] [cursor=pointer]:
+                - /url: /cn/about
+        - generic [ref=e248]:
+          - heading "联系我们" [level=4] [ref=e249]
+          - list [ref=e250]:
+            - listitem [ref=e251]:
+              - img [ref=e252]
+              - generic [ref=e256]:
+                - generic [ref=e257]: 东莞市佰仕特工艺制品有限公司
+                - generic [ref=e258]: 广东省东莞市长安镇
+            - listitem [ref=e259]:
+              - img [ref=e260]
+              - generic [ref=e263]:
+                - text: 邮箱
+                - link "sales9@bestglitter.com" [ref=e264] [cursor=pointer]:
+                  - /url: mailto:sales9@bestglitter.com
+            - listitem [ref=e265]:
+              - img [ref=e266]
+              - generic [ref=e268]:
+                - text: 电话 / 微信
+                - link "+86-13192267509" [ref=e269] [cursor=pointer]:
+                  - /url: tel:+8613192267509
+        - generic [ref=e270]:
+          - heading "微信名片" [level=4] [ref=e271]
+          - generic [ref=e272]:
+            - img "WeChat QR Code" [ref=e273]
+            - paragraph [ref=e274]: 扫码与我们联系
+      - generic [ref=e275]:
+        - paragraph [ref=e276]: © 2026 Dongguan Best Craftwork Products Co., Ltd. All rights reserved.
+        - generic [ref=e277]:
+          - link "Privacy Policy" [ref=e278] [cursor=pointer]:
+            - /url: /cn/privacy
+          - link "Terms of Service" [ref=e279] [cursor=pointer]:
+            - /url: /cn/terms
+          - link "Sitemap" [ref=e280] [cursor=pointer]:
+            - /url: "#"
+  - button [ref=e282] [cursor=pointer]:
+    - img [ref=e283]

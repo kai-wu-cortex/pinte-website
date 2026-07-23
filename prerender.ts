@@ -204,6 +204,7 @@ function injectSnapshot(
   const ogLocale = lang === 'cn' ? 'zh_CN' : 'en_US';
   const ogLocaleAlt = lang === 'cn' ? 'en_US' : 'zh_CN';
   const ogImage = meta.image || 'https://www.pintecl.com/og-image.jpg';
+  const ogImageAlt = 'PINTE hot stamping foil packaging solutions';
   const pageTitle = formatPageTitle(meta.title);
 
   // Build extra head tags
@@ -221,6 +222,10 @@ function injectSnapshot(
   <meta property="og:title" content="${escapeHtml(pageTitle)}">
   <meta property="og:description" content="${escapeHtml(meta.description)}">
   <meta property="og:image" content="${escapeHtml(ogImage)}">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:alt" content="${escapeHtml(ogImageAlt)}">
   <meta property="og:site_name" content="PINTE 品特">
   <meta property="og:locale" content="${ogLocale}">
   <meta property="og:locale:alternate" content="${ogLocaleAlt}">
@@ -235,6 +240,7 @@ function injectSnapshot(
   <meta name="twitter:title" content="${escapeHtml(pageTitle)}">
   <meta name="twitter:description" content="${escapeHtml(meta.description)}">
   <meta name="twitter:image" content="${escapeHtml(ogImage)}">
+  <meta name="twitter:image:alt" content="${escapeHtml(ogImageAlt)}">
 
   <meta name="served-markets" content="${escapeHtml(meta.geoTargets.join(', '))}">
   ${buildStaticHeadLinks(route, lang)}

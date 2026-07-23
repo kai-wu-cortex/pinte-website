@@ -1,0 +1,22 @@
+[    1018ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[  127864ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[  180540ms] [WARNING] cdn.tailwindcss.com should not be used in production. To use Tailwind CSS in production, install it as a PostCSS plugin or use the Tailwind CLI: https://tailwindcss.com/docs/installation @ https://cdn.tailwindcss.com/:63
+[  228498ms] [ERROR] Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH @ https://cos.pintecl.com/product/pypl%20(41).jpeg:0
+[  228510ms] [ERROR] Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH @ https://cos.pintecl.com/product/pypl%20(40).jpeg:0
+[  228510ms] [ERROR] Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH @ https://cos.pintecl.com/product/pypl%20(38).jpeg:0
+[  228609ms] [ERROR] Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH @ https://cos.pintecl.com/product/pypl%20(42).jpeg:0
+[  228609ms] [ERROR] Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH @ https://cos.pintecl.com/product/pypl%20(39).jpeg:0
+[  228609ms] [ERROR] Failed to load resource: net::ERR_CONTENT_LENGTH_MISMATCH @ https://cos.pintecl.com/product/pypl%20(43).jpeg:0
+[  230717ms] [ERROR] Failed to load resource: net::ERR_EMPTY_RESPONSE @ https://cos.pintecl.com/product/pypl%20(48).jpeg:0
+[  230717ms] [ERROR] Failed to load resource: net::ERR_EMPTY_RESPONSE @ https://cos.pintecl.com/product/pypl%20(50).jpeg:0
+[  230717ms] [ERROR] Failed to load resource: net::ERR_EMPTY_RESPONSE @ https://cos.pintecl.com/product/pypl%20(45).jpeg:0
+[  230761ms] [ERROR] Failed to load resource: net::ERR_EMPTY_RESPONSE @ https://cos.pintecl.com/product/pypl%20(44).jpeg:0
+[  230761ms] [ERROR] Failed to load resource: net::ERR_EMPTY_RESPONSE @ https://cos.pintecl.com/product/pypl%20(49).jpeg:0
+[  230761ms] [ERROR] Failed to load resource: net::ERR_EMPTY_RESPONSE @ https://cos.pintecl.com/product/pypl%20(46).jpeg:0
+[  379570ms] [ERROR] Failed to load resource: the server responded with a status of 404 () @ https://www.pintecl.com/favicon.ico:0
+[  380241ms] [LOG] [ServiceWorker] Registered successfully: https://www.pintecl.com/ @ https://www.pintecl.com/cn/pintefoils/:174
+[  380797ms] [ERROR] Failed to load resource: net::ERR_SOCKET_NOT_CONNECTED @ https://c.clarity.ms/c.gif:0
+[  787672ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://b.clarity.ms/collect:0
+[  787740ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://b.clarity.ms/collect:0
+[  787862ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://b.clarity.ms/collect:0
+[  787862ms] [ERROR] Failed to load resource: net::ERR_INTERNET_DISCONNECTED @ https://b.clarity.ms/collect:0
