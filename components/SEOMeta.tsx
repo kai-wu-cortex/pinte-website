@@ -60,6 +60,7 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
   const pagePath = normalizePath(url) || canonicalPath;
   const fullUrl = pagePath ? `${siteUrl}${pagePath}` : siteUrl;
   const fullImage = image ? (image.startsWith('http') ? image : `${siteUrl}${image}`) : `${siteUrl}/og-image.jpg`;
+  const imageAlt = `${shortSiteName} hot stamping foil packaging solutions`;
   const fullTitle = /pinte|品特/i.test(title) ? title : `${title} | ${siteName}`;
 
   useEffect(() => {
@@ -127,6 +128,10 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       <meta property="og:title" content={fullTitle} />
       <meta property="og:description" content={description} />
       <meta property="og:image" content={fullImage} />
+      <meta property="og:image:width" content="1200" />
+      <meta property="og:image:height" content="630" />
+      <meta property="og:image:type" content="image/jpeg" />
+      <meta property="og:image:alt" content={imageAlt} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:locale" content={locale} />
 
@@ -157,6 +162,7 @@ const SEOMeta: React.FC<SEOMetaProps> = ({
       <meta name="twitter:title" content={fullTitle} />
       <meta name="twitter:description" content={description} />
       <meta name="twitter:image" content={fullImage} />
+      <meta name="twitter:image:alt" content={imageAlt} />
 
       {/* GEO Meta Tags - 本地SEO优化 */}
       {geoRegion && <meta name="geo.region" content={geoRegion} />}
