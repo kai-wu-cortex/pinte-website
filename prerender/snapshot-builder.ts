@@ -222,6 +222,69 @@ const escapeHtml = (value: string) =>
 const trim = (s: string, max: number) =>
   s.length <= max ? s : s.slice(0, max - 1).trimEnd() + '…';
 
+const normalizeGuideCatalogCopy = (value: string, lang: Lang): string => {
+  let output = value
+    .replace(/the target packaging application/gi, lang === 'cn' ? '具体包装应用' : 'the packaging application')
+    .replace(/the actual surface treatment/gi, lang === 'cn' ? '实际表面处理' : 'the actual surface treatment')
+    .replace(/the planned stamping process/gi, lang === 'cn' ? '计划烫印工艺' : 'the planned stamping process')
+    .replace(/Combined foil stamping and embossing/gi, lang === 'cn' ? '烫金压凸' : 'combined foil stamping and embossing')
+    .replace(/Flatbed or platen hot stamping/gi, lang === 'cn' ? '平压平热烫' : 'flatbed or platen hot stamping')
+    .replace(/Narrow-web cold foil transfer/gi, lang === 'cn' ? '窄幅冷烫' : 'narrow-web cold foil transfer')
+    .replace(/Corona or plasma treatment/gi, lang === 'cn' ? '电晕或等离子处理' : 'corona or plasma treatment')
+    .replace(/As-supplied or uncoated surface/gi, lang === 'cn' ? '原始或未涂布表面' : 'as-supplied or uncoated surface')
+    .replace(/Roll width, length, winding, and core/gi, lang === 'cn' ? '宽幅、长度、绕向和卷芯' : 'roll width, length, winding, and core')
+    .replace(/Foil web tension and feed/gi, lang === 'cn' ? '膜带张力和走膜' : 'foil web tension and feed')
+    .replace(/MOQ and order quantity/gi, lang === 'cn' ? '起订量和采购数量' : 'MOQ and order quantity')
+    .replace(/Lead time and logistics/gi, lang === 'cn' ? '交期和物流' : 'lead time and logistics')
+    .replace(/Alcohol or chemical resistance failure/gi, lang === 'cn' ? '酒精或化学擦拭失败' : 'alcohol or chemical resistance failure')
+    .replace(/Blurred detail, filling, or loss of negative space/gi, lang === 'cn' ? '糊边、糊版或反白细节丢失' : 'blurred detail, filling, or loss of negative space')
+    .replace(/Color, gloss, or optical-effect variation/gi, lang === 'cn' ? '颜色、光泽或光学效果差异' : 'color, gloss, or optical-effect variation')
+    .replace(/Foil flaking, dusting, or edge debris/gi, lang === 'cn' ? '掉粉、碎金或边缘碎屑' : 'foil flaking, dusting, or edge debris')
+    .replace(/Incomplete or missing transfer/gi, lang === 'cn' ? '缺金或转移不完整' : 'incomplete or missing transfer')
+    .replace(/Mottling, pinholes, or uneven solid coverage/gi, lang === 'cn' ? '发花、针孔或大面积不均' : 'mottling, pinholes, or uneven solid coverage')
+    .replace(/Poor adhesion or peeling/gi, lang === 'cn' ? '附着不牢或掉金' : 'poor adhesion or peeling')
+    .replace(/Register shift or hologram placement error/gi, lang === 'cn' ? '套准偏移或镭射定位偏差' : 'register shift or hologram placement error')
+    .replace(/Scratch, scuff, or rub failure/gi, lang === 'cn' ? '刮擦或耐磨失败' : 'scratch, scuff, or rub failure')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+  if (lang === 'cn') {
+    output = output
+      .replace(/^[A-Za-z0-9,&/().\-\s]+：/, '')
+      .replace(/在烫金中的含义在具体包装应用中的采购术语/g, '在烫金中的含义')
+      .replace(/在具体包装应用中的采购术语/g, '在烫金项目中的采购术语')
+      .replace(/，重点处理[^）。]+/g, '，说明打样确认、参数窗口和量产验收')
+      .replace(/重点处理[^）。]+/g, '说明打样确认、参数窗口和量产验收')
+      .replace(/（[^）]*$/g, '')
+      .replace(/。+$/g, '。')
+      .trim();
+  }
+
+  return output;
+};
+
+const cleanGuideCatalogTitle = (value: string, lang: Lang) => {
+  let title = normalizeGuideCatalogCopy(value, lang);
+  if (lang === 'cn') {
+    if (title.length > 42 && title.includes('（')) title = title.split('（')[0].trim();
+    title = title
+      .replace(/^[^：]{1,14}）：/, '')
+      .replace(/出现(.+)的原因$/, '出现$1的原因与处理')
+      .replace(/什么区别？$/, '区别与选型建议')
+      .replace(/采购术语$/, '采购含义')
+      .replace(/指南指南/g, '指南');
+  }
+  return title;
+};
+
+const cleanGuideCatalogDescription = (value: string, lang: Lang) => {
+  let description = normalizeGuideCatalogCopy(value, lang);
+  if (lang === 'cn' && description && !/[。！？]$/.test(description)) {
+    description = `${description}，说明打样确认、参数窗口和量产验收。`;
+  }
+  return description;
+};
+
 const sanitizeGeneratedGuideBody = (bodyHtml: string) => sanitizeHtml(bodyHtml, {
   allowedTags: GENERATED_GUIDE_BODY_TAGS,
   allowedAttributes: { a: ['href', 'title', 'target', 'rel'] },
@@ -1771,9 +1834,78 @@ function buildGuideListSnapshot(lang: Lang): SnapshotResult {
     lang === 'cn'
       ? '浏览 PINTE 烫金膜采购指南、底材选型、故障排查、热烫冷烫对比、化妆品包装、纸盒包装和技术资料。'
       : 'Browse PINTE hot stamping foil procurement guides, substrate selection, troubleshooting, hot foil vs cold foil comparisons, cosmetic packaging, paper box packaging, and technical resources.';
-  const guides = [...staticGuideCatalogByLang[lang]].sort(
-    (a, b) => a.priority - b.priority || a.title.localeCompare(b.title) || a.slug.localeCompare(b.slug)
-  );
+  const guides = [...staticGuideCatalogByLang[lang]]
+    .map((guide) => ({
+      ...guide,
+      title: cleanGuideCatalogTitle(guide.title, lang),
+      description: cleanGuideCatalogDescription(guide.description, lang),
+    }))
+    .sort((a, b) => (
+      a.priority - b.priority || a.title.localeCompare(b.title) || a.slug.localeCompare(b.slug)
+    ));
+  const selectionMatrix = lang === 'cn'
+    ? [
+      ['纸张 / 纸盒', '铜版纸、白卡、特种纸、覆膜纸板', '确认表面涂层、纹理深浅、细线与大面积实地是否同时存在。', '纸张与纸盒包装'],
+      ['化妆品包装', '纸盒、标签、瓶盖、塑料件', '优先验证色差、耐酒精、耐磨、边缘洁净度和复购批次稳定性。', '化妆品包装'],
+      ['标签冷烫', '薄膜标签、纸质标签、UV 胶层', '重点看张力、胶量、套准、固化和镭射光学效果复现。', '标签印刷'],
+      ['塑料 / 皮革', 'ABS、PP、PE、PU、真皮、合成革', '必须先确认表面能、油污、涂层和耐刮耐磨要求。', '塑料制品 / 皮革制品'],
+    ]
+    : [
+      ['Paper / carton', 'Coated paper, white card, specialty paper, laminated board', 'Confirm coating, texture, fine detail, and large solid areas together.', 'Paper and carton packaging'],
+      ['Cosmetic packaging', 'Cartons, labels, caps, plastic parts', 'Verify color consistency, alcohol resistance, rub resistance, clean edges, and repeat batches.', 'Cosmetic packaging'],
+      ['Cold foil labels', 'Film labels, paper labels, UV adhesive layer', 'Check web tension, adhesive volume, registration, curing, and holographic repeatability.', 'Label printing'],
+      ['Plastic / leather', 'ABS, PP, PE, PU, natural leather, synthetic leather', 'Confirm surface energy, contamination, coating, scratch resistance, and rub resistance first.', 'Plastics / leather'],
+    ];
+  const defectMatrix = lang === 'cn'
+    ? [
+      ['烫不上 / 缺金', '压力接触不足、离型不匹配、底材表面能低', '先固定图稿和速度，只调压力/温度其中一个变量。'],
+      ['掉金 / 附着不牢', '底材污染、涂层相容性差、耐性膜型选错', '做胶带、耐磨、耐酒精或折痕测试，不用手擦代替。'],
+      ['糊边 / 细节丢失', '温度过高、压力过大、版纹磨损或膜释放过宽', '用小字、反白线和 Logo 细节做专门打样区。'],
+      ['色差 / 光泽差异', '批次、底材颜色、烫印温度和观察角度不同', '保留确认样和卷标，复购时按样品和批号沟通。'],
+    ]
+    : [
+      ['Missing transfer', 'Insufficient contact, release mismatch, low surface energy', 'Hold artwork and speed constant; change only pressure or temperature first.'],
+      ['Peeling / poor adhesion', 'Contamination, coating incompatibility, wrong durability grade', 'Use tape, rub, alcohol, or fold tests instead of informal hand rubbing.'],
+      ['Blurred edges', 'Excessive temperature/pressure, worn die, overly broad release', 'Include small text, reverse lines, and logo detail in the sampling area.'],
+      ['Color / gloss variation', 'Batch, substrate color, stamping temperature, or viewing angle', 'Keep approved samples and roll labels for repeat-order communication.'],
+    ];
+  const faq = lang === 'cn'
+    ? [
+      {
+        q: '采购烫金膜时第一步应该确认什么？',
+        a: '第一步不是选金色或银色，而是确认底材、表面处理、工艺路线、图稿难度和成品耐性要求；这些条件决定膜材胶层、离型和打样窗口。',
+      },
+      {
+        q: '同一种烫金膜能不能同时用于纸张、塑料和皮革？',
+        a: '不建议直接通用。纸张、塑料和皮革的表面能、纹理、涂层和耐磨要求不同，需要分别打样并保留确认样。',
+      },
+      {
+        q: '询价时需要给供应商哪些资料？',
+        a: '至少提供底材样、颜色或效果目标、卷宽/卷长/纸芯、烫印设备、温度压力速度范围、图稿难点、测试方法、数量和交期。',
+      },
+      {
+        q: '页面里的指南适合谁使用？',
+        a: '适合包装厂、印刷厂、标签厂、化妆品包材采购、皮具厂和品牌包装负责人，用于选型、打样、故障排查和供应商沟通。',
+      },
+    ]
+    : [
+      {
+        q: 'What should buyers confirm first when sourcing hot stamping foil?',
+        a: 'Start with substrate, surface treatment, process route, artwork difficulty, and durability expectations, because these conditions determine adhesive, release, and sampling window.',
+      },
+      {
+        q: 'Can one foil grade be used on paper, plastic, and leather?',
+        a: 'Do not assume one universal grade. Paper, plastic, and leather differ in surface energy, texture, coating, and abrasion requirements, so each should be sampled separately.',
+      },
+      {
+        q: 'What information should an RFQ include?',
+        a: 'Include substrate samples, target color/effect, roll width/length/core, machine route, temperature-pressure-speed range, artwork risks, test method, quantity, and lead time.',
+      },
+      {
+        q: 'Who are these guides written for?',
+        a: 'They are written for packaging converters, printers, label shops, cosmetic packaging buyers, leather goods manufacturers, and brand packaging teams.',
+      },
+    ];
   const guideLinks = guides
     .map(
       (guide) => `<article><h2><a href="${langPath(`guides/${guide.slug}`, lang)}/">${escapeHtml(
@@ -1781,28 +1913,83 @@ function buildGuideListSnapshot(lang: Lang): SnapshotResult {
       )}</a></h2><p>${escapeHtml(guide.description)}</p></article>`
     )
     .join('');
+  const selectionRows = selectionMatrix
+    .map(([application, substrate, check, entry]) => (
+      `<tr><td>${escapeHtml(application)}</td><td>${escapeHtml(substrate)}</td><td>${escapeHtml(check)}</td><td>${escapeHtml(entry)}</td></tr>`
+    ))
+    .join('');
+  const defectRows = defectMatrix
+    .map(([issue, cause, action]) => (
+      `<tr><td>${escapeHtml(issue)}</td><td>${escapeHtml(cause)}</td><td>${escapeHtml(action)}</td></tr>`
+    ))
+    .join('');
 
   const inner = `
     <h1>${escapeHtml(title)}</h1>
     <p class="seo-lead">${escapeHtml(description)}</p>
+    <section>
+      <h2>${escapeHtml(lang === 'cn' ? '如何使用这个烫金膜知识中心' : 'How to use this hot stamping foil knowledge hub')}</h2>
+      <p>${escapeHtml(lang === 'cn'
+        ? '本页不是普通博客列表，而是给采购、打样、机长和质量人员使用的烫金膜选型入口。建议先按底材和应用场景缩小范围，再进入对应指南核对参数、故障原因、打样方法和供应商询价信息。'
+        : 'This page is more than a blog list. It is a selection entry point for buyers, sampling teams, press operators, and quality teams. Start with substrate and application, then use the matching guide to confirm parameters, failure causes, sampling method, and RFQ details.')}</p>
+      <p><strong>${escapeHtml(lang === 'cn' ? '最后更新：2026-07-23' : 'Last updated: 2026-07-23')}</strong> — ${escapeHtml(lang === 'cn'
+        ? '基于 PINTE 工厂打样、订单沟通和量产确认经验整理。'
+        : 'Based on PINTE factory sampling, order communication, and production approval experience.')}</p>
+      <figure>
+        <img src="/images/guides/source/hot-stamping-foil-metallic-roll-library-1200x675.webp" alt="${escapeHtml(lang === 'cn' ? '用于颜色和表面效果选择的金色、银色和镭射烫金膜卷料' : 'Gold, silver, and holographic hot stamping foil rolls for color and finish selection')}" width="1200" height="675" decoding="async">
+        <figcaption>${escapeHtml(lang === 'cn' ? '下单前应通过实物卷料和样品对比确认金属色相、光泽和镭射效果。' : 'Use physical roll and sample comparisons to confirm metallic shade, gloss, and holographic effect before ordering.')}</figcaption>
+      </figure>
+      <figure>
+        <img src="/images/guides/source/hot-stamping-foil-cosmetic-packaging-display-1200x675.webp" alt="${escapeHtml(lang === 'cn' ? '化妆品包装展示，包含镭射和金属烫金膜装饰效果' : 'Cosmetic packaging display with holographic and metallic hot stamping foil decoration')}" width="1200" height="675" loading="lazy" decoding="async">
+        <figcaption>${escapeHtml(lang === 'cn' ? '化妆品包装需要在盒子、标签和容器上保持颜色稳定、边缘干净和表面适配。' : 'Cosmetic packaging requires consistent color, clean edges, and surface compatibility across boxes, labels, and containers.')}</figcaption>
+      </figure>
+    </section>
+    <section>
+      <h2>${escapeHtml(lang === 'cn' ? '烫金膜选型快速判断表' : 'Quick hot stamping foil selection matrix')}</h2>
+      <p>${escapeHtml(lang === 'cn'
+        ? '烫金膜选型的核心是“底材 + 表面处理 + 工艺路线 + 成品测试”。下面的表格用于先判断应该阅读哪个分类，而不是替代真实打样。'
+        : 'Foil selection depends on substrate, surface treatment, process route, and finished-product testing. Use this table to choose the right guide category before production sampling.')}</p>
+      <table><thead><tr><th>${escapeHtml(lang === 'cn' ? '应用场景' : 'Application')}</th><th>${escapeHtml(lang === 'cn' ? '常见底材' : 'Common substrates')}</th><th>${escapeHtml(lang === 'cn' ? '先确认的问题' : 'First checks')}</th><th>${escapeHtml(lang === 'cn' ? '建议入口' : 'Suggested entry')}</th></tr></thead><tbody>${selectionRows}</tbody></table>
+    </section>
+    <section>
+      <h2>${escapeHtml(lang === 'cn' ? '常见故障先这样分流' : 'Route common foil defects this way')}</h2>
+      <table><thead><tr><th>${escapeHtml(lang === 'cn' ? '故障' : 'Defect')}</th><th>${escapeHtml(lang === 'cn' ? '可能原因' : 'Likely cause')}</th><th>${escapeHtml(lang === 'cn' ? '建议动作' : 'Recommended action')}</th></tr></thead><tbody>${defectRows}</tbody></table>
+    </section>
+    <section>
+      <h2>${escapeHtml(lang === 'cn' ? '询价资料建议一次给全' : 'RFQ details to send at once')}</h2>
+      ${ul(lang === 'cn'
+        ? ['真实底材或成品样，不只发照片', '目标颜色、效果和可接受色差范围', '设备路线：热烫、冷烫、平压、圆压或数字烫', '图稿难点：大面积、细线、小字、反白、套准', '测试要求：百格、胶带、耐磨、耐酒精、折痕或运输摩擦', '卷宽、卷长、纸芯、绕向、数量、包装和交期']
+        : ['Actual substrate or finished sample, not only photos', 'Target color/effect and acceptable color tolerance', 'Process route: hot foil, cold foil, flatbed, rotary, or digital foil', 'Artwork risks: large solids, fine lines, small type, reverse detail, registration', 'Test requirements: cross-hatch, tape, rub, alcohol, fold, or transport abrasion', 'Roll width, roll length, core, winding, quantity, packing, and lead time'])}
+      <p>${escapeHtml(lang === 'cn'
+        ? '合规和化学限制可参考欧盟 REACH 与 RoHS 官方页面；具体订单仍需按客户市场、材料体系和测试项目确认。'
+        : 'For compliance and chemical restrictions, refer to official EU REACH and RoHS pages; each order still needs market, material, and test-specific confirmation.')}
+        <a href="https://environment.ec.europa.eu/topics/chemicals/reach-regulation_en" target="_blank" rel="noopener noreferrer">REACH</a> /
+        <a href="https://environment.ec.europa.eu/topics/waste-and-recycling/rohs-directive_en" target="_blank" rel="noopener noreferrer">RoHS</a>
+      </p>
+    </section>
+    ${faqHtml(lang, faq)}
     <section>${guideLinks}</section>
     ${geoLine(lang, geoTargets)}
   `;
   const crumbs = buildBreadcrumb(route, lang);
+  const jsonLd: Record<string, unknown>[] = [
+    crumbsToSchema(crumbs),
+    pageTypeSchema({ type: 'CollectionPage', name: title, description, url }),
+    itemListSchema({
+      name: title,
+      url,
+      items: guides.map((guide) => ({
+        name: guide.title,
+        url: buildCanonicalUrl(`guides/${guide.slug}`, lang),
+      })),
+    }),
+  ];
+  const fq = faqSchema(faq);
+  if (fq) jsonLd.push(fq);
+
   return {
     html: wrapMain({ route, lang, breadcrumb: breadcrumbHtml(lang, crumbs), inner }),
-    jsonLd: [
-      crumbsToSchema(crumbs),
-      pageTypeSchema({ type: 'CollectionPage', name: title, description, url }),
-      itemListSchema({
-        name: title,
-        url,
-        items: guides.map((guide) => ({
-          name: guide.title,
-          url: buildCanonicalUrl(`guides/${guide.slug}`, lang),
-        })),
-      }),
-    ],
+    jsonLd,
     meta: {
       title,
       description,
