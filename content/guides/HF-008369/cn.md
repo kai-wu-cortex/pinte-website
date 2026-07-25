@@ -90,10 +90,6 @@ sources:
 - 核心关注：套准偏移或镭射定位偏差
 - 推荐产品方向：标签和短版装饰用数码转移/冷烫膜
 
-
-
-
-
 如果同一个包装同时包含大面积实地、细线、小文字、压凸或覆膜后加工，应把这些区域都放进同一轮测试。只在空白底材上做小样，通常无法代表最终包装上的附着、边缘清晰度和耐磨表现。
 
 ## 底材专项说明
@@ -123,18 +119,6 @@ sources:
 - 记录供应商选型建议和明确的通过/失败标准
 
 验收时应先定义“通过”标准。例如胶带测试后是否允许边缘轻微残留，耐磨测试做多少次，酒精擦拭是否用于最终使用场景。没有标准的测试结果很难用于供应商比较，也很难追溯后续批次差异。
-
-## 国际采购沟通关键词
-
-如果这篇内容用于英文询价或海外客户沟通，可以把范围写成：Why Register shift or hologram placement error Happens on Film label facestock - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error。这句话的作用不是替代打样，而是让供应商快速看懂底材、表面、工艺和风险边界。
-
-常用英文拆分为：substrate: label film facestock；surface treatment: corona or plasma；process: cold foil narrow web；defect symptom: register shift。如果供应商回复只停留在通用 gold foil、silver foil 或 holographic foil，而没有回应这些关键词，就需要继续追问膜系、测试方法和卷料规格。
-
-对应的英文问题是：How should a converter diagnose register shift or hologram placement error on film label facestock under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Register shift or hologram placement error? 采购人员可以把这句话改写成邮件主题，再在正文中附上实物底材、图稿、机台和测试要求。
-
-## 供应商询价资料
-
-询价建议一次性提供：底材或成品样、表面处理说明、目标颜色或光学效果、图稿 PDF、烫印方式、机台型号、计划速度、卷宽/卷长/纸芯、样品数量、测试项目、量产数量和交期。供应商回复应至少包含建议膜系、推荐起始参数、样品规格、批次管理方式和风险提示。
 
 ## 常见误区
 

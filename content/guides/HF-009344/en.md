@@ -99,9 +99,7 @@ The scope is: Frames the topic around a real buying application, artwork style, 
 - Main concern: Large solid area
 - Related PINTE direction: PK hot stamping foil for paper, carton, leather, and general packaging trials
 
-
 If the artwork includes Large solid area, keep those details in the trial area instead of judging only from a large solid block.
-
 
 If the same package includes large solid areas, fine lines, small type, embossing, or post-lamination handling, include those areas in the same trial. A small test on blank stock may not represent adhesion, edge definition, rub resistance, or optical consistency on the finished package.
 
@@ -136,18 +134,6 @@ Large solid areas should be checked for pinholes, orange peel, seams, and gloss 
 - Supplier grade selection notes and recorded pass/fail criteria
 
 Define the pass condition before testing. For example, decide whether slight edge residue is allowed after tape pull, how many rub cycles are required, and whether alcohol wiping reflects the final use case. A test without pass criteria is weak for supplier comparison and weak for batch follow-up.
-
-## International RFQ wording
-
-For international sourcing, the scope can be written as: Wine, spirits, and gifts Foil Stamping on Folding carton board - As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping / Wine, spirits, and gifts / Large solid area. This wording is not a replacement for sampling; it helps the supplier understand the substrate, surface, process, and risk boundary before recommending a foil family.
-
-Useful term breakdown: substrate: board folding carton; surface treatment: surface as supplied; process: hot stamping embossing; application: wine spirits gifts; artwork: large solid area. If a supplier only replies with generic gold foil, silver foil, or holographic foil without addressing these terms, ask again for a foil family, test method, and roll specification.
-
-The buyer question behind this page is: What should wine, spirits, and gifts confirm before foil stamping folding carton board under As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping / Wine, spirits, and gifts / Large solid area? Use it as an email subject or RFQ headline, then attach the real substrate, artwork, machine route, and acceptance tests in the message body.
-
-## Supplier RFQ information
-
-A useful RFQ includes the substrate or finished sample, surface treatment, target color or optical effect, artwork PDF, stamping method, machine model, planned speed, roll width/length/core, sample quantity, test method, bulk quantity, and delivery need. The supplier response should identify the foil family, starting settings, sample specification, batch-control approach, and any known risk.
 
 ## Common mistakes
 

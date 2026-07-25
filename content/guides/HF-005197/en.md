@@ -109,8 +109,6 @@ The scope is: Focuses on one controllable variable inside a compatible substrate
 - Main concern: Toner-transfer lamination temperature
 - Related PINTE direction: Digital and cold transfer foil for labels and short-run embellishment
 
-
-
 On the equipment side, record pressure, speed, temperature, or curing conditions for Digital toner foiling system.
 
 If the same package includes large solid areas, fine lines, small type, embossing, or post-lamination handling, include those areas in the same trial. A small test on blank stock may not represent adhesion, edge definition, rub resistance, or optical consistency on the finished package.
@@ -144,18 +142,6 @@ Digital toner transfer suits short-run and personalized decoration; toner covera
 - Supplier grade selection notes and recorded pass/fail criteria
 
 Define the pass condition before testing. For example, decide whether slight edge residue is allowed after tape pull, how many rub cycles are required, and whether alcohol wiping reflects the final use case. A test without pass criteria is weak for supplier comparison and weak for batch follow-up.
-
-## International RFQ wording
-
-For international sourcing, the scope can be written as: Toner-transfer lamination temperature Checks for Digital toner or electro-ink foil transfer on Folding carton board - Digital toner or electro-ink receiving layer / Digital toner or electro-ink foil transfer / Digital toner foil enhancement / Toner-transfer lamination temperature / Digital toner foiling system. This wording is not a replacement for sampling; it helps the supplier understand the substrate, surface, process, and risk boundary before recommending a foil family.
-
-Useful term breakdown: substrate: board folding carton; surface treatment: digital toner layer; process: digital toner transfer; process variable: lamination temperature. If a supplier only replies with generic gold foil, silver foil, or holographic foil without addressing these terms, ask again for a foil family, test method, and roll specification.
-
-The buyer question behind this page is: How should toner-transfer lamination temperature be checked before approving folding carton board under Digital toner or electro-ink receiving layer / Digital toner or electro-ink foil transfer / Digital toner foil enhancement / Toner-transfer lamination temperature / Digital toner foiling system? Use it as an email subject or RFQ headline, then attach the real substrate, artwork, machine route, and acceptance tests in the message body.
-
-## Supplier RFQ information
-
-A useful RFQ includes the substrate or finished sample, surface treatment, target color or optical effect, artwork PDF, stamping method, machine model, planned speed, roll width/length/core, sample quantity, test method, bulk quantity, and delivery need. The supplier response should identify the foil family, starting settings, sample specification, batch-control approach, and any known risk.
 
 ## Common mistakes
 

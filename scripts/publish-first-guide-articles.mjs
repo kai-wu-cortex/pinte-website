@@ -256,7 +256,6 @@ function contextNoteCn(topic, parts) {
 }
 
 function uniqueWorksheetEn(topic, parts) {
-  const tags = safeArray(topic.tags).map(titleCase).join('; ') || 'job-specific foil approval';
   const evidence = safeArray(topic.evidence_needed)
     .map((item) => `- ${item}`)
     .join('\n');
@@ -283,17 +282,12 @@ Useful evidence for this topic includes:
 
 ${evidence || '- Production-representative substrate, press route, artwork, speed, and durability testing.'}
 
-## Supplier RFQ checklist
-
-Ask the supplier to answer with a foil family, a test method, and a roll specification. The RFQ should mention ${parts.substrate}, ${parts.surface}, ${parts.process}, and ${parts.issue}; otherwise the answer is probably too generic for production approval. Use working labels such as ${tags} only as selection context, not as a substitute for sample testing.
-
 ## Source context
 
 This guide is aligned with practical foil-industry references such as ${sourceNames || 'foil manufacturer grade guides and process notes'}. Those references are useful for process principles, but the final choice still depends on your own substrate, machine, artwork, speed, and retained approval sample.`;
 }
 
 function uniqueWorksheetCn(topic, parts) {
-  const tags = safeArray(topic.tags).map(titleCase).join('；') || '订单打样确认';
   const evidence = safeArray(topic.evidence_needed)
     .map((item) => `- ${item}`)
     .join('\n');
@@ -319,10 +313,6 @@ ${contextNoteCn(topic, parts)}
 这个主题建议重点保留以下证据：
 
 ${evidence || '- 接近量产条件的底材、机台、图稿、速度和耐性测试记录。'}
-
-## 供应商询价清单
-
-供应商回复应同时给出膜系、测试方法和卷料规格。如果回复没有提到${parts.substrate}、${parts.surface}、${parts.process}和${parts.issue}，说明建议仍然过于笼统。${tags} 这类标签只适合作为选型线索，不能替代真实打样。
 
 ## 资料参考方式
 

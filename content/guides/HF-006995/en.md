@@ -105,10 +105,6 @@ The scope is: Compares two compatible processes for the same Folding carton boar
 - Main concern: Digital UV varnish foil transfer versus Screen-printed UV adhesive foil transfer
 - Related PINTE direction: Digital and cold transfer foil for labels and short-run embellishment
 
-
-
-
-
 If the same package includes large solid areas, fine lines, small type, embossing, or post-lamination handling, include those areas in the same trial. A small test on blank stock may not represent adhesion, edge definition, rub resistance, or optical consistency on the finished package.
 
 ## Substrate-specific notes
@@ -138,18 +134,6 @@ UV varnish surfaces require checks for cure level and slip additives. Under-cure
 - Supplier grade selection notes and recorded pass/fail criteria
 
 Define the pass condition before testing. For example, decide whether slight edge residue is allowed after tape pull, how many rub cycles are required, and whether alcohol wiping reflects the final use case. A test without pass criteria is weak for supplier comparison and weak for batch follow-up.
-
-## International RFQ wording
-
-For international sourcing, the scope can be written as: Digital UV varnish foil transfer vs Screen-printed UV adhesive foil transfer for Folding carton board - UV varnish or coating / Digital UV varnish foil transfer / Digital or screen-printed UV foil enhancement. This wording is not a replacement for sampling; it helps the supplier understand the substrate, surface, process, and risk boundary before recommending a foil family.
-
-Useful term breakdown: substrate: board folding carton; surface treatment: varnish uv; comparison left: digital uv varnish transfer; comparison right: screen printed uv cold transfer. If a supplier only replies with generic gold foil, silver foil, or holographic foil without addressing these terms, ask again for a foil family, test method, and roll specification.
-
-The buyer question behind this page is: Should Folding carton board use digital UV varnish foil transfer or screen-printed UV adhesive foil transfer under UV varnish or coating / Digital UV varnish foil transfer / Digital or screen-printed UV foil enhancement? Use it as an email subject or RFQ headline, then attach the real substrate, artwork, machine route, and acceptance tests in the message body.
-
-## Supplier RFQ information
-
-A useful RFQ includes the substrate or finished sample, surface treatment, target color or optical effect, artwork PDF, stamping method, machine model, planned speed, roll width/length/core, sample quantity, test method, bulk quantity, and delivery need. The supplier response should identify the foil family, starting settings, sample specification, batch-control approach, and any known risk.
 
 ## Common mistakes
 

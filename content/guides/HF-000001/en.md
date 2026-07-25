@@ -108,9 +108,7 @@ The scope is: Narrows grade selection to Fine lines and small type, Coated glass
 - Main concern: Fine lines and small type
 - Related PINTE direction: PK hot stamping foil for paper, carton, leather, and general packaging trials
 
-
 If the artwork includes Fine lines and small type, keep those details in the trial area instead of judging only from a large solid block.
-
 
 If the same package includes large solid areas, fine lines, small type, embossing, or post-lamination handling, include those areas in the same trial. A small test on blank stock may not represent adhesion, edge definition, rub resistance, or optical consistency on the finished package.
 
@@ -139,18 +137,6 @@ Fine lines and small type should be tested with the real minimum type, reverse l
 - Supplier grade selection notes and recorded pass/fail criteria
 
 Define the pass condition before testing. For example, decide whether slight edge residue is allowed after tape pull, how many rub cycles are required, and whether alcohol wiping reflects the final use case. A test without pass criteria is weak for supplier comparison and weak for batch follow-up.
-
-## International RFQ wording
-
-For international sourcing, the scope can be written as: Foil Grade Selection for Fine lines and small type on Coated glass container - Primer or adhesion-promoting coating / Roll-on hot stamping for shaped parts / Coated glass specialty hot stamping / Cosmetics and personal care / Fine lines and small type. This wording is not a replacement for sampling; it helps the supplier understand the substrate, surface, process, and risk boundary before recommending a foil family.
-
-Useful term breakdown: substrate: glass container; surface treatment: primer; process: hot stamping roll on; application: cosmetics personal care; artwork: fine lines small type. If a supplier only replies with generic gold foil, silver foil, or holographic foil without addressing these terms, ask again for a foil family, test method, and roll specification.
-
-The buyer question behind this page is: Which foil selection checks matter for fine lines and small type on coated glass container under Primer or adhesion-promoting coating / Roll-on hot stamping for shaped parts / Coated glass specialty hot stamping / Cosmetics and personal care / Fine lines and small type? Use it as an email subject or RFQ headline, then attach the real substrate, artwork, machine route, and acceptance tests in the message body.
-
-## Supplier RFQ information
-
-A useful RFQ includes the substrate or finished sample, surface treatment, target color or optical effect, artwork PDF, stamping method, machine model, planned speed, roll width/length/core, sample quantity, test method, bulk quantity, and delivery need. The supplier response should identify the foil family, starting settings, sample specification, batch-control approach, and any known risk.
 
 ## Common mistakes
 

@@ -104,10 +104,6 @@ The scope is: Compares two compatible processes for the same Folding carton boar
 - Main concern: Combined foil stamping and embossing versus Flatbed or platen hot stamping
 - Related PINTE direction: PK hot stamping foil for paper, carton, leather, and general packaging trials
 
-
-
-
-
 If the same package includes large solid areas, fine lines, small type, embossing, or post-lamination handling, include those areas in the same trial. A small test on blank stock may not represent adhesion, edge definition, rub resistance, or optical consistency on the finished package.
 
 ## Substrate-specific notes
@@ -137,18 +133,6 @@ As-supplied or uncoated surfaces look simple, but moisture, dusting, fiber rough
 - Supplier grade selection notes and recorded pass/fail criteria
 
 Define the pass condition before testing. For example, decide whether slight edge residue is allowed after tape pull, how many rub cycles are required, and whether alcohol wiping reflects the final use case. A test without pass criteria is weak for supplier comparison and weak for batch follow-up.
-
-## International RFQ wording
-
-For international sourcing, the scope can be written as: Combined foil stamping and embossing vs Flatbed or platen hot stamping for Folding carton board - As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping. This wording is not a replacement for sampling; it helps the supplier understand the substrate, surface, process, and risk boundary before recommending a foil family.
-
-Useful term breakdown: substrate: board folding carton; surface treatment: surface as supplied; comparison left: hot stamping embossing; comparison right: hot stamping flatbed. If a supplier only replies with generic gold foil, silver foil, or holographic foil without addressing these terms, ask again for a foil family, test method, and roll specification.
-
-The buyer question behind this page is: Should Folding carton board use combined foil stamping and embossing or flatbed or platen hot stamping under As-supplied or uncoated surface / Combined foil stamping and embossing / Standard paper and carton hot stamping? Use it as an email subject or RFQ headline, then attach the real substrate, artwork, machine route, and acceptance tests in the message body.
-
-## Supplier RFQ information
-
-A useful RFQ includes the substrate or finished sample, surface treatment, target color or optical effect, artwork PDF, stamping method, machine model, planned speed, roll width/length/core, sample quantity, test method, bulk quantity, and delivery need. The supplier response should identify the foil family, starting settings, sample specification, batch-control approach, and any known risk.
 
 ## Common mistakes
 

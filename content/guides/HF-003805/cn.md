@@ -89,9 +89,7 @@ sources:
 - 核心关注：连续镭射图案
 - 推荐产品方向：PLPY 系列镭射和颜料膜，用于装饰或防伪效果
 
-
 图稿中如果包含连续镭射图案，打样区必须保留这些细节，不能只用大面积色块判断转移。
-
 
 如果同一个包装同时包含大面积实地、细线、小文字、压凸或覆膜后加工，应把这些区域都放进同一轮测试。只在空白底材上做小样，通常无法代表最终包装上的附着、边缘清晰度和耐磨表现。
 
@@ -126,18 +124,6 @@ OPP 或 PET 覆膜表面要看覆膜张力、爽滑剂和表面清洁度。覆�
 - 记录供应商选型建议和明确的通过/失败标准
 
 验收时应先定义“通过”标准。例如胶带测试后是否允许边缘轻微残留，耐磨测试做多少次，酒精擦拭是否用于最终使用场景。没有标准的测试结果很难用于供应商比较，也很难追溯后续批次差异。
-
-## 国际采购沟通关键词
-
-如果这篇内容用于英文询价或海外客户沟通，可以把范围写成：Foil Grade Selection for Continuous holographic pattern on Folding carton board - OPP or PET lamination / Flatbed or platen hot stamping / Opaque pigment foil on paper and board / Cosmetics and personal care / Continuous holographic pattern。这句话的作用不是替代打样，而是让供应商快速看懂底材、表面、工艺和风险边界。
-
-常用英文拆分为：substrate: board folding carton；surface treatment: lamination opp or pet；process: hot stamping flatbed；application: cosmetics personal care；artwork: continuous holographic pattern。如果供应商回复只停留在通用 gold foil、silver foil 或 holographic foil，而没有回应这些关键词，就需要继续追问膜系、测试方法和卷料规格。
-
-对应的英文问题是：Which foil selection checks matter for continuous holographic pattern on folding carton board under OPP or PET lamination / Flatbed or platen hot stamping / Opaque pigment foil on paper and board / Cosmetics and personal care / Continuous holographic pattern? 采购人员可以把这句话改写成邮件主题，再在正文中附上实物底材、图稿、机台和测试要求。
-
-## 供应商询价资料
-
-询价建议一次性提供：底材或成品样、表面处理说明、目标颜色或光学效果、图稿 PDF、烫印方式、机台型号、计划速度、卷宽/卷长/纸芯、样品数量、测试项目、量产数量和交期。供应商回复应至少包含建议膜系、推荐起始参数、样品规格、批次管理方式和风险提示。
 
 ## 常见误区
 
