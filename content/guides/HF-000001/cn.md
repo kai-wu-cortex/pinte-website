@@ -1,14 +1,13 @@
 ---
 topic_id: HF-000001
 lang: cn
-slug: >-
-  foil-grade-selection-fine-lines-small-type-coated-glass-container-primer-adhesion-prom-0j3va8v
+slug: foil-grade-selection-fine-lines-small-type-coated-glass-container-primer-adhesion-prom-0j3va8v
 status: published
 cluster: cosmetic-packaging
 intent: substrate-selection
-title: 细线和小文字）：涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层与异形件滚烫 / 涂层玻璃特殊热烫选型指南
-description: 面向涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层烫金膜采购和打样的实用指南，重点处理细线和小文字）。
-primary_keyword: 细线和小文字）：涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层与异形件滚烫 / 涂层玻璃特殊热烫选型指南
+title: 涂层玻璃容器底涂或增附着涂层异形件滚烫细线和小文字选型指南
+description: 围绕涂层玻璃容器异形件滚烫项目，说明底涂或增附着涂层、细线和小文字、打样测试、供应商询价和量产验收。
+primary_keyword: 涂层玻璃容器底涂或增附着涂层异形件滚烫细线和小文字选型指南
 secondary_keywords:
   - Selection
   - Fine Lines Small Type
@@ -22,128 +21,127 @@ related_guides:
 author: PINTE 技术团队
 reviewer: PINTE 应用工程师
 date_published: '2026-07-16'
-date_modified: '2026-07-16'
-hero_image: ''
-hero_alt: ''
-answer: >-
-  用于涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层时，应按底材结构、表面处理、工艺路线、图稿细节和成品耐性要求选择烫金膜。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认。
+date_modified: '2026-07-25'
+hero_image: /images/guides/library/hot-stamping-foil-guide-photo-001.avif
+hero_alt: 涂层玻璃容器异形件滚烫烫金膜应用参考图
+answer: 涂层玻璃容器项目不能只按颜色选膜，应同时确认底涂或增附着涂层、异形件滚烫、细线和小文字、图稿细节和成品耐性。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认。
 faqs:
-  - question: 只看材料名称能不能直接确定烫金膜型号？
-    answer: 不能。需要同时确认涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层、异形件滚烫、涂层玻璃特殊热烫、图稿细节和生产速度，再决定是否适合批量采购。
-  - question: 采购询价前最好提供哪些信息？
-    answer: 建议提供底材样品、表面处理、图稿、机台类型、预计速度、目标颜色效果，以及成品需要通过的耐磨、附着或耐化学测试。
-  - question: 什么时候可以锁定量产参数？
-    answer: 最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认，并保留确认样作为后续生产比对标准。
+  - question: 涂层玻璃容器项目能不能直接按颜色下单？
+    answer: 不建议。颜色只是外观目标，真正决定膜材的是底涂或增附着涂层、异形件滚烫、图稿细节、机台速度和成品耐性测试。
+  - question: 打样时最容易漏掉什么条件？
+    answer: 最容易漏掉真实表面状态和生产速度。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认。
+  - question: 询价时怎样让供应商回复更准确？
+    answer: 把底材、表面处理、工艺路线、目标效果、图稿难点、测试要求、卷料规格和数量写清楚，并要求供应商给出膜系和测试建议。
 sources:
   - label: INX International Ink Co.
-    title: >-
-      Mastering the Art of Foil Printing: A Complete Guide to Hot and Cold
-      Techniques
+    title: 'Mastering the Art of Foil Printing: A Complete Guide to Hot and Cold Techniques'
     publisher: INX International Ink Co.
     url: >-
       https://www.inxinternational.com/blog/shelf-appeal/mastering-art-foil-printing-complete-guide-hot-and-cold-techniques
     summary: >-
-      Technical overview by an ink and coating manufacturer covering foil
-      construction, hot versus cold transfer, adhesive curing, design
-      preparation, and process tradeoffs. Use for process explanation, not
-      machine- or foil-grade guarantees.
+      Technical overview by an ink and coating manufacturer covering foil construction, hot versus
+      cold transfer, adhesive curing, design preparation, and process tradeoffs. Use for process
+      explanation, not machine- or foil-grade guarantees.
   - label: Foilco Limited
     title: Foilco D4 Foil Grade Guide - Edition 1
     publisher: Foilco Limited
     url: 'https://www.foilco.com/app/uploads/2019/05/Grade-Guide-Booklet_E_Doc.pdf'
     summary: >-
-      Official grade-selection guide covering finish families, typical
-      applications, and grade-dependent substrate/artwork fit. The guide itself
-      says its information is general and recommends testing and technical
-      support.
+      Official grade-selection guide covering finish families, typical applications, and
+      grade-dependent substrate/artwork fit. The guide itself says its information is general and
+      recommends testing and technical support.
   - label: LEONHARD KURZ
     title: Decoration Processes
     publisher: LEONHARD KURZ
     url: 'https://www.kurz-world.com/en/solutions/decoration-processes/'
     summary: >-
-      Official overview of hot stamping and related decoration processes for
-      plastic surfaces, including partial and full-surface decoration and
-      complex geometries. It does not identify PINTE grades or validate every
-      resin.
+      Official overview of hot stamping and related decoration processes for plastic surfaces,
+      including partial and full-surface decoration and complex geometries. It does not identify
+      PINTE grades or validate every resin.
   - label: UNIVACCO Technology Inc.
     title: Metallic Sheet-fed Offset Cold Foil
     publisher: UNIVACCO Technology Inc.
     url: 'https://www.univacco.com/sheet-fed-offset-cold-foil.htm'
     summary: >-
-      Official description of sheet-fed offset cold foil for coated paper and
-      carton board, with adhesive-system and equipment context. It supports a
-      conditional coated-paper group only.
+      Official description of sheet-fed offset cold foil for coated paper and carton board, with
+      adhesive-system and equipment context. It supports a conditional coated-paper group only.
 ---
-## 直接结论
+## 核心判断
 
-用于涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层时，烫金膜要按异形件滚烫、涂层玻璃特殊热烫和细线和小文字）来确认，不能只看颜色或材料名称。真正有用的采购起点，是一套能验证转移、边缘和耐性的打样方案。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认。
+这篇指南面向化妆品和个人护理包装中的涂层玻璃容器烫金膜项目，重点判断底涂或增附着涂层、异形件滚烫和细线和小文字之间的关系。采购时不能只说“亮金”“哑金”或“镭射”，而要把底材结构、表面处理、图稿难度、设备路线和成品测试一起交给供应商判断。最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认。
 
-## 采购场景
+## 本文具体解决的问题
 
-当前问题是：涂层玻璃容器细线和小文字选膜时要确认哪些条件（适用条件：底涂或增附着涂层 / 异形件滚烫 / 涂层玻璃特殊热烫 / 化妆品和个人护理包装 / 细线和小文字）？
+实际读者通常会问：涂层玻璃容器细线和小文字选膜时要确认哪些条件（适用条件：底涂或增附着涂层 / 异形件滚烫 / 涂层玻璃特殊热烫 / 化妆品和个人护理包装 / 细线和小文字）？
 
-这篇页面对应的订单条件是：
+底材是涂层玻璃容器，表面是底涂或增附着涂层，工艺是异形件滚烫，应用是化妆品和个人护理包装。图稿重点是细线和小文字。
 
-- 底材或工件：涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层
-- 表面状态：异形件滚烫
-- 烫印路线：涂层玻璃特殊热烫
+这篇文章的边界是：Narrows grade selection to Fine lines and small type, Coated glass container, Primer or adhesion-promoting coating, and Roll-on hot stamping for shaped parts. 相关判断词包括 Selection、Fine Lines Small Type、Cosmetics Personal Care、Coated Glass Specialty Hot。参考资料方向包括 Inx Hot Cold Foil Guide、Foilco D4 Grade Guide、Kurz Decoration Processes、Univacco Sheetfed Cold Foil、Labels Labeling Hot Foiling Process。这些信息用于帮助采购、设计、机长和质检用同一套语言讨论问题，不用于替代真实订单打样。
+
+## 适用场景与主要风险
+
+- 典型底材：涂层玻璃容器
+- 表面条件：底涂或增附着涂层
+- 工艺路线：异形件滚烫
 - 应用场景：化妆品和个人护理包装
-- 主要风险：细线和小文字）
-- 相关产品方向：纸张、包装和皮革打样用通用热烫膜
-- 本页标签：Selection，Fine Lines Small Type，Cosmetics Personal Care，Coated Glass Specialty Hot
+- 核心关注：细线和小文字
+- 推荐产品方向：PK 系列纸张、纸盒、皮革及通用包装热烫膜
 
-## 本页订单备注
 
-这个问题应按具体订单判断，而不是只按颜色选膜。确认样需要同时代表底材、工艺、图稿难度和成品耐性要求。
+图稿中如果包含细线和小文字，打样区必须保留这些细节，不能只用大面积色块判断转移。
 
-本页写作和打样应围绕这些标签展开：Selection；Fine Lines Small Type；Cosmetics Personal Care；Coated Glass Specialty Hot。本页计划参考的资料组包括：inx-hot-cold-foil-guide、foilco-d4-grade-guide、kurz-decoration-processes、univacco-sheetfed-cold-foil、labels-labeling-hot-foiling-process。落到采购动作上，询价不能只写金色、银色、镭射或颜料效果，而要写清涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层、异形件滚烫、涂层玻璃特殊热烫，并说明细线和小文字）属于外观问题、耐性问题还是机台参数问题。
 
-比较供应商时，建议让每一家按照同一张订单卡报价。订单卡至少包括材料结构、卷料或片材尺寸、机台路线、颜色目标、图稿难度、打样数量、包装运输条件和复购要求。这样可以避免一个供应商按普通装饰膜报价，而实际订单却需要耐性型或套准型膜材。
+如果同一个包装同时包含大面积实地、细线、小文字、压凸或覆膜后加工，应把这些区域都放进同一轮测试。只在空白底材上做小样，通常无法代表最终包装上的附着、边缘清晰度和耐磨表现。
 
-## 建议询价写法
+## 表面和工艺提示
 
-可以把询价写成更具体的一句话：“涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层 / 异形件滚烫 / 涂层玻璃特殊热烫 / 化妆品和个人护理包装 / 细线和小文字） 涂层玻璃容器细线和小文字选膜时要确认哪些条件（适用条件：底涂或增附着涂层 / 异形件滚烫 / 涂层玻璃特殊热烫 / 化妆品和个人护理包装 / 细线和小文字）？ Narrows grade selection to Fine lines and small type, Coated glass container, Primer or adhesion-promoting coating, and Roll-on hot stamping for shaped parts. 主题集群 cosmetic-packaging 意图 substrate-selection 批次位置 41”。
+底涂或增附着涂层的核心是涂层相容性。它可能改善附着，也可能改变表面硬度、光泽和释放窗口，因此不能直接套用电晕膜的参数。
 
-供应商回复时，应同时给出膜系、测试方法和卷料规格。如果回复没有提到涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层、异形件滚烫、涂层玻璃特殊热烫和细线和小文字），说明建议仍然过于笼统。样品说明也应重复这些条件，让采购、机长和质检人员用同一套订单语言判断。
+异形件滚烫要关注工件弧面、夹具稳定、接触线速度和温度补偿。平面样只能初筛，不能替代真实容器或瓶盖。
 
-## 订单识别信息
+细线和小文字要用真实最小字号、反白线和 logo 尖角测试，边缘干净度比第一眼亮度更重要。
 
-主题编号 HF-000001。页面路径 foil-grade-selection-fine-lines-small-type-coated-glass-container-primer-adhesion-prom-0j3va8v。英文题名 Foil Grade Selection for Fine lines and small type on Coated glass container - Primer or adhesion-promoting coating / Roll-on hot stamping for shaped parts / Coated glass specialty hot stamping / Cosmetics and personal care / Fine lines and small type。中文题名 涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层 / 异形件滚烫 / 涂层玻璃特殊热烫 / 化妆品和个人护理包装 / 细线和小文字）。表面和工艺 异形件滚烫 加 涂层玻璃特殊热烫。场景和风险 化妆品和个人护理包装 加 细线和小文字）。请把这段订单卡和确认样放在一起，避免把本页与同一底材上的其他烫金问题混淆。本页验收目标明确指向异形件滚烫条件下的细线和小文字），不是普通装饰烫金效果。
+## 选膜和打样步骤
 
-## 验收差异记录
+1. 先确认底材样品是否与量产一致，包括涂层、覆膜、光油、油墨和表面污染情况。
+2. 再确认异形件滚烫的机台条件，记录温度、压力、停留时间、速度、张力或 UV 固化条件。
+3. 用最终图稿中的困难区域打样，重点观察细线和小文字是否出现，以及边缘、套准、光泽和覆盖是否稳定。
+4. 每一轮打样只改变一个变量，并在样品背面或记录表中写清膜系、卷号、机台和参数。
+5. 把外观确认样、耐性测试样和量产留样分开保存，复购时用样品和卷标沟通，而不是只用颜色名称沟通。
 
-本页的订单路径关键词为：foil，grade，selection，fine，lines，small，type，coated，glass，container，primer，adhesion，prom，0j3va8v。质检记录中应写清主题编号 HF-000001、表面条件 异形件滚烫、工艺路线 涂层玻璃特殊热烫、应用位置 化妆品和个人护理包装、风险点 细线和小文字）。如果同一批标签或包装还有另一个相似问题，请不要合并验收；本页只判断 涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层 / 异形件滚烫 / 涂层玻璃特殊热烫 / 化妆品和个人护理包装 / 细线和小文字） 这一组条件。
+## 验收测试建议
 
-样张追踪码建议写入记录表：hf-000001-1-foil，hf-000001-2-grade，hf-000001-3-selection，hf-000001-4-fine，hf-000001-5-lines，hf-000001-6-small，hf-000001-7-type，hf-000001-8-coated，hf-000001-9-glass，hf-000001-10-container，hf-000001-11-primer，hf-000001-12-adhesion，hf-000001-13-prom，hf-000001-14-0j3va8v，hf-000001-15-foil，hf-000001-16-grade，hf-000001-17-selection，hf-000001-18-fine，hf-000001-19-lines，hf-000001-20-small，hf-000001-21-type，hf-000001-22-coated，hf-000001-23-glass，hf-000001-24-container，hf-000001-25-primer，hf-000001-26-adhesion，hf-000001-27-prom，hf-000001-28-0j3va8v，hf-000001-29-foil，hf-000001-30-grade，hf-000001-31-selection，hf-000001-32-fine，hf-000001-33-lines，hf-000001-34-small，hf-000001-35-type，hf-000001-36-coated，hf-000001-37-glass，hf-000001-38-container，hf-000001-39-primer，hf-000001-40-adhesion，hf-000001-41-prom，hf-000001-42-0j3va8v，hf-000001-43-foil，hf-000001-44-grade，hf-000001-45-selection，hf-000001-46-fine，hf-000001-47-lines，hf-000001-48-small。这些编号可用于区分同一底材下的不同故障、不同表面处理、不同测试方法和不同打样轮次。
+- 使用接近量产的底材、机台、图稿和速度做打样
+- 做受控工艺窗口打样，每次只改变一个变量
+- 按订单条件做胶带拉脱或附着检查
+- 做干擦或耐磨对比测试
+- 记录供应商选型建议和明确的通过/失败标准
 
-## 验收动作
+验收时应先定义“通过”标准。例如胶带测试后是否允许边缘轻微残留，耐磨测试做多少次，酒精擦拭是否用于最终使用场景。没有标准的测试结果很难用于供应商比较，也很难追溯后续批次差异。
 
-询价时要求供应商回答这个具体订单，而不是只发通用色卡。回复中应说明推荐膜系是否适合涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层，异形件滚烫是否需要清洁或处理，以及涂层玻璃特殊热烫会怎样影响温度、压力、速度、固化或接触窗口。打样图稿必须包含最容易暴露细线和小文字）的区域。
+## 国际采购沟通关键词
 
-建议保留三类样：外观确认样、耐性测试样、量产留样。每张样都要标注底材批次、机台、速度、压力、温度或固化条件、卷料宽幅和操作记录。如果需要第二轮打样，每次只改变一个变量，避免结果无法判断。
+如果这篇内容用于英文询价或海外客户沟通，可以把范围写成：Foil Grade Selection for Fine lines and small type on Coated glass container - Primer or adhesion-promoting coating / Roll-on hot stamping for shaped parts / Coated glass specialty hot stamping / Cosmetics and personal care / Fine lines and small type。这句话的作用不是替代打样，而是让供应商快速看懂底材、表面、工艺和风险边界。
 
-## 本页故障检查
+常用英文拆分为：substrate: glass container；surface treatment: primer；process: hot stamping roll on；application: cosmetics personal care；artwork: fine lines small type。如果供应商回复只停留在通用 gold foil、silver foil 或 holographic foil，而没有回应这些关键词，就需要继续追问膜系、测试方法和卷料规格。
 
-- 如果问题集中在附着，先看表面能、涂层相容性和搬运污染。
-- 如果问题集中在转移，比较压力接触、离型表现和同一图稿下的速度。
-- 如果问题集中在边缘，检查烫版磨损、接触时间、小字和反白细节。
-- 如果问题集中在耐性，使用约定的胶带、耐磨、刮擦、折痕或耐化学方法。
-- 如果后续要复购，把确认卷标和样张记录放进采购资料。
+对应的英文问题是：Which foil selection checks matter for fine lines and small type on coated glass container under Primer or adhesion-promoting coating / Roll-on hot stamping for shaped parts / Coated glass specialty hot stamping / Cosmetics and personal care / Fine lines and small type? 采购人员可以把这句话改写成邮件主题，再在正文中附上实物底材、图稿、机台和测试要求。
 
-## 来源说明
+## 供应商询价资料
 
-INX International Ink Co. 用于支持本页的工艺或底材边界，Foilco Limited 用于支持测试或对比背景。这些资料不能代替 PINTE 膜材在客户实际订单上的量产前打样确认。
+询价建议一次性提供：底材或成品样、表面处理说明、目标颜色或光学效果、图稿 PDF、烫印方式、机台型号、计划速度、卷宽/卷长/纸芯、样品数量、测试项目、量产数量和交期。供应商回复应至少包含建议膜系、推荐起始参数、样品规格、批次管理方式和风险提示。
 
-## 常见问题
+## 常见误区
 
-### 只看材料名称能不能直接确定烫金膜型号？
+- 只按颜色名称选膜，忽略了底涂或增附着涂层和异形件滚烫对胶层和离型的影响。
+- 用实验室小片代替真实成品，导致量产后才发现细线和小文字。
+- 多个变量同时调整，无法判断问题来自温度、压力、速度、底材还是膜材。
+- 没有保留确认样和卷标，复购时只能凭印象比较颜色和光泽。
 
-不能。需要同时确认涂层玻璃容器细线和小文字烫金膜选型（底涂或增附着涂层、异形件滚烫、涂层玻璃特殊热烫、图稿细节和生产速度，再决定是否适合批量采购。
+## 资料参考方式
 
-### 采购询价前最好提供哪些信息？
+- INX International Ink Co.：Mastering the Art of Foil Printing: A Complete Guide to Hot and Cold Techniques，用于理解工艺边界、测试方法或膜材等级选择原则。
+- Foilco Limited：Foilco D4 Foil Grade Guide - Edition 1，用于理解工艺边界、测试方法或膜材等级选择原则。
+- LEONHARD KURZ：Decoration Processes，用于理解工艺边界、测试方法或膜材等级选择原则。
 
-建议提供底材样品、表面处理、图稿、机台类型、预计速度、目标颜色效果，以及成品需要通过的耐磨、附着或耐化学测试。
-
-### 什么时候可以锁定量产参数？
-
-最终设置必须通过实际承印物、机台、图稿/设计和速度条件下的打样确认，并保留确认样作为后续生产比对标准。
+这些资料适合用来理解工艺原则和测试边界，但不能替代真实订单打样。最终采购决定应以实际底材、机台、图稿、速度和客户验收要求为准。

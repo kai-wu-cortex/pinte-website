@@ -239,7 +239,11 @@ const BlogCatalog: React.FC = () => {
                   className="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 group border border-neutral-100"
                 >
                   {/* Cover Image */}
-                  <Link to={`/${lang}/blog/${article.slug}`} className="block relative h-48 overflow-hidden">
+                  <Link
+                    to={`/${lang}/blog/${article.slug}`}
+                    aria-label={lang === 'cn' ? `阅读全文：${article.title}` : `Read article: ${article.title}`}
+                    className="block relative h-48 overflow-hidden"
+                  >
                     <img
                       src={article.cover || 'https://pintepic-1300269931.cos.ap-singapore.myqcloud.com/blog-default.jpg'}
                       alt={article.title}

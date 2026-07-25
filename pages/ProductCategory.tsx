@@ -308,19 +308,6 @@ const ProductCategory: React.FC = () => {
         },
   };
   const procurementProfile = procurementProfiles[id] || procurementProfiles.default;
-  const categoryFaqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: categoryFaqs.map((faq) => ({
-      '@type': 'Question',
-      name: faq.q,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: faq.a,
-      },
-    })),
-  };
-
   // Helper for icons (needs to match map used in main app roughly or just use basic ones)
   const ICON_MAP: Record<string, any> = { Layers, Star, CheckCircle2, Box, Palette };
 
@@ -334,9 +321,6 @@ const ProductCategory: React.FC = () => {
         locale={lang === 'cn' ? 'zh_CN' : 'en_US'}
         canonicalUrl={`/${lang}/products/category/${id}`}
       />
-      <script type="application/ld+json">
-        {JSON.stringify(categoryFaqSchema)}
-      </script>
       <script type="application/ld+json">
         {JSON.stringify(productSchema)}
       </script>

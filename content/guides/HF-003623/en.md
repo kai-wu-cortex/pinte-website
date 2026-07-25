@@ -1,21 +1,20 @@
 ---
 topic_id: HF-003623
 lang: en
-slug: >-
-  foil-grade-selection-fine-lines-small-type-pvc-synthetic-leather-book-cover-as-supplie-0olyp5r
+slug: foil-grade-selection-fine-lines-small-type-pvc-synthetic-leather-book-cover-as-supplie-0olyp5r
 status: published
 cluster: leather
 intent: substrate-selection
 title: >-
-  Fine lines and small type: PVC synthetic leather or book cover Guide for
-  As-supplied or uncoated surface / Flatbed or platen hot stamping
+  PVC synthetic leather or book cover As-supplied or uncoated surface Flatbed or platen hot stamping
+  Fine lines and small type: foil selection guide
 description: >-
-  A practical guide to choosing, testing, and buying hot stamping foil for PVC
-  synthetic leather or book cover when the main concern is fine lines and small
-  type.
+  Covers PVC synthetic leather or book cover Flatbed or platen hot stamping projects, including
+  As-supplied or uncoated surface, Fine lines and small type, sampling tests, supplier RFQ, and
+  production acceptance.
 primary_keyword: >-
-  fine lines and small type: pvc synthetic leather or book cover guide for
-  as-supplied or uncoated surface / flatbed or platen hot stamping
+  pvc synthetic leather or book cover as-supplied or uncoated surface flatbed or platen hot stamping
+  fine lines and small type: foil selection guide
 secondary_keywords:
   - Selection
   - Fine Lines Small Type
@@ -29,137 +28,147 @@ related_guides:
 author: PINTE Technical Team
 reviewer: PINTE Application Engineer
 date_published: '2026-07-16'
-date_modified: '2026-07-16'
-hero_image: ''
-hero_alt: ''
+date_modified: '2026-07-25'
+hero_image: /images/guides/library/hot-stamping-foil-guide-photo-009.avif
+hero_alt: >-
+  PVC synthetic leather or book cover Flatbed or platen hot stamping hot stamping foil application
+  reference
 answer: >-
-  For PVC synthetic leather or book cover, choose foil by substrate stack,
-  surface treatment, process route, artwork detail, and required durability
-  tests. Final settings require sampling on the actual substrate, machine,
+  For PVC synthetic leather or book cover, foil selection should match As-supplied or uncoated
+  surface, Flatbed or platen hot stamping, Fine lines and small type, artwork detail, and
+  finished-package durability. Final settings require sampling on the actual substrate, machine,
   artwork/design, and speed before bulk production.
 faqs:
-  - question: Can this foil choice be confirmed from the material name alone?
+  - question: Can PVC synthetic leather or book cover foil be ordered by color name only?
     answer: >-
-      No. PVC synthetic leather or book cover, As-supplied or uncoated surface,
-      Flatbed or platen hot stamping, artwork detail, and machine speed must be
-      checked together before bulk ordering.
-  - question: What should a buyer send before asking for a firm recommendation?
+      No. Color is only the visual target; foil choice also depends on As-supplied or uncoated
+      surface, Flatbed or platen hot stamping, artwork detail, press speed, and durability testing.
+  - question: What condition is most often missed during sampling?
     answer: >-
-      Send the substrate sample, surface treatment, artwork, machine type,
-      expected speed, target finish, and the durability checks required by the
-      final package.
-  - question: When should the final production setting be locked?
+      Real surface condition and production speed are often missed. Final settings must be confirmed
+      on the actual substrate, machine, artwork/design, and speed.
+  - question: How can the RFQ get a more useful supplier answer?
     answer: >-
-      Final settings should be locked only after sampling on the actual
-      substrate, machine, artwork/design, and speed, with an approved reference
-      sample kept for production comparison.
+      State substrate, surface treatment, process route, target finish, artwork challenge, test
+      requirement, roll specification, and quantity; ask the supplier to return a foil family and
+      test recommendation.
 sources:
   - label: Foil & Specialty Effects Association
-    title: >-
-      FSEA and PaperSpecs Release Print Decorating Reference for Designers: Foil
-      Cheat Sheet
+    title: 'FSEA and PaperSpecs Release Print Decorating Reference for Designers: Foil Cheat Sheet'
     publisher: Foil & Specialty Effects Association
     url: >-
       https://fsea.com/uncategorized/2020/fsea-and-paperspecs-release-print-decorating-reference-for-designers-foil-cheat-sheet/
     summary: >-
-      Association overview confirming distinct hot foil, cold foil, toner
-      digital foil, varnish digital foil, and foil-substrate categories for
-      designer process comparison.
+      Association overview confirming distinct hot foil, cold foil, toner digital foil, varnish
+      digital foil, and foil-substrate categories for designer process comparison.
   - label: INX International Ink Co.
-    title: >-
-      Mastering the Art of Foil Printing: A Complete Guide to Hot and Cold
-      Techniques
+    title: 'Mastering the Art of Foil Printing: A Complete Guide to Hot and Cold Techniques'
     publisher: INX International Ink Co.
     url: >-
       https://www.inxinternational.com/blog/shelf-appeal/mastering-art-foil-printing-complete-guide-hot-and-cold-techniques
     summary: >-
-      Technical overview by an ink and coating manufacturer covering foil
-      construction, hot versus cold transfer, adhesive curing, design
-      preparation, and process tradeoffs. Use for process explanation, not
-      machine- or foil-grade guarantees.
+      Technical overview by an ink and coating manufacturer covering foil construction, hot versus
+      cold transfer, adhesive curing, design preparation, and process tradeoffs. Use for process
+      explanation, not machine- or foil-grade guarantees.
   - label: Foilco Limited
     title: Foilco D4 Foil Grade Guide - Edition 1
     publisher: Foilco Limited
     url: 'https://www.foilco.com/app/uploads/2019/05/Grade-Guide-Booklet_E_Doc.pdf'
     summary: >-
-      Official grade-selection guide covering finish families, typical
-      applications, and grade-dependent substrate/artwork fit. The guide itself
-      says its information is general and recommends testing and technical
-      support.
+      Official grade-selection guide covering finish families, typical applications, and
+      grade-dependent substrate/artwork fit. The guide itself says its information is general and
+      recommends testing and technical support.
   - label: LEONHARD KURZ
     title: Decoration Processes
     publisher: LEONHARD KURZ
     url: 'https://www.kurz-world.com/en/solutions/decoration-processes/'
     summary: >-
-      Official overview of hot stamping and related decoration processes for
-      plastic surfaces, including partial and full-surface decoration and
-      complex geometries. It does not identify PINTE grades or validate every
-      resin.
+      Official overview of hot stamping and related decoration processes for plastic surfaces,
+      including partial and full-surface decoration and complex geometries. It does not identify
+      PINTE grades or validate every resin.
 ---
-## Direct answer
+## Core decision
 
-For PVC synthetic leather or book cover, choose hot stamping foil by matching As-supplied or uncoated surface, Flatbed or platen hot stamping, and the fine lines and small type requirement. The useful starting point is not a universal color code; it is a sample plan that checks transfer, edge quality, and durability on the finished job. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
+This guide is for PVC synthetic leather or book cover foil projects in Leather goods and bookbinding, with attention to As-supplied or uncoated surface, Flatbed or platen hot stamping, and Fine lines and small type. Do not brief the supplier with only “bright gold,” “matte gold,” or “holographic.” The useful brief connects substrate construction, surface treatment, artwork difficulty, machine route, and finished-package testing. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
 
-## Buyer situation
+## Specific scope
 
-The buyer question is: Which foil selection checks matter for fine lines and small type on pVC synthetic leather or book cover under As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type?
+The practical buyer question is: Which foil selection checks matter for fine lines and small type on pVC synthetic leather or book cover under As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type?
 
-This page applies when the project combines:
+The substrate is PVC synthetic leather or book cover, the surface is As-supplied or uncoated surface, the process is Flatbed or platen hot stamping, and the application is Leather goods and bookbinding. Artwork attention: Fine lines and small type.
 
-- Material: PVC synthetic leather or book cover
-- Surface: As-supplied or uncoated surface
-- Process: Flatbed or platen hot stamping
-- Application: Natural and synthetic leather hot stamping
+The scope is: Narrows grade selection to Fine lines and small type, PVC synthetic leather or book cover, As-supplied or uncoated surface, and Flatbed or platen hot stamping. Useful working terms include Selection, Fine Lines Small Type, Leather Goods Bookbinding, Leather Hot. Reference context includes Fsea Foil Cheat Sheet, Inx Hot Cold Foil Guide, Foilco D4 Grade Guide, Kurz Decoration Processes, Kurz Hot Stamping. These details help buyers, designers, press operators, and quality teams discuss the same production risk; they do not replace job-specific sampling.
+
+## Application context and risk
+
+- Typical substrate: PVC synthetic leather or book cover
+- Surface condition: As-supplied or uncoated surface
+- Process route: Flatbed or platen hot stamping
+- Application: Leather goods and bookbinding
 - Main concern: Fine lines and small type
-- Product direction: general hot stamping foil for paper, packaging, and leather trials
-- Tags for this job: Selection, Fine Lines Small Type, Leather Goods Bookbinding, Leather Hot
+- Related PINTE direction: PK hot stamping foil for paper, carton, leather, and general packaging trials
 
-## Job-specific notes for this page
 
-PVC leather and book-cover materials can respond differently from PU because plasticizer, coating hardness, and emboss texture influence release and long-term adhesion. Keep a fold or rub sample for approval.
+If the artwork includes Fine lines and small type, keep those details in the trial area instead of judging only from a large solid block.
 
-For this article, keep the approval language tied to these working labels: Selection; Fine Lines Small Type; Leather Goods Bookbinding; Leather Hot. The source set planned for the page is fsea-foil-cheat-sheet, inx-hot-cold-foil-guide, foilco-d4-grade-guide, kurz-decoration-processes, kurz-hot-stamping. In practical purchasing terms, this means the buyer should not ask only for a gold, silver, holographic, or pigment color. The request should name PVC synthetic leather or book cover, describe As-supplied or uncoated surface, identify Flatbed or platen hot stamping, and state whether fine lines and small type is a visual issue, a durability issue, or a machine-setting issue.
 
-When comparing suppliers, ask each one to quote against the same job card. That job card should include the material stack, roll or sheet size, machine route, color target, artwork difficulty, sampling quantity, packing condition, and repeat-order requirement. This prevents one supplier from quoting a decorative foil for a job that actually needs a durability-focused or registration-focused grade.
+If the same package includes large solid areas, fine lines, small type, embossing, or post-lamination handling, include those areas in the same trial. A small test on blank stock may not represent adhesion, edge definition, rub resistance, or optical consistency on the finished package.
 
-## Recommended RFQ wording
+## Substrate-specific notes
 
-Use a specific RFQ line such as: "Foil Grade Selection for Fine lines and small type on PVC synthetic leather or book cover - As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type Which foil selection checks matter for fine lines and small type on pVC synthetic leather or book cover under As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type? Narrows grade selection to Fine lines and small type, PVC synthetic leather or book cover, As-supplied or uncoated surface, and Flatbed or platen hot stamping. Cluster leather Intent substrate-selection Batch position 9".
+PVC synthetic leather and book-cover material should be checked for plasticizer, coating hardness, and emboss depth. It may tolerate heat better than PU, but plasticizer migration can reduce long-term adhesion. Excess heat may create gloss change, tackiness, or pressure marking.
 
-The supplier should answer that RFQ with a foil family, a test method, and a roll specification. If the reply does not mention PVC synthetic leather or book cover, As-supplied or uncoated surface, Flatbed or platen hot stamping, and Fine lines and small type, the recommendation is probably too generic for production approval. Ask for the sample note to repeat those same terms so that purchasing, press operators, and quality inspectors are judging the same job.
+PVC projects should keep aging and fold samples. Book covers, menu covers, and stationery products often face stacking, abrasion, and repeated opening, so approval samples should simulate those use actions.
 
-## Order card details
+## Surface and process notes
 
-Topic code HF-003623. Route slug foil-grade-selection-fine-lines-small-type-pvc-synthetic-leather-book-cover-as-supplie-0olyp5r. English title Foil Grade Selection for Fine lines and small type on PVC synthetic leather or book cover - As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type. Chinese title PVC 合成革或书封细线和小文字烫金膜选型（原始未涂布表面 / 平压平热烫 / 天然和合成皮革热烫 / 皮具和书封装帧 / 细线和小文字）. Surface-process pair As-supplied or uncoated surface plus Flatbed or platen hot stamping. Application-risk pair Natural and synthetic leather hot stamping plus Fine lines and small type. Keep this order card attached to the approved sample so the page is not confused with another foil problem on the same substrate. The approval target for this page is specifically Fine lines and small type under As-supplied or uncoated surface, not a general decorative foil result.
+As-supplied or uncoated surfaces look simple, but moisture, dusting, fiber roughness, and print preparation can change metallic coverage and edge cleanliness.
 
-## Approval checklist
+Flatbed hot stamping is driven by pressure uniformity, die temperature, dwell time, and makeready. It suits paper and cartons, but fine lines, solid areas, and laminated surfaces need separate confirmation.
 
-Ask the supplier to answer this specific job, not a general foil catalogue request. The quote should state whether the recommended foil is meant for PVC synthetic leather or book cover, whether As-supplied or uncoated surface needs cleaning or treatment, and how Flatbed or platen hot stamping changes the process window. The sample should include the part of the artwork most likely to show fine lines and small type.
+Fine lines and small type should be tested with the real minimum type, reverse lines, and logo corners; edge cleanliness matters more than first-glance brightness.
 
-For approval, keep three samples: one visual master, one durability sample, and one retained production reference. Mark each sample with substrate batch, machine, speed, pressure, temperature or cure condition, roll width, and operator note. If a second trial is needed, change only one variable so the result is readable.
+## Foil selection and sampling workflow
 
-## Failure checks for this topic
+1. Confirm that the substrate sample matches production, including coating, lamination, varnish, ink, and surface contamination risk.
+2. Confirm the Flatbed or platen hot stamping route and record temperature, pressure, dwell time, speed, web tension, or UV curing conditions as applicable.
+3. Test the difficult area from the real artwork and watch for Fine lines and small type, edge cleanliness, registration, gloss, and coverage stability.
+4. Change only one variable per trial and mark the sample with foil family, roll reference, machine route, and settings.
+5. Keep separate visual, durability-tested, and retained production samples so repeat orders can be judged against evidence instead of memory.
 
-- If the problem is adhesion, inspect surface energy, coating compatibility, and handling contamination before blaming color.
-- If the problem is transfer, compare pressure contact, release behavior, and machine speed on the same artwork.
-- If the problem is edge quality, inspect die wear, dwell/contact time, and the smallest text or reverse detail.
-- If the problem is durability, use the agreed tape, rub, scratch, fold, or chemical method instead of an informal hand test.
-- If repeat orders matter, keep the approved roll label and sample record with purchasing files.
+## Acceptance checks
 
-## Source context
+- Production-representative substrate, machine, artwork, and speed trial
+- Controlled process-window sampling
+- Visual transfer-completeness inspection
+- Magnified edge and fine-detail inspection
+- Supplier grade selection notes and recorded pass/fail criteria
 
-Foil & Specialty Effects Association supports the process or substrate boundary for this page. INX International Ink Co. supports the test or comparison context. These references do not replace a production trial on PINTE material and the buyer's actual job.
+Define the pass condition before testing. For example, decide whether slight edge residue is allowed after tape pull, how many rub cycles are required, and whether alcohol wiping reflects the final use case. A test without pass criteria is weak for supplier comparison and weak for batch follow-up.
 
-## FAQ
+## International RFQ wording
 
-### Can this foil choice be confirmed from the material name alone?
+For international sourcing, the scope can be written as: Foil Grade Selection for Fine lines and small type on PVC synthetic leather or book cover - As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type. This wording is not a replacement for sampling; it helps the supplier understand the substrate, surface, process, and risk boundary before recommending a foil family.
 
-No. PVC synthetic leather or book cover, As-supplied or uncoated surface, Flatbed or platen hot stamping, artwork detail, and machine speed must be checked together before bulk ordering.
+Useful term breakdown: substrate: leather pvc synthetic; surface treatment: surface as supplied; process: hot stamping flatbed; application: leather goods bookbinding; artwork: fine lines small type. If a supplier only replies with generic gold foil, silver foil, or holographic foil without addressing these terms, ask again for a foil family, test method, and roll specification.
 
-### What should a buyer send before asking for a firm recommendation?
+The buyer question behind this page is: Which foil selection checks matter for fine lines and small type on pVC synthetic leather or book cover under As-supplied or uncoated surface / Flatbed or platen hot stamping / Natural and synthetic leather hot stamping / Leather goods and bookbinding / Fine lines and small type? Use it as an email subject or RFQ headline, then attach the real substrate, artwork, machine route, and acceptance tests in the message body.
 
-Send the substrate sample, surface treatment, artwork, machine type, expected speed, target finish, and the durability checks required by the final package.
+## Supplier RFQ information
 
-### When should the final production setting be locked?
+A useful RFQ includes the substrate or finished sample, surface treatment, target color or optical effect, artwork PDF, stamping method, machine model, planned speed, roll width/length/core, sample quantity, test method, bulk quantity, and delivery need. The supplier response should identify the foil family, starting settings, sample specification, batch-control approach, and any known risk.
 
-Final settings should be locked only after sampling on the actual substrate, machine, artwork/design, and speed, with an approved reference sample kept for production comparison.
+## Common mistakes
+
+- Choosing by color name while ignoring how As-supplied or uncoated surface and Flatbed or platen hot stamping affect adhesive and release behavior.
+- Replacing the finished package with a lab coupon, then discovering Fine lines and small type during production.
+- Changing several variables at once, which hides whether the problem came from temperature, pressure, speed, substrate, or foil grade.
+- Failing to keep approved samples and roll labels, making repeat-order color and gloss comparison subjective.
+
+## How to use the sources
+
+- Foil & Specialty Effects Association: FSEA and PaperSpecs Release Print Decorating Reference for Designers: Foil Cheat Sheet, used for process limits, test-method context, or foil grade-selection principles.
+- INX International Ink Co.: Mastering the Art of Foil Printing: A Complete Guide to Hot and Cold Techniques, used for process limits, test-method context, or foil grade-selection principles.
+- Foilco Limited: Foilco D4 Foil Grade Guide - Edition 1, used for process limits, test-method context, or foil grade-selection principles.
+
+These references are useful for process principles and test boundaries, but they do not replace production sampling. Final purchasing decisions should be based on the actual substrate, machine, artwork, speed, and customer acceptance requirements.

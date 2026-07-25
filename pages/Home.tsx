@@ -397,7 +397,12 @@ const Home: React.FC = () => {
                     const product = content.PRODUCT_DATA[id];
                     const Icon = id === 'PK' ? Layers : id === 'PC' ? Box : Palette;
                     return (
-                      <Link key={id} to={`/${lang}/products/category/${id}`} className="group cursor-pointer relative h-[350px] md:h-[500px] overflow-hidden rounded-[2.5rem] shadow-lg hover:shadow-2xl transition-all duration-500">
+                      <Link
+                        key={id}
+                        to={`/${lang}/products/category/${id}`}
+                        aria-label={lang === 'cn' ? `查看 ${product.name} 烫金膜系列详情` : `View ${product.name} foil series details`}
+                        className="group cursor-pointer relative h-[350px] md:h-[500px] overflow-hidden rounded-[2.5rem] shadow-lg hover:shadow-2xl transition-all duration-500"
+                      >
                          <div className="absolute inset-0">
                            <img
                              src={product.heroImage}

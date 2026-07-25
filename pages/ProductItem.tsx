@@ -157,21 +157,6 @@ const ProductItem: React.FC = () => {
       url: `https://www.pintecl.com/${lang}/quote`,
     },
   };
-  const faqSchema = enrichedItem.faqs?.length
-    ? {
-        '@context': 'https://schema.org',
-        '@type': 'FAQPage',
-        mainEntity: enrichedItem.faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.answer,
-          },
-        })),
-      }
-    : null;
-
   return (
     <>
       <SEOMeta
@@ -186,11 +171,6 @@ const ProductItem: React.FC = () => {
       <script type="application/ld+json">
         {JSON.stringify(productSchema)}
       </script>
-      {faqSchema && (
-        <script type="application/ld+json">
-          {JSON.stringify(faqSchema)}
-        </script>
-      )}
       <ItemDetailView
         item={enrichedItem}
         onBack={() => navigate(-1)}

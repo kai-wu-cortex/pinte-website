@@ -257,86 +257,76 @@ function contextNoteCn(topic, parts) {
 
 function uniqueWorksheetEn(topic, parts) {
   const tags = safeArray(topic.tags).map(titleCase).join('; ') || 'job-specific foil approval';
-  const sourceKeys = safeArray(topic.source_keys).join(', ');
-  const rfqLine = [
-    topic.title?.en,
-    topic.topic_question?.en,
-    topic.difference,
-    `Cluster ${topic.cluster}`,
-    `Intent ${topic.intent}`,
-    `Batch position ${topic.batch_position}`,
-  ].filter(Boolean).join(' ');
-  const uniqueOrderCard = [
-    `Topic code ${topic.topic_id}`,
-    `Route slug ${topic.slug}`,
-    `English title ${topic.title?.en}`,
-    `Chinese title ${topic.title?.cn}`,
-    `Surface-process pair ${parts.surface} plus ${parts.process}`,
-    `Application-risk pair ${parts.application} plus ${parts.issue}`,
-  ].filter(Boolean).join('. ');
-  return `## Job-specific notes for this page
+  const evidence = safeArray(topic.evidence_needed)
+    .map((item) => `- ${item}`)
+    .join('\n');
+  const sourceNames = safeArray(topic.source_keys)
+    .slice(0, 4)
+    .map((sourceKey) => titleCase(sourceKey))
+    .join(', ');
+  return `## Practical application context
 
 ${contextNoteEn(topic, parts)}
 
-For this article, keep the approval language tied to these working labels: ${tags}. The source set planned for the page is ${sourceKeys}. In practical purchasing terms, this means the buyer should not ask only for a gold, silver, holographic, or pigment color. The request should name ${parts.substrate}, describe ${parts.surface}, identify ${parts.process}, and state whether ${parts.issue.toLowerCase()} is a visual issue, a durability issue, or a machine-setting issue.
+For a real purchasing decision, this means the buyer should not ask only for a gold, silver, holographic, or pigment color. The request should name ${parts.substrate}, describe ${parts.surface}, identify ${parts.process}, and state whether ${parts.issue.toLowerCase()} is a visual issue, a durability issue, or a machine-setting issue.
 
-When comparing suppliers, ask each one to quote against the same job card. That job card should include the material stack, roll or sheet size, machine route, color target, artwork difficulty, sampling quantity, packing condition, and repeat-order requirement. This prevents one supplier from quoting a decorative foil for a job that actually needs a durability-focused or registration-focused grade.
+## What to check before choosing a foil
 
-## Recommended RFQ wording
+Use the same sample structure when comparing foil grades or suppliers:
 
-Use a specific RFQ line such as: "${rfqLine}".
+- Confirm the material stack and surface condition before selecting a grade.
+- Test the same artwork detail that will appear on the final package.
+- Record machine route, pressure, temperature, dwell time, and production speed.
+- Keep one approved visual sample and one durability-tested sample for later comparison.
 
-The supplier should answer that RFQ with a foil family, a test method, and a roll specification. If the reply does not mention ${parts.substrate}, ${parts.surface}, ${parts.process}, and ${parts.issue}, the recommendation is probably too generic for production approval. Ask for the sample note to repeat those same terms so that purchasing, press operators, and quality inspectors are judging the same job.
+Useful evidence for this topic includes:
 
-## Order card details
+${evidence || '- Production-representative substrate, press route, artwork, speed, and durability testing.'}
 
-${uniqueOrderCard}. Keep this order card attached to the approved sample so the page is not confused with another foil problem on the same substrate. The approval target for this page is specifically ${parts.issue} under ${parts.surface}, not a general decorative foil result.`;
+## Supplier RFQ checklist
+
+Ask the supplier to answer with a foil family, a test method, and a roll specification. The RFQ should mention ${parts.substrate}, ${parts.surface}, ${parts.process}, and ${parts.issue}; otherwise the answer is probably too generic for production approval. Use working labels such as ${tags} only as selection context, not as a substitute for sample testing.
+
+## Source context
+
+This guide is aligned with practical foil-industry references such as ${sourceNames || 'foil manufacturer grade guides and process notes'}. Those references are useful for process principles, but the final choice still depends on your own substrate, machine, artwork, speed, and retained approval sample.`;
 }
 
 function uniqueWorksheetCn(topic, parts) {
   const tags = safeArray(topic.tags).map(titleCase).join('；') || '订单打样确认';
-  const sourceKeys = safeArray(topic.source_keys).join('、');
-  const rfqLine = [
-    topic.title?.cn,
-    topic.topic_question?.cn,
-    topic.difference,
-    `主题集群 ${topic.cluster}`,
-    `意图 ${topic.intent}`,
-    `批次位置 ${topic.batch_position}`,
-  ].filter(Boolean).join(' ');
-  const uniqueOrderCard = [
-    `主题编号 ${topic.topic_id}`,
-    `页面路径 ${topic.slug}`,
-    `英文题名 ${topic.title?.en}`,
-    `中文题名 ${topic.title?.cn}`,
-    `表面和工艺 ${parts.surface} 加 ${parts.process}`,
-    `场景和风险 ${parts.application} 加 ${parts.issue}`,
-  ].filter(Boolean).join('。');
-  const slugWords = String(topic.slug || '').split('-').filter(Boolean).join('，');
-  const traceCodes = Array.from({ length: 48 }, (_, index) => `${topic.topic_id.toLowerCase()}-${index + 1}-${String(topic.slug || '').split('-')[index % String(topic.slug || '').split('-').length] || 'sample'}`).join('，');
-  return `## 本页订单备注
+  const evidence = safeArray(topic.evidence_needed)
+    .map((item) => `- ${item}`)
+    .join('\n');
+  const sourceNames = safeArray(topic.source_keys)
+    .slice(0, 4)
+    .map((sourceKey) => titleCase(sourceKey))
+    .join('、');
+  return `## 实际应用场景
 
 ${contextNoteCn(topic, parts)}
 
-本页写作和打样应围绕这些标签展开：${tags}。本页计划参考的资料组包括：${sourceKeys}。落到采购动作上，询价不能只写金色、银色、镭射或颜料效果，而要写清${parts.substrate}、${parts.surface}、${parts.process}，并说明${parts.issue}属于外观问题、耐性问题还是机台参数问题。
+落到采购动作上，询价不能只写金色、银色、镭射或颜料效果，而要写清${parts.substrate}、${parts.surface}、${parts.process}，并说明${parts.issue}属于外观问题、耐性问题还是机台参数问题。
 
-比较供应商时，建议让每一家按照同一张订单卡报价。订单卡至少包括材料结构、卷料或片材尺寸、机台路线、颜色目标、图稿难度、打样数量、包装运输条件和复购要求。这样可以避免一个供应商按普通装饰膜报价，而实际订单却需要耐性型或套准型膜材。
+## 选膜前要确认什么
 
-## 建议询价写法
+比较膜材或供应商时，应把样品条件统一起来：
 
-可以把询价写成更具体的一句话：“${rfqLine}”。
+- 先确认材料结构和表面状态，再判断适合哪类烫金膜。
+- 使用最终包装上真实会出现的图稿细节做测试，不只看空白底材。
+- 记录机台路线、压力、温度、停留时间和生产速度。
+- 同时保留外观确认样和耐性测试样，供量产和复购时比对。
 
-供应商回复时，应同时给出膜系、测试方法和卷料规格。如果回复没有提到${parts.substrate}、${parts.surface}、${parts.process}和${parts.issue}，说明建议仍然过于笼统。样品说明也应重复这些条件，让采购、机长和质检人员用同一套订单语言判断。
+这个主题建议重点保留以下证据：
 
-## 订单识别信息
+${evidence || '- 接近量产条件的底材、机台、图稿、速度和耐性测试记录。'}
 
-${uniqueOrderCard}。请把这段订单卡和确认样放在一起，避免把本页与同一底材上的其他烫金问题混淆。本页验收目标明确指向${parts.surface}条件下的${parts.issue}，不是普通装饰烫金效果。
+## 供应商询价清单
 
-## 验收差异记录
+供应商回复应同时给出膜系、测试方法和卷料规格。如果回复没有提到${parts.substrate}、${parts.surface}、${parts.process}和${parts.issue}，说明建议仍然过于笼统。${tags} 这类标签只适合作为选型线索，不能替代真实打样。
 
-本页的订单路径关键词为：${slugWords}。质检记录中应写清主题编号 ${topic.topic_id}、表面条件 ${parts.surface}、工艺路线 ${parts.process}、应用位置 ${parts.application}、风险点 ${parts.issue}。如果同一批标签或包装还有另一个相似问题，请不要合并验收；本页只判断 ${topic.title?.cn || topic.title?.en} 这一组条件。
+## 资料参考方式
 
-样张追踪码建议写入记录表：${traceCodes}。这些编号可用于区分同一底材下的不同故障、不同表面处理、不同测试方法和不同打样轮次。`;
+本指南参考 ${sourceNames || '膜材厂家等级指南和工艺说明'} 这类行业资料，用来解释工艺原则和常见判断方法。最终选择仍然要回到你的实际底材、机台、图稿、速度和确认样。`;
 }
 
 function englishArticle(topic, parts, products, sources) {

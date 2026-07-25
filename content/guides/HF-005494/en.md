@@ -1,23 +1,20 @@
 ---
 topic_id: HF-005494
 lang: en
-slug: >-
-  dry-rub-abrasion-comparison-film-label-facestock-foil-approval-foil-flaking-dusting-ed-0iazmwv
+slug: dry-rub-abrasion-comparison-film-label-facestock-foil-approval-foil-flaking-dusting-ed-0iazmwv
 status: published
 cluster: parameters-testing
 intent: testing
 title: >-
-  Foil flaking, dusting, or edge debris checked by Dry rub or abrasion
-  comparison: Film label facestock Test Plan for Corona or plasma treatment /
-  Narrow-web cold foil transfer in Paper and film label cold transfer
+  Dry rub or abrasion comparison for Foil flaking, dusting, or edge debris on Corona or plasma
+  treatment Film label facestock: acceptance guide
 description: >-
-  A practical guide to choosing, testing, and buying hot stamping foil for Film
-  label facestock when the main concern is foil flaking, dusting, or edge debris
-  checked by dry rub or abrasion comparison.
+  Covers Film label facestock Narrow-web cold foil transfer projects, including Corona or plasma
+  treatment, Foil flaking, dusting, or edge debris, sampling tests, supplier RFQ, and production
+  acceptance.
 primary_keyword: >-
-  foil flaking, dusting, or edge debris checked by dry rub or abrasion
-  comparison: film label facestock test plan for corona or plasma treatment /
-  narrow-web cold foil transfer in paper and film label cold transfer
+  dry rub or abrasion comparison for foil flaking, dusting, or edge debris on corona or plasma
+  treatment film label facestock: acceptance guide
 secondary_keywords:
   - Testing
   - Dry Rub Abrasion
@@ -30,134 +27,148 @@ related_guides:
 author: PINTE Technical Team
 reviewer: PINTE Application Engineer
 date_published: '2026-07-16'
-date_modified: '2026-07-16'
-hero_image: ''
-hero_alt: ''
+date_modified: '2026-07-25'
+hero_image: /images/guides/library/hot-stamping-foil-guide-photo-021.avif
+hero_alt: Film label facestock Narrow-web cold foil transfer hot stamping foil application reference
 answer: >-
-  For Film label facestock, choose foil by substrate stack, surface treatment,
-  process route, artwork detail, and required durability tests. Final settings
-  require sampling on the actual substrate, machine, artwork/design, and speed
-  before bulk production.
+  For Film label facestock, foil selection should match Corona or plasma treatment, Narrow-web cold
+  foil transfer, Foil flaking, dusting, or edge debris, artwork detail, and finished-package
+  durability. Final settings require sampling on the actual substrate, machine, artwork/design, and
+  speed before bulk production.
 faqs:
-  - question: Can this foil choice be confirmed from the material name alone?
+  - question: Can Film label facestock foil be ordered by color name only?
     answer: >-
-      No. Film label facestock, Corona or plasma treatment, Narrow-web cold foil
-      transfer, artwork detail, and machine speed must be checked together
-      before bulk ordering.
-  - question: What should a buyer send before asking for a firm recommendation?
+      No. Color is only the visual target; foil choice also depends on Corona or plasma treatment,
+      Narrow-web cold foil transfer, artwork detail, press speed, and durability testing.
+  - question: What condition is most often missed during sampling?
     answer: >-
-      Send the substrate sample, surface treatment, artwork, machine type,
-      expected speed, target finish, and the durability checks required by the
-      final package.
-  - question: When should the final production setting be locked?
+      Real surface condition and production speed are often missed. Final settings must be confirmed
+      on the actual substrate, machine, artwork/design, and speed.
+  - question: How can the RFQ get a more useful supplier answer?
     answer: >-
-      Final settings should be locked only after sampling on the actual
-      substrate, machine, artwork/design, and speed, with an approved reference
-      sample kept for production comparison.
+      State substrate, surface treatment, process route, target finish, artwork challenge, test
+      requirement, roll specification, and quantity; ask the supplier to return a foil family and
+      test recommendation.
 sources:
   - label: ASTM International
     title: ASTM D3359-23 Standard Test Methods for Rating Adhesion by Tape Test
     publisher: ASTM International
     url: 'https://store.astm.org/d3359-23.html'
     summary: >-
-      Official scope, significance, and limitations for tape-test ratings of
-      relatively ductile coatings, developed for metallic substrates. The page
-      explicitly notes limitations for non-metallic substrates, tape selection,
-      and operator technique.
+      Official scope, significance, and limitations for tape-test ratings of relatively ductile
+      coatings, developed for metallic substrates. The page explicitly notes limitations for
+      non-metallic substrates, tape selection, and operator technique.
   - label: ASTM International
     title: >-
-      ASTM D5264-98(2019) Standard Practice for Abrasion Resistance of Printed
-      Materials by the Sutherland Rub Tester
+      ASTM D5264-98(2019) Standard Practice for Abrasion Resistance of Printed Materials by the
+      Sutherland Rub Tester
     publisher: ASTM International
     url: 'https://store.astm.org/d5264-98r19.html'
     summary: >-
-      Official active practice for comparative laboratory abrasion testing of
-      flat printed materials including labels and folding cartons. It supports
-      method selection, not an unqualified durability guarantee.
+      Official active practice for comparative laboratory abrasion testing of flat printed materials
+      including labels and folding cartons. It supports method selection, not an unqualified
+      durability guarantee.
   - label: International Organization for Standardization
     title: 'ISO 2409:2020 - Paints and varnishes - Cross-cut test'
     publisher: International Organization for Standardization
     url: 'https://www.iso.org/standard/76041.html'
     summary: >-
-      Official scope and limitations for classifying resistance of paint and
-      varnish coatings to separation by a cross-cut method. It is not a direct
-      measurement of adhesion and must not be presented as automatically
-      applicable to every foil/substrate system.
+      Official scope and limitations for classifying resistance of paint and varnish coatings to
+      separation by a cross-cut method. It is not a direct measurement of adhesion and must not be
+      presented as automatically applicable to every foil/substrate system.
   - label: International Organization for Standardization
     title: >-
-      ISO 2836:2021 - Graphic technology - Prints and printing inks - Assessment
-      of resistance of prints to various agents
+      ISO 2836:2021 - Graphic technology - Prints and printing inks - Assessment of resistance of
+      prints to various agents
     publisher: International Organization for Standardization
     url: 'https://www.iso.org/standard/76452.html'
     summary: >-
-      Official scope for assessing printed-material resistance to specified
-      liquid and solid agents, solvents, varnishes, and acids across traditional
-      and digital printing. Food-safety claims are outside its scope.
+      Official scope for assessing printed-material resistance to specified liquid and solid agents,
+      solvents, varnishes, and acids across traditional and digital printing. Food-safety claims are
+      outside its scope.
 ---
-## Direct answer
+## Core decision
 
-For Film label facestock, choose hot stamping foil by matching Corona or plasma treatment, Narrow-web cold foil transfer, and the foil flaking, dusting, or edge debris checked by dry rub or abrasion comparison requirement. The useful starting point is not a universal color code; it is a sample plan that checks transfer, edge quality, and durability on the finished job. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
+This guide is for Film label facestock foil projects in the packaging application, with attention to Corona or plasma treatment, Narrow-web cold foil transfer, and Foil flaking, dusting, or edge debris. Do not brief the supplier with only “bright gold,” “matte gold,” or “holographic.” The useful brief connects substrate construction, surface treatment, artwork difficulty, machine route, and finished-package testing. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
 
-## Buyer situation
+## Specific scope
 
-The buyer question is: When is dry rub or abrasion comparison useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Foil flaking, dusting, or edge debris / Dry rub or abrasion comparison?
+The practical buyer question is: When is dry rub or abrasion comparison useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Foil flaking, dusting, or edge debris / Dry rub or abrasion comparison?
 
-This page applies when the project combines:
+The substrate is Film label facestock, the surface is Corona or plasma treatment, the process is Narrow-web cold foil transfer, and the application is the real packaging application. Acceptance method: Dry rub or abrasion comparison. Failure symptom: Foil flaking, dusting, or edge debris.
 
-- Material: Film label facestock
-- Surface: Corona or plasma treatment
-- Process: Narrow-web cold foil transfer
-- Application: Paper and film label cold transfer
-- Main concern: Foil flaking, dusting, or edge debris checked by Dry rub or abrasion comparison
-- Product direction: cold or digital transfer foil for labels and short-run embellishment
-- Tags for this job: Testing, Dry Rub Abrasion, Foil Flaking Dusting
+The scope is: Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check. Useful working terms include Testing, Dry Rub Abrasion, Foil Flaking Dusting. Reference context includes Astm D3359 23 Tape Test, Astm D5264 98r19 Abrasion, Iso 2409 2020 Cross Cut, Iso 2836 2021 Print Resistance, Inx Hot Cold Foil Guide. These details help buyers, designers, press operators, and quality teams discuss the same production risk; they do not replace job-specific sampling.
 
-## Job-specific notes for this page
+## Application context and risk
 
-Label converting adds web tension, liner stability, adhesive layers, varnish, and high-speed registration to the foil decision. Ask for the roll format and process route before choosing between hot, cold, or digital transfer foil.
+- Typical substrate: Film label facestock
+- Surface condition: Corona or plasma treatment
+- Process route: Narrow-web cold foil transfer
+- Application: the packaging application
+- Main concern: Foil flaking, dusting, or edge debris
+- Related PINTE direction: Digital and cold transfer foil for labels and short-run embellishment
 
-For this article, keep the approval language tied to these working labels: Testing; Dry Rub Abrasion; Foil Flaking Dusting. The source set planned for the page is astm-d3359-23-tape-test, astm-d5264-98r19-abrasion, iso-2409-2020-cross-cut, iso-2836-2021-print-resistance, inx-hot-cold-foil-guide. In practical purchasing terms, this means the buyer should not ask only for a gold, silver, holographic, or pigment color. The request should name Film label facestock, describe Corona or plasma treatment, identify Narrow-web cold foil transfer, and state whether foil flaking, dusting, or edge debris checked by dry rub or abrasion comparison is a visual issue, a durability issue, or a machine-setting issue.
 
-When comparing suppliers, ask each one to quote against the same job card. That job card should include the material stack, roll or sheet size, machine route, color target, artwork difficulty, sampling quantity, packing condition, and repeat-order requirement. This prevents one supplier from quoting a decorative foil for a job that actually needs a durability-focused or registration-focused grade.
 
-## Recommended RFQ wording
 
-Use a specific RFQ line such as: "Dry rub or abrasion comparison for Film label facestock Foil Approval - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Foil flaking, dusting, or edge debris / Dry rub or abrasion comparison When is dry rub or abrasion comparison useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Foil flaking, dusting, or edge debris / Dry rub or abrasion comparison? Connects one acceptance method to the exact substrate, surface, process, and failure symptom it can check. Cluster parameters-testing Intent testing Batch position 24".
 
-The supplier should answer that RFQ with a foil family, a test method, and a roll specification. If the reply does not mention Film label facestock, Corona or plasma treatment, Narrow-web cold foil transfer, and Foil flaking, dusting, or edge debris checked by Dry rub or abrasion comparison, the recommendation is probably too generic for production approval. Ask for the sample note to repeat those same terms so that purchasing, press operators, and quality inspectors are judging the same job.
+If the same package includes large solid areas, fine lines, small type, embossing, or post-lamination handling, include those areas in the same trial. A small test on blank stock may not represent adhesion, edge definition, rub resistance, or optical consistency on the finished package.
 
-## Order card details
+## Substrate-specific notes
 
-Topic code HF-005494. Route slug dry-rub-abrasion-comparison-film-label-facestock-foil-approval-foil-flaking-dusting-ed-0iazmwv. English title Dry rub or abrasion comparison for Film label facestock Foil Approval - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Foil flaking, dusting, or edge debris / Dry rub or abrasion comparison. Chinese title 薄膜标签面材烫金确认中的干擦或耐磨对比（电晕或等离子处理 / 窄幅冷烫 / 纸质和薄膜标签冷烫 / 掉粉、碎金或边缘碎屑 / 干擦或耐磨对比）. Surface-process pair Corona or plasma treatment plus Narrow-web cold foil transfer. Application-risk pair Paper and film label cold transfer plus Foil flaking, dusting, or edge debris checked by Dry rub or abrasion comparison. Keep this order card attached to the approved sample so the page is not confused with another foil problem on the same substrate. The approval target for this page is specifically Foil flaking, dusting, or edge debris checked by Dry rub or abrasion comparison under Corona or plasma treatment, not a general decorative foil result.
+Film label facestock is roll-fed, so risk concentrates in web tension, liner stability, surface treatment, UV adhesive, and high-speed registration. Unlike carton sheets, it must stay consistent through continuous converting.
 
-## Approval checklist
+Label projects should also consider bending after application, bottle squeeze, refrigeration, humidity, and shipping abrasion. Keep both an un-applied roll sample and a sample applied to the real container.
 
-Ask the supplier to answer this specific job, not a general foil catalogue request. The quote should state whether the recommended foil is meant for Film label facestock, whether Corona or plasma treatment needs cleaning or treatment, and how Narrow-web cold foil transfer changes the process window. The sample should include the part of the artwork most likely to show foil flaking, dusting, or edge debris checked by dry rub or abrasion comparison.
+## Surface and process notes
 
-For approval, keep three samples: one visual master, one durability sample, and one retained production reference. Mark each sample with substrate batch, machine, speed, pressure, temperature or cure condition, roll width, and operator note. If a second trial is needed, change only one variable so the result is readable.
+Corona or plasma treatment should be treated as a time-sensitive surface condition. If label film has aged or been contaminated, cold-foil adhesive wetting can change, so surface wetting should be rechecked before scale-up.
 
-## Failure checks for this topic
+Narrow-web cold foil concentrates risk in web tension, adhesive volume, nip pressure, UV curing, and registration. It suits label converting, but it is sensitive to roll consistency and inline control.
 
-- If the problem is adhesion, inspect surface energy, coating compatibility, and handling contamination before blaming color.
-- If the problem is transfer, compare pressure contact, release behavior, and machine speed on the same artwork.
-- If the problem is edge quality, inspect die wear, dwell/contact time, and the smallest text or reverse detail.
-- If the problem is durability, use the agreed tape, rub, scratch, fold, or chemical method instead of an informal hand test.
-- If repeat orders matter, keep the approved roll label and sample record with purchasing files.
+Dry-rub testing needs a defined rub material, cycle count, and load before it can represent shipping or use abrasion.
 
-## Source context
+## Foil selection and sampling workflow
 
-ASTM International supports the process or substrate boundary for this page. ASTM International supports the test or comparison context. These references do not replace a production trial on PINTE material and the buyer's actual job.
+1. Confirm that the substrate sample matches production, including coating, lamination, varnish, ink, and surface contamination risk.
+2. Confirm the Narrow-web cold foil transfer route and record temperature, pressure, dwell time, speed, web tension, or UV curing conditions as applicable.
+3. Test the difficult area from the real artwork and watch for Foil flaking, dusting, or edge debris, edge cleanliness, registration, gloss, and coverage stability.
+4. Change only one variable per trial and mark the sample with foil family, roll reference, machine route, and settings.
+5. Keep separate visual, durability-tested, and retained production samples so repeat orders can be judged against evidence instead of memory.
 
-## FAQ
+## Acceptance checks
 
-### Can this foil choice be confirmed from the material name alone?
+- Production-representative substrate, machine, artwork, and speed trial
+- Controlled process-window sampling
+- Magnified edge and fine-detail inspection
+- Surface-energy or wetting check
+- Supplier grade selection notes and recorded pass/fail criteria
 
-No. Film label facestock, Corona or plasma treatment, Narrow-web cold foil transfer, artwork detail, and machine speed must be checked together before bulk ordering.
+Define the pass condition before testing. For example, decide whether slight edge residue is allowed after tape pull, how many rub cycles are required, and whether alcohol wiping reflects the final use case. A test without pass criteria is weak for supplier comparison and weak for batch follow-up.
 
-### What should a buyer send before asking for a firm recommendation?
+## International RFQ wording
 
-Send the substrate sample, surface treatment, artwork, machine type, expected speed, target finish, and the durability checks required by the final package.
+For international sourcing, the scope can be written as: Dry rub or abrasion comparison for Film label facestock Foil Approval - Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Foil flaking, dusting, or edge debris / Dry rub or abrasion comparison. This wording is not a replacement for sampling; it helps the supplier understand the substrate, surface, process, and risk boundary before recommending a foil family.
 
-### When should the final production setting be locked?
+Useful term breakdown: substrate: label film facestock; surface treatment: corona or plasma; process: cold foil narrow web; test method: dry rub abrasion; defect symptom: foil flaking dusting. If a supplier only replies with generic gold foil, silver foil, or holographic foil without addressing these terms, ask again for a foil family, test method, and roll specification.
 
-Final settings should be locked only after sampling on the actual substrate, machine, artwork/design, and speed, with an approved reference sample kept for production comparison.
+The buyer question behind this page is: When is dry rub or abrasion comparison useful for film label facestock foil approval under Corona or plasma treatment / Narrow-web cold foil transfer / Paper and film label cold transfer / Foil flaking, dusting, or edge debris / Dry rub or abrasion comparison? Use it as an email subject or RFQ headline, then attach the real substrate, artwork, machine route, and acceptance tests in the message body.
+
+## Supplier RFQ information
+
+A useful RFQ includes the substrate or finished sample, surface treatment, target color or optical effect, artwork PDF, stamping method, machine model, planned speed, roll width/length/core, sample quantity, test method, bulk quantity, and delivery need. The supplier response should identify the foil family, starting settings, sample specification, batch-control approach, and any known risk.
+
+## Common mistakes
+
+- Choosing by color name while ignoring how Corona or plasma treatment and Narrow-web cold foil transfer affect adhesive and release behavior.
+- Replacing the finished package with a lab coupon, then discovering Foil flaking, dusting, or edge debris during production.
+- Changing several variables at once, which hides whether the problem came from temperature, pressure, speed, substrate, or foil grade.
+- Failing to keep approved samples and roll labels, making repeat-order color and gloss comparison subjective.
+
+## How to use the sources
+
+- ASTM International: ASTM D3359-23 Standard Test Methods for Rating Adhesion by Tape Test, used for process limits, test-method context, or foil grade-selection principles.
+- ASTM International: ASTM D5264-98(2019) Standard Practice for Abrasion Resistance of Printed Materials by the Sutherland Rub Tester, used for process limits, test-method context, or foil grade-selection principles.
+- International Organization for Standardization: ISO 2409:2020 - Paints and varnishes - Cross-cut test, used for process limits, test-method context, or foil grade-selection principles.
+
+These references are useful for process principles and test boundaries, but they do not replace production sampling. Final purchasing decisions should be based on the actual substrate, machine, artwork, speed, and customer acceptance requirements.

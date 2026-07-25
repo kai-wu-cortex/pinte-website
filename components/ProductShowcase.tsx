@@ -232,10 +232,19 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
                      <div className="lg:w-3/4 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-8">
                         {items.length > 0 ? (
                           items.map((item) => (
-                            <div 
-                                key={item.id} 
-                                className="bg-white rounded-2xl border border-neutral-100 overflow-hidden hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-300 group/card flex flex-col h-full cursor-pointer hover:-translate-y-1"
+                            <div
+                                key={item.id}
+                                role="button"
+                                tabIndex={0}
+                                aria-label={lang === 'cn' ? `查看产品详情：${item.name}` : `View product details: ${item.name}`}
+                                className="bg-white rounded-2xl border border-neutral-100 overflow-hidden hover:shadow-2xl hover:shadow-neutral-200/50 transition-all duration-300 group/card flex flex-col h-full cursor-pointer hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-pinte-blue/40"
                                 onClick={() => onItemClick(item.id)}
+                                onKeyDown={(event) => {
+                                  if (event.key === 'Enter' || event.key === ' ') {
+                                    event.preventDefault();
+                                    onItemClick(item.id);
+                                  }
+                                }}
                             >
                                 {/* Image Section */}
                                 <div className="relative aspect-[4/3] overflow-hidden bg-neutral-100">
@@ -328,10 +337,19 @@ const ProductShowcase: React.FC<ProductShowcaseProps> = ({ onBack, products, cat
 
                <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-6 gap-8">
                    {filteredFoils.map(foil => (
-                       <div 
-                          key={foil.id} 
+                       <div
+                          key={foil.id}
+                          role="button"
+                          tabIndex={0}
+                          aria-label={lang === 'cn' ? `查看色卡 3D 效果：${foil.name} ${foil.code}` : `View foil 3D effect: ${foil.name} ${foil.code}`}
                           onClick={() => handleFoilClick(foil)}
-                          className="group cursor-pointer flex flex-col items-center"
+                          onKeyDown={(event) => {
+                            if (event.key === 'Enter' || event.key === ' ') {
+                              event.preventDefault();
+                              handleFoilClick(foil);
+                            }
+                          }}
+                          className="group cursor-pointer flex flex-col items-center focus:outline-none focus:ring-2 focus:ring-pinte-blue/40 rounded-[2rem]"
                        >
                            {/* Swatch Square */}
                            <div className="relative w-full aspect-square rounded-[2rem] mb-4 shadow-lg group-hover:shadow-2xl transition-all duration-500 group-hover:-translate-y-2 bg-neutral-100 overflow-hidden border-[6px] border-white ring-1 ring-neutral-200/50">

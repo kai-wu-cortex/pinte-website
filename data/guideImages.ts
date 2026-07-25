@@ -1,4 +1,5 @@
 import type { GuideLang } from './geoGuides';
+import { GUIDE_LIBRARY_IMAGE_ASSETS } from './guideImageLibrary';
 
 export interface GuideImageAsset {
   readonly src: string;
@@ -265,6 +266,23 @@ interface GuideImageContext {
   readonly primaryKeyword?: string;
 }
 
+const stableImageIndex = (seed: string, offset = 0): number => {
+  if (GUIDE_LIBRARY_IMAGE_ASSETS.length === 0) return 0;
+
+  let hash = 2166136261;
+  for (let index = 0; index < seed.length; index += 1) {
+    hash ^= seed.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+
+  return (Math.abs(hash) + offset) % GUIDE_LIBRARY_IMAGE_ASSETS.length;
+};
+
+export const resolveGuideLibraryImageAsset = (seed: string, offset = 0): GuideImageAsset => {
+  if (GUIDE_LIBRARY_IMAGE_ASSETS.length === 0) return GUIDE_IMAGE_ASSETS.selection;
+  return GUIDE_LIBRARY_IMAGE_ASSETS[stableImageIndex(seed, offset)] ?? GUIDE_IMAGE_ASSETS.selection;
+};
+
 export const resolveGuideImageAsset = ({
   slug = '',
   cluster = '',
@@ -272,6 +290,10 @@ export const resolveGuideImageAsset = ({
   primaryKeyword = '',
 }: GuideImageContext): GuideImageAsset => {
   const haystack = `${slug} ${cluster} ${intent} ${primaryKeyword}`.toLowerCase();
+
+  if (slug || primaryKeyword) {
+    return resolveGuideLibraryImageAsset(haystack);
+  }
 
   if (haystack.includes('troubleshooting')
     || haystack.includes('defect')
@@ -320,9 +342,9 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
 
   if (haystack.includes('cosmetic') || haystack.includes('化妆')) {
     return [
+      resolveGuideLibraryImageAsset(haystack, 1),
       GUIDE_IMAGE_ASSETS.sourceCosmeticPackagingDisplay,
-      GUIDE_IMAGE_ASSETS.cosmeticPackaging,
-      GUIDE_IMAGE_ASSETS.sourceMultiApplicationPackagingSamples,
+      resolveGuideLibraryImageAsset(haystack, 2),
     ];
   }
 
@@ -335,9 +357,9 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('纸')
     || haystack.includes('纸盒')) {
     return [
+      resolveGuideLibraryImageAsset(haystack, 1),
       GUIDE_IMAGE_ASSETS.sourcePremiumPackagingSamples,
-      GUIDE_IMAGE_ASSETS.sourceGoldFloralPaperSample,
-      GUIDE_IMAGE_ASSETS.paperCartonPackaging,
+      resolveGuideLibraryImageAsset(haystack, 2),
     ];
   }
 
@@ -348,9 +370,9 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('标签')
     || haystack.includes('冷烫')) {
     return [
+      resolveGuideLibraryImageAsset(haystack, 1),
       GUIDE_IMAGE_ASSETS.sourceHolographicLabelPrintSample,
-      GUIDE_IMAGE_ASSETS.labelColdFoil,
-      GUIDE_IMAGE_ASSETS.sourceMetallicFoilRollLibrary,
+      resolveGuideLibraryImageAsset(haystack, 2),
     ];
   }
 
@@ -360,9 +382,9 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('comparison')
     || haystack.includes('对比')) {
     return [
+      resolveGuideLibraryImageAsset(haystack, 1),
       GUIDE_IMAGE_ASSETS.processComparison,
-      GUIDE_IMAGE_ASSETS.sourceHolographicLabelPrintSample,
-      GUIDE_IMAGE_ASSETS.sourcePremiumPackagingSamples,
+      resolveGuideLibraryImageAsset(haystack, 2),
     ];
   }
 
@@ -377,9 +399,9 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('起订')
     || haystack.includes('交期')) {
     return [
+      resolveGuideLibraryImageAsset(haystack, 1),
       GUIDE_IMAGE_ASSETS.sourceRollSizeSpecification,
-      GUIDE_IMAGE_ASSETS.sourceShippingPackagingRolls,
-      GUIDE_IMAGE_ASSETS.procurementSpecifications,
+      resolveGuideLibraryImageAsset(haystack, 2),
     ];
   }
 
@@ -395,9 +417,9 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('镭射')
     || haystack.includes('防伪')) {
     return [
+      resolveGuideLibraryImageAsset(haystack, 1),
       GUIDE_IMAGE_ASSETS.sourceMultiApplicationPackagingSamples,
-      GUIDE_IMAGE_ASSETS.substrateCompatibility,
-      GUIDE_IMAGE_ASSETS.sourceBlackMatteFoilRoll,
+      resolveGuideLibraryImageAsset(haystack, 2),
     ];
   }
 
@@ -411,9 +433,9 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('掉')
     || haystack.includes('不牢')) {
     return [
+      resolveGuideLibraryImageAsset(haystack, 1),
       GUIDE_IMAGE_ASSETS.troubleshooting,
-      GUIDE_IMAGE_ASSETS.sourceGoldFloralPaperSample,
-      GUIDE_IMAGE_ASSETS.sampling,
+      resolveGuideLibraryImageAsset(haystack, 2),
     ];
   }
 
@@ -428,15 +450,15 @@ export const resolveGuideInlineImageAssets = (context: GuideImageContext): reado
     || haystack.includes('测试')
     || haystack.includes('打样')) {
     return [
+      resolveGuideLibraryImageAsset(haystack, 1),
       GUIDE_IMAGE_ASSETS.sampling,
-      GUIDE_IMAGE_ASSETS.sourceRollSizeSpecification,
-      GUIDE_IMAGE_ASSETS.sourceShippingPackagingRolls,
+      resolveGuideLibraryImageAsset(haystack, 2),
     ];
   }
 
   return [
+    resolveGuideLibraryImageAsset(haystack, 1),
     GUIDE_IMAGE_ASSETS.sourceMetallicFoilRollLibrary,
-    GUIDE_IMAGE_ASSETS.sourceMultiApplicationPackagingSamples,
-    GUIDE_IMAGE_ASSETS.sourceGoldFloralPaperSample,
+    resolveGuideLibraryImageAsset(haystack, 2),
   ];
 };

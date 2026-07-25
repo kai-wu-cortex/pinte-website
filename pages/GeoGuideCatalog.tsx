@@ -12,6 +12,7 @@ import {
 import { GEO_GUIDES, guideCustomerText, type GuideLang } from '../data/geoGuides';
 import { useLanguage } from '../contexts/LanguageContext';
 import { GUIDE_IMAGE_ASSETS, resolveGuideImageAsset } from '../data/guideImages';
+import { GUIDE_LIBRARY_IMAGE_ASSETS } from '../data/guideImageLibrary';
 
 const SITE_URL = 'https://www.pintecl.com';
 const GENERATED_GUIDE_DEFAULT_PRIORITY = 100;
@@ -26,6 +27,8 @@ interface CatalogGuideSummary {
   readonly priority: number;
   readonly imageSrc: string;
   readonly imageAlt: string;
+  readonly imageWidth: number;
+  readonly imageHeight: number;
 }
 
 const compareTitles = (a: string, b: string) => {
@@ -113,22 +116,22 @@ const GeoGuideCatalog: React.FC = () => {
   const mergedGuides = new Map<string, CatalogGuideSummary>();
 
   GEO_GUIDES.forEach((guide) => {
+    const image = resolveGuideImageAsset({
+      slug: guide.slug,
+      cluster: LEGACY_GUIDE_CLUSTERS[guide.slug],
+      primaryKeyword: guide.primaryKeyword[lang],
+    });
+
     mergedGuides.set(guide.slug, {
       slug: guide.slug,
       title: cleanCatalogTitle(text(guide.title[lang]), lang),
       description: cleanCatalogDescription(text(guide.metaDescription[lang], descriptionFallback), descriptionFallback, lang),
       cluster: resolveGuideClusterId(LEGACY_GUIDE_CLUSTERS[guide.slug]),
       priority: guide.priority,
-      imageSrc: resolveGuideImageAsset({
-        slug: guide.slug,
-        cluster: LEGACY_GUIDE_CLUSTERS[guide.slug],
-        primaryKeyword: guide.primaryKeyword[lang],
-      }).src,
-      imageAlt: resolveGuideImageAsset({
-        slug: guide.slug,
-        cluster: LEGACY_GUIDE_CLUSTERS[guide.slug],
-        primaryKeyword: guide.primaryKeyword[lang],
-      }).alt[lang],
+      imageSrc: image.src,
+      imageAlt: image.alt[lang],
+      imageWidth: image.width,
+      imageHeight: image.height,
     });
   });
 
@@ -136,6 +139,11 @@ const GeoGuideCatalog: React.FC = () => {
     const slug = guide.slug?.trim();
     const title = guide.title?.trim();
     if (!slug || !title) return;
+    const image = resolveGuideImageAsset({
+      slug,
+      cluster: guide.cluster,
+      primaryKeyword: guide.title,
+    });
 
     mergedGuides.set(slug, {
       slug,
@@ -143,26 +151,32 @@ const GeoGuideCatalog: React.FC = () => {
       description: cleanCatalogDescription(text(guide.description?.trim(), descriptionFallback), descriptionFallback, lang),
       cluster: resolveGuideClusterId(guide.cluster?.trim()),
       priority: GENERATED_GUIDE_DEFAULT_PRIORITY,
-      imageSrc: resolveGuideImageAsset({
-        slug,
-        cluster: guide.cluster,
-        primaryKeyword: guide.title,
-      }).src,
-      imageAlt: resolveGuideImageAsset({
-        slug,
-        cluster: guide.cluster,
-        primaryKeyword: guide.title,
-      }).alt[lang],
+      imageSrc: image.src,
+      imageAlt: image.alt[lang],
+      imageWidth: image.width,
+      imageHeight: image.height,
     });
   });
 
-  const sortedGuides = [...mergedGuides.values()].sort((a, b) => (
-    (clusterOrder.get(a.cluster) ?? Number.MAX_SAFE_INTEGER)
-      - (clusterOrder.get(b.cluster) ?? Number.MAX_SAFE_INTEGER)
-    || a.priority - b.priority
-    || compareTitles(a.title, b.title)
-    || compareTitles(a.slug, b.slug)
-  ));
+  const sortedGuides = [...mergedGuides.values()]
+    .sort((a, b) => (
+      (clusterOrder.get(a.cluster) ?? Number.MAX_SAFE_INTEGER)
+        - (clusterOrder.get(b.cluster) ?? Number.MAX_SAFE_INTEGER)
+      || a.priority - b.priority
+      || compareTitles(a.title, b.title)
+      || compareTitles(a.slug, b.slug)
+    ))
+    .map((guide, index) => {
+      const uniqueImage = GUIDE_LIBRARY_IMAGE_ASSETS[index % GUIDE_LIBRARY_IMAGE_ASSETS.length];
+      if (!uniqueImage) return guide;
+      return {
+        ...guide,
+        imageSrc: uniqueImage.src,
+        imageAlt: uniqueImage.alt[lang],
+        imageWidth: uniqueImage.width,
+        imageHeight: uniqueImage.height,
+      };
+    });
   const groupedGuides = new Map<GuideClusterId, CatalogGuideSummary[]>(
     GUIDE_CLUSTERS.map((cluster) => [cluster.id, []]),
   );
@@ -506,12 +520,16 @@ const GeoGuideCatalog: React.FC = () => {
                     <div className="grid md:grid-cols-2 md:gap-x-8">
                       {guides.map((guide) => (
                         <article key={guide.slug} className="min-w-0 border-t border-neutral-200 py-6">
-                          <Link to={`/${lang}/guides/${guide.slug}/`} className="group mb-4 block overflow-hidden rounded-xl bg-neutral-100">
+                          <Link
+                            to={`/${lang}/guides/${guide.slug}/`}
+                            aria-label={lang === 'cn' ? `阅读指南：${guide.title}` : `Read guide: ${guide.title}`}
+                            className="group mb-4 block overflow-hidden rounded-xl bg-neutral-100"
+                          >
                             <img
                               src={guide.imageSrc}
                               alt={guide.imageAlt}
-                              width={1200}
-                              height={675}
+                              width={guide.imageWidth}
+                              height={guide.imageHeight}
                               loading="lazy"
                               decoding="async"
                               className="aspect-[16/9] w-full object-cover transition-transform duration-500 group-hover:scale-105"

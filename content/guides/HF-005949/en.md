@@ -1,20 +1,19 @@
 ---
 topic_id: HF-005949
 lang: en
-slug: >-
-  foil-grade-selection-continuous-holographic-pattern-abs-as-supplied-uncoated-surface-15e1hfw
+slug: foil-grade-selection-continuous-holographic-pattern-abs-as-supplied-uncoated-surface-15e1hfw
 status: published
 cluster: plastics
 intent: substrate-selection
 title: >-
-  Continuous holographic pattern: ABS Guide for As-supplied or uncoated surface
-  / Flatbed or platen hot stamping
+  ABS As-supplied or uncoated surface Flatbed or platen hot stamping Continuous holographic pattern:
+  foil selection guide
 description: >-
-  A practical guide to choosing, testing, and buying hot stamping foil for ABS
-  when the main concern is continuous holographic pattern.
+  Covers ABS Flatbed or platen hot stamping projects, including As-supplied or uncoated surface,
+  Continuous holographic pattern, sampling tests, supplier RFQ, and production acceptance.
 primary_keyword: >-
-  continuous holographic pattern: abs guide for as-supplied or uncoated surface
-  / flatbed or platen hot stamping
+  abs as-supplied or uncoated surface flatbed or platen hot stamping continuous holographic pattern:
+  foil selection guide
 secondary_keywords:
   - Selection
   - Continuous Holographic Pattern
@@ -28,133 +27,138 @@ related_guides:
 author: PINTE Technical Team
 reviewer: PINTE Application Engineer
 date_published: '2026-07-16'
-date_modified: '2026-07-16'
-hero_image: ''
-hero_alt: ''
+date_modified: '2026-07-25'
+hero_image: /images/guides/library/hot-stamping-foil-guide-photo-026.avif
+hero_alt: ABS Flatbed or platen hot stamping hot stamping foil application reference
 answer: >-
-  For ABS, choose foil by substrate stack, surface treatment, process route,
-  artwork detail, and required durability tests. Final settings require sampling
-  on the actual substrate, machine, artwork/design, and speed before bulk
+  For ABS, foil selection should match As-supplied or uncoated surface, Flatbed or platen hot
+  stamping, Continuous holographic pattern, artwork detail, and finished-package durability. Final
+  settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk
   production.
 faqs:
-  - question: Can this foil choice be confirmed from the material name alone?
+  - question: Can ABS foil be ordered by color name only?
     answer: >-
-      No. ABS, As-supplied or uncoated surface, Flatbed or platen hot stamping,
-      artwork detail, and machine speed must be checked together before bulk
-      ordering.
-  - question: What should a buyer send before asking for a firm recommendation?
+      No. Color is only the visual target; foil choice also depends on As-supplied or uncoated
+      surface, Flatbed or platen hot stamping, artwork detail, press speed, and durability testing.
+  - question: What condition is most often missed during sampling?
     answer: >-
-      Send the substrate sample, surface treatment, artwork, machine type,
-      expected speed, target finish, and the durability checks required by the
-      final package.
-  - question: When should the final production setting be locked?
+      Real surface condition and production speed are often missed. Final settings must be confirmed
+      on the actual substrate, machine, artwork/design, and speed.
+  - question: How can the RFQ get a more useful supplier answer?
     answer: >-
-      Final settings should be locked only after sampling on the actual
-      substrate, machine, artwork/design, and speed, with an approved reference
-      sample kept for production comparison.
+      State substrate, surface treatment, process route, target finish, artwork challenge, test
+      requirement, roll specification, and quantity; ask the supplier to return a foil family and
+      test recommendation.
 sources:
   - label: Foil & Specialty Effects Association
-    title: >-
-      FSEA and PaperSpecs Release Print Decorating Reference for Designers: Foil
-      Cheat Sheet
+    title: 'FSEA and PaperSpecs Release Print Decorating Reference for Designers: Foil Cheat Sheet'
     publisher: Foil & Specialty Effects Association
     url: >-
       https://fsea.com/uncategorized/2020/fsea-and-paperspecs-release-print-decorating-reference-for-designers-foil-cheat-sheet/
     summary: >-
-      Association overview confirming distinct hot foil, cold foil, toner
-      digital foil, varnish digital foil, and foil-substrate categories for
-      designer process comparison.
+      Association overview confirming distinct hot foil, cold foil, toner digital foil, varnish
+      digital foil, and foil-substrate categories for designer process comparison.
   - label: Foilco Limited
     title: Foilco D4 Foil Grade Guide - Edition 1
     publisher: Foilco Limited
     url: 'https://www.foilco.com/app/uploads/2019/05/Grade-Guide-Booklet_E_Doc.pdf'
     summary: >-
-      Official grade-selection guide covering finish families, typical
-      applications, and grade-dependent substrate/artwork fit. The guide itself
-      says its information is general and recommends testing and technical
-      support.
+      Official grade-selection guide covering finish families, typical applications, and
+      grade-dependent substrate/artwork fit. The guide itself says its information is general and
+      recommends testing and technical support.
   - label: LEONHARD KURZ
     title: Decoration Processes
     publisher: LEONHARD KURZ
     url: 'https://www.kurz-world.com/en/solutions/decoration-processes/'
     summary: >-
-      Official overview of hot stamping and related decoration processes for
-      plastic surfaces, including partial and full-surface decoration and
-      complex geometries. It does not identify PINTE grades or validate every
-      resin.
+      Official overview of hot stamping and related decoration processes for plastic surfaces,
+      including partial and full-surface decoration and complex geometries. It does not identify
+      PINTE grades or validate every resin.
   - label: LEONHARD KURZ
     title: KURZ Hot Stamping | Get the Exceptional
     publisher: LEONHARD KURZ
     url: 'https://www.kurz-graphics.com/en/hot-stamping/'
     summary: >-
-      Official overview of graphic hot stamping, use cases, effect families, and
-      paper, cardboard, laminated, label, and difficult-surface applications.
-      Product-specific performance still requires grade selection and sampling.
+      Official overview of graphic hot stamping, use cases, effect families, and paper, cardboard,
+      laminated, label, and difficult-surface applications. Product-specific performance still
+      requires grade selection and sampling.
 ---
-## Direct answer
+## Core decision
 
-For ABS, choose hot stamping foil by matching As-supplied or uncoated surface, Flatbed or platen hot stamping, and the continuous holographic pattern requirement. The useful starting point is not a universal color code; it is a sample plan that checks transfer, edge quality, and durability on the finished job. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
+This guide is for ABS foil projects in Consumer plastic products, with attention to As-supplied or uncoated surface, Flatbed or platen hot stamping, and Continuous holographic pattern. Do not brief the supplier with only “bright gold,” “matte gold,” or “holographic.” The useful brief connects substrate construction, surface treatment, artwork difficulty, machine route, and finished-package testing. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
 
-## Buyer situation
+## Specific scope
 
-The buyer question is: Which foil selection checks matter for continuous holographic pattern on aBS under As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Consumer plastic products / Continuous holographic pattern?
+The practical buyer question is: Which foil selection checks matter for continuous holographic pattern on aBS under As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Consumer plastic products / Continuous holographic pattern?
 
-This page applies when the project combines:
+The substrate is ABS, the surface is As-supplied or uncoated surface, the process is Flatbed or platen hot stamping, and the application is Consumer plastic products. Artwork attention: Continuous holographic pattern.
 
-- Material: ABS
-- Surface: As-supplied or uncoated surface
-- Process: Flatbed or platen hot stamping
-- Application: Rigid plastic component hot stamping
+The scope is: Narrows grade selection to Continuous holographic pattern, ABS, As-supplied or uncoated surface, and Flatbed or platen hot stamping. Useful working terms include Selection, Continuous Holographic Pattern, Consumer Plastic Products, Rigid Plastic Hot. Reference context includes Fsea Foil Cheat Sheet, Foilco D4 Grade Guide, Kurz Decoration Processes, Kurz Hot Stamping, Univacco Hot Stamping Foil. These details help buyers, designers, press operators, and quality teams discuss the same production risk; they do not replace job-specific sampling.
+
+## Application context and risk
+
+- Typical substrate: ABS
+- Surface condition: As-supplied or uncoated surface
+- Process route: Flatbed or platen hot stamping
+- Application: Consumer plastic products
 - Main concern: Continuous holographic pattern
-- Product direction: plastic hot stamping foil for caps, ABS, PET, PP, PE, and shaped parts
-- Tags for this job: Selection, Continuous Holographic Pattern, Consumer Plastic Products, Rigid Plastic Hot
+- Related PINTE direction: PC plastic hot stamping foil for caps, ABS, PP, PE, and molded parts
 
-## Job-specific notes for this page
 
-Rigid plastic parts require attention to resin, molding release, part geometry, and heat tolerance. A flat plaque sample is useful for screening, but a shaped cap or molded component is needed before production approval.
+If the artwork includes Continuous holographic pattern, keep those details in the trial area instead of judging only from a large solid block.
 
-For this article, keep the approval language tied to these working labels: Selection; Continuous Holographic Pattern; Consumer Plastic Products; Rigid Plastic Hot. The source set planned for the page is fsea-foil-cheat-sheet, foilco-d4-grade-guide, kurz-decoration-processes, kurz-hot-stamping, univacco-hot-stamping-foil. In practical purchasing terms, this means the buyer should not ask only for a gold, silver, holographic, or pigment color. The request should name ABS, describe As-supplied or uncoated surface, identify Flatbed or platen hot stamping, and state whether continuous holographic pattern is a visual issue, a durability issue, or a machine-setting issue.
 
-When comparing suppliers, ask each one to quote against the same job card. That job card should include the material stack, roll or sheet size, machine route, color target, artwork difficulty, sampling quantity, packing condition, and repeat-order requirement. This prevents one supplier from quoting a decorative foil for a job that actually needs a durability-focused or registration-focused grade.
+If the same package includes large solid areas, fine lines, small type, embossing, or post-lamination handling, include those areas in the same trial. A small test on blank stock may not represent adhesion, edge definition, rub resistance, or optical consistency on the finished package.
 
-## Recommended RFQ wording
+## Surface and process notes
 
-Use a specific RFQ line such as: "Foil Grade Selection for Continuous holographic pattern on ABS - As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Consumer plastic products / Continuous holographic pattern Which foil selection checks matter for continuous holographic pattern on aBS under As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Consumer plastic products / Continuous holographic pattern? Narrows grade selection to Continuous holographic pattern, ABS, As-supplied or uncoated surface, and Flatbed or platen hot stamping. Cluster plastics Intent substrate-selection Batch position 43".
+As-supplied or uncoated surfaces look simple, but moisture, dusting, fiber roughness, and print preparation can change metallic coverage and edge cleanliness.
 
-The supplier should answer that RFQ with a foil family, a test method, and a roll specification. If the reply does not mention ABS, As-supplied or uncoated surface, Flatbed or platen hot stamping, and Continuous holographic pattern, the recommendation is probably too generic for production approval. Ask for the sample note to repeat those same terms so that purchasing, press operators, and quality inspectors are judging the same job.
+Flatbed hot stamping is driven by pressure uniformity, die temperature, dwell time, and makeready. It suits paper and cartons, but fine lines, solid areas, and laminated surfaces need separate confirmation.
 
-## Order card details
+Continuous holographic patterns require checks for orientation, pitch, and seam appearance, not only a local rainbow effect.
 
-Topic code HF-005949. Route slug foil-grade-selection-continuous-holographic-pattern-abs-as-supplied-uncoated-surface-15e1hfw. English title Foil Grade Selection for Continuous holographic pattern on ABS - As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Consumer plastic products / Continuous holographic pattern. Chinese title ABS 塑料连续镭射纹理烫金膜选型（原始未涂布表面 / 平压平热烫 / 硬质塑料件热烫 / 消费品塑料件 / 连续镭射纹理）. Surface-process pair As-supplied or uncoated surface plus Flatbed or platen hot stamping. Application-risk pair Rigid plastic component hot stamping plus Continuous holographic pattern. Keep this order card attached to the approved sample so the page is not confused with another foil problem on the same substrate. The approval target for this page is specifically Continuous holographic pattern under As-supplied or uncoated surface, not a general decorative foil result.
+## Foil selection and sampling workflow
 
-## Approval checklist
+1. Confirm that the substrate sample matches production, including coating, lamination, varnish, ink, and surface contamination risk.
+2. Confirm the Flatbed or platen hot stamping route and record temperature, pressure, dwell time, speed, web tension, or UV curing conditions as applicable.
+3. Test the difficult area from the real artwork and watch for Continuous holographic pattern, edge cleanliness, registration, gloss, and coverage stability.
+4. Change only one variable per trial and mark the sample with foil family, roll reference, machine route, and settings.
+5. Keep separate visual, durability-tested, and retained production samples so repeat orders can be judged against evidence instead of memory.
 
-Ask the supplier to answer this specific job, not a general foil catalogue request. The quote should state whether the recommended foil is meant for ABS, whether As-supplied or uncoated surface needs cleaning or treatment, and how Flatbed or platen hot stamping changes the process window. The sample should include the part of the artwork most likely to show continuous holographic pattern.
+## Acceptance checks
 
-For approval, keep three samples: one visual master, one durability sample, and one retained production reference. Mark each sample with substrate batch, machine, speed, pressure, temperature or cure condition, roll width, and operator note. If a second trial is needed, change only one variable so the result is readable.
+- Production-representative substrate, machine, artwork, and speed trial
+- Controlled process-window sampling
+- Job-specific tape pull
+- Dry rub or abrasion comparison
+- Supplier grade selection notes and recorded pass/fail criteria
 
-## Failure checks for this topic
+Define the pass condition before testing. For example, decide whether slight edge residue is allowed after tape pull, how many rub cycles are required, and whether alcohol wiping reflects the final use case. A test without pass criteria is weak for supplier comparison and weak for batch follow-up.
 
-- If the problem is adhesion, inspect surface energy, coating compatibility, and handling contamination before blaming color.
-- If the problem is transfer, compare pressure contact, release behavior, and machine speed on the same artwork.
-- If the problem is edge quality, inspect die wear, dwell/contact time, and the smallest text or reverse detail.
-- If the problem is durability, use the agreed tape, rub, scratch, fold, or chemical method instead of an informal hand test.
-- If repeat orders matter, keep the approved roll label and sample record with purchasing files.
+## International RFQ wording
 
-## Source context
+For international sourcing, the scope can be written as: Foil Grade Selection for Continuous holographic pattern on ABS - As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Consumer plastic products / Continuous holographic pattern. This wording is not a replacement for sampling; it helps the supplier understand the substrate, surface, process, and risk boundary before recommending a foil family.
 
-Foil & Specialty Effects Association supports the process or substrate boundary for this page. Foilco Limited supports the test or comparison context. These references do not replace a production trial on PINTE material and the buyer's actual job.
+Useful term breakdown: substrate: plastic abs; surface treatment: surface as supplied; process: hot stamping flatbed; application: consumer plastic products; artwork: continuous holographic pattern. If a supplier only replies with generic gold foil, silver foil, or holographic foil without addressing these terms, ask again for a foil family, test method, and roll specification.
 
-## FAQ
+The buyer question behind this page is: Which foil selection checks matter for continuous holographic pattern on aBS under As-supplied or uncoated surface / Flatbed or platen hot stamping / Rigid plastic component hot stamping / Consumer plastic products / Continuous holographic pattern? Use it as an email subject or RFQ headline, then attach the real substrate, artwork, machine route, and acceptance tests in the message body.
 
-### Can this foil choice be confirmed from the material name alone?
+## Supplier RFQ information
 
-No. ABS, As-supplied or uncoated surface, Flatbed or platen hot stamping, artwork detail, and machine speed must be checked together before bulk ordering.
+A useful RFQ includes the substrate or finished sample, surface treatment, target color or optical effect, artwork PDF, stamping method, machine model, planned speed, roll width/length/core, sample quantity, test method, bulk quantity, and delivery need. The supplier response should identify the foil family, starting settings, sample specification, batch-control approach, and any known risk.
 
-### What should a buyer send before asking for a firm recommendation?
+## Common mistakes
 
-Send the substrate sample, surface treatment, artwork, machine type, expected speed, target finish, and the durability checks required by the final package.
+- Choosing by color name while ignoring how As-supplied or uncoated surface and Flatbed or platen hot stamping affect adhesive and release behavior.
+- Replacing the finished package with a lab coupon, then discovering Continuous holographic pattern during production.
+- Changing several variables at once, which hides whether the problem came from temperature, pressure, speed, substrate, or foil grade.
+- Failing to keep approved samples and roll labels, making repeat-order color and gloss comparison subjective.
 
-### When should the final production setting be locked?
+## How to use the sources
 
-Final settings should be locked only after sampling on the actual substrate, machine, artwork/design, and speed, with an approved reference sample kept for production comparison.
+- Foil & Specialty Effects Association: FSEA and PaperSpecs Release Print Decorating Reference for Designers: Foil Cheat Sheet, used for process limits, test-method context, or foil grade-selection principles.
+- Foilco Limited: Foilco D4 Foil Grade Guide - Edition 1, used for process limits, test-method context, or foil grade-selection principles.
+- LEONHARD KURZ: Decoration Processes, used for process limits, test-method context, or foil grade-selection principles.
+
+These references are useful for process principles and test boundaries, but they do not replace production sampling. Final purchasing decisions should be based on the actual substrate, machine, artwork, speed, and customer acceptance requirements.

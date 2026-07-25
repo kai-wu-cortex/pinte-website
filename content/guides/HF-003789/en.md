@@ -1,21 +1,20 @@
 ---
 topic_id: HF-003789
 lang: en
-slug: >-
-  foil-grade-selection-continuous-holographic-pattern-textured-specialty-paper-as-suppli-13h8cj2
+slug: foil-grade-selection-continuous-holographic-pattern-textured-specialty-paper-as-suppli-13h8cj2
 status: published
 cluster: paper-carton-packaging
 intent: substrate-selection
 title: >-
-  Continuous holographic pattern: Textured or specialty paper Guide for
-  As-supplied or uncoated surface / Combined foil stamping and embossing
+  Textured or specialty paper As-supplied or uncoated surface Combined foil stamping and embossing
+  Continuous holographic pattern: foil selection guide
 description: >-
-  A practical guide to choosing, testing, and buying hot stamping foil for
-  Textured or specialty paper when the main concern is continuous holographic
-  pattern.
+  Covers Textured or specialty paper Combined foil stamping and embossing projects, including
+  As-supplied or uncoated surface, Continuous holographic pattern, sampling tests, supplier RFQ, and
+  production acceptance.
 primary_keyword: >-
-  continuous holographic pattern: textured or specialty paper guide for
-  as-supplied or uncoated surface / combined foil stamping and embossing
+  textured or specialty paper as-supplied or uncoated surface combined foil stamping and embossing
+  continuous holographic pattern: foil selection guide
 secondary_keywords:
   - Selection
   - Continuous Holographic Pattern
@@ -29,131 +28,142 @@ related_guides:
 author: PINTE Technical Team
 reviewer: PINTE Application Engineer
 date_published: '2026-07-16'
-date_modified: '2026-07-16'
-hero_image: ''
-hero_alt: ''
+date_modified: '2026-07-25'
+hero_image: /images/guides/library/hot-stamping-foil-guide-photo-012.avif
+hero_alt: >-
+  Textured or specialty paper Combined foil stamping and embossing hot stamping foil application
+  reference
 answer: >-
-  For Textured or specialty paper, choose foil by substrate stack, surface
-  treatment, process route, artwork detail, and required durability tests. Final
-  settings require sampling on the actual substrate, machine, artwork/design,
-  and speed before bulk production.
+  For Textured or specialty paper, foil selection should match As-supplied or uncoated surface,
+  Combined foil stamping and embossing, Continuous holographic pattern, artwork detail, and
+  finished-package durability. Final settings require sampling on the actual substrate, machine,
+  artwork/design, and speed before bulk production.
 faqs:
-  - question: Can this foil choice be confirmed from the material name alone?
+  - question: Can Textured or specialty paper foil be ordered by color name only?
     answer: >-
-      No. Textured or specialty paper, As-supplied or uncoated surface, Combined
-      foil stamping and embossing, artwork detail, and machine speed must be
-      checked together before bulk ordering.
-  - question: What should a buyer send before asking for a firm recommendation?
+      No. Color is only the visual target; foil choice also depends on As-supplied or uncoated
+      surface, Combined foil stamping and embossing, artwork detail, press speed, and durability
+      testing.
+  - question: What condition is most often missed during sampling?
     answer: >-
-      Send the substrate sample, surface treatment, artwork, machine type,
-      expected speed, target finish, and the durability checks required by the
-      final package.
-  - question: When should the final production setting be locked?
+      Real surface condition and production speed are often missed. Final settings must be confirmed
+      on the actual substrate, machine, artwork/design, and speed.
+  - question: How can the RFQ get a more useful supplier answer?
     answer: >-
-      Final settings should be locked only after sampling on the actual
-      substrate, machine, artwork/design, and speed, with an approved reference
-      sample kept for production comparison.
+      State substrate, surface treatment, process route, target finish, artwork challenge, test
+      requirement, roll specification, and quantity; ask the supplier to return a foil family and
+      test recommendation.
 sources:
   - label: ASTM International
     title: >-
-      ASTM D5264-98(2019) Standard Practice for Abrasion Resistance of Printed
-      Materials by the Sutherland Rub Tester
+      ASTM D5264-98(2019) Standard Practice for Abrasion Resistance of Printed Materials by the
+      Sutherland Rub Tester
     publisher: ASTM International
     url: 'https://store.astm.org/d5264-98r19.html'
     summary: >-
-      Official active practice for comparative laboratory abrasion testing of
-      flat printed materials including labels and folding cartons. It supports
-      method selection, not an unqualified durability guarantee.
+      Official active practice for comparative laboratory abrasion testing of flat printed materials
+      including labels and folding cartons. It supports method selection, not an unqualified
+      durability guarantee.
   - label: Gietz AG
     title: GIETZ | Hot Foil Stamping | Tray Forming machines
     publisher: Gietz AG
     url: 'https://www.gietz.ch/en/home.html'
     summary: >-
-      Official manufacturer entry point confirming Gietz as a supplier of
-      hot-foil equipment for printing and packaging. Use linked model
-      documentation for any numeric machine claim.
+      Official manufacturer entry point confirming Gietz as a supplier of hot-foil equipment for
+      printing and packaging. Use linked model documentation for any numeric machine claim.
   - label: Foilco Limited
     title: Foilco D4 Foil Grade Guide - Edition 1
     publisher: Foilco Limited
     url: 'https://www.foilco.com/app/uploads/2019/05/Grade-Guide-Booklet_E_Doc.pdf'
     summary: >-
-      Official grade-selection guide covering finish families, typical
-      applications, and grade-dependent substrate/artwork fit. The guide itself
-      says its information is general and recommends testing and technical
-      support.
+      Official grade-selection guide covering finish families, typical applications, and
+      grade-dependent substrate/artwork fit. The guide itself says its information is general and
+      recommends testing and technical support.
   - label: LEONHARD KURZ
     title: KURZ Hot Stamping | Get the Exceptional
     publisher: LEONHARD KURZ
     url: 'https://www.kurz-graphics.com/en/hot-stamping/'
     summary: >-
-      Official overview of graphic hot stamping, use cases, effect families, and
-      paper, cardboard, laminated, label, and difficult-surface applications.
-      Product-specific performance still requires grade selection and sampling.
+      Official overview of graphic hot stamping, use cases, effect families, and paper, cardboard,
+      laminated, label, and difficult-surface applications. Product-specific performance still
+      requires grade selection and sampling.
 ---
-## Direct answer
+## Core decision
 
-For Textured or specialty paper, choose hot stamping foil by matching As-supplied or uncoated surface, Combined foil stamping and embossing, and the continuous holographic pattern requirement. The useful starting point is not a universal color code; it is a sample plan that checks transfer, edge quality, and durability on the finished job. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
+This guide is for Textured or specialty paper foil projects in Folding carton and paper packaging, with attention to As-supplied or uncoated surface, Combined foil stamping and embossing, and Continuous holographic pattern. Do not brief the supplier with only “bright gold,” “matte gold,” or “holographic.” The useful brief connects substrate construction, surface treatment, artwork difficulty, machine route, and finished-package testing. Final settings require sampling on the actual substrate, machine, artwork/design, and speed before bulk production.
 
-## Buyer situation
+## Specific scope
 
-The buyer question is: Which foil selection checks matter for continuous holographic pattern on textured or specialty paper under As-supplied or uncoated surface / Combined foil stamping and embossing / Textured, kraft, and difficult paper hot stamping / Folding carton and paper packaging / Continuous holographic pattern?
+The practical buyer question is: Which foil selection checks matter for continuous holographic pattern on textured or specialty paper under As-supplied or uncoated surface / Combined foil stamping and embossing / Textured, kraft, and difficult paper hot stamping / Folding carton and paper packaging / Continuous holographic pattern?
 
-This page applies when the project combines:
+The substrate is Textured or specialty paper, the surface is As-supplied or uncoated surface, the process is Combined foil stamping and embossing, and the application is Folding carton and paper packaging. Artwork attention: Continuous holographic pattern.
 
-- Material: Textured or specialty paper
-- Surface: As-supplied or uncoated surface
-- Process: Combined foil stamping and embossing
-- Application: Textured, kraft, and difficult paper hot stamping
+The scope is: Narrows grade selection to Continuous holographic pattern, Textured or specialty paper, As-supplied or uncoated surface, and Combined foil stamping and embossing. Useful working terms include Selection, Continuous Holographic Pattern, Folding Carton Packaging, Textured Paper Hot. Reference context includes Astm D5264 98r19 Abrasion, Gietz Hot Foil Machines, Foilco D4 Grade Guide, Kurz Hot Stamping, Univacco Hot Stamping Foil. These details help buyers, designers, press operators, and quality teams discuss the same production risk; they do not replace job-specific sampling.
+
+## Application context and risk
+
+- Typical substrate: Textured or specialty paper
+- Surface condition: As-supplied or uncoated surface
+- Process route: Combined foil stamping and embossing
+- Application: Folding carton and paper packaging
 - Main concern: Continuous holographic pattern
-- Product direction: general hot stamping foil for paper, packaging, and leather trials
-- Tags for this job: Selection, Continuous Holographic Pattern, Folding Carton Packaging, Textured Paper Hot
+- Related PINTE direction: PK hot stamping foil for paper, carton, leather, and general packaging trials
 
-## Job-specific notes for this page
 
-Paper and board work should be approved on the final printed, coated, or laminated stack. A white-card trial before varnish or lamination is not enough when the final order uses specialty coating, texture, or large solid metallic areas.
+If the artwork includes Continuous holographic pattern, keep those details in the trial area instead of judging only from a large solid block.
 
-For this article, keep the approval language tied to these working labels: Selection; Continuous Holographic Pattern; Folding Carton Packaging; Textured Paper Hot. The source set planned for the page is astm-d5264-98r19-abrasion, gietz-hot-foil-machines, foilco-d4-grade-guide, kurz-hot-stamping, univacco-hot-stamping-foil. In practical purchasing terms, this means the buyer should not ask only for a gold, silver, holographic, or pigment color. The request should name Textured or specialty paper, describe As-supplied or uncoated surface, identify Combined foil stamping and embossing, and state whether continuous holographic pattern is a visual issue, a durability issue, or a machine-setting issue.
 
-When comparing suppliers, ask each one to quote against the same job card. That job card should include the material stack, roll or sheet size, machine route, color target, artwork difficulty, sampling quantity, packing condition, and repeat-order requirement. This prevents one supplier from quoting a decorative foil for a job that actually needs a durability-focused or registration-focused grade.
+If the same package includes large solid areas, fine lines, small type, embossing, or post-lamination handling, include those areas in the same trial. A small test on blank stock may not represent adhesion, edge definition, rub resistance, or optical consistency on the finished package.
 
-## Recommended RFQ wording
+## Surface and process notes
 
-Use a specific RFQ line such as: "Foil Grade Selection for Continuous holographic pattern on Textured or specialty paper - As-supplied or uncoated surface / Combined foil stamping and embossing / Textured, kraft, and difficult paper hot stamping / Folding carton and paper packaging / Continuous holographic pattern Which foil selection checks matter for continuous holographic pattern on textured or specialty paper under As-supplied or uncoated surface / Combined foil stamping and embossing / Textured, kraft, and difficult paper hot stamping / Folding carton and paper packaging / Continuous holographic pattern? Narrows grade selection to Continuous holographic pattern, Textured or specialty paper, As-supplied or uncoated surface, and Combined foil stamping and embossing. Cluster paper-carton-packaging Intent substrate-selection Batch position 13".
+As-supplied or uncoated surfaces look simple, but moisture, dusting, fiber roughness, and print preparation can change metallic coverage and edge cleanliness.
 
-The supplier should answer that RFQ with a foil family, a test method, and a roll specification. If the reply does not mention Textured or specialty paper, As-supplied or uncoated surface, Combined foil stamping and embossing, and Continuous holographic pattern, the recommendation is probably too generic for production approval. Ask for the sample note to repeat those same terms so that purchasing, press operators, and quality inspectors are judging the same job.
+Foil stamping with embossing combines transfer and deformation. Emboss height, die sharpness, and board recovery can all affect the metallic edge.
 
-## Order card details
+Continuous holographic patterns require checks for orientation, pitch, and seam appearance, not only a local rainbow effect.
 
-Topic code HF-003789. Route slug foil-grade-selection-continuous-holographic-pattern-textured-specialty-paper-as-suppli-13h8cj2. English title Foil Grade Selection for Continuous holographic pattern on Textured or specialty paper - As-supplied or uncoated surface / Combined foil stamping and embossing / Textured, kraft, and difficult paper hot stamping / Folding carton and paper packaging / Continuous holographic pattern. Chinese title 纹理特种纸连续镭射纹理烫金膜选型（原始未涂布表面 / 烫金压凸 / 纹理纸和困难纸张热烫 / 折叠纸盒和彩盒包装 / 连续镭射纹理）. Surface-process pair As-supplied or uncoated surface plus Combined foil stamping and embossing. Application-risk pair Textured, kraft, and difficult paper hot stamping plus Continuous holographic pattern. Keep this order card attached to the approved sample so the page is not confused with another foil problem on the same substrate. The approval target for this page is specifically Continuous holographic pattern under As-supplied or uncoated surface, not a general decorative foil result.
+## Foil selection and sampling workflow
 
-## Approval checklist
+1. Confirm that the substrate sample matches production, including coating, lamination, varnish, ink, and surface contamination risk.
+2. Confirm the Combined foil stamping and embossing route and record temperature, pressure, dwell time, speed, web tension, or UV curing conditions as applicable.
+3. Test the difficult area from the real artwork and watch for Continuous holographic pattern, edge cleanliness, registration, gloss, and coverage stability.
+4. Change only one variable per trial and mark the sample with foil family, roll reference, machine route, and settings.
+5. Keep separate visual, durability-tested, and retained production samples so repeat orders can be judged against evidence instead of memory.
 
-Ask the supplier to answer this specific job, not a general foil catalogue request. The quote should state whether the recommended foil is meant for Textured or specialty paper, whether As-supplied or uncoated surface needs cleaning or treatment, and how Combined foil stamping and embossing changes the process window. The sample should include the part of the artwork most likely to show continuous holographic pattern.
+## Acceptance checks
 
-For approval, keep three samples: one visual master, one durability sample, and one retained production reference. Mark each sample with substrate batch, machine, speed, pressure, temperature or cure condition, roll width, and operator note. If a second trial is needed, change only one variable so the result is readable.
+- Production-representative substrate, machine, artwork, and speed trial
+- Controlled process-window sampling
+- Visual transfer-completeness inspection
+- Magnified edge and fine-detail inspection
+- Supplier grade selection notes and recorded pass/fail criteria
 
-## Failure checks for this topic
+Define the pass condition before testing. For example, decide whether slight edge residue is allowed after tape pull, how many rub cycles are required, and whether alcohol wiping reflects the final use case. A test without pass criteria is weak for supplier comparison and weak for batch follow-up.
 
-- If the problem is adhesion, inspect surface energy, coating compatibility, and handling contamination before blaming color.
-- If the problem is transfer, compare pressure contact, release behavior, and machine speed on the same artwork.
-- If the problem is edge quality, inspect die wear, dwell/contact time, and the smallest text or reverse detail.
-- If the problem is durability, use the agreed tape, rub, scratch, fold, or chemical method instead of an informal hand test.
-- If repeat orders matter, keep the approved roll label and sample record with purchasing files.
+## International RFQ wording
 
-## Source context
+For international sourcing, the scope can be written as: Foil Grade Selection for Continuous holographic pattern on Textured or specialty paper - As-supplied or uncoated surface / Combined foil stamping and embossing / Textured, kraft, and difficult paper hot stamping / Folding carton and paper packaging / Continuous holographic pattern. This wording is not a replacement for sampling; it helps the supplier understand the substrate, surface, process, and risk boundary before recommending a foil family.
 
-ASTM International supports the process or substrate boundary for this page. Gietz AG supports the test or comparison context. These references do not replace a production trial on PINTE material and the buyer's actual job.
+Useful term breakdown: substrate: paper textured specialty; surface treatment: surface as supplied; process: hot stamping embossing; application: folding carton packaging; artwork: continuous holographic pattern. If a supplier only replies with generic gold foil, silver foil, or holographic foil without addressing these terms, ask again for a foil family, test method, and roll specification.
 
-## FAQ
+The buyer question behind this page is: Which foil selection checks matter for continuous holographic pattern on textured or specialty paper under As-supplied or uncoated surface / Combined foil stamping and embossing / Textured, kraft, and difficult paper hot stamping / Folding carton and paper packaging / Continuous holographic pattern? Use it as an email subject or RFQ headline, then attach the real substrate, artwork, machine route, and acceptance tests in the message body.
 
-### Can this foil choice be confirmed from the material name alone?
+## Supplier RFQ information
 
-No. Textured or specialty paper, As-supplied or uncoated surface, Combined foil stamping and embossing, artwork detail, and machine speed must be checked together before bulk ordering.
+A useful RFQ includes the substrate or finished sample, surface treatment, target color or optical effect, artwork PDF, stamping method, machine model, planned speed, roll width/length/core, sample quantity, test method, bulk quantity, and delivery need. The supplier response should identify the foil family, starting settings, sample specification, batch-control approach, and any known risk.
 
-### What should a buyer send before asking for a firm recommendation?
+## Common mistakes
 
-Send the substrate sample, surface treatment, artwork, machine type, expected speed, target finish, and the durability checks required by the final package.
+- Choosing by color name while ignoring how As-supplied or uncoated surface and Combined foil stamping and embossing affect adhesive and release behavior.
+- Replacing the finished package with a lab coupon, then discovering Continuous holographic pattern during production.
+- Changing several variables at once, which hides whether the problem came from temperature, pressure, speed, substrate, or foil grade.
+- Failing to keep approved samples and roll labels, making repeat-order color and gloss comparison subjective.
 
-### When should the final production setting be locked?
+## How to use the sources
 
-Final settings should be locked only after sampling on the actual substrate, machine, artwork/design, and speed, with an approved reference sample kept for production comparison.
+- ASTM International: ASTM D5264-98(2019) Standard Practice for Abrasion Resistance of Printed Materials by the Sutherland Rub Tester, used for process limits, test-method context, or foil grade-selection principles.
+- Gietz AG: GIETZ | Hot Foil Stamping | Tray Forming machines, used for process limits, test-method context, or foil grade-selection principles.
+- Foilco Limited: Foilco D4 Foil Grade Guide - Edition 1, used for process limits, test-method context, or foil grade-selection principles.
+
+These references are useful for process principles and test boundaries, but they do not replace production sampling. Final purchasing decisions should be based on the actual substrate, machine, artwork, speed, and customer acceptance requirements.

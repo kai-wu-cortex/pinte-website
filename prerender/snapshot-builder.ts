@@ -3,7 +3,7 @@
  *
  * 给每个静态路由 + blog 详情页输出:
  *   - <main class="seo-snapshot"> ... HTML 文本块,带:H1、lead、行业痛点段落、规格、应用、FAQ、相关链接、地区标识
- *   - JSON-LD 数组(BreadcrumbList + 路由对应的主 schema: Product / Service / FAQPage / AboutPage / Article …)
+ *   - JSON-LD 数组(BreadcrumbList + 路由对应的主 schema: Product / Service / AboutPage / Article …)
  *
  * 所有材料均来自仓库已有数据源(data/content.ts + scripts/seo-geo-sop.config.mjs),不编造规格。
  *
@@ -393,6 +393,93 @@ const geoLine = (lang: Lang, geoTargets: string[]) =>
     t('servedMarkets', lang)
   )}:</strong> ${escapeHtml(geoTargets.join(', '))}</p>`;
 
+function sourceReferencesHtml(lang: Lang) {
+  return `
+    <section class="seo-sources">
+      <h2>${escapeHtml(lang === 'cn' ? '引用与合规口径' : 'References and compliance context')}</h2>
+      <p>${escapeHtml(
+        lang === 'cn'
+          ? '烫金膜选型会同时受底材、表面处理、油墨/光油体系、烫印温度、压力、停留时间和后道耐性要求影响。页面中的 REACH 与 RoHS 链接用于说明采购沟通中常见的欧洲化学品和限用物质背景；具体订单仍应以客户目标市场、测试项目和批次检测报告为准。'
+          : 'Hot stamping foil selection is affected by substrate, surface treatment, ink or varnish system, stamping temperature, pressure, dwell time, and downstream resistance requirements. The REACH and RoHS links explain common European chemical and restricted-substance context used in procurement discussions; order decisions should still follow the target market, test items, and batch test reports.'
+      )}</p>
+      <ul>
+        <li><a href="https://environment.ec.europa.eu/topics/chemicals/reach-regulation_en" target="_blank" rel="noopener noreferrer">European Commission REACH regulation</a></li>
+        <li><a href="https://environment.ec.europa.eu/topics/waste-and-recycling/rohs-directive_en" target="_blank" rel="noopener noreferrer">European Commission RoHS directive</a></li>
+      </ul>
+    </section>`;
+}
+
+function manufacturingEvidenceHtml(lang: Lang, subject: string) {
+  return `
+    <section class="seo-evidence">
+      <h2>${escapeHtml(lang === 'cn' ? '工厂验证与可引用事实' : 'Factory verification and citable facts')}</h2>
+      <p>${escapeHtml(
+        lang === 'cn'
+          ? `${subject} 的稳定性不能只看色卡颜色。量产前需要把底材材质、表面张力、油墨或 UV 光油状态、烫印版纹深、设备类型和后道包装要求放在同一张打样记录里确认。PINTE 的沟通流程通常先确认应用场景，再用 A4 样卡或小卷样品做转移完整度、边缘清晰度、附着力、耐刮擦和颜色一致性判断。`
+          : `The stability of ${subject} cannot be judged by color cards alone. Before mass production, substrate material, surface energy, ink or UV varnish condition, die engraving depth, press type, and downstream packaging requirements should be checked in one sampling record. PINTE usually confirms the application first, then uses A4 sheets or small sample rolls to evaluate transfer completeness, edge definition, adhesion, rub resistance, and color consistency.`
+      )}</p>
+      <ul>
+        <li>${escapeHtml(lang === 'cn' ? '结构判断：PET 载体、离型层、颜色/金属层和胶层共同决定转移窗口。' : 'Structure check: PET carrier, release layer, color or metallic layer, and adhesive layer jointly determine the transfer window.')}</li>
+        <li>${escapeHtml(lang === 'cn' ? '工艺判断：平烫、圆烫、冷烫、数码增效和大面积实地的压力/速度窗口不同。' : 'Process check: flat stamping, rotary stamping, cold foil, digital enhancement, and large solid areas require different pressure and speed windows.')}</li>
+        <li>${escapeHtml(lang === 'cn' ? '验收判断：建议同时记录温度、压力、速度、膜宽、卷芯、绕向、批号和目标底材。' : 'Acceptance check: record temperature, pressure, speed, roll width, core, winding direction, batch number, and target substrate together.')}</li>
+      </ul>
+    </section>`;
+}
+
+function procurementChecklistHtml(lang: Lang, subject: string) {
+  const rows =
+    lang === 'cn'
+      ? [
+          ['应用', '纸盒彩盒、化妆品包装、酒盒礼盒、塑料件、标签或皮革 Logo。'],
+          ['底材', '纸张克重、覆膜/过油状态、塑料材质、皮革纹理或 UV 表面。'],
+          ['效果', '亮金、哑金、亮银、镭射、颜料色、黑哑、冷烫或定制 Pantone。'],
+          ['设备', '平压平、圆压圆、标签机冷烫、MGI/Scodix 或手动打样机。'],
+          ['规格', '膜宽、长度、卷芯、绕向、分切公差、预计月用量和交付地区。'],
+          ['测试', '附着力、耐刮擦、耐酒精、套准、颜色批差和大面积覆盖稳定性。'],
+        ]
+      : [
+          ['Application', 'Paper cartons, cosmetic packaging, wine and gift boxes, plastic parts, labels, or leather logos.'],
+          ['Substrate', 'Paper weight, lamination or varnish condition, plastic type, leather texture, or UV surface.'],
+          ['Effect', 'Bright gold, matte gold, bright silver, holographic, pigment color, matte black, cold foil, or custom Pantone.'],
+          ['Equipment', 'Flatbed press, rotary press, label cold-foil unit, MGI/Scodix, or manual proofing machine.'],
+          ['Specification', 'Roll width, length, core, winding direction, slitting tolerance, monthly usage, and delivery region.'],
+          ['Testing', 'Adhesion, rub resistance, alcohol resistance, registration, batch color difference, and solid-area stability.'],
+        ];
+
+  return `
+    <section class="seo-procurement">
+      <h2>${escapeHtml(lang === 'cn' ? `${subject} 询价资料清单` : `${subject} RFQ checklist`)}</h2>
+      <table>
+        <thead><tr><th>${escapeHtml(lang === 'cn' ? '字段' : 'Field')}</th><th>${escapeHtml(lang === 'cn' ? '建议提供内容' : 'Recommended detail')}</th></tr></thead>
+        <tbody>${rows
+          .map((row) => `<tr><td>${escapeHtml(row[0])}</td><td>${escapeHtml(row[1])}</td></tr>`)
+          .join('')}</tbody>
+      </table>
+    </section>`;
+}
+
+function productSelectionMatrixHtml(lang: Lang, series: any[]) {
+  const rows = series.map((s) => {
+    const applications = Array.isArray(s.applications) ? s.applications.slice(0, 4).join(lang === 'cn' ? '、' : ', ') : '';
+    const substrates = Array.isArray(s.substrates) ? s.substrates.slice(0, 4).join(lang === 'cn' ? '、' : ', ') : '';
+    const feature = Array.isArray(s.features) && s.features[0] ? `${s.features[0].title}: ${s.features[0].desc}` : s.description;
+    return `<tr><td>${escapeHtml(s.name)}</td><td>${escapeHtml(substrates)}</td><td>${escapeHtml(applications)}</td><td>${escapeHtml(trim(feature, 180))}</td></tr>`;
+  });
+  return `
+    <section class="seo-selection-matrix">
+      <h2>${escapeHtml(lang === 'cn' ? '按底材和应用选择烫金膜系列' : 'Select foil series by substrate and application')}</h2>
+      <p>${escapeHtml(
+        lang === 'cn'
+          ? '产品目录页不只是色卡入口。采购方应先确认底材和包装应用，再判断是否需要耐酒精、耐刮擦、高遮盖、镭射定位、冷烫或分切定制。下面的矩阵把每个系列的典型使用边界写在静态 HTML 中，便于搜索引擎、AI 摘要和采购人员直接引用。'
+          : 'The product catalog is more than a color-card entry point. Buyers should confirm substrate and packaging application before deciding whether alcohol resistance, rub resistance, high opacity, holographic registration, cold foil, or custom slitting is required. The matrix below exposes the practical boundary of each series in static HTML for search engines, AI summaries, and procurement teams.'
+      )}</p>
+      <table>
+        <thead><tr><th>${escapeHtml(lang === 'cn' ? '系列' : 'Series')}</th><th>${escapeHtml(lang === 'cn' ? '典型底材' : 'Typical substrates')}</th><th>${escapeHtml(lang === 'cn' ? '典型应用' : 'Typical applications')}</th><th>${escapeHtml(lang === 'cn' ? '关键判断' : 'Key decision point')}</th></tr></thead>
+        <tbody>${rows.join('')}</tbody>
+      </table>
+    </section>`;
+}
+
 // ----------------------------- Schema builders ----------------------------- //
 
 function faqSchema(items: Array<{ q: string; a: string }>) {
@@ -743,6 +830,10 @@ function buildHomeSnapshot(lang: Lang): SnapshotResult {
       )}
     </section>
 
+    ${manufacturingEvidenceHtml(lang, lang === 'cn' ? 'PINTE 烫金膜' : 'PINTE hot stamping foil')}
+    ${productSelectionMatrixHtml(lang, series)}
+    ${procurementChecklistHtml(lang, lang === 'cn' ? '烫金膜' : 'Hot stamping foil')}
+    ${sourceReferencesHtml(lang)}
     ${faqHtml(lang, faq)}
     ${geoLine(lang, geoTargets)}
   `;
@@ -771,9 +862,6 @@ function buildHomeSnapshot(lang: Lang): SnapshotResult {
       })),
     }),
   ];
-  const fq = faqSchema(faq);
-  if (fq) jsonLd.push(fq);
-
   return { html, jsonLd, meta };
 }
 
@@ -950,6 +1038,9 @@ function buildCategorySnapshot(catId: string, lang: Lang): SnapshotResult {
         : ''
     }
 
+    ${manufacturingEvidenceHtml(lang, cat.name)}
+    ${procurementChecklistHtml(lang, cat.name)}
+    ${sourceReferencesHtml(lang)}
     ${faqHtml(lang, faq)}
     ${geoLine(lang, geoTargets)}
   `;
@@ -982,9 +1073,6 @@ function buildCategorySnapshot(catId: string, lang: Lang): SnapshotResult {
       })),
     }),
   ];
-  const fq = faqSchema(faq);
-  if (fq) jsonLd.push(fq);
-
   return {
     html,
     jsonLd,
@@ -1203,6 +1291,9 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
       }
     </section>
 
+    ${manufacturingEvidenceHtml(lang, item.name)}
+    ${procurementChecklistHtml(lang, item.name)}
+    ${sourceReferencesHtml(lang)}
     ${faqHtml(lang, faq)}
     ${geoLine(lang, geoTargets)}
   `;
@@ -1268,9 +1359,6 @@ function buildItemSnapshot(itemId: string, lang: Lang): SnapshotResult | null {
       ],
     }),
   ];
-  const fq = faqSchema(faq);
-  if (fq) jsonLd.push(fq);
-
   return {
     html,
     jsonLd,
@@ -1409,6 +1497,9 @@ function buildSolutionSnapshot(solId: string, lang: Lang): SnapshotResult | null
         : ''
     }
 
+    ${manufacturingEvidenceHtml(lang, sol.title)}
+    ${procurementChecklistHtml(lang, sol.title)}
+    ${sourceReferencesHtml(lang)}
     ${faqHtml(lang, faq)}
     ${geoLine(lang, geoTargets)}
   `;
@@ -1431,9 +1522,6 @@ function buildSolutionSnapshot(solId: string, lang: Lang): SnapshotResult | null
       areaServed: geoTargets,
     }),
   ];
-  const fq = faqSchema(faq);
-  if (fq) jsonLd.push(fq);
-
   return {
     html,
     jsonLd,
@@ -1523,6 +1611,9 @@ function buildAboutLikeSnapshot(
         : ''
     }
 
+    ${manufacturingEvidenceHtml(lang, lang === 'cn' ? 'PINTE 工厂能力' : 'PINTE factory capability')}
+    ${procurementChecklistHtml(lang, lang === 'cn' ? '工厂审核与样品沟通' : 'Factory audit and sampling')}
+    ${sourceReferencesHtml(lang)}
     ${faqHtml(lang, faq)}
     ${geoLine(lang, geoTargets)}
   `;
@@ -1544,9 +1635,6 @@ function buildAboutLikeSnapshot(
       url,
     }),
   ];
-  const fq = faqSchema(faq);
-  if (fq) jsonLd.push(fq);
-
   return {
     html,
     jsonLd,
@@ -1605,6 +1693,10 @@ function buildProductsListSnapshot(lang: Lang): SnapshotResult {
       )}
     </section>
 
+    ${productSelectionMatrixHtml(lang, series)}
+    ${manufacturingEvidenceHtml(lang, lang === 'cn' ? 'PINTE 产品目录' : 'PINTE product catalog')}
+    ${procurementChecklistHtml(lang, lang === 'cn' ? '产品目录' : 'Product catalog')}
+    ${sourceReferencesHtml(lang)}
     ${faqHtml(lang, faq)}
     ${geoLine(lang, geoTargets)}
   `;
@@ -1634,9 +1726,6 @@ function buildProductsListSnapshot(lang: Lang): SnapshotResult {
       })),
     }),
   ];
-  const fq = faqSchema(faq);
-  if (fq) jsonLd.push(fq);
-
   return {
     html,
     jsonLd,
@@ -1666,6 +1755,9 @@ function buildFoilsListSnapshot(lang: Lang): SnapshotResult {
     <h1>${escapeHtml(title)}</h1>
     <p class="seo-lead">${escapeHtml(description)}</p>
     <p>${escapeHtml(t('aOEM', lang))}</p>
+    ${manufacturingEvidenceHtml(lang, lang === 'cn' ? '烫金箔色卡' : 'Hot stamping foil color range')}
+    ${procurementChecklistHtml(lang, lang === 'cn' ? '色卡与分切规格' : 'Color range and slitting specification')}
+    ${sourceReferencesHtml(lang)}
     ${geoLine(lang, geoTargets)}
   `;
   const crumbs = buildBreadcrumb(route, lang);
@@ -1726,6 +1818,9 @@ function buildQuoteSnapshot(lang: Lang): SnapshotResult {
         <li>${lang === 'cn' ? '电话/微信' : 'Phone / WeChat'}: ${lang === 'cn' ? '吴经理 ' : 'Manager Wu '}<a href="tel:+8613192267509">+86-13192267509</a>; ${lang === 'cn' ? '胡经理 ' : 'Manager Hu '}<a href="tel:+8613316693097">+86-13316693097</a></li>
       </ul>
     </section>
+    ${procurementChecklistHtml(lang, lang === 'cn' ? '报价与样品' : 'Quotation and samples')}
+    ${manufacturingEvidenceHtml(lang, lang === 'cn' ? '报价前样品测试' : 'pre-quote sample testing')}
+    ${sourceReferencesHtml(lang)}
     ${faqHtml(lang, faq)}
     ${geoLine(lang, geoTargets)}
   `;
@@ -1734,9 +1829,6 @@ function buildQuoteSnapshot(lang: Lang): SnapshotResult {
     crumbsToSchema(crumbs),
     pageTypeSchema({ type: 'ContactPage', name: title, description, url }),
   ];
-  const fq = faqSchema(faq);
-  if (fq) jsonLd.push(fq);
-
   return {
     html: wrapMain({ route, lang, breadcrumb: breadcrumbHtml(lang, crumbs), inner }),
     jsonLd,
@@ -2072,6 +2164,14 @@ function buildSeoSopSnapshot(lang: Lang): SnapshotResult {
   const inner = `
     <h1>${escapeHtml(title)}</h1>
     <p class="seo-lead">${escapeHtml(description)}</p>
+    <section>
+      <h2>${escapeHtml(lang === 'cn' ? 'GEO 审查重点' : 'GEO audit focus')}</h2>
+      <p>${escapeHtml(lang === 'cn'
+        ? '这个工作台用于把 sitemap 覆盖、页面类型、目标关键词、GSC 观察、Bing/IndexNow 提交和 AI 搜索可见性放在同一个检查流程里。对 PINTE 这类 B2B 制造商网站，GEO 优先级不是堆 FAQ schema，而是让静态 HTML 中的事实、应用、规格、引用和内链可以被搜索引擎与 AI crawler 直接读取。'
+        : 'This workspace keeps sitemap coverage, page type, target keywords, GSC observations, Bing/IndexNow submission, and AI-search visibility in one review flow. For a B2B manufacturing site like PINTE, GEO priority is not adding more FAQ schema; it is making facts, applications, specifications, citations, and internal links readable in static HTML for search engines and AI crawlers.'
+      )}</p>
+    </section>
+    ${sourceReferencesHtml(lang)}
   `;
   const crumbs = buildBreadcrumb(route, lang);
   return {
@@ -2104,6 +2204,9 @@ function buildPintefoilsSnapshot(lang: Lang): SnapshotResult {
   const inner = `
     <h1>${escapeHtml(title)}</h1>
     <p class="seo-lead">${escapeHtml(description)}</p>
+    ${manufacturingEvidenceHtml(lang, lang === 'cn' ? 'PINTE Foils 3D 产品展示' : 'PINTE Foils 3D showcase')}
+    ${procurementChecklistHtml(lang, lang === 'cn' ? '3D 展示后的产品选型' : 'Product selection after 3D review')}
+    ${sourceReferencesHtml(lang)}
   `;
   const crumbs = buildBreadcrumb(route, lang);
   return {
