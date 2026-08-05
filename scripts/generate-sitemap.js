@@ -193,8 +193,32 @@ function getGuidePages() {
 
 function getNotionDate(page) {
   const props = page.properties || {};
-  const dateProp = props['截止日期'] || props.Date || props.Published || props.published || props.LastEdited;
-  return dateProp?.date?.start || page.last_edited_time?.split('T')[0] || new Date().toISOString().split('T')[0];
+  const dateCandidates = [
+    props['更新日期'],
+    props.LastEdited,
+    props.Date,
+    props.Published,
+    props.published,
+  ];
+
+  for (const dateProp of dateCandidates) {
+    const value = dateProp?.date?.start || dateProp?.formula?.date?.start;
+    if (!value) continue;
+
+    const timestamp = Date.parse(value);
+    if (Number.isNaN(timestamp)) continue;
+
+    // Sitemap lastmod must describe an actual modification, not a future editorial deadline.
+    const cappedTimestamp = Math.min(timestamp, Date.now());
+    return new Date(cappedTimestamp).toISOString().split('T')[0];
+  }
+
+  const pageTimestamp = Date.parse(page.last_edited_time || '');
+  if (!Number.isNaN(pageTimestamp)) {
+    return new Date(Math.min(pageTimestamp, Date.now())).toISOString().split('T')[0];
+  }
+
+  return new Date().toISOString().split('T')[0];
 }
 
 function notionPageToBlogSitemapEntry(page) {
