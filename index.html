@@ -140,6 +140,22 @@
       okkiAdd("analytics", { siteId: "346066-32839", gId: "" });
     </script>
     <script async src="https://tfile.xiaoman.cn/okki/analyze.js?id=346066-32839-"></script>
+    <style>
+      /* Keep the OKKI chat control inside narrow mobile viewports. */
+      @media (max-width: 600px) {
+        #okki-chat-widget-iframe {
+          right: max(8px, env(safe-area-inset-right, 0px)) !important;
+          bottom: max(8px, env(safe-area-inset-bottom, 0px)) !important;
+        }
+
+        #okki-chat-widget-iframe.okki-live-chat-widget__expand {
+          width: calc(100vw - 16px) !important;
+          max-width: calc(100vw - 16px);
+          height: min(593px, calc(100vh - 16px)) !important;
+          height: min(593px, calc(100dvh - 16px)) !important;
+        }
+      }
+    </style>
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
