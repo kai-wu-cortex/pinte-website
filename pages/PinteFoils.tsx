@@ -664,6 +664,33 @@ const PinteFoilsContent: React.FC = () => {
                 <p className="mt-2 text-xs text-[#111316] font-semibold">{lang === 'cn' ? '胡经理' : 'Manager Hu'}</p>
               </div>
             </div>
+            <h4 className="font-[Manrope] text-[#e2e2e6] text-sm mt-8 mb-4">
+              {lang === 'cn' ? '外贸业务 WhatsApp' : 'International Sales WhatsApp'}
+            </h4>
+            <div className="grid grid-cols-2 gap-3">
+              <div className="rounded-[0.125rem] bg-white p-3 text-center">
+                <img
+                  src="/images/contact/whatsapp-windy-zhang.png"
+                  alt={lang === 'cn' ? 'Windy Zhang 外贸业务 WhatsApp 二维码' : 'Windy Zhang international sales WhatsApp QR code'}
+                  className="w-full h-auto mx-auto"
+                  loading="lazy"
+                  width={180}
+                  height={182}
+                />
+                <p className="mt-2 text-xs text-[#111316] font-semibold">Windy Zhang</p>
+              </div>
+              <div className="rounded-[0.125rem] bg-white p-3 text-center">
+                <img
+                  src="/images/contact/whatsapp-joan.png"
+                  alt={lang === 'cn' ? 'Joan 外贸业务 WhatsApp 二维码' : 'Joan international sales WhatsApp QR code'}
+                  className="w-full h-auto mx-auto"
+                  loading="lazy"
+                  width={180}
+                  height={205}
+                />
+                <p className="mt-2 text-xs text-[#111316] font-semibold">Joan</p>
+              </div>
+            </div>
           </div>
         </div>
       </footer>

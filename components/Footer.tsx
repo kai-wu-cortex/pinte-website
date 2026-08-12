@@ -128,6 +128,40 @@ const Footer: React.FC = () => {
                 <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">{ui.footer.scan}</p>
               </div>
             </div>
+
+            <h5 className="font-bold text-sm mt-8 mb-4 text-neutral-900">
+              {lang === 'cn' ? '外贸业务 WhatsApp' : 'International Sales WhatsApp'}
+            </h5>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
+              <div className="bg-white p-3 rounded-2xl border border-neutral-100 shadow-sm">
+                <img
+                  src="/images/contact/whatsapp-windy-zhang.png"
+                  alt={lang === 'cn' ? 'Windy Zhang 外贸业务 WhatsApp 二维码' : 'Windy Zhang international sales WhatsApp QR code'}
+                  className="w-full max-w-[220px] h-auto rounded-xl mx-auto"
+                  loading="lazy"
+                  width={220}
+                  height={222}
+                />
+                <p className="text-center text-sm text-neutral-700 font-semibold mt-2">Windy Zhang</p>
+                <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">
+                  {lang === 'cn' ? '外贸业务' : 'International Sales'}
+                </p>
+              </div>
+              <div className="bg-white p-3 rounded-2xl border border-neutral-100 shadow-sm">
+                <img
+                  src="/images/contact/whatsapp-joan.png"
+                  alt={lang === 'cn' ? 'Joan 外贸业务 WhatsApp 二维码' : 'Joan international sales WhatsApp QR code'}
+                  className="w-full max-w-[220px] h-auto rounded-xl mx-auto"
+                  loading="lazy"
+                  width={220}
+                  height={251}
+                />
+                <p className="text-center text-sm text-neutral-700 font-semibold mt-2">Joan</p>
+                <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">
+                  {lang === 'cn' ? '外贸业务' : 'International Sales'}
+                </p>
+              </div>
+            </div>
           </div>
         </div>
 
