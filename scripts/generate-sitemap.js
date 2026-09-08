@@ -13,12 +13,16 @@ import { GEO_GUIDES } from '../data/geoGuides.ts';
 import GENERATED_GUIDES from '../data/generatedGuides.ts';
 import { mergeProductSeoProfile } from '../data/productSeoProfiles.ts';
 
+dotenv.config({ path: '.env.production' });
 dotenv.config();
 
 const siteUrl = process.env.SITE_URL || 'https://www.pintecl.com';
 const languages = ['cn', 'en'];
 const routePath = (lang, route = '') => route ? `/${lang}/${route}/` : `/${lang}/`;
 const notionDatabaseId = process.env.NOTION_DATABASE_ID || '30cf8285a7fd80979ba1000b8469ba95';
+const notionDatabasePageId = process.env.VITE_NOTION_DATABASE_ID || '30cf8285a7fd80018526e6f2c0e3e6cd';
+const notionApiKey = process.env.NOTION_API_KEY || process.env.VITE_NOTION_API_KEY || '';
+const notionTimeoutMs = Number(process.env.NOTION_SITEMAP_TIMEOUT_MS || 15000);
 const blogSitemapPath = path.join(process.cwd(), 'public', 'sitemap-blog.json');
 
 // Define all static pages with their priorities and change frequencies
@@ -221,24 +225,79 @@ function getNotionDate(page) {
   return new Date().toISOString().split('T')[0];
 }
 
+function getNotionPlainText(prop) {
+  if (!prop) return '';
+  const values = prop.title || prop.rich_text;
+  return Array.isArray(values) ? values.map((item) => item.plain_text || '').join('') : '';
+}
+
 function notionPageToBlogSitemapEntry(page) {
+  const props = page.properties || {};
   const slug = page.id.replace(/-/g, '');
+  const title = getNotionPlainText(props['文章标题'] || props.Name || props.Title || props.title);
+  const summary = getNotionPlainText(props.Summary || props.Description || props['SEO Description'] || props.excerpt || props.摘要 || props.描述);
+  const cover = page.cover?.external?.url || page.cover?.file?.url || '';
+
   return {
     loc: `${siteUrl}/blog/${slug}`,
     lastmod: getNotionDate(page),
     changefreq: 'weekly',
     priority: 0.8,
+    images: cover ? [{
+      loc: cover,
+      caption: trimText(`${title}${summary ? ` - ${summary}` : ''}`, 220),
+    }] : [],
   };
 }
 
+async function fetchWithTimeout(url, options = {}, timeoutMs = notionTimeoutMs) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, {
+      ...options,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 async function fetchBlogPagesFromNotion() {
-  if (!notionDatabaseId) return [];
+  if (!notionDatabasePageId && !notionDatabaseId) return [];
 
   const pages = [];
   let cursor;
 
+  if (notionApiKey && notionDatabasePageId) {
+    do {
+      const response = await fetchWithTimeout(`https://api.notion.com/v1/databases/${notionDatabasePageId}/query`, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${notionApiKey}`,
+          'Content-Type': 'application/json',
+          'Notion-Version': '2022-06-28',
+        },
+        body: JSON.stringify({
+          page_size: 100,
+          ...(cursor ? { start_cursor: cursor } : {}),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Notion API returned ${response.status}`);
+      }
+
+      const data = await response.json();
+      pages.push(...(data.results || []).map(notionPageToBlogSitemapEntry));
+      cursor = data.has_more ? data.next_cursor : undefined;
+    } while (cursor);
+
+    return pages;
+  }
+
   do {
-    const response = await fetch(`https://api.pintecl.com/v1/data_sources/${notionDatabaseId}/query`, {
+    const response = await fetchWithTimeout(`https://api.pintecl.com/v1/data_sources/${notionDatabaseId}/query`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -439,6 +498,7 @@ ${imageXml ? `${imageXml}\n` : ''}  </url>
           lastmod: page.lastmod || today,
           changefreq: page.changefreq || 'weekly',
           priority: page.priority || '0.8',
+          images: page.images || [],
         });
       }
     }

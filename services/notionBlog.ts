@@ -115,7 +115,7 @@ function parseProperties(page: any): BlogArticle {
     id: page.id,
     title: title || 'Untitled',
     slug: getSlug(),
-    summary: getRichText(props.Summary || props.Description || props.excerpt || props.摘要 || props.描述),
+    summary: getRichText(props.Summary || props.Description || props['SEO Description'] || props.excerpt || props.摘要 || props.描述),
     cover: page.cover?.external?.url || page.cover?.file?.url || '',
     date: getDate(props['更新日期'] || props['截止日期'] || props.Date || props.Published || props.published) || new Date().toISOString(),
     author: getRichText(props.Author || props.author || props.作者),
@@ -125,7 +125,7 @@ function parseProperties(page: any): BlogArticle {
     seo: {
       title: getRichText(props.SEO_Title || props['SEO Title']) || title,
       description: getRichText(props.SEO_Description || props['SEO Description']) || getRichText(props.Summary || props.Description || props.摘要),
-      keywords: getMultiSelect(props.SEO_Keywords || props.Keywords || props.keywords),
+      keywords: getMultiSelect(props.SEO_Keywords || props['SEO Keywords'] || props.Keywords || props.keywords),
       ogImage: '',
     },
     geo: {
