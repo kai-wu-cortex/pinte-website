@@ -84,6 +84,15 @@ function parseProperties(page: any): BlogArticle {
   const getMultiSelect = (prop: any) => {
     if (!prop) return [];
     if (prop.type === 'multi_select') return prop.multi_select?.map((item: any) => item.name) || [];
+    if (prop.type === 'select') return prop.select?.name ? [prop.select.name] : [];
+    if (prop.type === 'status') return prop.status?.name ? [prop.status.name] : [];
+    if (prop.type === 'rich_text') {
+      const text = prop.rich_text?.map((item: any) => item.plain_text).join('') || '';
+      return text
+        .split(/[,，]/)
+        .map((item: string) => item.trim())
+        .filter(Boolean);
+    }
     return [];
   };
 
@@ -108,7 +117,7 @@ function parseProperties(page: any): BlogArticle {
     slug: getSlug(),
     summary: getRichText(props.Summary || props.Description || props.excerpt || props.摘要 || props.描述),
     cover: page.cover?.external?.url || page.cover?.file?.url || '',
-    date: getDate(props['截止日期'] || props.Date || props.Published || props.published) || new Date().toISOString(),
+    date: getDate(props['更新日期'] || props['截止日期'] || props.Date || props.Published || props.published) || new Date().toISOString(),
     author: getRichText(props.Author || props.author || props.作者),
     category: getMultiSelect(props['主题分类'] || props.Category || props.categories),
     tags: getMultiSelect(props.Tags || props.tag || props.标签),

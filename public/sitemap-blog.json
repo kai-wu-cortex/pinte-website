@@ -2,9 +2,609 @@
   "pages": [
     {
       "loc": "https://www.pintecl.com/blog",
-      "lastmod": "2026-08-05",
+      "lastmod": "2026-09-08",
       "changefreq": "daily",
       "priority": 0.9
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81e587a5cf3477b977f8",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81ebb171d81390e3dba8",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81b8887bc01f26e74780",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81fbb270e1bda20a194c",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd819ea3b8de9b40c6eb01",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81e38bedc5795ae13dab",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81f9b8c8d947fe3eb4ef",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81049d0dc36890ee3248",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81b89590f81ae55239f8",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd812e9606dbc2606572be",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81339201e265324b553d",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81b487e3fef37bbeeb49",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81d897d6e16db4e95b1b",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8196b64ee860781bfac6",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8145b223f797b3d6275f",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81cf8971f72684e621bd",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81609a0cf71ce04597cd",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8198bb66effc1692c84c",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd815ba205d4815435e762",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8121b893fa9d613a2742",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8112bc06d0fcfa7511a2",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81a38d9eee96e863a571",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81d8bd1dde4135258ae0",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81b3b1dafbd620f3a5d0",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8186ab42c1f5a23bf7fa",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd810bade0e5bc6850fe8a",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8103b598ff622bf57d9c",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81c8ad83d3e2d3f95aca",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd813592d6d864b377e736",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8115a099cbc0eee02921",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8135b47deb5c8d0de234",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd810ebb63c1367e327a5d",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd813a898bed87312d6dd9",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81558bede32e7c7f58d0",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81248f53fb597deff1a5",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8147b10bfcaeaabcdd4c",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8166b342ef3431e0db4a",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8196968afc8a17217666",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81efbc80eb2b3d70ecdb",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81b08e78ee83238e8e4b",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81db8ff5f16c21ee7d05",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8159a5d8c6fadf7f03e0",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd811da88be1169c6cfda4",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8157b708cf6543ee5e1c",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81efa107cb95acb06f63",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81369d29f46ea68b5fc6",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81ff91fddf993b2c647e",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81ce9eead22136eb8505",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd815b9f21ff4dfcd92647",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81a19376de9bcaf24352",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd812f8e12c2a6ecd07f11",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81d9ac4fe68daba3c26e",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81839b16ffd811cbfc4f",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81d2ae7ed7012a32b8c6",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81789278d5acb53a65f6",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd813e8c01f71699ab6324",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81218e34e2d31ad47dd2",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8181ac7bc6e8383849e4",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd812ba02bebf0aa3d4656",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81bdb72ed5a7d2ecd998",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81a19a73e4187309dd62",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd817eafe5e3b91274eceb",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd819dad20ec8c8d588e7f",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81a38d7af1ac655aa7f1",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81f4958dc866e429f670",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8147aaf1e158cd5571bf",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81b2b179ca738912e613",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81638f1eeda06608472a",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8124bd00d3f7245b5b91",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81a089f0ca6e43c4fce7",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81789a8fdf97ef7b399d",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd810e88cbc2844f1c261a",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd814291f3d92b5cfc19c5",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81c291b8c2701fc901d2",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81a288f4e22a20282599",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8171afcef201bc7d858e",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd817883bdcd7015e7f773",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8118bbbfe84b21944eaf",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd814fa963df18526aaad4",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd819c8f38f2edb527b6e2",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd816cafa0c85abfb95fd6",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd812db902c4c6bb733cf6",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8180abb8d9d6f7366e29",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8180b318ed13500ac907",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81dd8a41c8da9c4a9e08",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81a6a421d24a140f6150",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81bd8a85ede106e089e3",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81e98ea1c56d2cb6c384",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd815485e1d0bcdcfa0426",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81589747ec87aafb477a",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81d5be1cf4d4017f5f3a",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8163b824dfe819b6fb02",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8114a256d3eac2b775ba",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81d49551ea31e4b06aa6",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd81bf80bcdf10a105c4c6",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8167bfa9c7399e7e0175",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8132b7aed0ceba246bac",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd810f8277de46d5d6ae06",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8159966ce440b61b6eee",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
+    },
+    {
+      "loc": "https://www.pintecl.com/blog/3d5f8285a7fd8195912ff5a217e4c37e",
+      "lastmod": "2026-09-08",
+      "changefreq": "weekly",
+      "priority": 0.8
     },
     {
       "loc": "https://www.pintecl.com/blog/3b3f8285a7fd81119246d361c8560f8e",

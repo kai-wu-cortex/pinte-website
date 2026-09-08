@@ -25,8 +25,11 @@ import {
 
 dotenv.config({ path: '.env.production' });
 
-const NOTION_API_KEY = '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';
-const NOTION_DATABASE_ID = '30cf8285a7fd80979ba1000b8469ba95';
+const NOTION_API_KEY = process.env.NOTION_API_KEY || process.env.VITE_NOTION_API_KEY || '';
+const NOTION_DATABASE_PAGE_ID = process.env.VITE_NOTION_DATABASE_ID || '30cf8285a7fd80018526e6f2c0e3e6cd';
+const NOTION_DATA_SOURCE_ID = process.env.NOTION_DATABASE_ID || '30cf8285a7fd80979ba1000b8469ba95';
+const NOTION_TIMEOUT_MS = Number(process.env.NOTION_PRERENDER_TIMEOUT_MS || 15000);
+const SHOULD_FETCH_BLOG_BODY = process.env.PRERENDER_BLOG_CONTENT === '1';
 
 const escapeHtml = (value: string) =>
   String(value ?? '')
@@ -69,26 +72,39 @@ function markdownToHtml(md: string): string {
     .replace(/\n/gim, '<br />');
 }
 
+async function fetchWithTimeout(url: string, options: RequestInit = {}, timeoutMs = NOTION_TIMEOUT_MS) {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), timeoutMs);
+  try {
+    return await fetch(url, {
+      ...options,
+      signal: controller.signal,
+    });
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 // 获取所有文章
 async function fetchArticles(): Promise<any[]> {
-  if (!NOTION_API_KEY || !NOTION_DATABASE_ID) {
+  if (!NOTION_API_KEY || !NOTION_DATABASE_PAGE_ID) {
     console.warn('Notion API credentials not configured, using cached data');
     return [];
   }
 
   try {
-    const fullUrl = `https://api.pintecl.com/v1/data_sources/${NOTION_DATABASE_ID}/query`;
-    console.log('Fetching from Notion API via proxy... URL:', fullUrl);
-
     const notionPages: Array<{ id: string; properties: Record<string, any>; cover?: any }> = [];
     let cursor: string | undefined;
 
     do {
-      const response = await fetch(fullUrl, {
+      const fullUrl = `https://api.notion.com/v1/databases/${NOTION_DATABASE_PAGE_ID}/query`;
+      console.log('Fetching from Notion API... URL:', fullUrl);
+
+      const response = await fetchWithTimeout(fullUrl, {
         method: 'POST',
         headers: {
           Authorization: `Bearer ${NOTION_API_KEY}`,
-          'Notion-Version': '2025-09-03',
+          'Notion-Version': '2022-06-28',
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
@@ -122,7 +138,7 @@ async function fetchArticles(): Promise<any[]> {
           return prop.title[0].plain_text;
         return '';
       };
-      const getRichText = (prop: any) => prop?.rich_text?.[0]?.plain_text || '';
+      const getRichText = (prop: any) => prop?.rich_text?.map((item: any) => item.plain_text).join('') || '';
       const getDate = (prop: any) => prop?.date?.start || new Date().toISOString();
       const title =
         getTitle(props['文章标题']) || getTitle(props.Name) || getTitle(props.Title);
@@ -132,14 +148,45 @@ async function fetchArticles(): Promise<any[]> {
         id: page.id,
         title,
         slug,
-        summary: getRichText(props.Summary || props.Description),
-        date: getDate(props['截止日期'] || props.Date),
+        summary: getRichText(props.Summary || props.Description || props['SEO Description'] || props.摘要 || props.描述),
+        date: getDate(props['更新日期'] || props['截止日期'] || props.Date),
         cover: page.cover?.external?.url || page.cover?.file?.url || '',
       };
     });
   } catch (error) {
-    console.error('Failed to fetch articles:', error);
-    return [];
+    console.error('Failed to fetch articles from Notion API:', error);
+    try {
+      const fallbackUrl = `https://api.pintecl.com/v1/data_sources/${NOTION_DATA_SOURCE_ID}/query`;
+      console.log('Falling back to Notion proxy... URL:', fallbackUrl);
+      const response = await fetchWithTimeout(fallbackUrl, {
+        method: 'POST',
+        headers: {
+          Authorization: `Bearer ${NOTION_API_KEY}`,
+          'Notion-Version': '2025-09-03',
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ page_size: 100 }),
+      });
+      if (!response.ok) return [];
+      const data = (await response.json()) as { results?: Array<any> };
+      return (data.results || []).map((page: any) => {
+        const props = page.properties || {};
+        const getTitle = (prop: any) => prop?.title?.map((item: any) => item.plain_text).join('') || '';
+        const getRichText = (prop: any) => prop?.rich_text?.map((item: any) => item.plain_text).join('') || '';
+        const getDate = (prop: any) => prop?.date?.start || new Date().toISOString();
+        return {
+          id: page.id,
+          title: getTitle(props['文章标题'] || props.Name || props.Title),
+          slug: page.id.replace(/-/g, ''),
+          summary: getRichText(props.Summary || props.Description || props['SEO Description']),
+          date: getDate(props['更新日期'] || props['截止日期'] || props.Date),
+          cover: page.cover?.external?.url || page.cover?.file?.url || '',
+        };
+      });
+    } catch (fallbackError) {
+      console.error('Failed to fetch articles from Notion proxy:', fallbackError);
+      return [];
+    }
   }
 }
 
@@ -147,15 +194,16 @@ async function fetchArticles(): Promise<any[]> {
 async function fetchArticleContent(pageId: string): Promise<string> {
   if (!NOTION_API_KEY) return '';
   try {
-    const blocksRes = await fetch(
-      `https://api.pintecl.com/v1/blocks/${pageId}/children?page_size=100`,
+    const blocksRes = await fetchWithTimeout(
+      `https://api.notion.com/v1/blocks/${pageId}/children?page_size=100`,
       {
         method: 'GET',
         headers: {
           Authorization: `Bearer ${NOTION_API_KEY}`,
-          'Notion-Version': '2025-09-03',
+          'Notion-Version': '2022-06-28',
         },
-      }
+      },
+      8000
     );
     const blocksData = (await blocksRes.json()) as { results?: Array<any> };
     if (!blocksData.results || blocksData.results.length === 0) return '';
@@ -412,10 +460,14 @@ export const prerender = {
 
           // 拉正文(用于注入 lead 段落与 Article schema 描述)
           let contentMarkdown = '';
-          try {
-            contentMarkdown = await fetchArticleContent(article.id);
-          } catch (_e) {
-            // 网络问题不阻塞构建
+          if (SHOULD_FETCH_BLOG_BODY || !article.summary) {
+            try {
+              contentMarkdown = await fetchArticleContent(article.id);
+            } catch (_e) {
+              // 网络问题不阻塞构建
+            }
+          } else {
+            contentMarkdown = article.summary;
           }
 
           const articleLike: BlogArticleLike = {
