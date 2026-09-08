@@ -143,12 +143,25 @@ export async function fetchBlogArticles(): Promise<BlogArticle[]> {
   }
 
   try {
-    const response = await notionApiCall(`/data_sources/${DATABASE_ID}/query`, {
-      method: 'POST',
-    });
+    const pages: any[] = [];
+    let cursor: string | undefined;
+    let pageCount = 0;
 
-    const articles = response.results.map((page: any) => parseProperties(page));
-    return articles;
+    do {
+      const response = await notionApiCall(`/data_sources/${DATABASE_ID}/query`, {
+        method: 'POST',
+        body: JSON.stringify({
+          page_size: 100,
+          ...(cursor ? { start_cursor: cursor } : {}),
+        }),
+      });
+
+      pages.push(...(response.results || []));
+      cursor = response.has_more ? response.next_cursor || undefined : undefined;
+      pageCount += 1;
+    } while (cursor && pageCount < 20);
+
+    return pages.map((page: any) => parseProperties(page));
   } catch (error) {
     console.error('Failed to fetch blog articles:', error);
     return [];
