@@ -27,10 +27,67 @@ const Footer: React.FC = () => {
     }
   };
 
+  const footerQrContacts = [
+    {
+      name: lang === 'cn' ? '吴经理' : 'Manager Wu',
+      detail: '+86-13192267509',
+      channel: lang === 'cn' ? '微信' : 'WeChat',
+      src: 'https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://u.wechat.com/MHPZfF2HCiCARXbjSIeIcBY?s=2&color=1e40af',
+      alt: lang === 'cn' ? '吴经理微信二维码' : 'Manager Wu WeChat QR code',
+      width: 128,
+      height: 128,
+    },
+    {
+      name: lang === 'cn' ? '胡经理' : 'Manager Hu',
+      detail: '+86-13316693097',
+      channel: lang === 'cn' ? '微信' : 'WeChat',
+      src: '/images/contact/wechat-hu-manager.jpg',
+      alt: lang === 'cn' ? '胡经理微信二维码' : 'Manager Hu WeChat QR code',
+      width: 160,
+      height: 231,
+    },
+    {
+      name: 'Windy',
+      detail: lang === 'cn' ? '广东 东莞' : 'Dongguan, Guangdong',
+      channel: lang === 'cn' ? '微信' : 'WeChat',
+      src: '/images/contact/wechat-windy.png',
+      alt: lang === 'cn' ? 'Windy 微信二维码' : 'Windy WeChat QR code',
+      width: 820,
+      height: 1219,
+    },
+    {
+      name: 'Joan',
+      detail: lang === 'cn' ? '广东 东莞' : 'Dongguan, Guangdong',
+      channel: lang === 'cn' ? '微信' : 'WeChat',
+      src: '/images/contact/wechat-joan.png',
+      alt: lang === 'cn' ? 'Joan 微信二维码' : 'Joan WeChat QR code',
+      width: 630,
+      height: 804,
+    },
+    {
+      name: 'Windy Zhang',
+      detail: lang === 'cn' ? '外贸业务' : 'International Sales',
+      channel: 'WhatsApp',
+      src: '/images/contact/whatsapp-windy-zhang.png',
+      alt: lang === 'cn' ? 'Windy Zhang 外贸业务 WhatsApp 二维码' : 'Windy Zhang international sales WhatsApp QR code',
+      width: 220,
+      height: 222,
+    },
+    {
+      name: 'Joan',
+      detail: lang === 'cn' ? '外贸业务' : 'International Sales',
+      channel: 'WhatsApp',
+      src: '/images/contact/whatsapp-joan.png',
+      alt: lang === 'cn' ? 'Joan 外贸业务 WhatsApp 二维码' : 'Joan international sales WhatsApp QR code',
+      width: 220,
+      height: 251,
+    },
+  ];
+
   return (
     <footer id="contact" className="bg-white pt-24 pb-12 px-6 border-t border-neutral-100">
       <div className="max-w-[1200px] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* Brand & Copyright */}
           <div>
             <div className="flex items-center gap-2 mb-6">
@@ -95,73 +152,38 @@ const Footer: React.FC = () => {
             </ul>
           </div>
 
-          {/* WeChat QR Code */}
-          <div>
-            <h4 className="font-bold text-lg mb-6 text-neutral-900">{ui.footer.wechat}</h4>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-white p-4 rounded-2xl border border-neutral-100 shadow-sm inline-block">
-                <img
-                  src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data=https://u.wechat.com/MHPZfF2HCiCARXbjSIeIcBY?s=2&color=1e40af"
-                  alt={lang === 'cn' ? '吴经理微信二维码' : 'Manager Wu WeChat QR code'}
-                  className="w-32 h-32 mb-3 rounded-xl mx-auto"
-                  loading="lazy"
-                  width={128}
-                  height={128}
-                />
-                <p className="text-center text-sm text-neutral-700 font-semibold">
-                  {lang === 'cn' ? '吴经理 13192267509' : 'Manager Wu +86-13192267509'}
-                </p>
-                <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">{ui.footer.scan}</p>
-              </div>
-              <div className="bg-white p-4 rounded-2xl border border-neutral-100 shadow-sm inline-block">
-                <img
-                  src="/images/contact/wechat-hu-manager.jpg"
-                  alt={lang === 'cn' ? '胡经理微信二维码' : 'Manager Hu WeChat QR code'}
-                  className="w-40 h-auto mb-3 rounded-xl"
-                  loading="lazy"
-                  width={160}
-                  height={231}
-                />
-                <p className="text-center text-sm text-neutral-700 font-semibold">
-                  {lang === 'cn' ? '胡经理 13316693097' : 'Manager Hu +86-13316693097'}
-                </p>
-                <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">{ui.footer.scan}</p>
-              </div>
-            </div>
+        </div>
 
-            <h5 className="font-bold text-sm mt-8 mb-4 text-neutral-900">
-              {lang === 'cn' ? '外贸业务 WhatsApp' : 'International Sales WhatsApp'}
-            </h5>
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1 gap-4">
-              <div className="bg-white p-3 rounded-2xl border border-neutral-100 shadow-sm">
-                <img
-                  src="/images/contact/whatsapp-windy-zhang.png"
-                  alt={lang === 'cn' ? 'Windy Zhang 外贸业务 WhatsApp 二维码' : 'Windy Zhang international sales WhatsApp QR code'}
-                  className="w-full max-w-[220px] h-auto rounded-xl mx-auto"
-                  loading="lazy"
-                  width={220}
-                  height={222}
-                />
-                <p className="text-center text-sm text-neutral-700 font-semibold mt-2">Windy Zhang</p>
-                <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">
-                  {lang === 'cn' ? '外贸业务' : 'International Sales'}
-                </p>
-              </div>
-              <div className="bg-white p-3 rounded-2xl border border-neutral-100 shadow-sm">
-                <img
-                  src="/images/contact/whatsapp-joan.png"
-                  alt={lang === 'cn' ? 'Joan 外贸业务 WhatsApp 二维码' : 'Joan international sales WhatsApp QR code'}
-                  className="w-full max-w-[220px] h-auto rounded-xl mx-auto"
-                  loading="lazy"
-                  width={220}
-                  height={251}
-                />
-                <p className="text-center text-sm text-neutral-700 font-semibold mt-2">Joan</p>
-                <p className="text-center text-xs text-neutral-400 font-medium uppercase tracking-wider">
-                  {lang === 'cn' ? '外贸业务' : 'International Sales'}
-                </p>
-              </div>
+        <div className="mb-12">
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-5">
+            <div>
+              <h4 className="font-bold text-lg text-neutral-900">
+                {lang === 'cn' ? '微信 / WhatsApp 联系方式' : 'WeChat / WhatsApp Contacts'}
+              </h4>
+              <p className="text-sm text-neutral-500 mt-1">
+                {lang === 'cn' ? '扫码添加对应业务联系人' : 'Scan to contact the right sales representative'}
+              </p>
             </div>
+            <span className="text-xs text-neutral-400 font-medium uppercase tracking-wider">{ui.footer.scan}</span>
+          </div>
+          <div className="grid grid-cols-2 md:grid-cols-3 xl:grid-cols-6 gap-4">
+            {footerQrContacts.map((contact) => (
+              <div key={`${contact.channel}-${contact.name}-${contact.detail}`} className="bg-white p-4 rounded-2xl border border-neutral-100 shadow-sm text-center">
+                <div className="h-44 flex items-center justify-center">
+                  <img
+                    src={contact.src}
+                    alt={contact.alt}
+                    className="max-h-44 w-full object-contain rounded-xl"
+                    loading="lazy"
+                    width={contact.width}
+                    height={contact.height}
+                  />
+                </div>
+                <p className="text-sm text-neutral-800 font-semibold mt-3">{contact.name}</p>
+                <p className="text-xs text-neutral-500 mt-1">{contact.detail}</p>
+                <p className="text-[11px] text-neutral-400 font-medium uppercase tracking-wider mt-1">{contact.channel}</p>
+              </div>
+            ))}
           </div>
         </div>
 
