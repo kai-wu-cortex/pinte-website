@@ -4,9 +4,6 @@ import { LanguageProvider } from './contexts/LanguageContext';
 import NavBar from './components/NavBar';
 import Footer from './components/Footer';
 
-// Load the assistant only when the viewport is desktop-sized.
-const ChatWidget = React.lazy(() => import('./components/ChatWidget'));
-
 // Lazy load all page components for better performance
 const Home = React.lazy(() => import('./pages/Home'));
 const About = React.lazy(() => import('./pages/About'));
@@ -43,34 +40,6 @@ const ScrollToTop = () => {
   return null;
 };
 
-const DesktopChatWidget = () => {
-  const [isMobile, setIsMobile] = React.useState(() => (
-    typeof window !== 'undefined' && window.matchMedia('(max-width: 767px)').matches
-  ));
-
-  React.useEffect(() => {
-    const mediaQuery = window.matchMedia('(max-width: 767px)');
-    const updateViewport = () => setIsMobile(mediaQuery.matches);
-
-    updateViewport();
-    mediaQuery.addEventListener?.('change', updateViewport);
-    mediaQuery.addListener?.(updateViewport);
-
-    return () => {
-      mediaQuery.removeEventListener?.('change', updateViewport);
-      mediaQuery.removeListener?.(updateViewport);
-    };
-  }, []);
-
-  if (isMobile) return null;
-
-  return (
-    <Suspense fallback={null}>
-      <ChatWidget />
-    </Suspense>
-  );
-};
-
 const LanguageLayout = () => {
   return (
     <LanguageProvider>
@@ -85,8 +54,6 @@ const LanguageLayout = () => {
         </main>
 
         <Footer />
-
-        <DesktopChatWidget />
       </div>
   </LanguageProvider>
   );
