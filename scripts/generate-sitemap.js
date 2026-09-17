@@ -24,6 +24,7 @@ const notionDatabasePageId = process.env.VITE_NOTION_DATABASE_ID || '30cf8285a7f
 const notionApiKey = process.env.NOTION_API_KEY || process.env.VITE_NOTION_API_KEY || '';
 const notionTimeoutMs = Number(process.env.NOTION_SITEMAP_TIMEOUT_MS || 15000);
 const blogSitemapPath = path.join(process.cwd(), 'public', 'sitemap-blog.json');
+const blogDataCachePath = path.join(process.cwd(), 'public', 'blog-data', 'index.json');
 
 // Define all static pages with their priorities and change frequencies
 const staticPages = [
@@ -250,6 +251,39 @@ function notionPageToBlogSitemapEntry(page) {
   };
 }
 
+function cachedArticleToBlogSitemapEntry(article) {
+  const slug = String(article?.slug || article?.id || '').replace(/-/g, '');
+  if (!slug) return null;
+
+  const title = article?.title || article?.seo?.title || '';
+  const summary = article?.summary || article?.seo?.description || '';
+  const cover = article?.cover || article?.seo?.ogImage || '';
+
+  return {
+    loc: `${siteUrl}/blog/${slug}`,
+    lastmod: normalizedDateModified(article?.date) || new Date().toISOString().split('T')[0],
+    changefreq: 'weekly',
+    priority: 0.8,
+    images: cover ? [{
+      loc: cover,
+      caption: trimText(`${title}${summary ? ` - ${summary}` : ''}`, 220),
+    }] : [],
+  };
+}
+
+function readBlogPagesFromArticleCache() {
+  if (!fs.existsSync(blogDataCachePath)) return [];
+
+  try {
+    const cache = JSON.parse(fs.readFileSync(blogDataCachePath, 'utf8'));
+    if (!Array.isArray(cache.articles)) return [];
+    return cache.articles.map(cachedArticleToBlogSitemapEntry).filter(Boolean);
+  } catch (error) {
+    console.warn('⚠️ Could not read static blog data cache:', error.message);
+    return [];
+  }
+}
+
 async function fetchWithTimeout(url, options = {}, timeoutMs = notionTimeoutMs) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
@@ -334,6 +368,23 @@ function readCachedBlogPages() {
 }
 
 async function collectBlogPages() {
+  const cachedArticles = readBlogPagesFromArticleCache();
+  if (cachedArticles.length > 0) {
+    const pages = [
+      {
+        loc: `${siteUrl}/blog`,
+        lastmod: new Date().toISOString().split('T')[0],
+        changefreq: 'daily',
+        priority: 0.9,
+      },
+      ...cachedArticles,
+    ];
+
+    fs.writeFileSync(blogSitemapPath, JSON.stringify({ pages }, null, 2), 'utf8');
+    console.log(`✅ Generated blog sitemap cache from ${cachedArticles.length} static articles`);
+    return pages;
+  }
+
   try {
     const fetchedPages = await fetchBlogPagesFromNotion();
 
