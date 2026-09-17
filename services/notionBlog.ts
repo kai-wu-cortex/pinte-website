@@ -1,20 +1,10 @@
-/// <reference types="vite/client" />
-
 /**
- * Notion Blog Service
- * 实时从 Notion API 获取博客数据
- * 通过 Vite 代理调用避免 CORS 问题
+ * Static blog data service.
+ *
+ * Notion is synchronized during the build. Visitors read deployment assets
+ * from Cloudflare instead of calling Notion or the API proxy directly.
  */
 
-const API_KEY = import.meta.env.VITE_NOTION_API_KEY;
-const DATABASE_ID = import.meta.env.VITE_NOTION_DATABASE_ID;
-
-// 使用环境变量配置 API 路径
-// 本地开发: '/api/notion' (Vite 代理)
-// 生产部署: 'https://api.pintecl.com/v1' (Cloudflare proxy)
-const API_BASE = import.meta.env.VITE_API_BASE || 'https://api.pintecl.com/v1';
-
-// 博客数据类型
 export interface BlogArticle {
   id: string;
   title: string;
@@ -40,234 +30,80 @@ export interface BlogArticle {
   };
 }
 
-// 调用代理 API
-async function notionApiCall(endpoint: string, options: RequestInit = {}): Promise<any> {
-  const response = await fetch(`${API_BASE}${endpoint}`, {
-    ...options,
-    headers: {
-      'Authorization': `Bearer ${API_KEY}`,
-      'Notion-Version': '2025-09-03',
-      'Content-Type': 'application/json',
-      ...options.headers,
-    },
-  });
-  
-  if (!response.ok) {
-    throw new Error(`Notion API error: ${response.status}`);
-  }
-  
-  return response.json();
+const articleCache = new Map<string, BlogArticle>();
+const articleRequests = new Map<string, Promise<BlogArticle | null>>();
+let articleIndexRequest: Promise<BlogArticle[]> | null = null;
+
+function isBlogArticle(value: unknown): value is BlogArticle {
+  if (!value || typeof value !== 'object') return false;
+  const article = value as Partial<BlogArticle>;
+  return typeof article.slug === 'string' && typeof article.title === 'string';
 }
 
-// 解析页面属性
-function parseProperties(page: any): BlogArticle {
-  const props = page.properties;
-  
-  const getTitle = (prop: any) => {
-    if (!prop) return '';
-    if (prop.type === 'title') return prop.title?.[0]?.plain_text || '';
-    return '';
-  };
+export function getEmbeddedBlogArticle(slug: string): BlogArticle | null {
+  if (typeof document === 'undefined') return null;
 
-  const getRichText = (prop: any) => {
-    if (!prop) return '';
-    if (prop.type === 'rich_text') return prop.rich_text?.[0]?.plain_text || '';
-    return '';
-  };
+  const cached = articleCache.get(slug);
+  if (cached?.content) return cached;
 
-  const getDate = (prop: any) => {
-    if (!prop) return null;
-    if (prop.type === 'date') return prop.date?.start || null;
+  const element = document.getElementById('pinte-blog-data');
+  if (!element?.textContent) return null;
+
+  try {
+    const article = JSON.parse(element.textContent);
+    if (!isBlogArticle(article) || article.slug !== slug) return null;
+    articleCache.set(slug, article);
+    return article;
+  } catch (error) {
+    console.warn('Invalid embedded blog data:', error);
     return null;
-  };
-
-  const getMultiSelect = (prop: any) => {
-    if (!prop) return [];
-    if (prop.type === 'multi_select') return prop.multi_select?.map((item: any) => item.name) || [];
-    if (prop.type === 'select') return prop.select?.name ? [prop.select.name] : [];
-    if (prop.type === 'status') return prop.status?.name ? [prop.status.name] : [];
-    if (prop.type === 'rich_text') {
-      const text = prop.rich_text?.map((item: any) => item.plain_text).join('') || '';
-      return text
-        .split(/[,，]/)
-        .map((item: string) => item.trim())
-        .filter(Boolean);
-    }
-    return [];
-  };
-
-  const getSelect = (prop: any) => {
-    if (!prop) return null;
-    if (prop.type === 'select') return prop.select?.name || null;
-    if (prop.type === 'status') return prop.status?.name || null;
-    return null;
-  };
-
-  const getSlug = (): string => {
-    const pageId = page?.id;
-    if (pageId) return pageId.replace(/-/g, '');
-    return 'default';
-  };
-
-  const title = getTitle(props['文章标题'] || props.Name || props.Title || props.title);
-
-  return {
-    id: page.id,
-    title: title || 'Untitled',
-    slug: getSlug(),
-    summary: getRichText(props.Summary || props.Description || props['SEO Description'] || props.excerpt || props.摘要 || props.描述),
-    cover: page.cover?.external?.url || page.cover?.file?.url || '',
-    date: getDate(props['更新日期'] || props['截止日期'] || props.Date || props.Published || props.published) || new Date().toISOString(),
-    author: getRichText(props.Author || props.author || props.作者),
-    category: getMultiSelect(props['主题分类'] || props.Category || props.categories),
-    tags: getMultiSelect(props.Tags || props.tag || props.标签),
-    status: getSelect(props['写作状态'] || props.Status || props.status || props.publish),
-    seo: {
-      title: getRichText(props.SEO_Title || props['SEO Title']) || title,
-      description: getRichText(props.SEO_Description || props['SEO Description']) || getRichText(props.Summary || props.Description || props.摘要),
-      keywords: getMultiSelect(props.SEO_Keywords || props['SEO Keywords'] || props.Keywords || props.keywords),
-      ogImage: '',
-    },
-    geo: {
-      region: getSelect(props.GEO_Region || props.Region || props.geo),
-      language: getSelect(props.GEO_Language || props.Language || props.lang),
-      locality: getRichText(props.GEO_Locality || props.Locality),
-    },
-  };
+  }
 }
 
 export async function fetchBlogArticles(): Promise<BlogArticle[]> {
-  if (!API_KEY || !DATABASE_ID) {
-    console.warn('Notion API credentials not configured');
-    return [];
-  }
-
-  try {
-    const pages: any[] = [];
-    let cursor: string | undefined;
-    let pageCount = 0;
-
-    do {
-      const response = await notionApiCall(`/data_sources/${DATABASE_ID}/query`, {
-        method: 'POST',
-        body: JSON.stringify({
-          page_size: 100,
-          ...(cursor ? { start_cursor: cursor } : {}),
-        }),
+  if (!articleIndexRequest) {
+    articleIndexRequest = fetch('/blog-data/index.json')
+      .then(async (response) => {
+        if (!response.ok) throw new Error(`Static blog index returned ${response.status}`);
+        const payload = await response.json();
+        const articles = Array.isArray(payload?.articles)
+          ? payload.articles.filter(isBlogArticle)
+          : [];
+        for (const article of articles) articleCache.set(article.slug, article);
+        return articles;
+      })
+      .catch((error) => {
+        console.error('Failed to load static blog index:', error);
+        return [];
       });
-
-      pages.push(...(response.results || []));
-      cursor = response.has_more ? response.next_cursor || undefined : undefined;
-      pageCount += 1;
-    } while (cursor && pageCount < 20);
-
-    return pages.map((page: any) => parseProperties(page));
-  } catch (error) {
-    console.error('Failed to fetch blog articles:', error);
-    return [];
   }
+
+  return articleIndexRequest;
 }
 
 export async function fetchBlogArticle(slug: string): Promise<BlogArticle | null> {
-  if (!API_KEY || !DATABASE_ID) return null;
+  const embedded = getEmbeddedBlogArticle(slug);
+  if (embedded) return embedded;
 
-  try {
-    // 将 slug 转换回 page ID 格式
-    let pageId = slug;
-    if (!slug.includes('-')) {
-      try {
-        // slug is 32 chars without dashes - convert back to UUID format 8-4-4-4-12
-        const match = slug.match(/^(.{8})(.{4})(.{4})(.{4})(.{12})$/);
-        if (match) {
-          pageId = `${match[1]}-${match[2]}-${match[3]}-${match[4]}-${match[5]}`;
-        } else {
-          console.error('Failed to match slug pattern:', slug);
-          return null;
-        }
-      } catch (e) {
-        console.error('Failed to format pageId:', e, slug);
+  const cached = articleCache.get(slug);
+  if (cached?.content) return cached;
+
+  let request = articleRequests.get(slug);
+  if (!request) {
+    request = fetch(`/blog-data/${encodeURIComponent(slug)}.json`)
+      .then(async (response) => {
+        if (!response.ok) return null;
+        const article = await response.json();
+        if (!isBlogArticle(article)) return null;
+        articleCache.set(slug, article);
+        return article;
+      })
+      .catch((error) => {
+        console.error(`Failed to load static blog article ${slug}:`, error);
         return null;
-      }
-    }
-
-    console.log('Fetching article with pageId:', pageId);
-    
-    // 获取页面基本信息
-    const pageResponse = await notionApiCall(`/pages/${pageId}`, {
-      method: 'GET',
-    });
-
-    const article = parseProperties(pageResponse);
-    
-    // 获取页面内容
-    // 优先尝试获取 child blocks，如果没有则使用 summary 作为内容
-    try {
-      console.log('Fetching blocks for page:', pageId);
-      const blocksResponse = await notionApiCall(`/blocks/${pageId}/children?page_size=100`, {
-        method: 'GET',
       });
-      
-      console.log('Blocks response:', blocksResponse);
-      
-      // 将 blocks 转换为简单的 markdown 文本
-      if (blocksResponse.results && blocksResponse.results.length > 0) {
-        article.content = blocksResponse.results.map((block: any) => {
-          if (block.type === 'paragraph') {
-            return block.paragraph?.rich_text?.map((t: any) => t.plain_text).join('') || '';
-          } else if (block.type === 'heading_1') {
-            return '# ' + (block.heading_1?.rich_text?.map((t: any) => t.plain_text).join('') || '');
-          } else if (block.type === 'heading_2') {
-            return '## ' + (block.heading_2?.rich_text?.map((t: any) => t.plain_text).join('') || '');
-          } else if (block.type === 'heading_3') {
-            return '### ' + (block.heading_3?.rich_text?.map((t: any) => t.plain_text).join('') || '');
-          } else if (block.type === 'bulleted_list_item') {
-            return '- ' + (block.bulleted_list_item?.rich_text?.map((t: any) => t.plain_text).join('') || '');
-          } else if (block.type === 'numbered_list_item') {
-            return '1. ' + (block.numbered_list_item?.rich_text?.map((t: any) => t.plain_text).join('') || '');
-          } else if (block.type === 'to_do') {
-            return (block.to_do?.checked ? '[x] ' : '[ ] ') + (block.to_do?.rich_text?.map((t: any) => t.plain_text).join('') || '');
-          } else if (block.type === 'quote') {
-            return '> ' + (block.quote?.rich_text?.map((t: any) => t.plain_text).join('') || '');
-          } else if (block.type === 'divider') {
-            return '---';
-          }
-          return '';
-        }).join('\n\n');
-        console.log('Parsed content from blocks:', article.content.substring(0, 200));
-      } 
-      
-      // 如果没有 blocks 内容，尝试从 properties 获取"正文"字段
-      if (!article.content || article.content.trim() === '') {
-        // 查找可能的正文字段
-        const props = pageResponse.properties;
-        const contentFieldNames = ['Content', '正文', '内容', 'body', 'Body', '文章内容'];
-        
-        for (const fieldName of contentFieldNames) {
-          if (props[fieldName]) {
-            const field = props[fieldName];
-            if (field.type === 'rich_text') {
-              article.content = field.rich_text?.map((t: any) => t.plain_text).join('') || '';
-              console.log('Found content in field:', fieldName);
-              break;
-            }
-          }
-        }
-      }
-      
-      // 如果还是没有内容，使用 summary/描述
-      if (!article.content || article.content.trim() === '') {
-        console.log('No content found, using summary');
-        article.content = article.summary || '（请在 Notion 中添加文章内容）';
-      }
-    } catch (contentError) {
-      console.error('Failed to fetch content:', contentError);
-      // 使用 summary 作为后备
-      article.content = article.summary || '（请在 Notion 中添加文章内容）';
-    }
-    
-    return article;
-  } catch (error) {
-    console.error('Failed to fetch blog article:', error);
-    return null;
+    articleRequests.set(slug, request);
   }
+
+  return request;
 }

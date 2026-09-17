@@ -7,24 +7,33 @@ import {
   Clock, ChevronLeft, ChevronRight, Facebook, 
   Twitter, Linkedin, Link as LinkIcon
 } from 'lucide-react';
-import { fetchBlogArticle, BlogArticle } from '../services/notionBlog';
+import { fetchBlogArticle, getEmbeddedBlogArticle, BlogArticle } from '../services/notionBlog';
 
 const BlogItem: React.FC = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
   const { lang } = useLanguage();
-  const [article, setArticle] = useState<BlogArticle | null>(null);
-  const [loading, setLoading] = useState(true);
+  const embeddedArticle = slug ? getEmbeddedBlogArticle(slug) : null;
+  const [article, setArticle] = useState<BlogArticle | null>(embeddedArticle);
+  const [loading, setLoading] = useState(!embeddedArticle);
   const [error, setError] = useState<string | null>(null);
   const [copySuccess, setCopySuccess] = useState(false);
 
-  // 实时从 Notion 获取文章内容
+  // Direct visits use embedded build data; client-side navigation uses static CDN JSON.
   useEffect(() => {
     const fetchArticle = async () => {
+      const embedded = getEmbeddedBlogArticle(slug!);
+      if (embedded) {
+        setArticle(embedded);
+        setError(null);
+        setLoading(false);
+        return;
+      }
+
       try {
         setLoading(true);
         
-        // 从 Notion API 实时获取
+        // Load the deployment's static article data.
         const article = await fetchBlogArticle(slug!);
         
         if (article) {

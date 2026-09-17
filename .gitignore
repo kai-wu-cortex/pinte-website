@@ -23,6 +23,8 @@ dist/
 *.json
 !public/*.json
 !public/sitemap-blog.json
+!public/blog-data/
+!public/blog-data/*.json
 playwright-report/
 playwright/.cache/
 seo-geo-runs/

@@ -29,7 +29,32 @@ const NOTION_API_KEY = process.env.NOTION_API_KEY || process.env.VITE_NOTION_API
 const NOTION_DATABASE_PAGE_ID = process.env.VITE_NOTION_DATABASE_ID || '30cf8285a7fd80018526e6f2c0e3e6cd';
 const NOTION_DATA_SOURCE_ID = process.env.NOTION_DATABASE_ID || '30cf8285a7fd80979ba1000b8469ba95';
 const NOTION_TIMEOUT_MS = Number(process.env.NOTION_PRERENDER_TIMEOUT_MS || 15000);
-const SHOULD_FETCH_BLOG_BODY = process.env.PRERENDER_BLOG_CONTENT === '1';
+const BLOG_CACHE_DIR = path.resolve('public', 'blog-data');
+
+function readCachedArticles(): any[] {
+  const indexPath = path.join(BLOG_CACHE_DIR, 'index.json');
+  if (!fs.existsSync(indexPath)) return [];
+
+  try {
+    const payload = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+    return Array.isArray(payload?.articles) ? payload.articles : [];
+  } catch (error) {
+    console.error('Failed to read static blog cache:', error);
+    return [];
+  }
+}
+
+function readCachedArticle(slug: string): any | null {
+  const articlePath = path.join(BLOG_CACHE_DIR, `${slug}.json`);
+  if (!fs.existsSync(articlePath)) return null;
+
+  try {
+    return JSON.parse(fs.readFileSync(articlePath, 'utf8'));
+  } catch (error) {
+    console.warn(`Failed to read cached blog article ${slug}:`, error);
+    return null;
+  }
+}
 
 const escapeHtml = (value: string) =>
   String(value ?? '')
@@ -88,8 +113,9 @@ async function fetchWithTimeout(url: string, options: RequestInit = {}, timeoutM
 // 获取所有文章
 async function fetchArticles(): Promise<any[]> {
   if (!NOTION_API_KEY || !NOTION_DATABASE_PAGE_ID) {
-    console.warn('Notion API credentials not configured, using cached data');
-    return [];
+    const cached = readCachedArticles();
+    console.warn(`Notion API credentials not configured, using ${cached.length} cached articles`);
+    return cached;
   }
 
   try {
@@ -121,7 +147,9 @@ async function fetchArticles(): Promise<any[]> {
 
       if (!response.ok) {
         console.error('Notion API error:', data);
-        return [];
+        const cached = readCachedArticles();
+        console.warn(`Using ${cached.length} cached articles after Notion API error`);
+        return cached;
       }
 
       notionPages.push(...(data.results || []));
@@ -167,7 +195,11 @@ async function fetchArticles(): Promise<any[]> {
         },
         body: JSON.stringify({ page_size: 100 }),
       });
-      if (!response.ok) return [];
+      if (!response.ok) {
+        const cached = readCachedArticles();
+        console.warn(`Using ${cached.length} cached articles after Notion proxy error`);
+        return cached;
+      }
       const data = (await response.json()) as { results?: Array<any> };
       return (data.results || []).map((page: any) => {
         const props = page.properties || {};
@@ -185,7 +217,9 @@ async function fetchArticles(): Promise<any[]> {
       });
     } catch (fallbackError) {
       console.error('Failed to fetch articles from Notion proxy:', fallbackError);
-      return [];
+      const cached = readCachedArticles();
+      console.warn(`Using ${cached.length} cached articles after proxy failure`);
+      return cached;
     }
   }
 }
@@ -245,7 +279,8 @@ function injectSnapshot(
   template: string,
   snapshot: SnapshotResult,
   route: string,
-  lang: 'cn' | 'en'
+  lang: 'cn' | 'en',
+  blogData?: BlogArticleLike & Record<string, unknown>
 ): string {
   const { html: snapshotHtml, jsonLd, meta } = snapshot;
   const canonical = buildCanonicalUrl(route, lang);
@@ -254,6 +289,14 @@ function injectSnapshot(
   const ogImage = meta.image || 'https://www.pintecl.com/og-image.jpg';
   const ogImageAlt = 'PINTE hot stamping foil packaging solutions';
   const pageTitle = formatPageTitle(meta.title);
+  const serializedBlogData = blogData
+    ? JSON.stringify(blogData)
+        .replace(/&/g, '\\u0026')
+        .replace(/</g, '\\u003c')
+        .replace(/>/g, '\\u003e')
+        .replace(/\u2028/g, '\\u2028')
+        .replace(/\u2029/g, '\\u2029')
+    : '';
 
   // Build extra head tags
   const extraHead = `
@@ -292,7 +335,8 @@ function injectSnapshot(
 
   <meta name="served-markets" content="${escapeHtml(meta.geoTargets.join(', '))}">
   ${buildStaticHeadLinks(route, lang)}
-  ${renderJsonLdScripts(jsonLd)}`.trim();
+  ${renderJsonLdScripts(jsonLd)}
+  ${serializedBlogData ? `<script id="pinte-blog-data" type="application/json">${serializedBlogData}</script>` : ''}`.trim();
 
   let html = template;
   // <html lang>
@@ -352,6 +396,12 @@ export const prerender = {
 
     const articles = await fetchArticles();
     console.log(`📄 Found ${articles.length} articles`);
+
+    if (articles.length === 0) {
+      throw new Error(
+        'Blog prerender aborted: Notion returned no articles and public/blog-data/index.json is empty or missing.'
+      );
+    }
 
     const distDir = path.resolve('dist');
 
@@ -414,6 +464,50 @@ export const prerender = {
     const rootIndexPath = path.join(distDir, 'index.html');
     const rootIndexTemplate = fs.readFileSync(rootIndexPath, 'utf8');
 
+    const preparedArticles = await Promise.all(
+      articles.map(async (article) => {
+        const cached = readCachedArticle(article.slug);
+        let content = article.content || cached?.content || '';
+
+        if (!content) {
+          try {
+            content = await fetchArticleContent(article.id);
+          } catch (_error) {
+            content = '';
+          }
+        }
+
+        return {
+          ...cached,
+          ...article,
+          content: content || article.summary || cached?.summary || '',
+          seo: article.seo || cached?.seo || {
+            title: article.title,
+            description: article.summary || '',
+            keywords: [],
+            ogImage: '',
+          },
+          geo: article.geo || cached?.geo || { region: '', language: '', locality: '' },
+          category: article.category || cached?.category || [],
+          tags: article.tags || cached?.tags || [],
+          author: article.author || cached?.author || '',
+          status: article.status || cached?.status || '',
+        };
+      })
+    );
+
+    const blogDataDir = path.join(distDir, 'blog-data');
+    fs.mkdirSync(blogDataDir, { recursive: true });
+    const blogIndex = preparedArticles.map(({ content: _content, ...article }) => article);
+    fs.writeFileSync(
+      path.join(blogDataDir, 'index.json'),
+      JSON.stringify({ articles: blogIndex, generatedAt: new Date().toISOString() })
+    );
+    for (const article of preparedArticles) {
+      fs.writeFileSync(path.join(blogDataDir, `${article.slug}.json`), JSON.stringify(article));
+    }
+    console.log(`✅ Generated static blog data for ${preparedArticles.length} articles`);
+
     for (const lang of languages) {
       const langDir = path.join(distDir, lang);
       if (!fs.existsSync(langDir)) fs.mkdirSync(langDir, { recursive: true });
@@ -451,7 +545,7 @@ export const prerender = {
       }
 
       // Generate static HTML for each article in both languages
-      for (const article of articles) {
+      for (const article of preparedArticles) {
         try {
           console.log(`📝 [${lang}] Prerendering: ${article.title}`);
 
@@ -459,16 +553,7 @@ export const prerender = {
           if (!fs.existsSync(articleDir)) fs.mkdirSync(articleDir, { recursive: true });
 
           // 拉正文(用于注入 lead 段落与 Article schema 描述)
-          let contentMarkdown = '';
-          if (SHOULD_FETCH_BLOG_BODY || !article.summary) {
-            try {
-              contentMarkdown = await fetchArticleContent(article.id);
-            } catch (_e) {
-              // 网络问题不阻塞构建
-            }
-          } else {
-            contentMarkdown = article.summary;
-          }
+          const contentMarkdown = article.content || article.summary || '';
 
           const articleLike: BlogArticleLike = {
             id: article.id,
@@ -484,7 +569,10 @@ export const prerender = {
 
           let html = rootIndexTemplate;
           if (snapshot) {
-            html = injectSnapshot(html, snapshot, `blog/${article.slug}`, lang);
+            html = injectSnapshot(html, snapshot, `blog/${article.slug}`, lang, {
+              ...article,
+              contentMarkdown,
+            });
           }
           html = fixAssetPaths(html, 3, indexJsFilename, vendorJsFilename);
 
