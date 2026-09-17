@@ -18,8 +18,25 @@ const DATABASE_ID = process.env.VITE_NOTION_DATABASE_ID || '';
 const OUTPUT_DIR = path.join(process.cwd(), 'public', 'blog-data');
 const NOTION_VERSION = '2022-06-28';
 const CONCURRENCY = Math.max(1, Number(process.env.NOTION_SYNC_CONCURRENCY || 3));
+const ALLOW_CACHE_FALLBACK = process.argv.includes('--fallback');
+
+function cachedArticleCount() {
+  const indexPath = path.join(OUTPUT_DIR, 'index.json');
+  if (!fs.existsSync(indexPath)) return 0;
+  try {
+    const payload = JSON.parse(fs.readFileSync(indexPath, 'utf8'));
+    return Array.isArray(payload?.articles) ? payload.articles.length : 0;
+  } catch (_error) {
+    return 0;
+  }
+}
 
 if (!API_KEY || !DATABASE_ID) {
+  const cachedCount = cachedArticleCount();
+  if (ALLOW_CACHE_FALLBACK && cachedCount > 0) {
+    console.warn(`Notion credentials unavailable; keeping ${cachedCount} cached articles.`);
+    process.exit(0);
+  }
   console.error('Missing NOTION_API_KEY/VITE_NOTION_API_KEY or VITE_NOTION_DATABASE_ID.');
   process.exit(1);
 }
@@ -242,5 +259,10 @@ async function main() {
 
 main().catch((error) => {
   console.error(error);
+  const cachedCount = cachedArticleCount();
+  if (ALLOW_CACHE_FALLBACK && cachedCount > 0) {
+    console.warn(`Notion sync failed; keeping ${cachedCount} cached articles for this build.`);
+    process.exit(0);
+  }
   process.exit(1);
 });
